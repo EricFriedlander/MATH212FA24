@@ -1,49 +1,46 @@
 ---
-title: "STA 210: Regression Analysis"
-subtitle: "Fall 2023 - Dr. Maria Tackett"
+title: "MAT 212: Multiple Regression Analysis"
+subtitle: "Fall 2024 - Dr. Eric Friedlander"
 navbar: false
 ---
 
 # Overview
 
-Learn approaches for analyzing multivariate data sets, emphasizing analysis of variance, linear regression, and logistic regression. Learn techniques for checking the appropriateness of proposed models, such as residual analyses and case influence diagnostics, and techniques for selecting models. Gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory.
+## Catalog Description
+An introduction to statistical modeling and methods. Topics may include model construction and analysis using multiple linear regression, analysis of variance, and logistic regression. The course makes substantial use of statistical software. Students who have taken more than one calculus course should generally take MAT-212 rather than MAT-125.
+
+## Eric's Addition
+We will learn approaches for analyzing multivariate data sets, emphasizing analysis of variance, linear regression, and logistic regression. You will learn techniques for checking the appropriateness of proposed models, such as residual analyses and case influence diagnostics, and techniques for selecting models. Gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory.
 
 # Class meetings
 
-|             |             |                           |                     |
-|-------------|-------------|---------------------------|---------------------|
-| **Lecture** | Section 001 | Mon & Wed 10:05 - 11:20am | Reuben-Cooke 130    |
-|             | Section 002 | Mon & Wed 1:25 - 2:40pm   | Old Chem 116        |
-| **Lab**     | Lab 01      | Tue 10:05 - 11:20am       | Reuben-Cooke 129    |
-|             | Lab 02      | Tue 11:45am - 1pm         | LSRC A155           |
-|             | Lab 03      | Thu 10:05 - 11:20am       | Reuben-Cooke 129    |
-|             | Lab 04      | Thu 11:45am - 1pm         | Social Sciences 124 |
+|             |                             |                     |
+|-------------|-----------------------------|---------------------|
+| **Lecture** | Mon/Wed/Fri 10:00 - 10:50am | BOON 132            |
 
-# Teaching team
+## Instructor
 
-### Instructor
-
-[Maria Tackett](https://www2.stat.duke.edu/~mt324) is an Assistant Professor of the Practice in the Department of Statistical Science at Duke University. Her work focuses on understanding how active learning strategies can be used to promote engagement and student motivation in undergraduate statistics courses. She also studies how classroom practices in introductory math and statistics courses impact students' sense of community, self-efficacy, and learning outcomes.
+Eric is an Assistant Professor in the Department of Mathematics and Physical Sciences at the College of Idaho. Blah
 
 | Office hours         | Location      |
 |----------------------|---------------|
-| Fri 1:30 - 3:30 pm   | Old Chem 118B |
+| Insert   | Insert |
 | *or by appointment.* |               |
 
-## Teaching assistants
+<!-- ## Teaching assistants -->
 
-::: {.callout-tip appearance="simple" icon="false"}
-[Clickhere](https://docs.google.com/spreadsheets/d/1bZMZsX0Z6-rMI_qguqZCPg3kaes7KTz5Cn7gtcm9nWk/edit?usp=sharing) for schedule of office hours.
-:::
+<!-- ::: {.callout-tip appearance="simple" icon="false"} -->
+<!-- [Clickhere](https://docs.google.com/spreadsheets/d/1bZMZsX0Z6-rMI_qguqZCPg3kaes7KTz5Cn7gtcm9nWk/edit?usp=sharing) for schedule of office hours. -->
+<!-- ::: -->
 
-| Name              | Role    |                             |
-|-------------------|---------|-----------------------------|
-| Sam Rosen         | Head TA | Lab 01: Tue 10:05 - 11:20am |
-| Bethany Astor     | TA      | Lab 02: Tue 11:45am - 1pm   |
-| Jon Campbell      | TA      |                             |
-| Donald Cayton     | TA      | Lab 02: Tue 11:45am - 1pm   |
-| Allison Li        | TA      |                             |
-| Mitchelle Mojekwu | TA      | Lab 04: Thu 11:45am - 1pm   |
-| Ben Thorpe        | TA      |                             |
-| Linxuan Wang      | TA      | Lab 03: Thu 10:05 - 11:20am |
-| Xiaojun Zheng     | TA      | Lab 04: Thu 11:45am - 1pm   |
+<!-- | Name              | Role    |                             | -->
+<!-- |-------------------|---------|-----------------------------| -->
+<!-- | Sam Rosen         | Head TA | Lab 01: Tue 10:05 - 11:20am | -->
+<!-- | Bethany Astor     | TA      | Lab 02: Tue 11:45am - 1pm   | -->
+<!-- | Jon Campbell      | TA      |                             | -->
+<!-- | Donald Cayton     | TA      | Lab 02: Tue 11:45am - 1pm   | -->
+<!-- | Allison Li        | TA      |                             | -->
+<!-- | Mitchelle Mojekwu | TA      | Lab 04: Thu 11:45am - 1pm   | -->
+<!-- | Ben Thorpe        | TA      |                             | -->
+<!-- | Linxuan Wang      | TA      | Lab 03: Thu 10:05 - 11:20am | -->
+<!-- | Xiaojun Zheng     | TA      | Lab 04: Thu 11:45am - 1pm   | -->
