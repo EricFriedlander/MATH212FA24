@@ -1,6 +1,6 @@
-# Website for STA 210 at Duke University
+# Website for MAT 212 at the College of Idaho
 
-# Fall 2023
+# Fall 2024
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/bebb2437-53bf-4f05-a2f3-424f965f62e2/deploy-status)](https://app.netlify.com/sites/sta210-fa23/deploys)
 
@@ -13,9 +13,7 @@
 
 ## Attribution
 
-This website is design is based on the [STA 210 Spring 2022 website](https://sta210-s22.github.io/website/), and the design of the schedule page is adapted from[STA 199 Fall 2022](https://sta199-f22-1.github.io/). Both sites are by Dr. Mine Çetinkaya-Rundel.
-
-Content is based on [STA 210 Fall 2021](https://sta210-fa21.netlify.app) taught by Dr. Maria Tackett and S[TA 210 Spring 2022](https://sta210-s22.github.io) taught by Dr. Mine Çetinkaya-Rundel.
+This website design and the content is based on the [STA 210 FALL 2023 website and course](https://github.com/sta210-fa23/website/) by Dr. Maria Tackett.
 
 <hr>
 
