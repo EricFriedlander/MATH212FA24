@@ -2,7 +2,7 @@
 
 # Fall 2024
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/703d6704-9be5-48dc-958f-c6f7c7b338ce/deploy-status)](https://app.netlify.com/sites/math212fa24/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/703d6704-9be5-48dc-958f-c6f7c7b338ce/deploy-status)](https://app.netlify.com/sites/mat212fa24/deploys)
 :link: [mat212fa24.netlify.app](https://mat212fa24.netlify.app/)
 
 ## Colors
