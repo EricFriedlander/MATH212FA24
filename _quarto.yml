@@ -3,15 +3,15 @@ project:
 
 website:
   page-navigation: true
-  title: "STA 210 - Fall 2023"
-  description: "Homepage for STA 210 - Regression Analysis at Duke University, Fall 2023"
-  site-url: https://sta210-fa23.netlify.app
+  title: "MAT 212 - Fall 2024"
+  description: "Homepage for MAT 212 - Multiple Regression Analysis at the College of Idaho, Fall 2024"
+  site-url: https://mat212fa24.netlify.app/
 
-  repo-url: https://github.com/sta210-fa23/website
+  repo-url: https://github.com/EricFriedlander/MATH212FA24
   repo-actions: [edit, issue]
   
   page-footer:
-    background: "#7eb7c2"
+    background: "#412d5e"
     left: |
       &copy; Copyright 2022, Maria Tackett
     right: |
