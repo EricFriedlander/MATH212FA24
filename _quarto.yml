@@ -28,11 +28,12 @@ website:
       # - icon: code-square
       #   href: https://cmgr.oit.duke.edu/containers
       #   text: "RStudio Containers"
-      - icon: person-fill
+      - icon: person
+        href: https://cofi.instructure.com/courses/15692
         text: "Canvas"
-        menu:
-          - text: Canvas
-            url: https://cofi.instructure.com/courses/15692
+        # menu:
+        #   - text: Canvas
+        #     url: https://cofi.instructure.com/courses/15692
           # - text: Ed Discussion 
           #   url: https://edstem.org/us/courses/44523/discussion/
           # - text: Gradescope 
