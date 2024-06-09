@@ -13,30 +13,30 @@ website:
   page-footer:
     background: "#412d5e"
     left: |
-      &copy; Copyright 2022, Maria Tackett
+      &copy; Copyright 2024, Eric Friedlander
     right: |
       This site is built with [Quarto](https://quarto.org/)
 
   sidebar:
-    background: "#7eb7c2"
+    background: "#412d5e"
     logo: "images/logo.png"
     align: center
     tools: 
-      - icon: github
-        href: https://github.com/sta210-fa23
-        text: "GitHub organization"
-      - icon: code-square
-        href: https://cmgr.oit.duke.edu/containers
-        text: "RStudio Containers"
+      # - icon: github
+      #   href: https://github.com/sta210-fa23
+      #   text: "GitHub organization"
+      # - icon: code-square
+      #   href: https://cmgr.oit.duke.edu/containers
+      #   text: "RStudio Containers"
       - icon: person-fill
-        text: "Sakai"
+        text: "Canvas"
         menu:
-          - text: Sakai
-            url: https://sakai.duke.edu/portal/site/f2e8b7dc-61e6-4431-9b5c-29f8411ee5db
-          - text: Ed Discussion 
-            url: https://edstem.org/us/courses/44523/discussion/
-          - text: Gradescope 
-            url: https://www.gradescope.com/courses/584312
+          - text: Canvas
+            url: https://cofi.instructure.com/courses/15692
+          # - text: Ed Discussion 
+          #   url: https://edstem.org/us/courses/44523/discussion/
+          # - text: Gradescope 
+          #   url: https://www.gradescope.com/courses/584312
     style: "docked"
     search: true
     collapse-level: 1
