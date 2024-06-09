@@ -11,14 +11,14 @@ website:
   repo-actions: [edit, issue]
   
   page-footer:
-    background: "#412d5e"
+    # background: "#412d5e"
     left: |
       &copy; Copyright 2024, Eric Friedlander
     right: |
       This site is built with [Quarto](https://quarto.org/)
 
   sidebar:
-    background: "#412d5e"
+    # background: "#412d5e"
     logo: "images/logo.png"
     align: center
     tools: 
@@ -72,7 +72,8 @@ website:
 format:
   html:
     theme:
-      light: [cosmo, theme.scss]
+      - cosmo
+      - theme.scss
     mainfont: "Open Sans"
     code-copy: true
     code-overflow: wrap
@@ -81,7 +82,7 @@ format:
 execute:
   freeze: auto
 
-editor: visual    
+editor: source    
     
 
 
