@@ -1,7 +1,7 @@
 ---
 title: "Schedule"
 navbar: false
-editor: visual
+editor: source
 freeze: false
 ---
 
@@ -16,7 +16,7 @@ library(googlesheets4)
 library(gt)
 library(tidyverse)
 gs4_deauth()
-d <- read_sheet("https://docs.google.com/spreadsheets/d/15i7KoEpCniARnpodC2scYM2K2jsTX_-X9t0KIxnNElM/edit?usp=sharing", sheet = "Sheet1")
+d <- read_sheet("https://docs.google.com/spreadsheets/d/1uNGwCkwbzLCa09G-N6VDruny0hLqu5nzEizA_-DhKLQ/edit?usp=sharing", sheet = "Sheet1")
 ```
 
 ::: column-screen-right
