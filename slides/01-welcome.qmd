@@ -1,9 +1,9 @@
 ---
-title: "Welcome to STA 210!"
-author: "Prof. Maria Tackett"
-date: "2023-08-28"
+title: "Welcome to MAT 212!"
+author: "Prof. Eric Friedlander"
+date: "2024-08-28"
 date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 210 - Fall 2023 -  Schedule](https://sta210-fa23.netlify.app/schedule)"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -24,68 +24,363 @@ knitr:
 
 # Welcome!
 
-## Meet Prof. Tackett! {.midi}
+## Meet Prof. Friedlander! {.midi}
 
 ::: incremental
 -   Education and career journey
-    -   BS in Math and MS in Statistics from University of Tennessee
-    -   Statistician at Capital One
-    -   PhD in Statistics from University of Virginia
-    -   Assistant Professor of the Practice, Department of Statistical Science at Duke
--   Work focuses on statistics education and sense of belonging in introductory math and statistics classes
--   Co-leader of the Bass Connections team Mental Health and the Justice System in Durham County
--   Mom of (almost) 8-month-old twins 🙂
+    -   BS in Math & Statistics from Rice University (Houston, TX)
+    -   Business Analyst at Capital One (Plano, TX)
+    -   MS and PhD in Statistics & Operations Research from UNC-Chapel Hill
+    -   Postdoc in Population Genetics at University of Chicago
+    -   Assistant Professor of Math at St. Norbert College (Green Bay, WI)
+-   Work focuses on statistics education, queueing theory, and population genetics
+-   Dad of three cute dogs
+    -   Insert dog pics
 :::
 
-------------------------------------------------------------------------
+<!-- ## Meet the Teaching Assistants (TAs) -->
 
-## Meet the Teaching Assistants (TAs)
+<!-- -   Sam Rosen (PhD): Head TA + Lab 01 -->
 
--   Sam Rosen (PhD): Head TA + Lab 01
+<!-- -   Bethany Astor (MS): Lab 02 -->
 
--   Bethany Astor (MS): Lab 02
+<!-- -   Jon Campbell (MS) -->
 
--   Jon Campbell (MS)
+<!-- -   Donald Cayton (MS): Lab 02 -->
 
--   Donald Cayton (MS): Lab 02
+<!-- -   Allison Li (UG) -->
 
--   Allison Li (UG)
+<!-- -   Mitchelle Mojekwu (UG): Lab 04 -->
 
--   Mitchelle Mojekwu (UG): Lab 04
+<!-- -   Ben Thorpe (UG) -->
 
--   Ben Thorpe (UG)
+<!-- -   Linxuan Wang (MS): Lab 03 -->
 
--   Linxuan Wang (MS): Lab 03
+<!-- -   Xiaojun Zheng (PhD): Lab 04 -->
 
--   Xiaojun Zheng (PhD): Lab 04
+<!-- # Check-in on Ed Discussion! -->
 
-# Check-in on Ed Discussion!
+<!-- Click on the link and answer the Ed Discussion poll -->
 
-Click on the link and answer the Ed Discussion poll
+<!-- -   [Section 001 (10:05am lecture)](https://edstem.org/us/courses/44523/discussion/3346720) -->
 
--   [Section 001 (10:05am lecture)](https://edstem.org/us/courses/44523/discussion/3346720)
+<!-- -   [Section 002 (1:25pm lecture)](https://edstem.org/us/courses/44523/discussion/3346722) -->
 
--   [Section 002 (1:25pm lecture)](https://edstem.org/us/courses/44523/discussion/3346722)
+# Statistical modeling
 
-# Regression analysis
+## What is a model?
 
-## What is regression analysis?
-
-::: {style="font-size: 0.85em;"}
-> "In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when ***the focus is on the relationship between a dependent variable and one or more independent variables (or 'predictors')***. More specifically, regression analysis helps one understand how the typical value of the dependent variable (or 'criterion variable') changes when any one of the independent variables is varied, while the other independent variables are held fixed."
-
-Source: [Wikipedia](https://en.wikipedia.org/wiki/Regression_analysis) (previous definition)
+:::{.incremental}
+- DATA = MODEL + ERROR
+- DATA = PATTERN + DEPARTURES FROM PATTERN
+  - How do we identify the actual pattern?
+- **GOAL:** Find a model for a relationship between a **response/outcome/target variable** $Y$ and one (or more) **explanatory/predictor variables** ($X_1,\ldots,X_k$)
+- Models are a simplified but tractable version of reality
 :::
 
-## Examples of regression in practice
+## Geoge E. P. Box
 
--   [New Yorkers Will Pay \$56 A Month To Trim A Minute Off Their Commute](https://fivethirtyeight.com/features/new-yorkers-will-pay-56-a-month-to-trim-a-minute-off-their-commute/)
+::::{.columns}
+:::{.column}
+- From wikipedia: British statistician, who worked in the areas of quality control, time-series analysis, design of experiments, and Bayesian inference. He has been called "one of the great statistical minds of the 20th century".
+- "all models are wrong, but some are useful"
+:::
+:::{.column}
+![](images/01/GeorgeEPBox.jpg)
+:::
+::::
 
--   [How FiveThirtyEight's 2020 Presidential Forecast Works --- And What's Different Because Of COVID-19](https://fivethirtyeight.com/features/how-fivethirtyeights-2020-presidential-forecast-works-and-whats-different-because-of-covid-19/)
+## Why build a model?
 
--   [Effect of Forensic Evidence on Criminal Justice Case Processing](https://onlinelibrary.wiley.com/doi/10.1111/1556-4029.12020)
+1. Making predictions
+2. Understanding relationships
+3. Assessing differences
 
--   [Why it's so freaking hard to make a good COVID-19 model](https://fivethirtyeight.com/features/why-its-so-freaking-hard-to-make-a-good-covid-19-model/) (from March 2020)
+# Some Review
+
+## Types of Variables
+
+- *Quantitative/Numerical:* expressible as numbers for which arithmetic makes sense
+- *Categorical:* divides sample points into groups
+  + *Binary* = categorical with just two groups
+- *Note:* Just because a variable is coded using a number doesn't automatically make it quantitative
+
+## Course Overview
+
+|**Chapter** | **Response** | **Predictor/Explanatory** |
+|:------------:|--------------|------------------|
+|1-2      | Quantitative | Single Quantitative|
+|3-4      | Quantitative | Multiple Quantitative|
+|5      | Quantitative | Single Categorical|
+|6-8      | Quantitative | Multiple Categorical|
+|9     | Categorical | Single Quant/Cat|
+|10     | Categorical | Multiple Quant/Cat|
+|11     | Both | Both|
+
+
+## Types of Studies
+
+
+:::{.incremental}
+- **Observational study:** Data recorded without "manipulating" any of the variables.
+- **Experiment:** One or more of the explanatory variables is/are assigned/controlled for all experimental units.
+- Should use an experiment to confirm a “cause/effect” relationship.
+:::
+
+## Building a Statistical Model: Four-Step Process
+
+1. **Choose:** Pick a form for the model.
+2. **Fit:** Estimate any parameters.
+3. **Assess:** Is the model adequate? Could it be simpler? Are conditions met?
+4. **Use:** Answer the question of interest.
+
+## General Form of a Model
+
+:::{.center}
+> $Y = \underbrace{f(X)}_{\text{Expected } Y \text{ for some} \\ \text{combination of} \\ \text{predictors}} + \underbrace{\epsilon}_{\text{Random} \\    \text{Error}}$
+:::
+
+- DATA = MODEL + ERROR
+
+## Example: Bike Commute {.smaller}
+
+- [Data](https://cran.r-project.org/web/packages/Lock5Data/Lock5Data.pdf) from a [study](https://www.bmj.com/content/341/bmj.c6801) called ``Bicycle weight and commuting time: randomised trial''which appeared in the British Medical Journal in 2010
+
+```{r}
+library(tidyverse) # Lots of helpful functions
+library(mosaic) # Lots of helpful functions
+library(Lock5Data) # contains the data
+head(BikeCommute) # shows us the first six rows of data
+```
+
+- Target Variable: `AvgSpeed`
+
+## `AvgSpeed` Visualization
+
+```{r}
+gf_histogram(~AvgSpeed, data = BikeCommute, bins = 10)
+```
+
+## Example: Constant Model
+
+- $Y = \mu + \epsilon$
+  + $\mu$ is just an (unknown) constant
+- *Terminology:*
+  + $\mu$ is called a *parameter* of the model
+  + Use data to provide a *sample estimate* of $\mu$
+  + Estimates of parameters get little "hats", i.e. $\hat{\mu}$ is an estimate of $\mu$
+
+. . .
+
+- How should we estimate $\mu$?
+
+## Estimating $\mu$ {.smaller}
+
+::::{.columns}
+:::{.column}
+- Estimate $\mu$ using the sample mean
+  + $\hat{\mu} = \bar{y}$
+- Estiamte $\mu$ using the sample median
+  + $\hat{\mu} = m$
+:::
+:::{.column}
+```{r}
+BikeCommute |> 
+  summarize(sample_mean = mean(AvgSpeed),
+            sample_median = median(AvgSpeed)) # Using the Tidyverse
+
+mean(BikeCommute$sample_mean) # Using Base-R
+median(BikeCommute$sample_median)
+```
+:::
+::::
+
+## Predicted Value for Response
+
+- Estimate $Y$ using the model with estimated parameters.
+- The predicted y is denoted... [ $\hat{y}$ ]{.fragment .fade-in}
+
+:::{.fragment}
+
+- For the constant model $\hat{y} = \hat{\mu}$
+- Examples:
+  + $\hat{y} = \bar{y} = 15.106$ (sample mean)
+  + $\hat{y} = m = 15.045$ (sample median)
+  
+:::
+
+## Visualizing the Models
+
+```{r}
+gf_histogram(~AvgSpeed, data = BikeCommute, bins = 10) |> 
+  gf_vline(xintercept = 15.106, color = "red") |> 
+  gf_vline(xintercept = 15.045, color = "blue")
+```
+  
+## Is our model good?
+
+1. Which estimator (mean or median) is better? That is, how can we compare models?
+2. Is either model any good? That is, how can we assess fit?
+
+## Residuals
+
+- **Residual:** actual value (from data) minus predicted value (from model)
+  + Can compute the residual for every observation in our data
+
+> $$\text{Residual} = \underbrace{y}_{Actual} - \underbrace{\hat{y}}_{Predicted}$$
+
+## Visualizing Residuals {.smaller}
+
+- Consider the sample mean model
+- Say we want to make a prediction for the first observation in our data set
+
+```{r}
+gf_histogram(~AvgSpeed, data = BikeCommute, bins = 10) |> 
+  gf_vline(xintercept = 15.106, color = "red") |> 
+  gf_vline(xintercept = BikeCommute$AvgSpeed[1], color = "green")
+```
+
+ - Where is the residual in this picture?
+
+  
+## Criteria to Minimize Residuals
+
+- Sum of Residuals: $\sum_{i=1}^n(y_i-\hat{y}_i)$
+
+```{r}
+BikeCommute |> 
+  summarize(sample_mean = mean(AvgSpeed),
+            sample_median = median(AvgSpeed),
+            sample_mean_sum = sum(AvgSpeed - sample_mean),
+            sample_median_sum = sum(AvgSpeed - sample_median))
+```
+
+- Sum isn't helpful: Residuals can be negative!
+
+## Criteria to Minimize Residuals {.smaller}
+
+- Sum of absolute deviations: $\sum_{i=1}^n |y_i-\hat{y}_i|$
+- Sum of squared errors: $\sum_{i=1}^n (y_i-\hat{y}_i)^1$
+
+## Sum of absolute deviations
+
+```{r}
+BikeCommute |> 
+  summarize(sample_mean = mean(AvgSpeed),
+            sample_median = median(AvgSpeed),
+            sample_mean_abs_sum = sum(abs(AvgSpeed - sample_mean)),
+            sample_median_abs_sum = sum(abs(AvgSpeed - sample_median)))
+```
+
+- Which model is better?
+
+## Sum of squared errors
+
+```{r}
+BikeCommute |> 
+  summarize(sample_mean = mean(AvgSpeed),
+            sample_median = median(AvgSpeed),
+            sample_mean_sq_sum = sum((AvgSpeed - sample_mean)^2),
+            sample_median_sq_sum = sum((AvgSpeed - sample_median)^2))
+```
+
+- Which model is better?
+- Sum of square errors much more common
+
+## Can we use a predictor to improve the model? {.smaller}
+
+::::{.columns}
+:::{.column}
+- $Y =$ `AvgSpeed`
+- $X =$ `Bike`
+:::
+
+:::{.column}
+```{r}
+gf_bar(~Bike, data = BikeCommute)
+```
+:::
+::::
+## Model with a Binary Predictor
+
+- $Y = \mu_i + \epsilon$ where
+  +  $\mu_1 =$ average speed for `Carbon` bikes, $Y\sim N(\mu_1, \sigma_1)$
+  +  $\mu_2 =$ average speed for `Steel` bikes, $Y\sim N(\mu_2, \sigma_2)$
+- $$f(X) = \left\{
+\begin{array}{l}
+\mu_1, \text{ if } X = \text{Carbon}\\
+\mu_2, \text{ if } X = \text{Steel}\\
+\end{array}
+\right.$$
+
+## Is this plausible?
+
+```{r}
+gf_boxplot(AvgSpeed ~ Bike, data = BikeCommute) |> 
+  gf_jitter(AvgSpeed ~ Bike, width = 0.05)
+```
+
+## Estimating the parameters {.smaller}
+
+::::{.columns}
+:::{.column}
+```{r}
+mean(AvgSpeed ~ Bike, data = BikeCommute) # Compute the mean of AvgSpeed for each level in Bike
+
+sum(resid(lm(AvgSpeed ~ Bike, data = BikeCommute))^2) # Compute sum of squares
+```
+:::
+:::{.column}
+- $\hat{\mu_1} \approx 12.19$
+- $\hat{\mu_2} \approx 15.04$
+- New sum of squares is 28.5 which is less than 28.8 from our sample mean model
+- Is this model truly better?
+- How can we determine that?
+- Hint: it's the same as asking: "Is there a difference between the means of the two groups?"
+:::
+::::
+
+## Two-Sample T-Test
+
+```{r}
+t.test(AvgSpeed~Bike, data = BikeCommute)
+```
+
+- What does p-value = 0.4452 mean?
+- Interpret the 95% confidence interval
+
+## Effect Size {.smaller}
+
+::::{.columns}
+:::{.column}
+- Is the difference (effect) large, relative to the variability in the population?
+- Many ways to quantify
+- This slide: Cohen's d
+  + 0.2~small
+  + 0.5~medium
+  + 1.0~large
+- Pooled standard deviation $$s_p = \sqrt{\frac{(n_1 - 1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2}}$$
+- Effect Size $= \frac{\bar{y_1}-\bar{y_2}}{s_p}$
+:::
+:::{.column}
+```{r}
+library(effectsize)
+cohens_d(AvgSpeed~Bike, data = BikeCommute)
+```
+:::
+::::
+  
+
+
+<!-- ## Examples of regression in practice -->
+
+<!-- -   [New Yorkers Will Pay \$56 A Month To Trim A Minute Off Their Commute](https://fivethirtyeight.com/features/new-yorkers-will-pay-56-a-month-to-trim-a-minute-off-their-commute/) -->
+
+<!-- -   [How FiveThirtyEight's 2020 Presidential Forecast Works --- And What's Different Because Of COVID-19](https://fivethirtyeight.com/features/how-fivethirtyeights-2020-presidential-forecast-works-and-whats-different-because-of-covid-19/) -->
+
+<!-- -   [Effect of Forensic Evidence on Criminal Justice Case Processing](https://onlinelibrary.wiley.com/doi/10.1111/1556-4029.12020) -->
+
+<!-- -   [Why it's so freaking hard to make a good COVID-19 model](https://fivethirtyeight.com/features/why-its-so-freaking-hard-to-make-a-good-covid-19-model/) (from March 2020) -->
 
 # STA 210
 

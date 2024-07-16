@@ -6230,162 +6230,162 @@
     "objectID": "slides/01-welcome.html#meet-prof.-tackett",
     "href": "slides/01-welcome.html#meet-prof.-tackett",
     "title": "Welcome to STA 210!",
-    "section": "",
-    "text": "Education and career journey\n\nBS in Math and MS in Statistics from University of Tennessee\nStatistician at Capital One\nPhD in Statistics from University of Virginia\nAssistant Professor of the Practice, Department of Statistical Science at Duke\n\nWork focuses on statistics education and sense of belonging in introductory math and statistics classes\nCo-leader of the Bass Connections team Mental Health and the Justice System in Durham County\nMom of (almost) 8-month-old twins 🙂"
+    "section": "Meet Prof. Tackett!",
+    "text": "Meet Prof. Tackett!\n\n\nEducation and career journey\n\nBS in Math and MS in Statistics from University of Tennessee\nStatistician at Capital One\nPhD in Statistics from University of Virginia\nAssistant Professor of the Practice, Department of Statistical Science at Duke\n\nWork focuses on statistics education and sense of belonging in introductory math and statistics classes\nCo-leader of the Bass Connections team Mental Health and the Justice System in Durham County\nMom of (almost) 8-month-old twins 🙂"
   },
   {
     "objectID": "slides/01-welcome.html#meet-the-teaching-assistants-tas",
     "href": "slides/01-welcome.html#meet-the-teaching-assistants-tas",
-    "title": "Welcome to STA 210!",
-    "section": "",
-    "text": "Sam Rosen (PhD): Head TA + Lab 01\nBethany Astor (MS): Lab 02\nJon Campbell (MS)\nDonald Cayton (MS): Lab 02\nAllison Li (UG)\nMitchelle Mojekwu (UG): Lab 04\nBen Thorpe (UG)\nLinxuan Wang (MS): Lab 03\nXiaojun Zheng (PhD): Lab 04"
+    "title": "Welcome to MAT 212!",
+    "section": "Meet the Teaching Assistants (TAs)",
+    "text": "Meet the Teaching Assistants (TAs)\n\nSam Rosen (PhD): Head TA + Lab 01\nBethany Astor (MS): Lab 02\nJon Campbell (MS)\nDonald Cayton (MS): Lab 02\nAllison Li (UG)\nMitchelle Mojekwu (UG): Lab 04\nBen Thorpe (UG)\nLinxuan Wang (MS): Lab 03\nXiaojun Zheng (PhD): Lab 04"
   },
   {
     "objectID": "slides/01-welcome.html#what-is-regression-analysis",
     "href": "slides/01-welcome.html#what-is-regression-analysis",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "What is regression analysis?",
     "text": "What is regression analysis?\n\n\n“In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when the focus is on the relationship between a dependent variable and one or more independent variables (or ‘predictors’). More specifically, regression analysis helps one understand how the typical value of the dependent variable (or ‘criterion variable’) changes when any one of the independent variables is varied, while the other independent variables are held fixed.”\n\nSource: Wikipedia (previous definition)"
   },
   {
     "objectID": "slides/01-welcome.html#examples-of-regression-in-practice",
     "href": "slides/01-welcome.html#examples-of-regression-in-practice",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Examples of regression in practice",
     "text": "Examples of regression in practice\n\nNew Yorkers Will Pay $56 A Month To Trim A Minute Off Their Commute\nHow FiveThirtyEight’s 2020 Presidential Forecast Works — And What’s Different Because Of COVID-19\nEffect of Forensic Evidence on Criminal Justice Case Processing\nWhy it’s so freaking hard to make a good COVID-19 model (from March 2020)"
   },
   {
     "objectID": "slides/01-welcome.html#course-faq",
     "href": "slides/01-welcome.html#course-faq",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Course FAQ",
-    "text": "Course FAQ\nQ - What background is assumed for the course?\nA - Introductory statistics or probability course at Duke\n. . .\nQ - Will we be doing computing?\nA - Yes. We will use the computing language R for analysis, Quarto for writing up results, and GitHub for version control and collaboration\n. . .\nQ - Will we learn the mathematical theory of regression?\nA - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression. There a 0.5-credit course STA 211: Mathematics of Regression to take simultaneously or after this course to dive into more of the mathematics."
+    "text": "Course FAQ\nQ - What background is assumed for the course?\nA - Introductory statistics or probability course at Duke\n\nQ - Will we be doing computing?\nA - Yes. We will use the computing language R for analysis, Quarto for writing up results, and GitHub for version control and collaboration\n\n\nQ - Will we learn the mathematical theory of regression?\nA - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression. There a 0.5-credit course STA 211: Mathematics of Regression to take simultaneously or after this course to dive into more of the mathematics."
   },
   {
     "objectID": "slides/01-welcome.html#course-learning-objectives",
     "href": "slides/01-welcome.html#course-learning-objectives",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Course learning objectives",
     "text": "Course learning objectives\nBy the end of the semester, you will be able to…\n\nanalyze real-world data to answer questions about multivariable relationships.\nuse R to fit and evaluate linear and logistic regression models.\nassess whether a proposed model is appropriate and describe its limitations.\nuse Quarto to write reproducible reports and GitHub for version control and collaboration.\neffectively communicate statistical results through writing and oral presentations."
   },
   {
     "objectID": "slides/01-welcome.html#course-topics",
     "href": "slides/01-welcome.html#course-topics",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Course topics",
     "text": "Course topics\n\n\nUnit 1: Quantitative Response Variable\n\nSimple Linear Regression\nMultiple Linear Regression\n\n\nUnit 2: Categorical Response Variable\n\nLogistic Regression\nMultinomial logistic regression\n\n\nUnit 3: Looking Ahead\n\nSpecial topics\nPresenting statistical results"
   },
   {
     "objectID": "slides/01-welcome.html#course-toolkit",
     "href": "slides/01-welcome.html#course-toolkit",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Course toolkit",
     "text": "Course toolkit\n\nCourse website: sta210-fa23.netlify.app\n\nCentral hub for the course!\nTour of the website\n\nSakai: sakai.duke.edu\n\nGradebook\nAnnouncements\nGradescope\nEd Discussion\n\nGitHub: github.com/sta210-fa23\n\nDistribute assignments\nPlatform for version control and collaboration"
   },
   {
     "objectID": "slides/01-welcome.html#computing-toolkit",
     "href": "slides/01-welcome.html#computing-toolkit",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Computing toolkit",
     "text": "Computing toolkit\n\n\n\n\n\n\n\n\n\n\n\nAll analyses using R, a statistical programming language\nWrite reproducible reports in Quarto\nAccess RStudio through STA 210 Docker Containers\n\n\n\n\n\n\n\n\n\n\n\n\nAccess assignments\nFacilitates version control and collaboration\nAll work in STA 210 course organization"
   },
   {
     "objectID": "slides/01-welcome.html#prepare-participate-practice-perform",
     "href": "slides/01-welcome.html#prepare-participate-practice-perform",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Prepare, Participate, Practice, Perform",
     "text": "Prepare, Participate, Practice, Perform\n\n\n\nPrepare: Introduce new content and prepare for lectures by completing the readings (and sometimes watching the videos)\nParticipate: Attend and actively participate in lectures and labs, office hours, team meetings\nPractice: Practice applying statistical concepts and computing with application exercises during lecture, graded for completion\nPerform: Put together what you’ve learned to analyze real-world data\n\nLab assignments (first individual, later team-based)\nHomework assignments (individual)\nTwo exams\nFinal group project"
   },
   {
     "objectID": "slides/01-welcome.html#grading",
     "href": "slides/01-welcome.html#grading",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Grading",
     "text": "Grading\n\n\n\nCategory\nPercentage\n\n\n\n\nHomework\n35%\n\n\nFinal project\n15%\n\n\nLab\n15%\n\n\nExam 01\n15%\n\n\nExam 02\n15%\n\n\nApplication Exercises\n2.5%\n\n\nTeamwork\n2.5%\n\n\n\nSee the syllabus for details on how the final letter grade will be calculated."
   },
   {
     "objectID": "slides/01-welcome.html#support",
     "href": "slides/01-welcome.html#support",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Support",
     "text": "Support\n\nAttend office hours to meet with a member of the teaching team\n\nProf. Tackett’s office hours start Fri, Sep 1, 1 - 3pm\nFull office hours schedule starts Tue, Sep 5\n\nAsk and answer questions on course discussion forum\nUse email for questions regarding personal matters and/or grades\nSee the Course Support page for more details"
   },
   {
     "objectID": "slides/01-welcome.html#diversity-inclusion",
     "href": "slides/01-welcome.html#diversity-inclusion",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Diversity & inclusion",
     "text": "Diversity & inclusion\n\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.\n\nIf you have a name that differs from those that appear in your official Duke records, please let me know.\nPlease let me know your preferred pronouns, if you are comfortable sharing.\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.\nI (like many people) am still in the process of learning about diverse perspectives and identities. If something was said or done in class (by anyone) that made you feel uncomfortable, please talk to me about it."
   },
   {
     "objectID": "slides/01-welcome.html#accessibility",
     "href": "slides/01-welcome.html#accessibility",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Accessibility",
     "text": "Accessibility\n\nThe Student Disability Access Office (SDAO) is available to ensure that students are able to engage with their courses and related assignments.\nIf you have documented accommodations from SDAO, please send the documentation as soon as possible.\nI am committed to making all course activities and materials accessible. If any course component is not accessible to you in any way, please don’t hesitate to let me know."
   },
   {
     "objectID": "slides/01-welcome.html#covid-19-and-other-illness",
     "href": "slides/01-welcome.html#covid-19-and-other-illness",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "COVID-19 and other illness",
     "text": "COVID-19 and other illness\n\nPlease do not come to class if you have tested positive for COVID-19, have possible symptoms and have not yet been tested, or have other illness.\nLecture recordings are available for excused absences. See Lecture recording request in the syllabus for more information and a link to the request form.\nRead and follow the university guidelines regarding COVID-19 at coronavirus.duke.edu."
   },
   {
     "objectID": "slides/01-welcome.html#late-work-waivers-and-regrade-requests",
     "href": "slides/01-welcome.html#late-work-waivers-and-regrade-requests",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Late work, waivers, and regrade requests",
     "text": "Late work, waivers, and regrade requests\n\nWe have policies! We will discuss them in detail when the first assignment is released.\nRead more about them in the Course policies section of the syllabus and refer back to them as needed\nIf you have questions, email sta210@duke.edu"
   },
   {
     "objectID": "slides/01-welcome.html#academic-integrity",
     "href": "slides/01-welcome.html#academic-integrity",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Academic integrity",
     "text": "Academic integrity\n\nTo uphold the Duke Community Standard:\n\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors; and\nI will act if the Standard is compromised.\n\n\n\nBy participating in this course, you are agreeing that all your work and conduct will be in accordance with the Duke Community Standard."
   },
   {
     "objectID": "slides/01-welcome.html#collaboration-sharing-code",
     "href": "slides/01-welcome.html#collaboration-sharing-code",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Collaboration & sharing code",
     "text": "Collaboration & sharing code\n\nWe have policies! We will discuss them in detail when the first assignment is released.\nRead about them in the Academic honesty section of the syllabus and refer to them as needed"
   },
   {
     "objectID": "slides/01-welcome.html#use-of-artificial-intelligence-ai",
     "href": "slides/01-welcome.html#use-of-artificial-intelligence-ai",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Use of artificial intelligence (AI)",
-    "text": "Use of artificial intelligence (AI)\n\nYou should treat AI tools, such as ChatGPT, the same as other online resources.\nThere are two guiding principles that govern how you can use AI in this course:1\n\n(1) Cognitive dimension: Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate—rather than hinder—learning.\n(2) Ethical dimension: Students using AI should be transparent about their use and make sure it aligns with academic integrity."
+    "text": "Use of artificial intelligence (AI)\n\nYou should treat AI tools, such as ChatGPT, the same as other online resources.\nThere are two guiding principles that govern how you can use AI in this course:1\n\n(1) Cognitive dimension: Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate—rather than hinder—learning.\n(2) Ethical dimension: Students using AI should be transparent about their use and make sure it aligns with academic integrity.\n\n\nThese guiding principles are based on Course Policies related to ChatGPT and other AI Tools developed by Joel Gladd, Ph.D.↩︎"
   },
   {
     "objectID": "slides/01-welcome.html#use-of-artificial-intelligence-ai-1",
     "href": "slides/01-welcome.html#use-of-artificial-intelligence-ai-1",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Use of artificial intelligence (AI)",
-    "text": "Use of artificial intelligence (AI)\n✅ AI tools for code: You may make use of the technology for coding examples on assignments; if you do so, you must explicitly cite where you obtained the code.\n❌ No AI tools for narrative: Unless instructed otherwise, AI is not permitted for writing narrative on assignments.\n\n\n\n\n\n\nImportant\n\n\n\nIn general, you may use AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content."
+    "text": "Use of artificial intelligence (AI)\n✅ AI tools for code: You may make use of the technology for coding examples on assignments; if you do so, you must explicitly cite where you obtained the code.\n❌ No AI tools for narrative: Unless instructed otherwise, AI is not permitted for writing narrative on assignments.\n\n\n\n\n\n\nImportant\n\n\nIn general, you may use AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content."
   },
   {
     "objectID": "slides/01-welcome.html#five-tips-for-success",
     "href": "slides/01-welcome.html#five-tips-for-success",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Five tips for success",
     "text": "Five tips for success\n\nComplete all the preparation work (readings and videos) before class.\nAsk questions.\nDo the homework and labs; get started on homework early when possible.\nDon’t procrastinate and don’t let a week pass by with lingering questions.\nStay up-to-date on announcements on Ed Discussion and sent via email."
   },
   {
     "objectID": "slides/01-welcome.html#application-exercise",
     "href": "slides/01-welcome.html#application-exercise",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Application exercise",
     "text": "Application exercise\n\n📋 AE 01 - Movie Budgets and Revenues"
   },
   {
     "objectID": "slides/01-welcome.html#for-this-week",
     "href": "slides/01-welcome.html#for-this-week",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "For this week…",
-    "text": "For this week…\n\nRead the syllabus\nSee the course schedule for an overview of the semester\nLabs start this week!\n\nSection 001: Labs on Tuesday\nSection 002: Labs on Thursday\n\nThis week’s lab is focused on introductions and computing\nWednesday’s lecture: The Big Picture"
+    "text": "For this week…\n\nRead the syllabus\nSee the course schedule for an overview of the semester\nLabs start this week!\n\nSection 001: Labs on Tuesday\nSection 002: Labs on Thursday\n\nThis week’s lab is focused on introductions and computing\nWednesday’s lecture: The Big Picture\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
   },
   {
     "objectID": "slides/10-exam-01-review.html#announcements",
@@ -8137,14 +8137,14 @@
   {
     "objectID": "slides/01-welcome.html",
     "href": "slides/01-welcome.html",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "",
-    "text": "Education and career journey\n\nBS in Math and MS in Statistics from University of Tennessee\nStatistician at Capital One\nPhD in Statistics from University of Virginia\nAssistant Professor of the Practice, Department of Statistical Science at Duke\n\nWork focuses on statistics education and sense of belonging in introductory math and statistics classes\nCo-leader of the Bass Connections team Mental Health and the Justice System in Durham County\nMom of (almost) 8-month-old twins 🙂\n\n\n\n\n\n\n\nSam Rosen (PhD): Head TA + Lab 01\nBethany Astor (MS): Lab 02\nJon Campbell (MS)\nDonald Cayton (MS): Lab 02\nAllison Li (UG)\nMitchelle Mojekwu (UG): Lab 04\nBen Thorpe (UG)\nLinxuan Wang (MS): Lab 03\nXiaojun Zheng (PhD): Lab 04"
+    "text": "Education and career journey\n\nBS in Math & Statistics from Rice University (Houston, TX)\nBusiness Analyst at Capital One (Plano, TX)\nMS and PhD in Statistics & Operations Research from UNC-Chapel Hill\nPostdoc in Population Genetics at University of Chicago\nAssistant Professor of Math at St. Norbert College (Green Bay, WI)\n\nWork focuses on statistics education, queueing theory, and population genetics\nDad of three cute dogs\n\nInsert dog pics"
   },
   {
     "objectID": "slides/01-welcome.html#footnotes",
     "href": "slides/01-welcome.html#footnotes",
-    "title": "Welcome to STA 210!",
+    "title": "Welcome to MAT 212!",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nThese guiding principles are based on Course Policies related to ChatGPT and other AI Tools developed by Joel Gladd, Ph.D.↩︎↩︎"
   },
@@ -8203,5 +8203,369 @@
     "title": "Cross validation application",
     "section": "",
     "text": "See Ed Discussion for upcoming events and internship opportunities\nStatistics Experience due Mon, Nov 20 at 11:59pm\nProf. Tackett office hours Fridays 1:30 - 3:30pm for the rest of the semester\nStart the final project in lab this week - start thinking about the data your team wants to use"
+  },
+  {
+    "objectID": "slides/01-welcome.html#meet-prof.-friedlander",
+    "href": "slides/01-welcome.html#meet-prof.-friedlander",
+    "title": "Welcome to MAT 212!",
+    "section": "Meet Prof. Friedlander!",
+    "text": "Meet Prof. Friedlander!\n\n\nEducation and career journey\n\nBS in Math & Statistics from Rice University (Houston, TX)\nBusiness Analyst at Capital One (Plano, TX)\nMS and PhD in Statistics & Operations Research from UNC-Chapel Hill\nPostdoc in Population Genetics at University of Chicago\nAssistant Professor of Math at St. Norbert College (Green Bay, WI)\n\nWork focuses on statistics education, queueing theory, and population genetics\nDad of three cute dogs\n\nInsert dog pics"
+  },
+  {
+    "objectID": "slides/01-welcome.html#what-is-a-model",
+    "href": "slides/01-welcome.html#what-is-a-model",
+    "title": "Welcome to MAT 212!",
+    "section": "What is a model?",
+    "text": "What is a model?\n\n\nDATA = MODEL + ERROR\nDATA = PATTERN + DEPARTURES FROM PATTERN\n\nHow do we identify the actual pattern?\n\nGOAL: Find a model for a relationship between a response/outcome/target variable \\(Y\\) and one (or more) explanatory/predictor variables (\\(X_1,\\ldots,X_k\\))\nModels are a simplified but tractable version of reality"
+  },
+  {
+    "objectID": "slides/01-welcome.html#geoge-e.-p.-box",
+    "href": "slides/01-welcome.html#geoge-e.-p.-box",
+    "title": "Welcome to MAT 212!",
+    "section": "Geoge E. P. Box",
+    "text": "Geoge E. P. Box\n\n\n\nFrom wikipedia: British statistician, who worked in the areas of quality control, time-series analysis, design of experiments, and Bayesian inference. He has been called “one of the great statistical minds of the 20th century”.\n“all models are wrong, but some are useful”"
+  },
+  {
+    "objectID": "slides/01-welcome.html#why-build-a-model",
+    "href": "slides/01-welcome.html#why-build-a-model",
+    "title": "Welcome to MAT 212!",
+    "section": "Why build a model?",
+    "text": "Why build a model?\n\nMaking predictions\nUnderstanding relationships\nAssessing differences"
+  },
+  {
+    "objectID": "slides/01-welcome.html#types-of-variables",
+    "href": "slides/01-welcome.html#types-of-variables",
+    "title": "Welcome to MAT 212!",
+    "section": "Types of Variables",
+    "text": "Types of Variables\n\nQuantitative/Numerical: expressible as numbers for which arithmetic makes sense\nCategorical: divides sample points into groups\n\nBinary = categorical with just two groups\n\nNote: Just because a variable is coded using a number doesn’t automatically make it quantitative"
+  },
+  {
+    "objectID": "slides/01-welcome.html#course-topics-1",
+    "href": "slides/01-welcome.html#course-topics-1",
+    "title": "Welcome to MAT 212!",
+    "section": "Course topics",
+    "text": "Course topics\n\n\nUnit 1: Quantitative Response Variable\n\nSimple Linear Regression\nMultiple Linear Regression\n\n\nUnit 2: Categorical Response Variable\n\nLogistic Regression\nMultinomial logistic regression\n\n\nUnit 3: Looking Ahead\n\nSpecial topics\nPresenting statistical results"
+  },
+  {
+    "objectID": "slides/01-welcome.html#course-overview",
+    "href": "slides/01-welcome.html#course-overview",
+    "title": "Welcome to MAT 212!",
+    "section": "Course Overview",
+    "text": "Course Overview\n\n\n\nChapter\nResponse\nPredictor/Explanatory\n\n\n\n\n1-2\nQuantitative\nSingle Quantitative\n\n\n3-4\nQuantitative\nMultiple Quantitative\n\n\n5\nQuantitative\nSingle Categorical\n\n\n6-8\nQuantitative\nMultiple Categorical\n\n\n9\nCategorical\nSingle Quant/Cat\n\n\n10\nCategorical\nMultiple Quant/Cat\n\n\n11\nBoth\nBoth"
+  },
+  {
+    "objectID": "slides/01-welcome.html#types-of-studies",
+    "href": "slides/01-welcome.html#types-of-studies",
+    "title": "Welcome to MAT 212!",
+    "section": "Types of Studies",
+    "text": "Types of Studies\n\n\nObservational study: Data recorded without “manipulating” any of the variables.\nExperiment: One or more of the explanatory variables is/are assigned/controlled for all experimental units.\nShould use an experiment to confirm a “cause/effect” relationship."
+  },
+  {
+    "objectID": "slides/01-welcome.html#building-a-statistical-model-four-step-process",
+    "href": "slides/01-welcome.html#building-a-statistical-model-four-step-process",
+    "title": "Welcome to MAT 212!",
+    "section": "Building a Statistical Model: Four-Step Process",
+    "text": "Building a Statistical Model: Four-Step Process\n\nChoose: Pick a form for the model.\nFit: Estimate any parameters.\nAssess: Is the model adequate? Could it be simpler? Are conditions met?\nUse: Answer the question of interest."
+  },
+  {
+    "objectID": "slides/01-welcome.html#general-form-of-a-model",
+    "href": "slides/01-welcome.html#general-form-of-a-model",
+    "title": "Welcome to MAT 212!",
+    "section": "General Form of a Model",
+    "text": "General Form of a Model\n\n\n\\(Y = \\underbrace{f(X)}_{\\text{Expected } Y \\text{ for some} \\\\ \\text{combination of} \\\\ \\text{predictors}} + \\underbrace{\\epsilon}_{\\text{Random} \\\\    \\text{Error}}\\)\n\n\n\nDATA = MODEL + ERROR"
+  },
+  {
+    "objectID": "ae/Station_1.html",
+    "href": "ae/Station_1.html",
+    "title": "Station 1",
+    "section": "",
+    "text": "You can access Wooster’s RStudio server at rstudio.wooster.edu. Login using your Wooster username and password. You can access your RStudio folder from any computer connected to the internet – no need to download anything, or transfer files between computers! However, if off-campus you will need to VPN to the campus network; directions on how to do that are https://technology.wooster.edu/virtual-private-network-vpn/.\nYou may also download R and RStudio on your personal machine, although I don’t recommend doing this right now. You can download R at http://cran.us.r-project.org/. Then download Rstudio Desktop at https://rstudio.com/products/rstudio/.\nAs you can see, the RStudio environment contains four quadrants: the upper-left contains the files (including data sets) you’re working on; the lower-left contains the Console, where you can run R code; the lower-right contains several tabs including Plots, Packages, and Help; and the upper-right contains your History, including a list of loaded data sets.\n\n\nI recommend creating a folder to keep all your DATA 230/231 activities and handouts in. You will have a LOT of them this semester, and it’s best to start an organizational system now. If you’re working with RStudio on your desktop, you know how to create folders/subfolders. If you’re working on Wooster’s RStudio server, click on “Files” in the lower-right corner, then create a New Folder called “DATA231” or “DATA230” and within that, a folder called “Activities”. Save this document in that folder now. Call it “Station1.qmd”"
+  },
+  {
+    "objectID": "ae/Station_1.html#a.-accessing-rstudio",
+    "href": "ae/Station_1.html#a.-accessing-rstudio",
+    "title": "Station 1",
+    "section": "",
+    "text": "You can access Wooster’s RStudio server at rstudio.wooster.edu. Login using your Wooster username and password. You can access your RStudio folder from any computer connected to the internet – no need to download anything, or transfer files between computers! However, if off-campus you will need to VPN to the campus network; directions on how to do that are https://technology.wooster.edu/virtual-private-network-vpn/.\nYou may also download R and RStudio on your personal machine, although I don’t recommend doing this right now. You can download R at http://cran.us.r-project.org/. Then download Rstudio Desktop at https://rstudio.com/products/rstudio/.\nAs you can see, the RStudio environment contains four quadrants: the upper-left contains the files (including data sets) you’re working on; the lower-left contains the Console, where you can run R code; the lower-right contains several tabs including Plots, Packages, and Help; and the upper-right contains your History, including a list of loaded data sets.\n\n\nI recommend creating a folder to keep all your DATA 230/231 activities and handouts in. You will have a LOT of them this semester, and it’s best to start an organizational system now. If you’re working with RStudio on your desktop, you know how to create folders/subfolders. If you’re working on Wooster’s RStudio server, click on “Files” in the lower-right corner, then create a New Folder called “DATA231” or “DATA230” and within that, a folder called “Activities”. Save this document in that folder now. Call it “Station1.qmd”"
+  },
+  {
+    "objectID": "ae/Station_1.html#b.-r-markdown",
+    "href": "ae/Station_1.html#b.-r-markdown",
+    "title": "Station 1",
+    "section": "B. R Markdown",
+    "text": "B. R Markdown\nThe thing you are reading right now is an R Markdown document. R Markdown runs inside R Studio. Markdown is a simple formatting syntax for authoring web pages, word documents, and pdfs. On Moodle, you can find the link to a useful R Markdown guide. You can also click the ? toolbar button for more details on using R Markdown.\nFirst, watch this short video to introduce yourself to RStudio (https://rmarkdown.rstudio.com/lesson-1.html).\nWhen you click the Knit button at the top of this window a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. Not only can you embed the R code, you can embed the output produced by the R code. In this way, your analysis is fully reproducible and updatable. All of your homework assignments must be prepared using R Markdown, and submitted as a pdf or Word document.\nThe nice thing about R Markdown is that you can write prose (as I am doing now), mathematical equations using LaTeX syntax (like \\(y_i = a + b x_i\\)), and R code/output/plots all in one synthesized document. This makes it approximately 10,000 times easier to use than doing the same thing in Word or LaTeX. As you go through this introduction, I recommend that you look also at the .Rmd file and .html file side-by-side, to get an idea of how R Markdown works. (Since you’re going to have to use R Markdown this semester, you might as well start learning it now!)\nIn the future, when you want to start a new R Markdown document, click “File &gt; New File &gt; R Markdown…” Put yourself as author, and make sure to give it a descriptive title!\nThe goal of this station is to get you ready to read, visualize, and use data. You will also become comfortable navigating the RStudio interface and running code from within a document."
+  },
+  {
+    "objectID": "ae/Station_1.html#c.-using-r-as-a-calculator-and-running-code-within-a-rmarkdown-document",
+    "href": "ae/Station_1.html#c.-using-r-as-a-calculator-and-running-code-within-a-rmarkdown-document",
+    "title": "Station 1",
+    "section": "C. Using R as a Calculator and Running Code within a RMarkdown Document",
+    "text": "C. Using R as a Calculator and Running Code within a RMarkdown Document\nWith R by your side, you will never need your TI-84 again. Consider the simple arithmetic in the chunk below. You can run this code chunk all at once by by clicking the Run button (sideways green arrow) within the chunk. Notice the interactive nature of the output. You can click through to see the different pieces of output.\nAs you work through this document, you should Run each chunk as you come to it.\n\n5 + 3\n\n[1] 8\n\n5.3 * 23.4\n\n[1] 124.02\n\nsqrt(16) # this is a comment.  R will not 'see' anything past a #, but you can use it to explain your code\n\n[1] 4\n\n\nLook closely at how Quarto denotes the R code and the output. Also note in the .Rmd file how I include R code as separate from prose. These are called “chunks”. The easiest way to add a new chunk is to click on the green “C Insert” icon above, then choose “R”. R code that is not inside of a chunk will not be run by Quarto!\nYou can also save values to named variables, to be used later:\n\nproduct &lt;- 15.3 * 23.4 #save result\n\nIf you save something like this, R will not show the output unless you expressly ask for it:\n\nproduct #show result\n\n[1] 358.02\n\n\nAlternatively, I could use “=” instead of “&lt;-”:\n\nproduct = 15.3 * 23.4  #save result\nproduct #show result\n\n[1] 358.02\n\n\nThe symbol “&lt;-” is the assignment operator. It’s essentially the same as “=” in this instance. When we get into more complicated work, there are cases where “&lt;-” works and “=” doesn’t, so it’s good to get into the habit of using “&lt;-” now.\nOnce variables are defined, they can be referenced with other operators and functions. Try executing each line of code individually by placing your cursor on line 67 and pressing Ctrl+Enter (Cmd +Enter for Mac users); then do the same for line 68. (This is how you can run a single line within a larger chunk.)\n\n.5 * product # half of the product\n\n[1] 179.01\n\nproduct^(1/4) # fourth root of the product\n\n[1] 4.349875\n\n\nYou can also use in-line R code in Quarto, which can be useful when calling defined variables. Did you know that the natural log of 358.02 is 5.8805889?\nThe semi-colon can be used to place multiple commands on one line. One frequent use of this is to save and print a value all in one go, as below:\n\nproduct &lt;- 15.3 * 23.4 ; product  # save result and show it\n\n[1] 358.02\n\n\nOnly R code (and comments) should be inside chunks. Prose (interpretations/explanations/descriptions) should never be put inside a chunk; prose should be below or above the chunk, as I have done above (and continue to do throughout this document). You should also never cut-and-paste output or graphs into the chunks. The whole point of code chunks is that they contain the code and they’ll run the code (resulting in the output and/or graphs).\nIf you want to run something in R but don’t want it to appear in the Quarto document, simply run it in the Console in the lower-left quadrant of RStudio. Type the last line of R code above into the Console and see what happens."
+  },
+  {
+    "objectID": "ae/Station_1.html#d.-six-things-to-know-about-r-and-rstudio",
+    "href": "ae/Station_1.html#d.-six-things-to-know-about-r-and-rstudio",
+    "title": "Station 1",
+    "section": "D. Six Things to Know About R and RStudio",
+    "text": "D. Six Things to Know About R and RStudio\n\nR is case-sensitive. If you mis-capitalize something, it won’t do what you want.\nTAB completion and arrows can improve typing speed and accuracy. If you begin a command and hit the TAB key, R will show you a list of possible ways to complete the command. If you hit TAB after the opening parenthesis of a function, it will show you the list of arguments it expects. The up and down arrows can be used to retrieve past commands.\nIf you see a + prompt, it means R is waiting for more input. Often this means that you have forgotten a closing parenthesis or made some other syntax error. If you have completely messed up and just want to get back to the console, hit the ESC key and start the command fresh.\nThe Console and the Quarto document are separate entities. Suppose you’ve run something, saved something, opened a data set, or opened loaded a package in the Console. It exists only in the Console, not in the Quarto document. Think of the Console as a “practice area” – a place where you can play around and try stuff. Once you’ve settled on a piece of code and you want it to appear in the “official” document (that you’ll turn in to me), put it into the Quarto document (within a “chunk”, of course)."
+  },
+  {
+    "objectID": "ae/Station_1.html#e.-r-packages",
+    "href": "ae/Station_1.html#e.-r-packages",
+    "title": "Station 1",
+    "section": "E. R packages",
+    "text": "E. R packages\nIn addition to its core features, R provides many more features through a (large) number of packages. To use a package, it must be installed (one time), and loaded (each session). You install the package by clicking the “Packages” tab in the lower-right quadrant, then clicking “Install” and type the name of the package. To load the package in the Console, you can type library(package), or just click the button next to the package in the “Packages” tab. However, if you are going to use a package within an Quarto document, you must “call” the package within your particular Quarto document. (Why? Because the Console and the Quarto document are separate entities!)\nFor example: We will be using the “tidyverse” package a lot this term. The package is already installed on Wooster’s RStudio server. (If you’re using a desktop version of RStudio, install this package now by clicking on the “Install” button under the “Packages” tab in the lower-right quadrant.) Load the package in the Console by typing library(tidyverse) in the Console. Now we still need to load it in this Quarto document.\n\nlibrary(tidyverse) #this loads the tidyverse package into this R Markown document\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n#We could also use the code require(\"tidyverse\") to do this\n\nThe “tidyverse” package is now loaded. But it sure takes up a lot of space on the html file, doesn’t it? If we wanted to suppress the output from this particular chunk on the html file, we could use #| include: false at the beginning of the chunk, as below. (Note that the chunk still runs; but the code and the output is suppressed when it knits to html. There are other useful chunk headers that we will see as we continue learning Quarto…)\nWe will use these four packages a lot this semester, so you should become accustomed to loading them all in every session.\nRemember! The Quarto document (.qmd) and the Console are separate entities. Just because you’ve done something (run some code, loaded some data, etc.) in one place, it does not transfer to the other place."
+  },
+  {
+    "objectID": "ae/Station_1.html#f.-getting-help",
+    "href": "ae/Station_1.html#f.-getting-help",
+    "title": "Station 1",
+    "section": "F. Getting Help",
+    "text": "F. Getting Help\nIf something doesn’t go quite right, or if you can’t remember something, it’s good to know where to turn for help. In addition to asking your friends and neighbors, you can use the R help system.\n\nTo get help on a specific function or data set, simply precede its name with a ?. Type ?histogram into the Console and see what happens. Alternatively, you can type histogram into the search bar in the Help tab in the lower-right quadrant.\nIf you don’t know the exact name of a function, you can give part of the name to apropos and R will find all functions that match. Quotation marks inside the apropos() function (single or double) are mandatory here. Type apropos('hist') into the Console and see what happens. Alternatively, you can type hist into the search bar in the Help tab in the lower-right quadrant.\nIf that fails, you can do a broader search using ?? or help.search(), which will find matches not only in the names of functions and data sets, but also in the documentation for them. Quotations marks are optional here. Try typing ??histogram and/or help.search('histogram') into the Console.\nExamples and Demos. Many functions and data sets in R include example code demonstrating typical uses. For example, example(histogram) will generate a number of example plots (and provide you with the commands used to create them). Examples such as this are intended to help you learn how specific R functions work. These examples also appear at the end of the documentation for functions and data sets.\n\nSome packages include demos. Demos are bits of R code that can be executed using the demo() command with the name of the demo. Demos are intended to illustrate a concept, a method, or some such thing, and are independent of any particular function or data set. You can get a list of available demos using demo(), or demos from just the package of interest using demo(package='NAME OF PACKAGE').\n\nThe Internet. One of the great things about R is how well-documented it is online. Since it’s free and open-source and people across disciplines use it, there is an astounding amount of information available on the web. If you get stuck on something, Google it: I can almost guarantee you will find someone who has posted a solution to either your exact problem, or something close to it.\n\nNOTE: There are usually MANY different ways to do things in R. The ways I use, and the ways I show you, are (almost) never the only way, and are not necessarily the best or simplest way. Feel free to find different/better/easier ways to do things! I (almost) never care about the details of the code, as long as you’re getting the right result."
+  },
+  {
+    "objectID": "ae/Station_1.html#g.-loading-data",
+    "href": "ae/Station_1.html#g.-loading-data",
+    "title": "Station 1",
+    "section": "G. Loading Data",
+    "text": "G. Loading Data\nAs long as they are in the right format, data sets can be loaded from files saved on your computer, or straight from webpages. Data sets can be whitespace-delimited, comma-delimited, or tab-delimited. RStudio is smart enough that it can usually tell which kind of delimiter is being used.\nMany of the data sets that we will be using in class this semester are in the Stat2Data package. We loaded this package above. (As long as you ran the chunk above. Remember that you should be running every chunk as you work through this document!)\nThe Day1Survey data set lives within the Stat2Data package. To load this data set, type data(Day1Survey) in the chunk below. Note that as you type, R will start to auto-complete with the appropriate data set! Then run the chunk below, so that the data set has also been loaded in the Console. (Because the Quarto document and the Console are separate entities, right?)\nLet’s load another dataset from the Stat2Data package, and do a couple fun with things with it. Notice how, when you Render this document, the results (the means and side-by-side boxplots) show up just below the code!\n\n# this dataset is from an experiment studying rats and weight gain as a function of diet\ndata(\"FatRats\") \n\n#calculate means for each of three protein sources\nmean(Gain ~  Source, data = FatRats)\n\n  Beef Cereal   Pork \n  89.6   84.9   89.2 \n\n# next, create side-by-side boxplots by protein level (hi vs. lo) *and* source (beef vs cereal vs pork)\ngf_boxplot(Gain ~ Protein | Source, data = FatRats)\n\n\n\n\n\n\n\n\nData can also be loaded from files on your computer (.txt, .xls, .csv), or from the internet. If working on the College’s RStudio server, you often need to upload the data on the server first. Let’s try this now:\n\nDownload the USStates_fall2021.csv file from Moodle. It lives under the Data sets tab.\nIn the lower-right quadrant of RStudio, click on Files, then your new DATA231 or DATA230 folder that you created in Section A.\nClick “Upload &gt; Choose File”, and select the USStates_fall2021.csv file that you downloaded. Then click the Upload button.\n\nNow you can Import the data set into your Console and/or Quarto document.\n\nIn the top-right corner of RStudio, click “Environment &gt; Import Dataset”.\nNavigate to your DATA231/DATA230 folder and welect USStates_fall2021.csv and click “Open”.\nAs I said above, RStudio is smart enough that it can usually tell which kind of delimiter is being used. It is showing you a preview of the data set in the “Data Frame” window. Make sure it looks okay: columns and rows, with column names given by the Headings (not V1, V2, etc). Then hit “Import”.\nThe data set is now loaded in the Console, and the Console now has the code to load the data set. But of course, that doesn’t mean it’s loaded in the Quarto document! Copy that line (the read.csv line, not the “View” line) in the code chunk below.\n\nNow use the code in lines 151 and 154 as a guide to calculate mean household income by region and make side-by-side boxplots of household income by region."
+  },
+  {
+    "objectID": "ae/Station_1.html#finally",
+    "href": "ae/Station_1.html#finally",
+    "title": "Station 1",
+    "section": "FINALLY",
+    "text": "FINALLY\n…Knit this entire document and make sure it renders correctly. In general, I suggest “knitting as you go”: knitting every few chunks, to make sure things are rendering correctly, rather than waiting until the end of a document to knit the whole thing (and potentially encountering lots of errors that you have to unpack)! I also ALWAYS suggest “saving as you go”: it’s a good idea to save every couple of minutes. (This is good practice for all your files.)"
+  },
+  {
+    "objectID": "ae/Station_1.html#b.-quarto",
+    "href": "ae/Station_1.html#b.-quarto",
+    "title": "Station 1",
+    "section": "B. Quarto",
+    "text": "B. Quarto\nThe thing you are reading right now is an Quarto document (very similar to R Markdown). Quarto runs inside R Studio. Quarto is a simple formatting syntax for authoring web pages, word documents, pdfs, and many more file types. On Canvas, you can find the link to a useful Quarto guide. You can also click the ? toolbar button for more details on using Quarto.\nFirst, watch this short video to introduce yourself to RStudio (https://rmarkdown.rstudio.com/lesson-1.html).\nWhen you click the Render button at the top of this window a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. Not only can you embed the R code, you can embed the output produced by the R code. In this way, your analysis is fully reproducible and updatable. All of your homework assignments must be prepared using Quarto, and submitted as a pdf or Word document.\nThe nice thing about Quarto is that you can write prose (as I am doing now), mathematical equations using LaTeX syntax (like \\(y_i = a + b x_i\\)), and R code/output/plots all in one synthesized document. This makes it approximately 10,000 times easier to use than doing the same thing in Word or LaTeX. As you go through this introduction, I recommend that you look also at the .qmd file and .html file side-by-side, to get an idea of how Quarto works. (Since you’re going to have to use Quarto this semester, you might as well start learning it now!)\nIn the future, when you want to start a new Quarto document, click “File &gt; New File &gt; Quarto Document…” Put yourself as author, and make sure to give it a descriptive title!\nThe goal of this station is to get you ready to read, visualize, and use data. You will also become comfortable navigating the RStudio interface and running code from within a document."
+  },
+  {
+    "objectID": "ae/Station_1.html#c.-using-r-as-a-calculator-and-running-code-within-a-quarto-document",
+    "href": "ae/Station_1.html#c.-using-r-as-a-calculator-and-running-code-within-a-quarto-document",
+    "title": "Station 1",
+    "section": "C. Using R as a Calculator and Running Code within a Quarto Document",
+    "text": "C. Using R as a Calculator and Running Code within a Quarto Document\nWith R by your side, you will never need your TI-84 again. Consider the simple arithmetic in the chunk below. You can run this code chunk all at once by by clicking the Run button (sideways green arrow) within the chunk. Notice the interactive nature of the output. You can click through to see the different pieces of output.\nAs you work through this document, you should Run each chunk as you come to it.\n\n5 + 3\n\n[1] 8\n\n5.3 * 23.4\n\n[1] 124.02\n\nsqrt(16) # this is a comment.  R will not 'see' anything past a #, but you can use it to explain your code\n\n[1] 4\n\n\nLook closely at how Quarto denotes the R code and the output. Also note in the .qmd file how I include R code as separate from prose. These are called “chunks”. The easiest way to add a new chunk is to click on the green “C Insert” icon above, then choose “R”. R code that is not inside of a chunk will not be run by Quarto!\nYou can also save values to named variables, to be used later:\n\nproduct &lt;- 15.3 * 23.4 #save result\n\nIf you save something like this, R will not show the output unless you expressly ask for it:\n\nproduct #show result\n\n[1] 358.02\n\n\nAlternatively, I could use “=” instead of “&lt;-”:\n\nproduct = 15.3 * 23.4  #save result\nproduct #show result\n\n[1] 358.02\n\n\nThe symbol “&lt;-” is the assignment operator. It’s essentially the same as “=” in this instance. When we get into more complicated work, there are cases where “&lt;-” works and “=” doesn’t, so it’s good to get into the habit of using “&lt;-” now.\nOnce variables are defined, they can be referenced with other operators and functions. Try executing each line of code individually by placing your cursor on the first line of the chunk below and pressing Ctrl+Enter (Cmd +Enter for Mac users); then do the same for the second line. (This is how you can run a single line within a larger chunk.)\n\n.5 * product # half of the product\n\n[1] 179.01\n\nproduct^(1/4) # fourth root of the product\n\n[1] 4.349875\n\n\nYou can also use in-line R code in Quarto, which can be useful when calling defined variables. Did you know that the natural log of 358.02 is 5.8805889?\nThe semi-colon can be used to place multiple commands on one line. One frequent use of this is to save and print a value all in one go, as below:\n\nproduct &lt;- 15.3 * 23.4 ; product  # save result and show it\n\n[1] 358.02\n\n\nOnly R code (and comments) should be inside chunks. Prose (interpretations/explanations/descriptions) should never be put inside a chunk; prose should be below or above the chunk, as I have done above (and continue to do throughout this document). You should also never cut-and-paste output or graphs into the chunks. The whole point of code chunks is that they contain the code and they’ll run the code (resulting in the output and/or graphs).\nIf you want to run something in R but don’t want it to appear in the Quarto document, simply run it in the Console in the lower-left quadrant of RStudio. Type the last line of R code above into the Console and see what happens."
+  },
+  {
+    "objectID": "ae/Station_2.html",
+    "href": "ae/Station_2.html",
+    "title": "Station 2: EDA with R",
+    "section": "",
+    "text": "In this document you will be introduced to the functions we will use most frequently in this class. If you are moderate to advanced R user, feel free to use whatever functions you’d like to accomplish the tasks. The first part of this document contains explanations for beginning R users, but all students should work through the entire document.\n\n\nIn general, I suggest “rendering as you go”: rendering every few chunks, to make sure things are rendering correctly, rather than waiting until the end of a document to render the whole thing (and potentially encountering lots of errors that you have to unpack)! I also ALWAYS suggest “saving as you go”: it’s a good idea to save every couple of minutes. (This is good practice for all your files.)\n\nTASK–Run the code below to set options for the document and load packages. Note that #| warning: FALSE causes the code to run without displaying any associated warnings.\n\n\n# Clear Workspace\nrm(list = ls()) \n\n# load packages we typically use for this class.\nlibrary(mosaic) \nlibrary(ggformula)\nlibrary(Stat2Data)\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "ae/Station_2.html#a.-introduction",
+    "href": "ae/Station_2.html#a.-introduction",
+    "title": "Station 2: EDA with R",
+    "section": "",
+    "text": "In this document you will be introduced to the functions we will use most frequently in this class. If you are moderate to advanced R user, feel free to use whatever functions you’d like to accomplish the tasks. The first part of this document contains explanations for beginning R users, but all students should work through the entire document.\n\n\nIn general, I suggest “rendering as you go”: rendering every few chunks, to make sure things are rendering correctly, rather than waiting until the end of a document to render the whole thing (and potentially encountering lots of errors that you have to unpack)! I also ALWAYS suggest “saving as you go”: it’s a good idea to save every couple of minutes. (This is good practice for all your files.)\n\nTASK–Run the code below to set options for the document and load packages. Note that #| warning: FALSE causes the code to run without displaying any associated warnings.\n\n\n# Clear Workspace\nrm(list = ls()) \n\n# load packages we typically use for this class.\nlibrary(mosaic) \nlibrary(ggformula)\nlibrary(Stat2Data)\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "ae/Station_2.html#b.-data",
+    "href": "ae/Station_2.html#b.-data",
+    "title": "Station 2: EDA with R",
+    "section": "B. Data",
+    "text": "B. Data"
+  },
+  {
+    "objectID": "ae/Station_2.html#load-data",
+    "href": "ae/Station_2.html#load-data",
+    "title": "Station 2: EDA with R",
+    "section": "Load data",
+    "text": "Load data\nDoing statistics requires data. R comes with many built-in datasets, and the packages you loaded above (specifically Stat2Data) give you access to even more. To load a dataset from within R you can use the data command:\n\nTASK–Use the code below to load the dataset diamonds, which is part of the ggplot2 package and included in the tidyverse.\n\n\ndata(\"diamonds\")\n\nThis is a great chance to remind you that R cares about letter case. This means that data(diamonds) and data(Diamonds) actually load different datasets! In this case, please make sure to load the lowercase letter diamonds dataset.\n\nInspecting the data source\nNow you’re ready to learn a little bit about the diamonds data set.\n\n# Inspecting the data source\nglimpse(diamonds)\n\nRows: 53,940\nColumns: 10\n$ carat   &lt;dbl&gt; 0.23, 0.21, 0.23, 0.29, 0.31, 0.24, 0.24, 0.26, 0.22, 0.23, 0.…\n$ cut     &lt;ord&gt; Ideal, Premium, Good, Premium, Good, Very Good, Very Good, Ver…\n$ color   &lt;ord&gt; E, E, E, I, J, J, I, H, E, H, J, J, F, J, E, E, I, J, J, J, I,…\n$ clarity &lt;ord&gt; SI2, SI1, VS1, VS2, SI2, VVS2, VVS1, SI1, VS2, VS1, SI1, VS1, …\n$ depth   &lt;dbl&gt; 61.5, 59.8, 56.9, 62.4, 63.3, 62.8, 62.3, 61.9, 65.1, 59.4, 64…\n$ table   &lt;dbl&gt; 55, 61, 65, 58, 58, 57, 57, 55, 61, 61, 55, 56, 61, 54, 62, 58…\n$ price   &lt;int&gt; 326, 326, 327, 334, 335, 336, 336, 337, 337, 338, 339, 340, 34…\n$ x       &lt;dbl&gt; 3.95, 3.89, 4.05, 4.20, 4.34, 3.94, 3.95, 4.07, 3.87, 4.00, 4.…\n$ y       &lt;dbl&gt; 3.98, 3.84, 4.07, 4.23, 4.35, 3.96, 3.98, 4.11, 3.78, 4.05, 4.…\n$ z       &lt;dbl&gt; 2.43, 2.31, 2.31, 2.63, 2.75, 2.48, 2.47, 2.53, 2.49, 2.39, 2.…\n\nhead(diamonds)\n\n# A tibble: 6 × 10\n  carat cut       color clarity depth table price     x     y     z\n  &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43\n2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31\n3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31\n4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63\n5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75\n6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48\n\nnames(diamonds)\n\n [1] \"carat\"   \"cut\"     \"color\"   \"clarity\" \"depth\"   \"table\"   \"price\"  \n [8] \"x\"       \"y\"       \"z\"      \n\n\n\nTASK: Edit the bullet list below to add a short description in your own words describing what each function does.\n\n\nglimpse() : this function…\nhead() : this function…\nnames() : this function…\n\n\n\nSome Data Prep\nThe following is a little bit of data wrangling to get the source data in shape for our purposes. You can ignore this part for now, and we can talk about it another time.\n\n# Recode & filter (no edits needed - just run this chunk)\nrecoded &lt;-  # make a new dataset called recoded\n  diamonds |&gt;  # by starting with the diamonds data\n  filter(color==\"D\" | color==\"J\") |&gt; # and filtering observations to keep only colors D and J\n  mutate(col = as.character(color)) # tell R some specifics about how to record the variable color.\n\nBasically, we’re going to do a bit of exploration of variables that impact cost of diamonds. Even if you haven’t used R before, you might be able to tell from the code that we started with the diamonds data, filtered (i.e. restricted) our data set to only include the diamonds that are either color D or J, created a new categorical variable called col, and stored the whole thing in a new data set called recoded.\nStatisticians should always know something about the data domain in order to be useful. If you don’t know anything about the subject area you need to at least learn some basics. Wikipedia is usually a good place to start: https://en.wikipedia.org/wiki/Diamond_color."
+  },
+  {
+    "objectID": "ae/Station_2.html#c.-exploratory-data-analysis",
+    "href": "ae/Station_2.html#c.-exploratory-data-analysis",
+    "title": "Station 2: EDA with R",
+    "section": "C. Exploratory Data Analysis",
+    "text": "C. Exploratory Data Analysis\nFor the purposes of our class, it’s useful to learn a model-centric approach to R. The psuedo-code below is going to be our foundation for the rest of the class:\nfunction( Y ~ X, data = DataSetName )\nHere’s a short description of each part in the pseudo-code above:\n\nfunction is an R function that dictates something you want to do with your data; for example,\n\nmean calculates the mean\nt.test performs a t-test\nlm fits a linear regression model\n\nY is the outcome of interest (response variable)\nX is some explanatory variable; you can use 1 as a placeholder if there is no explanatory variable\nDataSetName is the name of a data set loaded into the R environment\n\nAlways start with clear research questions. Our question for this exercise:\n\nHow do diamond prices compare for D and J colored diamonds?\n\nThe purpose of the exploratory data analysis (EDA) is to learn as much as you can about your research question before doing any statistical modeling. We basically want to try and answer the research question with EDA if possible…or at least have a guess as to what the answer “should” be. Then we use statistical models to formally accommodate variability in the data and calculate the uncertainty of our conclusions.\n\nMean price by color\nUse the R code chunk below to calculate the mean price by color. Summarize your observations below the code chunk (under “TASK”). Don’t forget, we did some data wrangling above and made a new data set called recoded. Use the recoded data for the rest of this analysis.\n\nmean(price ~ col, data = recoded)\n\n       D        J \n3169.954 5323.818 \n\n\n\nTASK–Share your observations:\n\n\n\nOther summary statistics by color\nOf course, there are lots of other ways to summarize a numerical variable besides the mean. Use the R code chunk to calculate the other summary statistics for the price of each diamond color using favstats(). Summarize your observations below the code chunk. How do the prices compare between D diamonds and J diamonds?\n\nTASK–Produce the required code:\n\n(Hint: Do you not know how favstats works? Well, it’s a function just like any other: it follows the syntax described at the top of this section! Also, you can always find details and examples by searching the Help menu in the lower-right quadrant.)\n\nTASK–Summarize your observations:\n\n\n\n2-3 Basic plots of the data\nMake side-by-side boxplots along with a scatterplot using the R code shown below.\n\nTASK–Run the code to make a boxplot; then modify the 2nd bit of code to make the desired scatterplot:\n\n\n# make a boxplot of price by color\ngf_boxplot(price ~ col, data = recoded) \n\n\n\n\n\n\n\n# make a scatter plot of price versus carat\n#gf_point(response ~ explanatory, data = recoded)\n\n\nTASK–Share your observations:"
+  },
+  {
+    "objectID": "ae/Station_2.html#multivariable-relationships",
+    "href": "ae/Station_2.html#multivariable-relationships",
+    "title": "Station 2: EDA with R",
+    "section": "Multivariable relationships",
+    "text": "Multivariable relationships\nThe world is often too complicated to be understood by studying one or two variables at a time. Color is certainly not the only variable that impacts the value of a diamond. You may have noticed in the Wikipedia article that color is only one of the “4 C’s” that influence the value of a diamond.\n\nAdjusting for other variables\nAlter the pseudo-code below to create a scatter plot of price vs carat, which each plotted point colored according the color of the diamond it represents. Write a few sentences below the code chunk to explain what you’ve observed from this plot.\n\nTASK–modify the code to produce the scatterplot:\n\n\n#gf_point(response ~ explanatory1, color = ~ explanatory2, data = recoded)\n\n\nTASK–Share your observations:"
+  },
+  {
+    "objectID": "ae/Station_2.html#d.-us-states-data-analysis",
+    "href": "ae/Station_2.html#d.-us-states-data-analysis",
+    "title": "Station 2: EDA with R",
+    "section": "D. US States Data Analysis",
+    "text": "D. US States Data Analysis"
+  },
+  {
+    "objectID": "ae/Station_2.html#use-data-from-an-outside-source",
+    "href": "ae/Station_2.html#use-data-from-an-outside-source",
+    "title": "Station 2: EDA with R",
+    "section": "Use data from an outside source",
+    "text": "Use data from an outside source\nIt’s important to be able to download a file from an outside source and then load it in R for use. There are multiple ways to do this, but one is described in Station_1. If you don’t know how to do this, see Station_1 for instructions, or ask your partner.\n\nTASK–Download the file US_States_fall2021.csv from Canvas and load the data into your environment\n\nOnce the data is loaded into the Environment, that means it’s loaded in the Console, NOT this Quarto document! Make sure you copy the code that loaded it into the Console into the R chunk below. Call the data set state_data.\n\nTASK–Use head() and glimpse() to explore the format of the data a bit:\n\nThis data has one row for each of the 50 U.S. states, and each variable is recorded for the entire state. For example, that variable HeavyDrinkers gives the percentage of residents in a state that are heavy drinkers. According to these data 5.9% of Pennsylvania residents are heavy drinkers.\n\nTASK–Refer to the US States Merged Data codebook (also on Canvas) and select some variables of interest:\n\nYou can choose whatever variables you want. You will explore these variables (and relationships between them) in Stations 2, 3, and Homework 1.\n\nQuantitative variable 1: …\nQuantitative variable 2: …\nCategorical variable 1: …\nCategorical variable 2: …"
+  },
+  {
+    "objectID": "ae/Station_2.html#eda-for-state-data",
+    "href": "ae/Station_2.html#eda-for-state-data",
+    "title": "Station 2: EDA with R",
+    "section": "EDA for State data",
+    "text": "EDA for State data\nFor all the tasks below, you will have to alter the code given for your chosen variables!\n\nTASK–Determine how many states are in each category of a categorical variable:\n\n\n#tally( ~ CatVariable1, data = state_data)\n\n\nTASK–create a barchart for one categorical variable:\n\n\n#gf_bar( ~ CatVariable1, data = state_data)\n\n\nTASK–Determine how many states are in combinations of categories for two categorical variables:\n\n\n#tally(CatVariable1 ~ CatVariable2, data = state_data)\n\n\nTASK–create a barchart for two categorical variables. Try changing \"dodged\" to \"stacked\" and \"fill\". Choose one and briefly explain why you chose that barchart:\n\n\n#gf_bar( ~ CatVariable1, fill = ~ CatVariable2, data = state_data, position = \"dodged\")\n\n\nTASK–create a histogram for one of your quantitative variables:\n\n\n#gf_histogram( ~ QuantVariable1, data = state_data)\n\n\nTASK–create side-by-side boxplots for one quantitative and one categorical variable:\n\n\n#gf_boxplot(QuantVariable1 ~ CatVariable1, data = state_data)\n\n\nTASK–create a scatterplot for two quantitative variables:\n\n\n#gf_point(QuantVariable2 ~ QuantVariable1, data = state_data)\n\n\nTASK– for two quantitative variables create both scatterplots, using a categorical variable for color in the first plot. What is the difference between the two plots? What do you think the tilde ~ does:\n\n\n#gf_point(QuantVariable2 ~ QuantVariable1, color = ~ CatVariable1, data = state_data)\n#gf_point(QuantVariable2 ~ QuantVariable1, color = \"blue\", data = state_data)"
+  },
+  {
+    "objectID": "ae/Station_2.html#summarizing-what-you-learned",
+    "href": "ae/Station_2.html#summarizing-what-you-learned",
+    "title": "Station 2: EDA with R",
+    "section": "Summarizing what you learned",
+    "text": "Summarizing what you learned\nWhenever you summarize the results of an analysis, it should always be in context. “In context” means that you talk about variables, not codes or shorthands like “CatVariable1”. A good question to ask yourself is: “If I walked up to a person on the street and told them this fact about my data, would they understand what was talking about?”\nExample: BAD\nYou: “Hi, did you know that there is a positive relationship between QuantVariable1 and QuantVariable2? It looks like the r is pretty strong.”\nPerson on street: “WTF?”\nExample: GOOD\nYou: “Hi, did you know that states with higher 8th grade math test scores also have higher average IQ’s? The relationship between these two variables is quite strong!”\nPerson on street: “How interesting, although maybe not surprising? Let’s have a discussion about the difficulties of measuring ‘intelligence’ with either standardized testing or IQ tests. What is ‘intelligence’, anyway?”\n\nTASK–share three interesting observations you learned from these figures (in Section D). Anything you learned must be in context!\n\n\nNote: Make sure you save your work in this Station. You will need it for your first homework assignment."
+  },
+  {
+    "objectID": "slides/01-welcome.html#example-distance-home",
+    "href": "slides/01-welcome.html#example-distance-home",
+    "title": "Welcome to MAT 212!",
+    "section": "Example: Distance Home",
+    "text": "Example: Distance Home\n\nData from a study called ``Bicycle weight and commuting time: randomised trial’’which appeared in the British Medical Journal in 2010\n\n\nlibrary(tidyverse) # Lots of helpful functions\nlibrary(mosaic) # Lots of helpful functions\nlibrary(Lock5Data) # contains the data\nhead(BikeCommute) # shows us the first six rows of data\n\n    Bike     Date Distance    Time Minutes AvgSpeed TopSpeed Seconds Month\n1  Steel 20/01/10    27.20 1:55:04  115.07    14.10    31.50    6904  1Jan\n2 Carbon 21/01/10    27.46 1:55:35  115.58    14.25    30.64    6935  1Jan\n3  Steel 25/01/10    27.20 1:55:45  115.75    14.10    30.92    6945  1Jan\n4 Carbon 26/01/10    27.52 1:53:56  113.93    14.49    33.02    6836  1Jan\n5 Carbon 27/01/10    27.51 1:59:12  119.20    13.84    30.92    7152  2Feb\n6  Steel 01/02/10    27.17 1:48:44  108.73    14.99    32.09    6524  2Feb"
+  },
+  {
+    "objectID": "slides/01-welcome.html#example-bike-commute",
+    "href": "slides/01-welcome.html#example-bike-commute",
+    "title": "Welcome to MAT 212!",
+    "section": "Example: Bike Commute",
+    "text": "Example: Bike Commute\n\nData from a study called ``Bicycle weight and commuting time: randomised trial’’which appeared in the British Medical Journal in 2010\n\n\nlibrary(tidyverse) # Lots of helpful functions\nlibrary(mosaic) # Lots of helpful functions\nlibrary(Lock5Data) # contains the data\nhead(BikeCommute) # shows us the first six rows of data\n\n    Bike     Date Distance    Time Minutes AvgSpeed TopSpeed Seconds Month\n1  Steel 20/01/10    27.20 1:55:04  115.07    14.10    31.50    6904  1Jan\n2 Carbon 21/01/10    27.46 1:55:35  115.58    14.25    30.64    6935  1Jan\n3  Steel 25/01/10    27.20 1:55:45  115.75    14.10    30.92    6945  1Jan\n4 Carbon 26/01/10    27.52 1:53:56  113.93    14.49    33.02    6836  1Jan\n5 Carbon 27/01/10    27.51 1:59:12  119.20    13.84    30.92    7152  2Feb\n6  Steel 01/02/10    27.17 1:48:44  108.73    14.99    32.09    6524  2Feb\n\n\n\nTarget Variable: AvgSpeed"
+  },
+  {
+    "objectID": "slides/01-welcome.html#example-constant-model",
+    "href": "slides/01-welcome.html#example-constant-model",
+    "title": "Welcome to MAT 212!",
+    "section": "Example: Constant Model",
+    "text": "Example: Constant Model\n\n\\(Y = \\mu + \\epsilon\\)\n\n\\(\\mu\\) is just an (unknown) constant\n\nTerminology:\n\n\\(\\mu\\) is called a parameter of the model\nUse data to provide a sample estimate of \\(\\mu\\)\nEstimates of parameters get little “hats”, i.e. \\(\\hat{\\mu}\\) is an estimate of \\(\\mu\\)\n\n\n\n\nHow should we estimate \\(\\mu\\)?"
+  },
+  {
+    "objectID": "slides/01-welcome.html#estimating-mu",
+    "href": "slides/01-welcome.html#estimating-mu",
+    "title": "Welcome to MAT 212!",
+    "section": "Estimating \\(\\mu\\)",
+    "text": "Estimating \\(\\mu\\)\n\n\n\nEstimate \\(\\mu\\) using the sample mean\n\n\\(\\hat{\\mu} = \\bar{y}\\)\n\nEstiamte \\(\\mu\\) using the sample median\n\n\\(\\hat{\\mu} = m\\)\n\n\n\n\nBikeCommute |&gt; \n  summarize(sample_mean = mean(AvgSpeed),\n            sample_median = median(AvgSpeed)) # Using the Tidyverse\n\n  sample_mean sample_median\n1    15.10571        15.045\n\nmean(BikeCommute$sample_mean) # Using Base-R\n\n[1] NA\n\nmedian(BikeCommute$sample_median)\n\nNULL"
+  },
+  {
+    "objectID": "slides/01-welcome.html#predicted-value-for-response",
+    "href": "slides/01-welcome.html#predicted-value-for-response",
+    "title": "Welcome to MAT 212!",
+    "section": "Predicted Value for Response",
+    "text": "Predicted Value for Response\n\nEstimate \\(Y\\) using the model with estimated parameters.\nThe predicted y is denoted… \\(\\hat{y}\\)\n\n\n\nFor the constant model \\(\\hat{y} = \\hat{\\mu}\\)\nExamples:\n\n\\(\\hat{y} = \\bar{y} = 15.106\\) (sample mean)\n\\(\\hat{y} = m = 15.045\\) (sample median)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#is-our-model-good",
+    "href": "slides/01-welcome.html#is-our-model-good",
+    "title": "Welcome to MAT 212!",
+    "section": "Is our model good?",
+    "text": "Is our model good?\n\nWhich estimator (mean or median) is better? That is, how can we compare models?\nIs either model any good? That is, how can we assess fit?"
+  },
+  {
+    "objectID": "slides/01-welcome.html#residuals",
+    "href": "slides/01-welcome.html#residuals",
+    "title": "Welcome to MAT 212!",
+    "section": "Residuals",
+    "text": "Residuals\n\nResidual: actual value (from data) minus predicted value (from model)\n\nCan compute the residual for every observation in our data\n\n\n\n\\[\\text{Residual} = \\underbrace{y}_{Actual} - \\underbrace{\\hat{y}}_{Predicted}\\]"
+  },
+  {
+    "objectID": "slides/01-welcome.html#avgspeed-visualization",
+    "href": "slides/01-welcome.html#avgspeed-visualization",
+    "title": "Welcome to MAT 212!",
+    "section": "AvgSpeed Visualization",
+    "text": "AvgSpeed Visualization\n\ngf_histogram(~AvgSpeed, data = BikeCommute, bins = 10)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#visualizing-the-models",
+    "href": "slides/01-welcome.html#visualizing-the-models",
+    "title": "Welcome to MAT 212!",
+    "section": "Visualizing the Models",
+    "text": "Visualizing the Models\n\ngf_histogram(~AvgSpeed, data = BikeCommute, bins = 10) |&gt; \n  gf_vline(xintercept = 15.106, color = \"red\") |&gt; \n  gf_vline(xintercept = 15.045, color = \"blue\")"
+  },
+  {
+    "objectID": "slides/01-welcome.html#criteria-to-minimize-residuals",
+    "href": "slides/01-welcome.html#criteria-to-minimize-residuals",
+    "title": "Welcome to MAT 212!",
+    "section": "Criteria to Minimize Residuals",
+    "text": "Criteria to Minimize Residuals\n\nSum of Residuals: \\(\\sum_{i=1}^n(y_i-\\hat{y}_i)\\)\n\n\nBikeCommute |&gt; \n  summarize(sample_mean = mean(AvgSpeed),\n            sample_median = median(AvgSpeed),\n            sample_mean_sum = sum(AvgSpeed - sample_mean),\n            sample_median_sum = sum(AvgSpeed - sample_median))\n\n  sample_mean sample_median sample_mean_sum sample_median_sum\n1    15.10571        15.045    4.085621e-14               3.4\n\n\n\nSum isn’t helpful: Residuals can be negative!"
+  },
+  {
+    "objectID": "slides/01-welcome.html#visualizing-residuals",
+    "href": "slides/01-welcome.html#visualizing-residuals",
+    "title": "Welcome to MAT 212!",
+    "section": "Visualizing Residuals",
+    "text": "Visualizing Residuals\n\nConsider the sample mean model\nSay we want to make a prediction for the first observation in our data set\n\n\ngf_histogram(~AvgSpeed, data = BikeCommute, bins = 10) |&gt; \n  gf_vline(xintercept = 15.106, color = \"red\") |&gt; \n  gf_vline(xintercept = BikeCommute$AvgSpeed[1], color = \"green\")\n\n\n\nWhere is the residual in this picture?"
+  },
+  {
+    "objectID": "slides/01-welcome.html#criteria-to-minimize-residuals-1",
+    "href": "slides/01-welcome.html#criteria-to-minimize-residuals-1",
+    "title": "Welcome to MAT 212!",
+    "section": "Criteria to Minimize Residuals",
+    "text": "Criteria to Minimize Residuals\n\nSum of absolute deviations: \\(\\sum_{i=1}^n |y_i-\\hat{y}_i|\\)\nSum of squared errors: \\(\\sum_{i=1}^n (y_i-\\hat{y}_i)^1\\)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#sum-of-absolute-deviations",
+    "href": "slides/01-welcome.html#sum-of-absolute-deviations",
+    "title": "Welcome to MAT 212!",
+    "section": "Sum of absolute deviations",
+    "text": "Sum of absolute deviations\n\nBikeCommute |&gt; \n  summarize(sample_mean = mean(AvgSpeed),\n            sample_median = median(AvgSpeed),\n            sample_mean_abs_sum = sum(abs(AvgSpeed - sample_mean)),\n            sample_median_abs_sum = sum(abs(AvgSpeed - sample_median)))\n\n  sample_mean sample_median sample_mean_abs_sum sample_median_abs_sum\n1    15.10571        15.045            33.75143                 33.74\n\n\n\nWhich model is better?"
+  },
+  {
+    "objectID": "slides/01-welcome.html#sum-of-squared",
+    "href": "slides/01-welcome.html#sum-of-squared",
+    "title": "Welcome to MAT 212!",
+    "section": "Sum of squared",
+    "text": "Sum of squared\n\nBikeCommute |&gt; \n  summarize(sample_mean = mean(AvgSpeed),\n            sample_median = median(AvgSpeed),\n            sample_mean_abs_sum = sum((AvgSpeed - sample_mean)^2),\n            sample_median_abs_sum = sum((AvgSpeed - sample_median)^2))\n\n  sample_mean sample_median sample_mean_abs_sum sample_median_abs_sum\n1    15.10571        15.045            28.82357                 29.03\n\n\n\nWhich model is better?"
+  },
+  {
+    "objectID": "slides/01-welcome.html#sum-of-squared-errors",
+    "href": "slides/01-welcome.html#sum-of-squared-errors",
+    "title": "Welcome to MAT 212!",
+    "section": "Sum of squared errors",
+    "text": "Sum of squared errors\n\nBikeCommute |&gt; \n  summarize(sample_mean = mean(AvgSpeed),\n            sample_median = median(AvgSpeed),\n            sample_mean_sq_sum = sum((AvgSpeed - sample_mean)^2),\n            sample_median_sq_sum = sum((AvgSpeed - sample_median)^2))\n\n  sample_mean sample_median sample_mean_sq_sum sample_median_sq_sum\n1    15.10571        15.045           28.82357                29.03\n\n\n\nWhich model is better?\nSum of square errors much more common"
+  },
+  {
+    "objectID": "slides/01-welcome.html#can-we-use-a-predictor-to-improve-the-model",
+    "href": "slides/01-welcome.html#can-we-use-a-predictor-to-improve-the-model",
+    "title": "Welcome to MAT 212!",
+    "section": "Can we use a predictor to improve the model?",
+    "text": "Can we use a predictor to improve the model?\n\n\n\n\\(Y =\\) AvgSpeed\n\\(X =\\) Bike\n\n\n\ngf_bar(~Bike, data = BikeCommute)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#model-with-a-binary-predictor",
+    "href": "slides/01-welcome.html#model-with-a-binary-predictor",
+    "title": "Welcome to MAT 212!",
+    "section": "Model with a Binary Predictor",
+    "text": "Model with a Binary Predictor\n\n\\(Y = \\mu_i + \\epsilon\\) where\n\n\\(\\mu_1 =\\) average speed for Carbon bikes, \\(Y\\sim N(\\mu_1, \\sigma_1)\\)\n\\(\\mu_2 =\\) average speed for Steel bikes, \\(Y\\sim N(\\mu_2, \\sigma_2)\\)\n\n\\[f(X) = \\left\\{\n\\begin{array}{l}\n\\mu_1, \\text{ if } X = \\text{Carbon}\\\\\n\\mu_2, \\text{ if } X = \\text{Steel}\\\\\n\\end{array}\n\\right.\\]"
+  },
+  {
+    "objectID": "slides/01-welcome.html#is-this-plausible",
+    "href": "slides/01-welcome.html#is-this-plausible",
+    "title": "Welcome to MAT 212!",
+    "section": "Is this plausible?",
+    "text": "Is this plausible?\n\ngf_boxplot(AvgSpeed ~ Bike, data = BikeCommute) |&gt; \n  gf_jitter(AvgSpeed ~ Bike, width = 0.05)"
+  },
+  {
+    "objectID": "slides/01-welcome.html#estimating-the-parameters",
+    "href": "slides/01-welcome.html#estimating-the-parameters",
+    "title": "Welcome to MAT 212!",
+    "section": "Estimating the parameters",
+    "text": "Estimating the parameters\n\n\n\nmean(AvgSpeed ~ Bike, data = BikeCommute) # Compute the mean of AvgSpeed for each level in Bike\n\n  Carbon    Steel \n15.18731 15.03500 \n\nsum(resid(lm(AvgSpeed ~ Bike, data = BikeCommute))^2) # Compute sum of squares\n\n[1] 28.50046\n\n\n\n\n\\(\\hat{\\mu_1} \\approx 12.19\\)\n\\(\\hat{\\mu_2} \\approx 15.04\\)\nNew sum of squares is 28.5 which is less than 28.8 from our sample mean model\nIs this model truly better?\nHow can we determine that?\nHint: it’s the same as asking: “Is there a difference between the means of the two groups?”"
+  },
+  {
+    "objectID": "slides/01-welcome.html#two-sample-t-test",
+    "href": "slides/01-welcome.html#two-sample-t-test",
+    "title": "Welcome to MAT 212!",
+    "section": "Two-Sample T-Test",
+    "text": "Two-Sample T-Test\n\nt.test(AvgSpeed~Bike, data = BikeCommute)\n\n\n    Welch Two Sample t-test\n\ndata:  AvgSpeed by Bike\nt = 0.76982, df = 47.649, p-value = 0.4452\nalternative hypothesis: true difference in means between group Carbon and group Steel is not equal to 0\n95 percent confidence interval:\n -0.2455673  0.5501827\nsample estimates:\nmean in group Carbon  mean in group Steel \n            15.18731             15.03500 \n\n\n\nWhat does p-value = 0.4452 mean?\nInterpret the 95% confidence interval"
+  },
+  {
+    "objectID": "slides/01-welcome.html#effect-size",
+    "href": "slides/01-welcome.html#effect-size",
+    "title": "Welcome to MAT 212!",
+    "section": "Effect Size",
+    "text": "Effect Size\n\n\n\nIs the difference (effect) large, relative to the variability in the population?\nMany ways to quantify\nThis slide: Cohen’s d\n\n0.2~small\n0.5~medium\n1.0~large\n\nPooled standard deviation \\[s_p = \\sqrt{\\frac{(n_1 - 1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2}}\\]\nEffect Size \\(= \\frac{\\bar{y_1}-\\bar{y_2}}{s_p}\\)\n\n\n\nlibrary(effectsize)\ncohens_d(AvgSpeed~Bike, data = BikeCommute)\n\nCohen's d |        95% CI\n-------------------------\n0.21      | [-0.32, 0.74]\n\n- Estimated using pooled SD."
   }
 ]
