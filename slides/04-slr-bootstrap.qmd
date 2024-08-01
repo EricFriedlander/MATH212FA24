@@ -1,9 +1,10 @@
 ---
 title: "SLR: Simulation-based inference"
 subtitle: "Bootstrap confidence intervals for the slope"
-date: "2023-09-11"
+author: "Prof. Eric Friedlander"
+date: "2024-08-28"
 date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 210 - Fall 2023 -  Schedule](https://sta210-fa23.netlify.app/schedule)"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -19,6 +20,7 @@ html-math-method:
 execute:
   freeze: auto
   echo: true
+  cache: false
 knitr:
   opts_chunk: 
     R.options:      
@@ -33,6 +35,7 @@ library(countdown)
 library(tidyverse)
 library(tidymodels)
 library(knitr)
+library(priceR)
 
 knitr::opts_chunk$set(
   fig.width = 8,
@@ -45,139 +48,78 @@ knitr::opts_chunk$set(
 ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 ```
 
-### Tulane Health Policy Case Competition {.midi}
 
-*"The Tulane Health Policy Case Competition gives teams of undergraduate students an opportunity to apply their talents and knowledge to put together a solution to a given health policy program Teams of up to three undergraduate students create policy-based solutions to a given problem. A workshop will be provided shortly after the case is released. Teams will construct PowerPoint presentations on solutions to the problem. Finalists will present to a panel of judges for real-time feedback."*
+<!-- # AE 03 Follow-up -->
 
-<br>
+<!-- ## AE 03 Follow-up {.midi} -->
 
-Deadline to register: September 30.
+<!-- **Goal:** Use simple linear regression to model the relationship between temperature and daily bike rentals in the **winter** season -->
 
-See website for more info: <https://sph.tulane.edu/tuhpcc>
-
-## Statistics experience assignment
-
-**Goal:** Engage with statistics / data science outside the classroom and connect your experience with what you're learning in the course.
-
-**What:** Have a statistics experience + create a slide reflecting on the experience. Counts as a homework grade.
-
-**When:** Must do the activity this semester. Reflection due **Monday, November 20 at 11:59pm**
-
-For more info: [sta210-fa23.netlify.app/stats-experience](https://sta210-fa23.netlify.app/stats-experience.html)
-
-## Statistician of the day {.midi}
-
-**What**: Each week, we will highlight a statisticians, data scientists, or other scholars from groups who have been historically marginalized in the field and whose work has made a significant impact.
-
-**Goal:** Learn about scholars you may not see in traditional textbooks and see the breadth of past and current work in the field.
-
-**Who:** Scholars are from the [CURV (connecting, uplifting, and recognizing voices)](https://hardin47.github.io/CURV/) database started by Dr. Jo Hardin at Pomona College
-
-**Participate:** Present a Statistician of the Day or contribute to the CURV data base as your statistics experience
-
-## W.E.B. Du Bois {.midi}
-
-::: columns
-::: {.column width="40%"}
-![](images/statistician-of-the-day/dubois.jpg)
-:::
-
-::: {.column width="60%"}
-*Du Bois (1868 - 1963) was a sociologist who contributed to the field of data visualization through infographics related to the African American in the early twentieth century.*
-
-*In 1900 Du Bois contributed approximately 60 data visualizations to an exhibit at the Exposition Universelle in Paris, an exhibit designed to illustrate the progress made by African Americans since the end of slavery (only 37 years prior, in 1863).*
-
-<br>
-
-Source: [hardin47.github.io/CURV/scholars/dubois.html](https://hardin47.github.io/CURV/scholars/dubois.html)
-:::
-:::
-
-## W.E.B. Du Bois {.midi}
-
-::: columns
-::: {.column width="30%"}
-***The set of visualizations demonstrate how powerfully a picture can tell 1000 words, as the information Du Bois used was primarily available from public records (e.g., census and other government reports).***
-
-Source: [hardin47.github.io/CURV/scholars/dubois.html](https://hardin47.github.io/CURV/scholars/dubois.html)
-:::
-
-::: {.column width="70%"}
-![Visualization by W.E.B. Du Bois](images/statistician-of-the-day/income-expenditures-orig.jpeg){fig-align="center"}
-:::
-:::
-
-# AE 03 Follow-up
-
-## AE 03 Follow-up {.midi}
-
-**Goal:** Use simple linear regression to model the relationship between temperature and daily bike rentals in the **winter** season
-
-```{r}
-#| include: false
+<!-- ```{r} -->
+<!-- #| include: false -->
 
 
-winter <- read_csv("../ae/data/dcbikeshare.csv") |>
-  mutate(season = case_when(
-    season == 1 ~ "winter", 
-    season == 2 ~ "spring", 
-    season == 3 ~ "summer", 
-    season == 4 ~ "fall"
-  ), 
-  season = factor(season)) |>
-  filter(season == "winter")
-```
+<!-- winter <- read_csv("../ae/data/dcbikeshare.csv") |> -->
+<!--   mutate(season = case_when( -->
+<!--     season == 1 ~ "winter",  -->
+<!--     season == 2 ~ "spring",  -->
+<!--     season == 3 ~ "summer",  -->
+<!--     season == 4 ~ "fall" -->
+<!--   ),  -->
+<!--   season = factor(season)) |> -->
+<!--   filter(season == "winter") -->
+<!-- ``` -->
 
-```{r}
-#| echo: false
-#| eval: true
-#| out-width: "65%"
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- #| eval: true -->
+<!-- #| out-width: "65%" -->
 
-ggplot(data = winter, aes(x = temp_orig, y = count)) + 
-  geom_point() + 
-  labs(x = "Temperature in Celsius", 
-       y = "Daily bike rentals", 
-       title = "Capital Bikeshare daily bike rentals vs. temperature", 
-       subtitle = "in winter months")
-```
+<!-- ggplot(data = winter, aes(x = temp_orig, y = count)) +  -->
+<!--   geom_point() +  -->
+<!--   labs(x = "Temperature in Celsius",  -->
+<!--        y = "Daily bike rentals",  -->
+<!--        title = "Capital Bikeshare daily bike rentals vs. temperature",  -->
+<!--        subtitle = "in winter months") -->
+<!-- ``` -->
 
-## AE 03 Follow-up
+<!-- ## AE 03 Follow-up -->
 
-**Statistical Model**:
+<!-- **Statistical Model**: -->
 
-$$count = \beta_0 +\beta_1 ~ temp\_orig + \epsilon, \hspace{5mm} \epsilon \sim N(0, \sigma_{\epsilon}^2)$$
+<!-- $$count = \beta_0 +\beta_1 ~ temp\_orig + \epsilon, \hspace{5mm} \epsilon \sim N(0, \sigma_{\epsilon}^2)$$ -->
 
-. . .
+<!-- . . . -->
 
-```{r}
-winter_fit <- linear_reg() |>
-  set_engine("lm") |>
-  fit(count ~ temp_orig, data = winter)
+<!-- ```{r} -->
+<!-- winter_fit <- linear_reg() |> -->
+<!--   set_engine("lm") |> -->
+<!--   fit(count ~ temp_orig, data = winter) -->
 
-tidy(winter_fit) |> kable(digits = 3)
-```
+<!-- tidy(winter_fit) |> kable(digits = 3) -->
+<!-- ``` -->
 
-## AE 03 Follow-up
+<!-- ## AE 03 Follow-up -->
 
-Use the output to write out the estimated regression equation.
+<!-- Use the output to write out the estimated regression equation. -->
 
-$$
-\hat{count} =  -111.038 + 222.416 ~temp\_orig
-$$
+<!-- $$ -->
+<!-- \hat{count} =  -111.038 + 222.416 ~temp\_orig -->
+<!-- $$ -->
 
-::: aside
-LaTex:
+<!-- ::: aside -->
+<!-- LaTex: -->
 
-\\\$\\\$\\hat{count} = -111.038 + 222.416 \~ temp\\\_orig\\\$\\\$
-:::
+<!-- \\\$\\\$\\hat{count} = -111.038 + 222.416 \~ temp\\\_orig\\\$\\\$ -->
+<!-- ::: -->
 
-::: callout-note
-## Your turn!
+<!-- ::: callout-note -->
+<!-- ## Your turn! -->
 
--   Interpret the slope in the context of the data.
+<!-- -   Interpret the slope in the context of the data. -->
 
--   Why is there no error term in the regression equation?
-:::
+<!-- -   Why is there no error term in the regression equation? -->
+<!-- ::: -->
 
 # Simulation-based inference
 
@@ -207,106 +149,116 @@ library(kableExtra)  # also for neatly formatted tablesf
 ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 ```
 
-## Data: Houses in Duke Forest
+## [Data: San Antonio Income & Organic Food Access]{.r-fit-text}
 
 ::: columns
-::: {.column width="50%"}
--   Data on houses that were sold in the Duke Forest neighborhood of Durham, NC around November 2020
--   Scraped from Zillow
--   Source: [`openintro::duke_forest`](http://openintrostat.github.io/openintro/reference/duke_forest.html)
+::: {.column width="60%"}
+-   Average household income (per zip code) and number of organic vegetable offerings in San Antonio, TX
+-   Data from HEB website, compiles by high school student Linda Saucedo, Fall 2019
+-   Source: [**Skew The Script**](https://skewthescript.org/3-1)
 :::
 
-::: {.column width="50%"}
-![](images/05/duke_forest_home.jpg){fig-alt="Home in Duke Forest"}
+::: {.column width="40%"}
+![](images/HEB-Logo.jpg)
 :::
 :::
 
-**Goal**: Use the area (in square feet) to understand variability in the price of houses in Duke Forest.
+**Goal**: Use the average household income to understand variation in access to organic foods.
 
 ## Exploratory data analysis
 
+
 ```{r}
 #| code-fold: true
-ggplot(duke_forest, aes(x = area, y = price)) +
+
+heb <- read_csv("data/HEBIncome.csv") |> 
+  mutate(Avg_Income_K = Avg_Household_Income/1000)
+
+ggplot(heb, aes(x = Avg_Income_K, y = Number_Organic)) +
   geom_point(alpha = 0.7) +
   labs(
-    x = "Area (square feet)",
-    y = "Sale price (USD)",
-    title = "Price and area of houses in Duke Forest"
+    x = "Average Household Income (in thousands)",
+    y = "Number of Organic Vegetables",
   ) +
-  scale_y_continuous(labels = label_dollar()) 
+  scale_x_continuous(labels = label_dollar())
 ```
 
 ## Modeling {.midi}
 
 ```{r}
 #| echo: true
-#| code-line-numbers: "|5|6"
 
-df_fit <- linear_reg() |>
-  #set_engine("lm") |>
-  fit(price ~ area, data = duke_forest)
+heb_fit <- lm(Number_Organic ~ Avg_Income_K, data = heb)
 
-tidy(df_fit) |>
-  kable(digits = 2) #neatly format table to 2 digits
+tidy(heb_fit) |>
+  kable(digits=2) #neatly format table to 2 digits
 ```
 
 . . .
 
-<br>
-
 ```{r}
 #| echo: false
-intercept <- tidy(df_fit) |> filter(term == "(Intercept)") |> pull(estimate) |> round()
-slope <- tidy(df_fit) |> filter(term == "area") |> pull(estimate) |> round()
+intercept <- tidy(heb_fit) |> filter(term == "(Intercept)") |> pull(estimate) |> round(digits=2)
+slope <- tidy(heb_fit) |> filter(term == "Avg_Income_K") |> pull(estimate) |> round(digits = 2)
 ```
 
--   **Intercept:** Duke Forest houses that are 0 square feet are expected to sell, for `r dollar(intercept)`, on average.
+-   **Intercept:** HEBs in Zip Codes with an average household income of \$0 are expected to have `r intercept` organic vegetable options, on average.
     -   Is this interpretation useful?
--   **Slope:** For each additional square foot, we expect the sale price of Duke Forest houses to be higher by `r dollar(slope)`, on average.
+-   **Slope:** For each additional \$1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by `r slope`, on average.
 
 ## From sample to population {.midi}
 
-> For each additional square foot, we expect the sale price of Duke Forest houses to be higher by `r dollar(slope)`, on average.
+> For each additional $1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by `r slope`, on average.
 
 <br>
 
--   This estimate is valid for the single sample of `r nrow(duke_forest)` houses.
--   But what if we're not interested quantifying the relationship between the size and price of a house in this single sample?
--   What if we want to say something about the relationship between these variables for all houses in Duke Forest?
+-   Estimate is valid for the single sample of `r nrow(heb)` HEBs
+-   What if we're not interested quantifying the relationship between the size and price of a house in this single sample?
+-   What if we want to say something about the relationship between these variables for all supermarkets in America?
 
 ## Statistical inference
 
--   **Statistical inference** provide methods and tools so we can use the single observed sample to make valid statements (inferences) about the population it comes from
+-   **Statistical inference** refers to ideas, methods, and tools for to generalizing the single observed sample to make statements (inferences) about the population it comes from
 
 -   For our inferences to be valid, the sample should be random and representative of the population we're interested in
 
 ## Inference for simple linear regression
 
+::: incremental
+
 -   Calculate a confidence interval for the slope, $\beta_1$
 
 -   Conduct a hypothesis test for the slope,$\beta_1$
+
+-   Why not $\beta_0$?
+
+-   We can but it isn't super interesting typically
+
+:::
 
 # Confidence interval for the slope
 
 ## Confidence interval {.midi}
 
 ::: incremental
--   A plausible range of values for a population parameter is called a **confidence interval**
--   Using only a single point estimate is like fishing in a murky lake with a spear, and using a confidence interval is like fishing with a net
+-   **Confidence interval**: plausible range of values for a population parameter
+-   single point estimate $\implies$ fishing in a murky lake with a spear, confidence interval $\implies$ fishing with a net
     -   We can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish
-    -   Similarly, if we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter
+    -  If we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter
+    -   High confidence $\implies$ wider interval (larger net)
+-   Remember: single CI $\implies$ either you hit parameter or you don't
+    -   [Favorite Visualization](https://rpsychologist.com/d3/ci/)
 :::
 
 ## Confidence interval for the slope {.midi}
 
-A confidence interval will allow us to make a statement like "*For each additional square foot, the model predicts the sale price of Duke Forest houses to be higher, on average, by `r dollar(slope)`, plus or minus X dollars.*"
+A confidence interval will allow us to make a statement like "*For each \$1K in average income, the model predicts the number of organic vegetables available at local supermarkets to be higher, on average, by `r slope`, plus or minus X options.*"
 
 . . .
 
--   Should X be \$10? \$100? \$1000?
+-   Should X be 1? 2? 3?
 
--   If we were to take another sample of `r nrow(duke_forest)` would we expect the slope calculated based on that sample to be exactly `r dollar(slope)`? Off by \$10? \$100? \$1000?
+-   If we were to take another sample of `r nrow(heb)` would we expect the slope calculated based on that sample to be exactly `r slope`? Off by 1? 2? 3?
 
 -   The answer depends on how variable (from one sample to another sample) the sample statistic (the slope) is
 
@@ -319,10 +271,10 @@ A confidence interval will allow us to make a statement like "*For each addition
 ::: incremental
 -   Two approaches:
     1.  Via simulation (what we'll do today)
-    2.  Via mathematical models (what we'll do in the next class)
+    2.  Via mathematical models (what we'll do in the soon)
 -   **Bootstrapping** to quantify the variability of the slope for the purpose of estimation:
-    -   Bootstrap new samples from the original sample
-    -   Fit models to each of the samples and estimate the slope
+    -   Generate new samples by sampling with replacement from the original sample
+    -   Fit models to each of the new samples and estimate the slope
     -   Use features of the distribution of the bootstrapped slopes to construct a confidence interval
 :::
 
@@ -330,344 +282,213 @@ A confidence interval will allow us to make a statement like "*For each addition
 #| echo: false
 set.seed(119)
 
-df_boot_samples_5 <- duke_forest |>
-  specify(price ~ area) |>
+heb_boot_samples_5 <- heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
   generate(reps = 5, type = "bootstrap")
 ```
 
-## Bootstrap sample 1
+## Original Sample
 
 <!-- Fix the scales for these slides, so the difference in slopes is easier to see-->
-
-::: columns
-::: {.column width="50%"}
 ```{r}
 #| echo: false
 #| out.width: "100%"
 
-p_df_obs <- ggplot(duke_forest, aes(x = area, y = price)) +
+p_heb_obs <- ggplot(heb, aes(x = Avg_Income_K, y = Number_Organic)) +
   geom_point() +
-  geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") +
   labs(
-    x = "Area (square feet)",
-    y = "Sale price (USD)",
-    title = "Price and area of houses in Duke Forest"
+    x = "Average Household Income (in thousands)",
+    y = "Number of Organic Vegetables",
   ) +
-  scale_y_continuous(labels = label_dollar()) +
-  scale_x_continuous(labels = label_number())
-
-p_df_obs
+  scale_x_continuous(labels = label_dollar(), limit = c(30, 130)) +
+  scale_y_continuous(labels = label_number(), limits = c(0, 120)) +
+  geom_smooth(method = "lm", se = FALSE, fullrange=TRUE)
+p_heb_obs
 ```
-:::
 
-::: {.column width="50%"}
+## Bootstrap sample 1
+
 ```{r}
 #| echo: false
 #| out.width: "100%"
 
 replicate_no = 1
 
-ggplot(df_boot_samples_5 |> filter(replicate == replicate_no), 
-       aes(x = area, y = price)) +
-  geom_point(alpha = 0.5) +
-  geom_line(stat = "smooth", method = "lm", se = FALSE, alpha = 0.8) +
-  labs(
-    x = "Area (square feet)",
-    y = "Sale price (USD)",
-    title = glue("Bootstrap sample {replicate_no}")
-  ) +
-  scale_y_continuous(labels = label_dollar()) +
-  scale_x_continuous(labels = label_number())
+p_heb_obs +
+  geom_point(data = heb_boot_samples_5 |> filter(replicate == replicate_no), mapping = aes(x = Avg_Income_K, y = Number_Organic), shape="o", alpha = 0.3, color = "red", size = 5) +
+  geom_line(data = heb_boot_samples_5 |> filter(replicate == replicate_no), stat = "smooth", method = "lm", se = FALSE, alpha = 0.8, color = "red",
+            fullrange=TRUE)
 ```
-:::
-:::
+
 
 ## Bootstrap sample 2
 
-::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| out.width: "100%"
-
-p_df_obs
-```
-:::
-
-::: {.column width="50%"}
 ```{r}
 #| echo: false
 #| out.width: "100%"
 
 replicate_no = 2
 
-ggplot(df_boot_samples_5 |> filter(replicate == replicate_no), 
-       aes(x = area, y = price)) +
-  geom_point(alpha = 0.5) +
-  geom_line(stat = "smooth", method = "lm", se = FALSE, alpha = 0.8) +
-  labs(
-    x = "Area (square feet)",
-    y = "Sale price (USD)",
-    title = glue("Bootstrap sample {replicate_no}")
-  ) +
-  scale_y_continuous(labels = label_dollar()) +
-  scale_x_continuous(labels = label_number())
+p_heb_obs +
+  geom_point(data = heb_boot_samples_5 |> filter(replicate == replicate_no), mapping = aes(x = Avg_Income_K, y = Number_Organic), shape="o", alpha = 0.3, color = "red", size = 5) +
+  geom_line(data = heb_boot_samples_5 |> filter(replicate == replicate_no), stat = "smooth", method = "lm", se = FALSE, alpha = 0.8, color = "red",
+            fullrange=TRUE)
 ```
-:::
-:::
 
 ## Bootstrap sample 3
 
-::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| out.width: "100%"
-
-p_df_obs
-```
-:::
-
-::: {.column width="50%"}
 ```{r}
 #| echo: false
 #| out.width: "100%"
 
 replicate_no = 3
 
-ggplot(df_boot_samples_5 |> filter(replicate == replicate_no), 
-       aes(x = area, y = price)) +
-  geom_point(alpha = 0.5) +
-  geom_line(stat = "smooth", method = "lm", se = FALSE, alpha = 0.8) +
-  labs(
-    x = "Area (square feet)",
-    y = "Sale price (USD)",
-    title = glue("Bootstrap sample {replicate_no}")
-  ) +
-  scale_y_continuous(labels = label_dollar()) +
-  scale_x_continuous(labels = label_number())
+p_heb_obs +
+  geom_point(data = heb_boot_samples_5 |> filter(replicate == replicate_no), mapping = aes(x = Avg_Income_K, y = Number_Organic), shape="o", alpha = 0.3, color = "red", size = 5) +
+  geom_line(data = heb_boot_samples_5 |> filter(replicate == replicate_no), stat = "smooth", method = "lm", se = FALSE, alpha = 0.8, color = "red",
+            fullrange=TRUE)
 ```
-:::
-:::
+
 
 ## Bootstrap sample 4
 
-::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| out.width: "100%"
-
-p_df_obs
-```
-:::
-
-::: {.column width="50%"}
 ```{r}
 #| echo: false
 #| out.width: "100%"
 
 replicate_no = 4
 
-ggplot(df_boot_samples_5 |> filter(replicate == replicate_no), 
-       aes(x = area, y = price)) +
-  geom_point(alpha = 0.5) +
-  geom_line(stat = "smooth", method = "lm", se = FALSE, alpha = 0.8) +
-  labs(
-    x = "Area (square feet)",
-    y = "Sale price (USD)",
-    title = glue("Bootstrap sample {replicate_no}")
-  ) +
-  scale_y_continuous(labels = label_dollar()) +
-  scale_x_continuous(labels = label_number())
+p_heb_obs +
+  geom_point(data = heb_boot_samples_5 |> filter(replicate == replicate_no), mapping = aes(x = Avg_Income_K, y = Number_Organic), shape="o", alpha = 0.3, color = "red", size = 5) +
+  geom_line(data = heb_boot_samples_5 |> filter(replicate == replicate_no), stat = "smooth", method = "lm", se = FALSE, alpha = 0.8, color = "red",
+            fullrange=TRUE)
 ```
-:::
-:::
+
 
 ## Bootstrap sample 5
 
-::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| out.width: "100%"
-
-p_df_obs
-```
-:::
-
-::: {.column width="50%"}
 ```{r}
 #| echo: false
 #| out.width: "100%"
 
 replicate_no = 5
 
-ggplot(df_boot_samples_5 |> filter(replicate == replicate_no), 
-       aes(x = area, y = price)) +
-  geom_point(alpha = 0.5) +
-  geom_line(stat = "smooth", method = "lm", se = FALSE, alpha = 0.8) +
-  labs(
-    x = "Area (square feet)",
-    y = "Sale price (USD)",
-    title = glue("Bootstrap sample {replicate_no}")
-  ) +
-  scale_y_continuous(labels = label_dollar()) +
-  scale_x_continuous(labels = label_number())
+p_heb_obs +
+  geom_point(data = heb_boot_samples_5 |> filter(replicate == replicate_no), mapping = aes(x = Avg_Income_K, y = Number_Organic), shape="o", alpha = 0.3, color = "red", size = 5) +
+  geom_line(data = heb_boot_samples_5 |> filter(replicate == replicate_no), stat = "smooth", method = "lm", se = FALSE, alpha = 0.8, color = "red",
+            fullrange=TRUE)
 ```
-:::
-:::
-
-. . .
-
-*so on and so forth...*
 
 ## Bootstrap samples 1 - 5
 
-::: columns
-::: {.column width="50%"}
 ```{r}
 #| echo: false
 #| out.width: "100%"
 
-p_df_obs
+p_heb_obs +
+  geom_line(data = heb_boot_samples_5, 
+            mapping = aes(x = Avg_Income_K, y = Number_Organic, group = replicate), 
+            stat = "smooth", method = "lm", se = FALSE, alpha = 0.8, color = "red",
+            fullrange=TRUE)
 ```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| out.width: "100%"
-
-ggplot(df_boot_samples_5, aes(x = area, y = price, group = replicate)) +
-  geom_line(stat = "smooth", method = "lm", se = FALSE, alpha = 0.5) +
-  labs(
-    x = "Area (square feet)",
-    y = "Sale price (USD)",
-    title = glue("Bootstrap samples 1 - 5")
-  ) +
-  scale_y_continuous(labels = label_dollar()) +
-  scale_x_continuous(labels = label_number())
-```
-:::
-:::
 
 ## Bootstrap samples 1 - 100
 
 ```{r}
 #| echo: false
+#| out.width: "100%"
 set.seed(119)
 
-df_boot_samples_100 <- duke_forest |>
-  specify(price ~ area) |>
+heb_boot_samples_100 <- heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
   generate(reps = 100, type = "bootstrap")
-```
 
-::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| out.width: "100%"
+p_heb_boot_samples_100 <- p_heb_obs +
+  geom_line(data = heb_boot_samples_100, 
+            mapping = aes(x = Avg_Income_K, y = Number_Organic, group = replicate), 
+            stat = "smooth", method = "lm", se = FALSE, alpha = 0.1, color = "red",
+            fullrange=TRUE)
 
-p_df_obs
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| out.width: "100%"
-
-p_df_boot_samples_100 <- ggplot(df_boot_samples_100, aes(x = area, y = price, group = replicate)) +
-  geom_line(stat = "smooth", method = "lm", se = FALSE, alpha = 0.05) +
-  labs(
-    x = "Area (square feet)",
-    y = "Sale price (USD)",
-    title = glue("Bootstrap samples 1 - 100")
-  ) +
-  scale_y_continuous(labels = label_dollar()) +
-  scale_x_continuous(labels = label_number())
-
-p_df_boot_samples_100
-```
-:::
-:::
-
-## Slopes of bootstrap samples
-
-::: question
-**Fill in the blank:** For each additional square foot, the model predicts the sale price of Duke Forest houses to be higher, on average, by `r dollar(slope)`, plus or minus \_\_\_ dollars.
-:::
-
-```{r}
-#| echo: false
-p_df_boot_samples_100 +
-  geom_abline(intercept = intercept, slope = slope, color = "#8F2D56")
+p_heb_boot_samples_100
 ```
 
 ## Slopes of bootstrap samples
 
 ::: question
-**Fill in the blank:** For each additional square foot, we expect the sale price of Duke Forest houses to be higher, on average, by `r dollar(slope)`, plus or minus \_\_\_ dollars.
+**Fill in the blank:** For each additional \$1k in average household income, the model predicts the number of organic vegetables available to be higher, on average, by `r slope`, plus or minus \_\_\_.
 :::
 
 ```{r}
 #| echo: false
-df_boot_samples_100_fit <- df_boot_samples_100 |>
+p_heb_boot_samples_100
+```
+
+## Slopes of bootstrap samples
+
+::: question
+**Fill in the blank:** For each additional \$1k in average household income, the model predicts the number of organic vegetables available to be higher, on average, by `r slope`, plus or minus \_\_\_.
+:::
+
+```{r}
+#| echo: false
+heb_boot_samples_100_fit <- heb_boot_samples_100 |>
   fit()
 
-df_boot_samples_100_hist <- ggplot(df_boot_samples_100_fit |> filter(term == "area"), aes(x = estimate)) +
-  geom_histogram(binwidth = 10, color = "white") +
+heb_boot_samples_100_hist <- ggplot(heb_boot_samples_100_fit |> filter(term == "Avg_Income_K"), 
+                                    aes(x = estimate)) +
+  geom_histogram(bins=15, color = "white") +
   geom_vline(xintercept = slope, color = "#8F2D56", size = 1) +
   labs(x = "Slope", y = "Count",
        title = "Slopes of 100 bootstrap samples") +
-  scale_x_continuous(labels = label_dollar())
+  scale_x_continuous(labels = label_number())
 
-df_boot_samples_100_hist
+heb_boot_samples_100_hist
 ```
 
 ## Confidence level
 
 ::: question
-How confident are you that the true slope is between \$0 and \$250? How about \$150 and \$170? How about \$90 and \$210?
+How confident are you that the true slope is between 0.8 and 1.2? How about 0.9 and 1.0? How about 1.0 and 1.4?
 :::
 
 ```{r}
 #| echo: false
-df_boot_samples_100_hist
+heb_boot_samples_100_hist
 ```
 
-## 95% confidence interval {.midi}
+## 95% confidence interval {.smaller}
 
 ```{r}
 #| echo: false
-lower <- df_boot_samples_100_fit |>
+#| out.width: "70%"
+#| fig-align: "center"
+lower <- heb_boot_samples_100_fit |>
   ungroup() |>
-  filter(term == "area") |>
+  filter(term == "Avg_Income_K") |>
   summarise(quantile(estimate, 0.025)) |>
   pull()
 
-upper <- df_boot_samples_100_fit |>
+upper <- heb_boot_samples_100_fit |>
   ungroup() |>
-  filter(term == "area") |>
+  filter(term == "Avg_Income_K") |>
   summarise(quantile(estimate, 0.975)) |>
   pull()
 
-df_boot_samples_100_hist +
+heb_boot_samples_100_hist +
   geom_vline(xintercept = lower, color = "steelblue", size = 1, linetype = "dashed") +
   geom_vline(xintercept = upper, color = "steelblue", size = 1, linetype = "dashed")
 ```
 
 ::: incremental
--   A 95% confidence interval is bounded by the middle 95% of the bootstrap distribution
--   We are 95% confident that for each additional square foot, the model predicts the sale price of Duke Forest houses to be higher, on average, by `r dollar(lower)` to `r dollar(upper)`.
+-   **95% bootstrapped confidence interval**: bounded by the middle 95% of the bootstrap distribution
+-   We are 95% confident that for each additional \$1K in average household income, the model predicts the number of organic vegetables options at local supermarkets to be higher, on average, by `r round(lower, 2)` to `r round(upper, 2)`.
 :::
 
-# Application exercise
+<!-- # Application exercise -->
 
-::: appex
-📋 [AE 04: Bootstrap confidence intervals](https://sta210-fa23.netlify.app/ae/ae-04-bootstrap.html)
-:::
+<!-- ::: appex -->
+<!-- 📋 [AE 04: Bootstrap confidence intervals](https://sta210-fa23.netlify.app/ae/ae-04-bootstrap.html) -->
+<!-- ::: -->
 
 ## Computing the CI for the slope I
 
@@ -676,8 +497,10 @@ Calculate the observed slope:
 ```{r}
 #| echo: true
 
-observed_fit <- duke_forest |>
-  specify(price ~ area) |>
+library(infer) # package that does Simulation-Based Inference
+
+observed_fit <- heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
   fit()
 
 observed_fit
@@ -693,8 +516,8 @@ Take `100` bootstrap samples and fit models to each one:
 
 set.seed(1120)
 
-boot_fits <- duke_forest |>
-  specify(price ~ area) |>
+boot_fits <- heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
   generate(reps = 100, type = "bootstrap") |>
   fit()
 

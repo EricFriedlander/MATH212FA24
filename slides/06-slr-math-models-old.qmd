@@ -1,0 +1,601 @@
+---
+title: "SLR: Mathematical models for inference"
+author: "Prof. Maria Tackett"
+date: "2023-09-18"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 STA 210 - Fall 2023 -  Schedule](https://sta210-fa23.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r setup}
+#| include: false
+
+library(countdown)
+
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.asp = 0.618,
+  fig.retina = 3,
+  dpi = 300,
+  out.width = "80%",
+  fig.align = "center"
+)
+```
+
+## Announcements
+
+-   HW 01: due Wed, Sep 20 at 11:59pm
+
+    -   Questions?
+
+-   [Statistics experience](https://sta210-fa23.netlify.app/stats-experience.html) - due Mon, Nov 20 at 11:59pm
+
+## Course policy reminders {.midi}
+
+-   [Late work](https://sta210-fa23.netlify.app/syllabus#late-work-policy)
+
+    -   HW and labs accepted up to 2 days late.
+    -   5% deduction for each 24-hour period the assignment is late.
+
+-   [One time late waiver](https://sta210-fa23.netlify.app/syllabus#waiver-for-extenuating-circumstances)
+
+    -   Can use on HW and individual labs
+
+-   Lowest HW and lowest lab grade dropped at the end of the semester.
+
+## Course policy reminders
+
+-   [Regrade requests](https://sta210-fa23.netlify.app/syllabus#regrade-requests)
+
+    -   Opened 1 day after assignment is returned and due within 1 week
+    -   Only submit regrade if there is an error in the grading not to dispute points
+    -   Prof. Tackett or Sam the Head TA will regrade the entire exercise being disputed, which could result in a lower grade
+
+    ::: callout-tip
+    See the posted solutions and ask during office hours before submitting a regrade request
+    :::
+
+## Statistician of the day: Regina Nuzzo {.small}
+
+::: columns
+::: {.column width="40%"}
+![](images/statistician-of-the-day/nuzzo.jpg){fig-alt="Picture of Regina Nuzzo" fig-align="center"}
+:::
+
+::: {.column width="60%"}
+*Dr. Nuzzo received her PhD in Statistics from Stanford University and is now Professor of Science, Technology, & Mathematics at [Gallaudet University](https://gallaudet.edu/). Dr. Nuzzo teaches statistics using American Sign Language.*
+
+*Her work has appeared in Nature, Los Angeles Times, New York Times, Reader's Digest, New Scientist, and Scientific American. Primarily, she works to help lay-audiences understand science and statistics in particular. She earned the American Statistical Association's 2014 Excellence in Statistical Reporting Award for her article on p-values in Nature. Her work led to the [ASA's statement on p-values](https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108).*
+
+Source: [hardin47.github.io/CURV/scholars/nuzzo](https://hardin47.github.io/CURV/scholars/nuzzo.html)\
+:::
+:::
+
+## Regina Nuzzo {.midi}
+
+From ["Tips for Communicating Statistical Significance."](https://www.nih.gov/about-nih/what-we-do/science-health-public-trust/perspectives/science-health-public-trust/tips-communicating-statistical-significance)
+
+*"That we use p-values to alert us to surprising data results, not to give a final answer on anything. (Or at least that's what we should be doing). And that results can get flagged as "statistically surprising" with a small p-value for a number of reasons"*
+
+1.  *There was a fluke.*
+
+2.  *Something was violated.*
+
+3.  *There was a real but tiny relationship.*
+
+4.  *There was a relationship that is worth more study.*
+
+*Or any combination of the above.*
+
+# Mathematical models for inference
+
+## Topics
+
+-   Define mathematical models to conduct inference for the slope
+
+-   Use mathematical models to
+
+    -   calculate confidence interval for the slope
+
+    -   conduct a hypothesis test for the slope
+
+## Computational setup
+
+```{r packages}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)   # for data wrangling and visualization
+library(tidymodels)  # for modeling
+library(openintro)   # for the duke_forest dataset
+library(scales)      # for pretty axis labels
+library(knitr)       # for pretty tables
+library(kableExtra)  # also for pretty tables
+library(patchwork)   # arrange plots
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
+```
+
+## The regression model, revisited
+
+```{r}
+#| echo: true
+df_fit <- linear_reg() |>
+  set_engine("lm") |>
+  fit(price ~ area, data = duke_forest)
+
+tidy(df_fit) |>
+  kable(digits = 3)
+```
+
+## Inference, revisited {.midi}
+
+::: incremental
+-   Earlier we computed a confidence interval and conducted a hypothesis test via simulation:
+    -   CI: Bootstrap the observed sample to simulate the distribution of the slope
+    -   HT: Permute the observed sample to simulate the distribution of the slope under the assumption that the null hypothesis is true
+-   Now we'll do these based on theoretical results, i.e., by using the Central Limit Theorem to define the distribution of the slope and use features (shape, center, spread) of this distribution to compute bounds of the confidence interval and the p-value for the hypothesis test
+:::
+
+## Mathematical representation of the model {.midi}
+
+$$
+\begin{aligned}
+Y &= Model + Error \\
+&= f(X) + \epsilon \\
+&= \mu_{Y|X} + \epsilon \\
+&= \beta_0 + \beta_1 X + \epsilon
+\end{aligned}
+$$
+
+where the errors are independent and normally distributed:
+
+. . .
+
+-   **independent**: Knowing the error term for one observation doesn't tell you anything about the error term for another observation
+-   **normally distributed**: $\epsilon \sim N(0, \sigma_\epsilon^2)$
+
+## Mathematical representation, visualized {.midi}
+
+$$
+Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
+$$
+
+::: columns
+::: {.column width="70%"}
+![Image source: *Introduction to the Practice of Statistics (5th ed)*](images/06/regression.png)
+:::
+
+::: {.column width="30%"}
+-   Mean: $\beta_0 + \beta_1 X$, the predicted value based on the regression model
+-   Variance: $\sigma_\epsilon^2$, constant across the range of $X$
+    -   How do we estimate $\sigma_\epsilon^2$?
+:::
+:::
+
+## Regression standard error
+
+Once we fit the model, we can use the residuals to estimate the **regression standard error**, the average distance between the observed values and the regression line
+
+$$
+\hat{\sigma}_\epsilon = \sqrt{\frac{\sum_\limits{i=1}^n(y_i - \hat{y}_i)^2}{n-2}} = \sqrt{\frac{\sum_\limits{i=1}^ne_i^2}{n-2}}
+$$
+
+. . .
+
+::: question
+1.  Why divide by $n - 2$?
+
+2.  Why do we care about the value of the regression standard error?
+:::
+
+## Standard error of $\hat{\beta}_1$
+
+The **standard error of** $\hat{\beta}_1$ quantifies the sampling variability in the estimated slopes
+
+$$
+SE_{\hat{\beta}_1} = \hat{\sigma}_\epsilon\sqrt{\frac{1}{(n-1)s_X^2}}
+$$
+
+. . .
+
+```{r}
+#| echo: false
+tidy(df_fit) |>
+  kable(digits = 2) |>
+  row_spec(2, background = "#D9E3E4")
+```
+
+# Mathematical models for inference for $\beta_1$
+
+## Hypothesis test for the slope {.midi}
+
+**Hypotheses:** $H_0: \beta_1 = 0$ vs. $H_A: \beta_1 \ne 0$
+
+. . .
+
+**Test statistic:** Number of standard errors the estimate is away from the null
+
+$$
+T = \frac{\text{Estimate - Null}}{\text{Standard error}} \\
+$$
+
+. . .
+
+**p-value:** Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed
+
+$$
+p-value = P(|t| > |\text{test statistic}|),
+$$
+
+calculated from a $t$ distribution with $n - 2$ degrees of freedom
+
+## Hypothesis test: Test statistic
+
+```{r}
+#| echo: false
+tidy(df_fit) |>
+  kable(digits = 2) |>
+  row_spec(2, background = "#D9E3E4")
+```
+
+$$
+T = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}} = \frac{159.48 - 0}{18.17} = 8.78
+$$
+
+::: question
+Select the best interpretation of the test statistic on Ed Discussion.\
+\[[10:05am lecture](https://edstem.org/us/courses/44523/discussion/scheduled/438012)\] \[[1:25pm lecture](https://edstem.org/us/courses/44523/discussion/scheduled/438014)\]
+:::
+
+## Hypothesis test: p-value
+
+```{r}
+#| echo: false
+tidy(df_fit) |>
+  kable(digits = 2) |>
+  row_spec(2, background = "#D9E3E4")
+```
+
+```{r}
+#| echo: false
+normTail(L = -8.78, U = 8.78, df = nrow(duke_forest) - 2, xlim = c(-9,9), col = "#D9E3E4")
+```
+
+## Hypothesis test: p-value
+
+```{r}
+#| echo: false
+tidy(df_fit) |>
+  kable(digits = 2) |>
+  row_spec(2, background = "#D9E3E4")
+```
+
+**A more exact p-value**
+
+```{r}
+2 * pt(q = 8.78, df = 96, lower.tail = FALSE)
+```
+
+::: question
+Select the meaning of the p-value on Ed Discussion.
+
+\[[10:05am lecture](https://edstem.org/us/courses/44523/discussion/scheduled/438023)\]\[[1:25pm lecture](https://edstem.org/us/courses/44523/discussion/scheduled/438024)\]
+:::
+
+## Understanding the p-value
+
+| Magnitude of p-value    | Interpretation                        |
+|:------------------------|:--------------------------------------|
+| p-value \< 0.01         | strong evidence against $H_0$         |
+| 0.01 \< p-value \< 0.05 | moderate evidence against $H_0$       |
+| 0.05 \< p-value \< 0.1  | weak evidence against $H_0$           |
+| p-value \> 0.1          | effectively no evidence against $H_0$ |
+
+::: callout-important
+These are general guidelines. The strength of evidence depends on the context of the problem.
+:::
+
+## Hypothesis test: Conclusion, in context
+
+```{r}
+#| echo: false
+tidy(df_fit) |>
+  kable(digits = 2) |>
+  row_spec(2, background = "#D9E3E4")
+```
+
+-   The data provide convincing evidence that the population slope $\beta_1$ is different from 0.
+-   The data provide convincing evidence of a linear relationship between area and price of houses in Duke Forest.
+
+## Confidence interval for the slope
+
+$$
+\text{Estimate} \pm \text{ (critical value) } \times \text{SE}
+$$
+
+. . .
+
+$$
+\hat{\beta}_1 \pm t^* \times SE_{\hat{\beta}_1}
+$$
+
+where $t^*$ is calculated from a $t$ distribution with $n-2$ degrees of freedom
+
+## Confidence interval: Critical value
+
+::: columns
+::: {.column width="60%"}
+::: {.fragment fragment-index="1"}
+```{r}
+#| echo: true
+
+# confidence level: 95%
+qt(0.975, df = nrow(duke_forest) - 2)
+```
+:::
+
+::: {.fragment fragment-index="2"}
+```{r}
+# confidence level: 90%
+qt(0.95, df = nrow(duke_forest) - 2)
+```
+:::
+
+::: {.fragment fragment-index="3"}
+```{r}
+# confidence level: 99%
+qt(0.995, df = nrow(duke_forest) - 2)
+```
+:::
+:::
+
+::: {.column width="40%"}
+```{r}
+#| out.width: "100%"
+#| echo: false
+
+normTail(M = c(-1.984984, 1.984984), df = nrow(duke_forest) - 2, col = "#D9E3E4")
+text(x = 0, y = 0.04, labels = "95%", cex = 2, col = "#5B888C")
+```
+:::
+:::
+
+## 95% CI for the slope: Calculation
+
+```{r}
+#| echo: false
+tidy(df_fit) |> 
+  kable(digits = 2) |>
+  row_spec(2, background = "#D9E3E4")
+```
+
+$$\hat{\beta}_1 = 159.48 \hspace{15mm} t^* = 1.98 \hspace{15mm} SE_{\hat{\beta}_1} = 18.17$$
+
+. . .
+
+$$
+159.48 \pm 1.98 \times 18.17 = (123.50, 195.46)
+$$
+
+## 95% CI for the slope: Computation
+
+```{r}
+#| echo: true
+
+tidy(df_fit, conf.int = TRUE, conf.level = 0.95) |> 
+  kable(digits = 2)
+```
+
+# Intervals for predictions
+
+## Intervals for predictions {.midi}
+
+-   Suppose we want to answer the question *"What is the predicted sale price of a Duke Forest house that is 2,800 square feet?"*
+-   We said reporting a single estimate for the slope is not wise, and we should report a plausible range instead
+-   Similarly, reporting a single prediction for a new value is not wise, and we should report a plausible range instead
+
+```{r}
+#| fig.width: 10
+#| echo: false
+
+x_new <- 2800
+y_hat_x_new <- predict(df_fit, new_data = tibble(area = x_new)) |> pull()
+
+ggplot(duke_forest, aes(x = area, y = price)) +
+  geom_segment(
+    x = x_new, xend = x_new, y = y_hat_x_new-600000, yend = y_hat_x_new+600000,
+    color = "#CDDBDC", size = 4
+  ) +
+  geom_segment(
+    x = x_new, xend = x_new, y = y_hat_x_new-400000, yend = y_hat_x_new+400000,
+    color = "#ADC3C5", size = 4
+  ) +
+  geom_segment(
+    x = x_new, xend = x_new, y = y_hat_x_new-200000, yend = y_hat_x_new+200000,
+    color = "#7B9FA3", size = 4
+  ) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") +
+  geom_segment(
+    x = x_new, xend = x_new, y = 0, yend = y_hat_x_new,
+    linetype = "dashed", color = "#5B888C"
+  ) +
+  geom_segment(
+    x = 0, xend = x_new, y = y_hat_x_new, yend = y_hat_x_new,
+    linetype = "dashed", color = "#5B888C"
+  ) +
+  annotate("point", x = x_new, y = y_hat_x_new, size = 2, color = "magenta") +
+  annotate("point", x = x_new, y = y_hat_x_new, size = 5, shape = "circle open", color = "#5B888C", stroke = 2) +
+  scale_x_continuous(labels = label_number()) +
+  scale_y_continuous(labels = label_dollar(), limits = c(000000, 1500000)) +
+  labs(
+    x = "Area (square feet)", y = "Sale price",
+    title = "Houses in Duke Forest"
+    )
+```
+
+## Two types of predictions
+
+1.  Prediction for the mean: "What is the average predicted sale price of Duke Forest houses that are 2,800 square feet?"
+
+2.  Prediction for an individual observation: "What is the predicted sale price of a Duke Forest house that is 2,800 square feet?"
+
+. . .
+
+::: question
+Which would you expect to be more variable? The average prediction or the prediction for an individual observation? Based on your answer, how would you expect the widths of plausible ranges for these two predictions to compare?
+:::
+
+## Uncertainty in predictions
+
+**Confidence interval for the mean outcome:** $$\large{\hat{y} \pm t_{n-2}^* \times \color{purple}{\mathbf{SE}_{\hat{\boldsymbol{\mu}}}}}$$
+
+. . .
+
+**Prediction interval for an individual observation:** $$\large{\hat{y} \pm t_{n-2}^* \times \color{purple}{\mathbf{SE_{\hat{y}}}}}$$
+
+## Standard errors
+
+**Standard error of the mean outcome:** $$SE_{\hat{\mu}} = \hat{\sigma}_\epsilon\sqrt{\frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$
+
+. . .
+
+**Standard error of an individual outcome:** $$SE_{\hat{y}} = \hat{\sigma}_\epsilon\sqrt{1 + \frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$
+
+## Standard errors
+
+**Standard error of the mean outcome:** $$SE_{\hat{\mu}} = \hat{\sigma}_\epsilon\sqrt{\frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$
+
+**Standard error of an individual outcome:** $$SE_{\hat{y}} = \hat{\sigma}_\epsilon\sqrt{\mathbf{\color{purple}{\Large{1}}} + \frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}$$
+
+## Confidence interval
+
+The 95% **confidence interval** for the *mean* outcome:
+
+```{r}
+#| echo: true
+new_house <- tibble(area = 2800)
+
+predict(df_fit, new_data = new_house, type = "conf_int", level = 0.95) |>
+  kable()
+```
+
+```{r}
+#| echo: false
+new_house_ci <- predict(df_fit, new_data = new_house, type = "conf_int", level = 0.95)
+```
+
+. . .
+
+We are 95% confident that mean sale price of Duke Forest houses that are 2,800 square feet is between `r dollar(new_house_ci$.pred_lower)` and `r dollar(new_house_ci$.pred_upper)`.
+
+## Prediction interval
+
+The 95% **prediction interval** for an *individual* outcome:
+
+```{r}
+#| echo: true
+predict(df_fit, new_data = new_house, type = "pred_int", level = 0.95) |>
+  kable()
+```
+
+```{r}
+#| echo: false
+new_house_pi <- predict(df_fit, new_data = new_house, type = "pred_int", level = 0.95)
+```
+
+. . .
+
+We are 95% confident that predicted sale price of a Duke Forest house that is 2,800 square feet is between `r dollar(new_house_pi$.pred_lower)` and `r dollar(new_house_pi$.pred_upper)`.
+
+## Comparing intervals
+
+```{r}
+#| out.width: "100%"
+#| fig.width: 10
+#| echo: false
+
+new_houses <- tibble(area = seq(1000, 6500, 50))
+new_houses_ci <- predict(df_fit, new_data = new_houses, type = "conf_int", level = 0.95) |> 
+  mutate(
+    area = new_houses$area,
+    type = "Confidence interval"
+    )
+new_houses_pi <- predict(df_fit, new_data = new_houses, type = "pred_int", level = 0.95) |> 
+  mutate(
+    area = new_houses$area,
+    type = "Prediction interval"
+    )
+new_houses_int <- bind_rows(new_houses_ci, new_houses_pi)
+
+ggplot(duke_forest, aes(x = area, y = price)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "#8F2D56") +
+  geom_line(data = new_houses_int,
+            aes(x = area, y = .pred_lower, linetype = type, color = type),
+            size = 1) +
+  geom_line(data = new_houses_int,
+            aes(x = area, y = .pred_upper, linetype = type, color = type),
+            size = 1) +
+  scale_x_continuous(labels = label_number()) +
+  scale_y_continuous(labels = label_dollar(), limits = c(000000, 1500000)) +
+  scale_color_manual(values = c("#5B888C", "#888c5b")) +
+  labs(
+    x = "Area (square feet)", y = "Sale price",
+    color = "Type of interval", linetype = "Type of interval",
+    title = "Houses in Duke Forest"
+    ) +
+  theme(
+    legend.position = c(0.2, 0.85)
+  )
+```
+
+## Extrapolation
+
+Using the model to predict for values outside the range of the original data is **extrapolation**.
+
+. . .
+
+::: columns
+::: {.column width="45%"}
+::: question
+Calculate the prediction interval for the sale price of a "tiny house" in Duke Forest that is 225 square feet.
+:::
+:::
+
+::: {.column width="55%"}
+![](images/07/tiny-house.jpeg){fig-alt="Black tiny house on wheels" fig-align="center"}
+:::
+:::
+
+. . .
+
+*No, thanks!*
+
+## Extrapolation
+
+::: question
+Why do we want to avoid extrapolation?
+:::

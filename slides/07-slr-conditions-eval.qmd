@@ -1,9 +1,9 @@
 ---
 title: "SLR: Conditions + Model evaluation"
-author: "Prof. Maria Tackett"
-date: "2022-09-20"
+author: "Prof. Eric Friedlander"
+date: "2024-08-28"
 date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 210 - Fall 2023 -  Schedule](https://sta210-fa23.netlify.app/schedule)"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -19,6 +19,7 @@ html-math-method:
 execute:
   freeze: auto
   echo: true
+  cache: false
 knitr:
   opts_chunk: 
     R.options:      
@@ -41,27 +42,27 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Announcements
+<!-- ## Announcements -->
 
--   HW 01: due TODAY at 11:59pm
+<!-- -   HW 01: due TODAY at 11:59pm -->
 
--   Lab 03:
+<!-- -   Lab 03: -->
 
-    -   due Fri at 11:59pm (Tue labs)
+<!--     -   due Fri at 11:59pm (Tue labs) -->
 
-    -   due Sun at 11:59pm (Thu labs)
+<!--     -   due Sun at 11:59pm (Thu labs) -->
 
--   Looking ahead: Exam 01:
+<!-- -   Looking ahead: Exam 01: -->
 
-    -   Closed note in-class: Wed, Oct 4
+<!--     -   Closed note in-class: Wed, Oct 4 -->
 
-    -   Open note take-home: Wed, Oct 4 - Fri, Oct 6
+<!--     -   Open note take-home: Wed, Oct 4 - Fri, Oct 6 -->
 
-        -   Released after Section 002
+<!--         -   Released after Section 002 -->
 
-    -   More about the exam next week
+<!--     -   More about the exam next week -->
 
-# Questions from last class?
+<!-- # Questions from last class? -->
 
 ## Computational set up
 
@@ -71,12 +72,15 @@ knitr::opts_chunk$set(
 
 # load packages
 library(tidyverse)   # for data wrangling and visualization
-library(tidymodels)  # for modeling
-library(openintro)   # for the duke_forest dataset
+library(broom)       # for formatting model output
 library(scales)      # for pretty axis labels
 library(knitr)       # for pretty tables
 library(kableExtra)  # also for pretty tables
 library(patchwork)   # arrange plots
+
+# HEB Dataset
+heb <- read_csv("data/HEBIncome.csv") |> 
+  mutate(Avg_Income_K = Avg_Household_Income/1000)
 
 # set default theme and larger font size for ggplot2
 ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
@@ -86,11 +90,9 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
 
 ```{r}
 #| echo: true
-df_fit <- linear_reg() |>
-  set_engine("lm") |>
-  fit(price ~ area, data = duke_forest)
+heb_fit <- lm(Number_Organic ~ Avg_Income_K, data = heb)
 
-tidy(df_fit) |>
+tidy(heb_fit) |>
   kable(digits = 3)
 ```
 
@@ -113,7 +115,7 @@ $$
 
 ## Linearity
 
--   If the linear model, $\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1x_i$ adequately describes the relationship between $X$ and $Y$, then the residuals should reflect random (chance) error
+-   If the linear model, $\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1x_i$, adequately describes the relationship between $X$ and $Y$, then the residuals should reflect random (chance) error
 
 -   To assess this, we can look at a plot of the residuals vs. the fitted values
 
@@ -127,17 +129,17 @@ $$
 
 ```{r res-vs-fit}
 #| echo: false
-df_aug <- augment(df_fit$fit)
+heb_aug <- augment(heb_fit)
 
-ggplot(df_aug, aes(x = .fitted, y = .resid)) +
+ggplot(heb_aug, aes(x = .fitted, y = .resid)) +
   geom_point() +
   geom_hline(yintercept = 0, linetype = "dashed") +
-  ylim(-1000000, 1000000) +
   labs(
     x = "Fitted value", y = "Residual",
     title = "Residuals vs. fitted values"
   )
 ```
+
 
 ## Residuals vs. fitted values (code)
 
@@ -181,11 +183,9 @@ p1 <- ggplot(df, aes(x = x, y = y_curved)) +
     title = "Observed data + model"
     )
 
-curved_fit <- linear_reg() |>
-  set_engine("lm") |>
-  fit(y_curved ~ x, data = df)
+curved_fit <- lm(y_curved ~ x, data = df)
 
-curved_aug <- augment(curved_fit$fit)
+curved_aug <- augment(curved_fit)
 
 p2 <- ggplot(curved_aug, aes(x = .fitted, y = .resid)) +
   geom_point() +
@@ -215,11 +215,9 @@ p1 <- ggplot(df, aes(x = x, y = y_slight_curve)) +
     title = "Observed data + model"
     )
 
-slight_curve_fit <- linear_reg() |>
-  set_engine("lm") |>
-  fit(y_slight_curve ~ x, data = df)
+slight_curve_fit <- lm(y_slight_curve ~ x, data = df)
 
-slight_curve_aug <- augment(slight_curve_fit$fit)
+slight_curve_aug <- augment(slight_curve_fit)
 
 p2 <- ggplot(slight_curve_aug, aes(x = .fitted, y = .resid)) +
   geom_point() +
@@ -235,15 +233,17 @@ p1 / p2 +
 :::
 :::
 
-## Constant variance
+## Constant variance {.midi}
 
--   If the spread of the distribution of $Y$ is equal for all values of $X$then the spread of the residuals should be approximately equal for each value of $X$
+-   If the spread of the distribution of $Y$ is equal for all values of $X$ then the spread of the residuals should be approximately equal for each value of $X$
 
 -   To assess this, we can look at a plot of the residuals vs. the fitted values
 
 -   **Constant variance satisfied** if the vertical spread of the residuals is approximately equal as you move from left to right (i.e. there is no "fan" pattern)
 
 -   A fan pattern suggests the constant variance assumption is not satisfied and transformation or some other remedy is required (more on this later in the semester)
+
+-   **CAREFUL**: Inconsistent distribution of $X$s can make it seem as if there is non-constant variance
 
 ## Constant variance
 
@@ -276,11 +276,9 @@ ggplot(df, aes(x = x_fan, y = y_fan)) +
 #| out.width: "100%"
 #| echo: false
 
-fan_fit <- linear_reg() |>
-  set_engine("lm") |>
-  fit(y_fan ~ x_fan, data = df)
+fan_fit <- lm(y_fan ~ x_fan, data = df)
 
-fan_aug <- augment(fan_fit$fit)
+fan_aug <- augment(fan_fit)
 
 ggplot(fan_aug, aes(x = .fitted, y = .resid)) +
   geom_point() +
@@ -293,6 +291,7 @@ ggplot(fan_aug, aes(x = .fitted, y = .resid)) +
 ```
 :::
 :::
+
 
 ## Normality {.midi}
 
@@ -311,8 +310,8 @@ ggplot(fan_aug, aes(x = .fitted, y = .resid)) +
 ```{r}
 #| echo: false
 
-ggplot(df_aug, aes(x = .resid)) +
-  geom_histogram(binwidth = 50000, color = "white") +
+ggplot(heb_aug, aes(x = .resid)) +
+  geom_histogram(bins = 7, color = "white") +
   labs(
     x = "Residual",
     y = "Count",
@@ -326,8 +325,8 @@ ggplot(df_aug, aes(x = .resid)) +
 ::: {.column width="50%"}
 ```{r}
 #| code-fold: true
-ggplot(df_aug, aes(x = .resid)) +
-  geom_histogram(binwidth = 50000, color = "white")  +
+ggplot(heb_aug, aes(x = .resid)) +
+  geom_histogram(bins=7, color = "white")  +
   labs(
     x = "Residual",
     y = "Count",
@@ -342,7 +341,7 @@ ggplot(df_aug, aes(x = .resid)) +
 ::: {.column width="50%"}
 ```{r}
 #| code-fold: true
-ggplot(df_aug, aes(sample = .resid)) +
+ggplot(heb_aug, aes(sample = .resid)) +
   stat_qq()+
   stat_qq_line() + 
   labs(x = "Theoretical quantile", 
@@ -360,8 +359,9 @@ ggplot(df_aug, aes(sample = .resid)) +
 
 ```{r}
 #| echo: false
+#| out.width: "80%"
 
-ggplot(df_aug, aes(sample = .resid)) +
+ggplot(heb_aug, aes(sample = .resid)) +
   stat_qq()+
   stat_qq_line() + 
   labs(x = "Theoretical quantile", 
@@ -371,7 +371,8 @@ ggplot(df_aug, aes(sample = .resid)) +
 
 ❌ The residuals do not appear to follow a normal distribution, because the points do not lie on the diagonal line, so normality is not satisfied.
 
-✅ The sample size $n = 98 > 30$, so the sample size is large enough to relax this condition and proceed with inference.
+✅ The sample size  $ n =  37 > 30$, so the sample size is large enough to relax this condition and proceed with inference.
+
 
 ## Independence {.midi}
 
@@ -381,19 +382,19 @@ ggplot(df_aug, aes(sample = .resid)) +
 
     -   **Serial Effect**: If the data were collected over time, plot the residuals in time order to see if there is a pattern (serial correlation)
 
-    -   **Cluster Effect**: If there are subgroups represented in the data that are not accounted for in the model (e.g., type of house), you can color the points in the residual plots by group to see if the model systematically over or under predicts for a particular subgroup
+    -   **Cluster Effect**: If there are subgroups represented in the data that are not accounted for in the model (e.g., type of supermarket), you can color the points in the residual plots by group to see if the model systematically over or under predicts for a particular subgroup
 
 ## Independence {.nonincremental}
 
 Recall the description of the data:
 
-> -   Data on houses that were sold in the Duke Forest neighborhood of Durham, NC around November 2020
+> -   Average household income (per zip code) and number of organic vegetable offerings in San Antonio, TX
 >
-> -   Scraped from Zillow
+> -   Data from HEB website, compiled by high school student Linda Saucedo, Fall 2019
 
 <br>
 
-✅ Based on the information we have, we can reasonably treat this as a random sample of Duke Forest Houses and assume the error for one house does not tell us anything about the error for another house.
+❌ Based on the information we have,  its'  unclear if the data are independeent. In fact, I'd guess that they are likely geographically correlated.
 
 ## Recap
 
@@ -418,9 +419,7 @@ Used residual plots to check conditions for SLR:
 . . .
 
 ::: question
-Which of these conditions are required for fitting a SLR? Which for simulation-based inference for the slope for an SLR? Which for inference with mathematical models?\
-
-Ed Discussion \[[Section 001](https://edstem.org/us/courses/44523/discussion/439750)\]\[[Section 002](https://edstem.org/us/courses/44523/discussion/439753)\]
+Which of these conditions are required for fitting a SLR? Which for simulation-based inference for the slope for an SLR? Which for inference with mathematical models?
 :::
 
 ```{r}
@@ -441,18 +440,18 @@ countdown(minutes = 3, font_size = "2em")
 countdown(minutes = 2, font_size = "2em")
 ```
 
-# Application exercise
+<!-- # Application exercise -->
 
-::: appex
-📋 [sta210-fa23.netlify.app/ae/ae-06-conditions](https://sta210-fa23.netlify.app/ae/ae-06-conditions.html)
-:::
+<!-- ::: appex -->
+<!-- 📋 [sta210-fa23.netlify.app/ae/ae-06-conditions](https://sta210-fa23.netlify.app/ae/ae-06-conditions.html) -->
+<!-- ::: -->
 
 # Model evaluation
 
 ## Two statistics {.small}
 
 ::: incremental
--   **R-squared**, $R^2$ : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)
+-   **R-squared**, $R^2$, **Coefficient of Determination** : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)
 
     $$
     R^2 = Cor(x,y)^2 = Cor(y, \hat{y})^2
@@ -478,11 +477,13 @@ What indicates a good model fit? Higher or lower $R^2$? Higher or lower RMSE?
 
 -   Has no units
 
--   Calculate with `rsq()` using the augmented data:
+-   Calculate with `glance()` or `summary()` using the fitted model:
 
 ```{r}
 #| echo: true
-rsq(df_aug, truth = price, estimate = .fitted)
+glance(heb_fit)
+
+glance(heb_fit)$r.squared
 ```
 :::
 
@@ -490,7 +491,7 @@ rsq(df_aug, truth = price, estimate = .fitted)
 
 ```{r}
 #| echo: false
-df_fit_rsq <- round(glance(df_fit)$r.squared * 100, 1)
+heb_fit_rsq <- round(glance(heb_fit)$r.squared * 100, 1)
 ```
 
 ::: poll
@@ -498,33 +499,15 @@ df_fit_rsq <- round(glance(df_fit)$r.squared * 100, 1)
 
 ::: midi
 ::: poll
-The $R^2$ of the model for price from area of houses in Duke Forest is `r df_fit_rsq`%. Which of the following is the correct interpretation of this value?
+The $R^2$ of the model for `Number_Organic` from `Average_Income_K` is `r heb_fit_rsq`%. Which of the following is the correct interpretation of this value?
 :::
 
-1.  Area correctly predicts `r df_fit_rsq`% of price for houses in Duke Forest.
-2.  `r df_fit_rsq`% of the variability in price for houses in Duke Forest can be explained by area.
-3.  `r df_fit_rsq`% of the variability in area for houses in Duke Forest can be explained by price
-4.  `r df_fit_rsq`% of the time price for houses in Duke Forest can be predicted by area.
+1.  `Avg_Income_K` correctly predicts `r heb_fit_rsq`% of `Number_Organic` in San Anontio HEBs.
+2.  `r heb_fit_rsq`% of the variability in `Number_Organic` can be explained by `Avg_Income_K`.
+3.  `r heb_fit_rsq`% of the variability in `Avg_Income_K` can be explained by `Number_Organic`.
+4.  `r heb_fit_rsq`% of the time `Number_Organic` can be predicted by `Avg_Income_K`.
 :::
 :::
-
-## Alternative approach for $R^2$
-
-Alternatively, use `glance()` to construct a single row summary of the model fit, including $R^2$:
-
-```{r}
-#| echo: true
-
-glance(df_fit)
-```
-
-<br>
-
-. . .
-
-```{r}
-glance(df_fit)$r.squared
-```
 
 ## RMSE
 
@@ -533,39 +516,19 @@ glance(df_fit)$r.squared
 
 -   Same units as the response variable
 
--   Calculate with `rmse()` using the augmented data:
+-   Calculate with `glance()` using the augmented data:
 
     ```{r}
     #| echo: true
 
-    rmse(df_aug, truth = price, estimate = .fitted)
+    glance(heb_fit)$sigma
     ```
 
 -   The value of RMSE is not very meaningful on its own, but it's useful for comparing across models (more on this when we get to regression with multiple predictors)
 :::
 
-## Obtaining $R^2$ and RMSE
+<!-- # Application exercise -->
 
-::: incremental
--   Use `rsq()` and `rmse()`, respectively
-
-    ```{r}
-    #| echo: true
-    #| eval: false
-
-    rsq(df_aug, truth = price, estimate = .fitted)
-    rmse(df_aug, truth = price, estimate = .fitted)
-    ```
-
--   First argument: data frame containing `truth` and `estimate` columns
-
--   Second argument: name of the column containing `truth` (observed outcome)
-
--   Third argument: name of the column containing `estimate` (predicted outcome)
-:::
-
-# Application exercise
-
-::: appex
-📋 [sta210-fa23.netlify.app/ae/ae-06-conditions](https://sta210-fa23.netlify.app/ae/ae-06-conditions.html)
-:::
+<!-- ::: appex -->
+<!-- 📋 [sta210-fa23.netlify.app/ae/ae-06-conditions](https://sta210-fa23.netlify.app/ae/ae-06-conditions.html) -->
+<!-- ::: -->

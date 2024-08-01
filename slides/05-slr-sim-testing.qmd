@@ -1,9 +1,9 @@
 ---
 title: "SLR: Randomization test for the slope"
-author: "Prof. Maria Tackett"
-date: "2022-09-13"
+author: "Prof. Eric Friedlander"
+date: "2024-08-28"
 date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 210 - Fall 2023 -  Schedule](https://sta210-fa23.netlify.app/schedule)"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -19,6 +19,7 @@ html-math-method:
 execute:
   freeze: auto
   echo: true
+  cache: false
 knitr:
   opts_chunk: 
     R.options:      
@@ -26,36 +27,21 @@ knitr:
 bibliography: references.bib
 ---
 
-```{r setup}
-#| include: false
+<!-- ## Announcements -->
 
-library(countdown)
+<!-- -   Lab 02 due -->
 
-knitr::opts_chunk$set(
-  fig.width = 8,
-  fig.asp = 0.618,
-  fig.retina = 3,
-  dpi = 300,
-  out.width = "80%",
-  fig.align = "center"
-)
-```
+<!--     -   Friday, Sep 15 at 11:59pm (Tuesday labs) -->
 
-## Announcements
+<!--     -   Sunday, Sep 17 at 11:59pm (Thursday labs) -->
 
--   Lab 02 due
+<!-- -   HW 01 -->
 
-    -   Friday, Sep 15 at 11:59pm (Tuesday labs)
+<!--     -   Released later today (will get email when HW is available) -->
 
-    -   Sunday, Sep 17 at 11:59pm (Thursday labs)
+<!--     -   due Wed, Sep 20 at 11:59pm -->
 
--   HW 01
-
-    -   Released later today (will get email when HW is available)
-
-    -   due Wed, Sep 20 at 11:59pm
-
--   [Statistics experience](https://sta210-fa23.netlify.app/stats-experience.html) - due Mon, Nov 20 at 11:59pm
+<!-- -   [Statistics experience](https://sta210-fa23.netlify.app/stats-experience.html) - due Mon, Nov 20 at 11:59pm -->
 
 ## Topics
 
@@ -71,9 +57,9 @@ knitr::opts_chunk$set(
 
 # load packages
 library(tidyverse)   # for data wrangling and visualization
-library(tidymodels)  # for modeling
+library(broom)       # for nearly formatting model output
+library(infer)       # for simulation based inference
 library(usdata)      # for the county_2019 dataset
-library(openintro)   # for Duke Forest dataset
 library(scales)      # for pretty axis labels
 library(glue)        # for constructing character strings
 library(knitr)       # for neatly formatted tables
@@ -86,43 +72,41 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 
 # Recap of last lecture
 
-## Data: Duke Forest houses
+## [Data: San Antonio Income & Organic Food Access]{.r-fit-text}
 
 ```{r}
 #| echo: false
-ggplot(duke_forest, aes(x = area, y = price)) +
+
+heb <- read_csv("data/HEBIncome.csv") |> 
+  mutate(Avg_Income_K = Avg_Household_Income/1000)
+
+ggplot(heb, aes(x = Avg_Income_K, y = Number_Organic)) +
   geom_point(alpha = 0.7) +
   labs(
-    x = "Area (square feet)",
-    y = "Sale price (USD)",
-    title = "Price and area of houses in Duke Forest"
+    x = "Average Household Income (in thousands)",
+    y = "Number of Organic Vegetables",
   ) +
-  scale_y_continuous(labels = label_dollar()) +
-  scale_x_continuous(labels = label_number())
+  scale_x_continuous(labels = label_dollar())
 ```
 
 ## The regression model
 
 ```{r}
+heb_fit <- lm(Number_Organic ~ Avg_Income_K, data = heb)
 
-df_fit <- linear_reg() |>
-  set_engine("lm") |>
-  fit(price ~ area, data = duke_forest)
-
-tidy(df_fit) |>
+tidy(heb_fit) |>
   kable(digits = 2)
-
 ```
 
 . . .
 
 ```{r}
 #| echo: false
-intercept <- tidy(df_fit) |> filter(term == "(Intercept)") |> pull(estimate) |> round()
-slope <- tidy(df_fit) |> filter(term == "area") |> pull(estimate) |> round()
+intercept <- tidy(heb_fit) |> filter(term == "(Intercept)") |> pull(estimate) |> round(digits=2)
+slope <- tidy(heb_fit) |> filter(term == "Avg_Income_K") |> pull(estimate) |> round(digits=2)
 ```
 
-**Slope:** For each additional square foot, we expect the sale price of Duke Forest houses to be higher by `r dollar(slope)`, on average.
+**Slope:** For each additional \$1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by `r slope`, on average.
 
 ## Inference for simple linear regression
 
@@ -152,8 +136,8 @@ slope <- tidy(df_fit) |> filter(term == "area") |> pull(estimate) |> round()
 
 set.seed(210)
 
-duke_forest |>
-  specify(price ~ area)
+heb |>
+  specify(Number_Organic ~ Avg_Income_K)
 ```
 
 ## Bootstrapping pipeline II
@@ -164,8 +148,8 @@ duke_forest |>
 
 set.seed(210)
 
-duke_forest |>
-  specify(price ~ area) |>
+heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
   generate(reps = 1000, type = "bootstrap")
 ```
 
@@ -177,8 +161,8 @@ duke_forest |>
 
 set.seed(210)
 
-duke_forest |>
-  specify(price ~ area) |>
+heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
   generate(reps = 1000, type = "bootstrap") |>
   fit()
 ```
@@ -191,8 +175,8 @@ duke_forest |>
 
 set.seed(210)
 
-boot_dist <- duke_forest |>
-  specify(price ~ area) |>
+boot_dist <- heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
   generate(reps = 1000, type = "bootstrap") |>
   fit()
 ```
@@ -204,9 +188,9 @@ boot_dist <- duke_forest |>
 #| code-line-numbers: "|2"
 
 boot_dist |>
-  filter(term == "area") |>
+  filter(term == "Avg_Income_K") |>
   ggplot(aes(x = estimate)) +
-  geom_histogram(binwidth = 10)
+  geom_histogram(bins = 15)
 ```
 
 ## Compute the CI
@@ -214,9 +198,9 @@ boot_dist |>
 ```{r}
 #| echo: false
 boot_dist |>
-  filter(term == "area") |>
+  filter(term == "Avg_Income_K") |>
   ggplot(aes(x = estimate)) +
-  geom_histogram(binwidth = 10)
+  geom_histogram(bins = 15)
 ```
 
 ## But first...
@@ -224,8 +208,8 @@ boot_dist |>
 ```{r}
 #| echo: true
 
-obs_fit <- duke_forest |>
-  specify(price ~ area) |>
+obs_fit <- heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
   fit()
 
 obs_fit
@@ -252,7 +236,7 @@ boot_dist |>
 
 . . .
 
-**Null hypothesis**: there is no linear relationship between `area` and `price`
+**Null hypothesis**: there is no linear relationship between `Number_Organic` and `Avg_Income_K`
 
 $$
 H_0: \beta_1 = 0
@@ -260,7 +244,7 @@ $$
 
 . . .
 
-**Alternative hypothesis**: there is a linear relationship between `area` and `price`
+**Alternative hypothesis**: there is a linear relationship between `Number_Organic` and `Avg_Income_K`
 
 $$
 H_A: \beta_1 \ne 0
@@ -274,8 +258,8 @@ $$
 -   **Present the evidence:** Collect data
 -   **Judge the evidence:** "Could these data plausibly have happened by chance if the null hypothesis were true?"
     -   Yes: Fail to reject $H_0$
-
     -   No: Reject $H_0$
+-   Not guilty $\neq$ innocent $\implies$ why we say "fail to reject the null" rather than "accept the null"
 :::
 
 ## Hypothesis testing framework {.midi}
@@ -283,7 +267,7 @@ $$
 ::: incremental
 -   Start with a null hypothesis, $H_0$ that represents the status quo
 -   Set an alternative hypothesis, $H_A$ that represents the research question, i.e. claim we're testing
--   Conduct a hypothesis test under the assumption that the null hypothesis is true and calculate a **p-value** (probability of getting the observed or a more extreme outcome given that the null hypothesis is true)
+-   Under the assumption that the null hypothesis is true, calculate a **p-value** (probability of getting outcome or outcome even more favorable to the alternative)
     -   if the test results suggest that the data do not provide convincing evidence for the alternative hypothesis, stick with the null hypothesis
     -   if they do, then reject the null hypothesis in favor of the alternative
 :::
@@ -307,8 +291,8 @@ $$
 ::: columns
 ::: {.column width="40%"}
 -   Use permuting to simulate data under the assumption the null hypothesis is true and measure the natural variability in the data due to sampling, [**not**]{.underline} due to variables being correlated
-    -   Permute one variable to eliminate any existing relationship between the variables
--   Each `price` value is randomly assigned to the `area` of a given house, i.e. `area` and `price` are no longer matched for a given house
+    -   Permute reponse variable to eliminate any existing relationship with explanatory variable
+-   Each `Number_Organic` value is randomly assigned to the `Avg_Household_K`, i.e. `Number_Organic` and `Avg_Household_K` are no longer matched for a given store
 :::
 
 ::: {.column width="60%"}
@@ -316,13 +300,13 @@ $$
 #| echo: false
 set.seed(1234)
 
-duke_forest_rand <- duke_forest |>
+heb_rand <- heb |>
   mutate(
-    price_Observed = price,
-    price_Permuted = sample(price, size = nrow(duke_forest))
+    Number_Organic_Original = Number_Organic,
+    Number_Organic_Permuted = sample(Number_Organic, size = nrow(heb))
     ) |>
-  select(contains("price_"), area)
-duke_forest_rand
+  select(contains("Number_Organic_"), Avg_Income_K)
+heb_rand
 ```
 :::
 :::
@@ -332,7 +316,7 @@ duke_forest_rand
 ::: columns
 ::: {.column width="50%"}
 -   Each of the observed values for `area` (and for `price`) exist in both the observed data plot as well as the permuted `price` plot
--   The permutation removes the relationship between `area` and `price`
+-   Permuting removes the relationship between `area` and `price`
 :::
 
 ::: {.column width="50%"}
@@ -341,16 +325,17 @@ duke_forest_rand
 #| fig.asp: 1.2
 #| echo: false
 
-duke_forest_rand |>
-  pivot_longer(cols = contains("price_"), names_to = "price_type", names_prefix = "price_", values_to = "price") |>
-  ggplot(aes(x = area, y = price)) +
+heb_rand |>
+  pivot_longer(cols = contains("Number_Organic_"), names_to = "Number_Organic_Type", names_prefix = "Number_Organic_", values_to = "Number_Organic") |>
+  ggplot(aes(x = Avg_Income_K, y = Number_Organic)) +
   geom_point() +
-  geom_smooth(aes(color = price_type), method = "lm", se = FALSE, show.legend = FALSE) +
-  facet_wrap(~price_type, nrow = 2) +
+  geom_smooth(aes(color = Number_Organic_Type), method = "lm", se = FALSE, show.legend = FALSE) +
+  facet_wrap(~Number_Organic_Type, nrow = 2) +
   scale_color_manual(values = c("#8F2D56", "gray")) +
   scale_x_continuous(labels = label_number()) +
   scale_y_continuous(labels = label_dollar()) +
-  labs(x = "Area", y = "Price")
+  labs(x = "Avg_Income_K", y = "Number_Organic") + 
+  theme(text = element_text(size = 20))
 ```
 :::
 :::
@@ -364,21 +349,20 @@ Repeated permutations allow for quantifying the variability in the slope under t
 
 set.seed(1125)
 
-df_perms_1000 <- duke_forest |>
-  specify(price ~ area) |>
+heb_perms_1000 <- heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
   hypothesize(null = "independence") |>
   generate(reps = 1000, type = "permute")
 
-ggplot(df_perms_1000, 
-       aes(x = area, y = price, group = replicate)) +
+ggplot(heb_perms_1000, 
+       aes(x = Avg_Income_K, y = Number_Organic, group = replicate)) +
   geom_line(stat = "smooth", method = "lm", se = FALSE, alpha = 0.1) +
   labs(
-    x = "Area (square feet)",
-    y = "Sale price (USD)",
-    title = "1,000 permuted samples"
+    x = "Average Household Income (in thousands)",
+    y = "Number of Organic Vegetables",
   ) +
-  scale_y_continuous(labels = label_dollar(), limits = c(min(duke_forest$price), max(duke_forest$price))) +
-  scale_x_continuous(labels = label_number(), limits = c(min(duke_forest$area), max(duke_forest$area))) +
+  scale_x_continuous(labels = label_dollar(), limits = c(range(heb$Avg_Income_K))) +
+  scale_y_continuous(labels = label_number(), limits = c(range(heb$Number_Organic))) +
   geom_abline(intercept = intercept, slope = slope, color = "#8F2D56")
 ```
 
@@ -393,12 +377,12 @@ Is the observed slope of $\hat{\beta_1} = 159$ (or an even more extreme slope) a
 #| fig.asp: 0.618
 #| echo: false
 
-null_dist <- df_perms_1000 |>
+null_dist <- heb_perms_1000 |>
   fit()
 
-ggplot(null_dist |> filter(term == "area"),
+ggplot(null_dist |> filter(term == "Avg_Income_K"),
        aes(x = estimate)) +
-  geom_histogram(binwidth = 10, color = "white") +
+  geom_histogram(color = "white") +
   labs(x = "Slope", y = "Count",
        title = "Slopes of 1000 permuted samples") +
   geom_vline(xintercept = slope, color = "#8F2D56", size = 1) +
@@ -406,269 +390,3 @@ ggplot(null_dist |> filter(term == "area"),
   scale_x_continuous(limits = c(-slope, slope), breaks = seq(-150, 150, 50))
 ```
 
-# Application exercise
-
-::: appex
-📋 [AE 05: Randomization test for the slope](https://sta210-fa23.netlify.app/ae/ae-05-sim-testing.html)
-:::
-
-## Permutation pipeline I
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|1|3|4"
-
-set.seed(1125)
-
-duke_forest |>
-  specify(price ~ area)
-```
-
-## Permutation pipeline II
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|5"
-
-set.seed(1125)
-
-duke_forest |>
-  specify(price ~ area) |>
-  hypothesize(null = "independence")
-```
-
-## Permutation pipeline III
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|6"
-
-set.seed(1125)
-
-duke_forest |>
-  specify(price ~ area) |>
-  hypothesize(null = "independence") |>
-  generate(reps = 1000, type = "permute")
-```
-
-## Permutation pipeline IV
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|7"
-
-set.seed(1125)
-
-duke_forest |>
-  specify(price ~ area) |>
-  hypothesize(null = "independence") |>
-  generate(reps = 1000, type = "permute") |>
-  fit()
-```
-
-## Permutation pipeline V
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|3"
-
-set.seed(1125)
-
-null_dist <- duke_forest |>
-  specify(price ~ area) |>
-  hypothesize(null = "independence") |>
-  generate(reps = 1000, type = "permute") |>
-  fit()
-```
-
-## Visualize the null distribution
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|2"
-
-null_dist |>
-  filter(term == "area") |>
-  ggplot(aes(x = estimate)) +
-  geom_histogram(binwidth = 10, color = "white")
-```
-
-## Reason around the p-value {.smaller}
-
-::: question
-In a world where the there is no relationship between the area of a Duke Forest house and in its price ($\beta_1 = 0$), what is the probability that we observe a sample of `r nrow(duke_forest)` houses where the slope fo the model predicting price from area is 159 or even more extreme?
-:::
-
-```{r}
-#| echo: false
-
-null_dist |>
-  filter(term == "area") |>
-  ggplot(aes(x = estimate)) +
-  geom_histogram(binwidth = 10, color = "white") +
-  geom_vline(xintercept = slope, color = "#8F2D56", size = 1) +
-  geom_vline(xintercept = -1*slope, color = "#8F2D56", size = 1, linetype = "dashed") +
-  scale_x_continuous(limits = c(-slope, slope), breaks = seq(-150, 150, 50))
-```
-
-## Compute the p-value
-
-::: question
-What does this warning mean?
-:::
-
-```{r}
-#| echo: true
-#| warning: true
-
-get_p_value(
-  null_dist,
-  obs_stat = obs_fit,
-  direction = "two-sided"
-)
-```
-
-# Mathematical models for inference
-
-## The regression model, revisited
-
-```{r}
-#| echo: true
-df_fit <- linear_reg() |>
-  set_engine("lm") |>
-  fit(price ~ area, data = duke_forest)
-
-tidy(df_fit) |>
-  kable(digits = 3)
-```
-
-## Inference, revisited
-
-::: incremental
--   Earlier we computed a confidence interval and conducted a hypothesis test via simulation:
-    -   CI: Bootstrap the observed sample to simulate the distribution of the slope
-    -   HT: Permute the observed sample to simulate the distribution of the slope under the assumption that the null hypothesis is true
--   Now we'll do these based on theoretical results, i.e., by using the Central Limit Theorem to define the distribution of the slope and use features (shape, center, spread) of this distribution to compute bounds of the confidence interval and the p-value for the hypothesis test
-:::
-
-## Mathematical representation of the model {.midi}
-
-$$
-\begin{aligned}
-Y &= Model + Error \\
-&= f(X) + \epsilon \\
-&= \mu_{Y|X} + \epsilon \\
-&= \beta_0 + \beta_1 X + \epsilon
-\end{aligned}
-$$
-
-where the errors are independent and normally distributed:
-
-. . .
-
--   **independent**: Knowing the error term for one observation doesn't tell you anything about the error term for another observation
--   **normally distributed**: $\epsilon \sim N(0, \sigma_\epsilon^2)$
-
-## Mathematical representation, visualized {.midi}
-
-$$
-Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
-$$
-
-::: columns
-::: {.column width="70%"}
-```{r}
-#| out.width: "100%"
-#| fig.align: "center"
-#| echo: false
-#| fig-cap: Graph reproduced from *Beyond Multiple Linear Regression*.
-
-# Code modified from https://stackoverflow.com/questions/31794876/ggplot2-how-to-curve-small-gaussian-densities-on-a-regression-line?rq=1
-# Modified based on BYSH: https://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions
-set.seed(0)
-dat <- data.frame(
-  x = (x <- runif(10000, 0, 50)),
-  y = rnorm(10000, 10 * x, 100)
-)
-## breaks: where you want to compute densities
-breaks <- seq(0, max(dat$x), len = 5)
-dat$section <- cut(dat$x, breaks)
-## Get the residuals
-dat$res <- residuals(lm(y ~ x, data = dat))
-## Compute densities for each section, and flip the axes, and add means of sections
-## Note: the densities need to be scaled in relation to the section size (2000 here)
-dens <- do.call(rbind, lapply(split(dat, dat$section), function(x) {
-  d <- density(x$res, n = 50)
-  res <- data.frame(x = max(x$x) - d$y * 2000, y = d$x + mean(x$y))
-  res <- res[order(res$y), ]
-  ## Get some data for normal lines as well
-  xs <- seq(min(x$res), max(x$res), len = 50)
-  res <- rbind(res, data.frame(
-    y = xs + mean(x$y),
-    x = max(x$x) - 2000 * dnorm(xs, 0, sd(x$res))
-  ))
-  res$type <- rep(c("empirical", "normal"), each = 50)
-  res
-}))
-dens$section <- rep(levels(dat$section), each = 100)
-dens <- dens |>
-  filter(type == "normal")
-
-ggplot(dat, aes(x, y)) +
-  geom_point(alpha = 0.05, size = 0.2) +
-  geom_smooth(method = "lm", fill = NA, se = FALSE, color = "steelblue") +
-  geom_path(data = dens, aes(x, y, group = interaction(section)), color = "#8F2D56", lwd = 1.1) +
-  geom_vline(xintercept = breaks, lty = 2, color = "grey") +
-  labs(
-    x = "x",
-    y = "y"
-  ) +
-  theme(
-    axis.title = element_text(size = 16),
-    axis.ticks = element_blank(),
-    axis.text.x = element_blank(),
-    axis.text.y = element_blank()
-  )
-```
-:::
-
-::: {.column width="30%"}
--   Mean: $\beta_0 + \beta_1 X$, the predicted value based on the regression model
--   Variance: $\sigma_\epsilon^2$, constant across the range of $X$
-    -   How do we estimate $\sigma_\epsilon^2$?
-:::
-:::
-
-## Regression standard error
-
-Once we fit the model, we can use the residuals to estimate the regression standard error (the spread of the distribution of the response, for a given value of the predictor variable):
-
-$$
-\hat{\sigma}_\epsilon = \sqrt{\frac{\sum_\limits{i=1}^n(y_i - \hat{y}_i)^2}{n-2}} = \sqrt{\frac{\sum_\limits{i=1}^ne_i^2}{n-2}}
-$$
-
-. . .
-
-::: question
-::: nonincremental
-1.  Why divide by $n - 2$?
-2.  Why do we care about the value of the regression standard error?
-:::
-:::
-
-## Standard error of $\hat{\beta}_1$
-
-$$
-SE_{\hat{\beta}_1} = \hat{\sigma}_\epsilon\sqrt{\frac{1}{(n-1)s_X^2}}
-$$
-
-. . .
-
-or...
-
-```{r}
-#| echo: false
-tidy(df_fit) |>
-  kable(digits = 2) |>
-  row_spec(2, background = "#D9E3E4")
-```
