@@ -24,8 +24,8 @@ d <- read_excel("schedule.xlsx")
 #| echo: false
 
 d |>
-  filter(Publish == "x")
-  select(-`Eric's Notes`, -"Publish") |>
+  filter(Publish == "x") |> 
+  select(-Publish, -`Eric's Notes`) |>
   mutate(
     date = as.Date(date),
     week = ifelse(is.na(week), "", week)
