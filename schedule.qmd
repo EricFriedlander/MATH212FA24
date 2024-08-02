@@ -12,11 +12,11 @@ freeze: false
 #| message: false
 #| warning: false
 
-library(googlesheets4)
+library(readxl)
 library(gt)
 library(tidyverse)
-gs4_deauth()
-d <- read_sheet("https://docs.google.com/spreadsheets/d/1uNGwCkwbzLCa09G-N6VDruny0hLqu5nzEizA_-DhKLQ/edit?usp=sharing", sheet = "Sheet1")
+# gs4_deauth()
+d <- read_excel("schedule.xlsx")
 ```
 
 ::: column-screen-right
@@ -24,7 +24,8 @@ d <- read_sheet("https://docs.google.com/spreadsheets/d/1uNGwCkwbzLCa09G-N6VDrun
 #| echo: false
 
 d |>
-  select(-`Maria's notes`) |>
+  filter(Publish == "x")
+  select(-`Eric's Notes`, -"Publish") |>
   mutate(
     date = as.Date(date),
     week = ifelse(is.na(week), "", week)
