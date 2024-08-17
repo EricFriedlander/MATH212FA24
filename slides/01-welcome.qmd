@@ -246,7 +246,7 @@ See the [syllabus](https://mat212fa24.netlify.app/syllabus) for details on how t
 
 ## Late Application Exercises
 
--   No late work is accepted for application exercises, since these are designed as in-class activities to help you prepare for labs and homework. If you are absent for a school-sponsored event or illness, you will be allowed to submit the exercise outside of class hours, no later than the start of the next class
+-   AEs are due three days after the class they are assigned. No late work is accepted for application exercises, since these are designed as in-class activities to help you prepare for homework. 
 
 ## Late Exams and Final Project
 
