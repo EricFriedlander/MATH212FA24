@@ -5233,7 +5233,7 @@
     "href": "computing-access.html",
     "title": "Computing access",
     "section": "",
-    "text": "To access computing resources for the introductory data science courses offered by the Duke University Department of Statistical Science, go to the Duke Container Manager website, cmgr.oit.duke.edu/containers.\nIf this is your first time accessing the containers, click on reserve STA210 on the Reservations available menu on the right. You only need to do this once, and when you do, you’ll see this container moved to the My reservations menu on the left.\nNext, click on STA210 under My reservations to access the RStudio instance you’ll use for the course.",
+    "text": "To access RStudio at the College of Idaho, go to the CofI Posit Workbench website and sign-in using the CofI email and password.\nTo access course files click “File &gt; Open File…” then click the “…” button while will pull-up a tab titled “Go To Folder” and have a box labeled “Path to folder (use ~ for home directory):”. In the corresponding box enter: /srv/R/MAT212_FA24. You can ten copy activity and hw templates by looking in the bottom right pane, clicking the gear icon and clicking “Copy To…”. Then repeat the process above but enter ~ and then click save. The file is now in your home directory and can be edited freely.",
     "crumbs": [
       "Computing",
       "Access"

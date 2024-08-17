@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 210 - Fall 2023 - Computing access</title>
+<title>MAT 212 - Fall 2024 - Computing access</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./computing-troubleshooting.html" rel="next">
+<link href="./computing-r-resources.html" rel="next">
 <link href="./links.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -98,29 +98,9 @@ ul.task-list li input[type="checkbox"] {
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
-      <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/sta210-fa23" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
-    <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="quarto-navigation-tool px-1" aria-label="RStudio Containers"><i class="bi bi-code-square"></i></a>
-    <div class="dropdown">
-      <a href="" title="Sakai" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Sakai"><i class="bi bi-person-fill"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/site/f2e8b7dc-61e6-4431-9b5c-29f8411ee5db">
-            Sakai
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://edstem.org/us/courses/44523/discussion/">
-            Ed Discussion
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/584312">
-            Gradescope
-            </a>
-          </li>
-      </ul>
-    </div>
+      <div class="sidebar-tools-main">
+    <a href="https://rstudio.collegeofidaho.edu/" title="RStudio" class="quarto-navigation-tool px-1" aria-label="RStudio"><i class="bi bi-code-square"></i></a>
+    <a href="https://cofi.instructure.com/courses/15692" title="Canvas" class="quarto-navigation-tool px-1" aria-label="Canvas"><i class="bi bi-person"></i></a>
 </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -167,12 +147,6 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./computing-access.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Access</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./computing-troubleshooting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Troubleshooting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -248,9 +222,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>To access computing resources for the introductory data science courses offered by the Duke University Department of Statistical Science, go to the <a href="https://cmgr.oit.duke.edu/containers">Duke Container Manager</a> website, <a href="https://cmgr.oit.duke.edu/containers">cmgr.oit.duke.edu/containers</a>.</p>
-<p>If this is your first time accessing the containers, click on <code>reserve STA210</code> on the <em>Reservations available</em> menu on the right. You only need to do this once, and when you do, you’ll see this container moved to the <em>My reservations</em> menu on the left.</p>
-<p>Next, click on <code>STA210</code> under <em>My reservations</em> to access the RStudio instance you’ll use for the course.</p>
+<p>To access RStudio at the College of Idaho, go to the <a href="https://rstudio.collegeofidaho.edu/">CofI Posit Workbench</a> website and sign-in using the CofI email and password.</p>
+<p>To access course files click “File &gt; Open File…” then click the “…” button while will pull-up a tab titled “Go To Folder” and have a box labeled “Path to folder (use ~ for home directory):”. In the corresponding box enter: <code>/srv/R/MAT212_FA24</code>. You can ten copy activity and hw templates by looking in the bottom right pane, clicking the gear icon and clicking “Copy To…”. Then repeat the process above but enter <code>~</code> and then click save. The file is now in your home directory and can be edited freely.</p>
 
 
 
@@ -336,7 +309,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/sta210-fa23\.netlify\.app");
+      var filterRegex = new RegExp("https:\/\/mat212fa24\.netlify\.app\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -671,8 +644,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./computing-troubleshooting.html" class="pagination-link" aria-label="Troubleshooting">
-        <span class="nav-page-text">Troubleshooting</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./computing-r-resources.html" class="pagination-link" aria-label="R resources">
+        <span class="nav-page-text">R resources</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -680,11 +653,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© Copyright 2022, Maria Tackett</p>
+<p>© Copyright 2024, Eric Friedlander</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/sta210-fa23/website/edit/main/computing-access.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta210-fa23/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/computing-access.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
