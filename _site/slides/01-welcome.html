@@ -29,71 +29,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -403,7 +338,7 @@ Prof.&nbsp;Eric Friedlander
 </div>
 </div>
 
-  <p class="date">Aug 28, 2024</p>
+  <p class="date">Aug 21, 2024</p>
 </section>
 <section>
 <section id="welcome" class="title-slide slide level1 center">
@@ -416,6 +351,7 @@ Prof.&nbsp;Eric Friedlander
 <ul>
 <li class="fragment">Education and career journey
 <ul>
+<li class="fragment">Grew up outside New York City</li>
 <li class="fragment">BS in Math &amp; Statistics from Rice University (Houston, TX)</li>
 <li class="fragment">Business Analyst at Capital One (Plano, TX)</li>
 <li class="fragment">MS and PhD in Statistics &amp; Operations Research from UNC-Chapel Hill</li>
@@ -423,26 +359,18 @@ Prof.&nbsp;Eric Friedlander
 <li class="fragment">Assistant Professor of Math at St.&nbsp;Norbert College (Green Bay, WI)</li>
 </ul></li>
 <li class="fragment">Work focuses on statistics education, queueing theory, and population genetics</li>
-<li class="fragment">Dad of three cute dogs
-<ul>
-<li class="fragment">Insert dog pics</li>
-</ul></li>
+<li class="fragment">Big sports fan: NY Knicks, Giants, Rangers, Yankess, UNC Tarheels</li>
+<li class="fragment">Dad of three cute dogs: Allie, Miriam, Tony</li>
 </ul>
 </div>
-<!-- ## Meet the Teaching Assistants (TAs) -->
-<!-- -   Sam Rosen (PhD): Head TA + Lab 01 -->
-<!-- -   Bethany Astor (MS): Lab 02 -->
-<!-- -   Jon Campbell (MS) -->
-<!-- -   Donald Cayton (MS): Lab 02 -->
-<!-- -   Allison Li (UG) -->
-<!-- -   Mitchelle Mojekwu (UG): Lab 04 -->
-<!-- -   Ben Thorpe (UG) -->
-<!-- -   Linxuan Wang (MS): Lab 03 -->
-<!-- -   Xiaojun Zheng (PhD): Lab 04 -->
-<!-- # Check-in on Ed Discussion! -->
-<!-- Click on the link and answer the Ed Discussion poll -->
-<!-- -   [Section 001 (10:05am lecture)](https://edstem.org/us/courses/44523/discussion/3346720) -->
-<!-- -   [Section 002 (1:25pm lecture)](https://edstem.org/us/courses/44523/discussion/3346722) -->
+</section>
+<section id="meet-prof.-friedlander-1" class="slide level2 midi">
+<h2>Meet Prof.&nbsp;Friedlander!</h2>
+
+<img data-src="images/01/IMG_3400.JPG" class="r-stretch"></section>
+<section id="tell-me-about-yourself" class="slide level2">
+<h2>Tell me about yourself</h2>
+<p>Navigate to <a href="https://cofi.instructure.com/courses/15692/discussion_topics/64816">Canvas</a> and answer the survey questions. Note that your answers will not be visible by anyone but myself.</p>
 </section></section>
 <section>
 <section id="statistical-modeling" class="title-slide slide level1 center">
@@ -461,6 +389,9 @@ Prof.&nbsp;Eric Friedlander
 <li class="fragment"><strong>GOAL:</strong> Find a model for a relationship between a <strong>response/outcome/target variable</strong> <span class="math inline">\(Y\)</span> and one (or more) <strong>explanatory/predictor variables</strong> (<span class="math inline">\(X_1,\ldots,X_k\)</span>)</li>
 <li class="fragment">Models are a simplified but tractable version of reality</li>
 </ul>
+</div>
+<div class="question">
+<p>What are <em>response</em> and <em>explanatory</em> variables?</p>
 </div>
 </section>
 <section id="geoge-e.-p.-box" class="slide level2">
@@ -483,25 +414,65 @@ Prof.&nbsp;Eric Friedlander
 <li>Understanding relationships</li>
 <li>Assessing differences</li>
 </ol>
+</section>
+<section id="what-is-regression-analysis" class="slide level2">
+<h2>What is regression analysis?</h2>
+<div style="font-size: 0.85em;">
+<blockquote>
+<p>“In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when <strong><em>the focus is on the relationship between a dependent variable and one or more independent variables (or ‘predictors’)</em></strong>. More specifically, regression analysis helps one understand how the typical value of the dependent variable (or ‘criterion variable’) changes when any one of the independent variables is varied, while the other independent variables are held fixed.”</p>
+</blockquote>
+<p>Source: <a href="https://en.wikipedia.org/wiki/Regression_analysis">Wikipedia</a> (previous definition)</p>
+</div>
+<p>Note: I don’t really like the terms “independent” and “dependent” variables</p>
+</section>
+<section id="examples-of-regression-in-practice" class="slide level2">
+<h2>Examples of regression in practice</h2>
+<ul>
+<li><p><a href="https://fivethirtyeight.com/features/new-yorkers-will-pay-56-a-month-to-trim-a-minute-off-their-commute/">New Yorkers Will Pay $56 A Month To Trim A Minute Off Their Commute</a></p></li>
+<li><p><a href="https://fivethirtyeight.com/features/how-fivethirtyeights-2020-presidential-forecast-works-and-whats-different-because-of-covid-19/">How FiveThirtyEight’s 2020 Presidential Forecast Works — And What’s Different Because Of COVID-19</a></p></li>
+<li><p><a href="https://onlinelibrary.wiley.com/doi/10.1111/1556-4029.12020">Effect of Forensic Evidence on Criminal Justice Case Processing</a></p></li>
+<li><p><a href="https://fivethirtyeight.com/features/why-its-so-freaking-hard-to-make-a-good-covid-19-model/">Why it’s so freaking hard to make a good COVID-19 model</a> (from March 2020)</p></li>
+</ul>
 </section></section>
 <section>
-<section id="some-review" class="title-slide slide level1 center">
-<h1>Some Review</h1>
+<section id="mat-212" class="title-slide slide level1 center">
+<h1>MAT 212</h1>
 
 </section>
-<section id="types-of-variables" class="slide level2">
-<h2>Types of Variables</h2>
+<section id="course-faq" class="slide level2 midi">
+<h2>Course FAQ</h2>
+<p><strong>Q - What background is assumed for the course?</strong></p>
+<p>A - Introductory statistics or previous experience with mathematics at a level that would allow you to learn intro stats concepts relatively easily</p>
+<div class="fragment">
+<p><strong>Q - Will we be doing computing?</strong></p>
+<p>A - Yes. We will use the computing language R for analysis and Quarto for writing up results.</p>
+</div>
+<div class="fragment">
+<p><strong>Q - Am I expected to have experience using any of these tools?</strong></p>
+<p>A - No.&nbsp;I do not expect you to have any exposure to R and certainly not Quarto.</p>
+</div>
+<div class="fragment">
+<p><strong>Q - Will we learn the mathematical theory of regression?</strong></p>
+<p>A - Yes and No.&nbsp;The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression.</p>
+</div>
+</section>
+<section id="course-learning-objectives" class="slide level2 midi">
+<h2>Course learning objectives</h2>
+<p>By the end of the semester, you will be able to…</p>
 <ul>
-<li><em>Quantitative/Numerical:</em> expressible as numbers for which arithmetic makes sense</li>
-<li><em>Categorical:</em> divides sample points into groups
-<ul>
-<li><em>Binary</em> = categorical with just two groups</li>
-</ul></li>
-<li><em>Note:</em> Just because a variable is coded using a number doesn’t automatically make it quantitative</li>
+<li><p>analyze real-world data to answer questions about multivariable relationships.</p></li>
+<li><p>use R to fit and evaluate linear and logistic regression models.</p></li>
+<li><p>assess whether a proposed model is appropriate and describe its limitations.</p></li>
+<li><p>use Quarto to write reproducible reports and GitHub for version control and collaboration.</p></li>
+<li><p>effectively communicate statistical results through writing and oral presentations.</p></li>
 </ul>
 </section>
-<section id="course-overview" class="slide level2">
-<h2>Course Overview</h2>
+<section id="course-topics" class="slide level2">
+<h2>Course Topics</h2>
+<div class="question">
+<p>What is a quantitative and what is a categorical variable?</p>
+</div>
+<div class="fragment">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -548,462 +519,30 @@ Prof.&nbsp;Eric Friedlander
 </tr>
 </tbody>
 </table>
-</section>
-<section id="types-of-studies" class="slide level2">
-<h2>Types of Studies</h2>
-<div>
-<ul>
-<li class="fragment"><strong>Observational study:</strong> Data recorded without “manipulating” any of the variables.</li>
-<li class="fragment"><strong>Experiment:</strong> One or more of the explanatory variables is/are assigned/controlled for all experimental units.</li>
-<li class="fragment">Should use an experiment to confirm a “cause/effect” relationship.</li>
-</ul>
-</div>
-</section>
-<section id="building-a-statistical-model-four-step-process" class="slide level2">
-<h2>Building a Statistical Model: Four-Step Process</h2>
-<ol type="1">
-<li><strong>Choose:</strong> Pick a form for the model.</li>
-<li><strong>Fit:</strong> Estimate any parameters.</li>
-<li><strong>Assess:</strong> Is the model adequate? Could it be simpler? Are conditions met?</li>
-<li><strong>Use:</strong> Answer the question of interest.</li>
-</ol>
-</section>
-<section id="general-form-of-a-model" class="slide level2">
-<h2>General Form of a Model</h2>
-<div class="center">
-<blockquote>
-<p><span class="math inline">\(Y = \underbrace{f(X)}_{\text{Expected } Y \text{ for some} \\ \text{combination of} \\ \text{predictors}} + \underbrace{\epsilon}_{\text{Random} \\    \text{Error}}\)</span></p>
-</blockquote>
-</div>
-<ul>
-<li>DATA = MODEL + ERROR</li>
-</ul>
-</section>
-<section id="example-bike-commute" class="slide level2 smaller">
-<h2>Example: Bike Commute</h2>
-<ul>
-<li><a href="https://cran.r-project.org/web/packages/Lock5Data/Lock5Data.pdf">Data</a> from a <a href="https://www.bmj.com/content/341/bmj.c6801">study</a> called ``Bicycle weight and commuting time: randomised trial’’which appeared in the British Medical Journal in 2010</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse) <span class="co"># Lots of helpful functions</span></span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(mosaic) <span class="co"># Lots of helpful functions</span></span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(Lock5Data) <span class="co"># contains the data</span></span>
-<span id="cb1-4"><a></a><span class="fu">head</span>(BikeCommute) <span class="co"># shows us the first six rows of data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    Bike     Date Distance    Time Minutes AvgSpeed TopSpeed Seconds Month
-1  Steel 20/01/10    27.20 1:55:04  115.07    14.10    31.50    6904  1Jan
-2 Carbon 21/01/10    27.46 1:55:35  115.58    14.25    30.64    6935  1Jan
-3  Steel 25/01/10    27.20 1:55:45  115.75    14.10    30.92    6945  1Jan
-4 Carbon 26/01/10    27.52 1:53:56  113.93    14.49    33.02    6836  1Jan
-5 Carbon 27/01/10    27.51 1:59:12  119.20    13.84    30.92    7152  2Feb
-6  Steel 01/02/10    27.17 1:48:44  108.73    14.99    32.09    6524  2Feb</code></pre>
-</div>
-</div>
-<ul>
-<li>Target Variable: <code>AvgSpeed</code></li>
-</ul>
-</section>
-<section id="avgspeed-visualization" class="slide level2">
-<h2><code>AvgSpeed</code> Visualization</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>AvgSpeed, <span class="at">data =</span> BikeCommute, <span class="at">bins =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="01-welcome_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
-<section id="example-constant-model" class="slide level2">
-<h2>Example: Constant Model</h2>
-<ul>
-<li><span class="math inline">\(Y = \mu + \epsilon\)</span>
-<ul>
-<li><span class="math inline">\(\mu\)</span> is just an (unknown) constant</li>
-</ul></li>
-<li><em>Terminology:</em>
-<ul>
-<li><span class="math inline">\(\mu\)</span> is called a <em>parameter</em> of the model</li>
-<li>Use data to provide a <em>sample estimate</em> of <span class="math inline">\(\mu\)</span></li>
-<li>Estimates of parameters get little “hats”, i.e.&nbsp;<span class="math inline">\(\hat{\mu}\)</span> is an estimate of <span class="math inline">\(\mu\)</span></li>
-</ul></li>
-</ul>
-<div class="fragment">
-<ul>
-<li>How should we estimate <span class="math inline">\(\mu\)</span>?</li>
-</ul>
-</div>
-</section>
-<section id="estimating-mu" class="slide level2 smaller">
-<h2>Estimating <span class="math inline">\(\mu\)</span></h2>
-<div class="columns">
-<div class="column">
-<ul>
-<li>Estimate <span class="math inline">\(\mu\)</span> using the sample mean
-<ul>
-<li><span class="math inline">\(\hat{\mu} = \bar{y}\)</span></li>
-</ul></li>
-<li>Estiamte <span class="math inline">\(\mu\)</span> using the sample median
-<ul>
-<li><span class="math inline">\(\hat{\mu} = m\)</span></li>
-</ul></li>
-</ul>
-</div><div class="column">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>BikeCommute <span class="sc">|&gt;</span> </span>
-<span id="cb4-2"><a></a>  <span class="fu">summarize</span>(<span class="at">sample_mean =</span> <span class="fu">mean</span>(AvgSpeed),</span>
-<span id="cb4-3"><a></a>            <span class="at">sample_median =</span> <span class="fu">median</span>(AvgSpeed)) <span class="co"># Using the Tidyverse</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  sample_mean sample_median
-1    15.10571        15.045</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">mean</span>(BikeCommute<span class="sc">$</span>sample_mean) <span class="co"># Using Base-R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] NA</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">median</span>(BikeCommute<span class="sc">$</span>sample_median)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>NULL</code></pre>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="predicted-value-for-response" class="slide level2">
-<h2>Predicted Value for Response</h2>
-<ul>
-<li>Estimate <span class="math inline">\(Y\)</span> using the model with estimated parameters.</li>
-<li>The predicted y is denoted… <span class="fragment fade-in"><span class="math inline">\(\hat{y}\)</span></span></li>
-</ul>
-<div class="fragment">
-<ul>
-<li>For the constant model <span class="math inline">\(\hat{y} = \hat{\mu}\)</span></li>
-<li>Examples:
-<ul>
-<li><span class="math inline">\(\hat{y} = \bar{y} = 15.106\)</span> (sample mean)</li>
-<li><span class="math inline">\(\hat{y} = m = 15.045\)</span> (sample median)</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="visualizing-the-models" class="slide level2">
-<h2>Visualizing the Models</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>AvgSpeed, <span class="at">data =</span> BikeCommute, <span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb10-2"><a></a>  <span class="fu">gf_vline</span>(<span class="at">xintercept =</span> <span class="fl">15.106</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb10-3"><a></a>  <span class="fu">gf_vline</span>(<span class="at">xintercept =</span> <span class="fl">15.045</span>, <span class="at">color =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="01-welcome_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
-<section id="is-our-model-good" class="slide level2">
-<h2>Is our model good?</h2>
-<ol type="1">
-<li>Which estimator (mean or median) is better? That is, how can we compare models?</li>
-<li>Is either model any good? That is, how can we assess fit?</li>
-</ol>
-</section>
-<section id="residuals" class="slide level2">
-<h2>Residuals</h2>
-<ul>
-<li><strong>Residual:</strong> actual value (from data) minus predicted value (from model)
-<ul>
-<li>Can compute the residual for every observation in our data</li>
-</ul></li>
-</ul>
-<blockquote>
-<p><span class="math display">\[\text{Residual} = \underbrace{y}_{Actual} - \underbrace{\hat{y}}_{Predicted}\]</span></p>
-</blockquote>
-</section>
-<section id="visualizing-residuals" class="slide level2 smaller">
-<h2>Visualizing Residuals</h2>
-<ul>
-<li>Consider the sample mean model</li>
-<li>Say we want to make a prediction for the first observation in our data set</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>AvgSpeed, <span class="at">data =</span> BikeCommute, <span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a></a>  <span class="fu">gf_vline</span>(<span class="at">xintercept =</span> <span class="fl">15.106</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb11-3"><a></a>  <span class="fu">gf_vline</span>(<span class="at">xintercept =</span> BikeCommute<span class="sc">$</span>AvgSpeed[<span class="dv">1</span>], <span class="at">color =</span> <span class="st">"green"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="01-welcome_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><ul>
-<li>Where is the residual in this picture?</li>
-</ul>
-</section>
-<section id="criteria-to-minimize-residuals" class="slide level2">
-<h2>Criteria to Minimize Residuals</h2>
-<ul>
-<li>Sum of Residuals: <span class="math inline">\(\sum_{i=1}^n(y_i-\hat{y}_i)\)</span></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>BikeCommute <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a></a>  <span class="fu">summarize</span>(<span class="at">sample_mean =</span> <span class="fu">mean</span>(AvgSpeed),</span>
-<span id="cb12-3"><a></a>            <span class="at">sample_median =</span> <span class="fu">median</span>(AvgSpeed),</span>
-<span id="cb12-4"><a></a>            <span class="at">sample_mean_sum =</span> <span class="fu">sum</span>(AvgSpeed <span class="sc">-</span> sample_mean),</span>
-<span id="cb12-5"><a></a>            <span class="at">sample_median_sum =</span> <span class="fu">sum</span>(AvgSpeed <span class="sc">-</span> sample_median))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  sample_mean sample_median sample_mean_sum sample_median_sum
-1    15.10571        15.045    4.085621e-14               3.4</code></pre>
-</div>
-</div>
-<ul>
-<li>Sum isn’t helpful: Residuals can be negative!</li>
-</ul>
-</section>
-<section id="criteria-to-minimize-residuals-1" class="slide level2 smaller">
-<h2>Criteria to Minimize Residuals</h2>
-<ul>
-<li>Sum of absolute deviations: <span class="math inline">\(\sum_{i=1}^n |y_i-\hat{y}_i|\)</span></li>
-<li>Sum of squared errors: <span class="math inline">\(\sum_{i=1}^n (y_i-\hat{y}_i)^1\)</span></li>
-</ul>
-</section>
-<section id="sum-of-absolute-deviations" class="slide level2">
-<h2>Sum of absolute deviations</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>BikeCommute <span class="sc">|&gt;</span> </span>
-<span id="cb14-2"><a></a>  <span class="fu">summarize</span>(<span class="at">sample_mean =</span> <span class="fu">mean</span>(AvgSpeed),</span>
-<span id="cb14-3"><a></a>            <span class="at">sample_median =</span> <span class="fu">median</span>(AvgSpeed),</span>
-<span id="cb14-4"><a></a>            <span class="at">sample_mean_abs_sum =</span> <span class="fu">sum</span>(<span class="fu">abs</span>(AvgSpeed <span class="sc">-</span> sample_mean)),</span>
-<span id="cb14-5"><a></a>            <span class="at">sample_median_abs_sum =</span> <span class="fu">sum</span>(<span class="fu">abs</span>(AvgSpeed <span class="sc">-</span> sample_median)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  sample_mean sample_median sample_mean_abs_sum sample_median_abs_sum
-1    15.10571        15.045            33.75143                 33.74</code></pre>
-</div>
-</div>
-<ul>
-<li>Which model is better?</li>
-</ul>
-</section>
-<section id="sum-of-squared-errors" class="slide level2">
-<h2>Sum of squared errors</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>BikeCommute <span class="sc">|&gt;</span> </span>
-<span id="cb16-2"><a></a>  <span class="fu">summarize</span>(<span class="at">sample_mean =</span> <span class="fu">mean</span>(AvgSpeed),</span>
-<span id="cb16-3"><a></a>            <span class="at">sample_median =</span> <span class="fu">median</span>(AvgSpeed),</span>
-<span id="cb16-4"><a></a>            <span class="at">sample_mean_sq_sum =</span> <span class="fu">sum</span>((AvgSpeed <span class="sc">-</span> sample_mean)<span class="sc">^</span><span class="dv">2</span>),</span>
-<span id="cb16-5"><a></a>            <span class="at">sample_median_sq_sum =</span> <span class="fu">sum</span>((AvgSpeed <span class="sc">-</span> sample_median)<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  sample_mean sample_median sample_mean_sq_sum sample_median_sq_sum
-1    15.10571        15.045           28.82357                29.03</code></pre>
-</div>
-</div>
-<ul>
-<li>Which model is better?</li>
-<li>Sum of square errors much more common</li>
-</ul>
-</section>
-<section id="can-we-use-a-predictor-to-improve-the-model" class="slide level2 smaller">
-<h2>Can we use a predictor to improve the model?</h2>
-<div class="columns">
-<div class="column">
-<ul>
-<li><span class="math inline">\(Y =\)</span> <code>AvgSpeed</code></li>
-<li><span class="math inline">\(X =\)</span> <code>Bike</code></li>
-</ul>
-</div><div class="column">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">gf_bar</span>(<span class="sc">~</span>Bike, <span class="at">data =</span> BikeCommute)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="01-welcome_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="model-with-a-binary-predictor" class="slide level2">
-<h2>Model with a Binary Predictor</h2>
-<ul>
-<li><span class="math inline">\(Y = \mu_i + \epsilon\)</span> where
-<ul>
-<li><span class="math inline">\(\mu_1 =\)</span> average speed for <code>Carbon</code> bikes, <span class="math inline">\(Y\sim N(\mu_1, \sigma_1)\)</span></li>
-<li><span class="math inline">\(\mu_2 =\)</span> average speed for <code>Steel</code> bikes, <span class="math inline">\(Y\sim N(\mu_2, \sigma_2)\)</span></li>
-</ul></li>
-<li><span class="math display">\[f(X) = \left\{
-\begin{array}{l}
-\mu_1, \text{ if } X = \text{Carbon}\\
-\mu_2, \text{ if } X = \text{Steel}\\
-\end{array}
-\right.\]</span></li>
-</ul>
-</section>
-<section id="is-this-plausible" class="slide level2">
-<h2>Is this plausible?</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">gf_boxplot</span>(AvgSpeed <span class="sc">~</span> Bike, <span class="at">data =</span> BikeCommute) <span class="sc">|&gt;</span> </span>
-<span id="cb19-2"><a></a>  <span class="fu">gf_jitter</span>(AvgSpeed <span class="sc">~</span> Bike, <span class="at">width =</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="01-welcome_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
-<section id="estimating-the-parameters" class="slide level2 smaller">
-<h2>Estimating the parameters</h2>
-<div class="columns">
-<div class="column">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">mean</span>(AvgSpeed <span class="sc">~</span> Bike, <span class="at">data =</span> BikeCommute) <span class="co"># Compute the mean of AvgSpeed for each level in Bike</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Carbon    Steel 
-15.18731 15.03500 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">sum</span>(<span class="fu">resid</span>(<span class="fu">lm</span>(AvgSpeed <span class="sc">~</span> Bike, <span class="at">data =</span> BikeCommute))<span class="sc">^</span><span class="dv">2</span>) <span class="co"># Compute sum of squares</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 28.50046</code></pre>
-</div>
-</div>
-</div><div class="column">
-<ul>
-<li><span class="math inline">\(\hat{\mu_1} \approx 12.19\)</span></li>
-<li><span class="math inline">\(\hat{\mu_2} \approx 15.04\)</span></li>
-<li>New sum of squares is 28.5 which is less than 28.8 from our sample mean model</li>
-<li>Is this model truly better?</li>
-<li>How can we determine that?</li>
-<li>Hint: it’s the same as asking: “Is there a difference between the means of the two groups?”</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="two-sample-t-test" class="slide level2">
-<h2>Two-Sample T-Test</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">t.test</span>(AvgSpeed<span class="sc">~</span>Bike, <span class="at">data =</span> BikeCommute)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Welch Two Sample t-test
-
-data:  AvgSpeed by Bike
-t = 0.76982, df = 47.649, p-value = 0.4452
-alternative hypothesis: true difference in means between group Carbon and group Steel is not equal to 0
-95 percent confidence interval:
- -0.2455673  0.5501827
-sample estimates:
-mean in group Carbon  mean in group Steel 
-            15.18731             15.03500 </code></pre>
-</div>
-</div>
-<ul>
-<li>What does p-value = 0.4452 mean?</li>
-<li>Interpret the 95% confidence interval</li>
-</ul>
-</section>
-<section id="effect-size" class="slide level2 smaller">
-<h2>Effect Size</h2>
-<div class="columns">
-<div class="column">
-<ul>
-<li>Is the difference (effect) large, relative to the variability in the population?</li>
-<li>Many ways to quantify</li>
-<li>This slide: Cohen’s d
-<ul>
-<li>0.2~small</li>
-<li>0.5~medium</li>
-<li>1.0~large</li>
-</ul></li>
-<li>Pooled standard deviation <span class="math display">\[s_p = \sqrt{\frac{(n_1 - 1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2}}\]</span></li>
-<li>Effect Size <span class="math inline">\(= \frac{\bar{y_1}-\bar{y_2}}{s_p}\)</span></li>
-</ul>
-</div><div class="column">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">library</span>(effectsize)</span>
-<span id="cb26-2"><a></a><span class="fu">cohens_d</span>(AvgSpeed<span class="sc">~</span>Bike, <span class="at">data =</span> BikeCommute)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Cohen's d |        95% CI
--------------------------
-0.21      | [-0.32, 0.74]
-
-- Estimated using pooled SD.</code></pre>
-</div>
-</div>
-</div>
-</div>
-<!-- ## Examples of regression in practice -->
-<!-- -   [New Yorkers Will Pay \$56 A Month To Trim A Minute Off Their Commute](https://fivethirtyeight.com/features/new-yorkers-will-pay-56-a-month-to-trim-a-minute-off-their-commute/) -->
-<!-- -   [How FiveThirtyEight's 2020 Presidential Forecast Works --- And What's Different Because Of COVID-19](https://fivethirtyeight.com/features/how-fivethirtyeights-2020-presidential-forecast-works-and-whats-different-because-of-covid-19/) -->
-<!-- -   [Effect of Forensic Evidence on Criminal Justice Case Processing](https://onlinelibrary.wiley.com/doi/10.1111/1556-4029.12020) -->
-<!-- -   [Why it's so freaking hard to make a good COVID-19 model](https://fivethirtyeight.com/features/why-its-so-freaking-hard-to-make-a-good-covid-19-model/) (from March 2020) -->
-</section></section>
-<section>
-<section id="sta-210" class="title-slide slide level1 center">
-<h1>STA 210</h1>
-
-</section>
-<section id="course-faq" class="slide level2 midi">
-<h2>Course FAQ</h2>
-<p><strong>Q - What background is assumed for the course?</strong></p>
-<p>A - Introductory statistics or probability course at Duke</p>
-<div class="fragment">
-<p><strong>Q - Will we be doing computing?</strong></p>
-<p>A - Yes. We will use the computing language R for analysis, Quarto for writing up results, and GitHub for version control and collaboration</p>
-</div>
-<div class="fragment">
-<p><strong>Q - Will we learn the mathematical theory of regression?</strong></p>
-<p>A - Yes and No.&nbsp;The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression. There a 0.5-credit course <a href="https://stat.duke.edu/courses/mathematics-regression">STA 211: Mathematics of Regression</a> to take simultaneously or after this course to dive into more of the mathematics.</p>
-</div>
-</section>
-<section id="course-learning-objectives" class="slide level2 midi">
-<h2>Course learning objectives</h2>
-<p>By the end of the semester, you will be able to…</p>
-<ul>
-<li><p>analyze real-world data to answer questions about multivariable relationships.</p></li>
-<li><p>use R to fit and evaluate linear and logistic regression models.</p></li>
-<li><p>assess whether a proposed model is appropriate and describe its limitations.</p></li>
-<li><p>use Quarto to write reproducible reports and GitHub for version control and collaboration.</p></li>
-<li><p>effectively communicate statistical results through writing and oral presentations.</p></li>
-</ul>
-</section>
-<section id="course-topics" class="slide level2 midi">
-<h2>Course topics</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Unit 1: Quantitative Response Variable</strong></p>
-<ul>
-<li><p>Simple Linear Regression</p></li>
-<li><p>Multiple Linear Regression</p></li>
-</ul>
-<p><br></p>
-<p><strong>Unit 2: Categorical Response Variable</strong></p>
-<ul>
-<li>Logistic Regression</li>
-<li>Multinomial logistic regression</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong>Unit 3: Looking Ahead</strong></p>
-<ul>
-<li><p>Special topics</p></li>
-<li><p>Presenting statistical results</p></li>
-</ul>
-</div>
 </div>
 </section></section>
 <section>
-<section id="course-overview-1" class="title-slide slide level1 center">
+<section id="course-overview" class="title-slide slide level1 center">
 <h1>Course overview</h1>
 
 </section>
 <section id="course-toolkit" class="slide level2 midi">
 <h2>Course toolkit</h2>
 <ul>
-<li><strong>Course website</strong>: <a href="https://sta210-fa23.netlify.app">sta210-fa23.netlify.app</a>
+<li><strong>Course website</strong>: <a href="https://mat212fa24.netlify.app/">sta210-fa23.netlify.app</a>
 <ul>
 <li>Central hub for the course!</li>
 <li><strong>Tour of the website</strong></li>
 </ul></li>
-<li><strong>Sakai</strong>: <a href="https://sakai.duke.edu">sakai.duke.edu</a>
+<li><strong>Canvas</strong>: <a href="https://cofi.instructure.com/">cofi.instructure.com</a>
 <ul>
 <li>Gradebook</li>
 <li>Announcements</li>
-<li>Gradescope</li>
-<li>Ed Discussion</li>
-</ul></li>
-<li><strong>GitHub:</strong> <a href="github.com/sta210-fa23">github.com/sta210-fa23</a>
-<ul>
-<li>Distribute assignments</li>
-<li>Platform for version control and collaboration</li>
 </ul></li>
 </ul>
 </section>
 <section id="computing-toolkit" class="slide level2 midi">
 <h2>Computing toolkit</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
 <div class="fragment" data-fragment-index="1">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1015,25 +554,9 @@ mean in group Carbon  mean in group Steel
 <ul>
 <li><p>All analyses using R, a statistical programming language</p></li>
 <li><p>Write reproducible reports in Quarto</p></li>
-<li><p>Access RStudio through <a href="https://cmgr.oit.duke.edu/containers">STA 210 Docker Containers</a></p></li>
+<li><p>Access RStudio through <a href="https://rstudio.collegeofidaho.edu/">College of Idaho posit Workbench</a></p></li>
+<li><p>Use your college of idaho email and password</p></li>
 </ul>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="fragment" data-fragment-index="1">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/01/github.png" class="quarto-figure quarto-figure-center" style="width:5.61in;height:1.6in" alt="GitHub logo"></p>
-</figure>
-</div>
-</div>
-<div class="fragment" data-fragment-index="3">
-<ul>
-<li><p>Access assignments</p></li>
-<li><p>Facilitates version control and collaboration</p></li>
-<li><p>All work in <a href="https://github.com/sta210-fa23">STA 210 course organization</a></p></li>
-</ul>
-</div>
-</div>
 </div>
 </section></section>
 <section>
@@ -1051,9 +574,9 @@ mean in group Carbon  mean in group Steel
 <li class="fragment"><p><strong>Practice:</strong> Practice applying statistical concepts and computing with application exercises during lecture, graded for completion</p></li>
 <li class="fragment"><p><strong>Perform:</strong> Put together what you’ve learned to analyze real-world data</p>
 <ul>
-<li class="fragment"><p>Lab assignments (first individual, later team-based)</p></li>
 <li class="fragment"><p>Homework assignments (individual)</p></li>
 <li class="fragment"><p>Two exams</p></li>
+<li class="fragment"><p>Oral R quiz</p></li>
 <li class="fragment"><p>Final group project</p></li>
 </ul></li>
 </ul>
@@ -1076,63 +599,41 @@ mean in group Carbon  mean in group Steel
 </tr>
 <tr class="even">
 <td>Final project</td>
-<td>15%</td>
+<td>25%</td>
 </tr>
 <tr class="odd">
-<td>Lab</td>
-<td>15%</td>
-</tr>
-<tr class="even">
 <td>Exam 01</td>
 <td>15%</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Exam 02</td>
 <td>15%</td>
 </tr>
-<tr class="even">
-<td>Application Exercises</td>
-<td>2.5%</td>
-</tr>
 <tr class="odd">
-<td>Teamwork</td>
-<td>2.5%</td>
+<td>Application Exercises</td>
+<td>5%</td>
+</tr>
+<tr class="even">
+<td>Oral R Quiz</td>
+<td>5%</td>
 </tr>
 </tbody>
 </table>
-<p>See the <a href="https://sta210-fa23.netlify.app/syllabus.html">syllabus</a> for details on how the final letter grade will be calculated.</p>
+<p>See the <a href="https://mat212fa24.netlify.app/syllabus">syllabus</a> for details on how the final letter grade will be calculated.</p>
 </section>
 <section id="support" class="slide level2">
 <h2>Support</h2>
 <ul>
-<li>Attend office hours to meet with a member of the teaching team
+<li>Attend office hours to meet with Prof.&nbsp;Friedlander (Boone 126B)
 <ul>
-<li>Prof.&nbsp;Tackett’s office hours start Fri, Sep 1, 1 - 3pm</li>
-<li>Full office hours schedule starts Tue, Sep 5</li>
+<li>M: 2:30-3:30pm</li>
+<li>T: 9:45-10:45am</li>
+<li>W: 1:30-2:30pm</li>
+<li>TH: 1-2pm</li>
 </ul></li>
 <li>Ask and answer questions on course discussion forum</li>
 <li>Use email for questions regarding personal matters and/or grades</li>
-<li>See the <a href="https://sta210-fa23.netlify.app/support.html">Course Support</a> page for more details</li>
-</ul>
-</section>
-<section id="diversity-inclusion" class="slide level2">
-<h2>Diversity &amp; inclusion</h2>
-<div class="small">
-<p>It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.</p>
-<ul>
-<li><p>If you have a name that differs from those that appear in your official Duke records, please let me know.</p></li>
-<li><p>Please let me know your preferred pronouns, if you are comfortable sharing.</p></li>
-<li><p>If you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.</p></li>
-<li><p>I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said or done in class (by anyone) that made you feel uncomfortable, please talk to me about it.</p></li>
-</ul>
-</div>
-</section>
-<section id="accessibility" class="slide level2">
-<h2>Accessibility</h2>
-<ul>
-<li><p>The <a href="https://access.duke.edu/students">Student Disability Access Office (SDAO)</a> is available to ensure that students are able to engage with their courses and related assignments.</p></li>
-<li><p>If you have documented accommodations from SDAO, please send the documentation as soon as possible.</p></li>
-<li><p>I am committed to making all course activities and materials accessible. If any course component is not accessible to you in any way, please don’t hesitate to let me know.</p></li>
+<li>See the <a href="https://mat212fa24.netlify.app/support">Course Support</a> page for more details</li>
 </ul>
 </section></section>
 <section>
@@ -1140,40 +641,36 @@ mean in group Carbon  mean in group Steel
 <h1>Course policies</h1>
 
 </section>
-<section id="covid-19-and-other-illness" class="slide level2">
-<h2>COVID-19 and other illness</h2>
+<section id="late-homework" class="slide level2">
+<h2>Late Homework</h2>
 <ul>
-<li><p>Please do not come to class if you have tested positive for COVID-19, have possible symptoms and have not yet been tested, or have other illness.</p></li>
-<li><p>Lecture recordings are available for excused absences. See <a href="https://sta210-fa23.netlify.app/syllabus#lecture-recording-request">Lecture recording request</a> in the syllabus for more information and a link to the request form.</p></li>
-<li><p>Read and follow the university guidelines regarding COVID-19 at <a href="https://coronavirus.duke.edu/">coronavirus.duke.edu</a>.</p></li>
+<li>There will be a 5% deduction for each 24-hour period the assignment is late for the first two days. After 2 days, students will receive a 30% reduction. No homework will be accepted after it is returned to the class</li>
 </ul>
 </section>
-<section id="late-work-waivers-and-regrade-requests" class="slide level2">
-<h2>Late work, waivers, and regrade requests</h2>
+<section id="late-application-exercises" class="slide level2">
+<h2>Late Application Exercises</h2>
 <ul>
-<li><p>We have policies! We will discuss them in detail when the first assignment is released.</p></li>
-<li><p>Read more about them in the <a href="https://sta210-fa23.netlify.app/syllabus.html#course-policies">Course policies</a> section of the syllabus and refer back to them as needed</p></li>
-<li><p>If you have questions, email <a href="mailto:%20sta210@duke.edu">sta210@duke.edu</a></p></li>
+<li>No late work is accepted for application exercises, since these are designed as in-class activities to help you prepare for labs and homework. If you are absent for a school-sponsored event or illness, you will be allowed to submit the exercise outside of class hours, no later than the start of the next class</li>
+</ul>
+</section>
+<section id="late-exams-and-final-project" class="slide level2">
+<h2>Late Exams and Final Project</h2>
+<ul>
+<li>If an application exercise, exam, or final project must be missed due to a school-sponsored event, you must let me know at least a week ahead of time so that we can schedule a time for you to make up the work before you leave. If you must miss a exam of the final project due to illness, you must let me know before class that day so that we can schedule a time for you to take a make-up quiz or exam. Failure to adhere to this policy will result in a 35% penalty the corresponding assignment.</li>
 </ul>
 </section>
 <section id="academic-integrity" class="slide level2">
 <h2>Academic integrity</h2>
 <blockquote>
-<p>To uphold the Duke Community Standard:</p>
-<ul>
-<li><p>I will not lie, cheat, or steal in my academic endeavors;</p></li>
-<li><p>I will conduct myself honorably in all my endeavors; and</p></li>
-<li><p>I will act if the Standard is compromised.</p></li>
-</ul>
+<p>The College of Idaho maintains that academic honesty and integrity are essential values in the educational process. Operating under an Honor Code philosophy, the College expects conduct rooted in honesty, integrity, and understanding, allowing members of a diverse student body to live together and interact and learn from one another in ways that protect both personal freedom and community standards. Violations of academic honesty are addressed primarily by the instructor and may be referred to the <a href="https://collegeofidaho.smartcatalogiq.com/en/current/Undergraduate-Catalog/Policies-and-Procedures/Academic-Misconduct">Student Judicial Board</a>.</p>
 </blockquote>
-<p><br>
-By participating in this course, you are agreeing that all your work and conduct will be in accordance with the Duke Community Standard.</p>
+<p>By participating in this course, you are agreeing that all your work and conduct will be in accordance with the College of Idaho Honor Code.</p>
 </section>
 <section id="collaboration-sharing-code" class="slide level2">
 <h2>Collaboration &amp; sharing code</h2>
 <ul>
-<li><p>We have policies! We will discuss them in detail when the first assignment is released.</p></li>
-<li><p>Read about them in the <a href="https://sta210-fa23.netlify.app/syllabus.html#academic-honesty">Academic honesty</a> section of the syllabus and refer to them as needed</p></li>
+<li><p>I have policies!</p></li>
+<li><p>Let’s read about them in the <a href="https://mat212fa24.netlify.app/syllabus.html#academic-honesty">Academic honesty</a> section of the syllabus</p></li>
 </ul>
 </section>
 <section id="use-of-artificial-intelligence-ai" class="slide level2 midi">
@@ -1206,8 +703,8 @@ By participating in this course, you are agreeing that all your work and conduct
 </div>
 </section></section>
 <section>
-<section id="having-a-successful-semester-in-sta-210" class="title-slide slide level1 center">
-<h1>Having a successful semester in STA 210</h1>
+<section id="having-a-successful-semester-in-mat-212" class="title-slide slide level1 center">
+<h1>Having a successful semester in MAT 212</h1>
 
 </section>
 <section id="five-tips-for-success" class="slide level2">
@@ -1215,27 +712,16 @@ By participating in this course, you are agreeing that all your work and conduct
 <ol type="1">
 <li><p>Complete all the preparation work (readings and videos) before class.</p></li>
 <li><p>Ask questions.</p></li>
-<li><p>Do the homework and labs; get started on homework early when possible.</p></li>
+<li><p>Do the homework; get started early when possible.</p></li>
 <li><p>Don’t procrastinate and don’t let a week pass by with lingering questions.</p></li>
-<li><p>Stay up-to-date on announcements on Ed Discussion and sent via email.</p></li>
+<li><p>Stay up-to-date on announcements on Canvas and sent via email.</p></li>
 </ol>
 </section></section>
 <section id="questions" class="title-slide slide level1 center">
 <h1>Questions?</h1>
-<p>Raise your hand or post on Ed Discussion</p>
+<p>Raise your hand or post on Canvas</p>
 </section>
 
-<section>
-<section id="lets-look-at-some-data" class="title-slide slide level1 center">
-<h1>Let’s look at some data!</h1>
-
-</section>
-<section id="application-exercise" class="slide level2">
-<h2>Application exercise</h2>
-<div class="appex">
-<p>📋 <a href="https://sta210-fa23.netlify.app/ae/ae-01-movies.html">AE 01 - Movie Budgets and Revenues</a></p>
-</div>
-</section></section>
 <section>
 <section id="this-week" class="title-slide slide level1 center">
 <h1>This week</h1>
@@ -1244,15 +730,14 @@ By participating in this course, you are agreeing that all your work and conduct
 <section id="for-this-week" class="slide level2">
 <h2>For this week…</h2>
 <ul>
-<li><p>Read the <a href="https://sta210-fa23.netlify.app/syllabus">syllabus</a></p></li>
-<li><p>See the <a href="https://sta210-fa23.netlify.app/schedule">course schedule</a> for an overview of the semester</p></li>
-<li><p>Labs start this week!</p>
+<li>Read the <a href="https://mat212fa24.netlify.app/syllabus.html">syllabus</a></li>
+<li>Homework 0:
 <ul>
-<li><p>Section 001: Labs on Tuesday</p></li>
-<li><p>Section 002: Labs on Thursday</p></li>
+<li>Station 1</li>
+<li>Station 2</li>
+<li>Station 3</li>
 </ul></li>
-<li><p>This week’s lab is focused on introductions and computing</p></li>
-<li><p>Wednesday’s lecture: The Big Picture</p></li>
+<li>Friday’s lecture: The Big Picture</li>
 </ul>
 
 <div class="quarto-auto-generated-content">

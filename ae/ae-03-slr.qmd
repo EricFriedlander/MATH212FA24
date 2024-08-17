@@ -14,13 +14,14 @@ Render, commit, and push your responses to GitHub by the end of class. The respo
 ```{r load-packages}
 #| message: false
 library(tidyverse)
-library(tidymodels)
+library(broom)
+library(ggformula)
 library(patchwork)
 ```
 
 ## Data
 
-Our data set contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the `dcbikeshare` data set in the dsbox R package.
+Our data set contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the `dcbikeshare` data set in the `dsbox` R package.
 
 We will focus on the following variables in the analysis:
 
@@ -45,17 +46,14 @@ Below are visualizations of the distributions of daily bike rentals and temperat
 #| warning: false
 #| message: false
 
-p1 <- ggplot(bikeshare, aes(x = count)) +
-  geom_histogram(binwidth = 250) + 
-  labs(x = "Daily bike rentals")
+p1 <- gf_histogram(~ count, data = bikeshare, binwidth = 250) |> 
+  gf_labs(x = "Daily bike rentals")
 
-p2 <- ggplot(bikeshare, aes(x = temp_orig)) +
-  geom_histogram() + 
-  labs(x = "Temperature (Celsius)")
+p2 <- gf_histogram(~temp_orig, data = bikeshare) |>  
+  gf_labs(x = "Temperature (Celsius)")
 
-p3 <- ggplot(bikeshare, aes(y = count, x = temp_orig)) +
-  geom_point() + 
-  labs(x = "Temperature (Celsius)", 
+p3 <- gf_point(count ~ temp_orig, data = bikeshare) |> 
+  gf_labs(x = "Temperature (Celsius)", 
        y = "Daily bike rentals")
 
 (p1 | p2) / p3
@@ -144,7 +142,7 @@ Interpret the intercept in the context of the data.
 ### Exercise 10
 
 ::: {.callout-note appearance="minimal" icon="false"}
-Suppose you work for a bike share company in Durham, NC, and they want to predict daily bike rentals in 2024. What is one reason you might recommend they use your analysis for this task? What is one reason you would recommend they [**not**]{.underline} use your analysis for this task?
+Suppose you work for a bike share company in Boise, ID, and they want to predict daily bike rentals in 2024. What is one reason you might recommend they use your analysis for this task? What is one reason you would recommend they [**not**]{.underline} use your analysis for this task?
 :::
 
 \[Add your answer here\]

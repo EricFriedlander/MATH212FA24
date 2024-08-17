@@ -16,7 +16,8 @@ Render, commit, and push your responses to GitHub by the end of class. The respo
 #| warning: false
 #| message: false
 library(tidyverse)
-library(tidymodels)
+library(ggformula)
+library(broom)
 library(knitr)
 library(patchwork) #arrange plots in a grid
 ```
@@ -50,15 +51,13 @@ Below are plots as part of the exploratory data analysis.
 ```{r}
 #| label: univariate-eda
 #| warning: false
-p1 <- ggplot(data = spotify, aes(x = valence)) + 
-  geom_histogram() + 
-  labs(title = "Distribution of Valence", 
+p1 <- gf_histogram(~valence, data = spotify) |>  
+  gf_labs(title = "Distribution of Valence", 
        subtitle = " for Popular songs on Spotify", 
        x = "Valence")
 
-p2 <- ggplot(data = spotify, aes(x = energy)) + 
-  geom_histogram() + 
-  labs(title = "Distribution of Energy", 
+p2 <- gf_histogram(~energy, data = spotify) |> 
+  gf_labs(title = "Distribution of Energy", 
        subtitle = "for Popular songs on Spotify", 
        x = "Energy")
 p1 + p2
@@ -67,9 +66,8 @@ p1 + p2
 ```{r}
 #| label: bivariate-eda
 #| warning: false
-ggplot(data = spotify, aes(x = energy, y = valence)) + 
-  geom_point() + 
-  labs(title = "Valence vs. Energy", 
+gf_point(valence ~ energy, data = spotify) |> 
+  gf_labs(title = "Valence vs. Energy", 
        subtitle = "Popular songs on Spotify", 
        x = "Energy", 
        y = "Valence")
@@ -81,8 +79,7 @@ ggplot(data = spotify, aes(x = energy, y = valence)) +
 #| label: fit-model
 #| echo: true
 
-spotify_fit <- linear_reg() |>
-  fit(valence ~ energy, data = spotify)
+spotify_fit <- lm(valence ~ energy, data = spotify)
 
 tidy(spotify_fit, conf.int = TRUE, conf.level = 0.9) |> 
   kable(digits = 3)
@@ -94,7 +91,7 @@ tidy(spotify_fit, conf.int = TRUE, conf.level = 0.9) |>
 #| label: augment-data
 #| echo: true
 
-spotify_aug <- augment(spotify_fit$fit)
+spotify_aug <- augment(spotify_fit)
 ```
 
 ## Create residual plots
@@ -104,10 +101,9 @@ spotify_aug <- augment(spotify_fit$fit)
 #| echo: true
 #| warning: false
 
-ggplot(data = spotify_aug, aes(x = .fitted, y = .resid)) + 
-  geom_point() + 
-  geom_hline(yintercept = 0, color = "red", linetype = "dashed") +
-  labs(x = "Fitted values", 
+gf_point(.resid ~ .fitted, data = spotify_aug) |>  
+  gf_hline(yintercept = 0, color = "red", linetype = "dashed") |> 
+  gf_labs(x = "Fitted values", 
        y = "Residuals", 
        title = "Residuals vs. fitted")
 ```
@@ -116,15 +112,13 @@ ggplot(data = spotify_aug, aes(x = .fitted, y = .resid)) +
 #| label: resid-dist
 #| warning: false
 
-resid_hist <- ggplot(data = spotify_aug, aes(x = .resid)) + 
-  geom_histogram() + 
-  labs(x = "Residuals", 
+resid_hist <- gf_histogram(~.resid, data = spotify_aug) |>  
+  gf_labs(x = "Residuals", 
        title = "Distribution of residuals")
 
-resid_qq <- ggplot(data = spotify_aug, aes(sample = .resid)) +
-  stat_qq() + 
-  stat_qq_line() +
-  labs(x = "Theoretical quantiles",
+resid_qq <- gf_qq(~.resid, data = spotify_aug) |> 
+  gf_qqline()  |> 
+  gf_labs(x = "Theoretical quantiles",
        y = "Observed residuals", 
        title = "Normal QQ-plot")
 
@@ -155,40 +149,6 @@ Calculate RMSE and interpret this value in the context of the data.
 ```{r}
 #| label: calc-rmse
 ```
-
-## Evaluate response from ChatGPT
-
-I typed the following prompt into ChatGPT ("an AI powered language model") *"How do you check the model conditions for simple linear regression?"*
-
-The response from ChatGPT shown below would receive partial credit. For each condition, state whether it is (1) correct, (2) incorrect and if so, what is wrong, (3) incomplete and if so, what is missing.
-
-> *In simple linear regression, you're trying to establish a linear relationship between two variables: a dependent variable (Y) and an independent variable (X). The model conditions or assumptions for simple linear regression are important to check to ensure that your model is valid and reliable. Here are the key assumptions and how to check them:*
->
-> *1. Linearity Assumption:*
->
-> -   *Assumption: The relationship between the independent variable (X) and the dependent variable (Y) is linear.*
-> -   *How to Check: Create a scatterplot of Y against X. If the points roughly form a straight line, the linearity assumption is likely met.*
->
-> *2. Independence Assumption:*
->
-> -   *Assumption: The residuals (the differences between observed Y and predicted Y) are independent of each other.*
-> -   *How to Check: Plot the residuals against the independent variable (X) or the predicted values. Look for patterns or trends in the residuals. There should be no clear structure or autocorrelation in the residuals.*
->
-> *3. Homoscedasticity \[Constant variance\] Assumption:*
->
-> -   *Assumption: The variance of the residuals is constant across all levels of the independent variable.*
-> -   *How to Check: Plot the residuals against the predicted values or the independent variable (X). The spread of the residuals should remain roughly constant across the range of X.*
->
-> *4. Normality Assumption:*
->
-> -   *Assumption: The residuals follow a normal distribution.*
-> -   *How to Check: Create a histogram or a normal probability plot (Q-Q plot) of the residuals. If the residuals are approximately normally distributed, they should follow a bell-shaped curve in the histogram and lie along a straight line in the Q-Q plot.*
->
-> *It's important to note that these assumptions may not always hold perfectly in real-world data, and minor violations may not necessarily invalidate your model. However, if you detect significant violations of these assumptions, you may need to consider alternative modeling techniques or transformations of your data to address the issues.*
-
-::: callout-note
-You will start to think about the answer in class and come up with a final answer with your group in Lab 04.
-:::
 
 ## To submit the AE:
 

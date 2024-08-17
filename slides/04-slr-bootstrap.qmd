@@ -137,7 +137,7 @@ Bootstrap confidence intervals
 
 # load packages
 library(tidyverse)   # for data wrangling and visualization
-library(tidymodels)  # for modeling
+library(ggformula)  # for modeling
 library(openintro)   # for Duke Forest dataset
 library(scales)      # for pretty axis labels
 library(glue)        # for constructing character strings
@@ -174,13 +174,12 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 heb <- read_csv("data/HEBIncome.csv") |> 
   mutate(Avg_Income_K = Avg_Household_Income/1000)
 
-ggplot(heb, aes(x = Avg_Income_K, y = Number_Organic)) +
-  geom_point(alpha = 0.7) +
-  labs(
+gf_point(Number_Organic ~ Avg_Income_K, data = heb, alpha = 0.7) |> 
+  gf_labs(
     x = "Average Household Income (in thousands)",
     y = "Number of Organic Vegetables",
-  ) +
-  scale_x_continuous(labels = label_dollar())
+  ) |> 
+  gf_refine(scale_x_continuous(labels = label_dollar()))
 ```
 
 ## Modeling {.midi}

@@ -475,7 +475,7 @@ Prof.&nbsp;Eric Friedlander
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load packages</span></span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)   <span class="co"># for data wrangling and visualization</span></span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(tidymodels)  <span class="co"># for modeling</span></span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(ggformula)  <span class="co"># for modeling</span></span>
 <span id="cb1-4"><a></a><span class="fu">library</span>(openintro)   <span class="co"># for Duke Forest dataset</span></span>
 <span id="cb1-5"><a></a><span class="fu">library</span>(scales)      <span class="co"># for pretty axis labels</span></span>
 <span id="cb1-6"><a></a><span class="fu">library</span>(glue)        <span class="co"># for constructing character strings</span></span>
@@ -510,13 +510,12 @@ Prof.&nbsp;Eric Friedlander
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>heb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/HEBIncome.csv"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb2-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Avg_Income_K =</span> Avg_Household_Income<span class="sc">/</span><span class="dv">1000</span>)</span>
 <span id="cb2-3"><a></a></span>
-<span id="cb2-4"><a></a><span class="fu">ggplot</span>(heb, <span class="fu">aes</span>(<span class="at">x =</span> Avg_Income_K, <span class="at">y =</span> Number_Organic)) <span class="sc">+</span></span>
-<span id="cb2-5"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb2-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb2-7"><a></a>    <span class="at">x =</span> <span class="st">"Average Household Income (in thousands)"</span>,</span>
-<span id="cb2-8"><a></a>    <span class="at">y =</span> <span class="st">"Number of Organic Vegetables"</span>,</span>
-<span id="cb2-9"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb2-10"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a></a><span class="fu">gf_point</span>(Number_Organic <span class="sc">~</span> Avg_Income_K, <span class="at">data =</span> heb, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-5"><a></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb2-6"><a></a>    <span class="at">x =</span> <span class="st">"Average Household Income (in thousands)"</span>,</span>
+<span id="cb2-7"><a></a>    <span class="at">y =</span> <span class="st">"Number of Organic Vegetables"</span>,</span>
+<span id="cb2-8"><a></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb2-9"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>

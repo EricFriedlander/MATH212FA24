@@ -428,10 +428,10 @@ Prof.&nbsp;Eric Friedlander
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load packages</span></span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)   <span class="co"># for data wrangling and visualization</span></span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(broom)       <span class="co"># for formatting model output</span></span>
-<span id="cb1-4"><a></a><span class="fu">library</span>(scales)      <span class="co"># for pretty axis labels</span></span>
-<span id="cb1-5"><a></a><span class="fu">library</span>(knitr)       <span class="co"># for pretty tables</span></span>
-<span id="cb1-6"><a></a><span class="fu">library</span>(kableExtra)  <span class="co"># also for pretty tables</span></span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(ggformula)   <span class="co"># for plotting using formulas</span></span>
+<span id="cb1-4"><a></a><span class="fu">library</span>(broom)       <span class="co"># for formatting model output</span></span>
+<span id="cb1-5"><a></a><span class="fu">library</span>(scales)      <span class="co"># for pretty axis labels</span></span>
+<span id="cb1-6"><a></a><span class="fu">library</span>(knitr)       <span class="co"># for pretty tables</span></span>
 <span id="cb1-7"><a></a><span class="fu">library</span>(patchwork)   <span class="co"># arrange plots</span></span>
 <span id="cb1-8"><a></a></span>
 <span id="cb1-9"><a></a><span class="co"># HEB Dataset</span></span>
@@ -520,13 +520,12 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>heb_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(heb_fit)</span>
 <span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a><span class="fu">ggplot</span>(heb_aug, <span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
-<span id="cb3-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb3-5"><a></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb3-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb3-7"><a></a>    <span class="at">x =</span> <span class="st">"Fitted value"</span>, <span class="at">y =</span> <span class="st">"Residual"</span>,</span>
-<span id="cb3-8"><a></a>    <span class="at">title =</span> <span class="st">"Residuals vs. fitted values"</span></span>
-<span id="cb3-9"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a></a><span class="fu">gf_point</span>(.resid <span class="sc">~</span> .fitted, <span class="at">data =</span> heb_aug) <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a></a>  <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-5"><a></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb3-6"><a></a>    <span class="at">x =</span> <span class="st">"Fitted value"</span>, <span class="at">y =</span> <span class="st">"Residual"</span>,</span>
+<span id="cb3-7"><a></a>    <span class="at">title =</span> <span class="st">"Residuals vs. fitted values"</span></span>
+<span id="cb3-8"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="non-linear-relationships" class="slide level2">
@@ -619,9 +618,9 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">ggplot</span>(heb_aug, <span class="fu">aes</span>(<span class="at">x =</span> .resid)) <span class="sc">+</span></span>
-<span id="cb4-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">7</span>, <span class="at">color =</span> <span class="st">"white"</span>)  <span class="sc">+</span></span>
-<span id="cb4-3"><a></a>  <span class="fu">labs</span>(</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> heb_aug,</span>
+<span id="cb4-2"><a></a>             <span class="at">bins=</span><span class="dv">7</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-3"><a></a>  <span class="fu">gf_labs</span>(</span>
 <span id="cb4-4"><a></a>    <span class="at">x =</span> <span class="st">"Residual"</span>,</span>
 <span id="cb4-5"><a></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
 <span id="cb4-6"><a></a>    <span class="at">title =</span> <span class="st">"Histogram of residuals"</span></span>
@@ -640,12 +639,11 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>(heb_aug, <span class="fu">aes</span>(<span class="at">sample =</span> .resid)) <span class="sc">+</span></span>
-<span id="cb6-2"><a></a>  <span class="fu">stat_qq</span>()<span class="sc">+</span></span>
-<span id="cb6-3"><a></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span> </span>
-<span id="cb6-4"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Theoretical quantile"</span>, </span>
-<span id="cb6-5"><a></a>       <span class="at">y =</span> <span class="st">"Observed quantile"</span>, </span>
-<span id="cb6-6"><a></a>       <span class="at">title =</span> <span class="st">"Normal QQ-plot of residuals"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">gf_qq</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> heb_aug) <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a></a>  <span class="fu">gf_qqline</span>() <span class="sc">|&gt;</span>  </span>
+<span id="cb6-3"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Theoretical quantile"</span>, </span>
+<span id="cb6-4"><a></a>       <span class="at">y =</span> <span class="st">"Observed quantile"</span>, </span>
+<span id="cb6-5"><a></a>       <span class="at">title =</span> <span class="st">"Normal QQ-plot of residuals"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -666,7 +664,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <h2>Normality</h2>
 
 <img data-src="07-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>❌ The residuals do not appear to follow a normal distribution, because the points do not lie on the diagonal line, so normality is not satisfied.</p>
-<p>✅ The sample size $ n = 37 &gt; 30$, so the sample size is large enough to relax this condition and proceed with inference.</p>
+<p>✅ The sample size <span class="math inline">\(n =  37 &gt; 30\)</span>, so the sample size is large enough to relax this condition and proceed with inference.</p>
 </section>
 <section id="independence" class="slide level2 midi">
 <h2>Independence</h2>
@@ -687,7 +685,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <li class="fragment"><p>Data from HEB website, compiled by high school student Linda Saucedo, Fall 2019</p></li>
 </ul>
 <p><br></p>
-<p>❌ Based on the information we have, its’ unclear if the data are independeent. In fact, I’d guess that they are likely geographically correlated.</p>
+<p>❌ Based on the information we have, it’s unclear if the data are independent. In fact, I’d guess that they are likely geographically correlated.</p>
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
@@ -715,7 +713,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="countdown" id="timer_28f27880" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_f186c569" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -733,7 +731,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="countdown" id="timer_51486537" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_b2851ace" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>

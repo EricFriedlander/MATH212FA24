@@ -5,7 +5,7 @@ editor: visual
 ---
 
 ::: callout-important
-For this AE, you will discuss the questions in groups and submit answers on Ed Discussion. This AE does not count towards the Application Exercise grade.
+For this AE, you will discuss the questions in groups and submit answers on [insert]. This AE does not count towards the Application Exercise grade.
 :::
 
 We will look at the relationship between budget and revenue for movies made in the United States in 1986 to 2020. The dataset is created based on data from the [Internet Movie Database (IMDB)](https://www.imdb.com/).
@@ -15,7 +15,9 @@ knitr::opts_chunk$set(warning = FALSE,
                       message = FALSE)
 ```
 
-```{r load-packages, warning=FALSE, message=FALSE}
+```{r load-packages}
+#| warning: FALSE
+#| message: FALSE
 library(readr)
 library(tidyverse)
 library(viridis)

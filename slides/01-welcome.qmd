@@ -1,7 +1,7 @@
 ---
 title: "Welcome to MAT 212!"
 author: "Prof. Eric Friedlander"
-date: "2024-08-28"
+date: "2024-08-21"
 date-format: "MMM DD, YYYY"
 footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
@@ -28,43 +28,24 @@ knitr:
 
 ::: incremental
 -   Education and career journey
+    -   Grew up outside New York City
     -   BS in Math & Statistics from Rice University (Houston, TX)
     -   Business Analyst at Capital One (Plano, TX)
     -   MS and PhD in Statistics & Operations Research from UNC-Chapel Hill
     -   Postdoc in Population Genetics at University of Chicago
     -   Assistant Professor of Math at St. Norbert College (Green Bay, WI)
 -   Work focuses on statistics education, queueing theory, and population genetics
--   Dad of three cute dogs
-    -   Insert dog pics
+-   Big sports fan: NY Knicks, Giants, Rangers, Yankess, UNC Tarheels
+-   Dad of three cute dogs: Allie, Miriam, Tony
 :::
 
-<!-- ## Meet the Teaching Assistants (TAs) -->
+## Meet Prof. Friedlander! {.midi}
 
-<!-- -   Sam Rosen (PhD): Head TA + Lab 01 -->
+![](images/01/IMG_3400.JPG)
 
-<!-- -   Bethany Astor (MS): Lab 02 -->
+## Tell me about yourself
 
-<!-- -   Jon Campbell (MS) -->
-
-<!-- -   Donald Cayton (MS): Lab 02 -->
-
-<!-- -   Allison Li (UG) -->
-
-<!-- -   Mitchelle Mojekwu (UG): Lab 04 -->
-
-<!-- -   Ben Thorpe (UG) -->
-
-<!-- -   Linxuan Wang (MS): Lab 03 -->
-
-<!-- -   Xiaojun Zheng (PhD): Lab 04 -->
-
-<!-- # Check-in on Ed Discussion! -->
-
-<!-- Click on the link and answer the Ed Discussion poll -->
-
-<!-- -   [Section 001 (10:05am lecture)](https://edstem.org/us/courses/44523/discussion/3346720) -->
-
-<!-- -   [Section 002 (1:25pm lecture)](https://edstem.org/us/courses/44523/discussion/3346722) -->
+Navigate to [Canvas](https://cofi.instructure.com/courses/15692/discussion_topics/64816) and answer the survey questions. Note that your answers will not be visible by anyone but myself.
 
 # Statistical modeling
 
@@ -76,6 +57,11 @@ knitr:
   - How do we identify the actual pattern?
 - **GOAL:** Find a model for a relationship between a **response/outcome/target variable** $Y$ and one (or more) **explanatory/predictor variables** ($X_1,\ldots,X_k$)
 - Models are a simplified but tractable version of reality
+:::
+
+
+:::{.question}
+What are *response* and *explanatory* variables?
 :::
 
 ## Geoge E. P. Box
@@ -96,313 +82,52 @@ knitr:
 2. Understanding relationships
 3. Assessing differences
 
-# Some Review
+## What is regression analysis?
 
-## Types of Variables
+::: {style="font-size: 0.85em;"}
+> "In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when ***the focus is on the relationship between a dependent variable and one or more independent variables (or 'predictors')***. More specifically, regression analysis helps one understand how the typical value of the dependent variable (or 'criterion variable') changes when any one of the independent variables is varied, while the other independent variables are held fixed."
 
-- *Quantitative/Numerical:* expressible as numbers for which arithmetic makes sense
-- *Categorical:* divides sample points into groups
-  + *Binary* = categorical with just two groups
-- *Note:* Just because a variable is coded using a number doesn't automatically make it quantitative
-
-## Course Overview
-
-|**Chapter** | **Response** | **Predictor/Explanatory** |
-|:------------:|--------------|------------------|
-|1-2      | Quantitative | Single Quantitative|
-|3-4      | Quantitative | Multiple Quantitative|
-|5      | Quantitative | Single Categorical|
-|6-8      | Quantitative | Multiple Categorical|
-|9     | Categorical | Single Quant/Cat|
-|10     | Categorical | Multiple Quant/Cat|
-|11     | Both | Both|
-
-
-## Types of Studies
-
-
-:::{.incremental}
-- **Observational study:** Data recorded without "manipulating" any of the variables.
-- **Experiment:** One or more of the explanatory variables is/are assigned/controlled for all experimental units.
-- Should use an experiment to confirm a “cause/effect” relationship.
+Source: [Wikipedia](https://en.wikipedia.org/wiki/Regression_analysis) (previous definition)
 :::
 
-## Building a Statistical Model: Four-Step Process
+Note:  I don't really like the terms "independent" and "dependent" variables
 
-1. **Choose:** Pick a form for the model.
-2. **Fit:** Estimate any parameters.
-3. **Assess:** Is the model adequate? Could it be simpler? Are conditions met?
-4. **Use:** Answer the question of interest.
 
-## General Form of a Model
+## Examples of regression in practice
 
-:::{.center}
-> $Y = \underbrace{f(X)}_{\text{Expected } Y \text{ for some} \\ \text{combination of} \\ \text{predictors}} + \underbrace{\epsilon}_{\text{Random} \\    \text{Error}}$
-:::
+-   [New Yorkers Will Pay \$56 A Month To Trim A Minute Off Their Commute](https://fivethirtyeight.com/features/new-yorkers-will-pay-56-a-month-to-trim-a-minute-off-their-commute/)
 
-- DATA = MODEL + ERROR
+-   [How FiveThirtyEight's 2020 Presidential Forecast Works --- And What's Different Because Of COVID-19](https://fivethirtyeight.com/features/how-fivethirtyeights-2020-presidential-forecast-works-and-whats-different-because-of-covid-19/)
 
-## Example: Bike Commute {.smaller}
+-   [Effect of Forensic Evidence on Criminal Justice Case Processing](https://onlinelibrary.wiley.com/doi/10.1111/1556-4029.12020)
 
-- [Data](https://cran.r-project.org/web/packages/Lock5Data/Lock5Data.pdf) from a [study](https://www.bmj.com/content/341/bmj.c6801) called ``Bicycle weight and commuting time: randomised trial''which appeared in the British Medical Journal in 2010
+-   [Why it's so freaking hard to make a good COVID-19 model](https://fivethirtyeight.com/features/why-its-so-freaking-hard-to-make-a-good-covid-19-model/) (from March 2020)
 
-```{r}
-library(tidyverse) # Lots of helpful functions
-library(mosaic) # Lots of helpful functions
-library(Lock5Data) # contains the data
-head(BikeCommute) # shows us the first six rows of data
-```
-
-- Target Variable: `AvgSpeed`
-
-## `AvgSpeed` Visualization
-
-```{r}
-gf_histogram(~AvgSpeed, data = BikeCommute, bins = 10)
-```
-
-## Example: Constant Model
-
-- $Y = \mu + \epsilon$
-  + $\mu$ is just an (unknown) constant
-- *Terminology:*
-  + $\mu$ is called a *parameter* of the model
-  + Use data to provide a *sample estimate* of $\mu$
-  + Estimates of parameters get little "hats", i.e. $\hat{\mu}$ is an estimate of $\mu$
-
-. . .
-
-- How should we estimate $\mu$?
-
-## Estimating $\mu$ {.smaller}
-
-::::{.columns}
-:::{.column}
-- Estimate $\mu$ using the sample mean
-  + $\hat{\mu} = \bar{y}$
-- Estiamte $\mu$ using the sample median
-  + $\hat{\mu} = m$
-:::
-:::{.column}
-```{r}
-BikeCommute |> 
-  summarize(sample_mean = mean(AvgSpeed),
-            sample_median = median(AvgSpeed)) # Using the Tidyverse
-
-mean(BikeCommute$sample_mean) # Using Base-R
-median(BikeCommute$sample_median)
-```
-:::
-::::
-
-## Predicted Value for Response
-
-- Estimate $Y$ using the model with estimated parameters.
-- The predicted y is denoted... [ $\hat{y}$ ]{.fragment .fade-in}
-
-:::{.fragment}
-
-- For the constant model $\hat{y} = \hat{\mu}$
-- Examples:
-  + $\hat{y} = \bar{y} = 15.106$ (sample mean)
-  + $\hat{y} = m = 15.045$ (sample median)
-  
-:::
-
-## Visualizing the Models
-
-```{r}
-gf_histogram(~AvgSpeed, data = BikeCommute, bins = 10) |> 
-  gf_vline(xintercept = 15.106, color = "red") |> 
-  gf_vline(xintercept = 15.045, color = "blue")
-```
-  
-## Is our model good?
-
-1. Which estimator (mean or median) is better? That is, how can we compare models?
-2. Is either model any good? That is, how can we assess fit?
-
-## Residuals
-
-- **Residual:** actual value (from data) minus predicted value (from model)
-  + Can compute the residual for every observation in our data
-
-> $$\text{Residual} = \underbrace{y}_{Actual} - \underbrace{\hat{y}}_{Predicted}$$
-
-## Visualizing Residuals {.smaller}
-
-- Consider the sample mean model
-- Say we want to make a prediction for the first observation in our data set
-
-```{r}
-gf_histogram(~AvgSpeed, data = BikeCommute, bins = 10) |> 
-  gf_vline(xintercept = 15.106, color = "red") |> 
-  gf_vline(xintercept = BikeCommute$AvgSpeed[1], color = "green")
-```
-
- - Where is the residual in this picture?
-
-  
-## Criteria to Minimize Residuals
-
-- Sum of Residuals: $\sum_{i=1}^n(y_i-\hat{y}_i)$
-
-```{r}
-BikeCommute |> 
-  summarize(sample_mean = mean(AvgSpeed),
-            sample_median = median(AvgSpeed),
-            sample_mean_sum = sum(AvgSpeed - sample_mean),
-            sample_median_sum = sum(AvgSpeed - sample_median))
-```
-
-- Sum isn't helpful: Residuals can be negative!
-
-## Criteria to Minimize Residuals {.smaller}
-
-- Sum of absolute deviations: $\sum_{i=1}^n |y_i-\hat{y}_i|$
-- Sum of squared errors: $\sum_{i=1}^n (y_i-\hat{y}_i)^1$
-
-## Sum of absolute deviations
-
-```{r}
-BikeCommute |> 
-  summarize(sample_mean = mean(AvgSpeed),
-            sample_median = median(AvgSpeed),
-            sample_mean_abs_sum = sum(abs(AvgSpeed - sample_mean)),
-            sample_median_abs_sum = sum(abs(AvgSpeed - sample_median)))
-```
-
-- Which model is better?
-
-## Sum of squared errors
-
-```{r}
-BikeCommute |> 
-  summarize(sample_mean = mean(AvgSpeed),
-            sample_median = median(AvgSpeed),
-            sample_mean_sq_sum = sum((AvgSpeed - sample_mean)^2),
-            sample_median_sq_sum = sum((AvgSpeed - sample_median)^2))
-```
-
-- Which model is better?
-- Sum of square errors much more common
-
-## Can we use a predictor to improve the model? {.smaller}
-
-::::{.columns}
-:::{.column}
-- $Y =$ `AvgSpeed`
-- $X =$ `Bike`
-:::
-
-:::{.column}
-```{r}
-gf_bar(~Bike, data = BikeCommute)
-```
-:::
-::::
-## Model with a Binary Predictor
-
-- $Y = \mu_i + \epsilon$ where
-  +  $\mu_1 =$ average speed for `Carbon` bikes, $Y\sim N(\mu_1, \sigma_1)$
-  +  $\mu_2 =$ average speed for `Steel` bikes, $Y\sim N(\mu_2, \sigma_2)$
-- $$f(X) = \left\{
-\begin{array}{l}
-\mu_1, \text{ if } X = \text{Carbon}\\
-\mu_2, \text{ if } X = \text{Steel}\\
-\end{array}
-\right.$$
-
-## Is this plausible?
-
-```{r}
-gf_boxplot(AvgSpeed ~ Bike, data = BikeCommute) |> 
-  gf_jitter(AvgSpeed ~ Bike, width = 0.05)
-```
-
-## Estimating the parameters {.smaller}
-
-::::{.columns}
-:::{.column}
-```{r}
-mean(AvgSpeed ~ Bike, data = BikeCommute) # Compute the mean of AvgSpeed for each level in Bike
-
-sum(resid(lm(AvgSpeed ~ Bike, data = BikeCommute))^2) # Compute sum of squares
-```
-:::
-:::{.column}
-- $\hat{\mu_1} \approx 12.19$
-- $\hat{\mu_2} \approx 15.04$
-- New sum of squares is 28.5 which is less than 28.8 from our sample mean model
-- Is this model truly better?
-- How can we determine that?
-- Hint: it's the same as asking: "Is there a difference between the means of the two groups?"
-:::
-::::
-
-## Two-Sample T-Test
-
-```{r}
-t.test(AvgSpeed~Bike, data = BikeCommute)
-```
-
-- What does p-value = 0.4452 mean?
-- Interpret the 95% confidence interval
-
-## Effect Size {.smaller}
-
-::::{.columns}
-:::{.column}
-- Is the difference (effect) large, relative to the variability in the population?
-- Many ways to quantify
-- This slide: Cohen's d
-  + 0.2~small
-  + 0.5~medium
-  + 1.0~large
-- Pooled standard deviation $$s_p = \sqrt{\frac{(n_1 - 1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2}}$$
-- Effect Size $= \frac{\bar{y_1}-\bar{y_2}}{s_p}$
-:::
-:::{.column}
-```{r}
-library(effectsize)
-cohens_d(AvgSpeed~Bike, data = BikeCommute)
-```
-:::
-::::
-  
-
-
-<!-- ## Examples of regression in practice -->
-
-<!-- -   [New Yorkers Will Pay \$56 A Month To Trim A Minute Off Their Commute](https://fivethirtyeight.com/features/new-yorkers-will-pay-56-a-month-to-trim-a-minute-off-their-commute/) -->
-
-<!-- -   [How FiveThirtyEight's 2020 Presidential Forecast Works --- And What's Different Because Of COVID-19](https://fivethirtyeight.com/features/how-fivethirtyeights-2020-presidential-forecast-works-and-whats-different-because-of-covid-19/) -->
-
-<!-- -   [Effect of Forensic Evidence on Criminal Justice Case Processing](https://onlinelibrary.wiley.com/doi/10.1111/1556-4029.12020) -->
-
-<!-- -   [Why it's so freaking hard to make a good COVID-19 model](https://fivethirtyeight.com/features/why-its-so-freaking-hard-to-make-a-good-covid-19-model/) (from March 2020) -->
-
-# STA 210
+# MAT 212
 
 ## Course FAQ {.midi}
 
 **Q - What background is assumed for the course?**
 
-A - Introductory statistics or probability course at Duke
+A - Introductory statistics or previous experience with mathematics at a level that would allow you to learn intro stats concepts relatively easily
 
 . . .
 
 **Q - Will we be doing computing?**
 
-A - Yes. We will use the computing language R for analysis, Quarto for writing up results, and GitHub for version control and collaboration
+A - Yes. We will use the computing language R for analysis and Quarto for writing up results.
+
+. . .
+
+**Q - Am I expected to have experience using any of these tools?**
+
+A - No. I do not expect you to have any exposure to R and certainly not Quarto.
 
 . . .
 
 **Q - Will we learn the mathematical theory of regression?**
 
-A - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression. There a 0.5-credit course [STA 211: Mathematics of Regression](https://stat.duke.edu/courses/mathematics-regression) to take simultaneously or after this course to dive into more of the mathematics.
-
-------------------------------------------------------------------------
+A - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression.
 
 ## Course learning objectives {.midi}
 
@@ -418,53 +143,39 @@ By the end of the semester, you will be able to...
 
 -   effectively communicate statistical results through writing and oral presentations.
 
-## Course topics {.midi}
+## Course Topics
 
-::: columns
-::: {.column width="50%"}
-**Unit 1: Quantitative Response Variable**
-
--   Simple Linear Regression
-
--   Multiple Linear Regression
-
-<br>
-
-**Unit 2: Categorical Response Variable**
-
--   Logistic Regression
--   Multinomial logistic regression
+:::{.question}
+What is a quantitative and what is a categorical variable?
 :::
 
-::: {.column width="50%"}
-**Unit 3: Looking Ahead**
+. . .
 
--   Special topics
+|**Chapter** | **Response** | **Predictor/Explanatory** |
+|:------------:|--------------|------------------|
+|1-2      | Quantitative | Single Quantitative|
+|3-4      | Quantitative | Multiple Quantitative|
+|5      | Quantitative | Single Categorical|
+|6-8      | Quantitative | Multiple Categorical|
+|9     | Categorical | Single Quant/Cat|
+|10     | Categorical | Multiple Quant/Cat|
+|11     | Both | Both|
 
--   Presenting statistical results
-:::
-:::
 
 # Course overview
 
 ## Course toolkit {.midi}
 
--   **Course website**: [sta210-fa23.netlify.app](https://sta210-fa23.netlify.app)
+-   **Course website**: [sta210-fa23.netlify.app](https://mat212fa24.netlify.app/)
     -   Central hub for the course!
     -   **Tour of the website**
--   **Sakai**: [sakai.duke.edu](https://sakai.duke.edu)
+-   **Canvas**: [cofi.instructure.com](https://cofi.instructure.com/)
     -   Gradebook
     -   Announcements
-    -   Gradescope
-    -   Ed Discussion
--   **GitHub:** [github.com/sta210-fa23](github.com/sta210-fa23)
-    -   Distribute assignments
-    -   Platform for version control and collaboration
+
 
 ## Computing toolkit {.midi}
 
-::: columns
-::: {.column width="50%"}
 ::: {.fragment fragment-index="1"}
 ![](images/01/rstudio.png){fig-alt="RStudio logo" fig-align="center" width="5.61in" height="1.6in"}
 :::
@@ -474,23 +185,9 @@ By the end of the semester, you will be able to...
 
 -   Write reproducible reports in Quarto
 
--   Access RStudio through [STA 210 Docker Containers](https://cmgr.oit.duke.edu/containers)
-:::
-:::
-
-::: {.column width="50%"}
-::: {.fragment fragment-index="1"}
-![](images/01/github.png){fig-alt="GitHub logo" fig-align="center" width="5.61in" height="1.6in"}
-:::
-
-::: {.fragment fragment-index="3"}
--   Access assignments
-
--   Facilitates version control and collaboration
-
--   All work in [STA 210 course organization](https://github.com/sta210-fa23)
-:::
-:::
+-   Access RStudio through [College of Idaho posit Workbench](https://rstudio.collegeofidaho.edu/)
+  
+  + Use your college of idaho email and password
 :::
 
 # Activities + assessments
@@ -507,11 +204,11 @@ By the end of the semester, you will be able to...
 
 -   **Perform:** Put together what you've learned to analyze real-world data
 
-    -   Lab assignments (first individual, later team-based)
-
     -   Homework assignments (individual)
 
     -   Two exams
+    
+    -   Oral R quiz
 
     -   Final group project
 :::
@@ -522,82 +219,50 @@ By the end of the semester, you will be able to...
 | Category              | Percentage |
 |-----------------------|------------|
 | Homework              | 35%        |
-| Final project         | 15%        |
-| Lab                   | 15%        |
+| Final project         | 25%        |
 | Exam 01               | 15%        |
 | Exam 02               | 15%        |
-| Application Exercises | 2.5%       |
-| Teamwork              | 2.5%       |
+| Application Exercises | 5%         |
+| Oral R Quiz           | 5%         |
 
-See the [syllabus](https://sta210-fa23.netlify.app/syllabus.html) for details on how the final letter grade will be calculated.
+See the [syllabus](https://mat212fa24.netlify.app/syllabus) for details on how the final letter grade will be calculated.
 
 ## Support
 
--   Attend office hours to meet with a member of the teaching team
-    -   Prof. Tackett's office hours start Fri, Sep 1, 1 - 3pm
-    -   Full office hours schedule starts Tue, Sep 5
+-   Attend office hours to meet with Prof. Friedlander (Boone 126B)
+    -   M: 2:30-3:30pm
+    -   T: 9:45-10:45am
+    -   W: 1:30-2:30pm
+    -   TH: 1-2pm
 -   Ask and answer questions on course discussion forum
 -   Use email for questions regarding personal matters and/or grades
--   See the [Course Support](https://sta210-fa23.netlify.app/support.html) page for more details
-
-## Diversity & inclusion
-
-::: small
-It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.
-
--   If you have a name that differs from those that appear in your official Duke records, please let me know.
-
--   Please let me know your preferred pronouns, if you are comfortable sharing.
-
--   If you feel like your performance in the class is being impacted by your experiences outside of class, please don't hesitate to come and talk with me. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.
-
--   I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said or done in class (by anyone) that made you feel uncomfortable, please talk to me about it.
-:::
-
-## Accessibility
-
--   The [Student Disability Access Office (SDAO)](https://access.duke.edu/students) is available to ensure that students are able to engage with their courses and related assignments.
-
--   If you have documented accommodations from SDAO, please send the documentation as soon as possible.
-
--   I am committed to making all course activities and materials accessible. If any course component is not accessible to you in any way, please don't hesitate to let me know.
+-   See the [Course Support](https://mat212fa24.netlify.app/support) page for more details
 
 # Course policies
 
-## COVID-19 and other illness
+## Late Homework
 
--   Please do not come to class if you have tested positive for COVID-19, have possible symptoms and have not yet been tested, or have other illness.
+-   There will be a 5% deduction for each 24-hour period the assignment is late for the first two days. After 2 days, students will receive a 30% reduction. No homework will be accepted after it is returned to the class
 
--   Lecture recordings are available for excused absences. See [Lecture recording request](https://sta210-fa23.netlify.app/syllabus#lecture-recording-request) in the syllabus for more information and a link to the request form.
+## Late Application Exercises
 
--   Read and follow the university guidelines regarding COVID-19 at [coronavirus.duke.edu](https://coronavirus.duke.edu/).
+-   No late work is accepted for application exercises, since these are designed as in-class activities to help you prepare for labs and homework. If you are absent for a school-sponsored event or illness, you will be allowed to submit the exercise outside of class hours, no later than the start of the next class
 
-## Late work, waivers, and regrade requests
+## Late Exams and Final Project
 
--   We have policies! We will discuss them in detail when the first assignment is released.
-
--   Read more about them in the [Course policies](https://sta210-fa23.netlify.app/syllabus.html#course-policies) section of the syllabus and refer back to them as needed
-
--   If you have questions, email [sta210\@duke.edu](mailto:%20sta210@duke.edu)
+-   If an application exercise, exam, or final project must be missed due to a school-sponsored event, you must let me know at least a week ahead of time so that we can schedule a time for you to make up the work before you leave. If you must miss a exam of the final project due to illness, you must let me know before class that day so that we can schedule a time for you to take a make-up quiz or exam. Failure to adhere to this policy will result in a 35% penalty the corresponding assignment.  
 
 ## Academic integrity
 
-> To uphold the Duke Community Standard:
->
-> -   I will not lie, cheat, or steal in my academic endeavors;
->
-> -   I will conduct myself honorably in all my endeavors; and
->
-> -   I will act if the Standard is compromised.
+> The College of Idaho maintains that academic honesty and integrity are essential values in the educational process. Operating under an Honor Code philosophy, the College expects conduct rooted in honesty, integrity, and understanding, allowing members of a diverse student body to live together and interact and learn from one another in ways that protect both personal freedom and community standards. Violations of academic honesty are addressed primarily by the instructor and may be referred to the [Student Judicial Board](https://collegeofidaho.smartcatalogiq.com/en/current/Undergraduate-Catalog/Policies-and-Procedures/Academic-Misconduct).
 
-\
-By participating in this course, you are agreeing that all your work and conduct will be in accordance with the Duke Community Standard.
+By participating in this course, you are agreeing that all your work and conduct will be in accordance with the College of Idaho Honor Code.
 
 ## Collaboration & sharing code
 
--   We have policies! We will discuss them in detail when the first assignment is released.
+-   I have policies! 
 
--   Read about them in the [Academic honesty](https://sta210-fa23.netlify.app/syllabus.html#academic-honesty) section of the syllabus and refer to them as needed
+-   Let's read about them in the [Academic honesty](https://mat212fa24.netlify.app/syllabus.html#academic-honesty) section of the syllabus
 
 ## Use of artificial intelligence (AI) {.midi}
 
@@ -618,7 +283,7 @@ By participating in this course, you are agreeing that all your work and conduct
 In general, you may use AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content.
 :::
 
-# Having a successful semester in STA 210
+# Having a successful semester in MAT 212
 
 ## Five tips for success
 
@@ -626,38 +291,24 @@ In general, you may use AI as a resource as you complete assignments but not to 
 
 2.  Ask questions.
 
-3.  Do the homework and labs; get started on homework early when possible.
+3.  Do the homework; get started early when possible.
 
 4.  Don't procrastinate and don't let a week pass by with lingering questions.
 
-5.  Stay up-to-date on announcements on Ed Discussion and sent via email.
+5.  Stay up-to-date on announcements on Canvas and sent via email.
 
 # Questions?
 
-Raise your hand or post on Ed Discussion
-
-# Let's look at some data!
-
-## Application exercise
-
-::: appex
-📋 [AE 01 - Movie Budgets and Revenues](https://sta210-fa23.netlify.app/ae/ae-01-movies.html)
-:::
+Raise your hand or post on Canvas
 
 # This week
 
 ## For this week...
 
--   Read the [syllabus](https://sta210-fa23.netlify.app/syllabus)
+- Read the [syllabus](https://mat212fa24.netlify.app/syllabus.html)
+- Homework 0:
+  -   Station 1
+  -   Station 2
+  -   Station 3
+-   Friday's lecture: The Big Picture
 
--   See the [course schedule](https://sta210-fa23.netlify.app/schedule) for an overview of the semester
-
--   Labs start this week!
-
-    -   Section 001: Labs on Tuesday
-
-    -   Section 002: Labs on Thursday
-
--   This week's lab is focused on introductions and computing
-
--   Wednesday's lecture: The Big Picture

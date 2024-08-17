@@ -318,15 +318,15 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/01-welcome.html</loc>
-    <lastmod>2024-07-16T20:22:09.445Z</lastmod>
+    <lastmod>2024-08-16T23:53:43.661Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-01-movies.html</loc>
-    <lastmod>2024-08-01T17:54:19.223Z</lastmod>
+    <lastmod>2024-08-06T18:47:07.850Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-02-bikeshare.html</loc>
-    <lastmod>2024-06-07T20:17:50.117Z</lastmod>
+    <lastmod>2024-08-06T20:32:35.409Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/Station_1.html</loc>
@@ -346,11 +346,11 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/07-slr-conditions-eval.html</loc>
-    <lastmod>2024-07-25T19:31:46.714Z</lastmod>
+    <lastmod>2024-08-06T21:13:56.437Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/04-slr-bootstrap.html</loc>
-    <lastmod>2024-07-19T16:05:21.174Z</lastmod>
+    <lastmod>2024-08-06T20:42:08.332Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/05-slr-sim-testing.html</loc>
@@ -378,6 +378,58 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/hw/Station_1.html</loc>
-    <lastmod>2024-06-17T22:11:21.000Z</lastmod>
+    <lastmod>2024-08-03T16:13:42.700Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/hw/Station_2.html</loc>
+    <lastmod>2024-08-03T16:37:52.339Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/hw/Station_3.html</loc>
+    <lastmod>2024-08-03T16:44:13.811Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/ae/ae-03-slr.html</loc>
+    <lastmod>2024-08-06T19:16:45.048Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/ae/ae-04-bootstrap.html</loc>
+    <lastmod>2024-08-06T20:49:24.077Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/ae/ae-05-sim-testing.html</loc>
+    <lastmod>2024-08-06T20:53:00.994Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/ae/ae-06-conditions.html</loc>
+    <lastmod>2024-08-07T19:08:27.882Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/ae/ae-07-model-eval.html</loc>
+    <lastmod>2024-08-07T19:08:50.943Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/09-mlr.html</loc>
+    <lastmod>2024-08-07T20:10:22.812Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/11-feature-engineering.html</loc>
+    <lastmod>2024-06-07T20:17:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/12-model-workflow.html</loc>
+    <lastmod>2024-06-07T20:17:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/13-comparison-cv.html</loc>
+    <lastmod>2024-06-07T20:17:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/10-mlr-inference.html</loc>
+    <lastmod>2024-08-08T21:57:33.854Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/01-welcome-old.html</loc>
+    <lastmod>2024-08-16T21:38:22.889Z</lastmod>
   </url>
 </urlset>

@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Your name here">
-<meta name="dcterms.date" content="2023-08-28">
 
 <title>MAT 212 - Fall 2024 - Station 1</title>
 <style>
@@ -303,12 +302,6 @@ window.Quarto = {
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 28, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -320,26 +313,26 @@ window.Quarto = {
 
 <section id="a.-accessing-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="a.-accessing-rstudio">A. Accessing RStudio</h2>
-<p>You can access Wooster’s RStudio server at <a href="rstudio.wooster.edu">rstudio.wooster.edu</a>. Login using your Wooster username and password. You can access <em>your</em> RStudio folder from any computer connected to the internet – no need to download anything, or transfer files between computers! However, if off-campus you will need to VPN to the campus network; directions on how to do that are <a href="here">https://technology.wooster.edu/virtual-private-network-vpn/</a>.</p>
-<p>You may also download R and RStudio on your personal machine, although I don’t recommend doing this right now. You can download R at <a href="CRAN">http://cran.us.r-project.org/</a>. Then download Rstudio Desktop at <a href="RStudio">https://rstudio.com/products/rstudio/</a>.</p>
-<p>As you can see, the RStudio environment contains four quadrants: the upper-left contains the files (including data sets) you’re working on; the lower-left contains the <strong>Console</strong>, where you can run R code; the lower-right contains several tabs including Plots, Packages, and Help; and the upper-right contains your History, including a list of loaded data sets.</p>
+<!-- You can access Wooster's RStudio server at [rstudio.wooster.edu](rstudio.wooster.edu). Login using your Wooster username and password. You can access *your* RStudio folder from any computer connected to the internet -- no need to download anything, or transfer files between computers! However, if off-campus you will need to VPN to the campus network; directions on how to do that are [https://technology.wooster.edu/virtual-private-network-vpn/](here). -->
+<!-- You may also download R and RStudio on your personal machine, although I don't recommend doing this right now. You can download R at [http://cran.us.r-project.org/](CRAN). Then download Rstudio Desktop at [https://rstudio.com/products/rstudio/](RStudio). -->
+<!-- As you can see, the RStudio environment contains four quadrants: the upper-left contains the files (including data sets) you're working on; the lower-left contains the **Console**, where you can run R code; the lower-right contains several tabs including Plots, Packages, and Help; and the upper-right contains your History, including a list of loaded data sets. -->
 <section id="creating-a-space-for-your-documents" class="level3">
 <h3 class="anchored" data-anchor-id="creating-a-space-for-your-documents">Creating a space for your documents</h3>
-<p>I recommend creating a folder to keep all your DATA 230/231 activities and handouts in. You will have a LOT of them this semester, and it’s best to start an organizational system now. If you’re working with RStudio on your desktop, you know how to create folders/subfolders. If you’re working on Wooster’s RStudio server, click on “Files” in the lower-right corner, then create a New Folder called “DATA231” or “DATA230” and within that, a folder called “Activities”. <strong>Save this document in that folder now.</strong> Call it “Station1.qmd”</p>
+<!-- I recommend creating a folder to keep all your DATA 230/231 activities and handouts in. You will have a LOT of them this semester, and it's best to start an organizational system now. If you're working with RStudio on your desktop, you know how to create folders/subfolders. If you're working on Wooster's RStudio server, click on "Files" in the lower-right corner, then create a New Folder called "DATA231" or "DATA230" and within that, a folder called "Activities". **Save this document in that folder now.** Call it "Station1.qmd" -->
 </section>
 </section>
 <section id="b.-quarto" class="level2">
 <h2 class="anchored" data-anchor-id="b.-quarto">B. Quarto</h2>
-<p>The thing you are reading right now is an <strong>Quarto</strong> document (very similar to R Markdown). Quarto runs <em>inside</em> R Studio. Quarto is a simple formatting syntax for authoring web pages, word documents, pdfs, and many more file types. On Canvas, you can find the link to a useful Quarto guide. You can also click the <strong>?</strong> toolbar button for more details on using Quarto.</p>
-<p>First, <a href="https://rmarkdown.rstudio.com/lesson-1.html">watch this short video to introduce yourself to RStudio</a> (https://rmarkdown.rstudio.com/lesson-1.html).</p>
-<p>When you click the <strong>Render</strong> button at the top of this window a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. Not only can you embed the R <em>code</em>, you can embed the <em>output</em> produced by the R code. In this way, your analysis is fully reproducible and updatable. <strong>All of your homework assignments must be prepared using Quarto, and submitted as a pdf or Word document</strong>.</p>
-<p>The nice thing about Quarto is that you can write prose (as I am doing now), mathematical equations using LaTeX syntax (like <span class="math inline">\(y_i = a + b x_i\)</span>), and R code/output/plots all in one synthesized document. This makes it approximately 10,000 times easier to use than doing the same thing in Word or LaTeX. As you go through this introduction, I recommend that you look also at the .qmd file and .html file side-by-side, to get an idea of how Quarto works. (Since you’re going to have to use Quarto this semester, you might as well start learning it now!)</p>
-<p>In the future, when you want to start a new Quarto document, click “File &gt; New File &gt; Quarto Document…” Put yourself as author, and make sure to give it a descriptive title!</p>
+<p>The thing you are reading right now is an <strong>Quarto</strong> document (very similar to R Markdown if you’ve ever used that). Quarto runs <em>inside</em> R Studio. Quarto is a simple formatting syntax for authoring web pages, word documents, pdfs, and many more file types. <!-- On Canvas, you can find the link to a useful Quarto guide. --> <!-- You can also click the **?** toolbar button for more details on using Quarto. --></p>
+<p>When you click the <strong>Render</strong> button at the top of this window a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. Not only can you embed the R <em>code</em>, you can embed the <em>output</em> produced by the R code. In this way, your analysis is fully reproducible and updatable. <strong>All of your homework assignments must be prepared using Quarto</strong>.</p>
+<p>The nice thing about Quarto is that you can write prose (as I am doing now), mathematical equations using LaTeX syntax (like <span class="math inline">\(y_i = a + b x_i\)</span>), and R code/output/plots all in one synthesized document. This makes it approximately 10,000 times easier to use than doing the same thing in Word or LaTeX. As you go through this introduction, I recommend that you look also at the .qmd file and your output file side-by-side, to get an idea of how Quarto works. (Since you’re going to have to use Quarto this semester, you might as well start learning it now!)</p>
+<p>In the future, I will typically give you a Quarto template to fill out. However, occasionally you will need to create your own Quarto document. When you want to start a new Quarto document, click “File &gt; New File &gt; Quarto Document…” Put yourself as author, and make sure to give it a descriptive title!</p>
 <p><strong>The goal of this station is to get you ready to read, visualize, and use data. You will also become comfortable navigating the RStudio interface and running code from within a document.</strong></p>
+<p>First, <a href="https://quarto.org/docs/get-started/hello/rstudio.html">read through this page</a>. I suggest watching the first 6:35 of the embedded video as anything after that is not relevant for our class.</p>
 </section>
 <section id="c.-using-r-as-a-calculator-and-running-code-within-a-quarto-document" class="level2">
 <h2 class="anchored" data-anchor-id="c.-using-r-as-a-calculator-and-running-code-within-a-quarto-document">C. Using R as a Calculator and Running Code within a Quarto Document</h2>
-<p>With R by your side, you will never need your TI-84 again. Consider the simple arithmetic in the chunk below. You can run this code chunk all at once by by clicking the <em>Run</em> button (sideways green arrow) within the chunk. Notice the interactive nature of the output. You can click through to see the different pieces of output.</p>
+<p>With R by your side, you will never need your TI-84 again. Consider the simple arithmetic in the chunk below. You can run this code chunk all at once by clicking the <em>Run</em> button, the sideways green arrow in the top right of the chunk. Notice the interactive nature of the output. You can click through to see the different pieces of output.</p>
 <p><strong>As you work through this document, you should Run each chunk as you come to it.</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -367,22 +360,14 @@ window.Quarto = {
 <pre><code>[1] 358.02</code></pre>
 </div>
 </div>
-<p>Alternatively, I could use “=” instead of “&lt;-”:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>product <span class="ot">=</span> <span class="fl">15.3</span> <span class="sc">*</span> <span class="fl">23.4</span>  <span class="co">#save result</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>product <span class="co">#show result</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 358.02</code></pre>
-</div>
-</div>
-<p>The symbol “&lt;-” is the <em>assignment operator</em>. It’s essentially the same as “=” in this instance. When we get into more complicated work, there are cases where “&lt;-” works and “=” doesn’t, so it’s good to get into the habit of using “&lt;-” now.</p>
+<p>The symbol “&lt;-” is the <em>assignment operator</em>. If you’ve ever programmed before, it’s essentially the same as “=” in this instance. When we get into more complicated work, there are cases where “&lt;-” works and “=” doesn’t, so it’s good to get into the habit of using “&lt;-” now.</p>
 <p>Once variables are defined, they can be referenced with other operators and functions. Try executing each line of code individually by placing your cursor on the first line of the chunk below and pressing <em>Ctrl+Enter</em> (<em>Cmd +Enter</em> for Mac users); then do the same for the second line. (This is how you can run a single line within a larger chunk.)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>.<span class="dv">5</span> <span class="sc">*</span> product <span class="co"># half of the product</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>.<span class="dv">5</span> <span class="sc">*</span> product <span class="co"># half of the product</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 179.01</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>product<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>) <span class="co"># fourth root of the product</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>product<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>) <span class="co"># fourth root of the product</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.349875</code></pre>
 </div>
@@ -390,7 +375,7 @@ window.Quarto = {
 <p>You can also use in-line R code in Quarto, which can be useful when calling defined variables. Did you know that the natural log of 358.02 is 5.8805889?</p>
 <p>The semi-colon can be used to place multiple commands on one line. One frequent use of this is to save and print a value all in one go, as below:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>product <span class="ot">&lt;-</span> <span class="fl">15.3</span> <span class="sc">*</span> <span class="fl">23.4</span> ; product  <span class="co"># save result and show it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>product <span class="ot">&lt;-</span> <span class="fl">15.3</span> <span class="sc">*</span> <span class="fl">23.4</span> ; product  <span class="co"># save result and show it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 358.02</code></pre>
 </div>
@@ -404,15 +389,15 @@ window.Quarto = {
 <li><p>R is case-sensitive. If you mis-capitalize something, it won’t do what you want.</p></li>
 <li><p>TAB completion and arrows can improve typing speed and accuracy. If you begin a command and hit the TAB key, R will show you a list of possible ways to complete the command. If you hit TAB after the opening parenthesis of a function, it will show you the list of arguments it expects. The up and down arrows can be used to retrieve past commands.</p></li>
 <li><p>If you see a <code>+</code> prompt, it means R is waiting for more input. Often this means that you have forgotten a closing parenthesis or made some other syntax error. If you have completely messed up and just want to get back to the console, hit the ESC key and start the command fresh.</p></li>
-<li><p>The Console and the Quarto document are <em>separate entities</em>. Suppose you’ve run something, saved something, opened a data set, or opened loaded a package in the Console. It exists <em>only</em> in the Console, not in the Quarto document. Think of the Console as a “practice area” – a place where you can play around and try stuff. Once you’ve settled on a piece of code and you want it to appear in the “official” document (that you’ll turn in to me), put it into the Quarto document (within a “chunk”, of course).</p></li>
+<li><p>The Console/Qmd file and the Quarto output document are <em>separate entities</em>. Suppose you’ve run something, saved something, opened a data set, or opened loaded a package in the Console. It exists <em>only</em> in the Console, not in the Quarto document. Think of the Console as a “practice area” – a place where you can play around and try stuff. Once you’ve settled on a piece of code and you want it to appear in the “official” document (that you’ll turn in to me), put it into the Quarto document (within a “chunk”, of course). Note that when you click the green run button, it runs the code in the console not the Quarto document. This can occasionally cause inconsistencies if you run your code chunks out of order while you’re writing your document. When you ultimately press <code>Render</code>, Quarto will re-run the WHOLE document in order from the beginning to generate the output file.</p></li>
 </ol>
 </section>
 <section id="e.-r-packages" class="level2">
 <h2 class="anchored" data-anchor-id="e.-r-packages">E. R packages</h2>
-<p>In addition to its core features, R provides many more features through a (large) number of packages. To use a package, it must be installed (one time), and loaded (each session). You install the package by clicking the “Packages” tab in the lower-right quadrant, then clicking “Install” and type the name of the package. To load the package in the Console, you can type <code>library(package)</code>, or just click the button next to the package in the “Packages” tab. However, if you are going to use a package within an Quarto document, you must “call” the package within your particular Quarto document. (Why? Because the Console and the Quarto document are separate entities!)</p>
-<p>For example: We will be using the “tidyverse” package a lot this term. The package is already installed on Wooster’s RStudio server. (If you’re using a desktop version of RStudio, install this package now by clicking on the “Install” button under the “Packages” tab in the lower-right quadrant.) Load the package in the Console by typing <code>library(tidyverse)</code> in the Console. Now we still need to load it <em>in this Quarto document</em>.</p>
+<p>In addition to its core features, R provides many more features through a (large) number of packages. To use a package, it must be installed (one time), and loaded (each session). You install the package by clicking the “Tools &gt; Install Packages…” in the toolbar, then typing the name of the package. To load the package in the Console, you can type <code>library(package_name)</code>, or just click the button next to the package in the “Packages” tab. However, if you are going to use a package within an Quarto document, you must “call” the package within your particular Quarto document. (Why? Because the Console and the Quarto document are separate entities!)</p>
+<p>For example: We will be using the <code>tidyverse</code> package a lot this term. <!-- The package is already installed on Wooster's RStudio server.  --> (If you’re using a desktop version of RStudio you will need to install it if you haven’t used it before.) Load the package in the Console by typing <code>library(tidyverse)</code> in the Console. Now we still need to load it <em>in this Quarto document</em>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co">#this loads the tidyverse package into this R Markown document</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co">#this loads the tidyverse package into this R Markown document</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -425,9 +410,8 @@ window.Quarto = {
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#We could also use the code require("tidyverse") to do this</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The “tidyverse” package is now loaded. But it sure takes up a lot of space on the html file, doesn’t it? If we wanted to suppress the output from this particular chunk on the html file, we could use <code>#| include: false</code> at the beginning of the chunk, as below. (Note that the chunk still runs; but the code and the output is suppressed when it knits to html. There are other useful chunk headers that we will see as we continue learning Quarto…)</p>
+<p>The <code>tidyverse</code> package is now loaded. But it sure takes up a lot of space on the html file, doesn’t it? If we wanted to suppress the output from this particular chunk on the html file, we could use <code>#| include: false</code> at the beginning of the chunk, as below. (Note that the chunk still runs; but the code and the output is suppressed when it knits to html. There are other useful chunk headers that we will see as we continue learning Quarto…)</p>
 <p>We will use these four packages a lot this semester, so you should become accustomed to loading them all in every session.</p>
 <p><strong>Remember!</strong> The Quarto document (.qmd) and the Console are <em>separate</em> entities. Just because you’ve done something (run some code, loaded some data, etc.) in one place, it <strong>does not</strong> transfer to the other place.</p>
 </section>
@@ -442,8 +426,12 @@ window.Quarto = {
 </ol>
 <p>Some packages include demos. Demos are bits of R code that can be executed using the <code>demo()</code> command with the name of the demo. Demos are intended to illustrate a concept, a method, or some such thing, and are independent of any particular function or data set. You can get a list of available demos using <code>demo()</code>, or demos from just the package of interest using <code>demo(package='NAME OF PACKAGE')</code>.</p>
 <ol start="5" type="1">
-<li>The Internet. One of the great things about R is how well-documented it is online. Since it’s free and open-source and people across disciplines use it, there is an astounding amount of information available on the web. If you get stuck on something, Google it: I can almost guarantee you will find someone who has posted a solution to either your exact problem, or something close to it.</li>
+<li>The Internet. One of the great things about R is how well-documented it is online. Since it’s free and open-source and people across disciplines use it, there is an astounding amount of information available on the web. If you get stuck on something, Google it: I can almost guarantee you will find someone who has posted a solution to either your exact problem, or something close to it. You should treat AI tools, such as ChatGPT, the same as other online resources. There are two guiding principles that govern how you can use AI in this course: (1) <em>Cognitive dimension:</em> Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate—rather than hinder—learning. (2) <em>Ethical dimension</em><strong>:</strong> Students using AI should be transparent about their use and make sure it aligns with academic integrity. In general:</li>
 </ol>
+<ul>
+<li>✅ <strong>AI tools for code</strong>: You may make use of the technology for coding examples on assignments; if you do so, you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. You may use <a href="https://guides.lib.monash.edu/c.php?g=219786&amp;p=6972087">these guidelines</a> for citing AI-generated content.</li>
+<li>❌ <strong>AI tools for narrative:</strong> Unless instructed otherwise, you may not use generative AI to write narrative on assignments. In general, you may use generative AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content</li>
+</ul>
 <p><strong>NOTE:</strong> There are usually MANY different ways to do things in R. The ways I use, and the ways I show you, are (almost) never the <em>only</em> way, and are not necessarily the <em>best</em> or <em>simplest</em> way. Feel free to find different/better/easier ways to do things! I (almost) never care about the details of the code, as long as you’re getting the <em>right</em> result.</p>
 </section>
 <section id="g.-loading-data" class="level2">
@@ -453,37 +441,37 @@ window.Quarto = {
 <p>The <code>Day1Survey</code> data set lives within the <code>Stat2Data</code> package. To load this data set, type <code>data(Day1Survey)</code> in the chunk below. Note that as you type, R will start to auto-complete with the appropriate data set! Then run the chunk below, so that the data set has also been loaded in the Console. (Because the Quarto document and the Console are separate entities, <em>right</em>?)</p>
 <p>Let’s load another dataset from the <code>Stat2Data package</code>, and do a couple fun with things with it. Notice how, when you Render this document, the results (the means and side-by-side boxplots) show up just below the code!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this dataset is from an experiment studying rats and weight gain as a function of diet</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"FatRats"</span>) </span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate means for each of three protein sources</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Gain <span class="sc">~</span>  Source, <span class="at">data =</span> FatRats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this dataset is from an experiment studying rats and weight gain as a function of diet</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"FatRats"</span>) </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate means for each of three protein sources</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Gain <span class="sc">~</span>  Source, <span class="at">data =</span> FatRats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Beef Cereal   Pork 
   89.6   84.9   89.2 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># next, create side-by-side boxplots by protein level (hi vs. lo) *and* source (beef vs cereal vs pork)</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_boxplot</span>(Gain <span class="sc">~</span> Protein <span class="sc">|</span> Source, <span class="at">data =</span> FatRats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># next, create side-by-side boxplots by protein level (hi vs. lo) *and* source (beef vs cereal vs pork)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_boxplot</span>(Gain <span class="sc">~</span> Protein <span class="sc">|</span> Source, <span class="at">data =</span> FatRats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Station_1_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Station_1_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Data can also be loaded from files on your computer (.txt, .xls, .csv), or from the internet. If working on the College’s RStudio server, you often need to upload the data on the server first. Let’s try this now:</p>
 <ul>
-<li><p>Download the <code>USStates_fall2021.csv</code> file from Moodle. It lives under the <code>Data sets</code> tab.</p></li>
-<li><p>In the lower-right quadrant of RStudio, click on <code>Files</code>, then your new <code>DATA231</code> or <code>DATA230</code> folder that you created in Section A.</p></li>
-<li><p>Click “Upload &gt; Choose File”, and select the USStates_fall2021.csv file that you downloaded. Then click the Upload button.</p></li>
+<li><p>Download the <code>USStates_fall2021.csv</code> file from Canvas. It lives under the <code>Data sets</code> tab.</p></li>
+<li><p>In the lower-right quadrant of RStudio, click on <code>Files</code>, then your new <code>MAT212</code> folder that you created in Section A.</p></li>
+<li><p>Click “Upload &gt; Choose File”, and select the <code>USStates_fall2021.csv</code> file that you downloaded. Then click the Upload button.</p></li>
 </ul>
 <p>Now you can Import the data set into your Console and/or Quarto document.</p>
 <ul>
-<li><p>In the top-right corner of RStudio, click “Environment &gt; Import Dataset”.</p></li>
-<li><p>Navigate to your DATA231/DATA230 folder and welect USStates_fall2021.csv and click “Open”.</p></li>
+<li><p>In the top-right corner of RStudio, click “Environment &gt; Import Dataset &gt; From Text (base)”.</p></li>
+<li><p>Navigate to your MAT212 folder and select <code>USStates_fall2021.csv</code> and click “Open”.</p></li>
 <li><p>As I said above, RStudio is smart enough that it can usually tell which kind of delimiter is being used. It is showing you a preview of the data set in the “Data Frame” window. Make sure it looks okay: columns and rows, with column names given by the Headings (not V1, V2, etc). Then hit “Import”.</p></li>
-<li><p>The data set is now loaded in the Console, and the Console now has the code to load the data set. But of course, that doesn’t mean it’s loaded in the Quarto document! Copy that line (the read.csv line, not the “View” line) in the code chunk below.</p></li>
+<li><p>The data set is now loaded in the Console, and the Console now has the code to load the data set. But of course, that doesn’t mean it’s loaded in the Quarto document! Copy that line (the <code>read.csv</code> line, not the <code>View</code> line) in the code chunk below.</p></li>
 </ul>
 <p>Now use the code in lines 151 and 154 as a guide to calculate mean household income by region and make side-by-side boxplots of household income by region.</p>
 </section>

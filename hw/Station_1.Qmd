@@ -1,38 +1,37 @@
 ---
 title: "Station 1"
-date: "August 28, 2023"
 author: "Your name here"
 ---
 
 ## A. Accessing RStudio
 
-You can access Wooster's RStudio server at [rstudio.wooster.edu](rstudio.wooster.edu). Login using your Wooster username and password. You can access *your* RStudio folder from any computer connected to the internet -- no need to download anything, or transfer files between computers! However, if off-campus you will need to VPN to the campus network; directions on how to do that are [https://technology.wooster.edu/virtual-private-network-vpn/](here).
+<!-- You can access Wooster's RStudio server at [rstudio.wooster.edu](rstudio.wooster.edu). Login using your Wooster username and password. You can access *your* RStudio folder from any computer connected to the internet -- no need to download anything, or transfer files between computers! However, if off-campus you will need to VPN to the campus network; directions on how to do that are [https://technology.wooster.edu/virtual-private-network-vpn/](here). -->
 
-You may also download R and RStudio on your personal machine, although I don't recommend doing this right now. You can download R at [http://cran.us.r-project.org/](CRAN). Then download Rstudio Desktop at [https://rstudio.com/products/rstudio/](RStudio).
+<!-- You may also download R and RStudio on your personal machine, although I don't recommend doing this right now. You can download R at [http://cran.us.r-project.org/](CRAN). Then download Rstudio Desktop at [https://rstudio.com/products/rstudio/](RStudio). -->
 
-As you can see, the RStudio environment contains four quadrants: the upper-left contains the files (including data sets) you're working on; the lower-left contains the **Console**, where you can run R code; the lower-right contains several tabs including Plots, Packages, and Help; and the upper-right contains your History, including a list of loaded data sets.
+<!-- As you can see, the RStudio environment contains four quadrants: the upper-left contains the files (including data sets) you're working on; the lower-left contains the **Console**, where you can run R code; the lower-right contains several tabs including Plots, Packages, and Help; and the upper-right contains your History, including a list of loaded data sets. -->
 
 ### Creating a space for your documents
 
-I recommend creating a folder to keep all your DATA 230/231 activities and handouts in. You will have a LOT of them this semester, and it's best to start an organizational system now. If you're working with RStudio on your desktop, you know how to create folders/subfolders. If you're working on Wooster's RStudio server, click on "Files" in the lower-right corner, then create a New Folder called "DATA231" or "DATA230" and within that, a folder called "Activities". **Save this document in that folder now.** Call it "Station1.qmd"
+<!-- I recommend creating a folder to keep all your DATA 230/231 activities and handouts in. You will have a LOT of them this semester, and it's best to start an organizational system now. If you're working with RStudio on your desktop, you know how to create folders/subfolders. If you're working on Wooster's RStudio server, click on "Files" in the lower-right corner, then create a New Folder called "DATA231" or "DATA230" and within that, a folder called "Activities". **Save this document in that folder now.** Call it "Station1.qmd" -->
 
 ## B. Quarto
 
-The thing you are reading right now is an **Quarto** document (very similar to R Markdown). Quarto runs *inside* R Studio. Quarto is a simple formatting syntax for authoring web pages, word documents, pdfs, and many more file types. On Canvas, you can find the link to a useful Quarto guide. You can also click the **?** toolbar button for more details on using Quarto.
+The thing you are reading right now is an **Quarto** document (very similar to R Markdown if you've ever used that). Quarto runs *inside* R Studio. Quarto is a simple formatting syntax for authoring web pages, word documents, pdfs, and many more file types. <!-- On Canvas, you can find the link to a useful Quarto guide. --> <!-- You can also click the **?** toolbar button for more details on using Quarto. -->
 
-First, [watch this short video to introduce yourself to RStudio](https://rmarkdown.rstudio.com/lesson-1.html) (https://rmarkdown.rstudio.com/lesson-1.html).
+When you click the **Render** button at the top of this window a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. Not only can you embed the R *code*, you can embed the *output* produced by the R code. In this way, your analysis is fully reproducible and updatable. **All of your homework assignments must be prepared using Quarto**.
 
-When you click the **Render** button at the top of this window a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. Not only can you embed the R *code*, you can embed the *output* produced by the R code. In this way, your analysis is fully reproducible and updatable. **All of your homework assignments must be prepared using Quarto, and submitted as a pdf or Word document**.
+The nice thing about Quarto is that you can write prose (as I am doing now), mathematical equations using LaTeX syntax (like $y_i = a + b x_i$), and R code/output/plots all in one synthesized document. This makes it approximately 10,000 times easier to use than doing the same thing in Word or LaTeX. As you go through this introduction, I recommend that you look also at the .qmd file and your output file side-by-side, to get an idea of how Quarto works. (Since you're going to have to use Quarto this semester, you might as well start learning it now!)
 
-The nice thing about Quarto is that you can write prose (as I am doing now), mathematical equations using LaTeX syntax (like $y_i = a + b x_i$), and R code/output/plots all in one synthesized document. This makes it approximately 10,000 times easier to use than doing the same thing in Word or LaTeX. As you go through this introduction, I recommend that you look also at the .qmd file and .html file side-by-side, to get an idea of how Quarto works. (Since you're going to have to use Quarto this semester, you might as well start learning it now!)
-
-In the future, when you want to start a new Quarto document, click "File \> New File \> Quarto Document..." Put yourself as author, and make sure to give it a descriptive title!
+In the future, I will typically give you a Quarto template to fill out. However, occasionally you will need to create your own Quarto document. When you want to start a new Quarto document, click "File \> New File \> Quarto Document..." Put yourself as author, and make sure to give it a descriptive title!
 
 **The goal of this station is to get you ready to read, visualize, and use data. You will also become comfortable navigating the RStudio interface and running code from within a document.**
 
+First, [read through this page](https://quarto.org/docs/get-started/hello/rstudio.html). I suggest watching the first 6:35 of the embedded video as anything after that is not relevant for our class.
+
 ## C. Using R as a Calculator and Running Code within a Quarto Document
 
-With R by your side, you will never need your TI-84 again. Consider the simple arithmetic in the chunk below. You can run this code chunk all at once by by clicking the *Run* button (sideways green arrow) within the chunk. Notice the interactive nature of the output. You can click through to see the different pieces of output.
+With R by your side, you will never need your TI-84 again. Consider the simple arithmetic in the chunk below. You can run this code chunk all at once by clicking the *Run* button, the sideways green arrow in the top right of the chunk. Notice the interactive nature of the output. You can click through to see the different pieces of output.
 
 **As you work through this document, you should Run each chunk as you come to it.**
 
@@ -58,14 +57,7 @@ If you save something like this, R will not show the output unless you expressly
 product #show result
 ```
 
-Alternatively, I could use "=" instead of "\<-":
-
-```{r}
-product = 15.3 * 23.4  #save result
-product #show result
-```
-
-The symbol "\<-" is the *assignment operator*. It's essentially the same as "=" in this instance. When we get into more complicated work, there are cases where "\<-" works and "=" doesn't, so it's good to get into the habit of using "\<-" now.
+The symbol "\<-" is the *assignment operator*. If you've ever programmed before, it's essentially the same as "=" in this instance. When we get into more complicated work, there are cases where "\<-" works and "=" doesn't, so it's good to get into the habit of using "\<-" now.
 
 Once variables are defined, they can be referenced with other operators and functions. Try executing each line of code individually by placing your cursor on the first line of the chunk below and pressing *Ctrl+Enter* (*Cmd +Enter* for Mac users); then do the same for the second line. (This is how you can run a single line within a larger chunk.)
 
@@ -94,20 +86,19 @@ If you want to run something in R but don't want it to appear in the Quarto docu
 
 3.  If you see a `+` prompt, it means R is waiting for more input. Often this means that you have forgotten a closing parenthesis or made some other syntax error. If you have completely messed up and just want to get back to the console, hit the ESC key and start the command fresh.
 
-4.  The Console and the Quarto document are *separate entities*. Suppose you've run something, saved something, opened a data set, or opened loaded a package in the Console. It exists *only* in the Console, not in the Quarto document. Think of the Console as a "practice area" -- a place where you can play around and try stuff. Once you've settled on a piece of code and you want it to appear in the "official" document (that you'll turn in to me), put it into the Quarto document (within a "chunk", of course).
+4.  The Console/Qmd file and the Quarto output document are *separate entities*. Suppose you've run something, saved something, opened a data set, or opened loaded a package in the Console. It exists *only* in the Console, not in the Quarto document. Think of the Console as a "practice area" -- a place where you can play around and try stuff. Once you've settled on a piece of code and you want it to appear in the "official" document (that you'll turn in to me), put it into the Quarto document (within a "chunk", of course). Note that when you click the green run button, it runs the code in the console not the Quarto document. This can occasionally cause inconsistencies if you run your code chunks out of order while you're writing your document. When you ultimately press `Render`, Quarto will re-run the WHOLE document in order from the beginning to generate the output file.
 
 ## E. R packages
 
-In addition to its core features, R provides many more features through a (large) number of packages. To use a package, it must be installed (one time), and loaded (each session). You install the package by clicking the "Packages" tab in the lower-right quadrant, then clicking "Install" and type the name of the package. To load the package in the Console, you can type `library(package)`, or just click the button next to the package in the "Packages" tab. However, if you are going to use a package within an Quarto document, you must "call" the package within your particular Quarto document. (Why? Because the Console and the Quarto document are separate entities!)
+In addition to its core features, R provides many more features through a (large) number of packages. To use a package, it must be installed (one time), and loaded (each session). You install the package by clicking the "Tools \> Install Packages..." in the toolbar, then typing the name of the package. To load the package in the Console, you can type `library(package_name)`, or just click the button next to the package in the "Packages" tab. However, if you are going to use a package within an Quarto document, you must "call" the package within your particular Quarto document. (Why? Because the Console and the Quarto document are separate entities!)
 
-For example: We will be using the "tidyverse" package a lot this term. The package is already installed on Wooster's RStudio server. (If you're using a desktop version of RStudio, install this package now by clicking on the "Install" button under the "Packages" tab in the lower-right quadrant.) Load the package in the Console by typing `library(tidyverse)` in the Console. Now we still need to load it *in this Quarto document*.
+For example: We will be using the `tidyverse` package a lot this term. <!-- The package is already installed on Wooster's RStudio server.  --> (If you're using a desktop version of RStudio you will need to install it if you haven't used it before.) Load the package in the Console by typing `library(tidyverse)` in the Console. Now we still need to load it *in this Quarto document*.
 
 ```{r}
 library(tidyverse) #this loads the tidyverse package into this R Markown document
-#We could also use the code require("tidyverse") to do this
 ```
 
-The "tidyverse" package is now loaded. But it sure takes up a lot of space on the html file, doesn't it? If we wanted to suppress the output from this particular chunk on the html file, we could use `#| include: false` at the beginning of the chunk, as below. (Note that the chunk still runs; but the code and the output is suppressed when it knits to html. There are other useful chunk headers that we will see as we continue learning Quarto...)
+The `tidyverse` package is now loaded. But it sure takes up a lot of space on the html file, doesn't it? If we wanted to suppress the output from this particular chunk on the html file, we could use `#| include: false` at the beginning of the chunk, as below. (Note that the chunk still runs; but the code and the output is suppressed when it knits to html. There are other useful chunk headers that we will see as we continue learning Quarto...)
 
 ```{r}
 #| include: false
@@ -135,7 +126,10 @@ If something doesn't go quite right, or if you can't remember something, it's go
 
 Some packages include demos. Demos are bits of R code that can be executed using the `demo()` command with the name of the demo. Demos are intended to illustrate a concept, a method, or some such thing, and are independent of any particular function or data set. You can get a list of available demos using `demo()`, or demos from just the package of interest using `demo(package='NAME OF PACKAGE')`.
 
-5.  The Internet. One of the great things about R is how well-documented it is online. Since it's free and open-source and people across disciplines use it, there is an astounding amount of information available on the web. If you get stuck on something, Google it: I can almost guarantee you will find someone who has posted a solution to either your exact problem, or something close to it.
+5.  The Internet. One of the great things about R is how well-documented it is online. Since it's free and open-source and people across disciplines use it, there is an astounding amount of information available on the web. If you get stuck on something, Google it: I can almost guarantee you will find someone who has posted a solution to either your exact problem, or something close to it. You should treat AI tools, such as ChatGPT, the same as other online resources. There are two guiding principles that govern how you can use AI in this course: (1) *Cognitive dimension:* Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate---rather than hinder---learning. (2) *Ethical dimension***:** Students using AI should be transparent about their use and make sure it aligns with academic integrity. In general:
+
+-   ✅ **AI tools for code**: You may make use of the technology for coding examples on assignments; if you do so, you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. You may use [these guidelines](https://guides.lib.monash.edu/c.php?g=219786&p=6972087) for citing AI-generated content.
+-   ❌ **AI tools for narrative:** Unless instructed otherwise, you may not use generative AI to write narrative on assignments. In general, you may use generative AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content
 
 **NOTE:** There are usually MANY different ways to do things in R. The ways I use, and the ways I show you, are (almost) never the *only* way, and are not necessarily the *best* or *simplest* way. Feel free to find different/better/easier ways to do things! I (almost) never care about the details of the code, as long as you're getting the *right* result.
 
@@ -166,21 +160,21 @@ gf_boxplot(Gain ~ Protein | Source, data = FatRats)
 
 Data can also be loaded from files on your computer (.txt, .xls, .csv), or from the internet. If working on the College's RStudio server, you often need to upload the data on the server first. Let's try this now:
 
--   Download the `USStates_fall2021.csv` file from Moodle. It lives under the `Data sets` tab.
+-   Download the `USStates_fall2021.csv` file from Canvas. It lives under the `Data sets` tab.
 
--   In the lower-right quadrant of RStudio, click on `Files`, then your new `DATA231` or `DATA230` folder that you created in Section A.
+-   In the lower-right quadrant of RStudio, click on `Files`, then your new `MAT212` folder that you created in Section A.
 
--   Click "Upload \> Choose File", and select the USStates_fall2021.csv file that you downloaded. Then click the Upload button.
+-   Click "Upload \> Choose File", and select the `USStates_fall2021.csv` file that you downloaded. Then click the Upload button.
 
 Now you can Import the data set into your Console and/or Quarto document.
 
--   In the top-right corner of RStudio, click "Environment \> Import Dataset".
+-   In the top-right corner of RStudio, click "Environment \> Import Dataset \> From Text (base)".
 
--   Navigate to your DATA231/DATA230 folder and welect USStates_fall2021.csv and click "Open".
+-   Navigate to your MAT212 folder and select `USStates_fall2021.csv` and click "Open".
 
 -   As I said above, RStudio is smart enough that it can usually tell which kind of delimiter is being used. It is showing you a preview of the data set in the "Data Frame" window. Make sure it looks okay: columns and rows, with column names given by the Headings (not V1, V2, etc). Then hit "Import".
 
--   The data set is now loaded in the Console, and the Console now has the code to load the data set. But of course, that doesn't mean it's loaded in the Quarto document! Copy that line (the read.csv line, not the "View" line) in the code chunk below.
+-   The data set is now loaded in the Console, and the Console now has the code to load the data set. But of course, that doesn't mean it's loaded in the Quarto document! Copy that line (the `read.csv` line, not the `View` line) in the code chunk below.
 
 ```{r}
 

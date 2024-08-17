@@ -72,10 +72,10 @@ knitr::opts_chunk$set(
 
 # load packages
 library(tidyverse)   # for data wrangling and visualization
+library(ggformula)   # for plotting using formulas
 library(broom)       # for formatting model output
 library(scales)      # for pretty axis labels
 library(knitr)       # for pretty tables
-library(kableExtra)  # also for pretty tables
 library(patchwork)   # arrange plots
 
 # HEB Dataset
@@ -131,10 +131,9 @@ $$
 #| echo: false
 heb_aug <- augment(heb_fit)
 
-ggplot(heb_aug, aes(x = .fitted, y = .resid)) +
-  geom_point() +
-  geom_hline(yintercept = 0, linetype = "dashed") +
-  labs(
+gf_point(.resid ~ .fitted, data = heb_aug) |> 
+  gf_hline(yintercept = 0, linetype = "dashed") |> 
+  gf_labs(
     x = "Fitted value", y = "Residual",
     title = "Residuals vs. fitted values"
   )
@@ -325,9 +324,9 @@ ggplot(heb_aug, aes(x = .resid)) +
 ::: {.column width="50%"}
 ```{r}
 #| code-fold: true
-ggplot(heb_aug, aes(x = .resid)) +
-  geom_histogram(bins=7, color = "white")  +
-  labs(
+gf_histogram(~.resid, data = heb_aug,
+             bins=7, color = "white") |> 
+  gf_labs(
     x = "Residual",
     y = "Count",
     title = "Histogram of residuals"
@@ -341,10 +340,9 @@ ggplot(heb_aug, aes(x = .resid)) +
 ::: {.column width="50%"}
 ```{r}
 #| code-fold: true
-ggplot(heb_aug, aes(sample = .resid)) +
-  stat_qq()+
-  stat_qq_line() + 
-  labs(x = "Theoretical quantile", 
+gf_qq(~.resid, data = heb_aug) |> 
+  gf_qqline() |>  
+  gf_labs(x = "Theoretical quantile", 
        y = "Observed quantile", 
        title = "Normal QQ-plot of residuals")
 ```
@@ -371,7 +369,7 @@ ggplot(heb_aug, aes(sample = .resid)) +
 
 ❌ The residuals do not appear to follow a normal distribution, because the points do not lie on the diagonal line, so normality is not satisfied.
 
-✅ The sample size  $ n =  37 > 30$, so the sample size is large enough to relax this condition and proceed with inference.
+✅ The sample size  $n =  37 > 30$, so the sample size is large enough to relax this condition and proceed with inference.
 
 
 ## Independence {.midi}
@@ -394,7 +392,7 @@ Recall the description of the data:
 
 <br>
 
-❌ Based on the information we have,  its'  unclear if the data are independeent. In fact, I'd guess that they are likely geographically correlated.
+❌ Based on the information we have,  it's  unclear if the data are independent. In fact, I'd guess that they are likely geographically correlated.
 
 ## Recap
 

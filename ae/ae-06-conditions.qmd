@@ -19,7 +19,8 @@ Render, commit, and push your responses to GitHub by the end of class. The respo
 #| warning: false
 #| message: false
 library(tidyverse)
-library(tidymodels)
+library(ggformula)
+library(broom)
 library(knitr)
 library(patchwork) #arrange plots in a grid
 ```
@@ -52,15 +53,13 @@ Below are plots as part of the exploratory data analysis.
 
 ```{r}
 #| label: univariate-eda
-p1 <- ggplot(data = spotify, aes(x = valence)) + 
-  geom_histogram() + 
-  labs(title = "Distribution of Valence", 
+p1 <- gf_histogram(~valence, data = spotify) |>  
+  gf_labs(title = "Distribution of Valence", 
        subtitle = " for Popular songs on Spotify", 
        x = "Valence")
 
-p2 <- ggplot(data = spotify, aes(x = energy)) + 
-  geom_histogram() + 
-  labs(title = "Distribution of Energy", 
+p2 <- gf_histogram(~energy, data = spotify) |> 
+  gf_labs(title = "Distribution of Energy", 
        subtitle = "for Popular songs on Spotify", 
        x = "Energy")
 p1 + p2
@@ -68,9 +67,8 @@ p1 + p2
 
 ```{r}
 #| label: bivariate-eda
-ggplot(data = spotify, aes(x = energy, y = valence)) + 
-  geom_point() + 
-  labs(title = "Valence vs. Energy", 
+gf_point(valence ~ energy, data = spotify) |> 
+  gf_labs(title = "Valence vs. Energy", 
        subtitle = "Popular songs on Spotify", 
        x = "Energy", 
        y = "Valence")
@@ -115,16 +113,14 @@ Fill in the code to make a histogram of the residuals and a normal QQ-plot.
 #| label: resid-dist
 #| eval: false
 
-resid_hist <- ggplot(data = ____, aes(x = ____)) +
-  geom_histogram() +
-  labs(x = "_____", 
+resid_hist <- gf_histogram(~____, data = ____)) |> 
+  gf_labs(x = "_____", 
        y = "_____", 
        title = "____")
 
-resid_qq <- ggplot(data = ____, aes(sample = ____)) + 
-  stat_qq() + 
- ____() + 
-  labs(x = "_____", 
+resid_qq <- gf_qq(~____, data = ____)  |>
+  gf_qqline() |> 
+  gf_labs(x = "_____", 
        y = "_____", 
        title = "____")
 

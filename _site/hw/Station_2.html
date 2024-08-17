@@ -8,7 +8,7 @@
 
 <meta name="author" content="Your name here">
 
-<title>MAT 212 - Fall 2024 - Station 2: EDA with R</title>
+<title>MAT 212 - Fall 2024 - Station 2: Exploratory Data Analysis (EDA) with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Station 2: EDA with R</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Station 2: Exploratory Data Analysis (EDA) with R</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -275,7 +275,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Station 2: EDA with R</h1>
+<h1 class="title">Station 2: Exploratory Data Analysis (EDA) with R</h1>
 </div>
 
 
@@ -326,12 +326,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="load-data">Load data</h2>
 <p>Doing statistics requires <em>data</em>. R comes with many built-in datasets, and the packages you loaded above (specifically <code>Stat2Data</code>) give you access to even more. To load a dataset from within R you can use the <code>data</code> command:</p>
 <blockquote class="blockquote">
-<p><strong>TASK–Use the code below to load the dataset diamonds, which is part of the ggplot2 package and included in the tidyverse.</strong></p>
+<p><strong>TASK–Use the code below to load the dataset diamonds, which is part of the <code>ggplot2</code> package and included in the <code>tidyverse.</code></strong></p>
 </blockquote>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"diamonds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This is a great chance to remind you that R cares about letter case. This means that data(diamonds) and data(Diamonds) actually load different datasets! In this case, please make sure to load the <em>lowercase letter</em> <code>diamonds</code> dataset.</p>
+<p>This is a great chance to remind you that R cares about letter case. This means that <code>data("diamonds")</code> and <code>data("Diamonds")</code> actually load different datasets! In this case, please make sure to load the <em>lowercase letter</em> <code>diamonds</code> dataset.</p>
 <section id="inspecting-the-data-source" class="level3">
 <h3 class="anchored" data-anchor-id="inspecting-the-data-source">Inspecting the data source</h3>
 <p>Now you’re ready to learn a little bit about the <code>diamonds</code> data set.</p>
@@ -371,7 +371,7 @@ $ z       &lt;dbl&gt; 2.43, 2.31, 2.31, 2.63, 2.75, 2.48, 2.47, 2.53, 2.49, 2.39
 </div>
 </div>
 <blockquote class="blockquote">
-<p><strong>TASK:</strong> Edit the bullet list below to add a short description in your own words describing what each function does.</p>
+<p><strong>TASK:</strong> Edit the bullet list below to add a short description in your own words describing what each function does. Hint: if it isn’t clear based on the output you can use <code>?</code> before the function name in the console to bring up the documentation on that function.</p>
 </blockquote>
 <ul>
 <li><code>glimpse()</code> : this function…</li>
@@ -527,16 +527,16 @@ $ z       &lt;dbl&gt; 2.43, 2.31, 2.31, 2.63, 2.75, 2.48, 2.47, 2.53, 2.49, 2.39
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#tally(CatVariable1 ~ CatVariable2, data = state_data)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<p><strong>TASK–create a barchart for two categorical variables. Try changing <code>"dodged"</code> to <code>"stacked"</code> and <code>"fill"</code>. Choose one and briefly explain why you chose that barchart:</strong></p>
+<p><strong>TASK–create a barchart for two categorical variables. Try changing <code>"dodge"</code> to <code>"stacked"</code> and <code>"fill"</code>. Choose one and briefly explain why you chose that barchart:</strong></p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#gf_bar( ~ CatVariable1, fill = ~ CatVariable2, data = state_data, position = "dodged")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#gf_bar( ~ CatVariable1, fill = ~ CatVariable2, data = state_data, position = "dodge")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<p><strong>TASK–create a histogram for one of your quantitative variables:</strong></p>
+<p><strong>TASK–create a histogram for one of your quantitative variables. Adjust the number of bins until the noise in your data does not overwhelm any patterns:</strong></p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#gf_histogram( ~ QuantVariable1, data = state_data)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#gf_histogram( ~ QuantVariable1, data = state_data, bins = 30)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <p><strong>TASK–create side-by-side boxplots for one quantitative and one categorical variable:</strong></p>

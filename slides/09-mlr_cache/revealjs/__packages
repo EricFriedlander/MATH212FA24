@@ -1,10 +1,3 @@
-base
-methods
-datasets
-utils
-grDevices
-graphics
-stats
 tidyverse
 ggplot2
 tibble
@@ -31,3 +24,14 @@ yardstick
 knitr
 patchwork
 GGally
+airports
+cherryblossom
+usdata
+openintro
+kableExtra
+lattice
+Matrix
+ggformula
+mosaicData
+mosaic
+ggridges

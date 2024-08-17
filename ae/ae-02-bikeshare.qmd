@@ -18,7 +18,7 @@ library(patchwork)
 
 ## Data
 
-Our dataset contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the `dcbikeshare` data set in the dsbox R package.
+Our dataset contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the `dcbikeshare` data set in the `dsbox` R package.
 
 We will focus on the following variables in the analysis:
 

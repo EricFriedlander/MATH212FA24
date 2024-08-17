@@ -1,5 +1,5 @@
 ---
-title: "Station 2: EDA with R"
+title: "Station 2: Exploratory Data Analysis (EDA) with R"
 author: "Your name here"
 ---
 
@@ -32,13 +32,13 @@ library(tidyverse)
 
 Doing statistics requires *data*. R comes with many built-in datasets, and the packages you loaded above (specifically `Stat2Data`) give you access to even more. To load a dataset from within R you can use the `data` command:
 
-> **TASK--Use the code below to load the dataset diamonds, which is part of the ggplot2 package and included in the tidyverse.**
+> **TASK--Use the code below to load the dataset diamonds, which is part of the `ggplot2` package and included in the `tidyverse.`**
 
 ```{r}
 data("diamonds")
 ```
 
-This is a great chance to remind you that R cares about letter case. This means that data(diamonds) and data(Diamonds) actually load different datasets! In this case, please make sure to load the *lowercase letter* `diamonds` dataset.
+This is a great chance to remind you that R cares about letter case. This means that `data("diamonds")` and `data("Diamonds")` actually load different datasets! In this case, please make sure to load the *lowercase letter* `diamonds` dataset.
 
 ### Inspecting the data source
 
@@ -51,7 +51,7 @@ head(diamonds)
 names(diamonds)
 ```
 
-> **TASK:** Edit the bullet list below to add a short description in your own words describing what each function does.
+> **TASK:** Edit the bullet list below to add a short description in your own words describing what each function does. Hint: if it isn't clear based on the output you can use `?` before the function name in the console to bring up the documentation on that function.
 
 -   `glimpse()` : this function...
 -   `head()` : this function...
@@ -205,16 +205,16 @@ For all the tasks below, you will have to alter the code given for *your* chosen
 #tally(CatVariable1 ~ CatVariable2, data = state_data)
 ```
 
-> **TASK--create a barchart for two categorical variables. Try changing `"dodged"` to `"stacked"` and `"fill"`. Choose one and briefly explain why you chose that barchart:**
+> **TASK--create a barchart for two categorical variables. Try changing `"dodge"` to `"stacked"` and `"fill"`. Choose one and briefly explain why you chose that barchart:**
 
 ```{r}
-#gf_bar( ~ CatVariable1, fill = ~ CatVariable2, data = state_data, position = "dodged")
+#gf_bar( ~ CatVariable1, fill = ~ CatVariable2, data = state_data, position = "dodge")
 ```
 
-> **TASK--create a histogram for one of your quantitative variables:**
+> **TASK--create a histogram for one of your quantitative variables. Adjust the number of bins until the noise in your data does not overwhelm any patterns:**
 
 ```{r}
-#gf_histogram( ~ QuantVariable1, data = state_data)
+#gf_histogram( ~ QuantVariable1, data = state_data, bins = 30)
 ```
 
 > **TASK--create side-by-side boxplots for one quantitative and one categorical variable:**

@@ -1,6 +1,6 @@
 ---
 title: "AE 04: Bootstrap confidence intervals"
-subtitle: "Houses in Duke Forest"
+subtitle: "Bikeshare"
 date: "Sep 11, 2023"
 editor: visual
 ---
@@ -14,40 +14,52 @@ Render, commit, and push your responses to GitHub by the end of class. The respo
 ```{r load-packages}
 #| message: false
 library(tidyverse)
-library(tidymodels)
+library(ggformula)
+library(broom)
+library(infer)
 library(openintro)
-library(knitr)
+library(kableExtra)
 ```
 
 ## Data
 
-The data are on houses that were sold in the Duke Forest neighborhood of Durham, NC around November 2020. It was originally scraped from Zillow, and can be found in the `duke_forest` data set in the **openintro** R package.
+Our dataset contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012 filtered to only contain the winter months. It was obtained from the `dcbikeshare` data set in the `dsbox` R package.
+
+We will focus on the following variables in the analysis:
+
+-   `count`: total bike rentals
+-   `temp_orig`: Temperature in degrees Celsius
 
 ```{r glimpse-data}
-glimpse(duke_forest)
+winter <- read_csv("../ae/data/dcbikeshare.csv") |>
+  mutate(season = case_when(
+    season == 1 ~ "winter",
+    season == 2 ~ "spring",
+    season == 3 ~ "summer",
+    season == 4 ~ "fall"
+  ),
+  season = factor(season)) |>
+  filter(season == "winter")
+
+glimpse(winter)
 ```
 
 ## Exploratory data analysis
 
 ```{r scatterplot}
-ggplot(duke_forest, aes(x = area, y = price)) +
-  geom_point(alpha = 0.7) +
-  labs(
-    x = "Area (square feet)",
-    y = "Sale price (USD)",
-    title = "Price and area of houses in Duke Forest"
-  ) +
-  scale_y_continuous(labels = label_dollar()) 
+gf_point(count ~ temp_orig, data = winter, alpha = 0.7) |> 
+  gf_labs(
+    x = "Temperature (C)",
+    y = "Number of Bike Rentals",
+  )
 ```
 
 ## Model
 
 ```{r fit-model}
-df_fit <- linear_reg() |>
-  set_engine("lm") |>
-  fit(price ~ area, data = duke_forest)
+model_fit <- lm(count ~ temp_orig, data = winter)
 
-tidy(df_fit) |>
+tidy(model_fit) |>
   kable(digits = 2)
 ```
 
@@ -57,8 +69,8 @@ tidy(df_fit) |>
 
 ```{r observed-fit}
 
-observed_fit <- duke_forest |>
-  specify(price ~ area) |>
+observed_fit <- winter |>
+  specify(count ~ temp_orig) |>
   fit()
 
 observed_fit
@@ -72,7 +84,7 @@ Fill in the code, then set `eval: true` .
 #| eval: false
 
 n = 100
-set.seed(091222)
+set.seed(212)
 
 boot_fits <- ______ |>
   specify(______) |>

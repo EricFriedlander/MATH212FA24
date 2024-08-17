@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2023-09-11">
 
-<title>STA 210 - Fall 2023 - AE 04: Bootstrap confidence intervals</title>
+<title>MAT 212 - Fall 2024 - AE 04: Bootstrap confidence intervals</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -131,29 +131,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <a href="../index.html" class="sidebar-logo-link">
       <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
-      <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/sta210-fa23" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
-    <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="quarto-navigation-tool px-1" aria-label="RStudio Containers"><i class="bi bi-code-square"></i></a>
-    <div class="dropdown">
-      <a href="" title="Sakai" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Sakai"><i class="bi bi-person-fill"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/site/f2e8b7dc-61e6-4431-9b5c-29f8411ee5db">
-            Sakai
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://edstem.org/us/courses/44523/discussion/">
-            Ed Discussion
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/584312">
-            Gradescope
-            </a>
-          </li>
-      </ul>
-    </div>
+      <div class="sidebar-tools-main">
+    <a href="https://cofi.instructure.com/courses/15692" title="Canvas" class="quarto-navigation-tool px-1" aria-label="Canvas"><i class="bi bi-person"></i></a>
 </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -276,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#modify-the-code-from-step-3-to-create-a-99-confidence-interval." id="toc-modify-the-code-from-step-3-to-create-a-99-confidence-interval." class="nav-link" data-scroll-target="#modify-the-code-from-step-3-to-create-a-99-confidence-interval.">Modify the code from Step 3 to create a 99% confidence interval.</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta210-fa23/website/edit/main/ae/ae-04-bootstrap.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta210-fa23/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-04-bootstrap.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -284,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">AE 04: Bootstrap confidence intervals</h1>
-<p class="subtitle lead">Houses in Duke Forest</p>
+<p class="subtitle lead">Bikeshare</p>
 </div>
 
 
@@ -323,45 +302,72 @@ Important
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(infer)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>The data are on houses that were sold in the Duke Forest neighborhood of Durham, NC around November 2020. It was originally scraped from Zillow, and can be found in the <code>duke_forest</code> data set in the <strong>openintro</strong> R package.</p>
+<p>Our dataset contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012 filtered to only contain the winter months. It was obtained from the <code>dcbikeshare</code> data set in the <code>dsbox</code> R package.</p>
+<p>We will focus on the following variables in the analysis:</p>
+<ul>
+<li><code>count</code>: total bike rentals</li>
+<li><code>temp_orig</code>: Temperature in degrees Celsius</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(duke_forest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>winter <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../ae/data/dcbikeshare.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">season =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    season <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"winter"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    season <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"spring"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    season <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"summer"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    season <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"fall"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">season =</span> <span class="fu">factor</span>(season)) <span class="sc">|&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(season <span class="sc">==</span> <span class="st">"winter"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 731 Columns: 17
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl  (16): instant, season, yr, mnth, holiday, weekday, workingday, weathers...
+date  (1): dteday
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(winter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 98
-Columns: 13
-$ address    &lt;chr&gt; "1 Learned Pl, Durham, NC 27705", "1616 Pinecrest Rd, Durha…
-$ price      &lt;dbl&gt; 1520000, 1030000, 420000, 680000, 428500, 456000, 1270000, …
-$ bed        &lt;dbl&gt; 3, 5, 2, 4, 4, 3, 5, 4, 4, 3, 4, 4, 3, 5, 4, 5, 3, 4, 4, 3,…
-$ bath       &lt;dbl&gt; 4.0, 4.0, 3.0, 3.0, 3.0, 3.0, 5.0, 3.0, 5.0, 2.0, 3.0, 3.0,…
-$ area       &lt;dbl&gt; 6040, 4475, 1745, 2091, 1772, 1950, 3909, 2841, 3924, 2173,…
-$ type       &lt;chr&gt; "Single Family", "Single Family", "Single Family", "Single …
-$ year_built &lt;dbl&gt; 1972, 1969, 1959, 1961, 2020, 2014, 1968, 1973, 1972, 1964,…
-$ heating    &lt;chr&gt; "Other, Gas", "Forced air, Gas", "Forced air, Gas", "Heat p…
-$ cooling    &lt;fct&gt; central, central, central, central, central, central, centr…
-$ parking    &lt;chr&gt; "0 spaces", "Carport, Covered", "Garage - Attached, Covered…
-$ lot        &lt;dbl&gt; 0.97, 1.38, 0.51, 0.84, 0.16, 0.45, 0.94, 0.79, 0.53, 0.73,…
-$ hoa        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ url        &lt;chr&gt; "https://www.zillow.com/homedetails/1-Learned-Pl-Durham-NC-…</code></pre>
+<pre><code>Rows: 181
+Columns: 17
+$ instant    &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, …
+$ dteday     &lt;date&gt; 2011-01-01, 2011-01-02, 2011-01-03, 2011-01-04, 2011-01-05…
+$ season     &lt;fct&gt; winter, winter, winter, winter, winter, winter, winter, win…
+$ yr         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ mnth       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+$ holiday    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,…
+$ weekday    &lt;dbl&gt; 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4,…
+$ workingday &lt;dbl&gt; 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1,…
+$ weathersit &lt;dbl&gt; 2, 2, 1, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 1, 2, 2, 2, 2,…
+$ temp       &lt;dbl&gt; 0.3441670, 0.3634780, 0.1963640, 0.2000000, 0.2269570, 0.20…
+$ atemp      &lt;dbl&gt; 0.3636250, 0.3537390, 0.1894050, 0.2121220, 0.2292700, 0.23…
+$ hum        &lt;dbl&gt; 0.805833, 0.696087, 0.437273, 0.590435, 0.436957, 0.518261,…
+$ windspeed  &lt;dbl&gt; 0.1604460, 0.2485390, 0.2483090, 0.1602960, 0.1869000, 0.08…
+$ casual     &lt;dbl&gt; 331, 131, 120, 108, 82, 88, 148, 68, 54, 41, 43, 25, 38, 54…
+$ registered &lt;dbl&gt; 654, 670, 1229, 1454, 1518, 1518, 1362, 891, 768, 1280, 122…
+$ count      &lt;dbl&gt; 985, 801, 1349, 1562, 1600, 1606, 1510, 959, 822, 1321, 126…
+$ temp_orig  &lt;dbl&gt; 14.110847, 14.902598, 8.050924, 8.200000, 9.305237, 8.37826…</code></pre>
 </div>
 </div>
 </section>
 <section id="exploratory-data-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory data analysis</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(duke_forest, <span class="fu">aes</span>(<span class="at">x =</span> area, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Area (square feet)"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Sale price (USD)"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Price and area of houses in Duke Forest"</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_point</span>(count <span class="sc">~</span> temp_orig, <span class="at">data =</span> winter, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Temperature (C)"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Bike Rentals"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -374,14 +380,12 @@ $ url        &lt;chr&gt; "https://www.zillow.com/homedetails/1-Learned-Pl-Durham
 <section id="model" class="level2">
 <h2 class="anchored" data-anchor-id="model">Model</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(price <span class="sc">~</span> area, <span class="at">data =</span> duke_forest)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(df_fit) <span class="sc">|&gt;</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>model_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(count <span class="sc">~</span> temp_orig, <span class="at">data =</span> winter)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(model_fit) <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">term</th>
@@ -394,16 +398,16 @@ $ url        &lt;chr&gt; "https://www.zillow.com/homedetails/1-Learned-Pl-Durham
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">116652.33</td>
-<td style="text-align: right;">53302.46</td>
-<td style="text-align: right;">2.19</td>
-<td style="text-align: right;">0.03</td>
+<td style="text-align: right;">-111.04</td>
+<td style="text-align: right;">238.31</td>
+<td style="text-align: right;">-0.47</td>
+<td style="text-align: right;">0.64</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">area</td>
-<td style="text-align: right;">159.48</td>
-<td style="text-align: right;">18.17</td>
-<td style="text-align: right;">8.78</td>
+<td style="text-align: left;">temp_orig</td>
+<td style="text-align: right;">222.42</td>
+<td style="text-align: right;">18.46</td>
+<td style="text-align: right;">12.05</td>
 <td style="text-align: right;">0.00</td>
 </tr>
 </tbody>
@@ -416,17 +420,17 @@ $ url        &lt;chr&gt; "https://www.zillow.com/homedetails/1-Learned-Pl-Durham
 <section id="calculate-the-observed-fit-slope" class="level3">
 <h3 class="anchored" data-anchor-id="calculate-the-observed-fit-slope">1. Calculate the observed fit (slope)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>observed_fit <span class="ot">&lt;-</span> duke_forest <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(price <span class="sc">~</span> area) <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>()</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>observed_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>observed_fit <span class="ot">&lt;-</span> winter <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(count <span class="sc">~</span> temp_orig) <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>observed_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   term      estimate
   &lt;chr&gt;        &lt;dbl&gt;
-1 intercept  116652.
-2 area          159.</code></pre>
+1 intercept    -111.
+2 temp_orig     222.</code></pre>
 </div>
 </div>
 </section>
@@ -434,21 +438,21 @@ $ url        &lt;chr&gt; "https://www.zillow.com/homedetails/1-Learned-Pl-Durham
 <h3 class="anchored" data-anchor-id="take-n-bootstrap-samples-and-fit-models-to-each-one.">2. Take <em>n</em> bootstrap samples and fit models to each one.</h3>
 <p>Fill in the code, then set <code>eval: true</code> .</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">100</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">091222</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>boot_fits <span class="ot">&lt;-</span> ______ <span class="sc">|&gt;</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(______) <span class="sc">|&gt;</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> ____, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>()</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>boot_fits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">100</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">212</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>boot_fits <span class="ot">&lt;-</span> ______ <span class="sc">|&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(______) <span class="sc">|&gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> ____, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>()</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>boot_fits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>Why do we set a seed before taking the bootstrap samples?</p></li>
 <li><p>Make a histogram of the bootstrap samples to visualize the bootstrap distribution.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for histogram</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for histogram</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 </ul>
 </section>
@@ -456,12 +460,12 @@ $ url        &lt;chr&gt; "https://www.zillow.com/homedetails/1-Learned-Pl-Durham
 <h3 class="anchored" data-anchor-id="compute-the-95-confidence-interval-as-the-middle-95-of-the-bootstrap-distribution">3. Compute the 95% confidence interval as the middle 95% of the bootstrap distribution</h3>
 <p>Fill in the code, then set <code>eval: true</code> .</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_confidence_interval</span>(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  boot_fits, </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">point_estimate =</span> _____, </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">level =</span> ____,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"percentile"</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_confidence_interval</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  boot_fits, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">point_estimate =</span> _____, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">level =</span> ____,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"percentile"</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -470,13 +474,13 @@ $ url        &lt;chr&gt; "https://www.zillow.com/homedetails/1-Learned-Pl-Durham
 <section id="modify-the-code-from-step-3-to-create-a-90-confidence-interval." class="level3">
 <h3 class="anchored" data-anchor-id="modify-the-code-from-step-3-to-create-a-90-confidence-interval.">Modify the code from Step 3 to create a 90% confidence interval.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paste code for 90% confidence interval</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paste code for 90% confidence interval</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="modify-the-code-from-step-3-to-create-a-99-confidence-interval." class="level3">
 <h3 class="anchored" data-anchor-id="modify-the-code-from-step-3-to-create-a-99-confidence-interval.">Modify the code from Step 3 to create a 99% confidence interval.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paste code for 90% confidence interval</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paste code for 90% confidence interval</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>Which confidence level produces the most accurate confidence interval (90%, 95%, 99%)? Explain</p></li>
@@ -587,7 +591,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/sta210-fa23\.netlify\.app");
+      var filterRegex = new RegExp("https:\/\/mat212fa24\.netlify\.app\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -919,11 +923,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© Copyright 2022, Maria Tackett</p>
+<p>© Copyright 2024, Eric Friedlander</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta210-fa23/website/edit/main/ae/ae-04-bootstrap.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta210-fa23/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-04-bootstrap.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

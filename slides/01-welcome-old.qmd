@@ -1,0 +1,368 @@
+---
+title: "Welcome to STA 210!"
+author: "Prof. Maria Tackett"
+date: "2023-08-28"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 STA 210 - Fall 2023 -  Schedule](https://sta210-fa23.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+---
+
+# Welcome!
+
+## Meet Prof. Tackett! {.midi}
+
+::: incremental
+-   Education and career journey
+    -   BS in Math and MS in Statistics from University of Tennessee
+    -   Statistician at Capital One
+    -   PhD in Statistics from University of Virginia
+    -   Assistant Professor of the Practice, Department of Statistical Science at Duke
+-   Work focuses on statistics education and sense of belonging in introductory math and statistics classes
+-   Co-leader of the Bass Connections team Mental Health and the Justice System in Durham County
+-   Mom of (almost) 8-month-old twins 🙂
+:::
+
+------------------------------------------------------------------------
+
+## Meet the Teaching Assistants (TAs)
+
+-   Sam Rosen (PhD): Head TA + Lab 01
+
+-   Bethany Astor (MS): Lab 02
+
+-   Jon Campbell (MS)
+
+-   Donald Cayton (MS): Lab 02
+
+-   Allison Li (UG)
+
+-   Mitchelle Mojekwu (UG): Lab 04
+
+-   Ben Thorpe (UG)
+
+-   Linxuan Wang (MS): Lab 03
+
+-   Xiaojun Zheng (PhD): Lab 04
+
+# Check-in on Ed Discussion!
+
+Click on the link and answer the Ed Discussion poll
+
+-   [Section 001 (10:05am lecture)](https://edstem.org/us/courses/44523/discussion/3346720)
+
+-   [Section 002 (1:25pm lecture)](https://edstem.org/us/courses/44523/discussion/3346722)
+
+# Regression analysis
+
+## What is regression analysis?
+
+::: {style="font-size: 0.85em;"}
+> "In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when ***the focus is on the relationship between a dependent variable and one or more independent variables (or 'predictors')***. More specifically, regression analysis helps one understand how the typical value of the dependent variable (or 'criterion variable') changes when any one of the independent variables is varied, while the other independent variables are held fixed."
+
+Source: [Wikipedia](https://en.wikipedia.org/wiki/Regression_analysis) (previous definition)
+:::
+
+## Examples of regression in practice
+
+-   [New Yorkers Will Pay \$56 A Month To Trim A Minute Off Their Commute](https://fivethirtyeight.com/features/new-yorkers-will-pay-56-a-month-to-trim-a-minute-off-their-commute/)
+
+-   [How FiveThirtyEight's 2020 Presidential Forecast Works --- And What's Different Because Of COVID-19](https://fivethirtyeight.com/features/how-fivethirtyeights-2020-presidential-forecast-works-and-whats-different-because-of-covid-19/)
+
+-   [Effect of Forensic Evidence on Criminal Justice Case Processing](https://onlinelibrary.wiley.com/doi/10.1111/1556-4029.12020)
+
+-   [Why it's so freaking hard to make a good COVID-19 model](https://fivethirtyeight.com/features/why-its-so-freaking-hard-to-make-a-good-covid-19-model/) (from March 2020)
+
+# STA 210
+
+## Course FAQ {.midi}
+
+**Q - What background is assumed for the course?**
+
+A - Introductory statistics or probability course at Duke
+
+. . .
+
+**Q - Will we be doing computing?**
+
+A - Yes. We will use the computing language R for analysis, Quarto for writing up results, and GitHub for version control and collaboration
+
+. . .
+
+**Q - Will we learn the mathematical theory of regression?**
+
+A - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression. There a 0.5-credit course [STA 211: Mathematics of Regression](https://stat.duke.edu/courses/mathematics-regression) to take simultaneously or after this course to dive into more of the mathematics.
+
+------------------------------------------------------------------------
+
+## Course learning objectives {.midi}
+
+By the end of the semester, you will be able to...
+
+-   analyze real-world data to answer questions about multivariable relationships.
+
+-   use R to fit and evaluate linear and logistic regression models.
+
+-   assess whether a proposed model is appropriate and describe its limitations.
+
+-   use Quarto to write reproducible reports and GitHub for version control and collaboration.
+
+-   effectively communicate statistical results through writing and oral presentations.
+
+## Course topics {.midi}
+
+::: columns
+::: {.column width="50%"}
+**Unit 1: Quantitative Response Variable**
+
+-   Simple Linear Regression
+
+-   Multiple Linear Regression
+
+<br>
+
+**Unit 2: Categorical Response Variable**
+
+-   Logistic Regression
+-   Multinomial logistic regression
+:::
+
+::: {.column width="50%"}
+**Unit 3: Looking Ahead**
+
+-   Special topics
+
+-   Presenting statistical results
+:::
+:::
+
+# Course overview
+
+## Course toolkit {.midi}
+
+-   **Course website**: [sta210-fa23.netlify.app](https://sta210-fa23.netlify.app)
+    -   Central hub for the course!
+    -   **Tour of the website**
+-   **Sakai**: [sakai.duke.edu](https://sakai.duke.edu)
+    -   Gradebook
+    -   Announcements
+    -   Gradescope
+    -   Ed Discussion
+-   **GitHub:** [github.com/sta210-fa23](github.com/sta210-fa23)
+    -   Distribute assignments
+    -   Platform for version control and collaboration
+
+## Computing toolkit {.midi}
+
+::: columns
+::: {.column width="50%"}
+::: {.fragment fragment-index="1"}
+![](images/01/rstudio.png){fig-alt="RStudio logo" fig-align="center" width="5.61in" height="1.6in"}
+:::
+
+::: {.fragment fragment-index="2"}
+-   All analyses using R, a statistical programming language
+
+-   Write reproducible reports in Quarto
+
+-   Access RStudio through [STA 210 Docker Containers](https://cmgr.oit.duke.edu/containers)
+:::
+:::
+
+::: {.column width="50%"}
+::: {.fragment fragment-index="1"}
+![](images/01/github.png){fig-alt="GitHub logo" fig-align="center" width="5.61in" height="1.6in"}
+:::
+
+::: {.fragment fragment-index="3"}
+-   Access assignments
+
+-   Facilitates version control and collaboration
+
+-   All work in [STA 210 course organization](https://github.com/sta210-fa23)
+:::
+:::
+:::
+
+# Activities + assessments
+
+## Prepare, Participate, Practice, Perform
+
+::: small
+::: incremental
+-   **Prepare:** Introduce new content and prepare for lectures by completing the readings (and sometimes watching the videos)
+
+-   **Participate:** Attend and actively participate in lectures and labs, office hours, team meetings
+
+-   **Practice:** Practice applying statistical concepts and computing with application exercises during lecture, graded for completion
+
+-   **Perform:** Put together what you've learned to analyze real-world data
+
+    -   Lab assignments (first individual, later team-based)
+
+    -   Homework assignments (individual)
+
+    -   Two exams
+
+    -   Final group project
+:::
+:::
+
+## Grading
+
+| Category              | Percentage |
+|-----------------------|------------|
+| Homework              | 35%        |
+| Final project         | 15%        |
+| Lab                   | 15%        |
+| Exam 01               | 15%        |
+| Exam 02               | 15%        |
+| Application Exercises | 2.5%       |
+| Teamwork              | 2.5%       |
+
+See the [syllabus](https://sta210-fa23.netlify.app/syllabus.html) for details on how the final letter grade will be calculated.
+
+## Support
+
+-   Attend office hours to meet with a member of the teaching team
+    -   Prof. Tackett's office hours start Fri, Sep 1, 1 - 3pm
+    -   Full office hours schedule starts Tue, Sep 5
+-   Ask and answer questions on course discussion forum
+-   Use email for questions regarding personal matters and/or grades
+-   See the [Course Support](https://sta210-fa23.netlify.app/support.html) page for more details
+
+## Diversity & inclusion
+
+::: small
+It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.
+
+-   If you have a name that differs from those that appear in your official Duke records, please let me know.
+
+-   Please let me know your preferred pronouns, if you are comfortable sharing.
+
+-   If you feel like your performance in the class is being impacted by your experiences outside of class, please don't hesitate to come and talk with me. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.
+
+-   I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said or done in class (by anyone) that made you feel uncomfortable, please talk to me about it.
+:::
+
+## Accessibility
+
+-   The [Student Disability Access Office (SDAO)](https://access.duke.edu/students) is available to ensure that students are able to engage with their courses and related assignments.
+
+-   If you have documented accommodations from SDAO, please send the documentation as soon as possible.
+
+-   I am committed to making all course activities and materials accessible. If any course component is not accessible to you in any way, please don't hesitate to let me know.
+
+# Course policies
+
+## COVID-19 and other illness
+
+-   Please do not come to class if you have tested positive for COVID-19, have possible symptoms and have not yet been tested, or have other illness.
+
+-   Lecture recordings are available for excused absences. See [Lecture recording request](https://sta210-fa23.netlify.app/syllabus#lecture-recording-request) in the syllabus for more information and a link to the request form.
+
+-   Read and follow the university guidelines regarding COVID-19 at [coronavirus.duke.edu](https://coronavirus.duke.edu/).
+
+## Late work, waivers, and regrade requests
+
+-   We have policies! We will discuss them in detail when the first assignment is released.
+
+-   Read more about them in the [Course policies](https://sta210-fa23.netlify.app/syllabus.html#course-policies) section of the syllabus and refer back to them as needed
+
+-   If you have questions, email [sta210\@duke.edu](mailto:%20sta210@duke.edu)
+
+## Academic integrity
+
+> To uphold the Duke Community Standard:
+>
+> -   I will not lie, cheat, or steal in my academic endeavors;
+>
+> -   I will conduct myself honorably in all my endeavors; and
+>
+> -   I will act if the Standard is compromised.
+
+\
+By participating in this course, you are agreeing that all your work and conduct will be in accordance with the Duke Community Standard.
+
+## Collaboration & sharing code
+
+-   We have policies! We will discuss them in detail when the first assignment is released.
+
+-   Read about them in the [Academic honesty](https://sta210-fa23.netlify.app/syllabus.html#academic-honesty) section of the syllabus and refer to them as needed
+
+## Use of artificial intelligence (AI) {.midi}
+
+-   You should treat AI tools, such as ChatGPT, the same as other online resources.
+-   There are two guiding principles that govern how you can use AI in this course:[^1]
+    -   \(1\) *Cognitive dimension:* Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate---rather than hinder---learning.
+    -   \(2\) *Ethical dimension***:** Students using AI should be transparent about their use and make sure it aligns with academic integrity.
+
+[^1]: These guiding principles are based on [*Course Policies related to ChatGPT and other AI Tools*](https://docs.google.com/document/d/1WpCeTyiWCPQ9MNCsFeKMDQLSTsg1oKfNIH6MzoSFXqQ/preview) developed by Joel Gladd, Ph.D.[↩︎](https://sta101-f23.github.io/course-syllabus.html#fnref1)
+
+## Use of artificial intelligence (AI) {.midi}
+
+✅ **AI tools for code:** You may make use of the technology for coding examples on assignments; if you do so, you must explicitly cite where you obtained the code.
+
+❌ **No AI tools for narrative:** Unless instructed otherwise, AI is [**not**]{.underline} permitted for writing narrative on assignments.
+
+::: callout-important
+In general, you may use AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content.
+:::
+
+# Having a successful semester in STA 210
+
+## Five tips for success
+
+1.  Complete all the preparation work (readings and videos) before class.
+
+2.  Ask questions.
+
+3.  Do the homework and labs; get started on homework early when possible.
+
+4.  Don't procrastinate and don't let a week pass by with lingering questions.
+
+5.  Stay up-to-date on announcements on Ed Discussion and sent via email.
+
+# Questions?
+
+Raise your hand or post on Ed Discussion
+
+# Let's look at some data!
+
+## Application exercise
+
+::: appex
+📋 [AE 01 - Movie Budgets and Revenues](https://sta210-fa23.netlify.app/ae/ae-01-movies.html)
+:::
+
+# This week
+
+## For this week...
+
+-   Read the [syllabus](https://sta210-fa23.netlify.app/syllabus)
+
+-   See the [course schedule](https://sta210-fa23.netlify.app/schedule) for an overview of the semester
+
+-   Labs start this week!
+
+    -   Section 001: Labs on Tuesday
+
+    -   Section 002: Labs on Thursday
+
+-   This week's lab is focused on introductions and computing
+
+-   Wednesday's lecture: The Big Picture
