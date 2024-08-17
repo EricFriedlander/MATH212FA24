@@ -4,8 +4,6 @@ title: "Useful links"
 
 |                            |                                                                                        |
 |----------------|--------------------------------------------------------|
-| RStudio containers         | 🔗 on [Duke Container Manager](https://cmgr.oit.duke.edu/containers)                   |
-| Course GitHub organization | 🔗 on [GitHub](https://github.com/sta210-fa23)                                         |
-| Discussion forum           | 🔗 on [Ed Discussion](https://edstem.org/us/courses/44523/discussion/)                 |
-| Assignment submission      | 🔗 on [Gradescope](https://www.gradescope.com/courses/584312)                          |
-| Zoom links                 | 🔗 on [Sakai](https://sakai.duke.edu/portal/site/f2e8b7dc-61e6-4431-9b5c-29f8411ee5db) |
+| RStudio       | 🔗 on [CofI Posit Workbench](https://rstudio.collegeofidaho.edu)                   |
+| Discussion forum           | 🔗 on [Canvas](https://cofi.instructure.com/courses/15692/discussion_topics/64872)                 |
+| Canvas Course      | 🔗 on [Canvas](https://cofi.instructure.com/courses/15692)                          |
