@@ -3225,7 +3225,7 @@
     "href": "support.html#office-hours",
     "title": "Course support",
     "section": "Office hours",
-    "text": "Office hours\nThe teaching team is here to help you be successful in the course. You are encouraged to attend office hours during the times posted on the home page to ask questions about the course content and assignments. A lot of questions are most effectively answered in-person, so office hours are a valuable resource. I encourage you to take advantage of them!\nMake a pledge to stop by office hours at least once during the first three weeks of class. If you truly have no questions to ask, just stop by and say hi and introduce yourself. You can find a list of everyone’s office hours here.",
+    "text": "Office hours\nI am here to help you be successful in the course. You are encouraged to attend office hours during the times posted on the home page to ask questions about the course content and assignments. A lot of questions are most effectively answered in-person, so office hours are a valuable resource. I encourage you to take advantage of them!\nMake a pledge to stop by office hours at least once during the first three weeks of class. If you truly have no questions to ask, just stop by and say hi and introduce yourself.",
     "crumbs": [
       "Support"
     ]
@@ -3245,7 +3245,7 @@
     "href": "support.html#email",
     "title": "Course support",
     "section": "Email",
-    "text": "Email\nIf you have questions about personal matters that are not appropriate for the class discussion forum (e.g. illness, accommodations, etc.), you may email Professor Tackett at maria.tackett@duke.edu. If you email me, please include “STA 210” in the subject line. Barring extenuating circumstances, I will respond to STA 210 emails within 48 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.\nIf you have questions about assignment extensions, please email sta210@duke.edu. This email is accessible to the Head TA Sam Rosen and Professor Tackett.",
+    "text": "Email\nIf you have questions about personal matters that are not appropriate for the class discussion forum (e.g. illness, accommodations, etc.), you may email Professor Fridlander at efriedlander@collegeofidaho.edu. If you email me, please include “MAT 212” in the subject line. Barring extenuating circumstances, I will respond to MAT 212 emails within 48 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.",
     "crumbs": [
       "Support"
     ]
@@ -11096,6 +11096,26 @@
     "text": "Lectures\nLectures are designed to be interactive, so you gain experience applying new concepts and learning from each other. My role as instructor is to introduce you to new methods, tools, and techniques, but it is up to you to take them and make use of them. A lot of what you do in this course will involve writing code, and coding is a skill that is best learned by doing. Therefore, as much as possible, you will be working on a variety of tasks and activities throughout each lecture and lab. You are expected to prepare for class by completing assigned readings, attend all lecture sessions, and meaningfully contribute to in-class exercises and discussion. Additionally, some lectures will feature application exercises that will be graded based on completing what we do in class.\nYou are expected to bring a laptop, tablet, or Chromebook to each class so that you can participate in the in-class exercises. Please make sure your device is fully charged before you come to class, as the number of outlets in the classroom may not be sufficient to accommodate everyone.",
     "crumbs": [
       "Syllabus"
+    ]
+  },
+  {
+    "objectID": "support.html#lectures",
+    "href": "support.html#lectures",
+    "title": "Course support",
+    "section": "Lectures",
+    "text": "Lectures\nIf you have a question during lecture, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.",
+    "crumbs": [
+      "Support"
+    ]
+  },
+  {
+    "objectID": "support.html#canvas-discussion-forum",
+    "href": "support.html#canvas-discussion-forum",
+    "title": "Course support",
+    "section": "Canvas Discussion Forum",
+    "text": "Canvas Discussion Forum\nOutside of class and office hours, any general questions about course content or assignments should be posted on the Canvas Discussion Forum. There is a chance another student has already asked a similar question, so please check the other posts on Ed Discussion before adding a new question. If you know the answer to a question that is posted, I encourage you to respond!",
+    "crumbs": [
+      "Support"
     ]
   }
 ]
