@@ -103,10 +103,3 @@ d |>
 
 ```
 :::
-
-## Notes
-
--   Lab:
-    -   Lab sections 01 & 02 (Tuesdays): Labs will be due on Fridays at 11:59pm.
-    -   Lab sections 03 & 04 (Thursdays): Labs will be due on Sundays at 11:59pm.
--   Project dates will be added when the project is assigned.
