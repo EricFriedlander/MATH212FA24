@@ -10,17 +10,7 @@ title: "Resources for learning R"
 
 ## RStudio Primers
 
-Tutorials most relevant to this course:
-
--   [The Basics](https://rstudio.cloud/learn/primers/1)
-
--   [Work with Data](https://rstudio.cloud/learn/primers/2)
-
--   [Visualize Data](https://rstudio.cloud/learn/primers/3)
-
--   [Tidy your Data](https://rstudio.cloud/learn/primers/4)
-
-[Click here](https://rstudio.cloud/learn/primers) for full list of tutorials.
+[Click here](https://r-primers.andrewheiss.com/) for full list of tutorials. Note that we will be using a simplified version of ggplot2 in this course.
 
 ## Additional resources
 

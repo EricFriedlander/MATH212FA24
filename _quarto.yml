@@ -59,15 +59,15 @@ website:
         - href: computing-r-resources.qmd
           text: R resources
       - section: Project
-        contents:
-        - href: project-instructions.qmd
-          text: Instructions
-        - href: project-tips.qmd
-          text: Tips + resources
-      - href: stats-experience.qmd
-        text: Statistics experience
-      - href: https://docs.google.com/spreadsheets/d/1dUD4SOpM79BL2kdvue9I2TP-ibcdxfpOIkHkMreYx64/edit?usp=sharing
-        text: Lecture recordings
+        # contents:
+        # - href: project-instructions.qmd
+        #   text: Instructions
+        # - href: project-tips.qmd
+        #   text: Tips + resources
+      # - href: stats-experience.qmd
+      #   text: Statistics experience
+      # - href: https://docs.google.com/spreadsheets/d/1dUD4SOpM79BL2kdvue9I2TP-ibcdxfpOIkHkMreYx64/edit?usp=sharing
+      #   text: Lecture recordings
 
 format:
   html:

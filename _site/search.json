@@ -3183,7 +3183,7 @@
     "href": "computing-r-resources.html#rstudio-primers",
     "title": "Resources for learning R",
     "section": "RStudio Primers",
-    "text": "RStudio Primers\nTutorials most relevant to this course:\n\nThe Basics\nWork with Data\nVisualize Data\nTidy your Data\n\nClick here for full list of tutorials.",
+    "text": "RStudio Primers\nClick here for full list of tutorials. Note that we will be using a simplified version of ggplot2 in this course.",
     "crumbs": [
       "Computing",
       "R resources"
