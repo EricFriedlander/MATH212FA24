@@ -180,7 +180,7 @@ Based on the analysis goals, we will use a **multiple linear regression** model 
 
 $$
 \begin{aligned}\hat{\text{interest_rate}} ~ = 
-\hat{\beta}_0 & + \hat{\beta}_1 \text{debt_to_income} \\ & + \hat{\beta}_2 \text{verified_income} \\ &+ \hat{\beta}_3 \text{annual_income_th}
+\hat{\beta}_0 & + \hat{\beta}_1 \text{debt_to_income} \\ & + \hat{\beta}_2 \text{verified_income} \\ &+ \hat{\beta}_3 \text{annual_income_k}
 \end{aligned}
 $$
 
@@ -236,7 +236,7 @@ $$
 \begin{align}\hat{\text{interest_rate}} =  10.726 &+0.671 \times \text{debt_to_income}\\
 &+ 2.211 \times \text{source_verified}\\  
 &+ 6.880 \times \text{verified}\\
-& -0.021 \times \text{annual_income_th}
+& -0.021 \times \text{annual_income_k}
 \end{align}
 $$
 
@@ -471,7 +471,7 @@ The lines are not parallel indicating there is an **interaction effect**. The sl
 #| echo: false
 
 p1 <- ggplot(loan50, 
-             aes(x = annual_income_th, y = interest_rate)) +
+             aes(x = annual_income_k, y = interest_rate)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   labs(
@@ -480,13 +480,12 @@ p1 <- ggplot(loan50,
   )
 
 p2 <- ggplot(loan50, 
-             aes(x = annual_income_th, y = interest_rate,
+             aes(x = annual_income_k, y = interest_rate,
                  color = verified_income)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   labs(x = "Annual income (in $1000s)", y = NULL, color = NULL) +
-  theme(legend.position = c(0.6, 0.9)) +
-  scale_color_OkabeIto()
+  theme(legend.position = c(0.6, 0.9))
 
 p1 + p2 +
   plot_annotation(title = "Interest rate vs. annual income")
@@ -514,7 +513,7 @@ tidy(int_int_fit) |>
 
 ## Data manipulation 3: Create interaction variables {.smaller}
 
-Defining the interaction variable in the model formula as `verified_income * annual_income_th_cent` is an implicit data manipulation step as well
+Defining the interaction variable in the model formula as `verified_income * annual_income_k_cent` is an implicit data manipulation step as well
 
 ```{r}
 #| echo: false

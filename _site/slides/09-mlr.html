@@ -612,7 +612,7 @@ Prof.&nbsp;Eric Friedlander
 <p>Based on the analysis goals, we will use a <strong>multiple linear regression</strong> model of the following form</p>
 <p><span class="math display">\[
 \begin{aligned}\hat{\text{interest_rate}} ~ =
-\hat{\beta}_0 &amp; + \hat{\beta}_1 \text{debt_to_income} \\ &amp; + \hat{\beta}_2 \text{verified_income} \\ &amp;+ \hat{\beta}_3 \text{annual_income_th}
+\hat{\beta}_0 &amp; + \hat{\beta}_1 \text{debt_to_income} \\ &amp; + \hat{\beta}_2 \text{verified_income} \\ &amp;+ \hat{\beta}_3 \text{annual_income_k}
 \end{aligned}
 \]</span></p>
 <p>Similar to simple linear regression, this model assumes that at each combination of the predictor variables, the values <code>interest_rate</code> follow a Normal distribution.</p>
@@ -712,7 +712,7 @@ Y|X_1, X_2, \ldots, X_p \sim N(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \be
 \begin{align}\hat{\text{interest_rate}} =  10.726 &amp;+0.671 \times \text{debt_to_income}\\
 &amp;+ 2.211 \times \text{source_verified}\\  
 &amp;+ 6.880 \times \text{verified}\\
-&amp; -0.021 \times \text{annual_income_th}
+&amp; -0.021 \times \text{annual_income_k}
 \end{align}
 \]</span></p>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -1118,13 +1118,124 @@ Y|X_1, X_2, \ldots, X_p \sim N(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \be
 <section id="interest-rate-vs.-annual-income" class="slide level2">
 <h2>Interest rate vs.&nbsp;annual income</h2>
 <p>The lines are not parallel indicating there is an <strong>interaction effect</strong>. The slope of annual income differs based on the income verification.</p>
+
+<img data-src="09-mlr_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section></section>
+<section>
+<section id="interaction-terms-2" class="title-slide slide level1 center">
+<h1>Interaction terms</h1>
+
+</section>
+<section id="interaction-terms-3" class="slide level2">
+<h2>Interaction terms</h2>
+<ul>
+<li>Sometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.</li>
+<li>This is an <strong>interaction effect</strong>.</li>
+<li>To account for this, we can include <strong>interaction terms</strong> in the model.</li>
+</ul>
+</section>
+<section id="interest-rate-vs.-annual-income-1" class="slide level2">
+<h2>Interest rate vs.&nbsp;annual income</h2>
+<p>The lines are not parallel indicating there is an <strong>interaction effect</strong>. The slope of annual income differs based on the income verification.</p>
+
+<img data-src="09-mlr_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
+<section id="interaction-term-in-model" class="slide level2 smaller">
+<h2>Interaction term in model</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>int_int_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(interest_rate <span class="sc">~</span> debt_to_income <span class="sc">+</span> verified_income <span class="sc">+</span> annual_income_k <span class="sc">+</span> verified_income <span class="sc">*</span> annual_income_k,</span>
+<span id="cb13-2"><a></a>      <span class="at">data =</span> loan50)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09-mlr_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
-</figure>
+<table class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">9.560</td>
+<td style="text-align: right;">2.034</td>
+<td style="text-align: right;">4.700</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">debt_to_income</td>
+<td style="text-align: right;">0.691</td>
+<td style="text-align: right;">0.685</td>
+<td style="text-align: right;">1.009</td>
+<td style="text-align: right;">0.319</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">verified_incomeSource Verified</td>
+<td style="text-align: right;">3.577</td>
+<td style="text-align: right;">2.539</td>
+<td style="text-align: right;">1.409</td>
+<td style="text-align: right;">0.166</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">verified_incomeVerified</td>
+<td style="text-align: right;">9.923</td>
+<td style="text-align: right;">3.654</td>
+<td style="text-align: right;">2.716</td>
+<td style="text-align: right;">0.009</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">annual_income_k</td>
+<td style="text-align: right;">-0.007</td>
+<td style="text-align: right;">0.020</td>
+<td style="text-align: right;">-0.341</td>
+<td style="text-align: right;">0.735</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(220, 229, 178, 255) !important;">verified_incomeSource Verified:annual_income_k</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">-0.016</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">0.026</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">-0.643</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">0.523</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(220, 229, 178, 255) !important;">verified_incomeVerified:annual_income_k</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">-0.032</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">0.033</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">-0.979</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">0.333</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
+</div>
+</section>
+<section id="interpreting-interaction-terms" class="slide level2">
+<h2>Interpreting interaction terms</h2>
+<ul>
+<li>What the interaction means: The effect of annual income on the interest rate differs by -0.016 when the income is source verified compared to when it is not verified, holding all else constant.</li>
+<li>Interpreting <code>annual_income</code> for source verified: If the income is source verified, we expect the interest rate to decrease by 0.023% (-0.007 + -0.016) for each additional thousand dollars in annual income, holding all else constant.</li>
+</ul>
+</section>
+<section id="data-manipulation-3-create-interaction-variables" class="slide level2 smaller">
+<h2>Data manipulation 3: Create interaction variables</h2>
+<p>Defining the interaction variable in the model formula as <code>verified_income * annual_income_k_cent</code> is an implicit data manipulation step as well</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 50
+Columns: 9
+$ `(Intercept)`                                    &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, …
+$ debt_to_income                                   &lt;dbl&gt; 0.55752542, 1.3056833…
+$ annual_income_k                                  &lt;dbl&gt; 59.0, 60.0, 75.0, 75.…
+$ `verified_incomeNot Verified`                    &lt;dbl&gt; 1, 1, 0, 1, 1, 0, 0, …
+$ `verified_incomeSource Verified`                 &lt;dbl&gt; 0, 0, 0, 0, 0, 1, 1, …
+$ verified_incomeVerified                          &lt;dbl&gt; 0, 0, 1, 0, 0, 0, 0, …
+$ `annual_income_k:verified_incomeNot Verified`    &lt;dbl&gt; 59, 60, 0, 75, 254, 0…
+$ `annual_income_k:verified_incomeSource Verified` &lt;dbl&gt; 0.0, 0.0, 0.0, 0.0, 0…
+$ `annual_income_k:verified_incomeVerified`        &lt;dbl&gt; 0, 0, 75, 0, 0, 0, 0,…</code></pre>
 </div>
 </div>
 

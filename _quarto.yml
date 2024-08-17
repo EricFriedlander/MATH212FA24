@@ -25,9 +25,9 @@ website:
       # - icon: github
       #   href: https://github.com/sta210-fa23
       #   text: "GitHub organization"
-      # - icon: code-square
-      #   href: https://cmgr.oit.duke.edu/containers
-      #   text: "RStudio Containers"
+      - icon: code-square
+        href: https://rstudio.collegeofidaho.edu/
+        text: "RStudio"
       - icon: person
         href: https://cofi.instructure.com/courses/15692
         text: "Canvas"

@@ -20,27 +20,15 @@ We will learn approaches for analyzing multivariate data sets, emphasizing analy
 
 ## Instructor
 
-Eric is an Assistant Professor in the Department of Mathematics and Physical Sciences at the College of Idaho. Blah
+Eric is an Assistant Professor in the Department of Mathematics and Physical Sciences at the College of Idaho. His expertise lies in the areas of probability, statistics, and statistics education. He joined the College of Idaho faculty in 2024 after spending three years as an Assistant Professor at St. Norbert College in De Pere, Wisconsin. He received his bachelor’s degree in mathematics and statistics from Rice University in 2011. After earning his degree, he worked for Capital One for two years in their home loans division before enrolling in graduate school. In 2018, Eric received his Ph.D. in statistics and operations research from the University of North Carolina at Chapel Hill studying under professor Amarjit Budhiraja. His dissertation work focused on modeling and analyzing large systems which arise in industrial engineering (e.g. large server and communication networks). Following his Ph.D., Eric did a postdoc in the Department of Ecology & Evolution at the University of Chicago under the direction of professor Matthias Steinrücken where he used stochastic processes to study natural selection and population genetics. 
 
-| Office hours         | Location      |
+Outside of school, Eric is an avid fan of the New York Giants, New York Knicks, and North Carolina Tarheels. In addition, he enjoys comic books, the Fast and the Furious franchise, and spending time with his lovely wife Maria and lovable dogs Allie, Tony, and Miriam.
+
+| Office hours (Boone 126B) | |
 |----------------------|---------------|
-| Insert   | Insert |
+| Monday | 2:30-3:30pm |
+| Tuesday | 9:45-10:45am |
+| Wednesday | 1:30-2:30pm|
+| Thursday | 1-2pm |
 | *or by appointment.* |               |
 
-<!-- ## Teaching assistants -->
-
-<!-- ::: {.callout-tip appearance="simple" icon="false"} -->
-<!-- [Clickhere](https://docs.google.com/spreadsheets/d/1bZMZsX0Z6-rMI_qguqZCPg3kaes7KTz5Cn7gtcm9nWk/edit?usp=sharing) for schedule of office hours. -->
-<!-- ::: -->
-
-<!-- | Name              | Role    |                             | -->
-<!-- |-------------------|---------|-----------------------------| -->
-<!-- | Sam Rosen         | Head TA | Lab 01: Tue 10:05 - 11:20am | -->
-<!-- | Bethany Astor     | TA      | Lab 02: Tue 11:45am - 1pm   | -->
-<!-- | Jon Campbell      | TA      |                             | -->
-<!-- | Donald Cayton     | TA      | Lab 02: Tue 11:45am - 1pm   | -->
-<!-- | Allison Li        | TA      |                             | -->
-<!-- | Mitchelle Mojekwu | TA      | Lab 04: Thu 11:45am - 1pm   | -->
-<!-- | Ben Thorpe        | TA      |                             | -->
-<!-- | Linxuan Wang      | TA      | Lab 03: Thu 10:05 - 11:20am | -->
-<!-- | Xiaojun Zheng     | TA      | Lab 04: Thu 11:45am - 1pm   | -->

@@ -306,7 +306,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/index.html</loc>
-    <lastmod>2024-06-09T21:07:34.676Z</lastmod>
+    <lastmod>2024-08-17T17:08:38.178Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/schedule.html</loc>
@@ -410,7 +410,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/09-mlr.html</loc>
-    <lastmod>2024-08-07T20:10:22.812Z</lastmod>
+    <lastmod>2024-08-17T17:13:45.409Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/11-feature-engineering.html</loc>
@@ -431,5 +431,9 @@
   <url>
     <loc>https://mat212fa24.netlify.app/slides/01-welcome-old.html</loc>
     <lastmod>2024-08-16T21:38:22.889Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/14-mlr-inference-old.html</loc>
+    <lastmod>2024-06-07T20:17:50.000Z</lastmod>
   </url>
 </urlset>
