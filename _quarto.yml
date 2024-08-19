@@ -54,8 +54,8 @@ website:
         contents: 
         - href: computing-access.qmd
           text: Access
-        # - href: computing-troubleshooting.qmd
-        #   text: Troubleshooting
+        - href: computing-inferencesummary.qmd
+          text: Inference Summary Sheet
         - href: computing-r-resources.qmd
           text: R resources
       - section: Project

@@ -1,0 +1,39 @@
+---
+title: "Inference Summary Sheet"
+---
+
+## Choosing which statistical test/CI to use based on variable type
+
+
+| Variable type | Parameter of interest | Null hypothesis | Test name | Function for test |
+| --------------|-------| ----------- | ------------------ | --------------------------------------------------- |
+| One quantitative variable| $\mu$ | $\mu = \mu_0$ | One-sample t-test | `t.test(~variable1, mu = mu0, data = data_name)` |
+| One binary variable| $p$ or $\pi$ | $p = p_0$ | Z-test for one proportion | `prop.test(~variable1, p = p0, data = data_name)` |
+| One quantitative and one binary variable with [independent]{.underline} samples | $\mu_1-\mu_2$ | $\mu_1 = \mu_2$ | Two-sample t-test | `t.test(variable1~variable2, data = data_name)` |
+| One quantitative and one binary variable with [paired]{.underline} samples | $\mu_d$ | $\mu_d = 0$ | Paired t-test | `t.test(variable1~variable2, paried = TRUE, data = data_name)` |
+| Two binary variables | $p_1-p_2$ or $\pi_1-\pi_2$ | $p_1=p_2$ | Z-test for a difference in proportions | `prop.test(Variable1~variable2, data = data_name)` |
+| Two quantitative variables| correlation, $\rho$ or slope $\beta$ | $\rho = 0$ or $\beta = 0$ | Correlation or Regression | `cor.test(variable1~variable2, data = data_name)` or `lm(variable1 ~ variable2, data = data_name)` |
+| Two categorical variables| NA | 2 variables are independent |Chi-squared test | `chisq.test(variable1~variable2, data = data_name)`|
+
+
+For all tests, specify direction of $H_a$ with the argument: `alternative = "greater"`, `"less"`, or `"two.sided"`.
+
+To construct a Confidence Interval: remove the null hypothesis, and specify `conf.level=number_here`
+
+## Useful code for creating basic figures (requires ggformula)
+
+- Histogram: `gf_histogram( ~ variable, data = data_name)`
+- Boxplot: `gf_boxplot( ~ variable, data = data_name)`
+- Dotplot: `gf_dotplot( ~ variable, data = data_name)`
+- Barchart: `gf_bar( ~ variable, data = data_name)`
+- Side-by-side boxplot: `gf_boxplot( variable1 ~ variable2, data = data_name)`
+- Side-by-side barchart: `gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=position_dodge())`
+- Scatterplot: `gf_point(variable1 ~ variable2, data = data_name)`
+- Scatterplot with a third variable as color: `gf_point(variable1 ~ variable2, color = ~ variable3, data = data_name)`
+
+## Useful code for calculating summary statistics: (requires mosaic)
+
+- Means: `mean( ~ variable, data = data_name)` or `mean(variable1 ~ variable2, data = data_name)`
+- Counts/Tables: `tally( ~ variable, data = data_name)` or `tally(variable1 ~ variable2, data = data_name)`
+- 5-number-summary etc: `favstats( ~ variable, data = data_name)` or `favstats(variable1 ~ variable2, data = data_name)`
+

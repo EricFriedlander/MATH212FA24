@@ -7903,13 +7903,9 @@
   {
     "objectID": "computing-troubleshooting.html",
     "href": "computing-troubleshooting.html",
-    "title": "Computing troubleshooting",
+    "title": "Inference Summary Sheet",
     "section": "",
-    "text": "If you’re having difficulty launching an RStudio session from your reserved container, go to status.oit.duke.edu and scroll down to Teaching and Learning Tools. Under this heading you’ll find an entry called Container Manager (CMGR Coursework Containers).\n\nIf the status shows something other than Operational, this means there is a known incident with the containers. Check back later to see if it’s been resolved. If there’s a deadline coming up soon, post on the course forum to let us know that there’s an issue. We can look into how quickly it might get resolved and decide on what to do about the deadline accordingly. Note: We don’t anticipate this to happen regularly, the systems are Operational a huge majority of the time!\nIf the status shows Operational, this means the system is expected to be working. Check your internet connection, if need be, restart your computer to ensure a fresh new connection. If your issue persists, post on the course forum with details on what you’ve tried and the errors you see (including verbatim errors and/or screenshots).",
-    "crumbs": [
-      "Computing",
-      "Troubleshooting"
-    ]
+    "text": "Variable type\nParameter of interest\nNull hypothesis\nTest name\nFunction for test\n\n\n\n\nOne quantitative variable\n\\(\\mu\\)\n\\(\\mu = \\mu_0\\)\nOne-sample t-test\nt.test(~variable1, mu = mu0, data = data_name)\n\n\nOne binary variable\n\\(p\\) or \\(\\pi\\)\n\\(p = p_0\\)\nZ-test for one proportion\nprop.test(~variable1, p = p0, data = data_name)\n\n\nOne quantitative and one binary variable with independent samples\n\\(\\mu_1-\\mu_2\\)\n\\(\\mu_1 = \\mu_2\\)\nTwo-sample t-test\nt.test(variable1~variable2, data = data_name)\n\n\nOne quantitative and one binary variable with paired samples\n\\(\\mu_d\\)\n\\(\\mu_d = 0\\)\nPaired t-test\nt.test(variable1~variable2, paried = TRUE, data = data_name)\n\n\nTwo binary variables\n\\(p_1-p_2\\) or \\(\\pi_1-\\pi_2\\)\n\\(p_1=p_2\\)\nZ-test for a difference in proportions\nprop.test(Variable1~variable2, data = data_name)\n\n\nTwo quantitative variables\ncorrelation, \\(\\rho\\) or slope \\(\\beta\\)\n\\(\\rho = 0\\) or \\(\\beta = 0\\)\nCorrelation or Regression\ncor.test(variable1~variable2, data = data_name) or lm(variable1 ~ variable2, data = data_name)\n\n\nTwo categorical variables\nNA\nChi-squared test\nchisq.test(variable1~variable2, data = data_name)\n\n\n\n\n\nFor all tests, specify direction of \\(H_a\\) with the argument: alternative = \"greater\", \"less\", or \"two.sided\".\nTo construct a Confidence Interval: remove the null hypothesis, and specify conf.level=number_here"
   },
   {
     "objectID": "index.html#catalog-description",
@@ -11271,14 +11267,14 @@
     "href": "hw/hw-0-Station-2.html",
     "title": "Station 2: Exploratory Data Analysis (EDA) with R",
     "section": "",
-    "text": "In this document you will be introduced to the functions we will use most frequently in this class. If you are moderate to advanced R user, feel free to use whatever functions you’d like to accomplish the tasks. The first part of this document contains explanations for beginning R users, but all students should work through the entire document.\n\n\nIn general, I suggest “rendering as you go”: rendering every few chunks, to make sure things are rendering correctly, rather than waiting until the end of a document to render the whole thing (and potentially encountering lots of errors that you have to unpack)! I also ALWAYS suggest “saving as you go”: it’s a good idea to save every couple of minutes. (This is good practice for all your files.)\n\nTASK–Run the code below to set options for the document and load packages. Note that #| warning: FALSE causes the code to run without displaying any associated warnings.\n\n\n# Clear Workspace\nrm(list = ls()) \n\n# load packages we typically use for this class.\nlibrary(mosaic) \nlibrary(ggformula)\nlibrary(Stat2Data)\nlibrary(tidyverse)"
+    "text": "In this document you will be introduced to the functions we will use most frequently in this class. If you are moderate to advanced R user, feel free to use whatever functions you’d like to accomplish the tasks. The first part of this document contains explanations for beginning R users, but all students should work through the entire document.\n\n\nIn general, I suggest “rendering as you go”: rendering every few chunks, to make sure things are rendering correctly, rather than waiting until the end of a document to render the whole thing (and potentially encountering lots of errors that you have to unpack)! I also ALWAYS suggest “saving as you go”: it’s a good idea to save every couple of minutes. (This is good practice for all your files.)\n\nTASK–Run the code below to set options for the document and load packages. Note that #| warning: FALSE causes the code to run without displaying any associated warnings when you render.\n\n\n# Clear Workspace\nrm(list = ls()) \n\n# load packages we typically use for this class.\nlibrary(mosaic) \nlibrary(ggformula)\nlibrary(Stat2Data)\nlibrary(tidyverse)"
   },
   {
     "objectID": "hw/hw-0-Station-2.html#a.-introduction",
     "href": "hw/hw-0-Station-2.html#a.-introduction",
     "title": "Station 2: Exploratory Data Analysis (EDA) with R",
     "section": "",
-    "text": "In this document you will be introduced to the functions we will use most frequently in this class. If you are moderate to advanced R user, feel free to use whatever functions you’d like to accomplish the tasks. The first part of this document contains explanations for beginning R users, but all students should work through the entire document.\n\n\nIn general, I suggest “rendering as you go”: rendering every few chunks, to make sure things are rendering correctly, rather than waiting until the end of a document to render the whole thing (and potentially encountering lots of errors that you have to unpack)! I also ALWAYS suggest “saving as you go”: it’s a good idea to save every couple of minutes. (This is good practice for all your files.)\n\nTASK–Run the code below to set options for the document and load packages. Note that #| warning: FALSE causes the code to run without displaying any associated warnings.\n\n\n# Clear Workspace\nrm(list = ls()) \n\n# load packages we typically use for this class.\nlibrary(mosaic) \nlibrary(ggformula)\nlibrary(Stat2Data)\nlibrary(tidyverse)"
+    "text": "In this document you will be introduced to the functions we will use most frequently in this class. If you are moderate to advanced R user, feel free to use whatever functions you’d like to accomplish the tasks. The first part of this document contains explanations for beginning R users, but all students should work through the entire document.\n\n\nIn general, I suggest “rendering as you go”: rendering every few chunks, to make sure things are rendering correctly, rather than waiting until the end of a document to render the whole thing (and potentially encountering lots of errors that you have to unpack)! I also ALWAYS suggest “saving as you go”: it’s a good idea to save every couple of minutes. (This is good practice for all your files.)\n\nTASK–Run the code below to set options for the document and load packages. Note that #| warning: FALSE causes the code to run without displaying any associated warnings when you render.\n\n\n# Clear Workspace\nrm(list = ls()) \n\n# load packages we typically use for this class.\nlibrary(mosaic) \nlibrary(ggformula)\nlibrary(Stat2Data)\nlibrary(tidyverse)"
   },
   {
     "objectID": "hw/hw-0-Station-2.html#b.-data",
@@ -11320,7 +11316,7 @@
     "href": "hw/hw-0-Station-2.html#use-data-from-an-outside-source",
     "title": "Station 2: Exploratory Data Analysis (EDA) with R",
     "section": "Use data from an outside source",
-    "text": "Use data from an outside source\nIt’s important to be able to download a file from an outside source and then load it in R for use. There are multiple ways to do this, but one is described in Station_1. If you don’t know how to do this, see Station_1 for instructions, or ask your partner.\n\nTASK–Download the file US_States_fall2021.csv from Canvas and load the data into your environment\n\nOnce the data is loaded into the Environment, that means it’s loaded in the Console, NOT this Quarto document! Make sure you copy the code that loaded it into the Console into the R chunk below. Call the data set state_data.\n\nTASK–Use head() and glimpse() to explore the format of the data a bit:\n\nThis data has one row for each of the 50 U.S. states, and each variable is recorded for the entire state. For example, that variable HeavyDrinkers gives the percentage of residents in a state that are heavy drinkers. According to these data 5.9% of Pennsylvania residents are heavy drinkers.\n\nTASK–Refer to the US States Merged Data codebook (also on Canvas) and select some variables of interest:\n\nYou can choose whatever variables you want. You will explore these variables (and relationships between them) in Stations 2, 3, and Homework 1.\n\nQuantitative variable 1: …\nQuantitative variable 2: …\nCategorical variable 1: …\nCategorical variable 2: …"
+    "text": "Use data from an outside source\nIt’s important to be able to download a file from an outside source and then load it in R for use. There are multiple ways to do this, but one is described in Station_1. If you don’t know how to do this, see Station_1 for instructions, or ask your partner.\n\nTASK–Download the file US_States_fall2021.csv from Canvas and load the data into your environment\n\nOnce the data is loaded into the Environment, that means it’s loaded in the Console, NOT this Quarto document! Make sure you copy the code that loaded it into the Console into the R chunk below. Call the data set state_data.\n\nTASK–Use head() and glimpse() to explore the format of the data a bit:\n\nThis data has one row for each of the 50 U.S. states, and each variable is recorded for the entire state. For example, that variable HeavyDrinkers gives the percentage of residents in a state that are heavy drinkers. According to these data 5.9% of Pennsylvania residents are heavy drinkers.\n\nTASK–Refer to the US States Merged Data codebook (also on Canvas) and select some variables of interest:\n\nYou can choose whatever variables you want. You will explore these variables (and relationships between them) in Stations 2 and 3.\n\nQuantitative variable 1: …\nQuantitative variable 2: …\nCategorical variable 1: …\nCategorical variable 2: …"
   },
   {
     "objectID": "hw/hw-0-Station-2.html#eda-for-state-data",
@@ -11334,7 +11330,7 @@
     "href": "hw/hw-0-Station-2.html#summarizing-what-you-learned",
     "title": "Station 2: Exploratory Data Analysis (EDA) with R",
     "section": "Summarizing what you learned",
-    "text": "Summarizing what you learned\nWhenever you summarize the results of an analysis, it should always be in context. “In context” means that you talk about variables, not codes or shorthands like “CatVariable1”. A good question to ask yourself is: “If I walked up to a person on the street and told them this fact about my data, would they understand what was talking about?”\nExample: BAD\nYou: “Hi, did you know that there is a positive relationship between QuantVariable1 and QuantVariable2? It looks like the r is pretty strong.”\nPerson on street: “WTF?”\nExample: GOOD\nYou: “Hi, did you know that states with higher 8th grade math test scores also have higher average IQ’s? The relationship between these two variables is quite strong!”\nPerson on street: “How interesting, although maybe not surprising? Let’s have a discussion about the difficulties of measuring ‘intelligence’ with either standardized testing or IQ tests. What is ‘intelligence’, anyway?”\n\nTASK–share three interesting observations you learned from these figures (in Section D). Anything you learned must be in context!\n\n\nNote: Make sure you save your work in this Station. You will need it for your first homework assignment."
+    "text": "Summarizing what you learned\nWhenever you summarize the results of an analysis, it should always be in context. “In context” means that you talk about variables, not codes or shorthands like “CatVariable1”. A good question to ask yourself is: “If I walked up to a person on the street and told them this fact about my data, would they understand what was talking about?”\nExample: BAD\nYou: “Hi, did you know that there is a positive relationship between QuantVariable1 and QuantVariable2? It looks like the r is pretty strong.”\nPerson on street: “WTF?”\nExample: GOOD\nYou: “Hi, did you know that states with higher 8th grade math test scores also have higher average IQ’s? The relationship between these two variables is quite strong!”\nPerson on street: “How interesting, although maybe not surprising? Let’s have a discussion about the difficulties of measuring ‘intelligence’ with either standardized testing or IQ tests. What is ‘intelligence’, anyway?”\n\nTASK–share three interesting observations you learned from these figures (in Section D). Anything you learned must be in context!\n\n\nNote: Make sure you save your work in this Station."
   },
   {
     "objectID": "hw/hw-0-Station-1.html#d.-four-things-to-know-about-r-and-rstudio",
@@ -11349,5 +11345,70 @@
     "title": "Homework 0 - The Stations",
     "section": "",
     "text": "The purpose of this homework is to get you familiar and up to speed with R and RStudio. It comes in three parts. For each of the three you should upload a .qmd and .html file to Canvas. All three .qmd file templates are available on Canvas.\n\nStation 1: Getting Started with R and RStudio\nStation 2: Exploratory Data Analysis (EDA) with R\nStation 3: Inference with R"
+  },
+  {
+    "objectID": "computing-troubleshooting.html#choosing-which-statistical-testci-to-use-based-on-variable-type",
+    "href": "computing-troubleshooting.html#choosing-which-statistical-testci-to-use-based-on-variable-type",
+    "title": "Inference Summary Sheet",
+    "section": "",
+    "text": "Variable type\nParameter of interest\nNull hypothesis\nTest name\nFunction for test\n\n\n\n\nOne quantitative variable\n\\(\\mu\\)\n\\(\\mu = \\mu_0\\)\nOne-sample t-test\nt.test(~variable1, mu = mu0, data = data_name)\n\n\nOne binary variable\n\\(p\\) or \\(\\pi\\)\n\\(p = p_0\\)\nZ-test for one proportion\nprop.test(~variable1, p = p0, data = data_name)\n\n\nOne quantitative and one binary variable with independent samples\n\\(\\mu_1-\\mu_2\\)\n\\(\\mu_1 = \\mu_2\\)\nTwo-sample t-test\nt.test(variable1~variable2, data = data_name)\n\n\nOne quantitative and one binary variable with paired samples\n\\(\\mu_d\\)\n\\(\\mu_d = 0\\)\nPaired t-test\nt.test(variable1~variable2, paried = TRUE, data = data_name)\n\n\nTwo binary variables\n\\(p_1-p_2\\) or \\(\\pi_1-\\pi_2\\)\n\\(p_1=p_2\\)\nZ-test for a difference in proportions\nprop.test(Variable1~variable2, data = data_name)\n\n\nTwo quantitative variables\ncorrelation, \\(\\rho\\) or slope \\(\\beta\\)\n\\(\\rho = 0\\) or \\(\\beta = 0\\)\nCorrelation or Regression\ncor.test(variable1~variable2, data = data_name) or lm(variable1 ~ variable2, data = data_name)\n\n\nTwo categorical variables\nNA\nChi-squared test\nchisq.test(variable1~variable2, data = data_name)\n\n\n\n\n\nFor all tests, specify direction of \\(H_a\\) with the argument: alternative = \"greater\", \"less\", or \"two.sided\".\nTo construct a Confidence Interval: remove the null hypothesis, and specify conf.level=number_here"
+  },
+  {
+    "objectID": "computing-troubleshooting.html#useful-code-for-creating-basic-figures-requires-ggformula",
+    "href": "computing-troubleshooting.html#useful-code-for-creating-basic-figures-requires-ggformula",
+    "title": "Inference Summary Sheet",
+    "section": "Useful code for creating basic figures (requires ggformula)",
+    "text": "Useful code for creating basic figures (requires ggformula)\n\nHistogram: gf_histogram( ~ variable, data = data_name)\nBoxplot: gf_boxplot( ~ variable, data = data_name)\nDotplot: gf_dotplot( ~ variable, data = data_name)\nBarchart: gf_bar( ~ variable, data = data_name)\nSide-by-side boxplot: gf_boxplot( variable1 ~ variable2, data = data_name)\nSide-by-side barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=position_dodge())\nScatterplot: gf_point(variable1 ~ variable2, data = data_name)\nScatterplot with a third variable as color: gf_point(variable1 ~ variable2, color = ~ variable3, data = data_name)"
+  },
+  {
+    "objectID": "computing-troubleshooting.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
+    "href": "computing-troubleshooting.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
+    "title": "Inference Summary Sheet",
+    "section": "Useful code for calculating summary statistics: (requires mosaic)",
+    "text": "Useful code for calculating summary statistics: (requires mosaic)\n\nMeans: mean( ~ variable, data = data_name) or mean(variable1 ~ variable2, data = data_name)\nCounts/Tables: tally( ~ variable, data = data_name) or tally(variable1 ~ variable2, data = data_name)\n5-number-summary etc: favstats( ~ variable, data = data_name) or favstats(variable1 ~ variable2, data = data_name)"
+  },
+  {
+    "objectID": "computing-inferencesummary.html",
+    "href": "computing-inferencesummary.html",
+    "title": "Inference Summary Sheet",
+    "section": "",
+    "text": "Variable type\nParameter of interest\nNull hypothesis\nTest name\nFunction for test\n\n\n\n\nOne quantitative variable\n\\(\\mu\\)\n\\(\\mu = \\mu_0\\)\nOne-sample t-test\nt.test(~variable1, mu = mu0, data = data_name)\n\n\nOne binary variable\n\\(p\\) or \\(\\pi\\)\n\\(p = p_0\\)\nZ-test for one proportion\nprop.test(~variable1, p = p0, data = data_name)\n\n\nOne quantitative and one binary variable with independent samples\n\\(\\mu_1-\\mu_2\\)\n\\(\\mu_1 = \\mu_2\\)\nTwo-sample t-test\nt.test(variable1~variable2, data = data_name)\n\n\nOne quantitative and one binary variable with paired samples\n\\(\\mu_d\\)\n\\(\\mu_d = 0\\)\nPaired t-test\nt.test(variable1~variable2, paried = TRUE, data = data_name)\n\n\nTwo binary variables\n\\(p_1-p_2\\) or \\(\\pi_1-\\pi_2\\)\n\\(p_1=p_2\\)\nZ-test for a difference in proportions\nprop.test(Variable1~variable2, data = data_name)\n\n\nTwo quantitative variables\ncorrelation, \\(\\rho\\) or slope \\(\\beta\\)\n\\(\\rho = 0\\) or \\(\\beta = 0\\)\nCorrelation or Regression\ncor.test(variable1~variable2, data = data_name) or lm(variable1 ~ variable2, data = data_name)\n\n\nTwo categorical variables\nNA\n2 variables are independent\nChi-squared test\nchisq.test(variable1~variable2, data = data_name)\n\n\n\nFor all tests, specify direction of \\(H_a\\) with the argument: alternative = \"greater\", \"less\", or \"two.sided\".\nTo construct a Confidence Interval: remove the null hypothesis, and specify conf.level=number_here",
+    "crumbs": [
+      "Computing",
+      "Inference Summary Sheet"
+    ]
+  },
+  {
+    "objectID": "computing-inferencesummary.html#choosing-which-statistical-testci-to-use-based-on-variable-type",
+    "href": "computing-inferencesummary.html#choosing-which-statistical-testci-to-use-based-on-variable-type",
+    "title": "Inference Summary Sheet",
+    "section": "",
+    "text": "Variable type\nParameter of interest\nNull hypothesis\nTest name\nFunction for test\n\n\n\n\nOne quantitative variable\n\\(\\mu\\)\n\\(\\mu = \\mu_0\\)\nOne-sample t-test\nt.test(~variable1, mu = mu0, data = data_name)\n\n\nOne binary variable\n\\(p\\) or \\(\\pi\\)\n\\(p = p_0\\)\nZ-test for one proportion\nprop.test(~variable1, p = p0, data = data_name)\n\n\nOne quantitative and one binary variable with independent samples\n\\(\\mu_1-\\mu_2\\)\n\\(\\mu_1 = \\mu_2\\)\nTwo-sample t-test\nt.test(variable1~variable2, data = data_name)\n\n\nOne quantitative and one binary variable with paired samples\n\\(\\mu_d\\)\n\\(\\mu_d = 0\\)\nPaired t-test\nt.test(variable1~variable2, paried = TRUE, data = data_name)\n\n\nTwo binary variables\n\\(p_1-p_2\\) or \\(\\pi_1-\\pi_2\\)\n\\(p_1=p_2\\)\nZ-test for a difference in proportions\nprop.test(Variable1~variable2, data = data_name)\n\n\nTwo quantitative variables\ncorrelation, \\(\\rho\\) or slope \\(\\beta\\)\n\\(\\rho = 0\\) or \\(\\beta = 0\\)\nCorrelation or Regression\ncor.test(variable1~variable2, data = data_name) or lm(variable1 ~ variable2, data = data_name)\n\n\nTwo categorical variables\nNA\n2 variables are independent\nChi-squared test\nchisq.test(variable1~variable2, data = data_name)\n\n\n\nFor all tests, specify direction of \\(H_a\\) with the argument: alternative = \"greater\", \"less\", or \"two.sided\".\nTo construct a Confidence Interval: remove the null hypothesis, and specify conf.level=number_here",
+    "crumbs": [
+      "Computing",
+      "Inference Summary Sheet"
+    ]
+  },
+  {
+    "objectID": "computing-inferencesummary.html#useful-code-for-creating-basic-figures-requires-ggformula",
+    "href": "computing-inferencesummary.html#useful-code-for-creating-basic-figures-requires-ggformula",
+    "title": "Inference Summary Sheet",
+    "section": "Useful code for creating basic figures (requires ggformula)",
+    "text": "Useful code for creating basic figures (requires ggformula)\n\nHistogram: gf_histogram( ~ variable, data = data_name)\nBoxplot: gf_boxplot( ~ variable, data = data_name)\nDotplot: gf_dotplot( ~ variable, data = data_name)\nBarchart: gf_bar( ~ variable, data = data_name)\nSide-by-side boxplot: gf_boxplot( variable1 ~ variable2, data = data_name)\nSide-by-side barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=position_dodge())\nScatterplot: gf_point(variable1 ~ variable2, data = data_name)\nScatterplot with a third variable as color: gf_point(variable1 ~ variable2, color = ~ variable3, data = data_name)",
+    "crumbs": [
+      "Computing",
+      "Inference Summary Sheet"
+    ]
+  },
+  {
+    "objectID": "computing-inferencesummary.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
+    "href": "computing-inferencesummary.html#useful-code-for-calculating-summary-statistics-requires-mosaic",
+    "title": "Inference Summary Sheet",
+    "section": "Useful code for calculating summary statistics: (requires mosaic)",
+    "text": "Useful code for calculating summary statistics: (requires mosaic)\n\nMeans: mean( ~ variable, data = data_name) or mean(variable1 ~ variable2, data = data_name)\nCounts/Tables: tally( ~ variable, data = data_name) or tally(variable1 ~ variable2, data = data_name)\n5-number-summary etc: favstats( ~ variable, data = data_name) or favstats(variable1 ~ variable2, data = data_name)",
+    "crumbs": [
+      "Computing",
+      "Inference Summary Sheet"
+    ]
   }
 ]

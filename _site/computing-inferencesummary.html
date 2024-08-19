@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./computing-r-resources.html" rel="next">
+<link href="./computing-access.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -108,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Inference Summary Sheet</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./computing-access.html">Computing</a></li><li class="breadcrumb-item"><a href="./computing-inferencesummary.html">Inference Summary Sheet</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -163,17 +165,23 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Computing</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./computing-access.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Access</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./computing-inferencesummary.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Inference Summary Sheet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -202,12 +210,12 @@ window.Quarto = {
   <li><a href="#useful-code-for-creating-basic-figures-requires-ggformula" id="toc-useful-code-for-creating-basic-figures-requires-ggformula" class="nav-link" data-scroll-target="#useful-code-for-creating-basic-figures-requires-ggformula">Useful code for creating basic figures (requires ggformula)</a></li>
   <li><a href="#useful-code-for-calculating-summary-statistics-requires-mosaic" id="toc-useful-code-for-calculating-summary-statistics-requires-mosaic" class="nav-link" data-scroll-target="#useful-code-for-calculating-summary-statistics-requires-mosaic">Useful code for calculating summary statistics: (requires mosaic)</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/computing-troubleshooting.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/computing-inferencesummary.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./computing-access.html">Computing</a></li><li class="breadcrumb-item"><a href="./computing-inferencesummary.html">Inference Summary Sheet</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Inference Summary Sheet</h1>
 </div>
@@ -228,7 +236,6 @@ window.Quarto = {
 
 <section id="choosing-which-statistical-testci-to-use-based-on-variable-type" class="level2">
 <h2 class="anchored" data-anchor-id="choosing-which-statistical-testci-to-use-based-on-variable-type">Choosing which statistical test/CI to use based on variable type</h2>
-<center>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
@@ -292,13 +299,12 @@ window.Quarto = {
 <tr class="odd">
 <td>Two categorical variables</td>
 <td>NA</td>
+<td>2 variables are independent</td>
 <td>Chi-squared test</td>
 <td><code>chisq.test(variable1~variable2, data = data_name)</code></td>
-<td></td>
 </tr>
 </tbody>
 </table>
-</center>
 <p>For all tests, specify direction of <span class="math inline">\(H_a\)</span> with the argument: <code>alternative = "greater"</code>, <code>"less"</code>, or <code>"two.sided"</code>.</p>
 <p>To construct a Confidence Interval: remove the null hypothesis, and specify <code>conf.level=number_here</code></p>
 </section>
@@ -736,6 +742,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./computing-access.html" class="pagination-link" aria-label="Access">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Access</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./computing-r-resources.html" class="pagination-link" aria-label="R resources">
+        <span class="nav-page-text">R resources</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -744,7 +762,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/computing-troubleshooting.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/computing-inferencesummary.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
