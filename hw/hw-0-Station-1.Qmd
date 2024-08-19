@@ -1,5 +1,5 @@
 ---
-title: "Station 1"
+title: "Station 1: Getting Started with R and RStudio"
 author: "Your name here"
 ---
 

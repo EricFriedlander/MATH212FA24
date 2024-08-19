@@ -4,6 +4,6 @@ title: "Homework 0 - The Stations"
 
 The purpose of this homework is to get you familiar and up to speed with R and RStudio. It comes in three parts. For each of the three you should upload a .qmd and .html file to Canvas. All three .qmd file templates are available on Canvas.
 
-- [Station 1](hw-0-Station-1.Qmd)
-- [Station 2](hw-0-Station-2.Qmd)
-- [Station 3](hw-0-Station-3.Qmd)
+- [Station 1: Getting Started with R and RStudio](hw-0-Station-1.Qmd)
+- [Station 2: Exploratory Data Analysis (EDA) with R](hw-0-Station-2.Qmd)
+- [Station 3: Inference with R](hw-0-Station-3.Qmd)
