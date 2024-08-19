@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 210 - Fall 2023 - Final project</title>
+<title>MAT 212 - Fall 2024 - Final project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./project-tips.html" rel="next">
-<link href="./computing-r-resources.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -81,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./project-instructions.html">Project</a></li><li class="breadcrumb-item"><a href="./project-instructions.html">Instructions</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Final project</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -98,29 +125,9 @@ ul.task-list li input[type="checkbox"] {
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
-      <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/sta210-fa23" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
-    <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="quarto-navigation-tool px-1" aria-label="RStudio Containers"><i class="bi bi-code-square"></i></a>
-    <div class="dropdown">
-      <a href="" title="Sakai" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Sakai"><i class="bi bi-person-fill"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/site/f2e8b7dc-61e6-4431-9b5c-29f8411ee5db">
-            Sakai
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://edstem.org/us/courses/44523/discussion/">
-            Ed Discussion
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/584312">
-            Gradescope
-            </a>
-          </li>
-      </ul>
-    </div>
+      <div class="sidebar-tools-main">
+    <a href="https://rstudio.collegeofidaho.edu/" title="RStudio" class="quarto-navigation-tool px-1" aria-label="RStudio"><i class="bi bi-code-square"></i></a>
+    <a href="https://cofi.instructure.com/courses/15692" title="Canvas" class="quarto-navigation-tool px-1" aria-label="Canvas"><i class="bi bi-person"></i></a>
 </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -171,12 +178,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./computing-troubleshooting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Troubleshooting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./computing-r-resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R resources</span></a>
   </div>
@@ -184,40 +185,9 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Project</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./project-instructions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Instructions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./project-tips.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tips + resources</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Project</span></span>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./stats-experience.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistics experience</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://docs.google.com/spreadsheets/d/1dUD4SOpM79BL2kdvue9I2TP-ibcdxfpOIkHkMreYx64/edit?usp=sharing" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture recordings</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -228,55 +198,45 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#timeline" id="toc-timeline" class="nav-link active" data-scroll-target="#timeline">Timeline</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#timeline-grading" id="toc-timeline-grading" class="nav-link" data-scroll-target="#timeline-grading">Timeline &amp; Grading</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data sources</a>
   <ul class="collapse">
   <li><a href="#logistics" id="toc-logistics" class="nav-link" data-scroll-target="#logistics">Logistics</a></li>
   </ul></li>
-  <li><a href="#project-proposal" id="toc-project-proposal" class="nav-link" data-scroll-target="#project-proposal">Project proposal</a>
+  <li><a href="#project-proposal" id="toc-project-proposal" class="nav-link" data-scroll-target="#project-proposal">Stage I: Project proposal</a>
   <ul class="collapse">
-  <li><a href="#section-1-introduction" id="toc-section-1-introduction" class="nav-link" data-scroll-target="#section-1-introduction">Section 1: Introduction</a></li>
-  <li><a href="#section-2-data-description" id="toc-section-2-data-description" class="nav-link" data-scroll-target="#section-2-data-description">Section 2: Data description</a></li>
-  <li><a href="#section-3-initial-exploratory-data-analysis" id="toc-section-3-initial-exploratory-data-analysis" class="nav-link" data-scroll-target="#section-3-initial-exploratory-data-analysis">Section 3: Initial exploratory data analysis</a></li>
-  <li><a href="#section-4-analysis-approach" id="toc-section-4-analysis-approach" class="nav-link" data-scroll-target="#section-4-analysis-approach">Section 4: Analysis approach</a></li>
-  <li><a href="#data-dictionary-aka-code-book" id="toc-data-dictionary-aka-code-book" class="nav-link" data-scroll-target="#data-dictionary-aka-code-book">Data dictionary (aka code book)</a></li>
-  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
+  <li><a href="#utilizing-the-librarians-for-help-with-research" id="toc-utilizing-the-librarians-for-help-with-research" class="nav-link" data-scroll-target="#utilizing-the-librarians-for-help-with-research">Utilizing the Librarians for Help with Research</a></li>
   </ul></li>
-  <li><a href="#draft-report-peer-review" id="toc-draft-report-peer-review" class="nav-link" data-scroll-target="#draft-report-peer-review">Draft report + peer review</a>
+  <li><a href="#exploratory-analysis" id="toc-exploratory-analysis" class="nav-link" data-scroll-target="#exploratory-analysis">Stage II: Exploratory Data Analysis</a>
   <ul class="collapse">
-  <li><a href="#draft-report" id="toc-draft-report" class="nav-link" data-scroll-target="#draft-report">Draft report</a></li>
-  <li><a href="#peer-review" id="toc-peer-review" class="nav-link" data-scroll-target="#peer-review">Peer review</a></li>
+  <li><a href="#your-eda-report-to-be-turned-in-on-canvas-will-meet-these-guidelines" id="toc-your-eda-report-to-be-turned-in-on-canvas-will-meet-these-guidelines" class="nav-link" data-scroll-target="#your-eda-report-to-be-turned-in-on-canvas-will-meet-these-guidelines">Your EDA report, to be turned in on Canvas, will meet these guidelines:</a></li>
   </ul></li>
-  <li><a href="#written-report" id="toc-written-report" class="nav-link" data-scroll-target="#written-report">Written report</a>
+  <li><a href="#draft-report" id="toc-draft-report" class="nav-link" data-scroll-target="#draft-report">Stage III: Project Report</a>
   <ul class="collapse">
-  <li><a href="#introduction-and-data-1" id="toc-introduction-and-data-1" class="nav-link" data-scroll-target="#introduction-and-data-1">Introduction and data</a></li>
-  <li><a href="#methodology-1" id="toc-methodology-1" class="nav-link" data-scroll-target="#methodology-1">Methodology</a></li>
-  <li><a href="#results-1" id="toc-results-1" class="nav-link" data-scroll-target="#results-1">Results</a></li>
-  <li><a href="#discussion-conclusion" id="toc-discussion-conclusion" class="nav-link" data-scroll-target="#discussion-conclusion">Discussion + Conclusion</a></li>
-  <li><a href="#organization-formatting" id="toc-organization-formatting" class="nav-link" data-scroll-target="#organization-formatting">Organization + formatting</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
+  <li><a href="#annotated-appendix" id="toc-annotated-appendix" class="nav-link" data-scroll-target="#annotated-appendix">Annotated Appendix</a></li>
   </ul></li>
-  <li><a href="#round1-submission" id="toc-round1-submission" class="nav-link" data-scroll-target="#round1-submission">Round 1 submission (optional)</a></li>
-  <li><a href="#presentation" id="toc-presentation" class="nav-link" data-scroll-target="#presentation">Presentation</a>
+  <li><a href="#peer-review" id="toc-peer-review" class="nav-link" data-scroll-target="#peer-review">Stage IV: Peer Review</a></li>
+  <li><a href="#written-report" id="toc-written-report" class="nav-link" data-scroll-target="#written-report">Stage V: Project Revision</a></li>
+  <li><a href="#poster-presentation" id="toc-poster-presentation" class="nav-link" data-scroll-target="#poster-presentation">Stage VI: Poster Presentation</a></li>
+  <li><a href="#writing-tips" id="toc-writing-tips" class="nav-link" data-scroll-target="#writing-tips">Writing Tips</a>
   <ul class="collapse">
-  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
-  <li><a href="#grading-criteria-5" id="toc-grading-criteria-5" class="nav-link" data-scroll-target="#grading-criteria-5">Grading criteria</a></li>
+  <li><a href="#some-tipes-for-writing-the-results-section" id="toc-some-tipes-for-writing-the-results-section" class="nav-link" data-scroll-target="#some-tipes-for-writing-the-results-section">Some tipes for writing the results section</a></li>
+  <li><a href="#some-tips-for-writing-the-discussion-section." id="toc-some-tips-for-writing-the-discussion-section." class="nav-link" data-scroll-target="#some-tips-for-writing-the-discussion-section.">Some tips for writing the Discussion section.</a></li>
+  <li><a href="#other-hints" id="toc-other-hints" class="nav-link" data-scroll-target="#other-hints">Other hints</a></li>
   </ul></li>
-  <li><a href="#presentation-comments" id="toc-presentation-comments" class="nav-link" data-scroll-target="#presentation-comments"><strong>Presentation comments</strong></a></li>
-  <li><a href="#reproducibility-organization" id="toc-reproducibility-organization" class="nav-link" data-scroll-target="#reproducibility-organization">Reproducibility + organization</a></li>
-  <li><a href="#peer-teamwork-evaluation" id="toc-peer-teamwork-evaluation" class="nav-link" data-scroll-target="#peer-teamwork-evaluation">Peer teamwork evaluation</a></li>
-  <li><a href="#overall-grading" id="toc-overall-grading" class="nav-link" data-scroll-target="#overall-grading">Overall grading</a>
-  <ul class="collapse">
-  <li><a href="#grading-summary" id="toc-grading-summary" class="nav-link" data-scroll-target="#grading-summary">Grading summary</a></li>
-  </ul></li>
-  <li><a href="#late-work-policy" id="toc-late-work-policy" class="nav-link" data-scroll-target="#late-work-policy">Late work policy</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta210-fa23/website/edit/main/project-instructions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta210-fa23/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/project-instructions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./project-instructions.html">Project</a></li><li class="breadcrumb-item"><a href="./project-instructions.html">Instructions</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Final project</h1>
 </div>
@@ -295,583 +255,301 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="timeline" class="level2">
-<h2 class="anchored" data-anchor-id="timeline">Timeline</h2>
-<p><a href="#project-proposal">Project proposal</a></p>
-<ul>
-<li><p>due Friday, October 27 (Tuesday labs)</p></li>
-<li><p>due Sunday, October 29 (Thursday labs)</p></li>
-</ul>
-<p><a href="#draft-report-peer-review">Draft report + peer review</a></p>
-<ul>
-<li><p>due Tuesday, November 14 (Tuesday labs)</p></li>
-<li><p>due Thursday, November 16 (Thursday labs)</p></li>
-</ul>
-<p><a href="#round1-submission">Round 1 submission (optional)</a> due Friday, December 1</p>
-<p><a href="#presentation">Presentation</a> + <a href="#presentation-comments">Presentation comments</a></p>
-<ul>
-<li><p>Tuesday, December 5 (Tuesday labs)</p></li>
-<li><p>Thursday, December 7 (Thursday labs)</p></li>
-</ul>
-<p><a href="#written-report">Written report</a> due Wednesday, December 13</p>
-<p><a href="#reproducibility-organization">Reproducibility + organization</a> due Wednesday, December 13</p>
-</section>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p><strong>TL;DR</strong>: <em>Pick a data set and do a regression analysis. That is your final project.</em></p>
-<p>The goal of the final project is for you to use regression analysis to analyze a data set of your own choosing. The data set may already exist or you may collect your own data by scraping the web.</p>
-<p>Choose the data based on your group’s interests or work you all have done in other courses or research projects. The goal of this project is for you to demonstrate proficiency in the techniques we have covered in this class (and beyond, if you like!) and apply them to a data set to analyze it in a meaningful way.</p>
-<p><strong>All analyses must be done in RStudio using Quarto and GitHub, and your analysis and written report must be reproducible.</strong></p>
+<p>In this project, you will select or collect a data set of interest to you, pose a research question(s) that you will attempt to answer using multiple linear and/or multiple logistic regression, and write a paper in a formal scientific style. The data set can come from reputable online sources, research you have conducted, friends or professors who have collected scientific data, etc.</p>
+</section>
+<section id="timeline-grading" class="level2">
+<h2 class="anchored" data-anchor-id="timeline-grading">Timeline &amp; Grading</h2>
+<p><a href="#project-proposal">Stage I: Proposal and Data Assembly (5%)</a></p>
+<ul>
+<li>due Monday, October 14</li>
+</ul>
+<p><a href="#exploratory-analysis">Stage II: Exploratory Data Analysis (5%)</a></p>
+<ul>
+<li>due Wednesday, October 30</li>
+</ul>
+<p><a href="#draft-report">Stage III: Project Paper (25%)</a></p>
+<ul>
+<li>due Monday, November 18</li>
+</ul>
+<p><a href="#peer-review">Stage IV: Peer Review (5%)</a></p>
+<ul>
+<li>due Monday, November 25</li>
+</ul>
+<p><a href="#written-report">Stage V: Revised Project Paper (45%)</a></p>
+<ul>
+<li>due Friday December 6</li>
+</ul>
+<p><a href="#poster-presentation">Stage VI: Poster Presentation (15%)</a></p>
+<ul>
+<li><p>due to printer Monday, December 9, 9AM</p></li>
+<li><p>presentation on December 11, 8:30am-11am</p></li>
+</ul>
+</section>
+<section id="data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources">Data sources</h2>
+<p>Be sure that your data is rich enough so that there are opportunities for model fitting choices, controlling for covariates, discovering interesting interactions, and generally providing interesting answers to real, compelling research questions. Many of you are majoring or minoring in something other than statistics – I encourage you to find a research topic in these or other fields in which you have knowledge and/or interest. I have posted several data repositories on the course website that you may use as a launching pad if you’re searching for data. Some of these data sets have sample analyses and citations for relevant papers; although those can be helpful starting points, I will ask that your project is original in terms of the analyses you perform and references you find. A key aspect of this project is to use statistics to answer a research question in context. The dataset you choose must have enough documentation to give sufficient context for your project. You should be able to answer these questions from the data documentation:</p>
+<ul>
+<li>How were data collected? From whom, by whom, where and when.</li>
+<li>How is each variable defined and measured?</li>
+</ul>
+<p>Because you’ll want to use several explanatory variables and explore interactions, it is best if your dataset contains at least 100-150 observations. (Rule of thumb says at least 10 observations per variable to avoid over-fitting). There is no maximum size, though R does start to slow down for really big data; if you have a truly humungous data set you may want to take a random sample to work with for your project.</p>
 <section id="logistics" class="level3">
 <h3 class="anchored" data-anchor-id="logistics">Logistics</h3>
-<p>You will work on the project with your lab groups. The four primary deliverables for the final project are</p>
+<p>The four primary deliverables for the final project are</p>
 <ol type="1">
-<li><p>a written, reproducible report detailing your analysis</p></li>
-<li><p>a GitHub repository corresponding to your report</p></li>
-<li><p>slides and an in-person presentation</p></li>
-<li><p>formal peer review on another team’s work and presentation feedback</p></li>
+<li>A written, reproducible report detailing your analysis to be submitted in either microsoft word or a PDF and uploaded to Canvas.</li>
+<li>The .qmd and PDF from a Quarto appendix you create.</li>
+<li>Formal peer review on another team’s work and presentation feedback.</li>
+<li>A PDF of a poster to be uploaded to Canvas and a physical poster which you will present at during the final exam period.</li>
 </ol>
 </section>
 </section>
 <section id="project-proposal" class="level2">
-<h2 class="anchored" data-anchor-id="project-proposal">Project proposal</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Due dates
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Friday, October 27 (Tuesday labs)</li>
-<li>Sunday, October 29 (Thursday labs)</li>
-</ul>
-</div>
-</div>
-<p>The purpose of the project proposal is for your team to identify the data set you’re interested in analyzing for the project, do some preliminary exploratory data analysis, and begin to think about a modeling strategy . If you’re unsure where to find data, you can use the list of potential data sources on the <a href="./project-tips.html">Tips + resources</a> page as a starting point. It may also help to think of topics you’re interested in investigating and find data sets on those topics.</p>
-<p>The data set must meet the following criteria:</p>
-<ul>
-<li><p>At least 500 observations</p></li>
-<li><p>At least 10 columns, such that at least 6 of the columns are useful and unique predictor variables.</p>
-<ul>
-<li>e.g., identifier variables such as “name”, “ID number”, etc. are <u>not</u> useful predictor variables.</li>
-<li>e.g., if you have multiple columns with the same information (e.g.&nbsp;“state abbreviation” and “state name”), then they are not unique predictors.</li>
-</ul></li>
-<li><p>At least one variable that can be identified as a reasonable response variable.</p>
-<ul>
-<li>The response variable can be quantitative or categorical.</li>
-</ul></li>
-<li><p>A mix of quantitative and categorical variables that can be used as predictors.</p></li>
-<li><p>May not be data that has previously been used in any course materials, or any derivation of data that has been used in course materials.</p></li>
-</ul>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Types of data sets to avoid
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><p>Data that are likely violate the independence condition. Therefore, avoid data with repeated measures, data collected over time, etc.</p></li>
-<li><p>Data sets in which there is no information about how the data were originally collected</p></li>
-<li><p>Data sets in which there are missing or unclear definitions about the observations and/or variables</p></li>
-</ul>
-</div>
-</div>
-<p><strong>Ask a member of the teaching team if you’re unsure whether your data set meets the criteria.</strong></p>
-<p>The proposal will include the following sections:</p>
-<section id="section-1-introduction" class="level3">
-<h3 class="anchored" data-anchor-id="section-1-introduction">Section 1: Introduction</h3>
-<p>The introduction section includes</p>
-<ul>
-<li><p>an introduction to the subject matter you’re investigating (citing any relevant literature)</p></li>
-<li><p>the motivation for your research question (citing any relevant literature)</p></li>
-<li><p>the primary research question you are interested in exploring</p></li>
-<li><p>your team’s hypotheses regarding the research question</p>
-<ul>
-<li>This is a narrative about what you think regarding the research question, not formal statistical hypotheses.</li>
-</ul></li>
-</ul>
-</section>
-<section id="section-2-data-description" class="level3">
-<h3 class="anchored" data-anchor-id="section-2-data-description">Section 2: Data description</h3>
-<p>The data description section includes</p>
-<ul>
-<li><p>the source of the data set</p></li>
-<li><p>a description of when and how the data were originally collected (by the original data curator, not necessarily how you found the data)</p></li>
-<li><p>a description of the observations and general characteristics being measured</p></li>
-</ul>
-</section>
-<section id="section-3-initial-exploratory-data-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="section-3-initial-exploratory-data-analysis">Section 3: Initial exploratory data analysis</h3>
-<p>In this section, you will begin to explore the data. This includes using narrative, visualizations and summary statistics to describe the following:</p>
-<ul>
-<li><p>distribution of the response variable</p></li>
-<li><p>distributions of one potential quantitative predictor variable and one potential categorical predictor variable</p></li>
-<li><p>the relationships between the response variable and each of the predictors from the previous step</p></li>
-<li><p>a potential interaction effect you’re interested in exploring (it doesn’t have to be an interaction with the two predictors from above)</p></li>
-</ul>
-<p>These steps are to help get you started on exploratory data analysis and will not be the complete EDA for the final report. The requirements above are minimum requirements, but your group is welcome to include more at this stage.</p>
-<p>In this section, you will also describe any data cleaning you need to do to prepare for modeling, such as imputing missing values, collapsing levels for categorical predictors, creating new variables, summarizing data, etc.</p>
-</section>
-<section id="section-4-analysis-approach" class="level3">
-<h3 class="anchored" data-anchor-id="section-4-analysis-approach">Section 4: Analysis approach</h3>
-<p>In this section, you will provide a brief overview of your analysis approach. This includes</p>
-<ul>
-<li><p>a description of the response variable and list of all potential predictors</p></li>
-<li><p>regression model technique (multiple linear regression or logistic regression)</p></li>
-</ul>
-</section>
-<section id="data-dictionary-aka-code-book" class="level3">
-<h3 class="anchored" data-anchor-id="data-dictionary-aka-code-book">Data dictionary (aka code book)</h3>
-<p>Submit a data dictionary for all the variables in your data set in the <code>README</code> of the <code>data</code> folder. You do <u>not</u> need to include the data dictionary in the PDF document.</p>
-</section>
-<section id="submission" class="level3">
-<h3 class="anchored" data-anchor-id="submission">Submission</h3>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Write your narrative and analysis for Sections 1 - 4 in the <code>proposal.qmd</code> file. Put the data set and the data dictionary in the <code>data</code> folder.</p>
-<p>Submit the PDF of the proposal to Gradescope. Mark all pages of the document.</p>
-</div>
-</div>
-</section>
-<section id="grading" class="level3">
-<h3 class="anchored" data-anchor-id="grading">Grading</h3>
-<p>The anticipated length, including all graphs, tables, narrative, etc., is 2 -4 pages; it may not exceed <strong>5 pages.</strong></p>
-<p>The proposal is worth 15 points and will be graded based on accurately and comprehensively addressing the criteria stated above. Points will be assigned based on a holistic review of the project proposal.</p>
-<ul>
-<li><p><strong>Excellent (14 - 15 points) :</strong> All required elements are completed and are accurate. There is a thorough exploration of the data as descrbied above, and the team has demonstrated a careful and thoughtful approach exploring the data and preparing it for analysis. The narrative is written clearly, all tables and visualizations are nicely formatted, and the work would be presentable in a professional setting.</p></li>
-<li><p><strong>Strong: (11 - 13 points):</strong> Requirements are mostly met, but there are some elements that are incomplete or inaccurate. Some minor revision of the work required before team is ready for modeling.</p></li>
-<li><p><strong>Satisfactory (8 - 10 points):</strong> Requirements partially met, but there are some elements that are incomplete and/or inaccurate. Major revision of the work required before team is ready for modeling.</p></li>
-<li><p><strong>Needs Improvement (7 or fewer points points):</strong> Requirements are largely unmet, and there are large elements that are incomplete and/or inaccurate. Substantial revisions of the work required before team is ready for modeling.</p></li>
-</ul>
-</section>
-</section>
-<section id="draft-report-peer-review" class="level2">
-<h2 class="anchored" data-anchor-id="draft-report-peer-review">Draft report + peer review</h2>
-<p>The purpose of the draft and peer review is to give you an opportunity to get early feedback on your analysis. Therefore, the draft and peer review will focus primarily on the exploratory data analysis, modeling, and initial interpretations.</p>
-<section id="draft-report" class="level3">
-<h3 class="anchored" data-anchor-id="draft-report">Draft report</h3>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Due dates
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Draft is due i<strong>n your project GitHub repo at</strong> <strong>9am</strong> on</p>
-<ul>
-<li>Tuesday, November 14 (Tuesday labs)</li>
-<li>Thursday, November 16 (Thursday labs)</li>
-</ul>
-</div>
-</div>
-<p>Write the draft in the <strong>written-report.qmd</strong> file in your project repo. You do <u><strong>not</strong></u> need to submit the draft on Gradescope.</p>
-<p>Below is a brief description of the sections to focus on in the draft:</p>
-<section id="introduction-and-data" class="level4">
-<h4 class="anchored" data-anchor-id="introduction-and-data">Introduction and data</h4>
-<p>This section includes an introduction to the project motivation, data, and research question. Describe the data and definitions of key variables. It should also include some exploratory data analysis. All of the EDA won’t fit in the body of the report, so focus on the EDA for the response variable and a few other interesting variables and relationships.</p>
-</section>
-<section id="methodology" class="level4">
-<h4 class="anchored" data-anchor-id="methodology">Methodology</h4>
-<p>This section includes a brief description of your modeling process. Explain the reasoning for the type of model you’re fitting, predictor variables considered for the model including any interactions. Additionally, show how you arrived at the final model by describing the model selection process, any variable transformations (if needed), and any other relevant considerations that were part of the model fitting process.</p>
-</section>
-<section id="results" class="level4">
-<h4 class="anchored" data-anchor-id="results">Results</h4>
-<p>In this section, you will output the final model and include a brief discussion of the model assumptions, diagnostics, and any relevant model fit statistics.</p>
-<p>This section also includes initial interpretations and conclusions drawn from the model.</p>
-</section>
-<section id="grading-1" class="level4">
-<h4 class="anchored" data-anchor-id="grading-1">Grading</h4>
-<p>The draft will be graded based on whether there is demonstration of a reasonable attempt at each of the sections described below in the written-report.qmd file in our GitHub repo by the deadline.</p>
-</section>
-</section>
-<section id="peer-review" class="level3">
-<h3 class="anchored" data-anchor-id="peer-review">Peer review</h3>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Peer review comments are due in GitHub at 11:59pm on</p>
-<ul>
-<li>Wednesday, November 15 (Tuesday labs)</li>
-<li>Friday, November 17 (Thursday labs)</li>
-</ul>
-</div>
-</div>
-<p>Critically reviewing others’ work is a crucial part of the scientific process, and STA 210 is no exception. Each lab team will be assigned two other teams’s projects to review. Each team should push their draft to their GitHub repo by the 9am on the day their lab’s draft is due. The lab that week will be dedicate to the peer review, so your team will have time to review and provide quality feedback to two other teams.</p>
-<p>During the peer review process, you will be provided read-only access to your partner teams’ GitHub repos. Provide your review in the form of GitHub issues to your partner team’s GitHub repo using the issue template provided in the repo.</p>
-<section id="steps-for-peer-review" class="level4">
-<h4 class="anchored" data-anchor-id="steps-for-peer-review">Steps for peer review</h4>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Peer review assignments
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><a href="https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/Eez-RT2TVd9Cs_aLCOffbDcB2W7VnGmcZs0myTmdiy2qvA?e=WBpJx2">Click here</a> to see which project your team is reviewing. You’ll spend about 30 minutes reviewing each project.</p>
-</div>
-</div>
-<p>When you get to lab, you should have access to the GitHub repos for the teams you’re reviewing. In GitHub, search the repositories for <code>project</code>, and you should see the repos for the projects you’re reviewing. You will be able to read the files in the repo and post issues, but you cannot push changes to the repo. You will have access to the repo until the deadline for the peer review.</p>
-<p>For each team you’re reviewing:</p>
-<ul>
-<li><p>Open that team’s repo, read the project draft, and browse the rest of the repo.</p></li>
-<li><p>Go to the <strong>Issues</strong> tab in that repo, click on <strong>New issue</strong>, and click on <strong>Get started</strong> for the Peer Review issue. Fill out this issue. You will answer the the following questions:</p>
-<ul>
-<li><p>Describe the goal of the project.</p></li>
-<li><p>Describe the data set used in the project. What are the observations in the data? What is the source of the data? How were the data originally collected?</p></li>
-<li><p>Consider the exploratory data analysis (EDA). Describe one aspect of the EDA that is effective in helping you understand the data. Provide constructive feedback on how the team might improve the EDA.</p></li>
-<li><p>Describe the statistical methods and analysis approach used.</p></li>
-<li><p>Provide constructive feedback on how the team might improve their analysis. Make sure your feedback includes at least one comment on the statistical modeling aspect of the project, but also feel free to comment on aspects beyond the modeling.</p></li>
-<li><p>What aspect of this project are you most interested in and would like to see highlighted in the presentation?</p></li>
-<li><p>Provide constructive feedback on any issues with file and/or code organization.</p></li>
-<li><p>(Optional) Any further comments or feedback?</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="grading-2" class="level4">
-<h4 class="anchored" data-anchor-id="grading-2">Grading</h4>
-<p>The peer review will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team’s report: the research context and motivation, exploratory data analysis, modeling, interpretations, and conclusions.</p>
-</section>
-</section>
-</section>
-<section id="written-report" class="level2">
-<h2 class="anchored" data-anchor-id="written-report">Written report</h2>
-<p>Your written report must be completed in the <code>written-report.qmd</code> file and must be reproducible. All team members should contribute to the GitHub repository, with regular meaningful commits.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Before you finalize your write up, make sure the code chunks are not visible and all messages and warnings are suppressed.</p>
-</div>
-</div>
-<p><strong>You will submit the PDF of your final report on GitHub.</strong></p>
-<p>The PDF you submit must match the .qmd in your GitHub repository <em>exactly</em>. The mandatory components of the report are below. You are free to add additional sections as necessary. <strong>The report, including tables and visualizations, must be no more than 10 pages long.</strong> There is no minimum page requirement; however, you should comprehensively address all of the analysis and report.</p>
-<p>Be selective in what you include in your final write-up. The goal is to write a cohesive narrative that demonstrates a thorough and comprehensive analysis rather than explain every step of the analysis.</p>
-<p>You are welcome to include an appendix with additional work at the end of the written report document; however, grading will overwhelmingly be based on the content in the main body of the report. You should assume the reader will not see the material in the appendix unless prompted to view it in the main body of the report. The appendix should be neatly formatted and easy for the reader to navigate. It is not included in the 10-page limit.</p>
-<section id="introduction-and-data-1" class="level3">
-<h3 class="anchored" data-anchor-id="introduction-and-data-1">Introduction and data</h3>
-<p>This section includes an introduction to the project motivation, data, and research question. Describe the data and definitions of key variables. It should also include some exploratory data analysis. All of the EDA won’t fit in the paper, so focus on the EDA for the response variable and a few other interesting variables and relationships.</p>
-<section id="grading-criteria" class="level4">
-<h4 class="anchored" data-anchor-id="grading-criteria">Grading criteria</h4>
-<p>The research question and motivation are clearly stated in the introduction, including citations for the data source and any external research. The data are clearly described, including a description about how the data were originally collected and a concise definition of the variables relevant to understanding the report. The data cleaning process is clearly described, including any decisions made in the process (e.g., creating new variables, removing observations, etc.) The explanatory data analysis helps the reader better understand the observations in the data along with interesting and relevant relationships between the variables. It incorporates appropriate visualizations and summary statistics.</p>
-</section>
-</section>
-<section id="methodology-1" class="level3">
-<h3 class="anchored" data-anchor-id="methodology-1">Methodology</h3>
-<p>This section includes a brief description of your modeling process. Explain the reasoning for the type of model you’re fitting, predictor variables considered for the model including any interactions. Additionally, show how you arrived at the final model by describing the model selection process, interactions considered, variable transformations (if needed), assessment of conditions and diagnostics, and any other relevant considerations that were part of the model fitting process.</p>
-<section id="grading-criteria-1" class="level4">
-<h4 class="anchored" data-anchor-id="grading-criteria-1">Grading criteria</h4>
-<p>The analysis steps are appropriate for the data and research question. The group used a thorough and careful approach to select the variables in the final model; the approach is clearly described in the report. The model selection process took into account potential interaction effects and addressed any violations in model conditions. If violations of model conditions are still present, there was a reasonable attempt to address the violations based on the course content.</p>
-</section>
-</section>
-<section id="results-1" class="level3">
-<h3 class="anchored" data-anchor-id="results-1">Results</h3>
-<p>This is where you will output the final model with any relevant model fit statistics, conditions, and diagnostics.</p>
-<p>Describe the key results from the model. The goal is not to interpret every single variable in the model but rather to show that you are proficient in using the model output to address the research questions, using the interpretations to support your conclusions. Focus on the variables that help you answer the research question and that provide relevant context for the reader.</p>
-<section id="grading-criteria-2" class="level4">
-<h4 class="anchored" data-anchor-id="grading-criteria-2">Grading criteria</h4>
-<p>The model fit is clearly assessed, and interesting findings from the model are clearly described. The model conditions and diagnostics are thoroughly and accurately assessed for their model. Interpretations of model coefficients are used to support the key findings and conclusions, rather than merely listing the interpretation of every model coefficient. If the primary modeling objective is prediction, the model’s predictive power is thoroughly assessed.</p>
-</section>
-</section>
-<section id="discussion-conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="discussion-conclusion">Discussion + Conclusion</h3>
-<p>In this section you’ll include a summary of what you have learned about your research question along with statistical arguments supporting your conclusions. In addition, discuss the limitations of your analysis and provide suggestions on ways the analysis could be improved. Any potential issues pertaining to the reliability and validity of your data and appropriateness of the statistical analysis should also be discussed here. Lastly, this section will include ideas for future work.</p>
-<section id="grading-criteria-3" class="level4">
-<h4 class="anchored" data-anchor-id="grading-criteria-3">Grading criteria</h4>
-<p>Overall conclusions from analysis are clearly described, and the model results are put into the larger context of the subject matter and original research question. There is thoughtful consideration of potential limitations of the data and/or analysis, and ideas for future work are clearly described.</p>
-</section>
-</section>
-<section id="organization-formatting" class="level3">
-<h3 class="anchored" data-anchor-id="organization-formatting">Organization + formatting</h3>
-<p>This is an assessment of the overall presentation and formatting of the written report.</p>
-<section id="grading-criteria-4" class="level4">
-<h4 class="anchored" data-anchor-id="grading-criteria-4">Grading criteria</h4>
-<p>The report neatly written and organized with clear section headers and appropriately sized figures with informative labels. Numerical results are displayed with a reasonable number of digits, and all visualizations are neatly formatted and labeled. All citations and links are properly formatted. If there is an appendix, it is reasonably organized and easy for the reader to find relevant information. All code, warnings, and messages are suppressed. The main body of the written report (not including the appendix) is no longer than 10 pages.</p>
-</section>
-<section id="submission-1" class="level4">
-<h4 class="anchored" data-anchor-id="submission-1">Submission</h4>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The written report is due on <strong>Wednesday, December 13 at 11:59pm</strong>.</p>
-<p>To submit your report, <code>written-report.qmd</code> and the rendered <code>written-report.pdf</code> to your team’s GitHub repo by the deadline. You will <u><strong>not</strong></u> submit the report on Gradescope.</p>
-<p><em>The version of the report in the repo by Wednesday, December 13 will be the one that is graded.</em></p>
-</div>
-</div>
-</section>
-</section>
-</section>
-<section id="round1-submission" class="level2">
-<h2 class="anchored" data-anchor-id="round1-submission">Round 1 submission (optional)</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Due date
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Friday, December 1 at 11:59pm on GitHub (all teams)</p>
-<p>Reports submitted after this date will not receive preliminary feedback.</p>
-</div>
-</div>
-<p>The Round 1 submission is an opportunity to receive detailed feedback on your analysis and <a href="#written-report">written report</a> before the final submission. Therefore, to make the feedback most useful, <strong><em>you must submit a complete written report to receive feedback.</em></strong> You will also be notified of the grade you would receive at that point. You will have the option to keep the grade (and thus you don’t need to turn in an updated report) or resubmit the written report by the final submission deadline to receive a new grade.</p>
-<section id="to-submit-the-round-1-submission" class="level4">
-<h4 class="anchored" data-anchor-id="to-submit-the-round-1-submission"><strong>To submit the Round 1 submission:</strong></h4>
+<h2 class="anchored" data-anchor-id="project-proposal">Stage I: Project proposal</h2>
+<p>Your proposal, to be turned in as a Word document on Canvas, will include the following:</p>
 <ol type="1">
-<li><p>Push the updated <code>written-report.qmd</code> and <code>written-report.pdf</code> to your GitHub repo.</p></li>
-<li><p>Open an issue with the title “Round 1 Submission”. You can use the template issue in the GitHub repo. Make sure I am tagged in the issue (<code>@matackett</code>), so I receive an email notification of your Round 1 submission. See <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-repository">Creating an issue from a repository</a> for instructions on opening an issue. Please ask a member of the teaching team for assistance if you need help opening the issue.</p></li>
+<li><p>Identify the original data source. Include a brief summary of how, from whom, and by whom, the data were collected. The data can come from one source or multiple sources. Students can collect their own data through experiment, survey, or study, but this is not required. If you decide to do this, start early and come see me, you may need to get IRB approval. Upload a copy of the data set: not a link to it, but an actual downloaded file in a format that R can open. (This is so I can look at it if I have questions about your proposal). If you plan to collect your own data, you must provide details on the design and implementation of the experiment or survey (in that case, you don’t actually need to have the data set “in hand” yet).</p></li>
+<li><p>Identify the important research question(s) which will guide your project (e.g.&nbsp;“Do youth who participate in physical exercise class have lower BMI?”, “Are males more likely to drink and drive after adjusting for confounding variables?”) and describe why your chosen project is interesting to you.</p></li>
+<li><p>Provide a list of variables of interest and their definitions (including units). You should also include rationale for inclusion for each variable and identify the variable type, and whether it may need recoding. A table is a good way to summarize this information; for example:</p></li>
 </ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Note that this is optional, so there is <u><strong>no</strong></u>grade penalty for not turning in a Round 1 submission. Due to time constraints at the end of the semester, only high-level feedback will be given for the reports submitted at the final written report deadline on December 13.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="presentation" class="level2">
-<h2 class="anchored" data-anchor-id="presentation">Presentation</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Presentations will take place in class during labs December 5 &amp; 7.<br>
-</p>
-<p><a href="https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/Ed8d7gVI8-lMrmgJpFpTEjYB2UXUTyZNDMOgQYpO4YOJJg?e=CieZZL">Click here</a> for the presentation order.</p>
-</div>
-</div>
-<p>In addition to the written report, your team will also do an in-person presentation that summarize and showcase your project. Introduce your research question and data set, showcase visualizations, and discuss the primary conclusions. The presentation should be supported by slides that serve as a brief visual addition to the presentation. The presentation and slides will be graded for content and clarity.</p>
-<p>You can create your slides with any software you like (Keynote, PowerPoint, Google Slides, etc.). We recommend choosing an option that’s easy to collaborate with, e.g., Google Slides.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You can also use Quarto to make your slides! While we won’t be covering making slides with Quarto in the class, we would be happy to help you with it in office hours. It’s no different than writing other documents with Quarto, so the learning curve will not be steep!</p>
-</div>
-</div>
-<p><strong>The presentation must be no longer than 6 minutes.</strong> It is fine if the presentation is shorter than 6 minutes, but it cannot exceed 6 minutes due to the limited time during lab.</p>
-<p><strong>Every team member is expected to speak in the presentation.</strong> Part of the grade will be whether every team member had a meaningful speaking role in the presentation.</p>
-<section id="slides" class="level3">
-<h3 class="anchored" data-anchor-id="slides">Slides</h3>
-<p>The slide deck should have no more than 6 content slides + 1 title slide. Here is a <u>suggested</u> outline as you think through the slides; you do <u>not</u> have to use this exact format for the 6 slides.</p>
-<ul>
-<li>Title Slide</li>
-<li>Slide 1: Introduce the topic and motivation</li>
-<li>Slide 2: Introduce the data</li>
-<li>Slide 3: Highlights from EDA</li>
-<li>Slide 4: Final model</li>
-<li>Slide 5: Interesting findings from the model</li>
-<li>Slide 6: Conclusions + future work</li>
-</ul>
-</section>
-<section id="grading-criteria-5" class="level3">
-<h3 class="anchored" data-anchor-id="grading-criteria-5">Grading criteria</h3>
-<p>The presentation grade will be based on the following criteira:</p>
-<ul>
-<li><p>Content: The group told a unified story using the appropriate regression analysis.</p></li>
-<li><p>Slides: The presentation slides were organized, included clear and informative visualizations, and were easily readable.</p></li>
-<li><p>Professionalism: The group’s communication style was clear and professional.</p></li>
-<li><p>Time Management: Team divided the time well and stayed within the 6 minute time limit, with each team member making a meaning contribution to the presentation. (assessed by the teaching team only).</p></li>
-</ul>
-<p>80% of the presentation grade will be the average of the teaching scores and 20% will be the average of the peer scores.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You can submit the presentation slides in two ways:</p>
-<ul>
-<li><p>Put a PDF of the slides in the <code>presentation</code> folder in your team’s GitHub repo.</p></li>
-<li><p>Put the URL to your slides in the <code>README</code> of the <code>presentation</code> folder. If you share the URL, please make sure permissions are set so Prof.&nbsp;Tackett can view the slides.</p></li>
-</ul>
-<p><strong>Slides must be submitted by the start of your lab on December 5 or 7.</strong> You will <u>not</u> submit the slides on Gradescope.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="presentation-comments" class="level2">
-<h2 class="anchored" data-anchor-id="presentation-comments"><strong>Presentation comments</strong></h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><a href="https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/Ed8d7gVI8-lMrmgJpFpTEjYB2UXUTyZNDMOgQYpO4YOJJg?e=jxx4e4">Click here</a> to find the teams you’re scoring and a link to the feedback form.</p>
-<p>This portion of the project will be assessed individually.<br>
-</p>
-</div>
-</div>
-<p>You will provide feedback on two teams’ presentations. You can find your assigned teams and the link to the feedback from <a href="https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/Ed8d7gVI8-lMrmgJpFpTEjYB2UXUTyZNDMOgQYpO4YOJJg?e=CieZZL">here</a>. Please provide all scores and comments by the end of the lab session. There will be a few minutes between each presentation to submit scores.</p>
-<p>The grade will be based on submitting the scores and comments for both of your assigned teams by the end of the presentation day (December 5 for Tuesday labs, December 7 for Thursday labs).</p>
-</section>
-<section id="reproducibility-organization" class="level2">
-<h2 class="anchored" data-anchor-id="reproducibility-organization">Reproducibility + organization</h2>
-<p>All written work (with exception of presentation slides) should be reproducible, and the GitHub repo should be neatly organized.</p>
-<p>The GitHub repo should have the following structure:</p>
-<ul>
-<li><p><code>README</code>: Short project description and data dictionary</p></li>
-<li><p><code>written-report.qmd</code> &amp; <code>written-report.pdf</code>: Final written report</p></li>
-<li><p><code>proposal.qmd</code> &amp; <code>proposal.pdf</code>: Project proposal</p></li>
-<li><p><code>/data</code>: Folder that contains the data set for the final project.</p></li>
-<li><p><code>project.Rproj</code>: File specifying the RStudio project</p></li>
-<li><p><code>/presentation</code>: Folder with the presentation slides or link to slides.</p></li>
-<li><p><code>.gitignore</code>: File that lists all files that are in the local RStudio project but not the GitHub repo</p></li>
-<li><p><code>/.github</code>: Folder for peer review issue template</p></li>
-</ul>
-<p>Points for reproducibility + organization will be based on the reproducibility of the written report and the organization of the project GitHub repo. The repo should be neatly organized as described above, there should be no extraneous files, all text in the <code>README</code> should be easily readable.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The repo must be ready for grading by Wednesday, December 13 at 11:59pm.</p>
-</div>
-</div>
-</section>
-<section id="peer-teamwork-evaluation" class="level2">
-<h2 class="anchored" data-anchor-id="peer-teamwork-evaluation">Peer teamwork evaluation</h2>
-<p>You will be asked to fill out a survey where you rate the contribution and teamwork of each team member by assigning a contribution percentage for each team member. If you are suggesting that an individual did less than half the expected contribution given your team size (e.g., for a team of four students, if a student contributed less than 12.5% of the total effort), please provide some explanation. If any individual gets an average peer score indicating that this was the case, their grade will be assessed accordingly.</p>
-</section>
-<section id="overall-grading" class="level2">
-<h2 class="anchored" data-anchor-id="overall-grading">Overall grading</h2>
-<p>The grade breakdown is as follows:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Total</th>
-<th>100 pts</th>
-</tr>
-</thead>
+<div class="center">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
 <tbody>
 <tr class="odd">
-<td>Project proposal</td>
-<td>15 pts</td>
+<td><strong>Variable Name</strong></td>
+<td><strong>Original Definition</strong></td>
+<td><strong>Units</strong></td>
+<td><strong>Range or Levels</strong></td>
+<td><strong>Possible recoding</strong></td>
+<td><strong>Rationale</strong></td>
 </tr>
 <tr class="even">
-<td>Draft report + peer review</td>
-<td>15 pts</td>
+<td>bmi</td>
+<td>Body mass index</td>
+<td>Kg/m^2</td>
+<td>&gt;0</td>
+<td></td>
+<td>Response variable</td>
 </tr>
 <tr class="odd">
-<td>Presentation</td>
-<td>20 pts</td>
+<td>pe</td>
+<td>How many days per week attends Physical education class</td>
+<td>Days/week</td>
+<td>0-5, integers</td>
+<td>Currently categorical var. Recode to same values but numeric</td>
+<td>Main explanatory var of interest</td>
 </tr>
 <tr class="even">
-<td>Presentation comments</td>
-<td>5 pts</td>
+<td>age</td>
+<td>Age of student</td>
+<td>years</td>
+<td>12-19, integers</td>
+<td></td>
+<td>Possible con founding var</td>
 </tr>
 <tr class="odd">
-<td>Written report</td>
-<td>40 pts</td>
-</tr>
-<tr class="even">
-<td>Reproducibility + organization</td>
-<td>5 pts</td>
+<td>lunch</td>
+<td>Percent of students at the school receiving free /reduced lunch</td>
+<td>%</td>
+<td>0-100</td>
+<td></td>
+<td>Possible con founding var (soc io-econ status)</td>
 </tr>
 </tbody>
 </table>
-<section id="grading-summary" class="level3">
-<h3 class="anchored" data-anchor-id="grading-summary">Grading summary</h3>
-<p>Grading of the project will take into account the following:</p>
+</div>
+<ol start="4" type="1">
+<li>Find references for at least two articles in the refereed literature that are relevant to your question of interest. You should avoid articles that are too technical to be relevant to the project or to be informative for the non-specialist. Be sure you obtain the entire paper and not just an abstract! You will eventually use these references in the introduction of your paper. Your proposal should include:
 <ul>
-<li><p>Content - What is the quality of research and/or policy question and relevancy of data to those questions?</p></li>
-<li><p>Correctness - Are statistical procedures carried out and explained correctly?</p></li>
-<li><p>Writing and Presentation - What is the quality of the statistical presentation, writing, and explanations?</p></li>
-<li><p>Creativity and Critical Thought - Is the project carefully thought out? Are the limitations carefully considered? Does it appear that time and effort went into the planning and implementation of the project?</p></li>
-</ul>
-<p>A general breakdown of scoring is as follows:</p>
+<li>The citation for each reference (in a standard format) and a link, if appropriate.</li>
+<li>A few sentences that summarize the primary findings and how they relate to your proposal.</li>
+</ul></li>
+<li>Briefly outline how you plan to address your research question(s) with your data. (e.g, “I plan to run multiple linear regression models with BMI as response and daily attendance and age as explanatory variables, possibly examining interactions between the two. I will also adjust for socioeconomic status at the school level.”)</li>
+</ol>
+<section id="utilizing-the-librarians-for-help-with-research" class="level3">
+<h3 class="anchored" data-anchor-id="utilizing-the-librarians-for-help-with-research">Utilizing the Librarians for Help with Research</h3>
+<p>From Christine Schutz:</p>
+<blockquote class="blockquote">
+<p>An essential (and favorite) aspect of a librarian’s work is to provide assistance and coaching to students doing research for their projects and papers. Our two librarians - <a href="cschustz@collegeofidaho.edu">Christine Schutz</a> and <a href="mailto:lmcgrath@collegeofidaho.edu">Lance McGrath</a> – can help students to focus their source quests and locate appropriate and useful sources. Since students don’t always realize that not everyone who works in a library is a librarian (or even what that means) and that librarians aren’t in the library at all hours of the night (even though the library is open), please nudge them to <em>reach out to us by email or Teams chat</em> to set up a time to meet (or we can sometimes help over email/chat). From the history of the sufganiyot (this was last Fall’s favorite) to the Lamington crayfish (<em>Euastacus sulcatus</em>) and why they are blue (an all-time favorite of mine), student research projects are the best part of the job (and I know Lance feels the same way), please send those students our way.</p>
+</blockquote>
+<p>You are more than welcome to contact me with any questions about your project but please do not hesitate reaching out to Christine or Lance with any questions.</p>
+</section>
+</section>
+<section id="exploratory-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-analysis">Stage II: Exploratory Data Analysis</h2>
+<p>The second stage of your project is to conduct Exploratory Data Analysis.</p>
+<ol type="1">
+<li>You may need to “clean” your dataset first. Make note of any problematic data and observations that need to be removed. Consider implications about any decisions you make about missing data.<a href="https://www.uvm.edu/~statdhtx/StatPages/Missing_Data/Missing.html">This website</a> shares some simple approaches to missing data (and the relative advantages/disadvantages of each approach).</li>
+<li>Produce descriptive statistics (5-number summaries and histograms or boxplots for continuous variables; tables of counts/proportions and bar charts for categorical variables) for all relevant variables in your data set.</li>
+<li>Explore the relationships between important pairs of variables both graphically and numerically. Depending on the type of your response and explanatory variables, you may consider graphs such as boxplots, scatterplots/jitterplots, or segmented bar charts. You may consider summary statistics (like mean, median, or standard deviation) by group, correlations, and two-way tables with proportions. At this stage plots can be loose in terms of titles and labels, but for your final paper it is essential that your figures have (meaningful) captions and axis labels!</li>
+<li>You should not be fitting any models at this point.</li>
+</ol>
+<section id="your-eda-report-to-be-turned-in-on-canvas-will-meet-these-guidelines" class="level3">
+<h3 class="anchored" data-anchor-id="your-eda-report-to-be-turned-in-on-canvas-will-meet-these-guidelines">Your EDA report, to be turned in on Canvas, will meet these guidelines:</h3>
+<p>In no more than 3 pages, summarize the main findings of your exploratory analysis, referring to specific plots and summary statistics where necessary. In addition, describe your plans for building models to address important research questions, including which variables will be important to consider in light of your exploratory analyses. This report should be meaningful and readable to someone familiar with statistics but unfamiliar with your particular research topic and dataset (i.e.&nbsp;your professor). Give concise but precise statements interpreting summary statistics, etc. – in the context of your data set and research questions you pose. Avoid vague terms like “this data”, “these results”, etc. Also avoid cryptic variable names that you may have used in R. A report like this might be something you’d share with collaborators or store as a reference as you proceed with your analysis.</p>
+<ol type="a">
+<li>The Main Body of your EDA report should follow these guidelines:
 <ul>
-<li><p><em>90%-100%</em>: Outstanding effort. Student understands how to apply all statistical concepts, can put the results into a cogent argument, can identify weaknesses in the argument, and can clearly communicate the results to others.</p></li>
-<li><p><em>80%-89%</em>: Good effort. Student understands most of the concepts, puts together an adequate argument, identifies some weaknesses of their argument, and communicates most results clearly to others.</p></li>
-<li><p><em>70%-79%</em>: Passing effort. Student has misunderstanding of concepts in several areas, has some trouble putting results together in a cogent argument, and communication of results is sometimes unclear.</p></li>
-<li><p><em>60%-69%</em>: Struggling effort. Student is making some effort, but has misunderstanding of many concepts and is unable to put together a cogent argument. Communication of results is unclear.</p></li>
-<li><p><em>Below 60%</em>: Student is not making a sufficient effort.</p></li>
+<li>No more than 3 pages</li>
+<li>Begin with a short paragraph introducing your project and primary research questions. (This introduction will be expanded into several paragraphs for the final paper.)</li>
+<li>Use your graphical and numerical summaries to tell a story, supporting your conclusions with summary statistics. Weave numerical summaries seamlessly into your text, and refer to graphs where appropriate.</li>
+<li>You do not need to include EVERY plot or table you made in the report. Include at least 2 interesting plots/tables (if not more!). Name each figure (e.g.&nbsp;Figure 1) so they are easily referred to in your report, and format the figures neatly within your report (without taking up too much space). These exploratory plots/tables don’t have to be perfect in terms of titles and labels, but for your final paper it is essential that your figures have (meaningful) captions and axis labels!</li>
+<li>Preview directions you plan to go with modeling. What models will you begin by fitting, and what variables will be involved. This should be the last paragraph of the report.</li>
+<li>Write well! Complete sentences, good flow, proper grammar, etc.</li>
+</ul></li>
+<li>Your EDA report should also include an Annotated Appendix and References section (not included in the 3 page limit) which include these elements:
+<ul>
+<li>Clear definitions of important variables and the (properly cited) source of the data.<br>
+</li>
+<li>Tables and figures that are informative but were not referenced specifically in the main report. Include a short annotation – one or two sentences on what they show.</li>
+<li>A citation for each reference article (in a standard format) you included in your proposal. Also include a link, if appropriate.</li>
+</ul></li>
+<li>You should also upload to Canvas:
+<ul>
+<li>A Quarto document with R code and (commented) output so that I can trace how you constructed your final data set, what the results of your exploratory data analyses were, and what plots you generated. Comments should be short, but clarify what you’ve done and why.</li>
+<li>The knitted pdf document that was created from the Quarto above.</li>
+<li>The data file (as .txt, .csv, or .xls).</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="draft-report" class="level2">
+<h2 class="anchored" data-anchor-id="draft-report">Stage III: Project Report</h2>
+<p>Your report should be a thoughtful, concise, and polished document, no longer than 8 pages. Relevant tables and/or figures should be formatted neatly into your report. Be sure to label and reference your graphs and tables so they are interpretable on their own. An annotated appendix containing less relevant figures and tables along with important R code and output should be attached to the end of your report (see below for more details). The report should include four LABELED sections plus bibliography and annotated appendix. There is no page limit on the bibliography and appendix. The rubric that I use to grade the reports is [insert].</p>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p>A few paragraphs that contain background information, motivation for your research, and a statement of your research goals. Be sure to incorporate your supporting references into the text. The purpose of the background is to place your work in the greater context of the literature in the area you are investigating. Then you should explicitly identify the research question that you will investigate with your analysis.</p>
+</section>
+<section id="methods" class="level3">
+<h3 class="anchored" data-anchor-id="methods">Methods</h3>
+<p>A few paragraphs that… - Briefly describe your data, where it came from (source), definitions of important variables, and how it was collected (random/representative sampling? From what population?) - Indicate any modifications made to the data, recoding, or decisions about missing data. Be sure to report the sample size and the number of observations removed, if any. - Briefly but thoroughly describe the statistical methods used to investigate the association between your outcome and predictor variables. What summary statistics were calculated? (Just list: e.g.&nbsp;proportions, and conditional proportions for categorical variables; means, medians, and standard deviation for quantitative variables). What statistical tests were performed? What type of modeling was done?<br>
+- Do not report results in the Methods section!</p>
+<p><em>Note: If you are using a method not covered in this class (e.g., a nonparametric method, time series), you may choose to expand Methods a bit to describe your statistical method.</em></p>
+</section>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">Results</h3>
+<p>The densest (but not necessarily longest) section of your report, which should include… - A general description of your data. (This is where you integrate your exploratory data analysis from Stage II.) - The final model, presented in a table with variables, coefficients, standard errors, p-values, and confidence intervals for each coefficient. - A description of the results from your analyses, including interpretations of parameter estimates and/or confidence intervals in context. - Tables that summarize results and figures that illustrate results. These tables and figures should be well-labeled, numbered (e.g.&nbsp;Figure 1), and have good, descriptive captions. Each report should have a minimum of two tables/figures. Rarely are residual plots part of the main body of the report unless they are an integral part of the story. - It may be helpful to refer to the articles you’ve cited as a guide for the writing style of the results section. - While you should interpret confidence intervals and/or coefficients in this section, you should not editorialize here! Save that for the Discussion. - <span class="math inline">\(R^2\)</span> (for linear regression) or misclassification rate (for logistic regression) should be reported here or in the Discussion (or both).</p>
+</section>
+<section id="discussion" class="level3">
+<h3 class="anchored" data-anchor-id="discussion">Discussion</h3>
+<p>A few paragraphs that: - Begin with an accurate summary statement; describe how the results help answer your research questions and what was most interesting from your analysis. In fact, the first paragraph of the Discussion is very important – in professional journals, it is often the first and sometimes the only paragraph that is read in a paper. After the first sentence highlights primary results, the remainder of the first paragraph might compare your results to others in the literature or include interesting secondary results. - Discuss possible implications of the results in the context of the research question. - Make a statement regarding potential confounding variables in your study. - Make a statement about the generalizability of your results. Don’t give generic statements of possible causation and generalizability, but thoughtfully discuss relevant issues – confounding variables, representativeness of the sample, etc. You should demonstrate your knowledge of these issues and their importance in context; the research topic is the focus here, not statistics for statistics sake.<br>
+- Identify any limitations of your study. Discuss the potential impact of such limitations on the conclusions. - Identify strengths and weaknesses of your analysis. This is where you should (briefly) mention whether the conditions of the model are met. - Make suggestions for future research. Identify important next steps that a researcher could take to build on your work. - Do not include test statistics or p-values in this section, although you can of course reference Results when discussing your overall conclusions. - See the end of this document for some additional advice about writing Discussions.</p>
+</section>
+<section id="bibliography" class="level3">
+<h3 class="anchored" data-anchor-id="bibliography">Bibliography</h3>
+<p>Include full citations for any papers cited in your introduction or other sections of your report. Also cite the dataset you use as appropriate. You may use any bibliographic style you are familiar with (APA, MLA, Chicago, etc), but you MUST be consistent with this style (use the same style for both the bibliography and in-text citations).</p>
+</section>
+<section id="annotated-appendix" class="level3">
+<h3 class="anchored" data-anchor-id="annotated-appendix">Annotated Appendix</h3>
+<ul>
+<li>Tables and figures that are informative but were not referenced specifically in the main report. Include a short annotation – one or two sentences on what they show.</li>
+<li>R code and output (commented and annotated) so that I can trace how you constructed your final data set, what models you ran to produce the results quoted in your report, and what intermediate models you also considered.</li>
+<li>Description of statistical modeling steps that were not included in the main body of your report. Possible entries here include:</li>
+<li>How you handled missing data or recoded variables</li>
+<li>Evaluation of assumptions (including residual plots or empirical logit plots)</li>
+<li>How you went from the model output in R to interpretations in your report (e.g.&nbsp;exponentiate coefficients, then take inverse)</li>
+<li>Steps in your model building process – how you decided on the explanatory variables you ultimately included in your final model.</li>
+<li>Two tips on constructing this section:</li>
+<li>Anticipate questions someone might have after reading your report, and make sure those questions can be answered with information in the appendix.</li>
+<li>The easiest way to create the appendix is to use Quarto, then knit it into a PDF document (just to create this section, not the entire report).<br>
+</li>
+<li>The appendix should be uploaded as a separate document on Moodle and titled “Appendix”.</li>
 </ul>
 </section>
 </section>
-<section id="late-work-policy" class="level2">
-<h2 class="anchored" data-anchor-id="late-work-policy">Late work policy</h2>
-<p>There is no late work accepted on the draft report or presentation. Other components of the project may be accepted up to 48 hours late. A 10% late deduction will apply for each 24-hour period late.</p>
-<p><strong>Be sure to turn in your work early to avoid any technological mishaps.</strong></p>
+<section id="peer-review" class="level2">
+<h2 class="anchored" data-anchor-id="peer-review">Stage IV: Peer Review</h2>
+<p>An important part of any work is reflection and review. When you submit your paper to Canvas, it will be reviewed by another student, and you will be asked to review as well. More detailed instructions on this exercise will be given at the time of the review. You will be evaluated on your effort in the review, including how constructive and insightful your comments are.</p>
+</section>
+<section id="written-report" class="level2">
+<h2 class="anchored" data-anchor-id="written-report">Stage V: Project Revision</h2>
+<p>After submitting your project report, you will receive feedback from your professor and 1-2 peers. You will have the opportunity to revise your project paper and resubmit it. A portion of your revision grade is based on the adequacy of your response to comments. (This means that if you just resubmit the first copy of your paper without changes, it will receive a lower grade.)</p>
+</section>
+<section id="poster-presentation" class="level2">
+<h2 class="anchored" data-anchor-id="poster-presentation">Stage VI: Poster Presentation</h2>
+<p>[Insert]</p>
+</section>
+<section id="writing-tips" class="level2">
+<h2 class="anchored" data-anchor-id="writing-tips">Writing Tips</h2>
+<p>A major goal of this semester is to be able to write a paper based on a statistical analysis that follows the format typically used for academic journal articles, specifically those in the natural and social sciences.</p>
+<p>The purpose of an article in this style is NOT to dazzle me with your knowledge of statistical methodology (e.g., the meaning of a p-value, how to write down the null and alternative hypotheses… do this on the exams!). The purpose of this paper is to show me you know how to <em>USE</em> statistics to make a persuasive quantitative argument and to communicate results to other scientists with a similar level of statistics background.</p>
+<p>The audience for the paper is a scientist interested in your research question. This scientist has knowledge of statistical techniques and interpretation, but is NOT a statistician.</p>
+<p>An article in this style includes four labelled sections:</p>
+<p><strong>Introduction:</strong> What are we doing? Why are we doing this?</p>
+<p><strong>Methods:</strong> Where do the data come from? What did we do to it?</p>
+<p><strong>Results:</strong> What did we learn from the data? Tell me a story supported with statistics, not about statistics. The results section will also include labeled Figures and Tables with informative captions. Tell me a story with pictures and tables! (But not so many that it’s overwhelming.)</p>
+<p><strong>Discussion:</strong> Why do we care about what we found? How generalizable are the results? What other questions would we like to answer?</p>
+<section id="some-tipes-for-writing-the-results-section" class="level3">
+<h3 class="anchored" data-anchor-id="some-tipes-for-writing-the-results-section">Some tipes for writing the results section</h3>
+<section id="the-results-section-should-include" class="level4">
+<h4 class="anchored" data-anchor-id="the-results-section-should-include">The Results section should include:</h4>
+<ul>
+<li>A general description of your data (completed via your exploratory data analysis)</li>
+<li>A description of the results from your analyses, including interpretations of parameter estimates and confidence intervals in context.</li>
+<li>Tables that summarize results and figures that illustrate results. These tables and figures should be numbered (e.g.&nbsp;Figure 1) and have good, descriptive captions. They should also be referenced and mentioned in the body of the paper – you should not have a table/figure that is floating on the page with no reference in the paper. Rarely are residual plots part of the main body of the report unless they are an integral part of the story.</li>
+<li>While you should interpret confidence intervals and coefficients in this section, you should not editorialize here! Save that for the Discussion.</li>
+</ul>
+</section>
+<section id="here-is-one-potential-results-writing-strategy" class="level4">
+<h4 class="anchored" data-anchor-id="here-is-one-potential-results-writing-strategy">Here is one potential Results writing strategy:</h4>
+<p>For the first paragraph, start with simple descriptions about relevant variables: <em>50% of the subjects are male, 20% smoke cigarettes, and 40% are overweight</em>. Often, studies will include demographic or other baseline characteristics about the subjects in the study, even if they are not the main variables of interest. This baseline descriptive information can be helpful for determining generalizability of the study (for instance, if a random sample is not used what population is this study representative of?) Often these baseline characteristics are just included in a table (e.g.&nbsp;mean/SD or proportion for each variable) and only a couple important ones are discussed in text.</p>
+<p>Your final model should be presented in a table with variables, coefficients, standard errors, p-values, and confidence intervals for each coefficient (similar to the output from R, although not cut-and-pasted from R). This table should look professional! Among other things, this means that you should choose a reasonable and consistent number of significant figures (3 or 4) and confidence intervals should be reported using the (#, #) notation. Somewhere (in this table or in prose), you should also report the <span class="math inline">\(R^2\)</span> value.</p>
+<p>In a second paragraph, discuss the relationships seen in the model – that is, interpretations of all statistically significant coefficients. Try to make it flow together nicely: report things in an order that makes sense and that emphasizes your point. Don’t just create a list of interpretations. Think about tables or figures that support this story. If you’re making the same comparison across many categories (e.g.&nbsp;how Pulse changes for different income groups), consider reporting the general pattern, or pointing out a few important values in the text (with the rest in a table or graph). THEN add p-values and/or confidence intervals in parentheses. Again, insert references to tables and figures into the text (“as seen in Figure 1, ….”). You do not need to interpret all confidence intervals, but you should interpret one or two especially significant or interesting CIs.</p>
+<p>Before including a figure in the Results section, ask yourself: Does this add to my story? Does this help the reader understand the interesting relationships that are present here? If the answer to both these questions is “No”, then you absolutely should not include it. It may be helpful to look at the Results sections of the articles you cite in your report.</p>
+</section>
+</section>
+<section id="some-tips-for-writing-the-discussion-section." class="level3">
+<h3 class="anchored" data-anchor-id="some-tips-for-writing-the-discussion-section.">Some tips for writing the Discussion section.</h3>
+<p>As stated above, in the Discussion you should do the following (among other things):</p>
+<ul>
+<li>Identify any limitations of your <em>study</em>. Discuss the potential impact of such limitations on the conclusions.</li>
+<li>Identify strengths and weaknesses of your <em>analysis</em>.</li>
+</ul>
+<p>It can often be difficult to differentiate between these two, but they are two separate issues.</p>
+<p><em>Limitations of the study</em> often have to do with study design and/or data collection… is it generalizable? If not, why not? Are there potential measurement errors or other biases? (e.g.&nbsp;students feel social pressure to lie about drug use, sex, etc when asked in survey). Are you trying to measure something that isn’t easily defined (e.g.&nbsp;“Very happy”, “Somewhat happy”, etc)?</p>
+<p><em>Strengths and weaknesses of the analysis</em> are statistical decisions that you made which may strengthen or weaken your potential conclusions. This is also where we mention that model conditions are met (hopefully!), or discuss possible problems with those conditions.</p>
+<section id="example-of-a-strength" class="level4">
+<h4 class="anchored" data-anchor-id="example-of-a-strength">Example of a strength</h4>
+<p>Very large sample size means very high power (especially interesting if you fail to reject null hypothesis… this means it has very low probability of a type II error… and even though we can’t officially accept <span class="math inline">\(H_0\)</span>, this is stronger evidence that <span class="math inline">\(H_0\)</span> may really be true.)</p>
+</section>
+<section id="example-weaknesses" class="level4">
+<h4 class="anchored" data-anchor-id="example-weaknesses">Example weaknesses</h4>
+<ul>
+<li>Had to combine two or more categories of responses into one in order to use your chosen statistical method (e.g.&nbsp;had to make the explanatory variable binary for logistic regression), which means you now can’t make inferences about those groups separately.</li>
+<li>We treated a variable as continuous even when it was recorded as {1, 2, 3, 4, 5, 6 or more}. The numeric value of the last group is questionable (would analysis change if we replaced it with the numeric value of 7 instead of 6? 6.5? 8? which of these is most representative of the answers “6 or more”?… we don’t and can’t know). These limitations and weaknesses are natural suggestions for further research. When suggesting further research, feel free to make suggestions of things you can’t or don’t know how to do (yet!), e.g.&nbsp;include another variable (not in your data set), or examine a non-linear relationship.</li>
+</ul>
+</section>
+</section>
+<section id="other-hints" class="level3">
+<h3 class="anchored" data-anchor-id="other-hints">Other hints</h3>
+<ul>
+<li><p>Relevant output from a multiple regression model is appropriate, but any tables should be cleaned up, easy to read, and include only relevant information – that is, they should not be copy/pasted from the R output. R code/R output should never be included in the body of a paper. Similarly, variables should be given logical names in your written document; you should not use “codes” from the raw data set.</p></li>
+<li><p>There are three documents on Canvas, all by Jane Miller, that will be extremely useful in writing a good Results section (and writing a good statistical report in general). She includes examples of “poor”, “better” and “best” phrasings – paying attention to these and following her advice will save you from many common pitfalls! I strongly encourage you to read all three of these (short) pieces before you sit down to write your Results.</p></li>
+<li><p>While Quarto is perfectly suited to homework and informal reports, it is not the best choice for producing a formal paper, because you don’t want the R code cluttering things up and you’ll want more control over figures and tables than R markdown can provide.</p></li>
+<li><p>Never include R code or output in the body of your paper<br>
+</p></li>
+<li><p>CI’s should be reported as (#, #), including in Tables.</p></li>
+<li><p>Everything should look professional and organized, including page numbers, numbered and captions tables/figures, etc.</p></li>
+<li><p>Remember your audience: a scientist interested in your research question. This scientist has knowledge of statistical techniques and interpretation, but is NOT a statistician.</p></li>
+<li><p>Go read the documents by Jane Miller on Canvas, especially her advice about the “Goldilocks Principle” when interpreting coefficients.</p></li>
+<li><p>In the caption of the Table with your model results, state the response variable, including units if applicable.</p></li>
+<li><p>Keep the number of decimal places less than 4. If you have a very small value use scientific notation; e.g., <span class="math inline">\(3.45\times 10^{-7}\)</span>.</p></li>
+<li><p>Don’t use codes in your prose unless absolutely necessary. For example, if you’re using “Return on Investment” = ROI, this is fine because it’s a well-known and easy-to-remember acronym. . But “sem_trim_15” is meaningless, so don’t use it! Even for acronyms it is good practice to write it out with the acronym the first time (e.g.&nbsp;“blah blah blah Return on Investment (ROI) blah blah”) If you must use codes, italicize them for easy reading.</p></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -956,7 +634,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/sta210-fa23\.netlify\.app");
+      var filterRegex = new RegExp("https:\/\/mat212fa24\.netlify\.app\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1284,27 +962,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./computing-r-resources.html" class="pagination-link" aria-label="R resources">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R resources</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./project-tips.html" class="pagination-link" aria-label="Tips + resources">
-        <span class="nav-page-text">Tips + resources</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© Copyright 2022, Maria Tackett</p>
+<p>© Copyright 2024, Eric Friedlander</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta210-fa23/website/edit/main/project-instructions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta210-fa23/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/project-instructions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
