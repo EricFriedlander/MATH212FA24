@@ -5,7 +5,7 @@ editor: visual
 ---
 
 ::: callout-important
-For this AE, you will discuss the questions in groups and submit answers on [insert]. This AE does not count towards the Application Exercise grade.
+For this AE, you will discuss the questions in groups and submit answers on Poll Everywhere. This AE does not count towards the Application Exercise grade.
 :::
 
 We will look at the relationship between budget and revenue for movies made in the United States in 1986 to 2020. The dataset is created based on data from the [Internet Movie Database (IMDB)](https://www.imdb.com/).
@@ -18,10 +18,9 @@ knitr::opts_chunk$set(warning = FALSE,
 ```{r load-packages}
 #| warning: FALSE
 #| message: FALSE
-library(readr)
+# library(readr)
 library(tidyverse)
-library(viridis)
-library(DT)
+library(ggformula)
 ```
 
 ## Data
@@ -47,17 +46,18 @@ We begin by looking at how the average gross revenue (`gross`) has changed over 
 genre_list <- c("Comedy", "Action", "Animation", "Horror")
 ```
 
-```{r plot-rating, fig.width=10, warning=FALSE}
+```{r plot-rating}
+#| warning: FALSE
+#| fig-width: 10
+
 movies |>
   filter(genre %in% genre_list) |> 
   group_by(genre,year) |>
   summarise(avg_gross = mean(gross)) |>
-  ggplot(mapping = aes(x = year, y = avg_gross, color=genre)) +
-    geom_point() + 
-    geom_line() +
-    ylab("Average Gross Revenue (in US Dollars)") +
-    ggtitle("Gross Revenue Over Time") +
-    scale_color_viridis_d()
+  gf_point(avg_gross ~ year, color = ~genre) |>
+  gf_line() |> 
+  gf_labs(y = "Average Gross Revenue (in US Dollars)",
+    title = "Gross Revenue Over Time")
 ```
 
 ::: {.callout-note appearance="simple"}
@@ -69,13 +69,11 @@ Next, let's see the relationship between a movie's budget and its gross revenue.
 ```{r plot-revenue, fig.width=10, warning=FALSE}
 movies |>
   filter(genre %in% genre_list, budget > 0) |> 
-  ggplot(mapping = aes(x=log(budget), y = log(gross), color=genre)) +
-  geom_point() +
-  geom_smooth(method="lm",se=FALSE) + 
-  xlab("Log-transformed Budget")+
-  ylab("Log-transformed Gross Revenue") +
-  facet_wrap(~ genre) + 
-  scale_color_viridis_d()
+  gf_point(log(gross) ~ log(budget), color = ~genre) |> 
+  gf_lm(se=FALSE) |>  
+  gf_labs(x = "Log-transformed Budget",
+  y = "Log-transformed Gross Revenue") |> 
+  gf_facet_wrap(~ genre)
 ```
 
 ## Exercises
@@ -84,13 +82,13 @@ movies |>
 
 2.  Suppose we fit the regression model from the previous question. Which genre would you expect to have the smallest residuals, on average (*residual = observed revenue - predicted revenue*)?
 
-    Post your response on ED Discussion.
+    Post your response on Poll Everywhere.
 
     -   [Section 001 (10:05am lecture)](https://edstem.org/us/courses/44523/discussion/3344010)
 
     -   [Section 002 (1:25pm lecture)](https://edstem.org/us/courses/44523/discussion/3344021)
 
-3.  \[Time permitting\] Discuss the following: Notice in the graph above that `budget` and `gross` are log-transformed. Why are the log-transformed values of the variables displayed rather than the original values (in U.S. dollars)? **Post your group's response in the AE 01 Movie Budgets comments on Ed Discussion.**
+3.  \[Time permitting\] Discuss the following: Notice in the graph above that `budget` and `gross` are log-transformed. Why are the log-transformed values of the variables displayed rather than the original values (in U.S. dollars)? **Post your group's response in the AE 01 Movie Budgets comments on Poll Everywhere.**
 
 ## References
 
@@ -105,6 +103,5 @@ Below is a list of genres in the data set:
 movies |> 
   arrange(genre) |> 
   select(genre) |>
-  distinct() |>
-  datatable()
+  distinct()
 ```

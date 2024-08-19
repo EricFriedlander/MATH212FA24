@@ -312,3 +312,11 @@ Raise your hand or post on Canvas
   -   Station 3
 -   Friday's lecture: The Big Picture
 
+# Let's look at some data!
+
+## Application exercise
+
+::: appex
+📋 [AE 01 - Movie Budgets and Revenues](https://sta210-fa23.netlify.app/ae/ae-01-movies.html)
+:::
+

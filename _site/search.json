@@ -5027,7 +5027,7 @@
     "href": "ae/ae-01-movies.html",
     "title": "AE 01: Movie Budgets and Revenues",
     "section": "",
-    "text": "Important\n\n\n\nFor this AE, you will discuss the questions in groups and submit answers on [insert]. This AE does not count towards the Application Exercise grade.\nWe will look at the relationship between budget and revenue for movies made in the United States in 1986 to 2020. The dataset is created based on data from the Internet Movie Database (IMDB).\nlibrary(readr)\nlibrary(tidyverse)\nlibrary(viridis)\nlibrary(DT)"
+    "text": "Important\n\n\n\nFor this AE, you will discuss the questions in groups and submit answers on Poll Everywhere. This AE does not count towards the Application Exercise grade.\nWe will look at the relationship between budget and revenue for movies made in the United States in 1986 to 2020. The dataset is created based on data from the Internet Movie Database (IMDB).\n# library(readr)\nlibrary(tidyverse)\nlibrary(ggformula)"
   },
   {
     "objectID": "ae/ae-01-movies.html#data",
@@ -5041,14 +5041,14 @@
     "href": "ae/ae-01-movies.html#analysis",
     "title": "AE 01: Movie Budgets and Revenues",
     "section": "Analysis",
-    "text": "Analysis\nWe begin by looking at how the average gross revenue (gross) has changed over time. Since we want to visualize the results, we will choose a few genres of interest for the analysis.\n\ngenre_list &lt;- c(\"Comedy\", \"Action\", \"Animation\", \"Horror\")\n\n\nmovies |&gt;\n  filter(genre %in% genre_list) |&gt; \n  group_by(genre,year) |&gt;\n  summarise(avg_gross = mean(gross)) |&gt;\n  ggplot(mapping = aes(x = year, y = avg_gross, color=genre)) +\n    geom_point() + \n    geom_line() +\n    ylab(\"Average Gross Revenue (in US Dollars)\") +\n    ggtitle(\"Gross Revenue Over Time\") +\n    scale_color_viridis_d()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat do you observe from the plot?\n\n\n\nNext, let’s see the relationship between a movie’s budget and its gross revenue.\n\nmovies |&gt;\n  filter(genre %in% genre_list, budget &gt; 0) |&gt; \n  ggplot(mapping = aes(x=log(budget), y = log(gross), color=genre)) +\n  geom_point() +\n  geom_smooth(method=\"lm\",se=FALSE) + \n  xlab(\"Log-transformed Budget\")+\n  ylab(\"Log-transformed Gross Revenue\") +\n  facet_wrap(~ genre) + \n  scale_color_viridis_d()"
+    "text": "Analysis\nWe begin by looking at how the average gross revenue (gross) has changed over time. Since we want to visualize the results, we will choose a few genres of interest for the analysis.\n\ngenre_list &lt;- c(\"Comedy\", \"Action\", \"Animation\", \"Horror\")\n\n\nmovies |&gt;\n  filter(genre %in% genre_list) |&gt; \n  group_by(genre,year) |&gt;\n  summarise(avg_gross = mean(gross)) |&gt;\n  gf_point(avg_gross ~ year, color = ~genre) |&gt;\n  gf_line() |&gt; \n  gf_labs(y = \"Average Gross Revenue (in US Dollars)\",\n    title = \"Gross Revenue Over Time\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat do you observe from the plot?\n\n\n\nNext, let’s see the relationship between a movie’s budget and its gross revenue.\n\nmovies |&gt;\n  filter(genre %in% genre_list, budget &gt; 0) |&gt; \n  gf_point(log(gross) ~ log(budget), color = ~genre) |&gt; \n  gf_lm(se=FALSE) |&gt;  \n  gf_labs(x = \"Log-transformed Budget\",\n  y = \"Log-transformed Gross Revenue\") |&gt; \n  gf_facet_wrap(~ genre)"
   },
   {
     "objectID": "ae/ae-01-movies.html#exercises",
     "href": "ae/ae-01-movies.html#exercises",
     "title": "AE 01: Movie Budgets and Revenues",
     "section": "Exercises",
-    "text": "Exercises\n\nSuppose we fit a regression model for each genre that uses budget to predict gross revenue. What are the signs of the correlation between budget and gross and the slope in each regression equation?\nSuppose we fit the regression model from the previous question. Which genre would you expect to have the smallest residuals, on average (residual = observed revenue - predicted revenue)?\nPost your response on ED Discussion.\n\nSection 001 (10:05am lecture)\nSection 002 (1:25pm lecture)\n\n[Time permitting] Discuss the following: Notice in the graph above that budget and gross are log-transformed. Why are the log-transformed values of the variables displayed rather than the original values (in U.S. dollars)? Post your group’s response in the AE 01 Movie Budgets comments on Ed Discussion."
+    "text": "Exercises\n\nSuppose we fit a regression model for each genre that uses budget to predict gross revenue. What are the signs of the correlation between budget and gross and the slope in each regression equation?\nSuppose we fit the regression model from the previous question. Which genre would you expect to have the smallest residuals, on average (residual = observed revenue - predicted revenue)?\nPost your response on Poll Everywhere.\n\nSection 001 (10:05am lecture)\nSection 002 (1:25pm lecture)\n\n[Time permitting] Discuss the following: Notice in the graph above that budget and gross are log-transformed. Why are the log-transformed values of the variables displayed rather than the original values (in U.S. dollars)? Post your group’s response in the AE 01 Movie Budgets comments on Poll Everywhere."
   },
   {
     "objectID": "ae/ae-01-movies.html#references",
@@ -5062,7 +5062,7 @@
     "href": "ae/ae-01-movies.html#appendix",
     "title": "AE 01: Movie Budgets and Revenues",
     "section": "Appendix",
-    "text": "Appendix\nBelow is a list of genres in the data set:\n\nmovies |&gt; \n  arrange(genre) |&gt; \n  select(genre) |&gt;\n  distinct() |&gt;\n  datatable()"
+    "text": "Appendix\nBelow is a list of genres in the data set:\n\nmovies |&gt; \n  arrange(genre) |&gt; \n  select(genre) |&gt;\n  distinct()\n\n# A tibble: 19 × 1\n   genre    \n   &lt;chr&gt;    \n 1 Action   \n 2 Adventure\n 3 Animation\n 4 Biography\n 5 Comedy   \n 6 Crime    \n 7 Drama    \n 8 Family   \n 9 Fantasy  \n10 History  \n11 Horror   \n12 Music    \n13 Musical  \n14 Mystery  \n15 Romance  \n16 Sci-Fi   \n17 Sport    \n18 Thriller \n19 Western"
   },
   {
     "objectID": "ae/ae-02-bikeshare.html",
@@ -6330,14 +6330,14 @@
     "href": "slides/01-welcome.html#application-exercise",
     "title": "Welcome to MAT 212!",
     "section": "Application exercise",
-    "text": "Application exercise\n\n📋 AE 01 - Movie Budgets and Revenues"
+    "text": "Application exercise\n\n📋 AE 01 - Movie Budgets and Revenues\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
   },
   {
     "objectID": "slides/01-welcome.html#for-this-week",
     "href": "slides/01-welcome.html#for-this-week",
     "title": "Welcome to MAT 212!",
     "section": "For this week…",
-    "text": "For this week…\n\nRead the syllabus\nHomework 0:\n\nStation 1\nStation 2\nStation 3\n\nFriday’s lecture: The Big Picture\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+    "text": "For this week…\n\nRead the syllabus\nHomework 0:\n\nStation 1\nStation 2\nStation 3\n\nFriday’s lecture: The Big Picture"
   },
   {
     "objectID": "slides/10-exam-01-review.html#announcements",
