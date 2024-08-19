@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Your name here">
 
-<title>MAT 212 - Fall 2024 - Computing access</title>
+<title>MAT 212 - Fall 2024 - Station 3: Inference with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +24,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./computing-r-resources.html" rel="next">
-<link href="./links.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -81,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./computing-access.html">Computing</a></li><li class="breadcrumb-item"><a href="./computing-access.html">Access</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Station 3: Inference with R</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -95,8 +94,8 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://rstudio.collegeofidaho.edu/" title="RStudio" class="quarto-navigation-tool px-1" aria-label="RStudio"><i class="bi bi-code-square"></i></a>
@@ -112,46 +111,46 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./schedule.html" class="sidebar-item-text sidebar-link">
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./support.html" class="sidebar-item-text sidebar-link">
+  <a href="../support.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Support</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./links.html" class="sidebar-item-text sidebar-link">
+  <a href="../links.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Useful links</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
  <span class="menu-text">Computing</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./computing-access.html" class="sidebar-item-text sidebar-link active">
+  <a href="../computing-access.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Access</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./computing-r-resources.html" class="sidebar-item-text sidebar-link">
+  <a href="../computing-r-resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R resources</span></a>
   </div>
 </li>
@@ -167,20 +166,50 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#a.-univariate-quantitative" id="toc-a.-univariate-quantitative" class="nav-link" data-scroll-target="#a.-univariate-quantitative">A. Univariate: Quantitative</a>
+  <ul class="collapse">
+  <li><a href="#pose-a-research-question" id="toc-pose-a-research-question" class="nav-link" data-scroll-target="#pose-a-research-question">Pose a research question</a></li>
+  <li><a href="#perform-eda" id="toc-perform-eda" class="nav-link" data-scroll-target="#perform-eda">Perform EDA</a></li>
+  <li><a href="#answer-the-question-using-inference" id="toc-answer-the-question-using-inference" class="nav-link" data-scroll-target="#answer-the-question-using-inference">Answer the question using inference</a></li>
+  </ul></li>
+  <li><a href="#b.-relationship-between-two-variables-1-numericalbinary" id="toc-b.-relationship-between-two-variables-1-numericalbinary" class="nav-link" data-scroll-target="#b.-relationship-between-two-variables-1-numericalbinary">B. Relationship between two variables 1: Numerical/Binary</a>
+  <ul class="collapse">
+  <li><a href="#pose-a-research-question-1" id="toc-pose-a-research-question-1" class="nav-link" data-scroll-target="#pose-a-research-question-1">Pose a research question</a></li>
+  <li><a href="#perform-eda-1" id="toc-perform-eda-1" class="nav-link" data-scroll-target="#perform-eda-1">Perform EDA</a></li>
+  <li><a href="#answer-the-question-using-inference-1" id="toc-answer-the-question-using-inference-1" class="nav-link" data-scroll-target="#answer-the-question-using-inference-1">Answer the question using inference</a></li>
+  </ul></li>
+  <li><a href="#c.-relationship-between-two-variables-2-binarybinary" id="toc-c.-relationship-between-two-variables-2-binarybinary" class="nav-link" data-scroll-target="#c.-relationship-between-two-variables-2-binarybinary">C. Relationship between two variables 2: Binary/Binary</a>
+  <ul class="collapse">
+  <li><a href="#pose-a-research-question-2" id="toc-pose-a-research-question-2" class="nav-link" data-scroll-target="#pose-a-research-question-2">Pose a research question</a></li>
+  <li><a href="#perform-eda-2" id="toc-perform-eda-2" class="nav-link" data-scroll-target="#perform-eda-2">Perform EDA</a></li>
+  <li><a href="#answer-the-question-using-inference-2" id="toc-answer-the-question-using-inference-2" class="nav-link" data-scroll-target="#answer-the-question-using-inference-2">Answer the question using inference</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/hw/hw-0-Station-3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./computing-access.html">Computing</a></li><li class="breadcrumb-item"><a href="./computing-access.html">Access</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Computing access</h1>
+<h1 class="title">Station 3: Inference with R</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Your name here </p>
+          </div>
+  </div>
     
   
     
@@ -191,10 +220,90 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>To access RStudio at the College of Idaho, go to the <a href="https://rstudio.collegeofidaho.edu/">CofI Posit Workbench</a> website and sign-in using the CofI email and password.</p>
-<!-- To access course files click "File > Open File..." then click the "..." button while will pull-up a tab titled "Go To Folder" and have a box labeled "Path to folder (use ~ for home directory):". In the corresponding box enter: `/srv/R/MAT212_FA24`. You can ten copy activity and hw templates by looking in the bottom right pane, clicking the gear icon and clicking "Copy To...". Then repeat the process above but enter `~` and then click save. The file is now in your home directory and can be edited freely. -->
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>You should remember the basics of hypothesis testing from your introductory statistics class, whether it was MAT 125, AP statistics, or a course through a different school or department. <strong>You can find the R code to perform all the necessary inference procedures on the “Inference Summary Sheet” handout on Canvas.</strong></p>
+<p>At this station, you will work with your partner to pose and answer research questions from beginning to end, using the US States data (from Station 2). You will have the opportunity to ask and answer 3 different research questions: one using only one variable, and two exploring the relationship between two variables. Although not required, <strong>you may re-use your work from Station 2.</strong></p>
+<p>Please reference the data codebook (available on the Data sets tab on Canvas) to decide which variables you’d like to use when forming your research question.</p>
+</section>
+<section id="a.-univariate-quantitative" class="level2">
+<h2 class="anchored" data-anchor-id="a.-univariate-quantitative">A. Univariate: Quantitative</h2>
+<p><strong>TASK 1.1.1–Choose a quantitative variable from the US States dataset you’d like to explore. What is the variable? </strong></p>
+<section id="pose-a-research-question" class="level3">
+<h3 class="anchored" data-anchor-id="pose-a-research-question">Pose a research question</h3>
+<p><strong>TASK 1.1.2–What would be a reasonable research question to ask about this parameter?</strong> Your answer should make sense practically.</p>
+<p><strong>TASK 1.1.3–Write the null and alternative hypotheses in terms of the population parameter.</strong> If your research question is better suited for a confidence interval, you do not need to state hypotheses.</p>
+</section>
+<section id="perform-eda" class="level3">
+<h3 class="anchored" data-anchor-id="perform-eda">Perform EDA</h3>
+<p>A good EDA should attempt to preliminarily answer the research question and also identify any issues that might impact eventual inference.</p>
+<p><strong>TASK 1.1.4–Generate a relevant plot for your research question. </strong></p>
+<p><strong>TASK 1.1.5– Calculate the summary statistic that is most relevant to your CI/test.</strong></p>
+<p><strong>TASK 1.1.6–Write a few sentences summarizing what you learned from your EDA</strong></p>
+</section>
+<section id="answer-the-question-using-inference" class="level3">
+<h3 class="anchored" data-anchor-id="answer-the-question-using-inference">Answer the question using inference</h3>
+<p>To answer your research question, you’ll need to test the hypotheses you defined earlier, or construct the relevant confidence interval.</p>
+<p><strong>TASK 1.1.7–What is the name of the statistical test or interval you will perform/construct (e.g., 1-sample t-test for the mean, CI for the difference in means, 1-sample proportion test)?</strong></p>
+<p><strong>TASK 1.1.8–Did your EDA indicate any problems with performing this test/CI? That is, are the conditions for inference met?</strong></p>
+<p><strong>TASK 1.1.9–Use R to generate the test statistic and p-value, or build the confidence interval.</strong></p>
+<p><strong>TASK 1.1.10–Make a conclusion about the null and alternative hypotheses, being sure to answer your research question in context. OR Provide an interpretation of the confidence interval in context.</strong></p>
+</section>
+</section>
+<section id="b.-relationship-between-two-variables-1-numericalbinary" class="level2">
+<h2 class="anchored" data-anchor-id="b.-relationship-between-two-variables-1-numericalbinary">B. Relationship between two variables 1: Numerical/Binary</h2>
+<p>Choose two variables from the Codebook: one numerical, one binary. In this section you will investigate the relationship between these two variables.</p>
+<p><strong>TASK 2.1.1–What are the two variables?</strong> Your answer should include a brief description and be more than simply the variable name.</p>
+<section id="pose-a-research-question-1" class="level3">
+<h3 class="anchored" data-anchor-id="pose-a-research-question-1">Pose a research question</h3>
+<p><strong>TASK 2.1.2–What would be a reasonable research question to ask about this parameter?</strong> Your answer should make sense practically.</p>
+<p><strong>TASK 2.1.3–Write the null and alternative hypotheses in terms of the population parameter.</strong> In this case, I want you to perform a hypothesis test. Later, I’ll also have you build the CI.</p>
+</section>
+<section id="perform-eda-1" class="level3">
+<h3 class="anchored" data-anchor-id="perform-eda-1">Perform EDA</h3>
+<p>Remember, a good EDA should attempt to answer the research questions and also identify any issues that might impact eventual inference.</p>
+<p><strong>TASK 2.1.4–Generate a relevant plot for your research question.</strong></p>
+<p><strong>TASK 2.1.5–Calculate the summary statistics that are most relevant to your test.</strong></p>
+<p><strong>TASK 2.1.6–Write a few sentences summarizing what you learned from your EDA</strong></p>
+</section>
+<section id="answer-the-question-using-inference-1" class="level3">
+<h3 class="anchored" data-anchor-id="answer-the-question-using-inference-1">Answer the question using inference</h3>
+<p>To answer your research question, you’ll need to test the hypotheses you defined earlier.</p>
+<p><strong>TASK 2.1.7–What is the name of the statistical test you will perform?</strong></p>
+<p><strong>TASK 2.1.8–Did your EDA indicate any problems with performing this test? That is, are the conditions for inference met?</strong></p>
+<p><strong>TASK 2.1.9–Use R to generate the test statistic and p-value.</strong></p>
+<p><strong>TASK 2.1.10–Make a conclusion about the null and alternative hypotheses, being sure to answer your research question in context.</strong></p>
+<p><strong>TASK 2.1.11–Now use R to calculate a 95% confidence interval for the parameter of interest, and provide an interpretation in context.</strong> First, you must ask yourself, “What <em>is</em> the parameter of interest?”</p>
+</section>
+</section>
+<section id="c.-relationship-between-two-variables-2-binarybinary" class="level2">
+<h2 class="anchored" data-anchor-id="c.-relationship-between-two-variables-2-binarybinary">C. Relationship between two variables 2: Binary/Binary</h2>
+<p>Choose two binary variables from the Codebook. In this section you will investigate the relationship between these two variables.</p>
+<p><strong>TASK 2.2.1–What are the two variables?</strong> Your answer should include a brief description and be more than simply the variable name.</p>
+<section id="pose-a-research-question-2" class="level3">
+<h3 class="anchored" data-anchor-id="pose-a-research-question-2">Pose a research question</h3>
+<p><strong>TASK 2.2.2–What would be a reasonable research question to ask about this parameter?</strong> Your answer should make sense practically.</p>
+<p><strong>TASK 2.2.3–Write the null and alternative hypotheses in terms of the population parameter.</strong> In this case, I want you to perform a hypothesis test. Later, I’ll also have you build the CI.</p>
+</section>
+<section id="perform-eda-2" class="level3">
+<h3 class="anchored" data-anchor-id="perform-eda-2">Perform EDA</h3>
+<p>Remember, a good EDA should attempt to answer the research questions and also identify any issues that might impact eventual inference.</p>
+<p><strong>TASK 2.2.4–Generate a relevant plot for your research question.</strong></p>
+<p><strong>TASK 2.2.5–Calculate the summary statistics that are most relevant to your hypothesis test.</strong></p>
+<p><strong>TASK 2.2.6–Write a few sentences summarizing what you learned from your EDA</strong></p>
+</section>
+<section id="answer-the-question-using-inference-2" class="level3">
+<h3 class="anchored" data-anchor-id="answer-the-question-using-inference-2">Answer the question using inference</h3>
+<p>To answer your research question, you’ll need to test the hypotheses you defined earlier.</p>
+<p><strong>TASK 2.2.7–What is the name of the statistical test will you perform to test the hypotheses?</strong></p>
+<p><strong>TASK 2.2.8–Did your EDA indicate any problems with performing this test? That is, are the conditions for inference met?</strong></p>
+<p><strong>TASK 2.2.9–Use R to generate the test statistic and p-value.</strong></p>
+<p><strong>TASK 2.2.10–Make a conclusion about the null and alternative hypotheses, being sure to answer your research question in context.</strong></p>
+<p><strong>TASK 2.2.11–Now use R to calculate a 95% confidence interval for the parameter of interest, and provide an interpretation in context.</strong> First, you must ask yourself, “What <em>is</em> the parameter of interest?”</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -606,18 +715,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./links.html" class="pagination-link" aria-label="Useful links">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Useful links</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./computing-r-resources.html" class="pagination-link" aria-label="R resources">
-        <span class="nav-page-text">R resources</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -626,7 +723,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/computing-access.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/hw/hw-0-Station-3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
