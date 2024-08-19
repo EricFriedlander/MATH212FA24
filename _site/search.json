@@ -11375,7 +11375,7 @@
     "text": "Variable type\nParameter of interest\nNull hypothesis\nTest name\nFunction for test\n\n\n\n\nOne quantitative variable\n\\(\\mu\\)\n\\(\\mu = \\mu_0\\)\nOne-sample t-test\nt.test(~variable1, mu = mu0, data = data_name)\n\n\nOne binary variable\n\\(p\\) or \\(\\pi\\)\n\\(p = p_0\\)\nZ-test for one proportion\nprop.test(~variable1, p = p0, data = data_name)\n\n\nOne quantitative and one binary variable with independent samples\n\\(\\mu_1-\\mu_2\\)\n\\(\\mu_1 = \\mu_2\\)\nTwo-sample t-test\nt.test(variable1~variable2, data = data_name)\n\n\nOne quantitative and one binary variable with paired samples\n\\(\\mu_d\\)\n\\(\\mu_d = 0\\)\nPaired t-test\nt.test(variable1~variable2, paried = TRUE, data = data_name)\n\n\nTwo binary variables\n\\(p_1-p_2\\) or \\(\\pi_1-\\pi_2\\)\n\\(p_1=p_2\\)\nZ-test for a difference in proportions\nprop.test(Variable1~variable2, data = data_name)\n\n\nTwo quantitative variables\ncorrelation, \\(\\rho\\) or slope \\(\\beta\\)\n\\(\\rho = 0\\) or \\(\\beta = 0\\)\nCorrelation or Regression\ncor.test(variable1~variable2, data = data_name) or lm(variable1 ~ variable2, data = data_name)\n\n\nTwo categorical variables\nNA\n2 variables are independent\nChi-squared test\nchisq.test(variable1~variable2, data = data_name)\n\n\n\nFor all tests, specify direction of \\(H_a\\) with the argument: alternative = \"greater\", \"less\", or \"two.sided\".\nTo construct a Confidence Interval: remove the null hypothesis, and specify conf.level=number_here",
     "crumbs": [
       "Computing",
-      "Inference Summary Sheet"
+      "Inference Summary Cheatsheet"
     ]
   },
   {
@@ -11386,7 +11386,7 @@
     "text": "Variable type\nParameter of interest\nNull hypothesis\nTest name\nFunction for test\n\n\n\n\nOne quantitative variable\n\\(\\mu\\)\n\\(\\mu = \\mu_0\\)\nOne-sample t-test\nt.test(~variable1, mu = mu0, data = data_name)\n\n\nOne binary variable\n\\(p\\) or \\(\\pi\\)\n\\(p = p_0\\)\nZ-test for one proportion\nprop.test(~variable1, p = p0, data = data_name)\n\n\nOne quantitative and one binary variable with independent samples\n\\(\\mu_1-\\mu_2\\)\n\\(\\mu_1 = \\mu_2\\)\nTwo-sample t-test\nt.test(variable1~variable2, data = data_name)\n\n\nOne quantitative and one binary variable with paired samples\n\\(\\mu_d\\)\n\\(\\mu_d = 0\\)\nPaired t-test\nt.test(variable1~variable2, paried = TRUE, data = data_name)\n\n\nTwo binary variables\n\\(p_1-p_2\\) or \\(\\pi_1-\\pi_2\\)\n\\(p_1=p_2\\)\nZ-test for a difference in proportions\nprop.test(Variable1~variable2, data = data_name)\n\n\nTwo quantitative variables\ncorrelation, \\(\\rho\\) or slope \\(\\beta\\)\n\\(\\rho = 0\\) or \\(\\beta = 0\\)\nCorrelation or Regression\ncor.test(variable1~variable2, data = data_name) or lm(variable1 ~ variable2, data = data_name)\n\n\nTwo categorical variables\nNA\n2 variables are independent\nChi-squared test\nchisq.test(variable1~variable2, data = data_name)\n\n\n\nFor all tests, specify direction of \\(H_a\\) with the argument: alternative = \"greater\", \"less\", or \"two.sided\".\nTo construct a Confidence Interval: remove the null hypothesis, and specify conf.level=number_here",
     "crumbs": [
       "Computing",
-      "Inference Summary Sheet"
+      "Inference Summary Cheatsheet"
     ]
   },
   {
@@ -11397,7 +11397,7 @@
     "text": "Useful code for creating basic figures (requires ggformula)\n\nHistogram: gf_histogram( ~ variable, data = data_name)\nBoxplot: gf_boxplot( ~ variable, data = data_name)\nDotplot: gf_dotplot( ~ variable, data = data_name)\nBarchart: gf_bar( ~ variable, data = data_name)\nSide-by-side boxplot: gf_boxplot( variable1 ~ variable2, data = data_name)\nSide-by-side barchart: gf_bar( ~ variable1, fill = ~ variable2, data = state_data, position=position_dodge())\nScatterplot: gf_point(variable1 ~ variable2, data = data_name)\nScatterplot with a third variable as color: gf_point(variable1 ~ variable2, color = ~ variable3, data = data_name)",
     "crumbs": [
       "Computing",
-      "Inference Summary Sheet"
+      "Inference Summary Cheatsheet"
     ]
   },
   {
@@ -11408,7 +11408,7 @@
     "text": "Useful code for calculating summary statistics: (requires mosaic)\n\nMeans: mean( ~ variable, data = data_name) or mean(variable1 ~ variable2, data = data_name)\nCounts/Tables: tally( ~ variable, data = data_name) or tally(variable1 ~ variable2, data = data_name)\n5-number-summary etc: favstats( ~ variable, data = data_name) or favstats(variable1 ~ variable2, data = data_name)",
     "crumbs": [
       "Computing",
-      "Inference Summary Sheet"
+      "Inference Summary Cheatsheet"
     ]
   }
 ]

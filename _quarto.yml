@@ -55,7 +55,7 @@ website:
         - href: computing-access.qmd
           text: Access
         - href: computing-inferencesummary.qmd
-          text: Inference Summary Sheet
+          text: Inference Summary Cheatsheet
         - href: computing-r-resources.qmd
           text: R resources
       - section: Project

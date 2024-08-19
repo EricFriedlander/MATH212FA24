@@ -11,7 +11,7 @@ In this document you will be introduced to the functions we will use most freque
 
 In general, I suggest "rendering as you go": rendering every few chunks, to make sure things are rendering correctly, rather than waiting until the end of a document to render the whole thing (and potentially encountering lots of errors that you have to unpack)! I also ALWAYS suggest "saving as you go": it's a good idea to save every couple of minutes. (This is good practice for all your files.)
 
-> **TASK--Run the code below to set options for the document and load packages. Note that `#| warning: FALSE` causes the code to run without displaying any associated warnings.**
+> **TASK--Run the code below to set options for the document and load packages. Note that `#| warning: FALSE` causes the code to run without displaying any associated warnings when you render.**
 
 ```{r}
 #| warning: FALSE
@@ -32,7 +32,7 @@ library(tidyverse)
 
 Doing statistics requires *data*. R comes with many built-in datasets, and the packages you loaded above (specifically `Stat2Data`) give you access to even more. To load a dataset from within R you can use the `data` command:
 
-> **TASK--Use the code below to load the dataset diamonds, which is part of the `ggplot2` package and included in the `tidyverse.`**
+> **TASK--Use the code below to load the dataset `diamonds`, which is part of the `ggplot2` package and included in the `tidyverse.`**
 
 ```{r}
 data("diamonds")
@@ -176,7 +176,7 @@ This data has one row for each of the 50 U.S. states, and each variable is recor
 
 > **TASK--Refer to the US States Merged Data codebook (also on Canvas) and select some variables of interest:**
 
-You can choose whatever variables you want. You will explore these variables (and relationships between them) in Stations 2, 3, and Homework 1.
+You can choose whatever variables you want. You will explore these variables (and relationships between them) in Stations 2 and 3.
 
 -   Quantitative variable 1: ...
 -   Quantitative variable 2: ...
@@ -254,4 +254,4 @@ Person on street: "How interesting, although maybe not surprising? Let's have a 
 
 > **TASK--share three interesting observations you learned from these figures (in Section D). Anything you learned must be in context!**
 
-### Note: Make sure you save your work in this Station. You will need it for your first homework assignment.
+### Note: Make sure you save your work in this Station.
