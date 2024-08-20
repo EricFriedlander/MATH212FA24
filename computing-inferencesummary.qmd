@@ -1,5 +1,6 @@
 ---
 title: "Inference Summary Sheet"
+navbar: false
 ---
 
 ## Choosing which statistical test/CI to use based on variable type
