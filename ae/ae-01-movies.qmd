@@ -78,17 +78,13 @@ movies |>
 
 ## Exercises
 
+Please enter your names and responses in [Poll Everywhere](https://PollEv.com/surveys/YpTUIu590W6G9sB7MfFeR/respond)
+
 1.  Suppose we fit a regression model for each genre that uses budget to predict gross revenue. What are the signs of the correlation between `budget` and `gross` and the slope in each regression equation?
 
 2.  Suppose we fit the regression model from the previous question. Which genre would you expect to have the smallest residuals, on average (*residual = observed revenue - predicted revenue*)?
 
-    Post your response on Poll Everywhere.
-
-    -   [Section 001 (10:05am lecture)](https://edstem.org/us/courses/44523/discussion/3344010)
-
-    -   [Section 002 (1:25pm lecture)](https://edstem.org/us/courses/44523/discussion/3344021)
-
-3.  \[Time permitting\] Discuss the following: Notice in the graph above that `budget` and `gross` are log-transformed. Why are the log-transformed values of the variables displayed rather than the original values (in U.S. dollars)? **Post your group's response in the AE 01 Movie Budgets comments on Poll Everywhere.**
+3.  \[Time permitting\] Discuss the following: Notice in the graph above that `budget` and `gross` are log-transformed. Why are the log-transformed values of the variables displayed rather than the original values (in U.S. dollars)? 
 
 ## References
 
