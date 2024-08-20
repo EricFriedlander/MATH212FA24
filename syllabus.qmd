@@ -134,10 +134,10 @@ The final course grade will be calculated as follows:
 
 | Category              | Percentage |
 |-----------------------|------------|
-| Homework              | 35%        |
-| Final project         | 25%        |
+| Homework              | 25%        |
+| Final project         | 30%        |
 | Exam 01               | 15%        |
-| Exam 02               | 15%        |
+| Exam 02               | 20%        |
 | Application Exercises | 5%         |
 | Oral R Quiz           | 5%         |
 
