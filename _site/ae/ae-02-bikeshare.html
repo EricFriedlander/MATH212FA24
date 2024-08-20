@@ -244,7 +244,6 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-02-bikeshare.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -293,7 +292,7 @@ Important
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="data" class="level2">
@@ -312,24 +311,19 @@ Important
 </section>
 <section id="daily-counts-and-temperature" class="level2">
 <h2 class="anchored" data-anchor-id="daily-counts-and-temperature">Daily counts and temperature</h2>
-<section id="exercise-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
-<p>Visualize the distribution of daily bike rentals and temperature as well as the relationship between these two variables.</p>
+<p>Let first visualize the distribution of daily bike rentals and temperature as well as the relationship between these two variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(bikeshare, <span class="fu">aes</span>(<span class="at">x =</span> count)) <span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">250</span>) <span class="sc">+</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Daily bike rentals"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(bikeshare, <span class="fu">aes</span>(<span class="at">x =</span> temp_orig)) <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Temperature (Celsius)"</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(bikeshare, <span class="fu">aes</span>(<span class="at">y =</span> count, <span class="at">x =</span> temp_orig)) <span class="sc">+</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Temperature (Celsius)"</span>, </span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Daily bike rentals"</span>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>(p1 <span class="sc">|</span> p2) <span class="sc">/</span> p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>count, <span class="at">data =</span> bikeshare, <span class="at">binwidth =</span> <span class="dv">250</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Daily bike rentals"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>temp_orig, <span class="at">data =</span> bikeshare) <span class="sc">|&gt;</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Temperature (Celsius)"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(count <span class="sc">~</span> temp_orig, <span class="at">data =</span> bikeshare)  <span class="sc">|&gt;</span>  </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Temperature (Celsius)"</span>, </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Daily bike rentals"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>(p1 <span class="sc">|</span> p2) <span class="sc">/</span> p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -338,21 +332,16 @@ Important
 </div>
 </div>
 </div>
+<p>Submit your answers to the following questions to <a href="https://PollEv.com/surveys/2s7kJw1CFyYM3oNOMi3uF/respond">Poll Everywhere</a>.</p>
+<section id="exercise-1" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
+<p>Describe the relationship between daily bike rentals and temperature. Comment on how we expect the number of bike rentals to change as the temperature increases.</p>
 </section>
 <section id="exercise-2" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
-<p>Describe the relationship between daily bike rentals and temperature. Comment on how we expect the number of bike rentals to change as the temperature increases.</p>
-</section>
-<section id="exercise-3" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
 <p>Suppose you want to fit a model so you can use the temperature to predict the number of bike rentals. Would a model of the form</p>
 <p><span class="math display">\[\text{count} = \beta_0 + \beta_1 ~ \text{temp\_orig} + \epsilon\]</span></p>
 <p>be an appropriate fit for the data? Why or why not?</p>
-<p>Put your group’s vote on Ed Discussion and briefly describe your reasoning in the comments.</p>
-<ul>
-<li><p>Section 001 (10:05am): <a href="https://edstem.org/us/courses/44523/discussion/3361086">edstem.org/us/courses/44523/discussion/3361086</a></p></li>
-<li><p>Section 002 (1:25pm): <a href="https://edstem.org/us/courses/44523/discussion/3361091">edstem.org/us/courses/44523/discussion/3361091</a></p></li>
-</ul>
 
 
 </section>

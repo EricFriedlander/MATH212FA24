@@ -12,7 +12,7 @@ For this AE, you will discuss the questions in groups and submit answers on Poll
 ```{r load-packages}
 #| message: false
 library(tidyverse)
-library(tidymodels)
+library(ggformula)
 library(patchwork)
 ```
 
@@ -35,35 +35,32 @@ bikeshare <- read_csv("data/dcbikeshare.csv")
 
 ## Daily counts and temperature
 
-### Exercise 1
-
-Visualize the distribution of daily bike rentals and temperature as well as the relationship between these two variables.
+Let first visualize the distribution of daily bike rentals and temperature as well as the relationship between these two variables.
 
 ```{r bike-temp-viz}
 #| warning: false
 #| message: false
 
-p1 <- ggplot(bikeshare, aes(x = count)) +
-  geom_histogram(binwidth = 250) + 
-  labs(x = "Daily bike rentals")
+p1 <- gf_histogram(~count, data = bikeshare, binwidth = 250) |>  
+  gf_labs(x = "Daily bike rentals")
 
-p2 <- ggplot(bikeshare, aes(x = temp_orig)) +
-  geom_histogram() + 
-  labs(x = "Temperature (Celsius)")
+p2 <- gf_histogram(~temp_orig, data = bikeshare) |> 
+  gf_labs(x = "Temperature (Celsius)")
 
-p3 <- ggplot(bikeshare, aes(y = count, x = temp_orig)) +
-  geom_point() + 
-  labs(x = "Temperature (Celsius)", 
+p3 <- gf_point(count ~ temp_orig, data = bikeshare)  |>  
+  gf_labs(x = "Temperature (Celsius)", 
        y = "Daily bike rentals")
 
 (p1 | p2) / p3
 ```
 
-### Exercise 2
+Submit your answers to the following questions to [Poll Everywhere](https://PollEv.com/surveys/2s7kJw1CFyYM3oNOMi3uF/respond).
+
+### Exercise 1
 
 Describe the relationship between daily bike rentals and temperature. Comment on how we expect the number of bike rentals to change as the temperature increases.
 
-### Exercise 3
+### Exercise 2
 
 Suppose you want to fit a model so you can use the temperature to predict the number of bike rentals. Would a model of the form
 
@@ -71,8 +68,3 @@ $$\text{count} = \beta_0 + \beta_1 ~ \text{temp\_orig} + \epsilon$$
 
 be an appropriate fit for the data? Why or why not?
 
-Put your group's vote on Ed Discussion and briefly describe your reasoning in the comments.
-
--   Section 001 (10:05am): [edstem.org/us/courses/44523/discussion/3361086](https://edstem.org/us/courses/44523/discussion/3361086)
-
--   Section 002 (1:25pm): [edstem.org/us/courses/44523/discussion/3361091](https://edstem.org/us/courses/44523/discussion/3361091)

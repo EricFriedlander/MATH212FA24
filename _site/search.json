@@ -5069,7 +5069,7 @@
     "href": "ae/ae-02-bikeshare.html",
     "title": "AE 02: Bike rentals in Washington, DC",
     "section": "",
-    "text": "Important\n\n\n\nFor this AE, you will discuss the questions in groups and submit answers on Poll Everywhere. This AE does not count towards the Application Exercise grade.\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(patchwork)"
+    "text": "Important\n\n\n\nFor this AE, you will discuss the questions in groups and submit answers on Poll Everywhere. This AE does not count towards the Application Exercise grade.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(patchwork)"
   },
   {
     "objectID": "ae/ae-02-bikeshare.html#data",
@@ -5083,7 +5083,7 @@
     "href": "ae/ae-02-bikeshare.html#daily-counts-and-temperature",
     "title": "AE 02: Bike rentals in Washington, DC",
     "section": "Daily counts and temperature",
-    "text": "Daily counts and temperature\n\nExercise 1\nVisualize the distribution of daily bike rentals and temperature as well as the relationship between these two variables.\n\np1 &lt;- ggplot(bikeshare, aes(x = count)) +\n  geom_histogram(binwidth = 250) + \n  labs(x = \"Daily bike rentals\")\n\np2 &lt;- ggplot(bikeshare, aes(x = temp_orig)) +\n  geom_histogram() + \n  labs(x = \"Temperature (Celsius)\")\n\np3 &lt;- ggplot(bikeshare, aes(y = count, x = temp_orig)) +\n  geom_point() + \n  labs(x = \"Temperature (Celsius)\", \n       y = \"Daily bike rentals\")\n\n(p1 | p2) / p3\n\n\n\n\n\n\n\n\n\n\nExercise 2\nDescribe the relationship between daily bike rentals and temperature. Comment on how we expect the number of bike rentals to change as the temperature increases.\n\n\nExercise 3\nSuppose you want to fit a model so you can use the temperature to predict the number of bike rentals. Would a model of the form\n\\[\\text{count} = \\beta_0 + \\beta_1 ~ \\text{temp\\_orig} + \\epsilon\\]\nbe an appropriate fit for the data? Why or why not?\nPut your group’s vote on Ed Discussion and briefly describe your reasoning in the comments.\n\nSection 001 (10:05am): edstem.org/us/courses/44523/discussion/3361086\nSection 002 (1:25pm): edstem.org/us/courses/44523/discussion/3361091"
+    "text": "Daily counts and temperature\nLet first visualize the distribution of daily bike rentals and temperature as well as the relationship between these two variables.\n\np1 &lt;- gf_histogram(~count, data = bikeshare, binwidth = 250) |&gt;  \n  gf_labs(x = \"Daily bike rentals\")\n\np2 &lt;- gf_histogram(~temp_orig, data = bikeshare) |&gt; \n  gf_labs(x = \"Temperature (Celsius)\")\n\np3 &lt;- gf_point(count ~ temp_orig, data = bikeshare)  |&gt;  \n  gf_labs(x = \"Temperature (Celsius)\", \n       y = \"Daily bike rentals\")\n\n(p1 | p2) / p3\n\n\n\n\n\n\n\n\nSubmit your answers to the following questions to Poll Everywhere.\n\nExercise 1\nDescribe the relationship between daily bike rentals and temperature. Comment on how we expect the number of bike rentals to change as the temperature increases.\n\n\nExercise 2\nSuppose you want to fit a model so you can use the temperature to predict the number of bike rentals. Would a model of the form\n\\[\\text{count} = \\beta_0 + \\beta_1 ~ \\text{temp\\_orig} + \\epsilon\\]\nbe an appropriate fit for the data? Why or why not?"
   },
   {
     "objectID": "project-instructions.html",
