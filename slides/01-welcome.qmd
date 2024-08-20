@@ -45,7 +45,7 @@ knitr:
 
 ## Tell me about yourself
 
-Navigate to [Canvas](https://cofi.instructure.com/courses/15692/discussion_topics/64816) and answer the survey questions. Note that your answers will not be visible by anyone but myself.
+Navigate to [Poll Everywhere](https://PollEv.com/surveys/oZy0GixfSTgL3cTBEkYzp/respond) and answer the survey questions. Note that your answers will not be visible by anyone but myself.
 
 # Statistical modeling
 
@@ -166,7 +166,7 @@ What is a quantitative and what is a categorical variable?
 
 ## Course toolkit {.midi}
 
--   **Course website**: [sta210-fa23.netlify.app](https://mat212fa24.netlify.app/)
+-   **Course website**: [mat212fa24.netlify.app](https://mat212fa24.netlify.app/)
     -   Central hub for the course!
     -   **Tour of the website**
 -   **Canvas**: [cofi.instructure.com](https://cofi.instructure.com/)
@@ -252,7 +252,7 @@ See the [syllabus](https://mat212fa24.netlify.app/syllabus) for details on how t
 
 -   If an application exercise, exam, or final project must be missed due to a school-sponsored event, you must let me know at least a week ahead of time so that we can schedule a time for you to make up the work before you leave. If you must miss a exam of the final project due to illness, you must let me know before class that day so that we can schedule a time for you to take a make-up quiz or exam. Failure to adhere to this policy will result in a 35% penalty the corresponding assignment.  
 
-## Academic integrity
+## Academic integrity {.smaller}
 
 > The College of Idaho maintains that academic honesty and integrity are essential values in the educational process. Operating under an Honor Code philosophy, the College expects conduct rooted in honesty, integrity, and understanding, allowing members of a diverse student body to live together and interact and learn from one another in ways that protect both personal freedom and community standards. Violations of academic honesty are addressed primarily by the instructor and may be referred to the [Student Judicial Board](https://collegeofidaho.smartcatalogiq.com/en/current/Undergraduate-Catalog/Policies-and-Procedures/Academic-Misconduct).
 
