@@ -3,7 +3,7 @@ title: "Inference Summary Sheet"
 navbar: false
 ---
 
-## Choosing which statistical test/CI to use based on variable type
+### Choosing which statistical test/CI to use based on variable type
 
 
 | Variable type | Parameter of interest | Null hypothesis | Test name | Function for test |
@@ -21,7 +21,7 @@ For all tests, specify direction of $H_a$ with the argument: `alternative = "gre
 
 To construct a Confidence Interval: remove the null hypothesis, and specify `conf.level=number_here`
 
-## Useful code for creating basic figures (requires ggformula)
+### Useful code for creating basic figures (requires ggformula)
 
 - Histogram: `gf_histogram( ~ variable, data = data_name)`
 - Boxplot: `gf_boxplot( ~ variable, data = data_name)`
