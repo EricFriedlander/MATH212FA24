@@ -10,7 +10,9 @@ title: "Resources for learning R"
 
 ## RStudio Primers
 
-[Click here](https://r-primers.andrewheiss.com/) for full list of tutorials. Note that we will be using a simplified version of ggplot2 in this course.
+- [Interactive LearnR Tutorial](https://learnr.numbat.space/)
+
+- [R Primers](https://r-primers.andrewheiss.com/) for full list of tutorials. Note that we will be using a simplified version of ggplot2 in this course.
 
 ## Additional resources
 

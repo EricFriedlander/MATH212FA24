@@ -1,10 +1,10 @@
 ---
 title: "The big picture"
 subtitle: "Analyzing multivariable relationships + Reproducibility"
-author: "Prof. Eric Friedlander"
-date: "2024-08-23"
+author: "Prof. Maria Tackett"
+date: "2023-08-30"
 date-format: "MMM DD, YYYY"
-footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
+footer: "[🔗 STA 210 - Fall 2023 -  Schedule](https://sta210-fa23.netlify.app/schedule)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -21,7 +21,7 @@ knitr:
   opts_chunk: 
     R.options:      
     width: 200
-bibliography: references.bib    
+bibliography: references.bib
 ---
 
 ```{r}
@@ -29,7 +29,7 @@ bibliography: references.bib
 
 library(tidyverse)
 library(patchwork)
-library(broom)
+library(tidymodels)
 
 knitr::opts_chunk$set(
   fig.width = 8,
@@ -46,6 +46,21 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 
 ```
 
+## Announcements {.midi}
+
+-   Resources for extra R review
+    -   [Learn R: An interactive introduction to data analysis R](https://learnr.numbat.space/) (focus on Chapters 4 - 6)
+
+    -   Duke Library Center for Data and Visualization Sciences workshops
+
+        -   R for Lunch: data wrangling with dplyr (Fri, Sep 1, 12:30 - 1:30)
+
+        -   R for Lunch: visualization with ggplot2 (Fri, Sep 8, 12:30 - 1:30)
+
+        -   See the [CDVS website](https://library.duke.edu/data/workshops) for more information and to register.
+-   Last day of in-person work for this class is Dec 7
+-   [Lecture recordings request policy](https://sta210-fa23.netlify.app/syllabus#lecture-recording-request)
+-   Readings for next week will be posted later this week
 
 # Questions from last class?
 
@@ -118,8 +133,11 @@ Source: @ostblom2022
 
 -   **Literate programming** (code, narrative, output in one place) $\rightarrow$ Quarto
 
--   **Version control** $\rightarrow$ Git / GitHub (Beyond the scope of this course)
+-   **Version control** $\rightarrow$ Git / GitHub
 
+::: callout-note
+You will start using these computing tools in Lab 01.
+:::
 
 ## R and RStudio
 
@@ -156,6 +174,44 @@ Source: @ostblom2022
 -   You'll have a template Quarto document to start with
 
 -   The amount of scaffolding in the template will decrease over the semester
+
+# Version control with git and GitHub
+
+## What is versioning?
+
+<br>
+
+![](images/02/lego-steps.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+## What is versioning?
+
+with human readable messages
+
+![](images/02/lego-steps-commit-messages.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+## Why do we need version control?
+
+::: columns
+::: {.column width="50%"}
+![](images/02/phd_comics_vc.gif){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+Provides a clear record of how the analysis methods evolved. This makes analysis auditable and thus more trustworthy and reliable. [@ostblom2022]
+:::
+:::
+
+## git and GitHub
+
+![](images/02/git-github.png){fig-align="center"}
+
+-   **git** is a version control system -- like "Track Changes" features from Microsoft Word.
+-   **GitHub** is the home for your git-based projects on the internet (like DropBox but much better).
+-   There are a lot of git commands and very few people know them all. 99% of the time you will use git to add, commit, push, and pull.
 
 # Multivariable relationships
 
@@ -232,7 +288,6 @@ p1 <- ggplot(data = starbucks, aes(x = calories, y = carb)) +
 
 p2 <- ggplot(data = starbucks, aes(x = bakery, y = carb)) + 
   geom_boxplot(fill = "steelblue", color = "black") +
-  geom_jitter() +
   labs(x = "Bakery", 
       y  = "Carbohydrates (grams)")
   
@@ -296,7 +351,6 @@ ggplot(data = starbucks, aes(x = calories, y = carb, color = bakery)) +
   scale_color_manual(values=c("#1B9E77", "#7570B3"))
 ```
 
-
 $$\text{carb} = \beta_0 + \beta_1 ~\text{calories} + \beta_2 ~\text{bakery} + \epsilon$$
 
 ## Carb vs. Calories + Bakery (with interaction)
@@ -351,7 +405,7 @@ $${\small \hat{\text{carb}} = \hat{\beta}_0 + \hat{\beta}_1 ~\text{calories} + \
 # Application exercise
 
 ::: appex
-📋 [mat212fa24.netlify.app/ae/ae-02-bikeshare](https://mat212fa24.netlify.app/ae/ae-02-bikeshare.html)
+📋 [sta210-fa23.netlify.app/ae/ae-02-bikeshare](https://sta210-fa23.netlify.app/ae/ae-02-bikeshare.html)
 :::
 
 ## Recap {.midi}
@@ -359,6 +413,8 @@ $${\small \hat{\text{carb}} = \hat{\beta}_0 + \hat{\beta}_1 ~\text{calories} + \
 -   **Reproducibility**
 
     -   It is best practice conduct all data analysis in a reproducible way
+
+    -   We will implement a reproducible workflow using R, Quarto, and git/GitHub
 
 <!-- -->
 

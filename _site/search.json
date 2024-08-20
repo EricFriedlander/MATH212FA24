@@ -2118,14 +2118,14 @@
     "href": "slides/02-big-picture.html#topics",
     "title": "The big picture",
     "section": "Topics",
-    "text": "Topics\n\nData analysis life cycle\nReproducible data analysis\nAnalyzing multivariable relationships\n\n\n\n\n\nSource: R for Data Science with additions from The Art of Statistics: How to Learn from Data.\n\n\n\n\n\n\nSource:R for Data Science"
+    "text": "Topics\n\nData analysis life cycle\nReproducible data analysis\nAnalyzing multivariable relationships"
   },
   {
     "objectID": "slides/02-big-picture.html#reproducibility-checklist",
     "href": "slides/02-big-picture.html#reproducibility-checklist",
     "title": "The big picture",
     "section": "Reproducibility checklist",
-    "text": "Reproducibility checklist\n\nWhat does it mean for an analysis to be reproducible?\n\n. . .\nNear term goals:\n✔️ Can the tables and figures be exactly reproduced from the code and data?\n✔️ Does the code actually do what you think it does?\n✔️ In addition to what was done, is it clear why it was done?\n. . .\nLong term goals:\n✔️ Can the code be used for other data?\n✔️ Can you extend the code to do other things?"
+    "text": "Reproducibility checklist\n\nWhat does it mean for an analysis to be reproducible?\n\n\nNear term goals:\n✔️ Can the tables and figures be exactly reproduced from the code and data?\n✔️ Does the code actually do what you think it does?\n✔️ In addition to what was done, is it clear why it was done?\n\n\nLong term goals:\n✔️ Can the code be used for other data?\n✔️ Can you extend the code to do other things?"
   },
   {
     "objectID": "slides/02-big-picture.html#why-is-reproducibility-important",
@@ -2146,14 +2146,14 @@
     "href": "slides/02-big-picture.html#toolkit",
     "title": "The big picture",
     "section": "Toolkit",
-    "text": "Toolkit\n\nScriptability \\(\\rightarrow\\) R\nLiterate programming (code, narrative, output in one place) \\(\\rightarrow\\) Quarto\nVersion control \\(\\rightarrow\\) Git / GitHub\n\n\n\n\n\n\n\nNote\n\n\n\nYou will start using these computing tools in Lab 01."
+    "text": "Toolkit\n\nScriptability \\(\\rightarrow\\) R\nLiterate programming (code, narrative, output in one place) \\(\\rightarrow\\) Quarto\nVersion control \\(\\rightarrow\\) Git / GitHub (Beyond the scope of this course)"
   },
   {
     "objectID": "slides/02-big-picture.html#r-and-rstudio",
     "href": "slides/02-big-picture.html#r-and-rstudio",
     "title": "The big picture",
     "section": "R and RStudio",
-    "text": "R and RStudio\n\nR is a statistical programming language\nRStudio is a convenient interface for R (an integrated development environment, IDE)\n\n\n\n\nSource: Statistical Inference via Data Science"
+    "text": "R and RStudio\n\nR is a statistical programming language\nRStudio is a convenient interface for R (an integrated development environment, IDE)\n\n\nSource: Statistical Inference via Data Science"
   },
   {
     "objectID": "slides/02-big-picture.html#rstudio-ide",
@@ -2209,14 +2209,14 @@
     "href": "slides/02-big-picture.html#git-and-github",
     "title": "The big picture",
     "section": "git and GitHub",
-    "text": "git and GitHub\n\n\n\n\n\n\ngit is a version control system – like “Track Changes” features from Microsoft Word.\nGitHub is the home for your git-based projects on the internet (like DropBox but much better).\nThere are a lot of git commands and very few people know them all. 99% of the time you will use git to add, commit, push, and pull."
+    "text": "git and GitHub\n\n\ngit is a version control system – like “Track Changes” features from Microsoft Word.\nGitHub is the home for your git-based projects on the internet (like DropBox but much better).\nThere are a lot of git commands and very few people know them all. 99% of the time you will use git to add, commit, push, and pull."
   },
   {
     "objectID": "slides/02-big-picture.html#carbohydrates-in-starbucks-food",
     "href": "slides/02-big-picture.html#carbohydrates-in-starbucks-food",
     "title": "The big picture",
     "section": "Carbohydrates in Starbucks food",
-    "text": "Carbohydrates in Starbucks food\n\nStarbucks often displays the total calories in their food items but not the other nutritional information.\nCarbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories.1\nOur goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)"
+    "text": "Carbohydrates in Starbucks food\n\nStarbucks often displays the total calories in their food items but not the other nutritional information.\nCarbohydrates are a body’s main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories.1\nOur goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We’d also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)\n\nSource: Mayo Clinic"
   },
   {
     "objectID": "slides/02-big-picture.html#starbucks-data",
@@ -2230,21 +2230,21 @@
     "href": "slides/02-big-picture.html#terminology",
     "title": "The big picture",
     "section": "Terminology",
-    "text": "Terminology\n\ncarb is the response variable\n\nvariable whose variation we want to understand / variable we wish to predict\nalso known as outcome or dependent variable\n\n\n. . .\n\ncalories, bakery are the predictor variables\n\nvariables used to account for variation in the response\nalso known as explanatory, independent, or input variables"
+    "text": "Terminology\n\ncarb is the response variable\n\nvariable whose variation we want to understand / variable we wish to predict\nalso known as outcome or dependent variable\n\n\n\n\ncalories, bakery are the predictor variables\n\nvariables used to account for variation in the response\nalso known as explanatory, independent, or input variables"
   },
   {
     "objectID": "slides/02-big-picture.html#univariate-exploratory-data-analysis",
     "href": "slides/02-big-picture.html#univariate-exploratory-data-analysis",
     "title": "The big picture",
     "section": "Univariate exploratory data analysis",
-    "text": "Univariate exploratory data analysis\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "text": "Univariate exploratory data analysis"
   },
   {
     "objectID": "slides/02-big-picture.html#bivariate-exploratory-data-analysis",
     "href": "slides/02-big-picture.html#bivariate-exploratory-data-analysis",
     "title": "The big picture",
     "section": "Bivariate exploratory data analysis",
-    "text": "Bivariate exploratory data analysis\n\n\n`geom_smooth()` using formula = 'y ~ x'"
+    "text": "Bivariate exploratory data analysis"
   },
   {
     "objectID": "slides/02-big-picture.html#function-between-response-and-predictors",
@@ -2258,35 +2258,35 @@
     "href": "slides/02-big-picture.html#determine-f",
     "title": "The big picture",
     "section": "Determine \\(f\\)",
-    "text": "Determine \\(f\\)\n\nChoose the functional form of \\(f\\), i.e., choose the appropriate model given the response variable\n\n\nSuppose \\(f\\) takes the form of a linear model\n\\[y = f(\\mathbf{X}) = \\beta_0 + \\beta_1 x_1 + \\dots + \\beta_p x_p + \\epsilon\\]\n\n. . .\n\nUse the data to fit (or train) the model, i.e, estimate the model parameters, \\(\\beta_0, \\beta_1, \\ldots, \\beta_p\\)"
+    "text": "Determine \\(f\\)\n\nChoose the functional form of \\(f\\), i.e., choose the appropriate model given the response variable\n\n\nSuppose \\(f\\) takes the form of a linear model\n\\[y = f(\\mathbf{X}) = \\beta_0 + \\beta_1 x_1 + \\dots + \\beta_p x_p + \\epsilon\\]\n\n\n\nUse the data to fit (or train) the model, i.e, estimate the model parameters, \\(\\beta_0, \\beta_1, \\ldots, \\beta_p\\)"
   },
   {
     "objectID": "slides/02-big-picture.html#carb-vs.-calories",
     "href": "slides/02-big-picture.html#carb-vs.-calories",
     "title": "The big picture",
     "section": "Carb vs. Calories",
-    "text": "Carb vs. Calories\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\epsilon\\]"
+    "text": "Carb vs. Calories\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\epsilon\\]"
   },
   {
     "objectID": "slides/02-big-picture.html#carb-vs.-calories-bakery",
     "href": "slides/02-big-picture.html#carb-vs.-calories-bakery",
     "title": "The big picture",
     "section": "Carb vs. Calories + Bakery",
-    "text": "Carb vs. Calories + Bakery\n\n\n\n\n\n\n\n\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\epsilon\\]"
+    "text": "Carb vs. Calories + Bakery\n\n\\[\\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\epsilon\\]"
   },
   {
     "objectID": "slides/02-big-picture.html#carb-vs.-calories-bakery-with-interaction",
     "href": "slides/02-big-picture.html#carb-vs.-calories-bakery-with-interaction",
     "title": "The big picture",
     "section": "Carb vs. Calories + Bakery (with interaction)",
-    "text": "Carb vs. Calories + Bakery (with interaction)\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]"
+    "text": "Carb vs. Calories + Bakery (with interaction)\n\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]"
   },
   {
     "objectID": "slides/02-big-picture.html#statistical-model-vs.-regression-equation",
     "href": "slides/02-big-picture.html#statistical-model-vs.-regression-equation",
     "title": "The big picture",
     "section": "Statistical model vs. regression equation",
-    "text": "Statistical model vs. regression equation\nStatistical model (also known as data-generating model)\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]\nModels the process for generating values of the response in the population (function + error)\n\n. . .\nRegression equation\nEstimate of the function using the sample data\n\\[{\\small \\hat{\\text{carb}} = \\hat{\\beta}_0 + \\hat{\\beta}_1 ~\\text{calories} + \\hat{\\beta}_2 ~\\text{bakery} + \\hat{\\beta}_3 ~ \\text{calories} \\times \\text{bakery}}\\]"
+    "text": "Statistical model vs. regression equation\nStatistical model (also known as data-generating model)\n\\[{\\small \\text{carb} = \\beta_0 + \\beta_1 ~\\text{calories} + \\beta_2 ~\\text{bakery} + \\beta_3 ~ \\text{calories} \\times \\text{bakery}  + \\epsilon}\\]\nModels the process for generating values of the response in the population (function + error)\n\n\nRegression equation\nEstimate of the function using the sample data\n\\[{\\small \\hat{\\text{carb}} = \\hat{\\beta}_0 + \\hat{\\beta}_1 ~\\text{calories} + \\hat{\\beta}_2 ~\\text{bakery} + \\hat{\\beta}_3 ~ \\text{calories} \\times \\text{bakery}}\\]"
   },
   {
     "objectID": "slides/02-big-picture.html#why-fit-a-model",
@@ -2300,14 +2300,14 @@
     "href": "slides/02-big-picture.html#recap",
     "title": "The big picture",
     "section": "Recap",
-    "text": "Recap\n\nReproducibility\n\nIt is best practice conduct all data analysis in a reproducible way\nWe will implement a reproducible workflow using R, Quarto, and git/GitHub\n\n\n\n\nMultivariable relationships\n\nWe can use exploratory data analysis to describe the relationship between two variables\nWe make an assumption about the relationship between variables when doing linear regression\nThe two main objectives for fitting a linear regression model are (1) prediction and (2) inference"
+    "text": "Recap\n\nReproducibility\n\nIt is best practice conduct all data analysis in a reproducible way\n\n\n\n\nMultivariable relationships\n\nWe can use exploratory data analysis to describe the relationship between two variables\nWe make an assumption about the relationship between variables when doing linear regression\nThe two main objectives for fitting a linear regression model are (1) prediction and (2) inference"
   },
   {
     "objectID": "slides/02-big-picture.html#references",
     "href": "slides/02-big-picture.html#references",
     "title": "The big picture",
     "section": "References",
-    "text": "References\n\n\n\n🔗 STA 210 - Fall 2023 - Schedule\n\n\n\nAlexander, Rohan. 2023. “Telling Stories with Data,” June. https://doi.org/10.1201/9781003229407.\n\n\nOstblom, Joel, and Tiffany Timbers. 2022. “Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.” Journal of Statistics and Data Science Education 30 (3): 241–50. https://doi.org/10.1080/26939169.2022.2074922."
+    "text": "References\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule\n\n\n\n\nAlexander, Rohan. 2023. “Telling Stories with Data,” June. https://doi.org/10.1201/9781003229407.\n\n\nOstblom, Joel, and Tiffany Timbers. 2022. “Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.” Journal of Statistics and Data Science Education 30 (3): 241–50. https://doi.org/10.1080/26939169.2022.2074922."
   },
   {
     "objectID": "slides/09-mlr.html#announcements",
@@ -3183,7 +3183,7 @@
     "href": "computing-r-resources.html#rstudio-primers",
     "title": "Resources for learning R",
     "section": "RStudio Primers",
-    "text": "RStudio Primers\nClick here for full list of tutorials. Note that we will be using a simplified version of ggplot2 in this course.",
+    "text": "RStudio Primers\n\nInteractive LearnR Tutorial\nR Primers for full list of tutorials. Note that we will be using a simplified version of ggplot2 in this course.",
     "crumbs": [
       "Computing",
       "R resources"
@@ -5048,7 +5048,7 @@
     "href": "ae/ae-01-movies.html#exercises",
     "title": "AE 01: Movie Budgets and Revenues",
     "section": "Exercises",
-    "text": "Exercises\nPlease enter your names and responses in Poll Everywhere\n\nSuppose we fit a regression model for each genre that uses budget to predict gross revenue. What are the signs of the correlation between budget and gross and the slope in each regression equation?\nSuppose we fit the regression model from the previous question. Which genre would you expect to have the smallest residuals, on average (residual = observed revenue - predicted revenue)?\n[Time permitting] Discuss the following: Notice in the graph above that budget and gross are log-transformed. Why are the log-transformed values of the variables displayed rather than the original values (in U.S. dollars)?"
+    "text": "Exercises\nPlease enter your names and responses in Poll Everywhere.\n\nSuppose we fit a regression model for each genre that uses budget to predict gross revenue. What are the signs of the correlation between budget and gross and the slope in each regression equation?\nSuppose we fit the regression model from the previous question. Which genre would you expect to have the smallest residuals, on average (residual = observed revenue - predicted revenue)?\n[Time permitting] Discuss the following: Notice in the graph above that budget and gross are log-transformed. Why are the log-transformed values of the variables displayed rather than the original values (in U.S. dollars)?"
   },
   {
     "objectID": "ae/ae-01-movies.html#references",
@@ -5069,7 +5069,7 @@
     "href": "ae/ae-02-bikeshare.html",
     "title": "AE 02: Bike rentals in Washington, DC",
     "section": "",
-    "text": "Important\n\n\n\nFor this AE, you will discuss the questions in groups and submit answers on Ed Discussion. This AE does not count towards the Application Exercise grade.\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(patchwork)"
+    "text": "Important\n\n\n\nFor this AE, you will discuss the questions in groups and submit answers on Poll Everywhere. This AE does not count towards the Application Exercise grade.\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(patchwork)"
   },
   {
     "objectID": "ae/ae-02-bikeshare.html#data",
@@ -11410,5 +11410,19 @@
       "Computing",
       "Inference Summary Cheatsheet"
     ]
+  },
+  {
+    "objectID": "prepare/week-01.html",
+    "href": "prepare/week-01.html",
+    "title": "August 23 Lecture",
+    "section": "",
+    "text": "Read Chapter 0 of Stat2"
+  },
+  {
+    "objectID": "prepare/week-01.html#assigned-reading",
+    "href": "prepare/week-01.html#assigned-reading",
+    "title": "August 23 Lecture",
+    "section": "",
+    "text": "Read Chapter 0 of Stat2"
   }
 ]

@@ -317,6 +317,6 @@ Raise your hand or post on Canvas
 ## Application exercise
 
 ::: appex
-📋 [AE 01 - Movie Budgets and Revenues](https://sta210-fa23.netlify.app/ae/ae-01-movies.html)
+📋 [AE 01 - Movie Budgets and Revenues](https://mat212fa24.netlify.app/ae/ae-01-movies)
 :::
 

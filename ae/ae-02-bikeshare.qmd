@@ -1,12 +1,12 @@
 ---
 title: "AE 02: Bike rentals in Washington, DC"
 subtitle: "The big picture"
-date: "Aug 30, 2023"
+date: "Aug 23, 2024"
 editor: visual
 ---
 
 ::: callout-important
-For this AE, you will discuss the questions in groups and submit answers on Ed Discussion. This AE does not count towards the Application Exercise grade.
+For this AE, you will discuss the questions in groups and submit answers on Poll Everywhere. This AE does not count towards the Application Exercise grade.
 :::
 
 ```{r load-packages}

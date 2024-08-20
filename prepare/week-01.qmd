@@ -1,0 +1,8 @@
+---
+title: "August 23 Lecture"
+subtitle: "Review"
+---
+
+## Assigned reading
+
+Read Chapter 0 of Stat2
