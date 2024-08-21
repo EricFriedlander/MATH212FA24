@@ -187,7 +187,7 @@ What is a quantitative and what is a categorical variable?
 
 -   Access RStudio through [College of Idaho posit Workbench](https://rstudio.collegeofidaho.edu/)
   
-  + Use your college of idaho email and password
+  + Use your College of Idaho email and password
 :::
 
 # Activities + assessments
@@ -250,7 +250,7 @@ See the [syllabus](https://mat212fa24.netlify.app/syllabus) for details on how t
 
 ## Late Exams and Final Project
 
--   If an application exercise, exam, or final project must be missed due to a school-sponsored event, you must let me know at least a week ahead of time so that we can schedule a time for you to make up the work before you leave. If you must miss a exam of the final project due to illness, you must let me know before class that day so that we can schedule a time for you to take a make-up quiz or exam. Failure to adhere to this policy will result in a 35% penalty the corresponding assignment.  
+-   If an application exercise, exam, or final project must be missed due to a school-sponsored event, you must let me know at least a week ahead of time so that we can schedule a time for you to make up the work before you leave. If you must miss a exam or the final project due to illness, you must let me know before class that day so that we can schedule a time for you to take a make-up quiz or exam. Failure to adhere to this policy will result in a 35% penalty the corresponding assignment.  
 
 ## Academic integrity {.smaller}
 
