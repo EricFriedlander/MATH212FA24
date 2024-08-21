@@ -198,7 +198,7 @@ What is a quantitative and what is a categorical variable?
 ::: incremental
 -   **Prepare:** Introduce new content and prepare for lectures by completing the readings (and sometimes watching the videos)
 
--   **Participate:** Attend and actively participate in lectures and labs, office hours, team meetings
+-   **Participate:** Attend and actively participate in lectures, office hours, team meetings
 
 -   **Practice:** Practice applying statistical concepts and computing with application exercises during lecture, graded for completion
 
@@ -218,10 +218,10 @@ What is a quantitative and what is a categorical variable?
 
 | Category              | Percentage |
 |-----------------------|------------|
-| Homework              | 35%        |
-| Final project         | 25%        |
+| Homework              | 25%        |
+| Final project         | 30%        |
 | Exam 01               | 15%        |
-| Exam 02               | 15%        |
+| Exam 02               | 20%        |
 | Application Exercises | 5%         |
 | Oral R Quiz           | 5%         |
 
