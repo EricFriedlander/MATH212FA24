@@ -1,12 +1,14 @@
 ---
-title: "September 06 lecture"
+title: "August 26 lecture"
 subtitle: "Simple linear regression"
 ---
 
 ## Assigned reading
 
-📖 STA 210 Notes: [Ch 1: Simple linear regression](https://introregression.netlify.app/04-slr)
+Stat2 Textbook: Chapter 1.1 The Simple Linear Regression Model
 
 ## Additional resources (optional)
+
+📖 Introduction to Regression Analysis: A Data Science Approach: [Ch 4: Simple linear regression](https://introregression.netlify.app/04-slr)
 
 📖 Introduction to Modern Statistics (IMS) [Ch 7: Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)

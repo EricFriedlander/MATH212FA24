@@ -26,6 +26,12 @@ knitr:
 bibliography: references.bib
 ---
 
+# Application exercise
+
+::: appex
+📋 [mat212fa24.netlify.app/ae/ae-02-bikeshare](https://mat212fa24.netlify.app/ae/ae-02-bikeshare.html)
+:::
+
 
 ## Topics
 

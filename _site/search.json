@@ -2230,7 +2230,7 @@
     "href": "slides/02-big-picture.html#terminology",
     "title": "The big picture",
     "section": "Terminology",
-    "text": "Terminology\n\ncarb is the response variable\n\nvariable whose variation we want to understand / variable we wish to predict\nalso known as outcome or dependent variable\n\n\n\n\ncalories, bakery are the predictor variables\n\nvariables used to account for variation in the response\nalso known as explanatory, independent, or input variables"
+    "text": "Terminology\n\ncarb is the response variable\n\nvariable whose variation we want to understand / variable we wish to predict\nalso known as outcome or target variable\n\n\n\n\ncalories, bakery are the explanatory variables\n\nvariables used to account for variation in the response\nalso known as predictor, or input variables"
   },
   {
     "objectID": "slides/02-big-picture.html#univariate-exploratory-data-analysis",
@@ -3926,23 +3926,23 @@
   {
     "objectID": "prepare/week-02.html",
     "href": "prepare/week-02.html",
-    "title": "September 06 lecture",
+    "title": "August 26 lecture",
     "section": "",
-    "text": "📖 STA 210 Notes: Ch 1: Simple linear regression"
+    "text": "Stat2 Textbook: Chapter 1.1 The Simple Linear Regression Model"
   },
   {
     "objectID": "prepare/week-02.html#assigned-reading",
     "href": "prepare/week-02.html#assigned-reading",
-    "title": "September 06 lecture",
+    "title": "August 26 lecture",
     "section": "",
-    "text": "📖 STA 210 Notes: Ch 1: Simple linear regression"
+    "text": "Stat2 Textbook: Chapter 1.1 The Simple Linear Regression Model"
   },
   {
     "objectID": "prepare/week-02.html#additional-resources-optional",
     "href": "prepare/week-02.html#additional-resources-optional",
-    "title": "September 06 lecture",
+    "title": "August 26 lecture",
     "section": "Additional resources (optional)",
-    "text": "Additional resources (optional)\n📖 Introduction to Modern Statistics (IMS) Ch 7: Linear regression with a single predictor"
+    "text": "Additional resources (optional)\n📖 Introduction to Regression Analysis: A Data Science Approach: Ch 4: Simple linear regression\n📖 Introduction to Modern Statistics (IMS) Ch 7: Linear regression with a single predictor"
   },
   {
     "objectID": "prepare/sep-11.html",
@@ -5797,15 +5797,15 @@
     "objectID": "slides/03-slr-intro.html#topics",
     "href": "slides/03-slr-intro.html#topics",
     "title": "Simple Linear Regression",
-    "section": "Topics",
-    "text": "Topics\n\nUse simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nEstimate the slope and intercept of the regression line using the least squares method.\nInterpret the slope and intercept of the regression line.\nPredict the response given a value of the predictor variable.\nUse R to fit and summarize regression models."
+    "section": "",
+    "text": "Use simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nEstimate the slope and intercept of the regression line using the least squares method.\nInterpret the slope and intercept of the regression line.\nPredict the response given a value of the predictor variable.\nUse R to fit and summarize regression models."
   },
   {
     "objectID": "slides/03-slr-intro.html#computation-set-up",
     "href": "slides/03-slr-intro.html#computation-set-up",
     "title": "Simple Linear Regression",
-    "section": "Computation set up",
-    "text": "Computation set up\n\n# load packages\nlibrary(tidyverse)       # for data wrangling\nlibrary(ggformula)       # for plotting\nlibrary(fivethirtyeight) # for the fandango dataset\nlibrary(broom)           # for formatting model output\nlibrary(knitr)           # for formatting tables\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))\n\n# set default figure parameters for knitr\nknitr::opts_chunk$set(\n  fig.width = 8,\n  fig.asp = 0.618,\n  fig.retina = 3,\n  dpi = 300,\n  out.width = \"80%\"\n)"
+    "section": "",
+    "text": "# load packages\nlibrary(tidyverse)       # for data wrangling\nlibrary(ggformula)       # for plotting\nlibrary(fivethirtyeight) # for the fandango dataset\nlibrary(broom)           # for formatting model output\nlibrary(knitr)           # for formatting tables\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))\n\n# set default figure parameters for knitr\nknitr::opts_chunk$set(\n  fig.width = 8,\n  fig.asp = 0.618,\n  fig.retina = 3,\n  dpi = 300,\n  out.width = \"80%\"\n)"
   },
   {
     "objectID": "slides/03-slr-intro.html#movie-scores",
@@ -5840,21 +5840,21 @@
     "href": "slides/03-slr-intro.html#movie-ratings-data",
     "title": "Simple Linear Regression",
     "section": "Movie ratings data",
-    "text": "Movie ratings data\nGoal: Fit a line to describe the relationship between the critics score and audience score."
+    "text": "Movie ratings data\nGoal: Fit a line to describe the relationship between the critics score and audience score.\n\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
     "objectID": "slides/03-slr-intro.html#why-fit-a-line",
     "href": "slides/03-slr-intro.html#why-fit-a-line",
     "title": "Simple Linear Regression",
     "section": "Why fit a line?",
-    "text": "Why fit a line?\nWe fit a line to accomplish one or both of the following:\n\n\nPrediction\n\nWhat is the audience score expected to be for an upcoming movie that received 35% from the critics?\n\n\n\n\nInference\n\nIs the critics score a useful predictor of the audience score? By how much is the audience score expected to change for each additional point in the critics score?"
+    "text": "Why fit a line?\nWe fit a line to accomplish one or both of the following:\n. . .\n\nPrediction\n\nWhat is the audience score expected to be for an upcoming movie that received 35% from the critics?\n\n. . .\n\nInference\n\nIs the critics score a useful predictor of the audience score? By how much is the audience score expected to change for each additional point in the critics score?"
   },
   {
     "objectID": "slides/03-slr-intro.html#terminology",
     "href": "slides/03-slr-intro.html#terminology",
     "title": "Simple Linear Regression",
     "section": "Terminology",
-    "text": "Terminology\n\n\n\nResponse, Y: variable describing the outcome of interest\nPredictor, X: variable we use to help understand the variability in the response"
+    "text": "Terminology\n\n\n\nResponse, Y: variable describing the outcome of interest\nPredictor, X: variable we use to help understand the variability in the response\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
     "objectID": "slides/03-slr-intro.html#regression-model",
@@ -5868,21 +5868,21 @@
     "href": "slides/03-slr-intro.html#regression-model-1",
     "title": "Simple Linear Regression",
     "section": "Regression model",
-    "text": "Regression model\n\n\n\\[\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\text{Error} \\\\[8pt]\n&= \\color{purple}{\\mathbf{f(X)}} + \\epsilon \\\\[8pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\epsilon \\end{aligned}\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\mu_{Y|X}\\) is the mean value of \\(Y\\) given a particular value of \\(X\\)."
+    "text": "Regression model\n\n\n\\[\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\text{Error} \\\\[8pt]\n&= \\color{purple}{\\mathbf{f(X)}} + \\epsilon \\\\[8pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\epsilon \\end{aligned}\\]\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\\(\\mu_{Y|X}\\) is the mean value of \\(Y\\) given a particular value of \\(X\\)."
   },
   {
     "objectID": "slides/03-slr-intro.html#regression-model-2",
     "href": "slides/03-slr-intro.html#regression-model-2",
     "title": "Simple Linear Regression",
     "section": "Regression model",
-    "text": "Regression model\n\n\n\\[\n\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\color{blue}{\\textbf{Error}} \\\\[5pt]\n&= \\color{purple}{\\mathbf{f(X)}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[5pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[5pt]\n\\end{aligned}\n\\]"
+    "text": "Regression model\n\n\n\\[\n\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\color{blue}{\\textbf{Error}} \\\\[5pt]\n&= \\color{purple}{\\mathbf{f(X)}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[5pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[5pt]\n\\end{aligned}\n\\]\n\n\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
     "objectID": "slides/03-slr-intro.html#slr-statistical-model",
     "href": "slides/03-slr-intro.html#slr-statistical-model",
     "title": "Simple Linear Regression",
     "section": "SLR: Statistical model",
-    "text": "SLR: Statistical model\n\nSimple linear regression: model to describe the relationship between \\(Y\\) and \\(X\\) where:\n\n\\(Y\\) is a quantitative/numerical reponse\n\\(X\\) is a single quantitative predictor +\\[\\Large{Y = \\mathbf{\\beta_0 + \\beta_1 X} + \\epsilon}\\]\n\n\n\n\n\\(\\beta_1\\): True slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\beta_0\\): True intercept of the relationship between \\(X\\) and \\(Y\\)\n\\(\\epsilon\\): Error"
+    "text": "SLR: Statistical model\n\nSimple linear regression: model to describe the relationship between \\(Y\\) and \\(X\\) where:\n\n\\(Y\\) is a quantitative/numerical reponse\n\\(X\\) is a single quantitative predictor +\\[\\Large{Y = \\mathbf{\\beta_0 + \\beta_1 X} + \\epsilon}\\]\n\n\n. . .\n\n\\(\\beta_1\\): True slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\beta_0\\): True intercept of the relationship between \\(X\\) and \\(Y\\)\n\\(\\epsilon\\): Error"
   },
   {
     "objectID": "slides/03-slr-intro.html#slr-regression-equation",
@@ -5896,14 +5896,14 @@
     "href": "slides/03-slr-intro.html#choosing-values-for-hatbeta_1-and-hatbeta_0",
     "title": "Simple Linear Regression",
     "section": "Choosing values for \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\)",
-    "text": "Choosing values for \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\)"
+    "text": "Choosing values for \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\)\n\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead."
   },
   {
     "objectID": "slides/03-slr-intro.html#residuals",
     "href": "slides/03-slr-intro.html#residuals",
     "title": "Simple Linear Regression",
     "section": "Residuals",
-    "text": "Residuals\n\n\\[\\text{residual} = \\text{observed} - \\text{predicted} = y_i - \\hat{y}_i\\]"
+    "text": "Residuals\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\\[\\text{residual} = \\text{observed} - \\text{predicted} = y_i - \\hat{y}_i\\]"
   },
   {
     "objectID": "slides/03-slr-intro.html#least-squares-line",
@@ -5945,7 +5945,7 @@
     "href": "slides/03-slr-intro.html#does-it-make-sense-to-interpret-the-intercept",
     "title": "Simple Linear Regression",
     "section": "Does it make sense to interpret the intercept?",
-    "text": "Does it make sense to interpret the intercept?\n\n✅ The intercept is meaningful in the context of the data if\n\nthe predictor can feasibly take values equal to or near zero, or\nthere are values near zero in the observed data.\n\n\n\n🛑 Otherwise, the intercept may not be meaningful!"
+    "text": "Does it make sense to interpret the intercept?\n. . .\n✅ The intercept is meaningful in the context of the data if\n\nthe predictor can feasibly take values equal to or near zero, or\nthere are values near zero in the observed data.\n\n. . .\n🛑 Otherwise, the intercept may not be meaningful!"
   },
   {
     "objectID": "slides/03-slr-intro.html#making-a-prediction",
@@ -6008,7 +6008,7 @@
     "href": "slides/03-slr-intro.html#prediction-1",
     "title": "Simple Linear Regression",
     "section": "Prediction",
-    "text": "Prediction\n\n# create a data frame for a new movie\nnew_movie &lt;- tibble(critics = 70)\n\n# predict the outcome for a new movie\npredict(movie_fit, new_movie)\n\n       1 \n68.62297 \n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+    "text": "Prediction\n\n# create a data frame for a new movie\nnew_movie &lt;- tibble(critics = 70)\n\n# predict the outcome for a new movie\npredict(movie_fit, new_movie)\n\n       1 \n68.62297"
   },
   {
     "objectID": "slides/03-slr-intro.html#recap",
@@ -8997,14 +8997,14 @@
     "href": "slides/03-slr-intro.html#look-at-the-regression-output",
     "title": "Simple Linear Regression",
     "section": "Look at the regression output",
-    "text": "Look at the regression output\n\nmovie_fit &lt;- lm(audience ~ critics, data = movie_scores)\nmovie_fit\n\n\nCall:\nlm(formula = audience ~ critics, data = movie_scores)\n\nCoefficients:\n(Intercept)      critics  \n    32.3155       0.5187  \n\n\n\\[\\widehat{\\text{audience}} = 32.3155 + 0.5187 \\times \\text{critics}\\]\n\n\nNote: The intercept is off by a tiny bit from the hand-calculated intercept, this is just due to rounding in the hand calculation."
+    "text": "Look at the regression output\n\nmovie_fit &lt;- lm(audience ~ critics, data = movie_scores)\nmovie_fit\n\n\nCall:\nlm(formula = audience ~ critics, data = movie_scores)\n\nCoefficients:\n(Intercept)      critics  \n    32.3155       0.5187  \n\n\n\\[\\widehat{\\text{audience}} = 32.3155 + 0.5187 \\times \\text{critics}\\]\n. . .\n\nNote: The intercept is off by a tiny bit from the hand-calculated intercept, this is just due to rounding in the hand calculation."
   },
   {
     "objectID": "slides/03-slr-intro.html#visualize-model",
     "href": "slides/03-slr-intro.html#visualize-model",
     "title": "Simple Linear Regression",
     "section": "Visualize Model",
-    "text": "Visualize Model\n\nmovie_scores |&gt; \n  gf_point(audience ~ critics) |&gt; \n  gf_lm()"
+    "text": "Visualize Model\n\nmovie_scores |&gt; \n  gf_point(audience ~ critics) |&gt; \n  gf_lm()\n\nWarning: Using the `size` aesthetic with geom_line was deprecated in ggplot2 3.4.0.\nℹ Please use the `linewidth` aesthetic instead."
   },
   {
     "objectID": "slides/xx-slr-transformations-outliers.html#types-of-unusual-points-in-slr",
@@ -11424,5 +11424,26 @@
     "title": "August 23 Lecture",
     "section": "",
     "text": "Read Chapter 0 of Stat2"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#application-exercise",
+    "href": "slides/02-big-picture.html#application-exercise",
+    "title": "The big picture",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 AE 01 - Movie Budgets and Revenues"
+  },
+  {
+    "objectID": "slides/03-slr-intro.html",
+    "href": "slides/03-slr-intro.html",
+    "title": "Simple Linear Regression",
+    "section": "",
+    "text": "📋 mat212fa24.netlify.app/ae/ae-02-bikeshare\n\n\n\n\nUse simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nEstimate the slope and intercept of the regression line using the least squares method.\nInterpret the slope and intercept of the regression line.\nPredict the response given a value of the predictor variable.\nUse R to fit and summarize regression models.\n\n\n\n\n\n# load packages\nlibrary(tidyverse)       # for data wrangling\nlibrary(ggformula)       # for plotting\nlibrary(fivethirtyeight) # for the fandango dataset\nlibrary(broom)           # for formatting model output\nlibrary(knitr)           # for formatting tables\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))\n\n# set default figure parameters for knitr\nknitr::opts_chunk$set(\n  fig.width = 8,\n  fig.asp = 0.618,\n  fig.retina = 3,\n  dpi = 300,\n  out.width = \"80%\"\n)"
+  },
+  {
+    "objectID": "slides/02-big-picture.html#group-work-roles",
+    "href": "slides/02-big-picture.html#group-work-roles",
+    "title": "The big picture",
+    "section": "Group Work Roles",
+    "text": "Group Work Roles\nAny time we are working on AEs, I will randomly assign you to groups of two/three. Each person will have a role:\n\nDriver: Writes code and fills out Quarto template. Responsible for submitting final work.\nReporter: Share thoughts from group during class discussions\nGopher: Responsible for looking stuff up (e.g. code, cheatsheets, etc.)\n\nYou’ll stay in your groups for three exercise and then we’ll switch (you must rotate your role every class.)\nDriver \\(\\to\\) Reporter \\(\\to\\) Gopher \\(\\to\\) Driver"
   }
 ]

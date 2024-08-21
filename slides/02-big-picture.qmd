@@ -49,6 +49,26 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 
 # Questions from last class?
 
+## Group Work Roles
+
+Any time we are working on AEs, I will randomly assign you to groups of two/three. Each person will have a role:
+
+- **Driver:** Writes code and fills out Quarto template. Responsible for submitting final work.
+- **Reporter:**  Share thoughts from group during class discussions
+- **Gopher:** Responsible for looking stuff up (e.g. code, cheatsheets, etc.)
+
+You'll stay in your groups for three exercise and then we'll switch (you must rotate your role every class.)
+
+Driver $\to$ Reporter $\to$ Gopher $\to$ Driver
+
+## Application exercise
+
+::: appex
+📋 [AE 01 - Movie Budgets and Revenues](https://mat212fa24.netlify.app/ae/ae-01-movies)
+:::
+
+# The Big Picture
+
 ## Topics
 
 -   Data analysis life cycle
@@ -190,13 +210,13 @@ starbucks <- openintro::starbucks |>
 
 -   `carb` is the **response variable**
     -   variable whose variation we want to understand / variable we wish to predict
-    -   also known as *outcome* or *dependent* variable
+    -   also known as *outcome* or *target* variable
 
 . . .
 
--   `calories`, `bakery` are the **predictor variables**
+-   `calories`, `bakery` are the **explanatory variables**
     -   variables used to account for variation in the response
-    -   also known as *explanatory*, *independent*, or *input* variables
+    -   also known as *predictor*, or *input* variables
 
 ## Univariate exploratory data analysis
 
@@ -348,11 +368,6 @@ $${\small \hat{\text{carb}} = \hat{\beta}_0 + \hat{\beta}_1 ~\text{calories} + \
 -   What is an example of an **inference** question that can be answered using the model of carb vs. calories and bakery?
 :::
 
-# Application exercise
-
-::: appex
-📋 [mat212fa24.netlify.app/ae/ae-02-bikeshare](https://mat212fa24.netlify.app/ae/ae-02-bikeshare.html)
-:::
 
 ## Recap {.midi}
 
