@@ -5,7 +5,7 @@ editor: visual
 ---
 
 ::: callout-important
-For this AE, you will discuss the questions in groups and submit answers on Poll Everywhere. This AE does not count towards the Application Exercise grade.
+For this AE, you will discuss the questions in groups and submit answers on Canvas. This AE does not count towards the Application Exercise grade.
 :::
 
 We will look at the relationship between budget and revenue for movies made in the United States in 1986 to 2020. The dataset is created based on data from the [Internet Movie Database (IMDB)](https://www.imdb.com/).
@@ -78,7 +78,7 @@ movies |>
 
 ## Exercises
 
-Please enter your names and responses in [Poll Everywhere](https://PollEv.com/surveys/YpTUIu590W6G9sB7MfFeR/respond).
+Please enter your names and responses in [Canvas](https://cofi.instructure.com/courses/15692/discussion_topics/65535).
 
 1.  Suppose we fit a regression model for each genre that uses budget to predict gross revenue. What are the signs of the correlation between `budget` and `gross` and the slope in each regression equation?
 

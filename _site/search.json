@@ -5027,7 +5027,7 @@
     "href": "ae/ae-01-movies.html",
     "title": "AE 01: Movie Budgets and Revenues",
     "section": "",
-    "text": "Important\n\n\n\nFor this AE, you will discuss the questions in groups and submit answers on Poll Everywhere. This AE does not count towards the Application Exercise grade.\nWe will look at the relationship between budget and revenue for movies made in the United States in 1986 to 2020. The dataset is created based on data from the Internet Movie Database (IMDB).\n# library(readr)\nlibrary(tidyverse)\nlibrary(ggformula)"
+    "text": "Important\n\n\n\nFor this AE, you will discuss the questions in groups and submit answers on Canvas. This AE does not count towards the Application Exercise grade.\nWe will look at the relationship between budget and revenue for movies made in the United States in 1986 to 2020. The dataset is created based on data from the Internet Movie Database (IMDB).\n# library(readr)\nlibrary(tidyverse)\nlibrary(ggformula)"
   },
   {
     "objectID": "ae/ae-01-movies.html#data",
@@ -5048,7 +5048,7 @@
     "href": "ae/ae-01-movies.html#exercises",
     "title": "AE 01: Movie Budgets and Revenues",
     "section": "Exercises",
-    "text": "Exercises\nPlease enter your names and responses in Poll Everywhere.\n\nSuppose we fit a regression model for each genre that uses budget to predict gross revenue. What are the signs of the correlation between budget and gross and the slope in each regression equation?\nSuppose we fit the regression model from the previous question. Which genre would you expect to have the smallest residuals, on average (residual = observed revenue - predicted revenue)?\n[Time permitting] Discuss the following: Notice in the graph above that budget and gross are log-transformed. Why are the log-transformed values of the variables displayed rather than the original values (in U.S. dollars)?"
+    "text": "Exercises\nPlease enter your names and responses in Canvas.\n\nSuppose we fit a regression model for each genre that uses budget to predict gross revenue. What are the signs of the correlation between budget and gross and the slope in each regression equation?\nSuppose we fit the regression model from the previous question. Which genre would you expect to have the smallest residuals, on average (residual = observed revenue - predicted revenue)?\n[Time permitting] Discuss the following: Notice in the graph above that budget and gross are log-transformed. Why are the log-transformed values of the variables displayed rather than the original values (in U.S. dollars)?"
   },
   {
     "objectID": "ae/ae-01-movies.html#references",
