@@ -26,12 +26,6 @@ knitr:
 bibliography: references.bib
 ---
 
-# Application exercise
-
-::: appex
-📋 [mat212fa24.netlify.app/ae/ae-02-bikeshare](https://mat212fa24.netlify.app/ae/ae-02-bikeshare.html)
-:::
-
 
 ## Topics
 
@@ -284,10 +278,10 @@ $$\Large{\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X}$$
 #| fig-align: center
 ggplot(data = movie_scores, mapping = aes(x = critics, y = audience)) +
   geom_point(alpha = 0.4) + 
-  geom_abline(intercept = 32.296, slope = 0.5187, color = "red", size = 1) +
-  geom_abline(intercept = 25, slope = 0.7, color = "gray") +
-  geom_abline(intercept = 21, slope = 0.9, color = "gray") +
-  geom_abline(intercept = 35, slope = 0.3, color = "gray") +
+  geom_abline(intercept = 32.296, slope = 0.5187, color = "red") +
+  geom_abline(intercept = 25, slope = 0.7, color = "green") +
+  geom_abline(intercept = 21, slope = 0.9, color = "blue") +
+  geom_abline(intercept = 35, slope = 0.3, color = "purple") +
   labs(x = "Critics Score" , 
        y = "Audience Score")
 ```
@@ -332,14 +326,19 @@ ybar <- round(mean(movie_scores$audience),4)
 
 # Slope and intercept
 
-## Properties of least squares regression
+## Properties of least squares regression {.smaller}
 
 ::: incremental
 -   Passes through center of mass point, the coordinates corresponding to average $X$ and average $Y$: $\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}$
 
 -   Slope has same sign as the correlation coefficient: $\hat{\beta}_1 = r \frac{s_Y}{s_X}$
 
+    + $r$: correlation coefficient
+    + $s_Y, s_X$: sample standard deviations of $X$ and $Y$
+
 -   Sum of the residuals is zero: $\sum_{i = 1}^n e_i \approx 0$
+
+    +   Intuition: Residuals are "balanced"
 
 -   The residuals and $X$ values are uncorrelated
 :::
@@ -379,7 +378,7 @@ r &= 0.7814
 $$\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}$$
 
 ::: columns
-::: {.column width="50%"}
+::: {.column width="40%"}
 ```{=tex}
 \begin{aligned}
 &\bar{x} = 60.8493 \\
@@ -389,7 +388,7 @@ $$\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}$$
 ```
 :::
 
-::: {.column width="50%"}
+::: {.column width="60%"}
 ```{=tex}
 \begin{aligned}\hat{\beta}_0 &= 63.8767 - 0.5187 \times 60.8493 \\
 &= 32.3142
@@ -404,27 +403,25 @@ $$\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}$$
 [Click here](https://introregression.netlify.app/98-appendix) for details on deriving the equations for slope and intercept.
 :::
 
+
+
 ## Interpretation
 
-::: appex
-::: midi
-Post your answers to the following questions on Ed Discussion:
+-  Slope: For each additional unit of $X$ we expect the $Y$ to increase by $\hat{\beta}_1$, on average.
+-  Intercept: If $X$ were 0, we predict $Y$ to be $\hat{\beta}_0$
 
--   The slope of the model for predicting audience score from critics score is 0.5187 . Which of the following is the best interpretation of this value?
+. . .
 
--   32.3142 is the predicted mean audience score for what type of movies?
+:::{.question}
+For our example, we have $\hat{\beta}_1 = 0.5187$, and $\hat{\beta}_0 = 32.3142$. How would you interpret these values in context?
 :::
-:::
-
--   Link for [Section 001 (10:05am lecture)](https://edstem.org/us/courses/44523/discussion/429484)
-
--   Link for [Section 002 (1:25pm lecture)](https://edstem.org/us/courses/44523/discussion/429493)
 
 ```{r}
 #| echo: false
 
-countdown::countdown(minutes = 3, seconds = 0)
+countdown::countdown(minutes = 2, seconds = 0)
 ```
+
 
 ## Does it make sense to interpret the intercept?
 
@@ -439,6 +436,26 @@ countdown::countdown(minutes = 3, seconds = 0)
 . . .
 
 `r emo::ji("stop_sign")` Otherwise, the intercept may not be meaningful!
+
+# Our first AE!
+
+## Group Work Roles
+
+Any time we are working on AEs, I will randomly assign you to groups of two/three. Each person will have a role:
+
+- **Driver:** Writes code and fills out Quarto template. Responsible for submitting final work.
+- **Reporter:**  Share thoughts from group during class discussions
+- **Gopher:** Responsible for looking stuff up (e.g. code, cheatsheets, etc.)
+
+You'll stay in your groups for three exercise and then we'll switch (you must rotate your role every class.)
+
+Driver $\to$ Reporter $\to$ Gopher $\to$ Driver
+
+## Application exercise
+
+::: appex
+📋 [AE 01 - Movie Budgets and Revenues](https://mat212fa24.netlify.app/ae/ae-01-movies)
+:::
 
 # Prediction
 
@@ -532,3 +549,22 @@ new_movie <- tibble(critics = 70)
 # predict the outcome for a new movie
 predict(movie_fit, new_movie)
 ```
+
+# Wrap up
+
+## Recap
+
+::: {.incremental style="font-size: 0.85em"}
+-   Used simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.
+
+-   Used the least squares method to estimate the slope and intercept.
+
+-   Interpreted the slope and intercept.
+
+    -   **Slope**: For every one unit increase in $x$, we expect y to change by $\hat{\beta}_1$ units, on average.
+    -   **Intercept**: If $x$ is 0, then we expect $y$ to be $\hat{\beta}_0$ units
+
+-   Predicted the response given a value of the predictor variable.
+
+-   Used `lm` and the `broom` package to fit and summarize regression models in R.
+:::

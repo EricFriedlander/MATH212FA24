@@ -1,0 +1,255 @@
+---
+title: "Analyzing Multivariable Relationships"
+author: "Prof. Eric Friedlander"
+date: "2024-08-26"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib    
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(patchwork)
+library(broom)
+
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.asp = 0.618,
+  fig.retina = 3,
+  dpi = 300,
+  out.width = "80%",
+  fig.align = "center"
+)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
+
+
+```
+
+
+# Questions from last class?
+
+# Multivariable relationships
+
+## Carbohydrates in Starbucks food
+
+-   Starbucks often displays the total calories in their food items but not the other nutritional information.
+
+-   Carbohydrates are a body's main fuel source. The Dietary Guidelines for America recommend that carbohydrates make up 45% to 65% of total daily calories.[^1]
+
+-   Our goal is to understand the relationship between the amount of carbohydrates and calories in Starbucks food items. We'd also like to assess if the relationship differs based on the type of food item (bakery, salad, sandwich, etc.)
+
+[^1]: Source: [Mayo Clinic](https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/carbohydrates/art-20045705#:~:text=How%20many%20carbohydrates%20do%20you,grams%20of%20carbs%20a%20day.)
+
+------------------------------------------------------------------------
+
+## Starbucks data
+
+<!-- change example, or at a minimum change bakery labels to "bakery vs. not bakery" instead of 0 and 1.-->
+
+```{r data, echo  = F}
+starbucks <- openintro::starbucks |>
+  mutate(bakery = factor(if_else(type == "bakery", 1, 0)))
+```
+
+-   **Observations**: 77 Starbucks food items
+-   **Variables:**
+    -   `carb`: Total carbohydrates (in grams)
+    -   `calories`: Total calories
+    -   `bakery`: 1: bakery food item, 0: other food type
+
+## Terminology
+
+-   `carb` is the **response variable**
+    -   variable whose variation we want to understand / variable we wish to predict
+    -   also known as *outcome* or *target* variable
+
+. . .
+
+-   `calories`, `bakery` are the **explanatory variables**
+    -   variables used to account for variation in the response
+    -   also known as *predictor*, or *input* variables
+
+## Univariate exploratory data analysis
+
+```{r univariate}
+#| echo: false
+p1 <- ggplot(data = starbucks, aes(x = carb))  + 
+  geom_histogram(fill = "steelblue", color = "black") + 
+  labs(x = "Carbohydrates (in grams)", 
+       y = "Count")
+
+p2 <- ggplot(data = starbucks, aes(x = calories))  + 
+  geom_histogram(fill = "steelblue", color = "black") + 
+  labs(x = "Calories", 
+       y = "Count") 
+
+p3 <- ggplot(data = starbucks, aes(x = bakery))  + 
+  geom_bar(fill = "steelblue", color = "black") + 
+  labs(x = "Bakery Item", 
+       y = "Count")
+
+p1 + (p2 / p3)
+```
+
+## Bivariate exploratory data analysis
+
+```{r bivariate}
+#| echo: false
+p1 <- ggplot(data = starbucks, aes(x = calories, y = carb)) + 
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", se = FALSE, color = "steelblue") +
+  labs(x = "Calories", 
+      y  = "Carbohydrates (grams)")
+
+p2 <- ggplot(data = starbucks, aes(x = bakery, y = carb)) + 
+  geom_boxplot(fill = "steelblue", color = "black") +
+  geom_jitter() +
+  labs(x = "Bakery", 
+      y  = "Carbohydrates (grams)")
+  
+p1 + p2
+```
+
+## Function between response and predictors
+
+::: goal
+$$\text{carb} = f(\text{calories}, \text{bakery}) + \epsilon$$
+:::
+
+-   **Goal**: Determine $f$
+-   How do we determine $f$?
+    -   Make an assumption about the functional form $f$ (parametric model)
+    -   Use the data to fit a model based on that form
+
+## Determine $f$
+
+1)  Choose the functional form of $f$, i.e., **choose the appropriate model given the response variable**
+
+-   Suppose $f$ takes the form of a linear model\
+    $$y = f(\mathbf{X}) = \beta_0 + \beta_1 x_1 + \dots + \beta_p x_p + \epsilon$$
+
+. . .
+
+2.  Use the data to fit (or train) the model, i.e, **estimate the model parameters,** $\beta_0, \beta_1, \ldots, \beta_p$
+
+## Carb vs. Calories
+
+```{r echo = F}
+ggplot(data = starbucks, aes(x = calories, y = carb)) + 
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", se = FALSE, color = "steelblue") +
+  labs(x = "Calories", 
+      y  = "Carbohydrates (grams)", 
+      title = "Total Carbohydrates vs. Calories")
+```
+
+$$\text{carb} = \beta_0 + \beta_1 ~\text{calories} + \epsilon$$
+
+------------------------------------------------------------------------
+
+## Carb vs. Calories + Bakery
+
+```{r echo = F}
+model1 <- lm(carb ~ calories + bakery, data = starbucks)
+model1 <- tidy(model1)
+```
+
+```{r echo = F}
+ggplot(data = starbucks, aes(x = calories, y = carb, color = bakery)) + 
+  geom_point(alpha = 0.5) +
+  geom_abline(slope = model1$estimate[2], intercept = model1$estimate[1], color = "#1B9E77") +
+  geom_abline(slope = model1$estimate[2], intercept = model1$estimate[1] + model1$estimate[3], color = "#7570B3") +
+  labs(x = "Calories", 
+      y  = "Carbohydrates (grams)",
+      color = "Bakery", 
+      title = "Total Carbohydrates vs. Calories", 
+      subtitle = "by Bakery") + 
+  scale_color_manual(values=c("#1B9E77", "#7570B3"))
+```
+
+
+$$\text{carb} = \beta_0 + \beta_1 ~\text{calories} + \beta_2 ~\text{bakery} + \epsilon$$
+
+## Carb vs. Calories + Bakery (with interaction)
+
+```{r}
+#| echo: false
+
+ggplot(data = starbucks, aes(x = calories, y = carb, color = bakery)) + 
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Calories", 
+      y  = "Carbohydrates (grams)",
+      color = "Bakery", 
+      title = "Total Carbohydrates vs. Calories", 
+      subtitle = "With Interaction") + 
+  scale_color_manual(values=c("#1B9E77", "#7570B3"))
+
+```
+
+$${\small \text{carb} = \beta_0 + \beta_1 ~\text{calories} + \beta_2 ~\text{bakery} + \beta_3 ~ \text{calories} \times \text{bakery}  + \epsilon}$$
+
+## Statistical model vs. regression equation {.midi}
+
+**Statistical model (also known as data-generating model)**
+
+$${\small \text{carb} = \beta_0 + \beta_1 ~\text{calories} + \beta_2 ~\text{bakery} + \beta_3 ~ \text{calories} \times \text{bakery}  + \epsilon}$$
+
+Models the process for generating values of the response in the population (function + error)
+
+<br>
+
+. . .
+
+**Regression equation**
+
+Estimate of the function using the sample data
+
+$${\small \hat{\text{carb}} = \hat{\beta}_0 + \hat{\beta}_1 ~\text{calories} + \hat{\beta}_2 ~\text{bakery} + \hat{\beta}_3 ~ \text{calories} \times \text{bakery}}$$
+
+## Why fit a model?
+
+-   **Prediction:** Expected value of the response variable for given values of the predictor variables
+
+-   **Inference:** Conclusion about the relationship between the response and predictor variables
+
+::: question
+-   What is an example of a **prediction** question that can be answered using the model of carb vs. calories and bakery?
+
+-   What is an example of an **inference** question that can be answered using the model of carb vs. calories and bakery?
+:::
+
+
+## Recap {.midi}
+
+-   We can use exploratory data analysis to describe the relationship between two variables
+
+-   We make an assumption about the relationship between variables when doing linear regression
+
+-   The two main objectives for fitting a linear regression model are (1) prediction and (2) inference
+    
+## Rest of class
+
+- Work on HW 0!
+
+## References
