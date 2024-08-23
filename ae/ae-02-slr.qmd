@@ -1,14 +1,14 @@
 ---
-title: "AE 03: Bike rentals in Washington, DC"
+title: "AE 02: Bike rentals in Washington, DC"
 subtitle: "Simple linear regression"
-date: "Sep 06, 2022"
+date: "Aug 30, 2022"
 editor: visual
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta210-fa23) and locate your `ae-03` repo to get started. If you do not see an `ae-03` repo, [click here](https://classroom.github.com/a/HW9uN-iK) to create one.
+Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/180578) and locate the `AE-2` assignment. That link should take you directly there.
 
-Render, commit, and push your responses to GitHub by the end of class. The responses are due in your GitHub repo no later than Saturday, September 9 at 11:59pm.
+The  are due in your GitHub repo no later than Saturday, September 9 at 11:59pm.
 :::
 
 ```{r load-packages}

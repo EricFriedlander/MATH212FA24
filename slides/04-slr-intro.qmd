@@ -35,10 +35,6 @@ bibliography: references.bib
 
 -   Interpret the slope and intercept of the regression line.
 
--   Predict the response given a value of the predictor variable.
-
--   Use R to fit and summarize regression models.
-
 ## Computation set up {.smaller}
 
 ```{r}
@@ -457,99 +453,6 @@ Driver $\to$ Reporter $\to$ Gopher $\to$ Driver
 📋 [AE 01 - Movie Budgets and Revenues](https://mat212fa24.netlify.app/ae/ae-01-movies)
 :::
 
-# Prediction
-
-## Making a prediction
-
-Suppose that a movie has a critics score of 70. According to this model, what is the movie's predicted audience score?
-
-```{=tex}
-\begin{aligned}
-\widehat{\text{audience}} &= 32.3142 + 0.5187 \times \text{critics} \\
-&= 32.3142 + 0.5187 \times 70 \\
-&= 68.6232
-\end{aligned}
-```
-
-# Fitting the model
-
-## Fit model & estimate parameters
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|1"
-
-movie_fit <- lm(audience ~ critics, data = movie_scores)
-movie_fit
-```
-
-## Look at the regression output
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|2"
-
-movie_fit <- lm(audience ~ critics, data = movie_scores)
-movie_fit
-```
-
-
-$$\widehat{\text{audience}} = 32.3155 + 0.5187 \times \text{critics}$$
-
-. . .
-
-::: smallest
-**Note:** The intercept is off by a tiny bit from the hand-calculated intercept, this is just due to rounding in the hand calculation.
-:::
-
-## The regression output
-
-We'll focus on the first column for now...
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|2"
-
-movie_fit |> 
-  tidy() 
-```
-
-## Format output with `kable`
-
-Use the `kable` function from the [knitr](https://yihui.org/knitr/) package to produce a table and specify number of significant digits
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|3"
-
-movie_fit |> 
-  tidy() |>
-  kable(digits = 4)
-```
-
-## Visualize Model
-
-```{r}
-#| echo: true
-
-movie_scores |> 
-  gf_point(audience ~ critics) |> 
-  gf_lm()
-```
-
-## Prediction
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|2|5"
-
-# create a data frame for a new movie
-new_movie <- tibble(critics = 70)
-
-# predict the outcome for a new movie
-predict(movie_fit, new_movie)
-```
-
 # Wrap up
 
 ## Recap
@@ -563,8 +466,4 @@ predict(movie_fit, new_movie)
 
     -   **Slope**: For every one unit increase in $x$, we expect y to change by $\hat{\beta}_1$ units, on average.
     -   **Intercept**: If $x$ is 0, then we expect $y$ to be $\hat{\beta}_0$ units
-
--   Predicted the response given a value of the predictor variable.
-
--   Used `lm` and the `broom` package to fit and summarize regression models in R.
 :::

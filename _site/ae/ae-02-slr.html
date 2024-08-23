@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-08-28">
+<meta name="dcterms.date" content="2022-08-30">
 
-<title>MAT 212 - Fall 2024 - AE 01: Movie Budgets and Revenues</title>
+<title>MAT 212 - Fall 2024 - AE 02: Bike rentals in Washington, DC</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 01: Movie Budgets and Revenues</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 02: Bike rentals in Washington, DC</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -211,19 +211,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a></li>
-  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-01-movies.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-02-slr.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 01: Movie Budgets and Revenues</h1>
+<h1 class="title">AE 02: Bike rentals in Washington, DC</h1>
+<p class="subtitle lead">Simple linear regression</p>
 </div>
 
 
@@ -234,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 28, 2024</p>
+      <p class="date">August 30, 2022</p>
     </div>
   </div>
   
@@ -256,145 +266,224 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For this AE, you will discuss the questions in groups and submit answers on Canvas. This AE does not count towards the Application Exercise grade.</p>
+<p>Go to the <a href="https://cofi.instructure.com/courses/15692/assignments/180578">Canvas</a> and locate the <code>AE-2</code> assignment. That link should take you directly there.</p>
+<p>The are due in your GitHub repo no later than Saturday, September 9 at 11:59pm.</p>
 </div>
 </div>
-<p>We will look at the relationship between budget and revenue for movies made in the United States in 1986 to 2020. The dataset is created based on data from the <a href="https://www.imdb.com/">Internet Movie Database (IMDB)</a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(readr)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>The <code>movies</code> data set includes basic information about each movie including budget, genre, movie studio, director, etc. A full list of the variables may be found <a href="https://github.com/danielgrijalva/movie-stats">here</a>.</p>
+<p>Our data set contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the <code>dcbikeshare</code> data set in the <code>dsbox</code> R package.</p>
+<p>We will focus on the following variables in the analysis:</p>
+<ul>
+<li><code>count</code>: total bike rentals</li>
+<li><code>temp_orig</code>: Temperature in degrees Celsius</li>
+<li><code>season</code>: 1 - winter, 2 - spring, 3 - summer, 4 - fall</li>
+</ul>
+<p>Click <a href="https://rstudio-education.github.io/dsbox/reference/dcbikeshare.html">here</a> for the full list of variables and definitions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>movies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/danielgrijalva/movie-stats/master/movies.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>View the first 10 rows of data.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 15
-   name   rating genre  year released score  votes director writer star  country
-   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  
- 1 The S… R      Drama  1980 June 13…   8.4 9.27e5 Stanley… Steph… Jack… United…
- 2 The B… R      Adve…  1980 July 2,…   5.8 6.5 e4 Randal … Henry… Broo… United…
- 3 Star … PG     Acti…  1980 June 20…   8.7 1.20e6 Irvin K… Leigh… Mark… United…
- 4 Airpl… PG     Come…  1980 July 2,…   7.7 2.21e5 Jim Abr… Jim A… Robe… United…
- 5 Caddy… R      Come…  1980 July 25…   7.3 1.08e5 Harold … Brian… Chev… United…
- 6 Frida… R      Horr…  1980 May 9, …   6.4 1.23e5 Sean S.… Victo… Bets… United…
- 7 The B… R      Acti…  1980 June 20…   7.9 1.88e5 John La… Dan A… John… United…
- 8 Ragin… R      Biog…  1980 Decembe…   8.2 3.30e5 Martin … Jake … Robe… United…
- 9 Super… PG     Acti…  1980 June 19…   6.8 1.01e5 Richard… Jerry… Gene… United…
-10 The L… R      Biog…  1980 May 16,…   7   1   e4 Walter … Bill … Davi… United…
-# ℹ 4 more variables: budget &lt;dbl&gt;, gross &lt;dbl&gt;, company &lt;chr&gt;, runtime &lt;dbl&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="analysis" class="level2">
-<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
-<p>We begin by looking at how the average gross revenue (<code>gross</code>) has changed over time. Since we want to visualize the results, we will choose a few genres of interest for the analysis.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>genre_list <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Comedy"</span>, <span class="st">"Action"</span>, <span class="st">"Animation"</span>, <span class="st">"Horror"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(genre <span class="sc">%in%</span> genre_list) <span class="sc">|&gt;</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(genre,year) <span class="sc">|&gt;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_gross =</span> <span class="fu">mean</span>(gross)) <span class="sc">|&gt;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_point</span>(avg_gross <span class="sc">~</span> year, <span class="at">color =</span> <span class="sc">~</span>genre) <span class="sc">|&gt;</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_line</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">y =</span> <span class="st">"Average Gross Revenue (in US Dollars)"</span>,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross Revenue Over Time"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ae-01-movies_files/figure-html/plot-rating-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><em>What do you observe from the plot?</em></p>
-</div>
-</div>
-</div>
-<p>Next, let’s see the relationship between a movie’s budget and its gross revenue.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>movies <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(genre <span class="sc">%in%</span> genre_list, budget <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_point</span>(<span class="fu">log</span>(gross) <span class="sc">~</span> <span class="fu">log</span>(budget), <span class="at">color =</span> <span class="sc">~</span>genre) <span class="sc">|&gt;</span> </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_lm</span>(<span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">|&gt;</span>  </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Log-transformed Budget"</span>,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">"Log-transformed Gross Revenue"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_facet_wrap</span>(<span class="sc">~</span> genre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ae-01-movies_files/figure-html/plot-revenue-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>bikeshare <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dcbikeshare.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercises" class="level2">
 <h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<p>Please enter your names and responses in <a href="https://cofi.instructure.com/courses/15692/discussion_topics/65535">Canvas</a>.</p>
-<ol type="1">
-<li><p>Suppose we fit a regression model for each genre that uses budget to predict gross revenue. What are the signs of the correlation between <code>budget</code> and <code>gross</code> and the slope in each regression equation?</p></li>
-<li><p>Suppose we fit the regression model from the previous question. Which genre would you expect to have the smallest residuals, on average (<em>residual = observed revenue - predicted revenue</em>)?</p></li>
-<li><p>[Time permitting] Discuss the following: Notice in the graph above that <code>budget</code> and <code>gross</code> are log-transformed. Why are the log-transformed values of the variables displayed rather than the original values (in U.S. dollars)?</p></li>
-</ol>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<ol type="1">
-<li><a href="https://github.com/danielgrijalva/movie-stats" class="uri">github.com/danielgrijalva/movie-stats</a></li>
-<li><a href="https://www.imdb.com/">Internet Movie Database</a></li>
-</ol>
-</section>
-<section id="appendix" class="level2">
-<h2 class="anchored" data-anchor-id="appendix">Appendix</h2>
-<p>Below is a list of genres in the data set:</p>
+<section id="exercise-1" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
+<p>Below are visualizations of the distributions of daily bike rentals and temperature as well as the relationship between these two variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>movies <span class="sc">|&gt;</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(genre) <span class="sc">|&gt;</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(genre) <span class="sc">|&gt;</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 19 × 1
-   genre    
-   &lt;chr&gt;    
- 1 Action   
- 2 Adventure
- 3 Animation
- 4 Biography
- 5 Comedy   
- 6 Crime    
- 7 Drama    
- 8 Family   
- 9 Fantasy  
-10 History  
-11 Horror   
-12 Music    
-13 Musical  
-14 Mystery  
-15 Romance  
-16 Sci-Fi   
-17 Sport    
-18 Thriller 
-19 Western  </code></pre>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span> count, <span class="at">data =</span> bikeshare, <span class="at">binwidth =</span> <span class="dv">250</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Daily bike rentals"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>temp_orig, <span class="at">data =</span> bikeshare) <span class="sc">|&gt;</span>  </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Temperature (Celsius)"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(count <span class="sc">~</span> temp_orig, <span class="at">data =</span> bikeshare) <span class="sc">|&gt;</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Temperature (Celsius)"</span>, </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Daily bike rentals"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>(p1 <span class="sc">|</span> p2) <span class="sc">/</span> p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ae-02-slr_files/figure-html/bike-temp-viz-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>There appears to be one day with a very small number of bike rentals. What was the day? Why were the number of bike rentals so low on that day? <em>Hint: You can Google the date to figure out what was going on that day.</em></p>
+</div>
+</div>
+</div>
+<p>[Add your answer here]</p>
+</section>
+<section id="exercise-2" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>In the raw data, seasons are coded as 1, 2, 3, 4 as numerical values, corresponding to winter, spring, summer, and fall respectively. Recode the <code>season</code> variable to make it a categorical variable (a factor) with levels corresponding to season names, making sure that the levels appear in a reasonable order in the variable (i.e., not alphabetical).</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code developed during livecoding here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-3" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>We want to evaluate whether the relationship between temperature and daily bike rentals is the same for each season. To answer this question, first create a scatter plot of daily bike rentals vs.&nbsp;temperature faceted by season.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code developed during livecoding here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-4" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li><p>Which season appears to have the <strong>strongest</strong> relationship between temperature and daily bike rentals? Why do you think the relationship is strongest in this season?</p></li>
+<li><p>Which season appears to have the <strong>weakest</strong> relationship between temperature and daily bike rentals? Why do you think the relationship is weakest in this season?</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p>[Add your answer here]</p>
+</section>
+<section id="exercise-5" class="level3" data-link="Exercise 10">
+<h3 data-link="Exercise 10" class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Filter your data for the season with the strongest apparent relationship between temperature and daily bike rentals.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code developed during livecoding here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-6" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Using the subset of the data from <a href="#exercise-5">Exercise 5</a>, fit a linear model for predicting daily bike rentals from temperature for this season.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code developed during livecoding here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-7" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Use the output to write out the estimated regression equation.</p>
+</div>
+</div>
+</div>
+<p>[Add your answer here]</p>
+</section>
+<section id="exercise-8" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-8">Exercise 8</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Interpret the slope in the context of the data.</p>
+</div>
+</div>
+</div>
+<p>[Add your answer here]</p>
+</section>
+<section id="exercise-9" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-9">Exercise 9</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Interpret the intercept in the context of the data.</p>
+</div>
+</div>
+</div>
+<p>[Add your answer here]</p>
+</section>
+<section id="exercise-10" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-10">Exercise 10</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Suppose you work for a bike share company in Boise, ID, and they want to predict daily bike rentals in 2024. What is one reason you might recommend they use your analysis for this task? What is one reason you would recommend they <u><strong>not</strong></u> use your analysis for this task?</p>
+</div>
+</div>
+</div>
+<p>[Add your answer here]</p>
+<hr>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To submit the AE:</p>
+<ul>
+<li>Render the document to produce the PDF with all of your work from today’s class.</li>
+<li>Push all your work to your <code>ae-03-</code> repo on GitHub. (You do not submit AEs on Gradescope).</li>
+</ul>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -815,7 +904,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-01-movies.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-02-slr.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

@@ -11563,7 +11563,7 @@
     "href": "slides/04-slr-intro.html#topics",
     "title": "Simple Linear Regression",
     "section": "Topics",
-    "text": "Topics\n\nUse simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nEstimate the slope and intercept of the regression line using the least squares method.\nInterpret the slope and intercept of the regression line.\nPredict the response given a value of the predictor variable.\nUse R to fit and summarize regression models."
+    "text": "Topics\n\nUse simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nEstimate the slope and intercept of the regression line using the least squares method.\nInterpret the slope and intercept of the regression line."
   },
   {
     "objectID": "slides/04-slr-intro.html#computation-set-up",
@@ -11780,6 +11780,139 @@
     "href": "slides/04-slr-intro.html#recap",
     "title": "Simple Linear Regression",
     "section": "Recap",
-    "text": "Recap\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nUsed the least squares method to estimate the slope and intercept.\nInterpreted the slope and intercept.\n\nSlope: For every one unit increase in \\(x\\), we expect y to change by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units\n\nPredicted the response given a value of the predictor variable.\nUsed lm and the broom package to fit and summarize regression models in R.\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+    "text": "Recap\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nUsed the least squares method to estimate the slope and intercept.\nInterpreted the slope and intercept.\n\nSlope: For every one unit increase in \\(x\\), we expect y to change by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#last-time",
+    "href": "slides/05-slr-prediction.html#last-time",
+    "title": "Simple Linear Regression",
+    "section": "Last Time",
+    "text": "Last Time\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nUsed the least squares method to estimate the slope and intercept.\nInterpreted the slope and intercept.\n\nSlope: For every one unit increase in \\(x\\), we expect y to change by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units"
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#topics",
+    "href": "slides/05-slr-prediction.html#topics",
+    "title": "Simple Linear Regression",
+    "section": "Topics",
+    "text": "Topics\n\nPredict the response given a value of the predictor variable.\nUse R to fit and summarize regression models."
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#computation-set-up",
+    "href": "slides/05-slr-prediction.html#computation-set-up",
+    "title": "Simple Linear Regression",
+    "section": "Computation set up",
+    "text": "Computation set up\n\n# load packages\nlibrary(tidyverse)       # for data wrangling\nlibrary(ggformula)       # for plotting\nlibrary(fivethirtyeight) # for the fandango dataset\nlibrary(broom)           # for formatting model output\nlibrary(knitr)           # for formatting tables\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))\n\n# set default figure parameters for knitr\nknitr::opts_chunk$set(\n  fig.width = 8,\n  fig.asp = 0.618,\n  fig.retina = 3,\n  dpi = 300,\n  out.width = \"80%\"\n)"
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#movie-scores",
+    "href": "slides/05-slr-prediction.html#movie-scores",
+    "title": "Simple Linear Regression",
+    "section": "Movie scores",
+    "text": "Movie scores\n\n\n\nData behind the FiveThirtyEight story Be Suspicious Of Online Movie Ratings, Especially Fandango’s\nIn the fivethirtyeight package: fandango\nContains every film released in 2014 and 2015 that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores"
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#data-prep",
+    "href": "slides/05-slr-prediction.html#data-prep",
+    "title": "Simple Linear Regression",
+    "section": "Data prep",
+    "text": "Data prep\n\nRename Rotten Tomatoes columns as critics and audience\nRename the dataset as movie_scores\n\n\nmovie_scores &lt;- fandango |&gt;\n  rename(critics = rottentomatoes, \n         audience = rottentomatoes_user)"
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#movie-scores-data",
+    "href": "slides/05-slr-prediction.html#movie-scores-data",
+    "title": "Simple Linear Regression",
+    "section": "Movie scores data",
+    "text": "Movie scores data\nThe data set contains the “Tomatometer” score (critics) and audience score (audience) for 146 movies rated on rottentomatoes.com.\n\n\nCode\nmovie_scores |&gt; \ngf_point(audience ~ critics, alpha = 0.5) + \n  labs(x = \"Critics Score\" , \n       y = \"Audience Score\")"
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#movie-ratings-data",
+    "href": "slides/05-slr-prediction.html#movie-ratings-data",
+    "title": "Simple Linear Regression",
+    "section": "Movie ratings data",
+    "text": "Movie ratings data\nGoal: Fit a line to describe the relationship between the critics score and audience score."
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#recall-our-model",
+    "href": "slides/05-slr-prediction.html#recall-our-model",
+    "title": "Simple Linear Regression",
+    "section": "Recall: Our Model",
+    "text": "Recall: Our Model\n\\[\\begin{aligned}\n\\widehat{Y} &= 32.3142 + 0.5187 \\times X\\\\\n\n\\widehat{\\text{audience}} &= 32.3142 + 0.5187 \\times \\text{critics}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#making-a-prediction",
+    "href": "slides/05-slr-prediction.html#making-a-prediction",
+    "title": "Simple Linear Regression",
+    "section": "Making a prediction",
+    "text": "Making a prediction\nSuppose that a movie has a critics score of 70. According to this model, what is the movie’s predicted audience score?\n\\[\\begin{aligned}\n\\widehat{\\text{audience}} &= 32.3142 + 0.5187 \\times \\text{critics} \\\\\n&= 32.3142 + 0.5187 \\times 70 \\\\\n&= 68.6232\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#fit-model-estimate-parameters",
+    "href": "slides/05-slr-prediction.html#fit-model-estimate-parameters",
+    "title": "Simple Linear Regression",
+    "section": "Fit model & estimate parameters",
+    "text": "Fit model & estimate parameters\n\nmovie_fit &lt;- lm(audience ~ critics, data = movie_scores)\nmovie_fit\n\n\nCall:\nlm(formula = audience ~ critics, data = movie_scores)\n\nCoefficients:\n(Intercept)      critics  \n    32.3155       0.5187"
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#look-at-the-regression-output",
+    "href": "slides/05-slr-prediction.html#look-at-the-regression-output",
+    "title": "Simple Linear Regression",
+    "section": "Look at the regression output",
+    "text": "Look at the regression output\n\nmovie_fit &lt;- lm(audience ~ critics, data = movie_scores)\nmovie_fit\n\n\nCall:\nlm(formula = audience ~ critics, data = movie_scores)\n\nCoefficients:\n(Intercept)      critics  \n    32.3155       0.5187  \n\n\n\\[\\widehat{\\text{audience}} = 32.3155 + 0.5187 \\times \\text{critics}\\]\n\n\nNote: The intercept is off by a tiny bit from the hand-calculated intercept, this is just due to rounding in the hand calculation."
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#the-regression-output",
+    "href": "slides/05-slr-prediction.html#the-regression-output",
+    "title": "Simple Linear Regression",
+    "section": "The regression output",
+    "text": "The regression output\nWe’ll focus on the first column for now…\n\nmovie_fit |&gt; \n  tidy() \n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)   32.3      2.34        13.8 4.03e-28\n2 critics        0.519    0.0345      15.0 2.70e-31"
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#format-output-with-kable",
+    "href": "slides/05-slr-prediction.html#format-output-with-kable",
+    "title": "Simple Linear Regression",
+    "section": "Format output with kable",
+    "text": "Format output with kable\nUse the kable function from the knitr package to produce a table and specify number of significant digits\n\nmovie_fit |&gt; \n  tidy() |&gt;\n  kable(digits = 4)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n32.3155\n2.3425\n13.7953\n0\n\n\ncritics\n0.5187\n0.0345\n15.0281\n0"
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#visualize-model",
+    "href": "slides/05-slr-prediction.html#visualize-model",
+    "title": "Simple Linear Regression",
+    "section": "Visualize Model",
+    "text": "Visualize Model\n\nmovie_scores |&gt; \n  gf_point(audience ~ critics) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#prediction-1",
+    "href": "slides/05-slr-prediction.html#prediction-1",
+    "title": "Simple Linear Regression",
+    "section": "Prediction",
+    "text": "Prediction\n\n# create a data frame for a new movie\nnew_movie &lt;- tibble(critics = 70)\n\n# predict the outcome for a new movie\npredict(movie_fit, new_movie)\n\n       1 \n68.62297"
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#recap",
+    "href": "slides/05-slr-prediction.html#recap",
+    "title": "Simple Linear Regression",
+    "section": "Recap",
+    "text": "Recap\n\n\nPredicted the response given a value of the predictor variable.\nUsed lm and the broom package to fit and summarize regression models in R.\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "ae/ae-02-slr.html",
+    "href": "ae/ae-02-slr.html",
+    "title": "AE 02: Bike rentals in Washington, DC",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the Canvas and locate the AE-2 assignment. That link should take you directly there.\nThe are due in your GitHub repo no later than Saturday, September 9 at 11:59pm.\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(patchwork)"
+  },
+  {
+    "objectID": "ae/ae-02-slr.html#data",
+    "href": "ae/ae-02-slr.html#data",
+    "title": "AE 02: Bike rentals in Washington, DC",
+    "section": "Data",
+    "text": "Data\nOur data set contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the dcbikeshare data set in the dsbox R package.\nWe will focus on the following variables in the analysis:\n\ncount: total bike rentals\ntemp_orig: Temperature in degrees Celsius\nseason: 1 - winter, 2 - spring, 3 - summer, 4 - fall\n\nClick here for the full list of variables and definitions.\n\nbikeshare &lt;- read_csv(\"data/dcbikeshare.csv\")"
+  },
+  {
+    "objectID": "ae/ae-02-slr.html#exercises",
+    "href": "ae/ae-02-slr.html#exercises",
+    "title": "AE 02: Bike rentals in Washington, DC",
+    "section": "Exercises",
+    "text": "Exercises\n\nExercise 1\nBelow are visualizations of the distributions of daily bike rentals and temperature as well as the relationship between these two variables.\n\np1 &lt;- gf_histogram(~ count, data = bikeshare, binwidth = 250) |&gt; \n  gf_labs(x = \"Daily bike rentals\")\n\np2 &lt;- gf_histogram(~temp_orig, data = bikeshare) |&gt;  \n  gf_labs(x = \"Temperature (Celsius)\")\n\np3 &lt;- gf_point(count ~ temp_orig, data = bikeshare) |&gt; \n  gf_labs(x = \"Temperature (Celsius)\", \n       y = \"Daily bike rentals\")\n\n(p1 | p2) / p3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThere appears to be one day with a very small number of bike rentals. What was the day? Why were the number of bike rentals so low on that day? Hint: You can Google the date to figure out what was going on that day.\n\n\n\n[Add your answer here]\n\n\nExercise 2\n\n\n\n\n\n\nIn the raw data, seasons are coded as 1, 2, 3, 4 as numerical values, corresponding to winter, spring, summer, and fall respectively. Recode the season variable to make it a categorical variable (a factor) with levels corresponding to season names, making sure that the levels appear in a reasonable order in the variable (i.e., not alphabetical).\n\n\n\n\n# add code developed during livecoding here\n\n\n\nExercise 3\n\n\n\n\n\n\nWe want to evaluate whether the relationship between temperature and daily bike rentals is the same for each season. To answer this question, first create a scatter plot of daily bike rentals vs. temperature faceted by season.\n\n\n\n\n# add code developed during livecoding here\n\n\n\nExercise 4\n\n\n\n\n\n\n\nWhich season appears to have the strongest relationship between temperature and daily bike rentals? Why do you think the relationship is strongest in this season?\nWhich season appears to have the weakest relationship between temperature and daily bike rentals? Why do you think the relationship is weakest in this season?\n\n\n\n\n[Add your answer here]\n\n\nExercise 5\n\n\n\n\n\n\nFilter your data for the season with the strongest apparent relationship between temperature and daily bike rentals.\n\n\n\n\n# add code developed during livecoding here\n\n\n\nExercise 6\n\n\n\n\n\n\nUsing the subset of the data from Exercise 5, fit a linear model for predicting daily bike rentals from temperature for this season.\n\n\n\n\n# add code developed during livecoding here\n\n\n\nExercise 7\n\n\n\n\n\n\nUse the output to write out the estimated regression equation.\n\n\n\n[Add your answer here]\n\n\nExercise 8\n\n\n\n\n\n\nInterpret the slope in the context of the data.\n\n\n\n[Add your answer here]\n\n\nExercise 9\n\n\n\n\n\n\nInterpret the intercept in the context of the data.\n\n\n\n[Add your answer here]\n\n\nExercise 10\n\n\n\n\n\n\nSuppose you work for a bike share company in Boise, ID, and they want to predict daily bike rentals in 2024. What is one reason you might recommend they use your analysis for this task? What is one reason you would recommend they not use your analysis for this task?\n\n\n\n[Add your answer here]\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-03- repo on GitHub. (You do not submit AEs on Gradescope)."
   }
 ]

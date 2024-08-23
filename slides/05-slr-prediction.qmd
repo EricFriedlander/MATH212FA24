@@ -1,0 +1,255 @@
+---
+title: "Simple Linear Regression"
+subtitle: "Prediction + Using R"
+author: "Prof. Eric Friedlander"
+date: "2024-08-30"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+## Last Time
+
+::: {.incremental style="font-size: 0.85em"}
+-   Used simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.
+
+-   Used the least squares method to estimate the slope and intercept.
+
+-   Interpreted the slope and intercept.
+
+    -   **Slope**: For every one unit increase in $x$, we expect y to change by $\hat{\beta}_1$ units, on average.
+    -   **Intercept**: If $x$ is 0, then we expect $y$ to be $\hat{\beta}_0$ units
+:::
+
+
+## Topics
+
+-   Predict the response given a value of the predictor variable.
+
+-   Use R to fit and summarize regression models.
+
+## Computation set up {.smaller}
+
+```{r}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)       # for data wrangling
+library(ggformula)       # for plotting
+library(fivethirtyeight) # for the fandango dataset
+library(broom)           # for formatting model output
+library(knitr)           # for formatting tables
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
+
+# set default figure parameters for knitr
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.asp = 0.618,
+  fig.retina = 3,
+  dpi = 300,
+  out.width = "80%"
+)
+```
+
+
+# Data
+
+## Movie scores
+
+::: columns
+::: {.column width="70%"}
+-   Data behind the FiveThirtyEight story [*Be Suspicious Of Online Movie Ratings*](https://fivethirtyeight.com/features/fandango-movies-ratings/)[*, Especially Fandango's*](%22Be%20Suspicious%20Of%20Online%20Movie%20Ratings,%20Especially%20Fandango's%22)
+-   In the **fivethirtyeight** package: [`fandango`](https://fivethirtyeight-r.netlify.app/reference/fandango.html)
+-   Contains every film released in 2014 and 2015 that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores
+:::
+
+::: {.column width="30%"}
+![](images/02/fandango.png){fig-alt="Fandango logo" width="200"}
+
+![](images/02/imdb.png){fig-alt="IMDB logo" width="200"}
+
+![](images/02/rotten-tomatoes.png){fig-alt="Rotten Tomatoes logo" width="200"}
+
+![](images/02/metacritic.png){fig-alt="Metacritic logo" width="200"}
+:::
+:::
+
+## Data prep
+
+-   Rename Rotten Tomatoes columns as `critics` and `audience`
+-   Rename the dataset as `movie_scores`
+
+```{r data-prep}
+#| echo: true
+movie_scores <- fandango |>
+  rename(critics = rottentomatoes, 
+         audience = rottentomatoes_user)
+```
+
+
+## Movie scores data
+
+The data set contains the "Tomatometer" score (**`critics`**) and audience score (**`audience`**) for 146 movies rated on rottentomatoes.com.
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| fig-align: center
+
+movie_scores |> 
+gf_point(audience ~ critics, alpha = 0.5) + 
+  labs(x = "Critics Score" , 
+       y = "Audience Score")
+```
+
+## Movie ratings data
+
+**Goal**: Fit a line to describe the relationship between the critics score and audience score.
+
+```{r}
+#| echo: false
+#| fig-align: center
+p <- ggplot(data = movie_scores, mapping = aes(x = critics, y = audience)) +
+  geom_point(alpha = 0.5) + 
+  geom_smooth(method = "lm", color = "red", se = FALSE) +
+  labs(x = "Critics Score" , 
+       y = "Audience Score")
+
+p
+```
+
+
+# Prediction
+
+## Recall: Our Model
+
+```{=tex}
+\begin{aligned}
+\widehat{Y} &= 32.3142 + 0.5187 \times X\\
+
+\widehat{\text{audience}} &= 32.3142 + 0.5187 \times \text{critics}
+\end{aligned}
+```
+
+## Making a prediction
+
+Suppose that a movie has a critics score of 70. According to this model, what is the movie's predicted audience score?
+
+```{=tex}
+\begin{aligned}
+\widehat{\text{audience}} &= 32.3142 + 0.5187 \times \text{critics} \\
+&= 32.3142 + 0.5187 \times 70 \\
+&= 68.6232
+\end{aligned}
+```
+
+# Fitting the model
+
+## Fit model & estimate parameters
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|1"
+
+movie_fit <- lm(audience ~ critics, data = movie_scores)
+movie_fit
+```
+
+## Look at the regression output
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|2"
+
+movie_fit <- lm(audience ~ critics, data = movie_scores)
+movie_fit
+```
+
+
+$$\widehat{\text{audience}} = 32.3155 + 0.5187 \times \text{critics}$$
+
+. . .
+
+::: smallest
+**Note:** The intercept is off by a tiny bit from the hand-calculated intercept, this is just due to rounding in the hand calculation.
+:::
+
+## The regression output
+
+We'll focus on the first column for now...
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|2"
+
+movie_fit |> 
+  tidy() 
+```
+
+## Format output with `kable`
+
+Use the `kable` function from the [knitr](https://yihui.org/knitr/) package to produce a table and specify number of significant digits
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|3"
+
+movie_fit |> 
+  tidy() |>
+  kable(digits = 4)
+```
+
+## Visualize Model
+
+```{r}
+#| echo: true
+
+movie_scores |> 
+  gf_point(audience ~ critics) |> 
+  gf_lm()
+```
+
+## Prediction
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|2|5"
+
+# create a data frame for a new movie
+new_movie <- tibble(critics = 70)
+
+# predict the outcome for a new movie
+predict(movie_fit, new_movie)
+```
+
+# Wrap up
+
+## Recap
+
+::: {.incremental style="font-size: 0.85em"}
+-   Predicted the response given a value of the predictor variable.
+
+-   Used `lm` and the `broom` package to fit and summarize regression models in R.
+:::
