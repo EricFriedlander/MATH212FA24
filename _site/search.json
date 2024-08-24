@@ -5027,7 +5027,7 @@
     "href": "ae/ae-01-movies.html",
     "title": "AE 01: Movie Budgets and Revenues",
     "section": "",
-    "text": "Important\n\n\n\nFor this AE, you will discuss the questions in groups and submit answers on Canvas. This AE does not count towards the Application Exercise grade.\nWe will look at the relationship between budget and revenue for movies made in the United States in 1986 to 2020. The dataset is created based on data from the Internet Movie Database (IMDB).\n# library(readr)\nlibrary(tidyverse)\nlibrary(ggformula)"
+    "text": "Important\n\n\n\nFor this AE, you will discuss the questions in groups and submit answers on Canvas. This AE does not count towards the Application Exercise grade.\nWe will look at the relationship between budget and revenue for movies made in the United States in 1986 to 2020. The dataset is created based on data from the Internet Movie Database (IMDB).\nlibrary(tidyverse)\nlibrary(ggformula)"
   },
   {
     "objectID": "ae/ae-01-movies.html#data",
@@ -5041,7 +5041,7 @@
     "href": "ae/ae-01-movies.html#analysis",
     "title": "AE 01: Movie Budgets and Revenues",
     "section": "Analysis",
-    "text": "Analysis\nWe begin by looking at how the average gross revenue (gross) has changed over time. Since we want to visualize the results, we will choose a few genres of interest for the analysis.\n\ngenre_list &lt;- c(\"Comedy\", \"Action\", \"Animation\", \"Horror\")\n\n\nmovies |&gt;\n  filter(genre %in% genre_list) |&gt; \n  group_by(genre,year) |&gt;\n  summarise(avg_gross = mean(gross)) |&gt;\n  gf_point(avg_gross ~ year, color = ~genre) |&gt;\n  gf_line() |&gt; \n  gf_labs(y = \"Average Gross Revenue (in US Dollars)\",\n    title = \"Gross Revenue Over Time\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat do you observe from the plot?\n\n\n\nNext, let’s see the relationship between a movie’s budget and its gross revenue.\n\nmovies |&gt;\n  filter(genre %in% genre_list, budget &gt; 0) |&gt; \n  gf_point(log(gross) ~ log(budget), color = ~genre) |&gt; \n  gf_lm(se=FALSE) |&gt;  \n  gf_labs(x = \"Log-transformed Budget\",\n  y = \"Log-transformed Gross Revenue\") |&gt; \n  gf_facet_wrap(~ genre)"
+    "text": "Analysis\nWe begin by looking at how the average gross revenue (gross) has changed over time. Since we want to visualize the results, we will choose a few genres of interest for the analysis.\n\ngenre_list &lt;- c(\"Comedy\", \"Action\", \"Animation\", \"Horror\")\n\n\nmovies |&gt;\n  filter(genre %in% genre_list) |&gt; \n  group_by(genre,year) |&gt;\n  summarise(avg_gross = mean(gross)) |&gt;\n  gf_point(avg_gross ~ year, color = ~genre) |&gt;\n  gf_line() |&gt; \n  gf_labs(y = \"Average Gross Revenue (in US Dollars)\",\n    title = \"Gross Revenue Over Time\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat do you observe from the plot?\n\n\n\nNext, let’s see the relationship between a movie’s budget and its gross revenue.\n\nmovies |&gt;\n  filter(genre %in% genre_list, budget &gt; 0) |&gt; \n  gf_point(log(gross) ~ log(budget) | genre, color = ~genre) |&gt; \n  gf_lm(se=FALSE) |&gt;  \n  gf_labs(x = \"Log-transformed Budget\",\n  y = \"Log-transformed Gross Revenue\")"
   },
   {
     "objectID": "ae/ae-01-movies.html#exercises",
