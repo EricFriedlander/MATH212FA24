@@ -8,7 +8,7 @@ editor: visual
 ::: callout-important
 Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/180578) and locate the `AE-2` assignment. That link should take you directly there.
 
-The  are due in your GitHub repo no later than Saturday, September 9 at 11:59pm.
+The .qmd and .html files form this assignment are due in your GitHub repo no later than Tuesday, September 2 at 11:59pm.
 :::
 
 ```{r load-packages}
@@ -152,6 +152,6 @@ Suppose you work for a bike share company in Boise, ID, and they want to predict
 ::: callout-important
 To submit the AE:
 
--   Render the document to produce the PDF with all of your work from today's class.
--   Push all your work to your `ae-03-` repo on GitHub. (You do not submit AEs on Gradescope).
+-   Render the document to produce the HTML with all of your work from today's class.
+-   The driver for your group should upload your .qmd and .html files to the Canvas assignment.
 :::
