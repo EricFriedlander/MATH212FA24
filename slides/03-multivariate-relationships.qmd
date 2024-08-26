@@ -29,6 +29,8 @@ bibliography: references.bib
 library(tidyverse)
 library(patchwork)
 library(broom)
+library(palmerpenguins)
+library(ggformula)
 
 knitr::opts_chunk$set(
   fig.width = 8,
@@ -45,6 +47,13 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 
 ```
 
+## Announcements
+
+- Due Wednesday:
+    - HW 0 (3 .qmd, 3 .html, 6 files total uploaded to Canvas)
+    - Read Chapter 1.1 of text (see webstie for optional additional reading)
+- Other Stuff:
+    - Tuesday (tomorrow) office hours rescheduled to 12:30-1:30pm
 
 # Questions from last class?
 
@@ -208,6 +217,59 @@ ggplot(data = starbucks, aes(x = calories, y = carb, color = bakery)) +
 ```
 
 $${\small \text{carb} = \beta_0 + \beta_1 ~\text{calories} + \beta_2 ~\text{bakery} + \beta_3 ~ \text{calories} \times \text{bakery}  + \epsilon}$$
+
+# Simpson's Paradox
+
+## Example: Palmer's Penguins
+
+Size measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica.
+
+![](images/culmen_depth.png)
+
+## Example: Palmer's Penguins
+
+```{r}
+#| echo: FALSE
+
+penguins |> 
+  gf_point(bill_depth_mm ~ bill_length_mm) |> 
+  gf_lm() |> 
+  gf_labs( x= "Bill Length (mm)",
+           y = "Bill Depth (mm)")
+```
+
+:::{.question}
+What does the relationship between Length and Depth look like?
+:::
+
+## Example: Palmer's Penguins
+
+```{r}
+#| echo: FALSE
+
+model <- lm(bill_depth_mm ~ bill_length_mm + species, data = penguins) |> tidy()
+
+penguins |> 
+  gf_point(bill_depth_mm ~ bill_length_mm, color = ~species) |> 
+  gf_abline(slope = model$estimate[2], intercept = model$estimate[1], color = "#1B9E77") |> 
+  gf_abline(slope = model$estimate[2], intercept = model$estimate[1] + model$estimate[3], color = "#7570B3") |> 
+  gf_abline(slope = model$estimate[2], intercept = model$estimate[1] + model$estimate[4], color = "#d53a19") |> 
+  gf_labs(x= "Bill Length (mm)",
+           y = "Bill Depth (mm)") |> 
+  gf_refine(
+  scale_color_manual(values=c("#1B9E77", "#7570B3", "#d53a19"))
+  )
+```
+
+
+
+:::{.question}
+What does the relationship between Length and Depth look like now?
+:::
+
+## Simpson's Paradox
+
+Simpson's Paradox is when there is a clear relationship between two varibles but when you introduce a third variable that relationship disappears of reverses.
 
 ## Statistical model vs. regression equation {.midi}
 

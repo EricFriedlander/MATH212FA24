@@ -11914,5 +11914,47 @@
     "title": "AE 02: Bike rentals in Washington, DC",
     "section": "Exercises",
     "text": "Exercises\n\nExercise 1\nBelow are visualizations of the distributions of daily bike rentals and temperature as well as the relationship between these two variables.\n\np1 &lt;- gf_histogram(~ count, data = bikeshare, binwidth = 250) |&gt; \n  gf_labs(x = \"Daily bike rentals\")\n\np2 &lt;- gf_histogram(~temp_orig, data = bikeshare) |&gt;  \n  gf_labs(x = \"Temperature (Celsius)\")\n\np3 &lt;- gf_point(count ~ temp_orig, data = bikeshare) |&gt; \n  gf_labs(x = \"Temperature (Celsius)\", \n       y = \"Daily bike rentals\")\n\n(p1 | p2) / p3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThere appears to be one day with a very small number of bike rentals. What was the day? Why were the number of bike rentals so low on that day? Hint: You can Google the date to figure out what was going on that day.\n\n\n\n[Add your answer here]\n\n\nExercise 2\n\n\n\n\n\n\nIn the raw data, seasons are coded as 1, 2, 3, 4 as numerical values, corresponding to winter, spring, summer, and fall respectively. Recode the season variable to make it a categorical variable (a factor) with levels corresponding to season names, making sure that the levels appear in a reasonable order in the variable (i.e., not alphabetical).\n\n\n\n\n# add code developed during livecoding here\n\n\n\nExercise 3\n\n\n\n\n\n\nWe want to evaluate whether the relationship between temperature and daily bike rentals is the same for each season. To answer this question, first create a scatter plot of daily bike rentals vs. temperature faceted by season.\n\n\n\n\n# add code developed during livecoding here\n\n\n\nExercise 4\n\n\n\n\n\n\n\nWhich season appears to have the strongest relationship between temperature and daily bike rentals? Why do you think the relationship is strongest in this season?\nWhich season appears to have the weakest relationship between temperature and daily bike rentals? Why do you think the relationship is weakest in this season?\n\n\n\n\n[Add your answer here]\n\n\nExercise 5\n\n\n\n\n\n\nFilter your data for the season with the strongest apparent relationship between temperature and daily bike rentals.\n\n\n\n\n# add code developed during livecoding here\n\n\n\nExercise 6\n\n\n\n\n\n\nUsing the subset of the data from Exercise 5, fit a linear model for predicting daily bike rentals from temperature for this season.\n\n\n\n\n# add code developed during livecoding here\n\n\n\nExercise 7\n\n\n\n\n\n\nUse the output to write out the estimated regression equation.\n\n\n\n[Add your answer here]\n\n\nExercise 8\n\n\n\n\n\n\nInterpret the slope in the context of the data.\n\n\n\n[Add your answer here]\n\n\nExercise 9\n\n\n\n\n\n\nInterpret the intercept in the context of the data.\n\n\n\n[Add your answer here]\n\n\nExercise 10\n\n\n\n\n\n\nSuppose you work for a bike share company in Boise, ID, and they want to predict daily bike rentals in 2024. What is one reason you might recommend they use your analysis for this task? What is one reason you would recommend they not use your analysis for this task?\n\n\n\n[Add your answer here]\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the HTML with all of your work from today’s class.\nThe driver for your group should upload your .qmd and .html files to the Canvas assignment."
+  },
+  {
+    "objectID": "slides/03-multivariate-relationships.html#announcements",
+    "href": "slides/03-multivariate-relationships.html#announcements",
+    "title": "Analyzing Multivariable Relationships",
+    "section": "Announcements",
+    "text": "Announcements\n\nDue Wednesday:\n\nHW 0 (3 .qmd, 3 .html, 6 files total uploaded to Canvas)\nRead Chapter 1.1 of text (see webstie for optional additional reading)\n\nOther Stuff:\n\nTuesday (tomorrow) office hours rescheduled to 12:30-1:30pm"
+  },
+  {
+    "objectID": "slides/03-multivariate-relationships.html#example-palmers-penguins",
+    "href": "slides/03-multivariate-relationships.html#example-palmers-penguins",
+    "title": "Analyzing Multivariable Relationships",
+    "section": "Example: Palmer’s Penguins",
+    "text": "Example: Palmer’s Penguins\nSize measurements, clutch observations, and blood isotope ratios for adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica."
+  },
+  {
+    "objectID": "slides/03-multivariate-relationships.html#example-palmers-penguins-1",
+    "href": "slides/03-multivariate-relationships.html#example-palmers-penguins-1",
+    "title": "Analyzing Multivariable Relationships",
+    "section": "Example: Palmer’s Penguins",
+    "text": "Example: Palmer’s Penguins\n\n\nWhat does the relationship between Length and Depth look like?"
+  },
+  {
+    "objectID": "slides/03-multivariate-relationships.html#example-palmers-penguins-2",
+    "href": "slides/03-multivariate-relationships.html#example-palmers-penguins-2",
+    "title": "Analyzing Multivariable Relationships",
+    "section": "Example: Palmer’s Penguins",
+    "text": "Example: Palmer’s Penguins\n\n\nWhat does the relationship between Length and Depth look like now?"
+  },
+  {
+    "objectID": "slides/03-multivariate-relationships.html#simpsons-paradox",
+    "href": "slides/03-multivariate-relationships.html#simpsons-paradox",
+    "title": "Analyzing Multivariable Relationships",
+    "section": "Simpson’s Paradox",
+    "text": "Simpson’s Paradox\nSimpson’s Paradox is when there is a clear relationship between two varibles but when you introduce a third variable that relationship disappears of reverses."
+  },
+  {
+    "objectID": "slides/03-multivariate-relationships.html#simpsons-paradox-1",
+    "href": "slides/03-multivariate-relationships.html#simpsons-paradox-1",
+    "title": "Analyzing Multivariable Relationships",
+    "section": "Simpson’s Paradox",
+    "text": "Simpson’s Paradox\nSimpson’s Paradox is when there is a clear relationship between two varibles but when you introduce a third variable that relationship disappears of reverses."
   }
 ]
