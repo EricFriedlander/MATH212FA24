@@ -404,61 +404,86 @@ Prof.&nbsp;Eric Friedlander
 </div>
 </div>
 
-  <p class="date">Aug 28, 2024</p>
+  <p class="date">Sep 04, 2024</p>
 </section>
-<section class="slide level2">
+<section>
+<section id="ae-02-follow-up" class="title-slide slide level1 center">
+<h1>AE 02 Follow-up</h1>
 
-<!-- # AE 03 Follow-up -->
-<!-- ## AE 03 Follow-up {.midi} -->
-<!-- **Goal:** Use simple linear regression to model the relationship between temperature and daily bike rentals in the **winter** season -->
-<!-- ```{r} -->
-<!-- #| include: false -->
-<!-- winter <- read_csv("../ae/data/dcbikeshare.csv") |> -->
-<!--   mutate(season = case_when( -->
-<!--     season == 1 ~ "winter",  -->
-<!--     season == 2 ~ "spring",  -->
-<!--     season == 3 ~ "summer",  -->
-<!--     season == 4 ~ "fall" -->
-<!--   ),  -->
-<!--   season = factor(season)) |> -->
-<!--   filter(season == "winter") -->
-<!-- ``` -->
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- #| eval: true -->
-<!-- #| out-width: "65%" -->
-<!-- ggplot(data = winter, aes(x = temp_orig, y = count)) +  -->
-<!--   geom_point() +  -->
-<!--   labs(x = "Temperature in Celsius",  -->
-<!--        y = "Daily bike rentals",  -->
-<!--        title = "Capital Bikeshare daily bike rentals vs. temperature",  -->
-<!--        subtitle = "in winter months") -->
-<!-- ``` -->
-<!-- ## AE 03 Follow-up -->
-<!-- **Statistical Model**: -->
-<!-- $$count = \beta_0 +\beta_1 ~ temp\_orig + \epsilon, \hspace{5mm} \epsilon \sim N(0, \sigma_{\epsilon}^2)$$ -->
-<!-- . . . -->
-<!-- ```{r} -->
-<!-- winter_fit <- linear_reg() |> -->
-<!--   set_engine("lm") |> -->
-<!--   fit(count ~ temp_orig, data = winter) -->
-<!-- tidy(winter_fit) |> kable(digits = 3) -->
-<!-- ``` -->
-<!-- ## AE 03 Follow-up -->
-<!-- Use the output to write out the estimated regression equation. -->
-<!-- $$ -->
-<!-- \hat{count} =  -111.038 + 222.416 ~temp\_orig -->
-<!-- $$ -->
-<!-- ::: aside -->
-<!-- LaTex: -->
-<!-- \\\$\\\$\\hat{count} = -111.038 + 222.416 \~ temp\\\_orig\\\$\\\$ -->
-<!-- ::: -->
-<!-- ::: callout-note -->
-<!-- ## Your turn! -->
-<!-- -   Interpret the slope in the context of the data. -->
-<!-- -   Why is there no error term in the regression equation? -->
-<!-- ::: -->
 </section>
+<section id="ae-02-follow-up-1" class="slide level2 midi">
+<h2>AE 02 Follow-up</h2>
+<p><strong>Goal:</strong> Use simple linear regression to model the relationship between temperature and daily bike rentals in the <strong>winter</strong> season</p>
+
+<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-2-1.png" style="width:65.0%" class="r-stretch"></section>
+<section id="ae-02-follow-up-2" class="slide level2">
+<h2>AE 02 Follow-up</h2>
+<p><strong>Statistical Model</strong>:</p>
+<p><span class="math display">\[count = \beta_0 +\beta_1 ~ temp\_orig + \epsilon, \hspace{5mm} \epsilon \sim N(0, \sigma_{\epsilon}^2)\]</span></p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>winter_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(count <span class="sc">~</span> temp_orig, <span class="at">data =</span> winter)</span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a><span class="fu">tidy</span>(winter_fit) <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-111.038</td>
+<td style="text-align: right;">238.312</td>
+<td style="text-align: right;">-0.466</td>
+<td style="text-align: right;">0.642</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">temp_orig</td>
+<td style="text-align: right;">222.416</td>
+<td style="text-align: right;">18.459</td>
+<td style="text-align: right;">12.049</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="ae-02-follow-up-3" class="slide level2">
+<h2>AE 02 Follow-up</h2>
+<p>Use the output to write out the estimated regression equation.</p>
+<p><span class="math display">\[
+\hat{count} =  -111.038 + 222.416 ~temp\_orig
+\]</span></p>
+
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Your turn!</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Interpret the slope in the context of the data.</p></li>
+<li><p>Why is there no error term in the regression equation?</p></li>
+</ul>
+</div>
+</div>
+</div>
+<aside><div>
+<p>LaTex:</p>
+<p>\$\$\hat{count} = -111.038 + 222.416 ~ temp\_orig\$\$</p>
+</div></aside></section></section>
 <section>
 <section id="simulation-based-inference" class="title-slide slide level1 center">
 <h1>Simulation-based inference</h1>
@@ -472,19 +497,18 @@ Prof.&nbsp;Eric Friedlander
 </section>
 <section id="computational-setup" class="slide level2">
 <h2>Computational setup</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load packages</span></span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)   <span class="co"># for data wrangling and visualization</span></span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(ggformula)  <span class="co"># for modeling</span></span>
-<span id="cb1-4"><a></a><span class="fu">library</span>(openintro)   <span class="co"># for Duke Forest dataset</span></span>
-<span id="cb1-5"><a></a><span class="fu">library</span>(scales)      <span class="co"># for pretty axis labels</span></span>
-<span id="cb1-6"><a></a><span class="fu">library</span>(glue)        <span class="co"># for constructing character strings</span></span>
-<span id="cb1-7"><a></a><span class="fu">library</span>(knitr)       <span class="co"># for neatly formatted tables</span></span>
-<span id="cb1-8"><a></a><span class="fu">library</span>(kableExtra)  <span class="co"># also for neatly formatted tablesf</span></span>
-<span id="cb1-9"><a></a></span>
-<span id="cb1-10"><a></a></span>
-<span id="cb1-11"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
-<span id="cb1-12"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># load packages</span></span>
+<span id="cb2-2"><a></a><span class="fu">library</span>(tidyverse)   <span class="co"># for data wrangling and visualization</span></span>
+<span id="cb2-3"><a></a><span class="fu">library</span>(ggformula)  <span class="co"># for modeling</span></span>
+<span id="cb2-4"><a></a><span class="fu">library</span>(scales)      <span class="co"># for pretty axis labels</span></span>
+<span id="cb2-5"><a></a><span class="co"># library(glue)        # for constructing character strings</span></span>
+<span id="cb2-6"><a></a><span class="fu">library</span>(knitr)       <span class="co"># for neatly formatted tables</span></span>
+<span id="cb2-7"><a></a><span class="fu">library</span>(kableExtra)  <span class="co"># also for neatly formatted tablesf</span></span>
+<span id="cb2-8"><a></a></span>
+<span id="cb2-9"><a></a></span>
+<span id="cb2-10"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
+<span id="cb2-11"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-san-antonio-income-organic-food-access" class="slide level2">
@@ -504,29 +528,29 @@ Prof.&nbsp;Eric Friedlander
 </section>
 <section id="exploratory-data-analysis" class="slide level2">
 <h2>Exploratory data analysis</h2>
-<div class="cell" data-layout-align="center">
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>heb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/HEBIncome.csv"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb2-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Avg_Income_K =</span> Avg_Household_Income<span class="sc">/</span><span class="dv">1000</span>)</span>
-<span id="cb2-3"><a></a></span>
-<span id="cb2-4"><a></a><span class="fu">gf_point</span>(Number_Organic <span class="sc">~</span> Avg_Income_K, <span class="at">data =</span> heb, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb2-5"><a></a>  <span class="fu">gf_labs</span>(</span>
-<span id="cb2-6"><a></a>    <span class="at">x =</span> <span class="st">"Average Household Income (in thousands)"</span>,</span>
-<span id="cb2-7"><a></a>    <span class="at">y =</span> <span class="st">"Number of Organic Vegetables"</span>,</span>
-<span id="cb2-8"><a></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb2-9"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>heb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/HEBIncome.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Avg_Income_K =</span> Avg_Household_Income<span class="sc">/</span><span class="dv">1000</span>)</span>
+<span id="cb3-3"><a></a></span>
+<span id="cb3-4"><a></a><span class="fu">gf_point</span>(Number_Organic <span class="sc">~</span> Avg_Income_K, <span class="at">data =</span> heb, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-5"><a></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb3-6"><a></a>    <span class="at">x =</span> <span class="st">"Average Household Income (in thousands)"</span>,</span>
+<span id="cb3-7"><a></a>    <span class="at">y =</span> <span class="st">"Number of Organic Vegetables"</span>,</span>
+<span id="cb3-8"><a></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb3-9"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
 <section id="modeling" class="slide level2 midi">
 <h2>Modeling</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>heb_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Number_Organic <span class="sc">~</span> Avg_Income_K, <span class="at">data =</span> heb)</span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a><span class="fu">tidy</span>(heb_fit) <span class="sc">|&gt;</span></span>
-<span id="cb3-4"><a></a>  <span class="fu">kable</span>(<span class="at">digits=</span><span class="dv">2</span>) <span class="co">#neatly format table to 2 digits</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>heb_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Number_Organic <span class="sc">~</span> Avg_Income_K, <span class="at">data =</span> heb)</span>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a><span class="fu">tidy</span>(heb_fit) <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a></a>  <span class="fu">kable</span>(<span class="at">digits=</span><span class="dv">2</span>) <span class="co">#neatly format table to 2 digits</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top">
 <thead>
@@ -596,6 +620,14 @@ Prof.&nbsp;Eric Friedlander
 <li class="fragment"><p>We can but it isn’t super interesting typically</p></li>
 </ul>
 </div>
+<div class="fragment">
+<div class="question">
+<ul>
+<li><p>What is a confidence interval?</p></li>
+<li><p>What is a hypothesis test?</p></li>
+</ul>
+</div>
+</div>
 </section></section>
 <section>
 <section id="confidence-interval-for-the-slope" class="title-slide slide level1 center">
@@ -607,7 +639,8 @@ Prof.&nbsp;Eric Friedlander
 <div>
 <ul>
 <li class="fragment"><strong>Confidence interval</strong>: plausible range of values for a population parameter</li>
-<li class="fragment">single point estimate <span class="math inline">\(\implies\)</span> fishing in a murky lake with a spear, confidence interval <span class="math inline">\(\implies\)</span> fishing with a net
+<li class="fragment">single point estimate <span class="math inline">\(\implies\)</span> fishing in a murky lake with a spear</li>
+<li class="fragment">confidence interval <span class="math inline">\(\implies\)</span> fishing with a net
 <ul>
 <li class="fragment">We can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish</li>
 <li class="fragment">If we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter</li>
@@ -655,60 +688,60 @@ Prof.&nbsp;Eric Friedlander
 <h2>Original Sample</h2>
 <!-- Fix the scales for these slides, so the difference in slopes is easier to see-->
 
-<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-8-1.png" style="width:100.0%" class="r-stretch"></section>
 <section id="bootstrap-sample-1" class="slide level2">
 <h2>Bootstrap sample 1</h2>
 
-<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-9-1.png" style="width:100.0%" class="r-stretch"></section>
 <section id="bootstrap-sample-2" class="slide level2">
 <h2>Bootstrap sample 2</h2>
 
-<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-10-1.png" style="width:100.0%" class="r-stretch"></section>
 <section id="bootstrap-sample-3" class="slide level2">
 <h2>Bootstrap sample 3</h2>
 
-<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-11-1.png" style="width:100.0%" class="r-stretch"></section>
 <section id="bootstrap-sample-4" class="slide level2">
 <h2>Bootstrap sample 4</h2>
 
-<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-12-1.png" style="width:100.0%" class="r-stretch"></section>
 <section id="bootstrap-sample-5" class="slide level2">
 <h2>Bootstrap sample 5</h2>
 
-<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-13-1.png" style="width:100.0%" class="r-stretch"></section>
 <section id="bootstrap-samples-1---5" class="slide level2">
 <h2>Bootstrap samples 1 - 5</h2>
 
-<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-14-1.png" style="width:100.0%" class="r-stretch"></section>
 <section id="bootstrap-samples-1---100" class="slide level2">
 <h2>Bootstrap samples 1 - 100</h2>
 
-<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-15-1.png" style="width:100.0%" class="r-stretch"></section>
 <section id="slopes-of-bootstrap-samples" class="slide level2">
 <h2>Slopes of bootstrap samples</h2>
 <div class="question">
 <p><strong>Fill in the blank:</strong> For each additional $1k in average household income, the model predicts the number of organic vegetables available to be higher, on average, by 0.96, plus or minus ___.</p>
 </div>
 
-<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
 <section id="slopes-of-bootstrap-samples-1" class="slide level2">
 <h2>Slopes of bootstrap samples</h2>
 <div class="question">
 <p><strong>Fill in the blank:</strong> For each additional $1k in average household income, the model predicts the number of organic vegetables available to be higher, on average, by 0.96, plus or minus ___.</p>
 </div>
 
-<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
 <section id="confidence-level" class="slide level2">
 <h2>Confidence level</h2>
 <div class="question">
 <p>How confident are you that the true slope is between 0.8 and 1.2? How about 0.9 and 1.0? How about 1.0 and 1.4?</p>
 </div>
 
-<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
 <section id="confidence-interval-1" class="slide level2 smaller">
 <h2>95% confidence interval</h2>
 
-<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><div>
+<img data-src="04-slr-bootstrap_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><div>
 <ul>
 <li class="fragment"><strong>95% bootstrapped confidence interval</strong>: bounded by the middle 95% of the bootstrap distribution</li>
 <li class="fragment">We are 95% confident that for each additional $1K in average household income, the model predicts the number of organic vegetables options at local supermarkets to be higher, on average, by 0.81 to 1.31.</li>
@@ -722,14 +755,14 @@ Prof.&nbsp;Eric Friedlander
 <section id="computing-the-ci-for-the-slope-i" class="slide level2">
 <h2>Computing the CI for the slope I</h2>
 <p>Calculate the observed slope:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(infer) <span class="co"># package that does Simulation-Based Inference</span></span>
-<span id="cb4-2"><a></a></span>
-<span id="cb4-3"><a></a>observed_fit <span class="ot">&lt;-</span> heb <span class="sc">|&gt;</span></span>
-<span id="cb4-4"><a></a>  <span class="fu">specify</span>(Number_Organic <span class="sc">~</span> Avg_Income_K) <span class="sc">|&gt;</span></span>
-<span id="cb4-5"><a></a>  <span class="fu">fit</span>()</span>
-<span id="cb4-6"><a></a></span>
-<span id="cb4-7"><a></a>observed_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(infer) <span class="co"># package that does Simulation-Based Inference</span></span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a>observed_fit <span class="ot">&lt;-</span> heb <span class="sc">|&gt;</span></span>
+<span id="cb5-4"><a></a>  <span class="fu">specify</span>(Number_Organic <span class="sc">~</span> Avg_Income_K) <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a></a>  <span class="fu">fit</span>()</span>
+<span id="cb5-6"><a></a></span>
+<span id="cb5-7"><a></a>observed_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   term         estimate
@@ -742,15 +775,15 @@ Prof.&nbsp;Eric Friedlander
 <section id="computing-the-ci-for-the-slope-ii" class="slide level2 smaller">
 <h2>Computing the CI for the slope II</h2>
 <p>Take <code>100</code> bootstrap samples and fit models to each one:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="1,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1120</span>)</span>
-<span id="cb6-2"><a></a></span>
-<span id="cb6-3"><a></a>boot_fits <span class="ot">&lt;-</span> heb <span class="sc">|&gt;</span></span>
-<span id="cb6-4"><a></a>  <span class="fu">specify</span>(Number_Organic <span class="sc">~</span> Avg_Income_K) <span class="sc">|&gt;</span></span>
-<span id="cb6-5"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">100</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb6-6"><a></a>  <span class="fu">fit</span>()</span>
-<span id="cb6-7"><a></a></span>
-<span id="cb6-8"><a></a>boot_fits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|1,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1120</span>)</span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a>boot_fits <span class="ot">&lt;-</span> heb <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a></a>  <span class="fu">specify</span>(Number_Organic <span class="sc">~</span> Avg_Income_K) <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">100</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-6"><a></a>  <span class="fu">fit</span>()</span>
+<span id="cb7-7"><a></a></span>
+<span id="cb7-8"><a></a>boot_fits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 200 × 3
 # Groups:   replicate [100]
@@ -773,13 +806,13 @@ Prof.&nbsp;Eric Friedlander
 <section id="computing-the-ci-for-the-slope-iii" class="slide level2">
 <h2>Computing the CI for the slope III</h2>
 <p><strong>Percentile method:</strong> Compute the 95% CI as the middle 95% of the bootstrap distribution:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">get_confidence_interval</span>(</span>
-<span id="cb8-2"><a></a>  boot_fits, </span>
-<span id="cb8-3"><a></a>  <span class="at">point_estimate =</span> observed_fit, </span>
-<span id="cb8-4"><a></a>  <span class="at">level =</span> <span class="fl">0.95</span>,</span>
-<span id="cb8-5"><a></a>  <span class="at">type =</span> <span class="st">"percentile"</span> <span class="co">#default method</span></span>
-<span id="cb8-6"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">get_confidence_interval</span>(</span>
+<span id="cb9-2"><a></a>  boot_fits, </span>
+<span id="cb9-3"><a></a>  <span class="at">point_estimate =</span> observed_fit, </span>
+<span id="cb9-4"><a></a>  <span class="at">level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb9-5"><a></a>  <span class="at">type =</span> <span class="st">"percentile"</span> <span class="co">#default method</span></span>
+<span id="cb9-6"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   term         lower_ci upper_ci
@@ -809,13 +842,13 @@ Prof.&nbsp;Eric Friedlander
 <div class="question">
 <p>How would you modify the following code to calculate a 90% confidence interval? How would you modify it for a 99% confidence interval?</p>
 </div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">get_confidence_interval</span>(</span>
-<span id="cb10-2"><a></a>  boot_fits, </span>
-<span id="cb10-3"><a></a>  <span class="at">point_estimate =</span> observed_fit, </span>
-<span id="cb10-4"><a></a>  <span class="at">level =</span> <span class="fl">0.95</span>,</span>
-<span id="cb10-5"><a></a>  <span class="at">type =</span> <span class="st">"percentile"</span></span>
-<span id="cb10-6"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">get_confidence_interval</span>(</span>
+<span id="cb11-2"><a></a>  boot_fits, </span>
+<span id="cb11-3"><a></a>  <span class="at">point_estimate =</span> observed_fit, </span>
+<span id="cb11-4"><a></a>  <span class="at">level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb11-5"><a></a>  <span class="at">type =</span> <span class="st">"percentile"</span></span>
+<span id="cb11-6"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   term         lower_ci upper_ci
@@ -827,12 +860,12 @@ Prof.&nbsp;Eric Friedlander
 </section>
 <section id="changing-confidence-level-1" class="slide level2 midi">
 <h2>Changing confidence level</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="do">## confidence level: 90%</span></span>
-<span id="cb12-2"><a></a><span class="fu">get_confidence_interval</span>(</span>
-<span id="cb12-3"><a></a>  boot_fits, <span class="at">point_estimate =</span> observed_fit, </span>
-<span id="cb12-4"><a></a>  <span class="at">level =</span> <span class="fl">0.90</span>, <span class="at">type =</span> <span class="st">"percentile"</span></span>
-<span id="cb12-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="do">## confidence level: 90%</span></span>
+<span id="cb13-2"><a></a><span class="fu">get_confidence_interval</span>(</span>
+<span id="cb13-3"><a></a>  boot_fits, <span class="at">point_estimate =</span> observed_fit, </span>
+<span id="cb13-4"><a></a>  <span class="at">level =</span> <span class="fl">0.90</span>, <span class="at">type =</span> <span class="st">"percentile"</span></span>
+<span id="cb13-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   term         lower_ci upper_ci
@@ -840,11 +873,11 @@ Prof.&nbsp;Eric Friedlander
 1 Avg_Income_K    0.829     1.23
 2 intercept     -31.7      -3.76</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="do">## confidence level: 99%</span></span>
-<span id="cb14-2"><a></a><span class="fu">get_confidence_interval</span>(</span>
-<span id="cb14-3"><a></a>  boot_fits, <span class="at">point_estimate =</span> observed_fit, </span>
-<span id="cb14-4"><a></a>  <span class="at">level =</span> <span class="fl">0.99</span>, <span class="at">type =</span> <span class="st">"percentile"</span></span>
-<span id="cb14-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="do">## confidence level: 99%</span></span>
+<span id="cb15-2"><a></a><span class="fu">get_confidence_interval</span>(</span>
+<span id="cb15-3"><a></a>  boot_fits, <span class="at">point_estimate =</span> observed_fit, </span>
+<span id="cb15-4"><a></a>  <span class="at">level =</span> <span class="fl">0.99</span>, <span class="at">type =</span> <span class="st">"percentile"</span></span>
+<span id="cb15-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   term         lower_ci upper_ci

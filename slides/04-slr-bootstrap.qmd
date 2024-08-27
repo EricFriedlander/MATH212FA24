@@ -2,7 +2,7 @@
 title: "SLR: Simulation-based inference"
 subtitle: "Bootstrap confidence intervals for the slope"
 author: "Prof. Eric Friedlander"
-date: "2024-08-28"
+date: "2024-09-04"
 date-format: "MMM DD, YYYY"
 footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
@@ -20,7 +20,7 @@ html-math-method:
 execute:
   freeze: auto
   echo: true
-  cache: false
+  cache: true
 knitr:
   opts_chunk: 
     R.options:      
@@ -49,77 +49,75 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 ```
 
 
-<!-- # AE 03 Follow-up -->
+# AE 02 Follow-up
 
-<!-- ## AE 03 Follow-up {.midi} -->
+## AE 02 Follow-up {.midi}
 
-<!-- **Goal:** Use simple linear regression to model the relationship between temperature and daily bike rentals in the **winter** season -->
+**Goal:** Use simple linear regression to model the relationship between temperature and daily bike rentals in the **winter** season
 
-<!-- ```{r} -->
-<!-- #| include: false -->
+```{r}
+#| include: false
 
 
-<!-- winter <- read_csv("../ae/data/dcbikeshare.csv") |> -->
-<!--   mutate(season = case_when( -->
-<!--     season == 1 ~ "winter",  -->
-<!--     season == 2 ~ "spring",  -->
-<!--     season == 3 ~ "summer",  -->
-<!--     season == 4 ~ "fall" -->
-<!--   ),  -->
-<!--   season = factor(season)) |> -->
-<!--   filter(season == "winter") -->
-<!-- ``` -->
+winter <- read_csv("../ae/data/dcbikeshare.csv") |>
+  mutate(season = case_when(
+    season == 1 ~ "winter",
+    season == 2 ~ "spring",
+    season == 3 ~ "summer",
+    season == 4 ~ "fall"
+  ),
+  season = factor(season)) |>
+  filter(season == "winter")
+```
 
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- #| eval: true -->
-<!-- #| out-width: "65%" -->
+```{r}
+#| echo: false
+#| eval: true
+#| out-width: "65%"
 
-<!-- ggplot(data = winter, aes(x = temp_orig, y = count)) +  -->
-<!--   geom_point() +  -->
-<!--   labs(x = "Temperature in Celsius",  -->
-<!--        y = "Daily bike rentals",  -->
-<!--        title = "Capital Bikeshare daily bike rentals vs. temperature",  -->
-<!--        subtitle = "in winter months") -->
-<!-- ``` -->
+ggplot(data = winter, aes(x = temp_orig, y = count)) +
+  geom_point() +
+  labs(x = "Temperature in Celsius",
+       y = "Daily bike rentals",
+       title = "Capital Bikeshare daily bike rentals vs. temperature",
+       subtitle = "in winter months")
+```
 
-<!-- ## AE 03 Follow-up -->
+## AE 02 Follow-up
 
-<!-- **Statistical Model**: -->
+**Statistical Model**:
 
-<!-- $$count = \beta_0 +\beta_1 ~ temp\_orig + \epsilon, \hspace{5mm} \epsilon \sim N(0, \sigma_{\epsilon}^2)$$ -->
+$$count = \beta_0 +\beta_1 ~ temp\_orig + \epsilon, \hspace{5mm} \epsilon \sim N(0, \sigma_{\epsilon}^2)$$
 
-<!-- . . . -->
+. . .
 
-<!-- ```{r} -->
-<!-- winter_fit <- linear_reg() |> -->
-<!--   set_engine("lm") |> -->
-<!--   fit(count ~ temp_orig, data = winter) -->
+```{r}
+winter_fit <- lm(count ~ temp_orig, data = winter)
 
-<!-- tidy(winter_fit) |> kable(digits = 3) -->
-<!-- ``` -->
+tidy(winter_fit) |> kable(digits = 3)
+```
 
-<!-- ## AE 03 Follow-up -->
+## AE 02 Follow-up
 
-<!-- Use the output to write out the estimated regression equation. -->
+Use the output to write out the estimated regression equation.
 
-<!-- $$ -->
-<!-- \hat{count} =  -111.038 + 222.416 ~temp\_orig -->
-<!-- $$ -->
+$$
+\hat{count} =  -111.038 + 222.416 ~temp\_orig
+$$
 
-<!-- ::: aside -->
-<!-- LaTex: -->
+::: aside
+LaTex:
 
-<!-- \\\$\\\$\\hat{count} = -111.038 + 222.416 \~ temp\\\_orig\\\$\\\$ -->
-<!-- ::: -->
+\\\$\\\$\\hat{count} = -111.038 + 222.416 \~ temp\\\_orig\\\$\\\$
+:::
 
-<!-- ::: callout-note -->
-<!-- ## Your turn! -->
+::: callout-note
+## Your turn!
 
-<!-- -   Interpret the slope in the context of the data. -->
+-   Interpret the slope in the context of the data.
 
-<!-- -   Why is there no error term in the regression equation? -->
-<!-- ::: -->
+-   Why is there no error term in the regression equation?
+:::
 
 # Simulation-based inference
 
@@ -138,9 +136,8 @@ Bootstrap confidence intervals
 # load packages
 library(tidyverse)   # for data wrangling and visualization
 library(ggformula)  # for modeling
-library(openintro)   # for Duke Forest dataset
 library(scales)      # for pretty axis labels
-library(glue)        # for constructing character strings
+# library(glue)        # for constructing character strings
 library(knitr)       # for neatly formatted tables
 library(kableExtra)  # also for neatly formatted tablesf
 
@@ -235,13 +232,23 @@ slope <- tidy(heb_fit) |> filter(term == "Avg_Income_K") |> pull(estimate) |> ro
 
 :::
 
+. . .
+
+::: question
+
+- What is a confidence interval?
+
+- What is a hypothesis test?
+:::
+
 # Confidence interval for the slope
 
 ## Confidence interval {.midi}
 
 ::: incremental
 -   **Confidence interval**: plausible range of values for a population parameter
--   single point estimate $\implies$ fishing in a murky lake with a spear, confidence interval $\implies$ fishing with a net
+-   single point estimate $\implies$ fishing in a murky lake with a spear
+-   confidence interval $\implies$ fishing with a net
     -   We can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish
     -  If we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter
     -   High confidence $\implies$ wider interval (larger net)
@@ -311,7 +318,7 @@ p_heb_obs
 #| echo: false
 #| out.width: "100%"
 
-replicate_no = 1
+replicate_no <- 1
 
 p_heb_obs +
   geom_point(data = heb_boot_samples_5 |> filter(replicate == replicate_no), mapping = aes(x = Avg_Income_K, y = Number_Organic), shape="o", alpha = 0.3, color = "red", size = 5) +
@@ -326,7 +333,7 @@ p_heb_obs +
 #| echo: false
 #| out.width: "100%"
 
-replicate_no = 2
+replicate_no <- 2
 
 p_heb_obs +
   geom_point(data = heb_boot_samples_5 |> filter(replicate == replicate_no), mapping = aes(x = Avg_Income_K, y = Number_Organic), shape="o", alpha = 0.3, color = "red", size = 5) +
@@ -340,7 +347,7 @@ p_heb_obs +
 #| echo: false
 #| out.width: "100%"
 
-replicate_no = 3
+replicate_no <- 3
 
 p_heb_obs +
   geom_point(data = heb_boot_samples_5 |> filter(replicate == replicate_no), mapping = aes(x = Avg_Income_K, y = Number_Organic), shape="o", alpha = 0.3, color = "red", size = 5) +
@@ -355,7 +362,7 @@ p_heb_obs +
 #| echo: false
 #| out.width: "100%"
 
-replicate_no = 4
+replicate_no <- 4
 
 p_heb_obs +
   geom_point(data = heb_boot_samples_5 |> filter(replicate == replicate_no), mapping = aes(x = Avg_Income_K, y = Number_Organic), shape="o", alpha = 0.3, color = "red", size = 5) +
@@ -370,7 +377,7 @@ p_heb_obs +
 #| echo: false
 #| out.width: "100%"
 
-replicate_no = 5
+replicate_no <- 5
 
 p_heb_obs +
   geom_point(data = heb_boot_samples_5 |> filter(replicate == replicate_no), mapping = aes(x = Avg_Income_K, y = Number_Organic), shape="o", alpha = 0.3, color = "red", size = 5) +
@@ -511,7 +518,7 @@ Take `100` bootstrap samples and fit models to each one:
 
 ```{r}
 #| echo: true
-#| code-line-numbers: "1,5,6"
+#| code-line-numbers: "|1,5,6"
 
 set.seed(1120)
 
@@ -529,7 +536,7 @@ boot_fits
 
 ```{r}
 #| echo: true
-#| code-line-numbers: "5"
+#| code-line-numbers: "|5"
 
 get_confidence_interval(
   boot_fits, 

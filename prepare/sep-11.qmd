@@ -1,6 +1,6 @@
 ---
-title: "September 11 lecture"
-subtitle: "Simple linear regression"
+title: "September 3 lecture"
+subtitle: "Simple linear regression - Bootstrapping"
 ---
 
 ## Assigned reading

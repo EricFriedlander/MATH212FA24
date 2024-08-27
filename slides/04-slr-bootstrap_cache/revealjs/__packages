@@ -30,3 +30,5 @@ openintro
 glue
 kableExtra
 priceR
+ggridges
+ggformula

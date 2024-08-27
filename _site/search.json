@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 1\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 3\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due",
     "crumbs": [
       "Schedule"
     ]
@@ -2902,7 +2902,7 @@
     "href": "slides/04-slr-bootstrap.html#ae-03-follow-up-1",
     "title": "SLR: Simulation-based inference",
     "section": "AE 03 Follow-up",
-    "text": "AE 03 Follow-up\nGoal: Use simple linear regression to model the relationship between temperature and daily bike rentals in the winter season"
+    "text": "AE 03 Follow-up\nUse the output to write out the estimated regression equation.\n\\[\n\\hat{count} =  -111.038 + 222.416 ~temp\\_orig\n\\]\n\n\n\n\n\n\n\nYour turn!\n\n\n\nInterpret the slope in the context of the data.\nWhy is there no error term in the regression equation?\n\n\n\n\n\nLaTex:\n\\$\\$\\hat{count} = -111.038 + 222.416 ~ temp\\_orig\\$\\$"
   },
   {
     "objectID": "slides/04-slr-bootstrap.html#ae-03-follow-up-2",
@@ -2930,7 +2930,7 @@
     "href": "slides/04-slr-bootstrap.html#computational-setup",
     "title": "SLR: Simulation-based inference",
     "section": "Computational setup",
-    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(ggformula)  # for modeling\nlibrary(openintro)   # for Duke Forest dataset\nlibrary(scales)      # for pretty axis labels\nlibrary(glue)        # for constructing character strings\nlibrary(knitr)       # for neatly formatted tables\nlibrary(kableExtra)  # also for neatly formatted tablesf\n\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))"
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(ggformula)  # for modeling\nlibrary(scales)      # for pretty axis labels\n# library(glue)        # for constructing character strings\nlibrary(knitr)       # for neatly formatted tables\nlibrary(kableExtra)  # also for neatly formatted tablesf\n\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))"
   },
   {
     "objectID": "slides/04-slr-bootstrap.html#data-houses-in-duke-forest",
@@ -2972,14 +2972,14 @@
     "href": "slides/04-slr-bootstrap.html#inference-for-simple-linear-regression",
     "title": "SLR: Simulation-based inference",
     "section": "Inference for simple linear regression",
-    "text": "Inference for simple linear regression\n\n\nCalculate a confidence interval for the slope, \\(\\beta_1\\)\nConduct a hypothesis test for the slope,\\(\\beta_1\\)\nWhy not \\(\\beta_0\\)?\nWe can but it isn’t super interesting typically"
+    "text": "Inference for simple linear regression\n\n\nCalculate a confidence interval for the slope, \\(\\beta_1\\)\nConduct a hypothesis test for the slope,\\(\\beta_1\\)\nWhy not \\(\\beta_0\\)?\nWe can but it isn’t super interesting typically\n\n\n\n\n\nWhat is a confidence interval?\nWhat is a hypothesis test?"
   },
   {
     "objectID": "slides/04-slr-bootstrap.html#confidence-interval",
     "href": "slides/04-slr-bootstrap.html#confidence-interval",
     "title": "SLR: Simulation-based inference",
     "section": "Confidence interval",
-    "text": "Confidence interval\n\n\nConfidence interval: plausible range of values for a population parameter\nsingle point estimate \\(\\implies\\) fishing in a murky lake with a spear, confidence interval \\(\\implies\\) fishing with a net\n\nWe can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish\nIf we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter\nHigh confidence \\(\\implies\\) wider interval (larger net)\n\nRemember: single CI \\(\\implies\\) either you hit parameter or you don’t\n\nFavorite Visualization"
+    "text": "Confidence interval\n\n\nConfidence interval: plausible range of values for a population parameter\nsingle point estimate \\(\\implies\\) fishing in a murky lake with a spear\nconfidence interval \\(\\implies\\) fishing with a net\n\nWe can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish\nIf we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter\nHigh confidence \\(\\implies\\) wider interval (larger net)\n\nRemember: single CI \\(\\implies\\) either you hit parameter or you don’t\n\nFavorite Visualization"
   },
   {
     "objectID": "slides/04-slr-bootstrap.html#confidence-interval-for-the-slope-1",
@@ -3947,14 +3947,14 @@
   {
     "objectID": "prepare/sep-11.html",
     "href": "prepare/sep-11.html",
-    "title": "September 11 lecture",
+    "title": "September 3 lecture",
     "section": "",
     "text": "📖 IMS, Sec 24.2: Randomization test for the slope\n📖 IMS, Sec 24.3: Bootstrap confidence interval for the slope"
   },
   {
     "objectID": "prepare/sep-11.html#assigned-reading",
     "href": "prepare/sep-11.html#assigned-reading",
-    "title": "September 11 lecture",
+    "title": "September 3 lecture",
     "section": "",
     "text": "📖 IMS, Sec 24.2: Randomization test for the slope\n📖 IMS, Sec 24.3: Bootstrap confidence interval for the slope"
   },
@@ -12043,5 +12043,54 @@
     "title": "HW 01: Education & median income in US Counties",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nClick here for a guide on writing mathematical symbols using LaTex.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.↩︎"
+  },
+  {
+    "objectID": "slides/04-slr-bootstrap.html#ae-02-follow-up-1",
+    "href": "slides/04-slr-bootstrap.html#ae-02-follow-up-1",
+    "title": "SLR: Simulation-based inference",
+    "section": "AE 02 Follow-up",
+    "text": "AE 02 Follow-up\nGoal: Use simple linear regression to model the relationship between temperature and daily bike rentals in the winter season"
+  },
+  {
+    "objectID": "slides/04-slr-bootstrap.html#ae-03-follow-up",
+    "href": "slides/04-slr-bootstrap.html#ae-03-follow-up",
+    "title": "SLR: Simulation-based inference",
+    "section": "AE 03 Follow-up",
+    "text": "AE 03 Follow-up\nStatistical Model:\n\\[count = \\beta_0 +\\beta_1 ~ temp\\_orig + \\epsilon, \\hspace{5mm} \\epsilon \\sim N(0, \\sigma_{\\epsilon}^2)\\]\n\n\nwinter_fit &lt;- lm(count ~ temp_orig, data = winter)\n\ntidy(winter_fit) |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-111.038\n238.312\n-0.466\n0.642\n\n\ntemp_orig\n222.416\n18.459\n12.049\n0.000"
+  },
+  {
+    "objectID": "slides/04-slr-bootstrap.html#ae-02-follow-up-2",
+    "href": "slides/04-slr-bootstrap.html#ae-02-follow-up-2",
+    "title": "SLR: Simulation-based inference",
+    "section": "AE 02 Follow-up",
+    "text": "AE 02 Follow-up\nStatistical Model:\n\\[count = \\beta_0 +\\beta_1 ~ temp\\_orig + \\epsilon, \\hspace{5mm} \\epsilon \\sim N(0, \\sigma_{\\epsilon}^2)\\]\n\n\nwinter_fit &lt;- lm(count ~ temp_orig, data = winter)\n\ntidy(winter_fit) |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-111.038\n238.312\n-0.466\n0.642\n\n\ntemp_orig\n222.416\n18.459\n12.049\n0.000"
+  },
+  {
+    "objectID": "slides/04-slr-bootstrap.html#ae-02-follow-up-3",
+    "href": "slides/04-slr-bootstrap.html#ae-02-follow-up-3",
+    "title": "SLR: Simulation-based inference",
+    "section": "AE 02 Follow-up",
+    "text": "AE 02 Follow-up\nUse the output to write out the estimated regression equation.\n\\[\n\\hat{count} =  -111.038 + 222.416 ~temp\\_orig\n\\]\n\n\n\n\n\n\n\nYour turn!\n\n\n\nInterpret the slope in the context of the data.\nWhy is there no error term in the regression equation?\n\n\n\n\n\nLaTex:\n\\$\\$\\hat{count} = -111.038 + 222.416 ~ temp\\_orig\\$\\$"
+  },
+  {
+    "objectID": "prepare/bootstrap.html",
+    "href": "prepare/bootstrap.html",
+    "title": "September 3 lecture",
+    "section": "",
+    "text": "Stat2: Topic 4.6 Randomizatoin Test for Relationship\nStat2: Topic 4.7 Bootstrap for Regression"
+  },
+  {
+    "objectID": "prepare/bootstrap.html#assigned-reading",
+    "href": "prepare/bootstrap.html#assigned-reading",
+    "title": "September 3 lecture",
+    "section": "",
+    "text": "Stat2: Topic 4.6 Randomizatoin Test for Relationship\nStat2: Topic 4.7 Bootstrap for Regression"
+  },
+  {
+    "objectID": "prepare/bootstrap.html#recommended-reading-optional",
+    "href": "prepare/bootstrap.html#recommended-reading-optional",
+    "title": "September 3 lecture",
+    "section": "Recommended reading (optional)",
+    "text": "Recommended reading (optional)\n📖 IMS, Sec 24.2: Randomization test for the slope\n📖 IMS, Sec 24.3: Bootstrap confidence interval for the slope"
   }
 ]
