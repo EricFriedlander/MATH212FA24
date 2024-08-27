@@ -11899,14 +11899,14 @@
     "href": "ae/ae-02-slr.html",
     "title": "AE 02: Bike rentals in Washington, DC",
     "section": "",
-    "text": "Important\n\n\n\nGo to the Canvas and locate the AE-2 assignment. That link should take you directly there.\nThe .qmd and .html files form this assignment are due in your GitHub repo no later than Tuesday, September 2 at 11:59pm.\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(patchwork)"
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-02”\nGo to the Canvas and locate the AE-2 assignment. That link should take you directly there.\nUpload the ae-02.qmd and dcbikeshare.csv files into the folder you just created.\n\nThe .qmd and .html files form this assignment are due in Canvas no later than Tuesday, September 2 at 10:00am.\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(patchwork)"
   },
   {
     "objectID": "ae/ae-02-slr.html#data",
     "href": "ae/ae-02-slr.html#data",
     "title": "AE 02: Bike rentals in Washington, DC",
     "section": "Data",
-    "text": "Data\nOur data set contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the dcbikeshare data set in the dsbox R package.\nWe will focus on the following variables in the analysis:\n\ncount: total bike rentals\ntemp_orig: Temperature in degrees Celsius\nseason: 1 - winter, 2 - spring, 3 - summer, 4 - fall\n\nClick here for the full list of variables and definitions.\n\nbikeshare &lt;- read_csv(\"data/dcbikeshare.csv\")"
+    "text": "Data\nOur data set contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the dcbikeshare data set in the dsbox R package.\nWe will focus on the following variables in the analysis:\n\ncount: total bike rentals\ntemp_orig: Temperature in degrees Celsius\nseason: 1 - winter, 2 - spring, 3 - summer, 4 - fall\n\nClick here for the full list of variables and definitions.\nNote that you may need to adjust the file path below:\n\nbikeshare &lt;- read_csv(\"data/dcbikeshare.csv\")"
   },
   {
     "objectID": "ae/ae-02-slr.html#exercises",
