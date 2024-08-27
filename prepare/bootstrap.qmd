@@ -1,5 +1,5 @@
 ---
-title: "September 3 lecture"
+title: "September 4 lecture"
 subtitle: "Simple linear regression - Bootstrapping"
 ---
 
