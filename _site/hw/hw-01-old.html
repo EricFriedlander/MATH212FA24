@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MAT 212 - Fall 2024 - HW 01: Park access</title>
+<title>MAT 212 - Fall 2024 - HW 01: Education &amp; median income in US Counties</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -101,6 +121,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -113,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 01: Park access</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 01: Education &amp; median income in US Counties</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -209,44 +258,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
-  </ul></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a>
-  <ul class="collapse">
-  <li><a href="#log-in-to-rstudio" id="toc-log-in-to-rstudio" class="nav-link" data-scroll-target="#log-in-to-rstudio">Log in to RStudio</a></li>
-  <li><a href="#r-and-r-studio" id="toc-r-and-r-studio" class="nav-link" data-scroll-target="#r-and-r-studio">R and R Studio</a>
-  <ul class="collapse">
-  <li><a href="#yaml" id="toc-yaml" class="nav-link" data-scroll-target="#yaml">YAML</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#data-us-counties" id="toc-data-us-counties" class="nav-link" data-scroll-target="#data-us-counties">Data: US Counties</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#part-1-exploratory-data-analysis" id="toc-part-1-exploratory-data-analysis" class="nav-link" data-scroll-target="#part-1-exploratory-data-analysis">Part 1: Exploratory data analysis</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  </ul></li>
+  <li><a href="#part-2-modeling" id="toc-part-2-modeling" class="nav-link" data-scroll-target="#part-2-modeling">Part 2: Modeling</a>
+  <ul class="collapse">
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  </ul></li>
+  <li><a href="#part-3-inference-for-the-u.s." id="toc-part-3-inference-for-the-u.s." class="nav-link" data-scroll-target="#part-3-inference-for-the-u.s.">Part 3: Inference for the U.S.</a>
+  <ul class="collapse">
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  </ul></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility">Reproducibility</a>
+  <ul class="collapse">
   <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
   </ul></li>
-  <li><a href="#grading-50-pts" id="toc-grading-50-pts" class="nav-link" data-scroll-target="#grading-50-pts">Grading (50 pts)</a></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  <li><a href="#grading-50-points" id="toc-grading-50-points" class="nav-link" data-scroll-target="#grading-50-points">Grading (50 points)</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/hw/hw-01.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/hw/hw-01-old.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HW 01: Park access</h1>
-<p class="subtitle lead">Exploratory Data Analysis + Simple Linear Regression</p>
+<h1 class="title">HW 01: Education &amp; median income in US Counties</h1>
+<p class="subtitle lead">due Wednesday, September 20 at 11:59pm</p>
 </div>
 
 
@@ -263,254 +315,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Due</p>
-<ul>
-<li>Wednesday, September 4th</li>
-</ul>
-</div>
-</div>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>This HW will go through much of the same workflow we’ve demonstrated in class. The main goal is to reinforce our demo of R and RStudio, which we will be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>R is the name of the programming language itself and RStudio is a convenient interface.</p>
-</div>
-</div>
-<section id="learning-goals" class="level2">
-<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
-<p>By the end of the , you will…</p>
-<ul>
-<li>Be familiar with the workflow using RStudio</li>
-<li>Gain practice writing a reproducible report using Quarto</li>
-<li>Be able to create data visualizations using <code>ggformula</code> and use those visualizations to describe distributions</li>
-<li>Be able to fit, interpret, and evaluate simple linear regression models</li>
-</ul>
+<p>In this assignment, you will use simple linear regression to examine the association between between the percent of adults with a bachelor’s degree and the median household income for counties in the United States.</p>
 </section>
+<section id="learning-goals" class="level1">
+<h1>Learning goals</h1>
+<p>In this assignment, you will…</p>
+<ul>
+<li>Fit and interpret simple linear regression models.</li>
+<li>Conduct simulation-based statistical inference for the population slope, <span class="math inline">\(\beta_1\)</span></li>
+<li>Create and interpret spatial data visualizations using R.</li>
+<li>Continue developing a workflow for reproducible data analysis.</li>
+</ul>
 </section>
 <section id="getting-started" class="level1">
-<h1>Getting Started</h1>
-<section id="log-in-to-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="log-in-to-rstudio">Log in to RStudio</h3>
+<h1>Getting started</h1>
 <ul>
-<li><p>Go to <a href="https://rstudio.collegeofidaho.edu" class="uri">https://rstudio.collegeofidaho.edu</a> and login with your College of Idaho Email and Password.</p></li>
-<li><p>Make a subfolder in your <code>hw</code> director to store this homework.</p></li>
-<li><p>Log into Canvas, navigate to HW-01 and upload the <code>hw-01.qmd</code> and <code>parks.csv</code> file into the folder your just made.</p></li>
+<li><p>Go to the <a href="https://www.github.com/sta210-fa23">sta210-fa23</a> organization on GitHub. Click on the repo with the prefix <strong>hw-01</strong>. It contains the starter documents you need to complete the lab.</p></li>
+<li><p>Clone the repo and start a new project in RStudio. See the <a href="lab-01.qmd">Lab 01 instructions</a> for details on cloning a repo, starting a new project in R, and configuring git.Packages</p></li>
 </ul>
-</section>
-<section id="r-and-r-studio" class="level2">
-<h2 class="anchored" data-anchor-id="r-and-r-studio">R and R Studio</h2>
-<p><a href="https://mat212fa24.netlify.app/slides/02-big-picture.html#/rstudio-ide">Here</a> are the components of the RStudio IDE and <a href="https://mat212fa24.netlify.app/slides/02-big-picture.html#/quarto-1">here</a> are the components of an Quarto (.qmd) file.</p>
-<section id="yaml" class="level3">
-<h3 class="anchored" data-anchor-id="yaml">YAML</h3>
-<p>The top portion of your Quarto file (between the three dashed lines) is called <strong>YAML</strong>. It stands for ““Yet Another Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Open the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document. You can now work off of that file.</p>
-</div>
-</div>
-</section>
-</section>
-</section>
-<section id="packages" class="level1">
-<h1>Packages</h1>
-<p>We will use the following packages in today’s HW. The line <code>eval: FALSE</code> prevents R from running the corresponding chunk. As you work through this HW please delete these lines as you go.</p>
+<p>The following packages will be used in this assignment:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># for data wrangling</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels) <span class="co"># for modeling and inference</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr) <span class="co"># to neatly format tables</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales) <span class="co"># to format visualizations</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="data" class="level1">
-<h1>Data</h1>
-<p>Today’s data is about access to parks and other public amenities in the 100 most populated cities in the United States. The data were collected by the <a href="https://www.tpl.org/parks-and-an-equitable-recovery-parkscore-report">Trust for Public Land</a>, a non-profit organization that advocates for equitable access to outdoor spaces. The data set we’ll use in this HW includes part of the data used for analysis in the 2021 special report <a href="https://www.tpl.org/parks-and-an-equitable-recovery-parkscore-report"><em>Parks and Equitable Recovery</em></a>; it was obtained from <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-06-22/readme.md">TidyTuesday</a>.</p>
-<p>Use the code below to load the data into R.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>parks <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"parks.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>This he will focus on the following variables:</p>
+<section id="data-us-counties" class="level1">
+<h1>Data: US Counties</h1>
+<p>The data are from the <code>county_2019</code> data frame in the <a href="https://openintrostat.github.io/usdata/index.html">usdata</a> R package. These data were originally collected in the 2019 <a href="https://www.census.gov/programs-surveys/acs">American Community Survey</a> (ACS), an annual survey conducted by the United States Census Bureau that collects demographics and other information from a sample of households in the United States. The data in <code>county_2019</code> are county-level statistics from the ACS.</p>
+<p>The data you will use in this analysis are available in the file <code>us-counties-sample.csv</code> in the <code>data</code> folder of your repo. It contains a random sample of 600 counties in the United States.</p>
+<p>The primary variables you will use are the following:</p>
 <ul>
-<li><p><code>pct_near_park_points</code>: Points in the Trust for Public Land ParkScore index for the percent of residents within a 10 minute walk to park points. <a href="https://www.tpl.org/parkscore">Click here</a> to learn more about the ParkScore.</p></li>
-<li><p><code>spend_per_resident_data</code>: Spending per resident in US dollars.</p></li>
+<li><code>bachelors</code>: Percent of population 25 years old and older that earned a Bachelor’s degree or higher</li>
+<li><code>median_household_income</code>: Median household income in US dollars</li>
+<li><code>household_has_computer</code>: Percent of households that have desktop or laptop computer</li>
 </ul>
-<p><a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-06-22/readme.md">Click here</a> for the full data dictionary.</p>
+<p><a href="https://openintrostat.github.io/usdata/reference/county_2019.html">Click here</a> for the full codebook for the <code>county_2019</code> dataset.</p>
+<!--# Dataset created from county_2019 using seed 09132022 -->
+<p>You will use two other data sets <code>county-map-sample.csv</code> and <code>county-map-all.csv</code> to create spatial visualizations of the ACS variables. Use the code below to load all of the data sets.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>county_data_sample <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/us-counties-sample.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>map_data_sample <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>(<span class="st">"data/county-map-sample.csv"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>map_data_all <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/county-map-all.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
-<p><strong>Goal</strong>: One way to improve access to public parks is for cities to spend more money creating and maintaining parks for their residents. It’s unclear, however, how much spending impacts residents’ access to parks. The goal of this analysis is to examine the relationship between spending per resident and points in the ParkScore index for the percent of residents within a 10 minute walk to a park.</p>
-<hr>
-<p>Write all code and narrative in your Quarto file. Write all narrative in complete sentences. Throughout the assignment, you should periodically <strong>render</strong> your Quarto document to produce the updated HTML file.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Make sure we can read all of your code in your HTML file. This means you will need to break up long lines of code. One way to help avoid long lines of code is is start a new line after every pipe (<code>|&gt;</code>).</p>
-</div>
-</div>
-<section id="exercise-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
-<p>Viewing a summary of the data is a useful starting point for data analysis, especially if there are a large number of observations or variables. Run the code below to use the <code>glimpse</code> function to see a summary of the <code>parks</code> data frame.</p>
-<p>How many observations (rows) are in <code>parks</code>? How many variables (columns)?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(parks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In your <code>hw-01.qmd</code> document you’ll see that we already added the code required for the exercise as well as a sentence where you can fill in the blanks to report the answer. Use this format for the remaining exercises.</p>
-<p>Also note that the code chunk has a label: <code>glimpse-data</code>. It’s not required, but good practice and highly encouraged to label your code chunks using short meaningful names. (<em>Hint: Do not uses spaces in code chunk labels. Use <code>-</code> to separate multiple words and do not repeat labels.)</em></p>
-</div>
-</div>
-<p>______</p>
-</section>
-<section id="exercise-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
-<p>The predictor variable for this analysis <code>spend_per_resident_data</code> is quantitative; however, from the glimpse of the data in Exercise 1, we see its data type is <code>chr</code> (character) in R. We would expect it to be <code>dbl</code> (double), the data type for numeric data.</p>
-<ul>
-<li>Why did <code>spend_per_resident_data</code> get read by R as a character data type instead of a double? Be specific.</li>
-<li>Why do we need to convert <code>spend_per_resident_data</code> to a data type suitable for quantitative data? How might leaving it as a character variable hinder the analysis?</li>
-</ul>
-<p>______</p>
-</section>
-<section id="exercise-3" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
-<p>Use the code below to convert <code>spend_per_resident_data</code> , so that it is correctly treated as quantitative data in R. Each line of code is numbered. Write a brief explanation of what each line of code does.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-4-1" class="code-annotation-target"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a>parks <span class="ot">&lt;-</span> parks <span class="sc">|&gt;</span></span>
-<span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">spend_per_resident_data =</span> </span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-4-3" class="code-annotation-target"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>           <span class="fu">str_replace</span>(spend_per_resident_data,<span class="st">"</span><span class="sc">\\</span><span class="st">$"</span>, <span class="st">""</span>)) <span class="sc">|&gt;</span></span>
-<span id="annotated-cell-4-4"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">spend_per_resident_data =</span> </span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-4-5" class="code-annotation-target"><a href="#annotated-cell-4-5" aria-hidden="true" tabindex="-1"></a>           <span class="fu">as.numeric</span>(spend_per_resident_data))</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="1" data-code-annotation="1">______</span>
-</dd>
-<dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="3" data-code-annotation="2">______</span>
-</dd>
-<dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="5" data-code-annotation="3">______</span>
-</dd>
-</dl>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This is a good place to render your hw-01 document.</p>
-</div>
-</div>
-</section>
-<section id="exercise-4" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
-<p>Exploratory data analysis (EDA) helps us “get to know” the data and examine the variable distributions and relationships between variables. We do so using visualizations and summary statistics.</p>
-<p>When we make visualizations, we want them to be clear and suitable for a professional audience. This means that, at a minimum, each visualization should have <strong>an informative title</strong> and <strong>informative axis labels</strong>.</p>
-<p>Fill in the code below to visualize the distribution of <code>spend_per_resident_data</code> using a histogram.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>____, <span class="at">data =</span> ____) <span class="sc">|&gt;</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"_____"</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"_____"</span>, </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"_____"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Then, fill in the code to calculate summary statistics for the variable using the <code>favstats</code> function from the mosaic R package.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">favstats</span>(<span class="sc">~</span>____, <span class="at">data =</span> _____)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="exercise-5" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
-<p>Use the visualization and summary statistics from the previous exercise to describe the distribution of <code>spend_per_resident_data</code>. In your narrative, include a description of the shape, center, spread, and the presence of apparent outliers or other interesting features.</p>
-<p>______</p>
-</section>
-<section id="exercise-6" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
-<p>Now let’s look at the distribution of the response variable <code>pct_near_park_points</code>.</p>
-<ul>
-<li>Visualize this distribution and calculate the summary statistics. The visualization should have an informative title and informative axis labels.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Answer here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Use the visualization and summary statistics to describe the distribution of <code>pct_near_park_points</code>. Recall from the previous exercise the components to include the description.</li>
-</ul>
-<p>______</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This is another good place to render your document.</p>
-</div>
-</div>
-</section>
-<section id="exercise-7" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
-<p>The <code>parks</code> data set ranges from the year 2012 to 2020, so each row contains information about funding and public amenities for each city in a given year. Thus, there are multiple rows in <code>parks</code> for each city. We are going to summarize the data, so there is just one row per city. Fill in the code below to create a new data frame called <code>parks_summary</code> that contains the mean spending per resident and mean points in the ParkScore index for the percent of residents within a 10-minute walk to a park.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>parks_summary <span class="ot">&lt;-</span> ____ <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(____) <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_spend =</span> <span class="fu">mean</span>(____),</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_pts_near =</span> ____)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>How many rows are in <code>parks_summary</code>? How many columns?</p>
-<p>______</p>
+<p>There has been a lot of conversation recently about the impact of graduating college, i.e., obtaining a bachelor’s degree, on one’s future career and lifetime earnings. The common convention is that individuals who have earned a bachelor’s degree (or higher) will earn more income over the course of a lifetime than an individual who does not have such a degree.</p>
+<p>The culmination of individual factors can impact the wealth and resources of a county. Therefore will examine the association between these two factors at a county level and use the percent of adults 25 years old + with a Bachelor’s degree to understand variabilty in the median income. Specifically we’d like to answer such as, “do counties that have a higher percentage of college graduates have higher median household incomes, on average, compared to counties with a lower percentage of college graduates?”.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -521,142 +378,276 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Use <code>parks_summary</code> for exercises 8 - 9.</p>
+<p>All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.</p>
 </div>
 </div>
+<section id="part-1-exploratory-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-exploratory-data-analysis">Part 1: Exploratory data analysis</h2>
+<section id="exercise-1" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
+<p>Create a histogram of the distribution of the predictor variable <code>bachelors</code>and calculate appropriate summary statistics. Use the visualization and summary statistics to describe the distribution. Include an informative title and axis labels on the plot.</p>
+</section>
+<section id="exercise-2" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
+<p>Let’s view the data in another way. Use the code below to make a map of the United States with the color of the counties filled in based on the percent of residents 25 years old and older who have a Bachelor’s degree. Fill in title and axis labels.</p>
+<p>Then use the plot answer the following:</p>
+<ul>
+<li>What are 2 observations you have from the map?</li>
+<li>What is a feature that is apparent in the map that wasn’t as easily apparent from the histogram in the previous exercise? What is a feature that is apparent in the histogram that is not as easily apparent from the map?</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>county_map_data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(county_data_sample, map_data_sample)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> map_data_all) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="fu">aes</span>(<span class="at">x =</span> long, <span class="at">y =</span> lat, <span class="at">group =</span> group),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"lightgray"</span>, <span class="at">color =</span> <span class="st">"white"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data =</span> county_map_data, <span class="fu">aes</span>(<span class="at">x =</span> long, <span class="at">y =</span> lat, <span class="at">group =</span> group,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> bachelors)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Longitude"</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Latitude"</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"_____"</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"_____"</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">labels =</span> <span class="fu">label_percent</span>(<span class="at">scale =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_quickmap</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-3" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
+<p>Create a visualization of the relationship between <code>bachelors</code> and <code>median_household_income</code> and calculate the correlation. Use the visualization and correlation to describe the relationship between the two variables.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recall the analysis objective stated at the beginning of the Exercises section.</p>
+</div>
+</div>
+<div class="render-commit-push">
+<p>If you haven’t yet done so, now is a good time to render your document and commit (with a meaningful commit message) and push all updates.</p>
+</div>
+</section>
+</section>
+<section id="part-2-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-modeling">Part 2: Modeling</h2>
+<section id="exercise-4" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
+<p>We will use a linear regression model to better quantify the relationship between <code>bachelors</code> and <code>median_household_income</code>.</p>
+<p>Write the form of the statistical model we will use for this task using mathematical notation. Use variable names (<code>bachelors</code> and <code>median_household_income</code>) in the equation for your model<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+</section>
+<section id="exercise-5" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
+<ul>
+<li><p>Fit the regression line corresponding to the statistical model in the previous exercise. Neatly display the model output using 3 digits.</p></li>
+<li><p>Write the equation of the fitted model using mathematical notation. Use variable names (<code>bachelors</code> and <code>median_household_income</code>) in the equation.</p></li>
+</ul>
+</section>
+<section id="exercise-6" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
+<ul>
+<li>Interpret the slope. The interpretation should be written in a way that is meaningful in the context of the data.</li>
+<li>Is it useful to interpret the intercept for this data? If so, write the interpretation in the context of the data. Otherwise, briefly explain why not.</li>
+</ul>
+<div class="render-commit-push">
+<p>Now is a good time to render your document again if you haven’t done so recently and commit (with a meaningful commit message) and push all updates.</p>
+</div>
+</section>
+</section>
+<section id="part-3-inference-for-the-u.s." class="level2">
+<h2 class="anchored" data-anchor-id="part-3-inference-for-the-u.s.">Part 3: Inference for the U.S.</h2>
+<p>We want to use the data from these 600 randomly selected counties to draw conclusions about the relationship between the percent of adults age 25 and older with a bachelor’s degree and median household income for the over 3,000 counties in the United States.</p>
+<section id="exercise-7" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
+<ul>
+<li><p>What is the population of interest? What is the sample?</p></li>
+<li><p>Is it reasonable to treat the sample in this analysis as representative of the population? Briefly explain why or why not.</p></li>
+</ul>
 </section>
 <section id="exercise-8" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-8">Exercise 8</h3>
+<p>Conduct a hypothesis test for the slope to assess whether there is sufficient evidence of a linear relationship between the percent of adults age 25 and older with a bachelor’s degree and the median household income in a county. Use a randomization (permutation) test. In your response:</p>
 <ul>
-<li>Create a visualization of the relationship between <code>mean_spend</code> and <code>mean_pts_near</code>, and calculate the correlation between the two variables. Include an informative title and informative axis labels on the visualization.</li>
+<li>State the null and alternative hypotheses in words and mathematical notation</li>
+<li>Show all relevant code and output used to conduct the test. Use <code>set.seed(2023)</code> and 1000 iterations to construct the appropriate distribution.</li>
+<li>State the conclusion in the context of the data.</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Answer here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Use the visualization and correlation to describe the relationship between the two variables. Include the shape, direction, strength, presence of potential outliers, and any other interesting features in the description.</li>
-</ul>
-<p>______</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This is a good place to render your document.</p>
-</div>
-</div>
 </section>
 <section id="exercise-9" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-9">Exercise 9</h3>
+<p>Next, construct a 95% confidence interval for the slope using bootstrapping with <code>set.seed(2023)</code> and 1000 iterations.</p>
 <ul>
-<li>Fit and display a linear regression model of the relationship between <code>mean_spend</code> and <code>mean_pts_near</code>. Use the <code>lm</code> function and display the model in a tidy format.</li>
+<li><p>Show all relevant code and output used to calculate the interval.</p></li>
+<li><p>Interpret the confidence interval in the context of the data.</p></li>
+<li><p>Is the confidence interval consistent with the results of the test from the previous exercise? Briefly explain why or why not.</p></li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Answer here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="render-commit-push">
+<p>Now is a good time to render your document again if you haven’t done so recently and commit (with a meaningful commit message) and push all updates.</p>
 </div>
-<ul>
-<li>Interpret the slope in the context of the data.</li>
-</ul>
-<p>______</p>
-<ul>
-<li>Interpret the intercept in the context of the data. Is the interpretation useful in practice for this data? Briefly explain.</li>
-</ul>
-<p>______</p>
 </section>
+</section>
+<section id="reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
 <section id="exercise-10" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-10">Exercise 10</h3>
-<p><a href="https://www.tpl.org/parks-and-an-equitable-recovery-parkscore-report"><em>Parks and an Equitable Recovery</em></a>, a special report by Trust for Public Land, begins with the following conclusion from their analysis:</p>
-<blockquote class="blockquote">
-<p><em>Our data shows major disparities in access to the outdoors. In the 100 most populated cities, neighborhoods where most residents identify as Black, Hispanic and Latinx, American Indian/Alaska Native or Asian American and Pacific Islander have access to an average of 44 percent less park acreage than predominantly white neighborhoods, and similar park space inequities exist in low-income neighborhoods across cities, highlighting the urgent need to center equity in park investment and planning.</em></p>
-</blockquote>
-<p>Would it be possible to reproduce the analysis results that led to this conclusion given the data we have in <code>parks.csv</code>? If so, briefly describe the steps we might take to reproduce the analysis. If not, briefly describe the additional data we need in order to reproduce the analysis.</p>
-<p>______</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You’re done and ready to submit your work! Render your document and upload the .qmd and .html files to Canvas.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="grading-50-pts" class="level1">
-<h1>Grading (50 pts)</h1>
-<p><br></p>
+<p>You are asked to use a reproducible workflow for all of your work in the class, and the goal of this question to is better understand potential real-world implications of doing (or not) doing so. Below are some real-life examples in which having a non-reproducible workflow resulted in errors that impacted research and public records.</p>
 <table class="caption-top table">
+<caption>Source: <span class="citation" data-cites="ostblom2022">Ostblom and Timbers (<a href="#ref-ostblom2022" role="doc-biblioref">2022</a>)</span></caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Component</th>
-<th style="text-align: left;">Points</th>
+<th>Reproducibility error</th>
+<th>Consequence</th>
+<th>Source(s)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Ex 1</td>
-<td style="text-align: left;">2</td>
+<td>Limitations in Excel data formats</td>
+<td>Loss of 16,000 COVID case records in the UK</td>
+<td>(<a href="https://www.bbc.com/news/technology-54423988">Kelion 2020</a>)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ex 2</td>
-<td style="text-align: left;">4</td>
+<td>Automatic formatting in Excel</td>
+<td>Important genes disregarded in scientific studies</td>
+<td>(<a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7">Ziemann, Eren, and El-Osta 2016</a>)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Ex 3</td>
-<td style="text-align: left;">6</td>
+<td>Deletion of a cell caused rows to shift</td>
+<td>Mix-up of which patient group received the treatment</td>
+<td>(<a href="https://pubmed.ncbi.nlm.nih.gov/27373757/">Wallensteen et al.&nbsp;2018</a>)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ex 4</td>
-<td style="text-align: left;">4</td>
+<td>Using binary instead of explanatory labels</td>
+<td>Mix-up of the intervention with the control group</td>
+<td>(<a href="https://jamanetwork.com/journals/jama/fullarticle/2752474">Aboumatar and Wise 2019</a>)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Ex 5</td>
-<td style="text-align: left;">4</td>
+<td>Using the same notation for missing data and zero values</td>
+<td>Paper retraction</td>
+<td>(<a href="https://www.nature.com/articles/s41586-021-03656-3">Whitehouse et al.&nbsp;2021</a>)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ex 6</td>
-<td style="text-align: left;">6</td>
+<td>Incorrectly copying data in a spreadsheet</td>
+<td>Delay in the opening of a hospital</td>
+<td>(<a href="https://www.bbc.com/news/uk-scotland-edinburgh-east-fife-53893101">Picken 2020</a>)</td>
 </tr>
+</tbody>
+</table>
+<p>Choose one of the scenarios from the table and read the linked article discussing what went wrong. Then,</p>
+<ul>
+<li><p>Briefly describe what went wrong, i.e., what part of the process of was not reproducible and what error or impact that had.</p></li>
+<li><p>Then, describe how the researchers could make the process reproducible.</p></li>
+</ul>
+<div class="render-commit-push">
+<p>Now is a good time to render your document again if you haven’t done so recently and commit (with a meaningful commit message) and push all updates.</p>
+</div>
+</section>
+</section>
+<section id="submission" class="level2">
+<h2 class="anchored" data-anchor-id="submission">Submission</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
+<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
+</div>
+</div>
+<p>To submit your assignment:</p>
+<ul>
+<li>Go to <a href="http://www.gradescope.com/">http://www.gradescope.com</a> and click <em>Log in</em> in the top right corner.</li>
+<li>Click <em>School Credentials</em> ➡️ <em>Duke NetID</em> and log in using your NetID credentials.</li>
+<li>Click on your <em>STA 210</em> course.</li>
+<li>Click on the assignment, and you’ll be prompted to submit it.</li>
+<li>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</li>
+<li>Select the first page of your PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</li>
+</ul>
+</section>
+<section id="grading-50-points" class="level2">
+<h2 class="anchored" data-anchor-id="grading-50-points">Grading (50 points)</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td style="text-align: left;">Ex 7</td>
-<td style="text-align: left;">3</td>
+<td>Ex 1</td>
+<td>5</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ex 8</td>
-<td style="text-align: left;">6</td>
+<td>Ex 2</td>
+<td>5</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Ex 9</td>
-<td style="text-align: left;">6</td>
+<td>Ex 3</td>
+<td>4</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ex 10</td>
-<td style="text-align: left;">4</td>
+<td>Ex 4</td>
+<td>3</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Workflow &amp; formatting</td>
-<td style="text-align: left;">5<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
+<td>Ex 5</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Ex 6</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>Ex 7</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Ex 8</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>Ex 9</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>Ex 10</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Workflow &amp; formatting</td>
+<td>3<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
 </tr>
 </tbody>
 </table>
 
 
+
+</section>
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ostblom2022" class="csl-entry" role="listitem">
+Ostblom, Joel, and Tiffany Timbers. 2022. <span>“Opinionated Practices for Teaching Reproducibility: Motivation, Guided Instruction and Practice.”</span> <em>Journal of Statistics and Data Science Education</em> 30 (3): 241–50. <a href="https://doi.org/10.1080/26939169.2022.2074922">https://doi.org/10.1080/26939169.2022.2074922</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p><a href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">Click here</a> for a guide on writing mathematical symbols using LaTex.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1076,7 +1067,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/hw/hw-01.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/hw/hw-01-old.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

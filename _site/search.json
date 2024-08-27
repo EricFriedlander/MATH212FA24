@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due\n\n\n\nF\nAug 30\nSLR - Prediction",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction",
     "crumbs": [
       "Schedule"
     ]
@@ -4045,9 +4045,9 @@
   {
     "objectID": "hw/hw-01.html",
     "href": "hw/hw-01.html",
-    "title": "HW 01: Education & median income in US Counties",
+    "title": "HW 01: Park access",
     "section": "",
-    "text": "In this assignment, you will use simple linear regression to examine the association between between the percent of adults with a bachelor’s degree and the median household income for counties in the United States."
+    "text": "Important\n\n\n\nDue\n\nWednesday, September 4th"
   },
   {
     "objectID": "hw/hw-01.html#part-1-exploratory-data-analysis",
@@ -4094,9 +4094,9 @@
   {
     "objectID": "hw/hw-01.html#footnotes",
     "href": "hw/hw-01.html#footnotes",
-    "title": "HW 01: Education & median income in US Counties",
+    "title": "HW 01: Park access",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nClick here for a guide on writing mathematical symbols using LaTex.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.↩︎"
+    "text": "Footnotes\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.↩︎"
   },
   {
     "objectID": "hw/hw-05.html",
@@ -11966,5 +11966,82 @@
     "crumbs": [
       "Support"
     ]
+  },
+  {
+    "objectID": "hw/hw-01.html#learning-goals",
+    "href": "hw/hw-01.html#learning-goals",
+    "title": "HW 01: Park access",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the , you will…\n\nBe familiar with the workflow using RStudio\nGain practice writing a reproducible report using Quarto\nBe able to create data visualizations using ggformula and use those visualizations to describe distributions\nBe able to fit, interpret, and evaluate simple linear regression models"
+  },
+  {
+    "objectID": "hw/hw-01.html#clone-the-repo-start-new-rstudio-project",
+    "href": "hw/hw-01.html#clone-the-repo-start-new-rstudio-project",
+    "title": "HW 01: Park access",
+    "section": "Clone the repo & start new RStudio project",
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/sta210-fa23 organization on GitHub. Click on the repo with the prefix lab-01-. It contains the starter documents you need to complete the lab.\n\nIf you do not see your lab-01 repo, click here to create your repo. Then, click here to (re)submit your GitHub username.\n\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick lab-01.qmd to open the template Quarto file. This is where you will write up your code and narrative for the lab."
+  },
+  {
+    "objectID": "hw/hw-01.html#r-and-r-studio",
+    "href": "hw/hw-01.html#r-and-r-studio",
+    "title": "HW 01: Park access",
+    "section": "R and R Studio",
+    "text": "R and R Studio\nHere are the components of the RStudio IDE and here are the components of an Quarto (.qmd) file.\n\nYAML\nThe top portion of your Quarto file (between the three dashed lines) is called YAML. It stands for ““Yet Another Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.\n\n\n\n\n\n\nImportant\n\n\n\nOpen the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document. You can now work off of that file."
+  },
+  {
+    "objectID": "hw/hw-01-old.html",
+    "href": "hw/hw-01-old.html",
+    "title": "HW 01: Education & median income in US Counties",
+    "section": "",
+    "text": "In this assignment, you will use simple linear regression to examine the association between between the percent of adults with a bachelor’s degree and the median household income for counties in the United States."
+  },
+  {
+    "objectID": "hw/hw-01-old.html#part-1-exploratory-data-analysis",
+    "href": "hw/hw-01-old.html#part-1-exploratory-data-analysis",
+    "title": "HW 01: Education & median income in US Counties",
+    "section": "Part 1: Exploratory data analysis",
+    "text": "Part 1: Exploratory data analysis\n\nExercise 1\nCreate a histogram of the distribution of the predictor variable bachelorsand calculate appropriate summary statistics. Use the visualization and summary statistics to describe the distribution. Include an informative title and axis labels on the plot.\n\n\nExercise 2\nLet’s view the data in another way. Use the code below to make a map of the United States with the color of the counties filled in based on the percent of residents 25 years old and older who have a Bachelor’s degree. Fill in title and axis labels.\nThen use the plot answer the following:\n\nWhat are 2 observations you have from the map?\nWhat is a feature that is apparent in the map that wasn’t as easily apparent from the histogram in the previous exercise? What is a feature that is apparent in the histogram that is not as easily apparent from the map?\n\n\ncounty_map_data &lt;- left_join(county_data_sample, map_data_sample)\n\nggplot(data = map_data_all) +\n  geom_polygon(aes(x = long, y = lat, group = group),\n    fill = \"lightgray\", color = \"white\"\n    ) +\n  geom_polygon(data = county_map_data, aes(x = long, y = lat, group = group,\n    fill = bachelors)\n    ) +\n  labs(\n    x = \"Longitude\",\n    y = \"Latitude\",\n    fill = \"_____\",\n    title = \"_____\"\n  ) +\n  scale_fill_viridis_c(labels = label_percent(scale = 1)) +\n  coord_quickmap()\n\n\n\nExercise 3\nCreate a visualization of the relationship between bachelors and median_household_income and calculate the correlation. Use the visualization and correlation to describe the relationship between the two variables.\n\n\n\n\n\n\nTip\n\n\n\nRecall the analysis objective stated at the beginning of the Exercises section.\n\n\n\nIf you haven’t yet done so, now is a good time to render your document and commit (with a meaningful commit message) and push all updates."
+  },
+  {
+    "objectID": "hw/hw-01-old.html#part-2-modeling",
+    "href": "hw/hw-01-old.html#part-2-modeling",
+    "title": "HW 01: Education & median income in US Counties",
+    "section": "Part 2: Modeling",
+    "text": "Part 2: Modeling\n\nExercise 4\nWe will use a linear regression model to better quantify the relationship between bachelors and median_household_income.\nWrite the form of the statistical model we will use for this task using mathematical notation. Use variable names (bachelors and median_household_income) in the equation for your model1.\n\n\nExercise 5\n\nFit the regression line corresponding to the statistical model in the previous exercise. Neatly display the model output using 3 digits.\nWrite the equation of the fitted model using mathematical notation. Use variable names (bachelors and median_household_income) in the equation.\n\n\n\nExercise 6\n\nInterpret the slope. The interpretation should be written in a way that is meaningful in the context of the data.\nIs it useful to interpret the intercept for this data? If so, write the interpretation in the context of the data. Otherwise, briefly explain why not.\n\n\nNow is a good time to render your document again if you haven’t done so recently and commit (with a meaningful commit message) and push all updates."
+  },
+  {
+    "objectID": "hw/hw-01-old.html#part-3-inference-for-the-u.s.",
+    "href": "hw/hw-01-old.html#part-3-inference-for-the-u.s.",
+    "title": "HW 01: Education & median income in US Counties",
+    "section": "Part 3: Inference for the U.S.",
+    "text": "Part 3: Inference for the U.S.\nWe want to use the data from these 600 randomly selected counties to draw conclusions about the relationship between the percent of adults age 25 and older with a bachelor’s degree and median household income for the over 3,000 counties in the United States.\n\nExercise 7\n\nWhat is the population of interest? What is the sample?\nIs it reasonable to treat the sample in this analysis as representative of the population? Briefly explain why or why not.\n\n\n\nExercise 8\nConduct a hypothesis test for the slope to assess whether there is sufficient evidence of a linear relationship between the percent of adults age 25 and older with a bachelor’s degree and the median household income in a county. Use a randomization (permutation) test. In your response:\n\nState the null and alternative hypotheses in words and mathematical notation\nShow all relevant code and output used to conduct the test. Use set.seed(2023) and 1000 iterations to construct the appropriate distribution.\nState the conclusion in the context of the data.\n\n\n\nExercise 9\nNext, construct a 95% confidence interval for the slope using bootstrapping with set.seed(2023) and 1000 iterations.\n\nShow all relevant code and output used to calculate the interval.\nInterpret the confidence interval in the context of the data.\nIs the confidence interval consistent with the results of the test from the previous exercise? Briefly explain why or why not.\n\n\nNow is a good time to render your document again if you haven’t done so recently and commit (with a meaningful commit message) and push all updates."
+  },
+  {
+    "objectID": "hw/hw-01-old.html#reproducibility",
+    "href": "hw/hw-01-old.html#reproducibility",
+    "title": "HW 01: Education & median income in US Counties",
+    "section": "Reproducibility",
+    "text": "Reproducibility\n\nExercise 10\nYou are asked to use a reproducible workflow for all of your work in the class, and the goal of this question to is better understand potential real-world implications of doing (or not) doing so. Below are some real-life examples in which having a non-reproducible workflow resulted in errors that impacted research and public records.\n\nSource: Ostblom and Timbers (2022)\n\n\nReproducibility error\nConsequence\nSource(s)\n\n\n\n\nLimitations in Excel data formats\nLoss of 16,000 COVID case records in the UK\n(Kelion 2020)\n\n\nAutomatic formatting in Excel\nImportant genes disregarded in scientific studies\n(Ziemann, Eren, and El-Osta 2016)\n\n\nDeletion of a cell caused rows to shift\nMix-up of which patient group received the treatment\n(Wallensteen et al. 2018)\n\n\nUsing binary instead of explanatory labels\nMix-up of the intervention with the control group\n(Aboumatar and Wise 2019)\n\n\nUsing the same notation for missing data and zero values\nPaper retraction\n(Whitehouse et al. 2021)\n\n\nIncorrectly copying data in a spreadsheet\nDelay in the opening of a hospital\n(Picken 2020)\n\n\n\nChoose one of the scenarios from the table and read the linked article discussing what went wrong. Then,\n\nBriefly describe what went wrong, i.e., what part of the process of was not reproducible and what error or impact that had.\nThen, describe how the researchers could make the process reproducible.\n\n\nNow is a good time to render your document again if you haven’t done so recently and commit (with a meaningful commit message) and push all updates."
+  },
+  {
+    "objectID": "hw/hw-01-old.html#submission",
+    "href": "hw/hw-01-old.html#submission",
+    "title": "HW 01: Education & median income in US Counties",
+    "section": "Submission",
+    "text": "Submission\n\n\n\n\n\n\nWarning\n\n\n\nBefore you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.\nRemember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.\n\n\nTo submit your assignment:\n\nGo to http://www.gradescope.com and click Log in in the top right corner.\nClick School Credentials ➡️ Duke NetID and log in using your NetID credentials.\nClick on your STA 210 course.\nClick on the assignment, and you’ll be prompted to submit it.\nMark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).\nSelect the first page of your PDF submission to be associated with the “Workflow & formatting” section."
+  },
+  {
+    "objectID": "hw/hw-01-old.html#grading-50-points",
+    "href": "hw/hw-01-old.html#grading-50-points",
+    "title": "HW 01: Education & median income in US Counties",
+    "section": "Grading (50 points)",
+    "text": "Grading (50 points)\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1\n5\n\n\nEx 2\n5\n\n\nEx 3\n4\n\n\nEx 4\n3\n\n\nEx 5\n4\n\n\nEx 6\n4\n\n\nEx 7\n3\n\n\nEx 8\n7\n\n\nEx 9\n7\n\n\nEx 10\n5\n\n\nWorkflow & formatting\n32"
+  },
+  {
+    "objectID": "hw/hw-01-old.html#footnotes",
+    "href": "hw/hw-01-old.html#footnotes",
+    "title": "HW 01: Education & median income in US Counties",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nClick here for a guide on writing mathematical symbols using LaTex.↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.↩︎"
   }
 ]

@@ -1,0 +1,249 @@
+---
+title: "HW 01: Education & median income in US Counties"
+subtitle: "due Wednesday, September 20 at 11:59pm"
+editor: visual
+execute:
+  freeze: auto
+  echo: true
+  eval: false
+  warning: false
+  message: false
+bibliography: references.bib
+---
+
+# Introduction
+
+In this assignment, you will use simple linear regression to examine the association between between the percent of adults with a bachelor's degree and the median household income for counties in the United States.
+
+# Learning goals
+
+In this assignment, you will...
+
+-   Fit and interpret simple linear regression models.
+-   Conduct simulation-based statistical inference for the population slope, $\beta_1$
+-   Create and interpret spatial data visualizations using R.
+-   Continue developing a workflow for reproducible data analysis.
+
+# Getting started
+
+-   Go to the [sta210-fa23](https://www.github.com/sta210-fa23) organization on GitHub. Click on the repo with the prefix **hw-01**. It contains the starter documents you need to complete the lab.
+
+-   Clone the repo and start a new project in RStudio. See the [Lab 01 instructions](lab-01.qmd) for details on cloning a repo, starting a new project in R, and configuring git.Packages
+
+The following packages will be used in this assignment:
+
+```{r}
+#| message: false
+library(tidyverse) # for data wrangling
+library(tidymodels) # for modeling and inference
+library(knitr) # to neatly format tables
+library(scales) # to format visualizations
+
+# load other packages as needed
+```
+
+# Data: US Counties
+
+The data are from the `county_2019` data frame in the [usdata](https://openintrostat.github.io/usdata/index.html) R package. These data were originally collected in the 2019 [American Community Survey](https://www.census.gov/programs-surveys/acs) (ACS), an annual survey conducted by the United States Census Bureau that collects demographics and other information from a sample of households in the United States. The data in `county_2019` are county-level statistics from the ACS.
+
+The data you will use in this analysis are available in the file `us-counties-sample.csv` in the `data` folder of your repo. It contains a random sample of 600 counties in the United States.
+
+The primary variables you will use are the following:
+
+-   `bachelors`: Percent of population 25 years old and older that earned a Bachelor's degree or higher
+-   `median_household_income`: Median household income in US dollars
+-   `household_has_computer`: Percent of households that have desktop or laptop computer
+
+[Click here](https://openintrostat.github.io/usdata/reference/county_2019.html) for the full codebook for the `county_2019` dataset.
+
+<!--# Dataset created from county_2019 using seed 09132022 -->
+
+You will use two other data sets `county-map-sample.csv` and `county-map-all.csv` to create spatial visualizations of the ACS variables. Use the code below to load all of the data sets.
+
+```{r}
+#| message: false
+#| eval: false
+
+county_data_sample <- read_csv("data/us-counties-sample.csv")
+map_data_sample <-  read_csv("data/county-map-sample.csv")
+map_data_all <- read_csv("data/county-map-all.csv")
+```
+
+# Exercises
+
+There has been a lot of conversation recently about the impact of graduating college, i.e., obtaining a bachelor's degree, on one's future career and lifetime earnings. The common convention is that individuals who have earned a bachelor's degree (or higher) will earn more income over the course of a lifetime than an individual who does not have such a degree.
+
+The culmination of individual factors can impact the wealth and resources of a county. Therefore will examine the association between these two factors at a county level and use the percent of adults 25 years old + with a Bachelor's degree to understand variabilty in the median income. Specifically we'd like to answer such as, "do counties that have a higher percentage of college graduates have higher median household incomes, on average, compared to counties with a lower percentage of college graduates?".
+
+::: callout-important
+All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.
+:::
+
+## Part 1: Exploratory data analysis
+
+### Exercise 1
+
+Create a histogram of the distribution of the predictor variable `bachelors`and calculate appropriate summary statistics. Use the visualization and summary statistics to describe the distribution. Include an informative title and axis labels on the plot.
+
+### Exercise 2
+
+Let's view the data in another way. Use the code below to make a map of the United States with the color of the counties filled in based on the percent of residents 25 years old and older who have a Bachelor's degree. Fill in title and axis labels.
+
+Then use the plot answer the following:
+
+-   What are 2 observations you have from the map?
+-   What is a feature that is apparent in the map that wasn't as easily apparent from the histogram in the previous exercise? What is a feature that is apparent in the histogram that is not as easily apparent from the map?
+
+```{r}
+#| fig.show: hide
+#| message: false
+
+county_map_data <- left_join(county_data_sample, map_data_sample)
+
+ggplot(data = map_data_all) +
+  geom_polygon(aes(x = long, y = lat, group = group),
+    fill = "lightgray", color = "white"
+    ) +
+  geom_polygon(data = county_map_data, aes(x = long, y = lat, group = group,
+    fill = bachelors)
+    ) +
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    fill = "_____",
+    title = "_____"
+  ) +
+  scale_fill_viridis_c(labels = label_percent(scale = 1)) +
+  coord_quickmap()
+```
+
+### Exercise 3
+
+Create a visualization of the relationship between `bachelors` and `median_household_income` and calculate the correlation. Use the visualization and correlation to describe the relationship between the two variables.
+
+::: callout-tip
+Recall the analysis objective stated at the beginning of the Exercises section.
+:::
+
+::: render-commit-push
+If you haven't yet done so, now is a good time to render your document and commit (with a meaningful commit message) and push all updates.
+:::
+
+## Part 2: Modeling
+
+### Exercise 4
+
+We will use a linear regression model to better quantify the relationship between `bachelors` and `median_household_income`.
+
+Write the form of the statistical model we will use for this task using mathematical notation. Use variable names (`bachelors` and `median_household_income`) in the equation for your model[^1].
+
+[^1]: [Click here](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols) for a guide on writing mathematical symbols using LaTex.
+
+### Exercise 5
+
+-   Fit the regression line corresponding to the statistical model in the previous exercise. Neatly display the model output using 3 digits.
+
+-   Write the equation of the fitted model using mathematical notation. Use variable names (`bachelors` and `median_household_income`) in the equation.
+
+### Exercise 6
+
+-   Interpret the slope. The interpretation should be written in a way that is meaningful in the context of the data.
+-   Is it useful to interpret the intercept for this data? If so, write the interpretation in the context of the data. Otherwise, briefly explain why not.
+
+::: render-commit-push
+Now is a good time to render your document again if you haven't done so recently and commit (with a meaningful commit message) and push all updates.
+:::
+
+## Part 3: Inference for the U.S.
+
+We want to use the data from these 600 randomly selected counties to draw conclusions about the relationship between the percent of adults age 25 and older with a bachelor's degree and median household income for the over 3,000 counties in the United States.
+
+### Exercise 7
+
+-   What is the population of interest? What is the sample?
+
+-   Is it reasonable to treat the sample in this analysis as representative of the population? Briefly explain why or why not.
+
+### Exercise 8
+
+Conduct a hypothesis test for the slope to assess whether there is sufficient evidence of a linear relationship between the percent of adults age 25 and older with a bachelor's degree and the median household income in a county. Use a randomization (permutation) test. In your response:
+
+-   State the null and alternative hypotheses in words and mathematical notation
+-   Show all relevant code and output used to conduct the test. Use `set.seed(2023)` and 1000 iterations to construct the appropriate distribution.
+-   State the conclusion in the context of the data.
+
+### Exercise 9
+
+Next, construct a 95% confidence interval for the slope using bootstrapping with `set.seed(2023)` and 1000 iterations.
+
+-   Show all relevant code and output used to calculate the interval.
+
+-   Interpret the confidence interval in the context of the data.
+
+-   Is the confidence interval consistent with the results of the test from the previous exercise? Briefly explain why or why not.
+
+::: render-commit-push
+Now is a good time to render your document again if you haven't done so recently and commit (with a meaningful commit message) and push all updates.
+:::
+
+## Reproducibility
+
+### Exercise 10
+
+You are asked to use a reproducible workflow for all of your work in the class, and the goal of this question to is better understand potential real-world implications of doing (or not) doing so. Below are some real-life examples in which having a non-reproducible workflow resulted in errors that impacted research and public records.
+
+| Reproducibility error                                    | Consequence                                          | Source(s)                                                                                                       |
+|----------------------------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| Limitations in Excel data formats                        | Loss of 16,000 COVID case records in the UK          | ([Kelion 2020](https://www.bbc.com/news/technology-54423988))                                                   |
+| Automatic formatting in Excel                            | Important genes disregarded in scientific studies    | ([Ziemann, Eren, and El-Osta 2016](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7)) |
+| Deletion of a cell caused rows to shift                  | Mix-up of which patient group received the treatment | ([Wallensteen et al. 2018](https://pubmed.ncbi.nlm.nih.gov/27373757/))                                          |
+| Using binary instead of explanatory labels               | Mix-up of the intervention with the control group    | ([Aboumatar and Wise 2019](https://jamanetwork.com/journals/jama/fullarticle/2752474))                          |
+| Using the same notation for missing data and zero values | Paper retraction                                     | ([Whitehouse et al. 2021](https://www.nature.com/articles/s41586-021-03656-3))                                  |
+| Incorrectly copying data in a spreadsheet                | Delay in the opening of a hospital                   | ([Picken 2020](https://www.bbc.com/news/uk-scotland-edinburgh-east-fife-53893101))                              |
+
+: Source: @ostblom2022
+
+Choose one of the scenarios from the table and read the linked article discussing what went wrong. Then,
+
+-   Briefly describe what went wrong, i.e., what part of the process of was not reproducible and what error or impact that had.
+
+-   Then, describe how the researchers could make the process reproducible.
+
+::: render-commit-push
+Now is a good time to render your document again if you haven't done so recently and commit (with a meaningful commit message) and push all updates.
+:::
+
+## Submission
+
+::: callout-warning
+Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
+
+Remember -- you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.
+:::
+
+To submit your assignment:
+
+-   Go to [http://www.gradescope.com](http://www.gradescope.com/) and click *Log in* in the top right corner.
+-   Click *School Credentials* ➡️ *Duke NetID* and log in using your NetID credentials.
+-   Click on your *STA 210* course.
+-   Click on the assignment, and you'll be prompted to submit it.
+-   Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be "checked").
+-   Select the first page of your PDF submission to be associated with the *"Workflow & formatting"* section.
+
+## Grading (50 points)
+
+| Component             | Points |
+|-----------------------|--------|
+| Ex 1                  | 5      |
+| Ex 2                  | 5      |
+| Ex 3                  | 4      |
+| Ex 4                  | 3      |
+| Ex 5                  | 4      |
+| Ex 6                  | 4      |
+| Ex 7                  | 3      |
+| Ex 8                  | 7      |
+| Ex 9                  | 7      |
+| Ex 10                 | 5      |
+| Workflow & formatting | 3[^2]  |
+
+[^2]: The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.
