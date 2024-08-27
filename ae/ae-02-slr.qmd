@@ -1,7 +1,7 @@
 ---
 title: "AE 02: Bike rentals in Washington, DC"
 subtitle: "Simple linear regression"
-date: "Aug 30, 2022"
+date: "Aug 30, 2024"
 editor: visual
 ---
 
