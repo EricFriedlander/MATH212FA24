@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope",
     "crumbs": [
       "Schedule"
     ]
@@ -11899,7 +11899,7 @@
     "href": "ae/ae-02-slr.html",
     "title": "AE 02: Bike rentals in Washington, DC",
     "section": "",
-    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-02”\nGo to the Canvas and locate the AE-2 assignment. That link should take you directly there.\nUpload the ae-02.qmd and dcbikeshare.csv files into the folder you just created.\n\nThe .qmd and .html files form this assignment are due in Canvas no later than Tuesday, September 2 at 10:00am.\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(patchwork)"
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-02”\nGo to the Canvas and locate the AE-2 assignment. That link should take you directly there.\nUpload the ae-02.qmd and dcbikeshare.csv files into the folder you just created.\n\nThe .qmd and .html files form this assignment are due in Canvas no later than Tuesday, September 3 at 11:59pm.\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(patchwork)"
   },
   {
     "objectID": "ae/ae-02-slr.html#data",
@@ -12092,5 +12092,47 @@
     "title": "September 4 lecture",
     "section": "Recommended reading (optional)",
     "text": "Recommended reading (optional)\n📖 IMS, Sec 24.2: Randomization test for the slope\n📖 IMS, Sec 24.3: Bootstrap confidence interval for the slope"
+  },
+  {
+    "objectID": "ae/ae-03-bootstrap.html",
+    "href": "ae/ae-03-bootstrap.html",
+    "title": "AE 03: Bootstrap confidence intervals",
+    "section": "",
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-03”\nGo to the course Canvas page and locate your AE 03 assignment to get started.\nUpload the ae-03.qmd and dcbikeshare.csv files into the folder you just created.\n\nThe .qmd and .html files uploaded to Canvas no later than Monday, September 9 at 11:59pm.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(infer)\nlibrary(openintro)\nlibrary(kableExtra)"
+  },
+  {
+    "objectID": "ae/ae-03-bootstrap.html#data",
+    "href": "ae/ae-03-bootstrap.html#data",
+    "title": "AE 03: Bootstrap confidence intervals",
+    "section": "Data",
+    "text": "Data\nOur dataset contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012 filtered to only contain the winter months. It was obtained from the dcbikeshare data set in the dsbox R package.\nWe will focus on the following variables in the analysis:\n\ncount: total bike rentals\ntemp_orig: Temperature in degrees Celsius\n\n\nwinter &lt;- read_csv(\"../ae/data/dcbikeshare.csv\") |&gt;\n  mutate(season = case_when(\n    season == 1 ~ \"winter\",\n    season == 2 ~ \"spring\",\n    season == 3 ~ \"summer\",\n    season == 4 ~ \"fall\"\n  ),\n  season = factor(season)) |&gt;\n  filter(season == \"winter\")\n\nRows: 731 Columns: 17\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl  (16): instant, season, yr, mnth, holiday, weekday, workingday, weathers...\ndate  (1): dteday\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nglimpse(winter)\n\nRows: 181\nColumns: 17\n$ instant    &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, …\n$ dteday     &lt;date&gt; 2011-01-01, 2011-01-02, 2011-01-03, 2011-01-04, 2011-01-05…\n$ season     &lt;fct&gt; winter, winter, winter, winter, winter, winter, winter, win…\n$ yr         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ mnth       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ holiday    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,…\n$ weekday    &lt;dbl&gt; 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4,…\n$ workingday &lt;dbl&gt; 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1,…\n$ weathersit &lt;dbl&gt; 2, 2, 1, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 1, 2, 2, 2, 2,…\n$ temp       &lt;dbl&gt; 0.3441670, 0.3634780, 0.1963640, 0.2000000, 0.2269570, 0.20…\n$ atemp      &lt;dbl&gt; 0.3636250, 0.3537390, 0.1894050, 0.2121220, 0.2292700, 0.23…\n$ hum        &lt;dbl&gt; 0.805833, 0.696087, 0.437273, 0.590435, 0.436957, 0.518261,…\n$ windspeed  &lt;dbl&gt; 0.1604460, 0.2485390, 0.2483090, 0.1602960, 0.1869000, 0.08…\n$ casual     &lt;dbl&gt; 331, 131, 120, 108, 82, 88, 148, 68, 54, 41, 43, 25, 38, 54…\n$ registered &lt;dbl&gt; 654, 670, 1229, 1454, 1518, 1518, 1362, 891, 768, 1280, 122…\n$ count      &lt;dbl&gt; 985, 801, 1349, 1562, 1600, 1606, 1510, 959, 822, 1321, 126…\n$ temp_orig  &lt;dbl&gt; 14.110847, 14.902598, 8.050924, 8.200000, 9.305237, 8.37826…"
+  },
+  {
+    "objectID": "ae/ae-03-bootstrap.html#exploratory-data-analysis",
+    "href": "ae/ae-03-bootstrap.html#exploratory-data-analysis",
+    "title": "AE 03: Bootstrap confidence intervals",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\n\ngf_point(count ~ temp_orig, data = winter, alpha = 0.7) |&gt; \n  gf_labs(\n    x = \"Temperature (C)\",\n    y = \"Number of Bike Rentals\",\n  )"
+  },
+  {
+    "objectID": "ae/ae-03-bootstrap.html#model",
+    "href": "ae/ae-03-bootstrap.html#model",
+    "title": "AE 03: Bootstrap confidence intervals",
+    "section": "Model",
+    "text": "Model\n\nmodel_fit &lt;- lm(count ~ temp_orig, data = winter)\n\ntidy(model_fit) |&gt;\n  kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-111.04\n238.31\n-0.47\n0.64\n\n\ntemp_orig\n222.42\n18.46\n12.05\n0.00"
+  },
+  {
+    "objectID": "ae/ae-03-bootstrap.html#bootstrap-confidence-interval",
+    "href": "ae/ae-03-bootstrap.html#bootstrap-confidence-interval",
+    "title": "AE 03: Bootstrap confidence intervals",
+    "section": "Bootstrap confidence interval",
+    "text": "Bootstrap confidence interval\n\n1. Calculate the observed fit (slope)\n\nobserved_fit &lt;- winter |&gt;\n  specify(count ~ temp_orig) |&gt;\n  fit()\n\nobserved_fit\n\n# A tibble: 2 × 2\n  term      estimate\n  &lt;chr&gt;        &lt;dbl&gt;\n1 intercept    -111.\n2 temp_orig     222.\n\n\n\n\n2. Take n bootstrap samples and fit models to each one.\nFill in the code, then set eval: true .\n\nn = 100\nset.seed(212)\n\nboot_fits &lt;- ______ |&gt;\n  specify(______) |&gt;\n  generate(reps = ____, type = \"bootstrap\") |&gt;\n  fit()\n\nboot_fits\n\n\nWhy do we set a seed before taking the bootstrap samples?\nMake a histogram of the bootstrap samples to visualize the bootstrap distribution.\n\n# Code for histogram\n\n\n\n\n3. Compute the 95% confidence interval as the middle 95% of the bootstrap distribution\nFill in the code, then set eval: true .\n\nget_confidence_interval(\n  boot_fits, \n  point_estimate = _____, \n  level = ____,\n  type = \"percentile\"\n)"
+  },
+  {
+    "objectID": "ae/ae-03-bootstrap.html#changing-confidence-level",
+    "href": "ae/ae-03-bootstrap.html#changing-confidence-level",
+    "title": "AE 03: Bootstrap confidence intervals",
+    "section": "Changing confidence level",
+    "text": "Changing confidence level\n\nModify the code from Step 3 to create a 90% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\n\nModify the code from Step 3 to create a 99% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\nWhich confidence level produces the most accurate confidence interval (90%, 95%, 99%)? Explain\nWhich confidence level produces the most precise confidence interval (90%, 95%, 99%)? Explain\nIf we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the HTML file with all of your work from today’s class.\nUpload your .qmd file and your .html file to Canvas."
   }
 ]

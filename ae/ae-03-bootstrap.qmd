@@ -1,14 +1,20 @@
 ---
-title: "AE 04: Bootstrap confidence intervals"
+title: "AE 03: Bootstrap confidence intervals"
+author: "Driver: ____, Reporter: _____, Gopher: _____"
 subtitle: "Bikeshare"
-date: "Sep 11, 2023"
+date: "Sep 6, 2024"
 editor: visual
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta210-fa23) and locate your `ae-04` repo to get started.
 
-Render, commit, and push your responses to GitHub by the end of class. The responses are due in your GitHub repo no later than Thursday, September 14 at 11:59pm.
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-03"
+
+-   Go to the [course Canvas page](https://cofi.instructure.com/courses/15692/assignments/181095) and locate your `AE 03` assignment to get started.
+
+-   Upload the `ae-03.qmd` and `dcbikeshare.csv` files into the folder you just created.
+
+The `.qmd` and `.html` files uploaded to Canvas no later than Monday, September 9 at 11:59pm.
 :::
 
 ```{r load-packages}
@@ -140,7 +146,7 @@ get_confidence_interval(
 ::: callout-important
 To submit the AE:
 
--   Render the document to produce the PDF with all of your work from today's class.
+-   Render the document to produce the HTML file with all of your work from today's class.
 
--   Push all your work to your `ae-04` repo on GitHub. (You do not submit AEs on Gradescope).
+-   Upload your .qmd file and your .html file to Canvas.
 :::

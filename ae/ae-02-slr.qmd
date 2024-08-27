@@ -6,14 +6,13 @@ editor: visual
 ---
 
 ::: callout-important
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-02"
 
-- Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-02"
+-   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/180578) and locate the `AE-2` assignment. That link should take you directly there.
 
-- Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/180578) and locate the `AE-2` assignment. That link should take you directly there.
+-   Upload the `ae-02.qmd` and `dcbikeshare.csv` files into the folder you just created.
 
-- Upload the `ae-02.qmd` and `dcbikeshare.csv` files into the folder you just created.
-
-The .qmd and .html files form this assignment are due in Canvas no later than Tuesday, September 2 at 10:00am.
+The .qmd and .html files form this assignment are due in Canvas no later than Tuesday, September 3 at 11:59pm.
 :::
 
 ```{r load-packages}
@@ -28,14 +27,13 @@ library(patchwork)
 
 Our data set contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the `dcbikeshare` data set in the `dsbox` R package.
 
-
 We will focus on the following variables in the analysis:
 
 -   `count`: total bike rentals
 -   `temp_orig`: Temperature in degrees Celsius
 -   `season`: 1 - winter, 2 - spring, 3 - summer, 4 - fall
 
-Click [here](https://rstudio-education.github.io/dsbox/reference/dcbikeshare.html) for the full list of variables and definitions. 
+Click [here](https://rstudio-education.github.io/dsbox/reference/dcbikeshare.html) for the full list of variables and definitions.
 
 Note that you may need to adjust the file path below:
 
