@@ -11598,7 +11598,7 @@
     "href": "slides/04-slr-intro.html#movie-scores-data",
     "title": "Simple Linear Regression",
     "section": "Movie scores data",
-    "text": "Movie scores data\nThe data set contains the “Tomatometer” score (critics) and audience score (audience) for 146 movies rated on rottentomatoes.com.\n\n\nCode\nmovie_scores |&gt; \ngf_point(audience ~ critics, alpha = 0.5) + \n  labs(x = \"Critics Score\" , \n       y = \"Audience Score\")"
+    "text": "Movie scores data\nThe data set contains the “Tomatometer” score (critics) and audience score (audience) for 146 movies rated on rottentomatoes.com.\n\n\nCode\nmovie_scores |&gt; \ngf_point(audience ~ critics, alpha = 0.5) |&gt;  \n  gf_labs(x = \"Critics Score\" , \n       y = \"Audience Score\")"
   },
   {
     "objectID": "slides/04-slr-intro.html#movie-ratings-data",
@@ -11647,7 +11647,7 @@
     "href": "slides/04-slr-intro.html#slr-statistical-model",
     "title": "Simple Linear Regression",
     "section": "SLR: Statistical model",
-    "text": "SLR: Statistical model\n\nSimple linear regression: model to describe the relationship between \\(Y\\) and \\(X\\) where:\n\n\\(Y\\) is a quantitative/numerical reponse\n\\(X\\) is a single quantitative predictor +\\[\\Large{Y = \\mathbf{\\beta_0 + \\beta_1 X} + \\epsilon}\\]\n\n\n\n\n\\(\\beta_1\\): True slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\beta_0\\): True intercept of the relationship between \\(X\\) and \\(Y\\)\n\\(\\epsilon\\): Error"
+    "text": "SLR: Statistical model\n\nSimple linear regression: model to describe the relationship between \\(Y\\) and \\(X\\) where:\n\n\\(Y\\) is a quantitative/numerical reponse\n\\(X\\) is a single quantitative predictor\n\\[\\Large{Y = \\mathbf{\\beta_0 + \\beta_1 X} + \\epsilon}\\]\n\n\n\n\n\\(\\beta_1\\): True slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\beta_0\\): True intercept of the relationship between \\(X\\) and \\(Y\\)\n\\(\\epsilon\\): Error"
   },
   {
     "objectID": "slides/04-slr-intro.html#slr-regression-equation",
@@ -12134,5 +12134,404 @@
     "title": "AE 03: Bootstrap confidence intervals",
     "section": "Changing confidence level",
     "text": "Changing confidence level\n\nModify the code from Step 3 to create a 90% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\n\nModify the code from Step 3 to create a 99% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\nWhich confidence level produces the most accurate confidence interval (90%, 95%, 99%)? Explain\nWhich confidence level produces the most precise confidence interval (90%, 95%, 99%)? Explain\nIf we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the HTML file with all of your work from today’s class.\nUpload your .qmd file and your .html file to Canvas."
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#ae-02-follow-up-1",
+    "href": "slides/06-slr-bootstrap.html#ae-02-follow-up-1",
+    "title": "SLR: Simulation-based inference",
+    "section": "AE 02 Follow-up",
+    "text": "AE 02 Follow-up\nGoal: Use simple linear regression to model the relationship between temperature and daily bike rentals in the winter season"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#ae-02-follow-up-2",
+    "href": "slides/06-slr-bootstrap.html#ae-02-follow-up-2",
+    "title": "SLR: Simulation-based inference",
+    "section": "AE 02 Follow-up",
+    "text": "AE 02 Follow-up\nStatistical Model:\n\\[count = \\beta_0 +\\beta_1 ~ temp\\_orig + \\epsilon, \\hspace{5mm} \\epsilon \\sim N(0, \\sigma_{\\epsilon}^2)\\]\n\n\nwinter_fit &lt;- lm(count ~ temp_orig, data = winter)\n\ntidy(winter_fit) |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-111.038\n238.312\n-0.466\n0.642\n\n\ntemp_orig\n222.416\n18.459\n12.049\n0.000"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#ae-02-follow-up-3",
+    "href": "slides/06-slr-bootstrap.html#ae-02-follow-up-3",
+    "title": "SLR: Simulation-based inference",
+    "section": "AE 02 Follow-up",
+    "text": "AE 02 Follow-up\nUse the output to write out the estimated regression equation.\n\\[\n\\hat{count} =  -111.038 + 222.416 ~temp\\_orig\n\\]\n\n\n\n\n\n\n\nYour turn!\n\n\n\nInterpret the slope in the context of the data.\nWhy is there no error term in the regression equation?\n\n\n\n\n\nLaTex:\n\\$\\$\\hat{count} = -111.038 + 222.416 ~ temp\\_orig\\$\\$"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#topics",
+    "href": "slides/06-slr-bootstrap.html#topics",
+    "title": "SLR: Simulation-based inference",
+    "section": "Topics",
+    "text": "Topics\n\nFind range of plausible values for the slope using bootstrap confidence intervals"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#computational-setup",
+    "href": "slides/06-slr-bootstrap.html#computational-setup",
+    "title": "SLR: Simulation-based inference",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(ggformula)  # for modeling\nlibrary(scales)      # for pretty axis labels\n# library(glue)        # for constructing character strings\nlibrary(knitr)       # for neatly formatted tables\nlibrary(kableExtra)  # also for neatly formatted tablesf\n\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#data-san-antonio-income-organic-food-access",
+    "href": "slides/06-slr-bootstrap.html#data-san-antonio-income-organic-food-access",
+    "title": "SLR: Simulation-based inference",
+    "section": "Data: San Antonio Income & Organic Food Access",
+    "text": "Data: San Antonio Income & Organic Food Access\n\n\n\nAverage household income (per zip code) and number of organic vegetable offerings in San Antonio, TX\nData from HEB website, compiles by high school student Linda Saucedo, Fall 2019\nSource: Skew The Script\n\n\n\n\n\nGoal: Use the average household income to understand variation in access to organic foods."
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#exploratory-data-analysis",
+    "href": "slides/06-slr-bootstrap.html#exploratory-data-analysis",
+    "title": "SLR: Simulation-based inference",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\n\n\nCode\nheb &lt;- read_csv(\"data/HEBIncome.csv\") |&gt; \n  mutate(Avg_Income_K = Avg_Household_Income/1000)\n\ngf_point(Number_Organic ~ Avg_Income_K, data = heb, alpha = 0.7) |&gt; \n  gf_labs(\n    x = \"Average Household Income (in thousands)\",\n    y = \"Number of Organic Vegetables\",\n  ) |&gt; \n  gf_refine(scale_x_continuous(labels = label_dollar()))"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#modeling",
+    "href": "slides/06-slr-bootstrap.html#modeling",
+    "title": "SLR: Simulation-based inference",
+    "section": "Modeling",
+    "text": "Modeling\n\nheb_fit &lt;- lm(Number_Organic ~ Avg_Income_K, data = heb)\n\ntidy(heb_fit) |&gt;\n  kable(digits=2) #neatly format table to 2 digits\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00\n\n\n\n\n\n\n\nIntercept: HEBs in Zip Codes with an average household income of $0 are expected to have -14.72 organic vegetable options, on average.\n\nIs this interpretation useful?\n\nSlope: For each additional $1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by 0.96, on average."
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#from-sample-to-population",
+    "href": "slides/06-slr-bootstrap.html#from-sample-to-population",
+    "title": "SLR: Simulation-based inference",
+    "section": "From sample to population",
+    "text": "From sample to population\n\nFor each additional $1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by 0.96, on average.\n\n\n\nEstimate is valid for the single sample of 37 HEBs\nWhat if we’re not interested quantifying the relationship between the size and price of a house in this single sample?\nWhat if we want to say something about the relationship between these variables for all supermarkets in America?"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#statistical-inference",
+    "href": "slides/06-slr-bootstrap.html#statistical-inference",
+    "title": "SLR: Simulation-based inference",
+    "section": "Statistical inference",
+    "text": "Statistical inference\n\nStatistical inference refers to ideas, methods, and tools for to generalizing the single observed sample to make statements (inferences) about the population it comes from\nFor our inferences to be valid, the sample should be random and representative of the population we’re interested in"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#inference-for-simple-linear-regression",
+    "href": "slides/06-slr-bootstrap.html#inference-for-simple-linear-regression",
+    "title": "SLR: Simulation-based inference",
+    "section": "Inference for simple linear regression",
+    "text": "Inference for simple linear regression\n\n\nCalculate a confidence interval for the slope, \\(\\beta_1\\)\nConduct a hypothesis test for the slope,\\(\\beta_1\\)\nWhy not \\(\\beta_0\\)?\nWe can but it isn’t super interesting typically\n\n\n\n\n\nWhat is a confidence interval?\nWhat is a hypothesis test?"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#confidence-interval",
+    "href": "slides/06-slr-bootstrap.html#confidence-interval",
+    "title": "SLR: Simulation-based inference",
+    "section": "Confidence interval",
+    "text": "Confidence interval\n\n\nConfidence interval: plausible range of values for a population parameter\nsingle point estimate \\(\\implies\\) fishing in a murky lake with a spear\nconfidence interval \\(\\implies\\) fishing with a net\n\nWe can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish\nIf we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter\nHigh confidence \\(\\implies\\) wider interval (larger net)\n\nRemember: single CI \\(\\implies\\) either you hit parameter or you don’t\n\nFavorite Visualization"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#confidence-interval-for-the-slope-1",
+    "href": "slides/06-slr-bootstrap.html#confidence-interval-for-the-slope-1",
+    "title": "SLR: Simulation-based inference",
+    "section": "Confidence interval for the slope",
+    "text": "Confidence interval for the slope\nA confidence interval will allow us to make a statement like “For each $1K in average income, the model predicts the number of organic vegetables available at local supermarkets to be higher, on average, by 0.96, plus or minus X options.”\n\n\nShould X be 1? 2? 3?\nIf we were to take another sample of 37 would we expect the slope calculated based on that sample to be exactly 0.96? Off by 1? 2? 3?\nThe answer depends on how variable (from one sample to another sample) the sample statistic (the slope) is\nWe need a way to quantify the variability of the sample statistic"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#quantify-the-variability-of-the-slope",
+    "href": "slides/06-slr-bootstrap.html#quantify-the-variability-of-the-slope",
+    "title": "SLR: Simulation-based inference",
+    "section": "Quantify the variability of the slope",
+    "text": "Quantify the variability of the slope\nfor estimation\n\n\nTwo approaches:\n\nVia simulation (what we’ll do today)\nVia mathematical models (what we’ll do in the soon)\n\nBootstrapping to quantify the variability of the slope for the purpose of estimation:\n\nGenerate new samples by sampling with replacement from the original sample\nFit models to each of the new samples and estimate the slope\nUse features of the distribution of the bootstrapped slopes to construct a confidence interval"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#original-sample",
+    "href": "slides/06-slr-bootstrap.html#original-sample",
+    "title": "SLR: Simulation-based inference",
+    "section": "Original Sample",
+    "text": "Original Sample"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#bootstrap-sample-1",
+    "href": "slides/06-slr-bootstrap.html#bootstrap-sample-1",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrap sample 1",
+    "text": "Bootstrap sample 1"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#bootstrap-sample-2",
+    "href": "slides/06-slr-bootstrap.html#bootstrap-sample-2",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrap sample 2",
+    "text": "Bootstrap sample 2"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#bootstrap-sample-3",
+    "href": "slides/06-slr-bootstrap.html#bootstrap-sample-3",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrap sample 3",
+    "text": "Bootstrap sample 3"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#bootstrap-sample-4",
+    "href": "slides/06-slr-bootstrap.html#bootstrap-sample-4",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrap sample 4",
+    "text": "Bootstrap sample 4"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#bootstrap-sample-5",
+    "href": "slides/06-slr-bootstrap.html#bootstrap-sample-5",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrap sample 5",
+    "text": "Bootstrap sample 5"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#bootstrap-samples-1---5",
+    "href": "slides/06-slr-bootstrap.html#bootstrap-samples-1---5",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrap samples 1 - 5",
+    "text": "Bootstrap samples 1 - 5"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#bootstrap-samples-1---100",
+    "href": "slides/06-slr-bootstrap.html#bootstrap-samples-1---100",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrap samples 1 - 100",
+    "text": "Bootstrap samples 1 - 100"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#slopes-of-bootstrap-samples",
+    "href": "slides/06-slr-bootstrap.html#slopes-of-bootstrap-samples",
+    "title": "SLR: Simulation-based inference",
+    "section": "Slopes of bootstrap samples",
+    "text": "Slopes of bootstrap samples\n\nFill in the blank: For each additional $1k in average household income, the model predicts the number of organic vegetables available to be higher, on average, by 0.96, plus or minus ___."
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#slopes-of-bootstrap-samples-1",
+    "href": "slides/06-slr-bootstrap.html#slopes-of-bootstrap-samples-1",
+    "title": "SLR: Simulation-based inference",
+    "section": "Slopes of bootstrap samples",
+    "text": "Slopes of bootstrap samples\n\nFill in the blank: For each additional $1k in average household income, the model predicts the number of organic vegetables available to be higher, on average, by 0.96, plus or minus ___."
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#confidence-level",
+    "href": "slides/06-slr-bootstrap.html#confidence-level",
+    "title": "SLR: Simulation-based inference",
+    "section": "Confidence level",
+    "text": "Confidence level\n\nHow confident are you that the true slope is between 0.8 and 1.2? How about 0.9 and 1.0? How about 1.0 and 1.4?"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#confidence-interval-1",
+    "href": "slides/06-slr-bootstrap.html#confidence-interval-1",
+    "title": "SLR: Simulation-based inference",
+    "section": "95% confidence interval",
+    "text": "95% confidence interval\n\n\n\n95% bootstrapped confidence interval: bounded by the middle 95% of the bootstrap distribution\nWe are 95% confident that for each additional $1K in average household income, the model predicts the number of organic vegetables options at local supermarkets to be higher, on average, by 0.81 to 1.31."
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#computing-the-ci-for-the-slope-i",
+    "href": "slides/06-slr-bootstrap.html#computing-the-ci-for-the-slope-i",
+    "title": "SLR: Simulation-based inference",
+    "section": "Computing the CI for the slope I",
+    "text": "Computing the CI for the slope I\nCalculate the observed slope:\n\nlibrary(infer) # package that does Simulation-Based Inference\n\nobserved_fit &lt;- heb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  fit()\n\nobserved_fit\n\n# A tibble: 2 × 2\n  term         estimate\n  &lt;chr&gt;           &lt;dbl&gt;\n1 intercept     -14.7  \n2 Avg_Income_K    0.959"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#computing-the-ci-for-the-slope-ii",
+    "href": "slides/06-slr-bootstrap.html#computing-the-ci-for-the-slope-ii",
+    "title": "SLR: Simulation-based inference",
+    "section": "Computing the CI for the slope II",
+    "text": "Computing the CI for the slope II\nTake 100 bootstrap samples and fit models to each one:\n\nset.seed(1120)\n\nboot_fits &lt;- heb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  generate(reps = 100, type = \"bootstrap\") |&gt;\n  fit()\n\nboot_fits\n\n# A tibble: 200 × 3\n# Groups:   replicate [100]\n   replicate term         estimate\n       &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1         1 intercept     -40.9  \n 2         1 Avg_Income_K    1.25 \n 3         2 intercept     -23.9  \n 4         2 Avg_Income_K    1.09 \n 5         3 intercept     -18.6  \n 6         3 Avg_Income_K    1.02 \n 7         4 intercept      -1.96 \n 8         4 Avg_Income_K    0.828\n 9         5 intercept     -15.1  \n10         5 Avg_Income_K    0.951\n# ℹ 190 more rows"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#computing-the-ci-for-the-slope-iii",
+    "href": "slides/06-slr-bootstrap.html#computing-the-ci-for-the-slope-iii",
+    "title": "SLR: Simulation-based inference",
+    "section": "Computing the CI for the slope III",
+    "text": "Computing the CI for the slope III\nPercentile method: Compute the 95% CI as the middle 95% of the bootstrap distribution:\n\nget_confidence_interval(\n  boot_fits, \n  point_estimate = observed_fit, \n  level = 0.95,\n  type = \"percentile\" #default method\n)\n\n# A tibble: 2 × 3\n  term         lower_ci upper_ci\n  &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;\n1 Avg_Income_K    0.822     1.27\n2 intercept     -34.5      -2.56"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#precision-vs.-accuracy",
+    "href": "slides/06-slr-bootstrap.html#precision-vs.-accuracy",
+    "title": "SLR: Simulation-based inference",
+    "section": "Precision vs. accuracy",
+    "text": "Precision vs. accuracy\n\nIf we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#precision-vs.-accuracy-1",
+    "href": "slides/06-slr-bootstrap.html#precision-vs.-accuracy-1",
+    "title": "SLR: Simulation-based inference",
+    "section": "Precision vs. accuracy",
+    "text": "Precision vs. accuracy\n\nHow can we get best of both worlds – high precision and high accuracy?"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#changing-confidence-level",
+    "href": "slides/06-slr-bootstrap.html#changing-confidence-level",
+    "title": "SLR: Simulation-based inference",
+    "section": "Changing confidence level",
+    "text": "Changing confidence level\n\nHow would you modify the following code to calculate a 90% confidence interval? How would you modify it for a 99% confidence interval?\n\n\nget_confidence_interval(\n  boot_fits, \n  point_estimate = observed_fit, \n  level = 0.95,\n  type = \"percentile\"\n)\n\n# A tibble: 2 × 3\n  term         lower_ci upper_ci\n  &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;\n1 Avg_Income_K    0.822     1.27\n2 intercept     -34.5      -2.56"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#changing-confidence-level-1",
+    "href": "slides/06-slr-bootstrap.html#changing-confidence-level-1",
+    "title": "SLR: Simulation-based inference",
+    "section": "Changing confidence level",
+    "text": "Changing confidence level\n\n## confidence level: 90%\nget_confidence_interval(\n  boot_fits, point_estimate = observed_fit, \n  level = 0.90, type = \"percentile\"\n)\n\n# A tibble: 2 × 3\n  term         lower_ci upper_ci\n  &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;\n1 Avg_Income_K    0.829     1.23\n2 intercept     -31.7      -3.76\n\n## confidence level: 99%\nget_confidence_interval(\n  boot_fits, point_estimate = observed_fit, \n  level = 0.99, type = \"percentile\"\n)\n\n# A tibble: 2 × 3\n  term         lower_ci upper_ci\n  &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;\n1 Avg_Income_K    0.795    1.36 \n2 intercept     -43.3     -0.535"
+  },
+  {
+    "objectID": "slides/06-slr-bootstrap.html#recap",
+    "href": "slides/06-slr-bootstrap.html#recap",
+    "title": "SLR: Simulation-based inference",
+    "section": "Recap",
+    "text": "Recap\n\nPopulation: Complete set of observations of whatever we are studying, e.g., people, tweets, photographs, etc. (population size = \\(N\\))\nSample: Subset of the population, ideally random and representative (sample size = \\(n\\))\nSample statistic \\(\\ne\\) population parameter, but if the sample is good, it can be a good estimate\nStatistical inference: Discipline that concerns itself with the development of procedures, methods, and theorems that allow us to extract meaning and information from data that has been generated by stochastic (random) process\nWe report the estimate with a confidence interval, and the width of this interval depends on the variability of sample statistics from different samples from the population\nSince we can’t continue sampling from the population, we bootstrap from the one sample we have to estimate sampling variability\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#topics",
+    "href": "slides/07-slr-sim-testing.html#topics",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Topics",
+    "text": "Topics\n\nEvaluate a claim about the slope using hypothesis testing\nDefine mathematical models to conduct inference for slope"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#computational-setup",
+    "href": "slides/07-slr-sim-testing.html#computational-setup",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(broom)       # for nearly formatting model output\nlibrary(infer)       # for simulation based inference\nlibrary(usdata)      # for the county_2019 dataset\nlibrary(scales)      # for pretty axis labels\nlibrary(glue)        # for constructing character strings\nlibrary(knitr)       # for neatly formatted tables\nlibrary(kableExtra)  # also for neatly formatted tablesf\n\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#data-san-antonio-income-organic-food-access",
+    "href": "slides/07-slr-sim-testing.html#data-san-antonio-income-organic-food-access",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Data: San Antonio Income & Organic Food Access",
+    "text": "Data: San Antonio Income & Organic Food Access"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#the-regression-model",
+    "href": "slides/07-slr-sim-testing.html#the-regression-model",
+    "title": "SLR: Randomization test for the slope",
+    "section": "The regression model",
+    "text": "The regression model\n\nheb_fit &lt;- lm(Number_Organic ~ Avg_Income_K, data = heb)\n\ntidy(heb_fit) |&gt;\n  kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00\n\n\n\n\n\n\nSlope: For each additional $1,000 in average household income, we expect the number of organic options available at nearby HEBs to increase by 0.96, on average."
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#inference-for-simple-linear-regression",
+    "href": "slides/07-slr-sim-testing.html#inference-for-simple-linear-regression",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Inference for simple linear regression",
+    "text": "Inference for simple linear regression\n\nCalculate a confidence interval for the slope, \\(\\beta_1\\)\nConduct a hypothesis test for the slope, \\(\\beta_1\\)"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#sampling-is-natural",
+    "href": "slides/07-slr-sim-testing.html#sampling-is-natural",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Sampling is natural",
+    "text": "Sampling is natural\n\n\nWhen you taste a spoonful of soup and decide the spoonful you tasted isn’t salty enough, that’s exploratory analysis\nIf you generalize and conclude that your entire soup needs salt, that’s an inference\nFor your inference to be valid, the spoonful you tasted (the sample) needs to be representative of the entire pot (the population)"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#confidence-interval-via-bootstrapping",
+    "href": "slides/07-slr-sim-testing.html#confidence-interval-via-bootstrapping",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Confidence interval via bootstrapping",
+    "text": "Confidence interval via bootstrapping\n\nBootstrap new samples from the original sample\nFit models to each of the samples and estimate the slope\nUse features of the distribution of the bootstrapped slopes to construct a confidence interval"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#bootstrapping-pipeline-i",
+    "href": "slides/07-slr-sim-testing.html#bootstrapping-pipeline-i",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Bootstrapping pipeline I",
+    "text": "Bootstrapping pipeline I\n\nset.seed(210)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K)\n\nResponse: Number_Organic (numeric)\nExplanatory: Avg_Income_K (numeric)\n# A tibble: 37 × 2\n   Number_Organic Avg_Income_K\n            &lt;dbl&gt;        &lt;dbl&gt;\n 1             36         71.2\n 2              4         34.2\n 3             28         71.2\n 4             31         48.8\n 5             78         78.1\n 6             14         40.5\n 7             12         38.2\n 8             18         50.4\n 9             38         49.4\n10             84         66.1\n# ℹ 27 more rows"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#bootstrapping-pipeline-ii",
+    "href": "slides/07-slr-sim-testing.html#bootstrapping-pipeline-ii",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Bootstrapping pipeline II",
+    "text": "Bootstrapping pipeline II\n\nset.seed(210)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  generate(reps = 1000, type = \"bootstrap\")\n\nResponse: Number_Organic (numeric)\nExplanatory: Avg_Income_K (numeric)\n# A tibble: 37,000 × 3\n# Groups:   replicate [1,000]\n   replicate Number_Organic Avg_Income_K\n       &lt;int&gt;          &lt;dbl&gt;        &lt;dbl&gt;\n 1         1             65         50.3\n 2         1             61         86.6\n 3         1             85         78.2\n 4         1             86         86.6\n 5         1             26         48.4\n 6         1             12         38.2\n 7         1             93        136. \n 8         1             85         78.2\n 9         1             85         78.2\n10         1             96         77.9\n# ℹ 36,990 more rows"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#bootstrapping-pipeline-iii",
+    "href": "slides/07-slr-sim-testing.html#bootstrapping-pipeline-iii",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Bootstrapping pipeline III",
+    "text": "Bootstrapping pipeline III\n\nset.seed(210)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  generate(reps = 1000, type = \"bootstrap\") |&gt;\n  fit()\n\n# A tibble: 2,000 × 3\n# Groups:   replicate [1,000]\n   replicate term         estimate\n       &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1         1 intercept      -6.99 \n 2         1 Avg_Income_K    0.866\n 3         2 intercept     -26.7  \n 4         2 Avg_Income_K    1.20 \n 5         3 intercept     -28.2  \n 6         3 Avg_Income_K    1.16 \n 7         4 intercept     -13.6  \n 8         4 Avg_Income_K    0.881\n 9         5 intercept     -20.2  \n10         5 Avg_Income_K    1.02 \n# ℹ 1,990 more rows"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#bootstrapping-pipeline-iv",
+    "href": "slides/07-slr-sim-testing.html#bootstrapping-pipeline-iv",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Bootstrapping pipeline IV",
+    "text": "Bootstrapping pipeline IV\n\nset.seed(210)\n\nboot_dist &lt;- heb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  generate(reps = 1000, type = \"bootstrap\") |&gt;\n  fit()"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#visualize-the-bootstrap-distribution",
+    "href": "slides/07-slr-sim-testing.html#visualize-the-bootstrap-distribution",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Visualize the bootstrap distribution",
+    "text": "Visualize the bootstrap distribution\n\nboot_dist |&gt;\n  filter(term == \"Avg_Income_K\") |&gt;\n  ggplot(aes(x = estimate)) +\n  geom_histogram(bins = 15)"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#compute-the-ci",
+    "href": "slides/07-slr-sim-testing.html#compute-the-ci",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Compute the CI",
+    "text": "Compute the CI"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#but-first",
+    "href": "slides/07-slr-sim-testing.html#but-first",
+    "title": "SLR: Randomization test for the slope",
+    "section": "But first…",
+    "text": "But first…\n\nobs_fit &lt;- heb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  fit()\n\nobs_fit\n\n# A tibble: 2 × 2\n  term         estimate\n  &lt;chr&gt;           &lt;dbl&gt;\n1 intercept     -14.7  \n2 Avg_Income_K    0.959"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#compute-95-confidence-interval",
+    "href": "slides/07-slr-sim-testing.html#compute-95-confidence-interval",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Compute 95% confidence interval",
+    "text": "Compute 95% confidence interval\n\nboot_dist |&gt;\n  get_confidence_interval(\n    point_estimate = obs_fit,\n    level = 0.95,\n    type = \"percentile\"\n  )\n\n# A tibble: 2 × 3\n  term         lower_ci upper_ci\n  &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;\n1 Avg_Income_K    0.771   1.24  \n2 intercept     -33.0     0.0473"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#research-question-and-hypotheses",
+    "href": "slides/07-slr-sim-testing.html#research-question-and-hypotheses",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Research question and hypotheses",
+    "text": "Research question and hypotheses\n“Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”\n\nNull hypothesis: there is no linear relationship between Number_Organic and Avg_Income_K\n\\[\nH_0: \\beta_1 = 0\n\\]\n\n\nAlternative hypothesis: there is a linear relationship between Number_Organic and Avg_Income_K\n\\[\nH_A: \\beta_1 \\ne 0\n\\]"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#hypothesis-testing-as-a-court-trial",
+    "href": "slides/07-slr-sim-testing.html#hypothesis-testing-as-a-court-trial",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Hypothesis testing as a court trial",
+    "text": "Hypothesis testing as a court trial\n\n\nNull hypothesis, \\(H_0\\): Defendant is innocent\nAlternative hypothesis, \\(H_A\\): Defendant is guilty\nPresent the evidence: Collect data\nJudge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”\n\nYes: Fail to reject \\(H_0\\)\nNo: Reject \\(H_0\\)\n\nNot guilty \\(\\neq\\) innocent \\(\\implies\\) why we say “fail to reject the null” rather than “accept the null”"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#hypothesis-testing-framework",
+    "href": "slides/07-slr-sim-testing.html#hypothesis-testing-framework",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Hypothesis testing framework",
+    "text": "Hypothesis testing framework\n\n\nStart with a null hypothesis, \\(H_0\\) that represents the status quo\nSet an alternative hypothesis, \\(H_A\\) that represents the research question, i.e. claim we’re testing\nUnder the assumption that the null hypothesis is true, calculate a p-value (probability of getting outcome or outcome even more favorable to the alternative)\n\nif the test results suggest that the data do not provide convincing evidence for the alternative hypothesis, stick with the null hypothesis\nif they do, then reject the null hypothesis in favor of the alternative"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#quantify-the-variability-of-the-slope",
+    "href": "slides/07-slr-sim-testing.html#quantify-the-variability-of-the-slope",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Quantify the variability of the slope",
+    "text": "Quantify the variability of the slope\nfor testing\n\n\nTwo approaches:\n\nVia simulation\nVia mathematical models\n\nUse Randomization to quantify the variability of the slope for the purpose of testing, under the assumption that the null hypothesis is true:\n\nSimulate new samples from the original sample via permutation\nFit models to each of the samples and estimate the slope\nUse features of the distribution of the permuted slopes to conduct a hypothesis test"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#permutation-described",
+    "href": "slides/07-slr-sim-testing.html#permutation-described",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Permutation, described",
+    "text": "Permutation, described\n\n\n\nUse permuting to simulate data under the assumption the null hypothesis is true and measure the natural variability in the data due to sampling, not due to variables being correlated\n\nPermute reponse variable to eliminate any existing relationship with explanatory variable\n\nEach Number_Organic value is randomly assigned to the Avg_Household_K, i.e. Number_Organic and Avg_Household_K are no longer matched for a given store\n\n\n\n\n# A tibble: 37 × 3\n   Number_Organic_Original Number_Organic_Permuted Avg_Income_K\n                     &lt;dbl&gt;                   &lt;dbl&gt;        &lt;dbl&gt;\n 1                      36                      73         71.2\n 2                       4                      29         34.2\n 3                      28                      35         71.2\n 4                      31                      38         48.8\n 5                      78                      78         78.1\n 6                      14                      14         40.5\n 7                      12                      82         38.2\n 8                      18                      31         50.4\n 9                      38                       4         49.4\n10                      84                      12         66.1\n# ℹ 27 more rows"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#permutation-visualized",
+    "href": "slides/07-slr-sim-testing.html#permutation-visualized",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Permutation, visualized",
+    "text": "Permutation, visualized\n\n\n\nEach of the observed values for area (and for price) exist in both the observed data plot as well as the permuted price plot\nPermuting removes the relationship between area and price"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#permutation-repeated",
+    "href": "slides/07-slr-sim-testing.html#permutation-repeated",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Permutation, repeated",
+    "text": "Permutation, repeated\nRepeated permutations allow for quantifying the variability in the slope under the condition that there is no linear relationship (i.e., that the null hypothesis is true)"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#concluding-the-hypothesis-test",
+    "href": "slides/07-slr-sim-testing.html#concluding-the-hypothesis-test",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Concluding the hypothesis test",
+    "text": "Concluding the hypothesis test\n\nIs the observed slope of \\(\\hat{\\beta_1} = 159\\) (or an even more extreme slope) a likely outcome under the null hypothesis that \\(\\beta = 0\\)? What does this mean for our original question: “Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
   }
 ]

@@ -114,8 +114,8 @@ The data set contains the "Tomatometer" score (**`critics`**) and audience score
 #| fig-align: center
 
 movie_scores |> 
-gf_point(audience ~ critics, alpha = 0.5) + 
-  labs(x = "Critics Score" , 
+gf_point(audience ~ critics, alpha = 0.5) |>  
+  gf_labs(x = "Critics Score" , 
        y = "Audience Score")
 ```
 
@@ -250,7 +250,7 @@ ggplot(data = movie_scores, mapping = aes(x = critics, y = audience)) +
 - **Simple linear regression:** model to describe the relationship between $Y$ and $X$ where:
   + $Y$ is a quantitative/numerical reponse
   + $X$ is a *single* quantitative predictor
-  +$$\Large{Y = \mathbf{\beta_0 + \beta_1 X} + \epsilon}$$
+  + $$\Large{Y = \mathbf{\beta_0 + \beta_1 X} + \epsilon}$$
 
 . . .
 
