@@ -1,5 +1,6 @@
 ---
 title: "HW 01: Park access"
+author: "Insert Name Here"
 subtitle: "Exploratory Data Analysis + Simple Linear Regression" 
 execute:
   freeze: auto
