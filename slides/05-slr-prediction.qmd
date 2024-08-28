@@ -27,6 +27,13 @@ knitr:
 bibliography: references.bib
 ---
 
+## Finish Wedneday's AE
+
+::: appex
+📋 [AE 01 - Movie Budgets and Revenues](https://mat212fa24.netlify.app/ae/ae-01-movies)
+:::
+
+
 ## Last Time
 
 ::: {.incremental style="font-size: 0.85em"}
@@ -243,6 +250,12 @@ new_movie <- tibble(critics = 70)
 # predict the outcome for a new movie
 predict(movie_fit, new_movie)
 ```
+
+## Application Exercise
+
+::: appex
+📋 [AE-02 Bike rentals in DC](https://mat212fa24.netlify.app/ae/ae-02-slr)
+:::
 
 # Wrap up
 

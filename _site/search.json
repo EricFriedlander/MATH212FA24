@@ -12533,5 +12533,19 @@
     "title": "SLR: Randomization test for the slope",
     "section": "Concluding the hypothesis test",
     "text": "Concluding the hypothesis test\n\nIs the observed slope of \\(\\hat{\\beta_1} = 159\\) (or an even more extreme slope) a likely outcome under the null hypothesis that \\(\\beta = 0\\)? What does this mean for our original question: “Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#finish-wednedays-ae",
+    "href": "slides/05-slr-prediction.html#finish-wednedays-ae",
+    "title": "Simple Linear Regression",
+    "section": "Finish Wedneday’s AE",
+    "text": "Finish Wedneday’s AE\n\n📋 AE 01 - Movie Budgets and Revenues"
+  },
+  {
+    "objectID": "slides/05-slr-prediction.html#application-exercise",
+    "href": "slides/05-slr-prediction.html#application-exercise",
+    "title": "Simple Linear Regression",
+    "section": "Application Exercise",
+    "text": "Application Exercise\n\n📋 AE-02 Bike rentals in DC"
   }
 ]
