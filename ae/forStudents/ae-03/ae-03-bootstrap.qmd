@@ -4,7 +4,9 @@ author: "Driver: ____, Reporter: _____, Gopher: _____"
 subtitle: "Bikeshare"
 date: "Sep 6, 2024"
 editor: visual
-format: pdf
+format:
+  pdf: 
+    pdf-engine: pdflatex
 ---
 
 ::: callout-important
