@@ -3,12 +3,15 @@ title: "AE 04: Randomization test for the slope"
 subtitle: "Bikeshare"
 date: "Sep 6, 2024"
 editor: visual
+format: 
+  pdf:
+    pdf-engine: pdflatex
 ---
 
 ::: callout-important
 -   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-04"
 
-- Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/181485) and locate your `AE 04` assignment to get started.
+-   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/181485) and locate your `AE 04` assignment to get started.
 
 -   Upload the `ae-04.qmd` and `dcbikeshare.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas no later than Thursday, September 12 at 11:59pm.
 :::
