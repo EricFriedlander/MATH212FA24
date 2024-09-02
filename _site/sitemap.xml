@@ -310,7 +310,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/schedule.html</loc>
-    <lastmod>2024-08-19T21:15:59.360Z</lastmod>
+    <lastmod>2024-08-19T21:15:59.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/syllabus.html</loc>
@@ -526,7 +526,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-03-bootstrap.html</loc>
-    <lastmod>2024-08-27T23:05:44.616Z</lastmod>
+    <lastmod>2024-08-31T15:46:24.300Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/prepare/sep-13.html</loc>
@@ -539,5 +539,13 @@
   <url>
     <loc>https://mat212fa24.netlify.app/slides/07-slr-sim-testing.html</loc>
     <lastmod>2024-08-28T15:09:36.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/labs/lab-02.html</loc>
+    <lastmod>2024-08-29T17:30:43.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/labs/ForStudents/lab-02/lab-02.html</loc>
+    <lastmod>2024-08-29T17:30:43.000Z</lastmod>
   </url>
 </urlset>

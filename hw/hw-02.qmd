@@ -1,190 +1,174 @@
 ---
-title: "HW 02: Palmer penguins"
-subtitle: "due Monday, October 2 at 11:59pm"
-editor: visual
+title: "Lab 02: Ice duration and air temperature in Madison, WI"
+subtitle: "Bootstrap confidence interval for the slope"
 execute:
   freeze: auto
   echo: true
   eval: false
   warning: false
   message: false
-bibliography: references.bib
 ---
+
+::: callout-important
+Due:
+
+-   Friday, September 15, 11:59pm (Tuesday labs)
+-   Sunday, September 17, 11:59pm (Thursday labs)
+:::
 
 # Introduction
 
-In this analysis you will use simple and multiple linear regression to analyze relationships between variables in three different scenarios.
+In today's lab, you'll use simple linear regression to analyze the relationship between air temperature and ice duration for two lakes in Wisconsin.
 
-# Learning goals
+## Learning goals
 
-In this assignment, you will...
+By the end of the lab you will...
 
--   Fit and interpret simple and multiple linear regression models
--   Evaluate and compare simple and multiple linear regression models
+-   Be able to fit a simple linear regression model using R.
+-   Be able to interpret the slope and intercept for the model.
+-   Be able to use simulation-based inference to draw conclusions about the slope.
 -   Continue developing a workflow for reproducible data analysis.
 
 # Getting started
 
-The repo for this assignment is available on GitHub at [github.com/sta210-fa23](https://github.com/sta210-fa23 "Course GitHub organization") and starts with the prefix **hw-02**. See [Lab 01](../labs/lab-01.qmd) for more detailed instructions on getting started.
+-   Go to the [sta210-fa23](https://www.github.com/sta210-fa23) organization on GitHub. Click on the repo with the prefix **lab-02-**. It contains the starter documents you need to complete the lab.
+
+-   Clone the repo and start a new project in RStudio. See the [Lab 01 instructions](lab-01.qmd) for details on cloning a repo, starting a new project in R, and configuring git.
 
 # Packages
 
-The following packages will be used in this assignment:
+The following packages are used in the lab:
 
-```{r}
-#| message: false
+```{r load-packages}
+#| eval: true
 library(tidyverse)
-library(tidymodels) 
-library(knitr) 
-library(palmerpenguins)
+library(tidymodels)
+library(knitr)
+library(lterdatasampler) 
 ```
 
-::: callout-important
-All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.
-:::
+# Data: Ice cover and air temperature
 
-# Data: Palmer Penguins
+The datasets [`ntl_icecover`](https://lter.github.io/lterdatasampler/reference/ntl_icecover.html) and [`ntl_airtemp`](https://lter.github.io/lterdatasampler/reference/ntl_airtemp.html) [lterdatasampler](https://lter.github.io/lterdatasampler/index.html) R package[^1] contain information about ice cover and air temperature, respectively, at Lake Monona and Lake Mendota for days in 1885 through 2019. The data were originally collected at a [US Long Term Ecological Research program (LTER) Network](https://lternet.edu/).
 
-Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). [@gorman2014]
+[^1]: https://lter.github.io/lterdatasampler/index.html
 
-\
-These data can be found in the **palmerpenguins** package. We're going to be working with the `penguins` dataset from this package. The dataset contains data for 344 penguins. There are 3 different species of penguins in this dataset, collected from 3 islands in the Palmer Archipelago, Antarctica. [Click here](https://allisonhorst.github.io/palmerpenguins/reference/penguins.html) to see the codebook.
+The primary variables for this analysis are
+
+-   `year`: a number denoting the year of observation
+
+-   `lakeid`: a factor denoting the lake name
+
+-   `ice_duration`: a number denoting the number of days between the freeze and breakup dates of each lake
+
+-   `ave_air_temp_adjusted`: a number denoting the air temperature in degrees Celsius, collected in Madison, WI and adjusted for biases
 
 # Exercises
 
-## Exercise 1
+**Goal**: The goal of this analysis is to use linear regression understand the association between average air temperature and ice duration for two lakes in Madison, Wisconsin that freeze for a portion of the year. Because ice cover is impacted by various environmental factors, researchers are interested in examining the association between these two factors to better understand how changing air temperature is impacting the ice duration.
 
-Our eventual goal is to fit a model predicting body mass (which is more difficult to measure) from island, bill length, bill depth, flipper length, species, and sex.
+------------------------------------------------------------------------
 
-We will start by preparing the data.
+Write all code and narrative in your Quarto file. Write all narrative in complete sentences. Throughout the assignment, you should periodically **render** your Quarto document to produce the updated PDF, **commit** the changes in the Git pane, and **push** the updated files to GitHub.
 
--   Use the `drop_na()` function to remove any observations from the `penguins` data frame that has missing values. Your resulting data frame should have 333 observations.
-
-::: callout-note
-For the purposes of this assignment, we will treat the missingness as random, i.e., this is still a representative sample even though we removed observations with missing values.
+::: callout-tip
+Make sure we can read all of your code in your PDF document. This means you will need to break up long lines of code. One way to help avoid long lines of code is is start a new line after every pipe (`|>`) and plus sign (`+`).
 :::
 
-## Exercise 2
+### Exercise 1
 
--   Use the data to fit a model predicting body mass (which can be difficult to measure) from bill length.
+Fill in the code below to create a new data frame, `icecover_avg`, of the average ice duration by lake then year. How many observations (rows) are in `icecover_avg`? How many variables (columns)?
 
--   Neatly display the model using 3 digits.
+```{r}
+icecover_avg <- ntl_icecover |>
+  group_by(____, _____) |>
+  summarise(avg_ice_duration = mean(_____), .groups = "drop")
+```
 
--   Write the estimated regression equation. Use the variable names in your equation.
+### Exercise 2
+
+-   Use `ntl_airtemp` to create a new data frame `airtemp_avg` of the average air temperature by year.
+
+-   Then, join `icecover_avg` and `airtemp_avg` to make a new data frame `ice_air_joined`. Remove the years that have missing data for the average annual air temperature or the average annual ice duration.
+
+::: callout-important
+You will use `ice_air_joined` for exercises 3 - 7.
+:::
+
+### Exercise 3
+
+Make a histogram to visualize the distribution of `avg_ice_duration` and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.
+
+Use the visualization and summary statistics to describe the distribution of `avg_ice_duration` . Include the shape, center, spread, and potential presence of outliers in the description.
+
+### Exercise 4
+
+Make a histogram of the distribution of `avg_air_temp`. Then make another visualization of the distribution of `avg_air_temp` using a different type of plot. Include informative axis labels and an informative title on both visualizations.
+
+What type of plot did you make? What is one feature of the distribution that is more apparent in the histogram than in the other plot? What is one feature of the distribution that is more apparent in the other plot than in the histogram?
+
+::: render-commit-push
+This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you've made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.
+:::
+
+### Exercise 5
+
+Make a visualization of `avg_ice_duration` versus `year` with the points colored by `lakeid`. Write two observations from the visualization.
+
+### Exercise 6
+
+Create a visualization of `avg_air_temp` versus `year`. Include informative axis labels and an informative title on the visualization.
+
+-   Use the visualization to write two observations about the trend of average air temperature over time.
+
+-   Based on the visualizations of average ice duration and average air temperature over time, would you expect the linear model describing the association between average ice duration and average air temperature to have a positive or negative slope? Briefly explain.
+
+### Exercise 7
+
+Researchers would like to use a linear model to understand variability in the average ice duration based on the average air temperature. **Their analysis will focus only on Lake Monona.** Write the form of the statistical model the researchers would like to estimate. Use mathematical notation and variable names (`avg_air_temp` and `avg_ice_duration`) in the equation.
+
+::: callout-tip
+[Click here](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols) for a guide on writing mathematical symbols using LaTex. You will need to use a backslash (\\) before each underscore in the LaTex code. For example, `avg_air_temp` will be written as *avg\\\_air\\\_temp.*
+:::
+
+::: render-commit-push
+This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you've made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.
+:::
+
+### Exercise 8
+
+Fit and display the output of the regression model corresponding to the statistical model in the previous exercise. **As in the previous exercise, only observations from Lake Monona should be included in the analysis.** Use the `tidy` and `kable` functions to neatly display the model output using three decimal places.
+
+-   Write the equation of the fitted model. Use mathematical notation and variable names (`avg_air_temp` and `avg_ice_duration`) in the equation.
 
 -   Interpret the slope in the context of the data.
 
--   Calculate the $R^2$ value.
+-   Does the intercept have a meaningful interpretation in this context? If so, interpret the intercept in the context of the data. Otherwise, explain why not.
 
-## Exercise 3
+### Exercise 9
 
--   Plot the fitted values vs. the residual values for the model in the previous exercise.
+Use bootstrapping to construct a 93% confidence interval for the slope for Lake Monona. Follow these steps to accomplish this:
 
--   Make another plot of the histogram of the residuals.
-
--   Is inference for linear regression appropriate? Why or why not?
-
-## Exercise 4
-
--   The p-value in Exercise 2 indicates statistical significance. Does this mean the model is a good fit for the data?
-
-## Exercise 5
-
--   Now, use the data to fit a model predicting body mass (which can be difficult to measure) from bill length, bill depth, flipper length, island, species, and sex. Only include main effects, i.e., no interaction terms, in this model.
-
--   Neatly display the model using 3 digits.
-
--   Write the estimated regression equation. Use the variable names in your equation.
-
--   Calculate the $R^2$ value. Why is it larger than the previous one? Interpret this value in context of the data and the model.
-
-::: callout-tip
-The code for fitting multiple linear regression models is the same as simple linear regression. Use `+` to add multiple predictor variables to the model.
-:::
-
-## Exercise 6
-
--   Plot the fitted values vs. the residual values for the model in the previous exercise.
-
--   Make another plot of the histogram of the residuals.
-
--   Is inference for linear regression appropriate? Why or why not?
-
-## Exercise 7
-
--   Interpret the intercept in the context of the data.
-
--   Interpret the coefficient of sex in the context of the data.
-
--   Interpret coefficient (slope) of bill length in the context of the data.
-
--   Is the coefficient of bill length the same as in Exercise 2. Briefly explain why or why not?
-
-## Exercise 8
-
--   Calculate the residual for a female Gentoo penguin on the Biscoe island that weighs 4450 grams with the following body measurements: `bill_length_mm` = 43.2, `bill_depth_mm` = 14.5, `flipper_length_mm` = 208.
-
--   Does the model overpredict or underpredict this penguin's mass?
-
-## Exercise 9
-
-Fill in the starter code below to write the function `predict_boots` which takes a bootstrap sample, calculates $R^2$ terms for the two models listed below. Set the seed to `29`.
-
--   **Model 1**: The model from Exercise 5. **Model 2**: The model from Exercise 5, *without* the island term.
-
--   The last line of the code runs the function `predict_boots` for 1000 iterations and saves the output as the object `r_squared_diffs`. Create a new variable that calculates the difference between the $R^2$ values for the two models.
-
--   Make a histogram of the differences.
-
--   What do you notice about the histogram?
-
--   Which model is best for predicting body mass of a penguin? Briefly explain.
-
-```{r}
-#| eval: false
-set.seed(29)
-
-predict_boots <- function(i) {
-  # take a bootstrap sample
-  boot <- penguins |>
-    slice_sample(n = nrow(penguins), replace = TRUE) |>
-    mutate(boot_samp = i)
-  
-  #fit the model with island to the bootstrap sample
-  fit_island <- linear_reg() |>
-    fit(_____, data = boot)
-  
-  # fit the model without island to the bootstrap sample
-  fit_no_island <- linear_reg() |>
-    fit(_______, data = boot)
-  
-  #save the rsq values for each model
-  tibble(
-    island_r2 = glance(fit_island)$r.squared,
-    no_island_r2 = glance(fit_no_island)$r.squared
-  )
-}
-
-# run the function 1000 times and save the differences between
-r_squared_diffs <- map_df(1:1000, predict_boots)
-
-```
+-   First, set a seed for simulating reproducibly. Use the seed `210`.
+-   Save the value of slope estimated from the data.
+-   Then, simulate the bootstrap distribution of the slope using 1,000 bootstrap samples.
+-   Visualize the bootstrap distribution.
+-   Calculate the bounds of the confidence interval using the percentile method.
+-   Interpret the confidence interval in the context of the data.
 
 ## Exercise 10
 
--   Use the model from the previous exercise without island, and set the seed to `210`.
+> There is a statistically significant linear relationship between average air temperature and average ice duration on Lake Monona $(\beta_1 \neq 0)$.
 
--   Fit the model to 1000 bootstrap samples.
+Does the confidence interval you calculated in the previous exercise support or refute this claim? Briefly explain.
 
--   Make a scatterplot of the estimated coefficients for flipper length (y-axis) vs. bill length (x-axis).
-
--   Calculate a 95% confidence interval for the difference between these coefficient values. Is there evidence that either bill length or flipper length has a larger influence on the model? Briefly explain.
-
-::: callout-tip
-The code for bootstrapping in multiple linear regression is the same as the code for simple linear regression.
+::: render-commit-push
+Render, commit, and push your final changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you've made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.
 :::
 
 # Submission
+
+In this class, we'll be submitting PDF documents to Gradescope.
 
 ::: callout-warning
 Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
@@ -194,18 +178,29 @@ Remember -- you must turn in a PDF file to the Gradescope page before the submis
 
 To submit your assignment:
 
--   Go to [http://www.gradescope.com](http://www.gradescope.com/) and click *Log in* in the top right corner.
--   Click *School Credentials* ➡️ *Duke NetID* and log in using your NetID credentials.
+-   Go to <http://www.gradescope.com> and click *Log in* in the top right corner.
+-   Click *School Credentials* `r emo::ji("arrow_right")` *Duke NetID* and log in using your NetID credentials.
 -   Click on your *STA 210* course.
 -   Click on the assignment, and you'll be prompted to submit it.
 -   Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be "checked").
--   Select the first page of your PDF submission to be associated with the *"Workflow & formatting"* section.
+-   Select the first page of your .PDF submission to be associated with the *"Workflow & formatting"* section.
 
-# Grading (50 points)
+# Grading (50 pts)
+
+<br>
 
 | Component             | Points |
-|-----------------------|--------|
-| Ex 1 - 10             | 47     |
-| Workflow & formatting | 3[^1]  |
+|:----------------------|:-------|
+| Ex 1                  | 2      |
+| Ex 2                  | 4      |
+| Ex 3                  | 5      |
+| Ex 4                  | 5      |
+| Ex 5                  | 4      |
+| Ex 6                  | 5      |
+| Ex 7                  | 3      |
+| Ex 8                  | 6      |
+| Ex 9                  | 8      |
+| Ex 10                 | 4      |
+| Workflow & formatting | 4[^2]  |
 
-[^1]: The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.
+[^2]: The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.

@@ -1,0 +1,211 @@
+---
+title: "HW 02: Palmer penguins"
+subtitle: "due Monday, October 2 at 11:59pm"
+editor: visual
+execute:
+  freeze: auto
+  echo: true
+  eval: false
+  warning: false
+  message: false
+bibliography: references.bib
+---
+
+# Introduction
+
+In this analysis you will use simple and multiple linear regression to analyze relationships between variables in three different scenarios.
+
+# Learning goals
+
+In this assignment, you will...
+
+-   Fit and interpret simple and multiple linear regression models
+-   Evaluate and compare simple and multiple linear regression models
+-   Continue developing a workflow for reproducible data analysis.
+
+# Getting started
+
+The repo for this assignment is available on GitHub at [github.com/sta210-fa23](https://github.com/sta210-fa23 "Course GitHub organization") and starts with the prefix **hw-02**. See [Lab 01](../labs/lab-01.qmd) for more detailed instructions on getting started.
+
+# Packages
+
+The following packages will be used in this assignment:
+
+```{r}
+#| message: false
+library(tidyverse)
+library(tidymodels) 
+library(knitr) 
+library(palmerpenguins)
+```
+
+::: callout-important
+All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.
+:::
+
+# Data: Palmer Penguins
+
+Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/). [@gorman2014]
+
+\
+These data can be found in the **palmerpenguins** package. We're going to be working with the `penguins` dataset from this package. The dataset contains data for 344 penguins. There are 3 different species of penguins in this dataset, collected from 3 islands in the Palmer Archipelago, Antarctica. [Click here](https://allisonhorst.github.io/palmerpenguins/reference/penguins.html) to see the codebook.
+
+# Exercises
+
+## Exercise 1
+
+Our eventual goal is to fit a model predicting body mass (which is more difficult to measure) from island, bill length, bill depth, flipper length, species, and sex.
+
+We will start by preparing the data.
+
+-   Use the `drop_na()` function to remove any observations from the `penguins` data frame that has missing values. Your resulting data frame should have 333 observations.
+
+::: callout-note
+For the purposes of this assignment, we will treat the missingness as random, i.e., this is still a representative sample even though we removed observations with missing values.
+:::
+
+## Exercise 2
+
+-   Use the data to fit a model predicting body mass (which can be difficult to measure) from bill length.
+
+-   Neatly display the model using 3 digits.
+
+-   Write the estimated regression equation. Use the variable names in your equation.
+
+-   Interpret the slope in the context of the data.
+
+-   Calculate the $R^2$ value.
+
+## Exercise 3
+
+-   Plot the fitted values vs. the residual values for the model in the previous exercise.
+
+-   Make another plot of the histogram of the residuals.
+
+-   Is inference for linear regression appropriate? Why or why not?
+
+## Exercise 4
+
+-   The p-value in Exercise 2 indicates statistical significance. Does this mean the model is a good fit for the data?
+
+## Exercise 5
+
+-   Now, use the data to fit a model predicting body mass (which can be difficult to measure) from bill length, bill depth, flipper length, island, species, and sex. Only include main effects, i.e., no interaction terms, in this model.
+
+-   Neatly display the model using 3 digits.
+
+-   Write the estimated regression equation. Use the variable names in your equation.
+
+-   Calculate the $R^2$ value. Why is it larger than the previous one? Interpret this value in context of the data and the model.
+
+::: callout-tip
+The code for fitting multiple linear regression models is the same as simple linear regression. Use `+` to add multiple predictor variables to the model.
+:::
+
+## Exercise 6
+
+-   Plot the fitted values vs. the residual values for the model in the previous exercise.
+
+-   Make another plot of the histogram of the residuals.
+
+-   Is inference for linear regression appropriate? Why or why not?
+
+## Exercise 7
+
+-   Interpret the intercept in the context of the data.
+
+-   Interpret the coefficient of sex in the context of the data.
+
+-   Interpret coefficient (slope) of bill length in the context of the data.
+
+-   Is the coefficient of bill length the same as in Exercise 2. Briefly explain why or why not?
+
+## Exercise 8
+
+-   Calculate the residual for a female Gentoo penguin on the Biscoe island that weighs 4450 grams with the following body measurements: `bill_length_mm` = 43.2, `bill_depth_mm` = 14.5, `flipper_length_mm` = 208.
+
+-   Does the model overpredict or underpredict this penguin's mass?
+
+## Exercise 9
+
+Fill in the starter code below to write the function `predict_boots` which takes a bootstrap sample, calculates $R^2$ terms for the two models listed below. Set the seed to `29`.
+
+-   **Model 1**: The model from Exercise 5. **Model 2**: The model from Exercise 5, *without* the island term.
+
+-   The last line of the code runs the function `predict_boots` for 1000 iterations and saves the output as the object `r_squared_diffs`. Create a new variable that calculates the difference between the $R^2$ values for the two models.
+
+-   Make a histogram of the differences.
+
+-   What do you notice about the histogram?
+
+-   Which model is best for predicting body mass of a penguin? Briefly explain.
+
+```{r}
+#| eval: false
+set.seed(29)
+
+predict_boots <- function(i) {
+  # take a bootstrap sample
+  boot <- penguins |>
+    slice_sample(n = nrow(penguins), replace = TRUE) |>
+    mutate(boot_samp = i)
+  
+  #fit the model with island to the bootstrap sample
+  fit_island <- linear_reg() |>
+    fit(_____, data = boot)
+  
+  # fit the model without island to the bootstrap sample
+  fit_no_island <- linear_reg() |>
+    fit(_______, data = boot)
+  
+  #save the rsq values for each model
+  tibble(
+    island_r2 = glance(fit_island)$r.squared,
+    no_island_r2 = glance(fit_no_island)$r.squared
+  )
+}
+
+# run the function 1000 times and save the differences between
+r_squared_diffs <- map_df(1:1000, predict_boots)
+
+```
+
+## Exercise 10
+
+-   Use the model from the previous exercise without island, and set the seed to `210`.
+
+-   Fit the model to 1000 bootstrap samples.
+
+-   Make a scatterplot of the estimated coefficients for flipper length (y-axis) vs. bill length (x-axis).
+
+-   Calculate a 95% confidence interval for the difference between these coefficient values. Is there evidence that either bill length or flipper length has a larger influence on the model? Briefly explain.
+
+::: callout-tip
+The code for bootstrapping in multiple linear regression is the same as the code for simple linear regression.
+:::
+
+# Submission
+
+::: callout-warning
+Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
+
+Remember -- you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.
+:::
+
+To submit your assignment:
+
+-   Go to [http://www.gradescope.com](http://www.gradescope.com/) and click *Log in* in the top right corner.
+-   Click *School Credentials* ➡️ *Duke NetID* and log in using your NetID credentials.
+-   Click on your *STA 210* course.
+-   Click on the assignment, and you'll be prompted to submit it.
+-   Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be "checked").
+-   Select the first page of your PDF submission to be associated with the *"Workflow & formatting"* section.
+
+# Grading (50 points)
+
+| Component             | Points |
+|-----------------------|--------|
+| Ex 1 - 10             | 47     |
+| Workflow & formatting | 3[^1]  |
+
+[^1]: The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.

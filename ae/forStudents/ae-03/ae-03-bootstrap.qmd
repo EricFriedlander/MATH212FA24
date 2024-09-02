@@ -4,6 +4,7 @@ author: "Driver: ____, Reporter: _____, Gopher: _____"
 subtitle: "Bikeshare"
 date: "Sep 6, 2024"
 editor: visual
+format: pdf
 ---
 
 ::: callout-important
@@ -22,7 +23,7 @@ library(tidyverse)
 library(ggformula)
 library(broom)
 library(infer)
-library(openintro)
+# library(openintro)
 library(kableExtra)
 ```
 
@@ -36,7 +37,7 @@ We will focus on the following variables in the analysis:
 -   `temp_orig`: Temperature in degrees Celsius
 
 ```{r glimpse-data}
-winter <- read_csv("../ae/data/dcbikeshare.csv") |>
+winter <- read_csv("dcbikeshare.csv") |>
   mutate(season = case_when(
     season == 1 ~ "winter",
     season == 2 ~ "spring",

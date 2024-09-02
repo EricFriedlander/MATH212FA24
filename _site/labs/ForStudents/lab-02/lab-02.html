@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Driver: ____, Reporter: _____, Gopher: _____">
-<meta name="dcterms.date" content="2024-09-06">
+<meta name="author" content="Insert Name Here">
 
-<title>MAT 212 - Fall 2024 - AE 03: Bootstrap confidence intervals</title>
+<title>MAT 212 - Fall 2024 - HW 02: Ice duration and air temperature in Madison, WI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,22 +58,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -103,6 +102,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -115,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 03: Bootstrap confidence intervals</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 02: Ice duration and air temperature in Madison, WI</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -129,8 +157,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      <img src="../../../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://rstudio.collegeofidaho.edu/" title="RStudio" class="quarto-navigation-tool px-1" aria-label="RStudio"><i class="bi bi-code-square"></i></a>
@@ -146,25 +174,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../schedule.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../support.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../support.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Support</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../links.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../links.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Useful links</span></a>
   </div>
 </li>
@@ -179,19 +207,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../computing-access.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../computing-access.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Access</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../computing-inferencesummary.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../computing-inferencesummary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Inference Summary Cheatsheet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../computing-r-resources.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../computing-r-resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R resources</span></a>
   </div>
 </li>
@@ -211,30 +239,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a></li>
-  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory data analysis</a></li>
-  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">Model</a></li>
-  <li><a href="#bootstrap-confidence-interval" id="toc-bootstrap-confidence-interval" class="nav-link" data-scroll-target="#bootstrap-confidence-interval">Bootstrap confidence interval</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#calculate-the-observed-fit-slope" id="toc-calculate-the-observed-fit-slope" class="nav-link" data-scroll-target="#calculate-the-observed-fit-slope">1. Calculate the observed fit (slope)</a></li>
-  <li><a href="#take-n-bootstrap-samples-and-fit-models-to-each-one." id="toc-take-n-bootstrap-samples-and-fit-models-to-each-one." class="nav-link" data-scroll-target="#take-n-bootstrap-samples-and-fit-models-to-each-one.">2. Take <em>n</em> bootstrap samples and fit models to each one.</a></li>
-  <li><a href="#compute-the-95-confidence-interval-as-the-middle-95-of-the-bootstrap-distribution" id="toc-compute-the-95-confidence-interval-as-the-middle-95-of-the-bootstrap-distribution" class="nav-link" data-scroll-target="#compute-the-95-confidence-interval-as-the-middle-95-of-the-bootstrap-distribution">3. Compute the 95% confidence interval as the middle 95% of the bootstrap distribution</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
   </ul></li>
-  <li><a href="#changing-confidence-level" id="toc-changing-confidence-level" class="nav-link" data-scroll-target="#changing-confidence-level">Changing confidence level</a>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#data-ice-cover-and-air-temperature" id="toc-data-ice-cover-and-air-temperature" class="nav-link" data-scroll-target="#data-ice-cover-and-air-temperature">Data: Ice cover and air temperature</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
-  <li><a href="#modify-the-code-from-step-3-to-create-a-90-confidence-interval." id="toc-modify-the-code-from-step-3-to-create-a-90-confidence-interval." class="nav-link" data-scroll-target="#modify-the-code-from-step-3-to-create-a-90-confidence-interval.">Modify the code from Step 3 to create a 90% confidence interval.</a></li>
-  <li><a href="#modify-the-code-from-step-3-to-create-a-99-confidence-interval." id="toc-modify-the-code-from-step-3-to-create-a-99-confidence-interval." class="nav-link" data-scroll-target="#modify-the-code-from-step-3-to-create-a-99-confidence-interval.">Modify the code from Step 3 to create a 99% confidence interval.</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
   </ul></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  <li><a href="#grading-50-pts" id="toc-grading-50-pts" class="nav-link" data-scroll-target="#grading-50-pts">Grading (50 pts)</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-03-bootstrap.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/labs/ForStudents/lab-02/lab-02.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 03: Bootstrap confidence intervals</h1>
-<p class="subtitle lead">Bikeshare</p>
+<h1 class="title">HW 02: Ice duration and air temperature in Madison, WI</h1>
+<p class="subtitle lead">Bootstrap confidence interval for the slope</p>
 </div>
 
 
@@ -244,16 +280,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Driver: ____, Reporter: _____, Gopher: _____ </p>
+             <p>Insert Name Here </p>
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 6, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -273,200 +303,86 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Due:</p>
 <ul>
-<li><p>Open <a href="https://rstudio.collegeofidaho.edu/">RStudio</a> and create a subfolder in your AE folder called “AE-03”</p></li>
-<li><p>Go to the <a href="https://cofi.instructure.com/courses/15692/assignments/181095">course Canvas page</a> and locate your <code>AE 03</code> assignment to get started.</p></li>
-<li><p>Upload the <code>ae-03.qmd</code> and <code>dcbikeshare.csv</code> files into the folder you just created.</p></li>
+<li>Wednesday, September</li>
 </ul>
-<p>The <code>.qmd</code> and <code>.pdf</code> files uploaded to Canvas no later than Monday, September 9 at 11:59pm.</p>
 </div>
 </div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In today’s lab, you’ll use simple linear regression to analyze the relationship between air temperature and ice duration for two lakes in Wisconsin.</p>
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
+<p>By the end of the lab you will…</p>
+<ul>
+<li>Be able to fit a simple linear regression model using R.</li>
+<li>Be able to interpret the slope and intercept for the model.</li>
+<li>Be able to use simulation-based inference to draw conclusions about the slope.</li>
+<li>Continue developing a workflow for reproducible data analysis.</li>
+</ul>
+</section>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting started</h1>
+<ul>
+<li><p>Go to the <a href="https://www.github.com/sta210-fa23">sta210-fa23</a> organization on GitHub. Click on the repo with the prefix <strong>lab-02-</strong>. It contains the starter documents you need to complete the lab.</p></li>
+<li><p>Clone the repo and start a new project in RStudio. See the <a href="lab-01.qmd">Lab 01 instructions</a> for details on cloning a repo, starting a new project in R, and configuring git.</p></li>
+</ul>
+</section>
+<section id="packages" class="level1">
+<h1>Packages</h1>
+<p>The following packages are used in the lab:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(infer)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lterdatasampler) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>Our dataset contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012 filtered to only contain the winter months. It was obtained from the <code>dcbikeshare</code> data set in the <code>dsbox</code> R package.</p>
-<p>We will focus on the following variables in the analysis:</p>
+</section>
+<section id="data-ice-cover-and-air-temperature" class="level1">
+<h1>Data: Ice cover and air temperature</h1>
+<p>The datasets <a href="https://lter.github.io/lterdatasampler/reference/ntl_icecover.html"><code>ntl_icecover</code></a> and <a href="https://lter.github.io/lterdatasampler/reference/ntl_airtemp.html"><code>ntl_airtemp</code></a> <a href="https://lter.github.io/lterdatasampler/index.html">lterdatasampler</a> R package<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> contain information about ice cover and air temperature, respectively, at Lake Monona and Lake Mendota for days in 1885 through 2019. The data were originally collected at a <a href="https://lternet.edu/">US Long Term Ecological Research program (LTER) Network</a>.</p>
+<p>The primary variables for this analysis are</p>
 <ul>
-<li><code>count</code>: total bike rentals</li>
-<li><code>temp_orig</code>: Temperature in degrees Celsius</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>winter <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../ae/data/dcbikeshare.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">season =</span> <span class="fu">case_when</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    season <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"winter"</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    season <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"spring"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    season <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"summer"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    season <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"fall"</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">season =</span> <span class="fu">factor</span>(season)) <span class="sc">|&gt;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(season <span class="sc">==</span> <span class="st">"winter"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 731 Columns: 17
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-dbl  (16): instant, season, yr, mnth, holiday, weekday, workingday, weathers...
-date  (1): dteday
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(winter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 181
-Columns: 17
-$ instant    &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, …
-$ dteday     &lt;date&gt; 2011-01-01, 2011-01-02, 2011-01-03, 2011-01-04, 2011-01-05…
-$ season     &lt;fct&gt; winter, winter, winter, winter, winter, winter, winter, win…
-$ yr         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
-$ mnth       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
-$ holiday    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,…
-$ weekday    &lt;dbl&gt; 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4,…
-$ workingday &lt;dbl&gt; 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1,…
-$ weathersit &lt;dbl&gt; 2, 2, 1, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 1, 2, 2, 2, 2,…
-$ temp       &lt;dbl&gt; 0.3441670, 0.3634780, 0.1963640, 0.2000000, 0.2269570, 0.20…
-$ atemp      &lt;dbl&gt; 0.3636250, 0.3537390, 0.1894050, 0.2121220, 0.2292700, 0.23…
-$ hum        &lt;dbl&gt; 0.805833, 0.696087, 0.437273, 0.590435, 0.436957, 0.518261,…
-$ windspeed  &lt;dbl&gt; 0.1604460, 0.2485390, 0.2483090, 0.1602960, 0.1869000, 0.08…
-$ casual     &lt;dbl&gt; 331, 131, 120, 108, 82, 88, 148, 68, 54, 41, 43, 25, 38, 54…
-$ registered &lt;dbl&gt; 654, 670, 1229, 1454, 1518, 1518, 1362, 891, 768, 1280, 122…
-$ count      &lt;dbl&gt; 985, 801, 1349, 1562, 1600, 1606, 1510, 959, 822, 1321, 126…
-$ temp_orig  &lt;dbl&gt; 14.110847, 14.902598, 8.050924, 8.200000, 9.305237, 8.37826…</code></pre>
-</div>
-</div>
-</section>
-<section id="exploratory-data-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory data analysis</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_point</span>(count <span class="sc">~</span> temp_orig, <span class="at">data =</span> winter, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Temperature (C)"</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Bike Rentals"</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ae-03-bootstrap_files/figure-html/scatterplot-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="model" class="level2">
-<h2 class="anchored" data-anchor-id="model">Model</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>model_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(count <span class="sc">~</span> temp_orig, <span class="at">data =</span> winter)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(model_fit) <span class="sc">|&gt;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-111.04</td>
-<td style="text-align: right;">238.31</td>
-<td style="text-align: right;">-0.47</td>
-<td style="text-align: right;">0.64</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">temp_orig</td>
-<td style="text-align: right;">222.42</td>
-<td style="text-align: right;">18.46</td>
-<td style="text-align: right;">12.05</td>
-<td style="text-align: right;">0.00</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="bootstrap-confidence-interval" class="level2">
-<h2 class="anchored" data-anchor-id="bootstrap-confidence-interval">Bootstrap confidence interval</h2>
-<section id="calculate-the-observed-fit-slope" class="level3">
-<h3 class="anchored" data-anchor-id="calculate-the-observed-fit-slope">1. Calculate the observed fit (slope)</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>observed_fit <span class="ot">&lt;-</span> winter <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(count <span class="sc">~</span> temp_orig) <span class="sc">|&gt;</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>()</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>observed_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 2
-  term      estimate
-  &lt;chr&gt;        &lt;dbl&gt;
-1 intercept    -111.
-2 temp_orig     222.</code></pre>
-</div>
-</div>
-</section>
-<section id="take-n-bootstrap-samples-and-fit-models-to-each-one." class="level3">
-<h3 class="anchored" data-anchor-id="take-n-bootstrap-samples-and-fit-models-to-each-one.">2. Take <em>n</em> bootstrap samples and fit models to each one.</h3>
-<p>Fill in the code, then set <code>eval: true</code> .</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">100</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">212</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>boot_fits <span class="ot">&lt;-</span> ______ <span class="sc">|&gt;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(______) <span class="sc">|&gt;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> ____, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>()</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>boot_fits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li><p>Why do we set a seed before taking the bootstrap samples?</p></li>
-<li><p>Make a histogram of the bootstrap samples to visualize the bootstrap distribution.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for histogram</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></li>
+<li><p><code>year</code>: a number denoting the year of observation</p></li>
+<li><p><code>lakeid</code>: a factor denoting the lake name</p></li>
+<li><p><code>ice_duration</code>: a number denoting the number of days between the freeze and breakup dates of each lake</p></li>
+<li><p><code>ave_air_temp_adjusted</code>: a number denoting the air temperature in degrees Celsius, collected in Madison, WI and adjusted for biases</p></li>
 </ul>
 </section>
-<section id="compute-the-95-confidence-interval-as-the-middle-95-of-the-bootstrap-distribution" class="level3">
-<h3 class="anchored" data-anchor-id="compute-the-95-confidence-interval-as-the-middle-95-of-the-bootstrap-distribution">3. Compute the 95% confidence interval as the middle 95% of the bootstrap distribution</h3>
-<p>Fill in the code, then set <code>eval: true</code> .</p>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<p><strong>Goal</strong>: The goal of this analysis is to use linear regression understand the association between average air temperature and ice duration for two lakes in Madison, Wisconsin that freeze for a portion of the year. Because ice cover is impacted by various environmental factors, researchers are interested in examining the association between these two factors to better understand how changing air temperature is impacting the ice duration.</p>
+<hr>
+<p>Write all code and narrative in your Quarto file. Write all narrative in complete sentences. Throughout the assignment, you should periodically <strong>render</strong> your Quarto document to produce the updated PDF, <strong>commit</strong> the changes in the Git pane, and <strong>push</strong> the updated files to GitHub.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make sure we can read all of your code in your PDF document. This means you will need to break up long lines of code. One way to help avoid long lines of code is is start a new line after every pipe (<code>|&gt;</code>) and plus sign (<code>+</code>).</p>
+</div>
+</div>
+<section id="exercise-1" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
+<p>Fill in the code below to create a new data frame, <code>icecover_avg</code>, of the average ice duration by lake then year. How many observations (rows) are in <code>icecover_avg</code>? How many variables (columns)?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_confidence_interval</span>(</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  boot_fits, </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">point_estimate =</span> _____, </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">level =</span> ____,</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"percentile"</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>icecover_avg <span class="ot">&lt;-</span> ntl_icecover <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(____, _____) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_ice_duration =</span> <span class="fu">mean</span>(_____), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</section>
-<section id="changing-confidence-level" class="level2">
-<h2 class="anchored" data-anchor-id="changing-confidence-level">Changing confidence level</h2>
-<section id="modify-the-code-from-step-3-to-create-a-90-confidence-interval." class="level3">
-<h3 class="anchored" data-anchor-id="modify-the-code-from-step-3-to-create-a-90-confidence-interval.">Modify the code from Step 3 to create a 90% confidence interval.</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paste code for 90% confidence interval</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="modify-the-code-from-step-3-to-create-a-99-confidence-interval." class="level3">
-<h3 class="anchored" data-anchor-id="modify-the-code-from-step-3-to-create-a-99-confidence-interval.">Modify the code from Step 3 to create a 99% confidence interval.</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paste code for 90% confidence interval</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="exercise-2" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
 <ul>
-<li><p>Which confidence level produces the most accurate confidence interval (90%, 95%, 99%)? Explain</p></li>
-<li><p>Which confidence level produces the most precise confidence interval (90%, 95%, 99%)? Explain</p></li>
-<li><p>If we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?</p></li>
+<li><p>Use <code>ntl_airtemp</code> to create a new data frame <code>airtemp_avg</code> of the average air temperature by year.</p></li>
+<li><p>Then, join <code>icecover_avg</code> and <code>airtemp_avg</code> to make a new data frame <code>ice_air_joined</code>. Remove the years that have missing data for the average annual air temperature or the average annual ice duration.</p></li>
 </ul>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -478,19 +394,183 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To submit the AE:</p>
+<p>You will use <code>ice_air_joined</code> for exercises 3 - 7.</p>
+</div>
+</div>
+</section>
+<section id="exercise-3" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
+<p>Make a histogram to visualize the distribution of <code>avg_ice_duration</code> and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.</p>
+<p>Use the visualization and summary statistics to describe the distribution of <code>avg_ice_duration</code> . Include the shape, center, spread, and potential presence of outliers in the description.</p>
+</section>
+<section id="exercise-4" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
+<p>Make a histogram of the distribution of <code>avg_air_temp</code>. Then make another visualization of the distribution of <code>avg_air_temp</code> using a different type of plot. Include informative axis labels and an informative title on both visualizations.</p>
+<p>What type of plot did you make? What is one feature of the distribution that is more apparent in the histogram than in the other plot? What is one feature of the distribution that is more apparent in the other plot than in the histogram?</p>
+<div class="render-commit-push">
+<p>This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you’ve made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.</p>
+</div>
+</section>
+<section id="exercise-5" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
+<p>Make a visualization of <code>avg_ice_duration</code> versus <code>year</code> with the points colored by <code>lakeid</code>. Write two observations from the visualization.</p>
+</section>
+<section id="exercise-6" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
+<p>Create a visualization of <code>avg_air_temp</code> versus <code>year</code>. Include informative axis labels and an informative title on the visualization.</p>
 <ul>
-<li><p>Render the document to produce the PDF file with all of your work from today’s class.</p></li>
-<li><p>Upload your .qmd file and your .pdf file to Canvas. Note, please unzip the folder you download from the RStudio platform before uploading it.</p></li>
+<li><p>Use the visualization to write two observations about the trend of average air temperature over time.</p></li>
+<li><p>Based on the visualizations of average ice duration and average air temperature over time, would you expect the linear model describing the association between average ice duration and average air temperature to have a positive or negative slope? Briefly explain.</p></li>
 </ul>
+</section>
+<section id="exercise-7" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
+<p>Researchers would like to use a linear model to understand variability in the average ice duration based on the average air temperature. <strong>Their analysis will focus only on Lake Monona.</strong> Write the form of the statistical model the researchers would like to estimate. Use mathematical notation and variable names (<code>avg_air_temp</code> and <code>avg_ice_duration</code>) in the equation.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p><a href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">Click here</a> for a guide on writing mathematical symbols using LaTex. You will need to use a backslash (\) before each underscore in the LaTex code. For example, <code>avg_air_temp</code> will be written as <em>avg\_air\_temp.</em></p>
+</div>
+</div>
+<div class="render-commit-push">
+<p>This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you’ve made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.</p>
+</div>
+</section>
+<section id="exercise-8" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-8">Exercise 8</h3>
+<p>Fit and display the output of the regression model corresponding to the statistical model in the previous exercise. <strong>As in the previous exercise, only observations from Lake Monona should be included in the analysis.</strong> Use the <code>tidy</code> and <code>kable</code> functions to neatly display the model output using three decimal places.</p>
+<ul>
+<li><p>Write the equation of the fitted model. Use mathematical notation and variable names (<code>avg_air_temp</code> and <code>avg_ice_duration</code>) in the equation.</p></li>
+<li><p>Interpret the slope in the context of the data.</p></li>
+<li><p>Does the intercept have a meaningful interpretation in this context? If so, interpret the intercept in the context of the data. Otherwise, explain why not.</p></li>
+</ul>
+</section>
+<section id="exercise-9" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-9">Exercise 9</h3>
+<p>Use bootstrapping to construct a 93% confidence interval for the slope for Lake Monona. Follow these steps to accomplish this:</p>
+<ul>
+<li>First, set a seed for simulating reproducibly. Use the seed <code>210</code>.</li>
+<li>Save the value of slope estimated from the data.</li>
+<li>Then, simulate the bootstrap distribution of the slope using 1,000 bootstrap samples.</li>
+<li>Visualize the bootstrap distribution.</li>
+<li>Calculate the bounds of the confidence interval using the percentile method.</li>
+<li>Interpret the confidence interval in the context of the data.</li>
+</ul>
+</section>
+<section id="exercise-10" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
+<blockquote class="blockquote">
+<p>There is a statistically significant linear relationship between average air temperature and average ice duration on Lake Monona <span class="math inline">\((\beta_1 \neq 0)\)</span>.</p>
+</blockquote>
+<p>Does the confidence interval you calculated in the previous exercise support or refute this claim? Briefly explain.</p>
+<div class="render-commit-push">
+<p>Render, commit, and push your final changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you’ve made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.</p>
+</div>
+</section>
+</section>
+<section id="submission" class="level1">
+<h1>Submission</h1>
+<p>In this class, we’ll be submitting PDF documents to Gradescope.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
+<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
+</div>
+</div>
+<p>To submit your assignment:</p>
+<ul>
+<li>Go to <a href="http://www.gradescope.com" class="uri">http://www.gradescope.com</a> and click <em>Log in</em> in the top right corner.</li>
+<li>Click <em>School Credentials</em> ➡️ <em>Duke NetID</em> and log in using your NetID credentials.</li>
+<li>Click on your <em>STA 210</em> course.</li>
+<li>Click on the assignment, and you’ll be prompted to submit it.</li>
+<li>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</li>
+<li>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</li>
+</ul>
+</section>
+<section id="grading-50-pts" class="level1">
+<h1>Grading (50 pts)</h1>
+<p><br></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ex 1</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 2</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 3</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 4</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 5</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 6</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 7</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 8</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 9</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 10</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Workflow &amp; formatting</td>
+<td style="text-align: left;">4<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
-</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>https://lter.github.io/lterdatasampler/index.html<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -908,7 +988,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-03-bootstrap.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/labs/ForStudents/lab-02/lab-02.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
