@@ -2,6 +2,7 @@
 title: "HW 01: Park access"
 author: "Insert Name Here"
 subtitle: "Exploratory Data Analysis + Simple Linear Regression" 
+editor: visual
 execute:
   freeze: auto
   echo: true
@@ -39,9 +40,9 @@ By the end of the , you will...
 
 -   Go to <https://rstudio.collegeofidaho.edu> and login with your College of Idaho Email and Password.
 
--   Make a subfolder in your `hw` director to store this homework.
+-   Make a subfolder in your `hw` directory to store this homework.
 
--   Log into Canvas, navigate to HW-01 and upload the `hw-01.qmd` and `parks.csv` file into the folder your just made. 
+-   Log into Canvas, navigate to HW-01 and upload the `hw-01.qmd` and `parks.csv` file into the folder your just made.
 
 ## R and R Studio
 
@@ -54,8 +55,6 @@ The top portion of your Quarto file (between the three dashed lines) is called *
 ::: callout-important
 Open the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document. You can now work off of that file.
 :::
-
-
 
 # Packages
 
@@ -178,7 +177,6 @@ Use the visualization and summary statistics from the previous exercise to descr
 
 \_\_\_\_\_\_
 
-
 ### Exercise 6
 
 Now let's look at the distribution of the response variable `pct_near_park_points`.
@@ -192,8 +190,6 @@ Now let's look at the distribution of the response variable `pct_near_park_point
 -   Use the visualization and summary statistics to describe the distribution of `pct_near_park_points`. Recall from the previous exercise the components to include the description.
 
 \_\_\_\_\_\_
-
-
 
 ::: callout-tip
 This is another good place to render your document.

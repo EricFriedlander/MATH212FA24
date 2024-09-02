@@ -1,10 +1,12 @@
 ---
-title: "Lab 02: Ice duration and air temperature in Madison, WI"
+title: "HW 02: Ice duration and air temperature in Madison, WI"
 subtitle: "Bootstrap confidence interval for the slope"
+author: "Name"
+date: 09/06/2024
 execute:
   freeze: auto
   echo: true
-  eval: false
+  eval: true
   warning: false
   message: false
 ---
@@ -12,17 +14,16 @@ execute:
 ::: callout-important
 Due:
 
--   Friday, September 15, 11:59pm (Tuesday labs)
--   Sunday, September 17, 11:59pm (Thursday labs)
+-  Friday, September 13th
 :::
 
 # Introduction
 
-In today's lab, you'll use simple linear regression to analyze the relationship between air temperature and ice duration for two lakes in Wisconsin.
+In this weeks homework, you'll use simple linear regression to analyze the relationship between air temperature and ice duration for two lakes in Wisconsin.
 
 ## Learning goals
 
-By the end of the lab you will...
+By the end of the hw you will...
 
 -   Be able to fit a simple linear regression model using R.
 -   Be able to interpret the slope and intercept for the model.
@@ -31,18 +32,20 @@ By the end of the lab you will...
 
 # Getting started
 
--   Go to the [sta210-fa23](https://www.github.com/sta210-fa23) organization on GitHub. Click on the repo with the prefix **lab-02-**. It contains the starter documents you need to complete the lab.
+- Go to [RStudio](https://rstudio.collegeofidaho.edu) and login with your College of Idaho Email and Password.
 
--   Clone the repo and start a new project in RStudio. See the [Lab 01 instructions](lab-01.qmd) for details on cloning a repo, starting a new project in R, and configuring git.
+- Make a subfolder in your hw directory to store this homework.
+
+- Log into [Canvas](https://cofi.instructure.com/courses/15692/assignments/181480), navigate to Homework 2 and upload the `hw-02.qmd` file into the folder your just made.
 
 # Packages
 
-The following packages are used in the lab:
+The following packages are used in the hw:
 
 ```{r load-packages}
-#| eval: true
 library(tidyverse)
-library(tidymodels)
+library(broom)
+library(infer)
 library(knitr)
 library(lterdatasampler) 
 ```
@@ -69,27 +72,42 @@ The primary variables for this analysis are
 
 ------------------------------------------------------------------------
 
-Write all code and narrative in your Quarto file. Write all narrative in complete sentences. Throughout the assignment, you should periodically **render** your Quarto document to produce the updated PDF, **commit** the changes in the Git pane, and **push** the updated files to GitHub.
+Write all code and narrative in your Quarto file. Write all narrative in complete sentences. Throughout the assignment, you should periodically **render** your Quarto document to produce the updated PDF.
 
 ::: callout-tip
-Make sure we can read all of your code in your PDF document. This means you will need to break up long lines of code. One way to help avoid long lines of code is is start a new line after every pipe (`|>`) and plus sign (`+`).
+Make sure we can read all of your code in your PDF document. This means you will need to break up long lines of code. One way to help avoid long lines of code is is start a new line after every pipe (`|>`).
 :::
 
 ### Exercise 1
 
-Fill in the code below to create a new data frame, `icecover_avg`, of the average ice duration by lake then year. How many observations (rows) are in `icecover_avg`? How many variables (columns)?
+Fill in the code below to create a new data frame, `icecover_avg`, of the average ice duration by lake then year. How many observations (rows) are in `icecover_avg`? How many variables (columns)? As you work through this document make sure you remove all `#| eval: FALSE` statements.
 
 ```{r}
+#| eval: FALSE
 icecover_avg <- ntl_icecover |>
   group_by(____, _____) |>
-  summarise(avg_ice_duration = mean(_____), .groups = "drop")
+  summarize(avg_ice_duration = mean(_____), .groups = "drop")
 ```
+
+*Answer here.*
 
 ### Exercise 2
 
--   Use `ntl_airtemp` to create a new data frame `airtemp_avg` of the average air temperature by year.
+-   Use `ntl_airtemp` to create a new data frame `airtemp_avg` of the average air temperature by year. Call this new variable `avg_air_temperature` Hint: the code in the previous exercise will be useful.
 
--   Then, join `icecover_avg` and `airtemp_avg` to make a new data frame `ice_air_joined`. Remove the years that have missing data for the average annual air temperature or the average annual ice duration.
+-   Then, the pre-written code will join `icecover_avg` and `airtemp_avg` to make a new data frame `ice_air_joined` and removes the years that have missing data for the average annual air temperature or the average annual ice duration. Look at the documentation and explain how the function `drop_na` works if you don't specify the columns where you want to drop missing values (e.g. `avg_air_temperature` and `avg_ice_duration` in this case)?
+
+```{r}
+#| eval: FALSE
+
+# Make airtemp_avg here
+
+ice_air_joined <- icecover_avg |> 
+  left_join(airtemp_avg, by = "year") |> 
+  drop_na(avg_air_temperature, avg_ice_duration)
+```
+
+*Answer here.*
 
 ::: callout-important
 You will use `ice_air_joined` for exercises 3 - 7.
@@ -99,21 +117,31 @@ You will use `ice_air_joined` for exercises 3 - 7.
 
 Make a histogram to visualize the distribution of `avg_ice_duration` and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.
 
+**Add code block and histogram here.**
+
 Use the visualization and summary statistics to describe the distribution of `avg_ice_duration` . Include the shape, center, spread, and potential presence of outliers in the description.
+
+*Insert answer here.*
 
 ### Exercise 4
 
 Make a histogram of the distribution of `avg_air_temp`. Then make another visualization of the distribution of `avg_air_temp` using a different type of plot. Include informative axis labels and an informative title on both visualizations.
 
+**Add code block here.**
+
 What type of plot did you make? What is one feature of the distribution that is more apparent in the histogram than in the other plot? What is one feature of the distribution that is more apparent in the other plot than in the histogram?
 
-::: render-commit-push
-This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you've made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.
+*Write answer here.*
+
+::: callout-tip
+This is a good place to render changes to your PDF.
 :::
 
 ### Exercise 5
 
 Make a visualization of `avg_ice_duration` versus `year` with the points colored by `lakeid`. Write two observations from the visualization.
+
+**Add code block here.**
 
 ### Exercise 6
 
@@ -123,16 +151,22 @@ Create a visualization of `avg_air_temp` versus `year`. Include informative axis
 
 -   Based on the visualizations of average ice duration and average air temperature over time, would you expect the linear model describing the association between average ice duration and average air temperature to have a positive or negative slope? Briefly explain.
 
+**Add code block here.**
+
+*Write written answers here.*
+
 ### Exercise 7
 
-Researchers would like to use a linear model to understand variability in the average ice duration based on the average air temperature. **Their analysis will focus only on Lake Monona.** Write the form of the statistical model the researchers would like to estimate. Use mathematical notation and variable names (`avg_air_temp` and `avg_ice_duration`) in the equation.
+Researchers would like to use a linear model to understand variability in the average ice duration based on the average air temperature. **Their analysis will focus only on Lake Monona.** Write the form of the statistical model the researchers would like to estimate using the template below. Use mathematical notation (i.e. with greek letters) and variable names (`avg_air_temp` and `avg_ice_duration`) in the equation.
+
+$$Response = intercept + slope\times predictor$$
 
 ::: callout-tip
 [Click here](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols) for a guide on writing mathematical symbols using LaTex. You will need to use a backslash (\\) before each underscore in the LaTex code. For example, `avg_air_temp` will be written as *avg\\\_air\\\_temp.*
 :::
 
-::: render-commit-push
-This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you've made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.
+::: callout-tip
+This is a good place to renderyour quarto document.
 :::
 
 ### Exercise 8
@@ -145,16 +179,28 @@ Fit and display the output of the regression model corresponding to the statisti
 
 -   Does the intercept have a meaningful interpretation in this context? If so, interpret the intercept in the context of the data. Otherwise, explain why not.
 
+**Add code block here.**
+
+*Add written answers here.*
+
 ### Exercise 9
 
 Use bootstrapping to construct a 93% confidence interval for the slope for Lake Monona. Follow these steps to accomplish this:
 
--   First, set a seed for simulating reproducibly. Use the seed `210`.
+-   First, set a seed for simulating reproducibly. Use the seed `212`.
 -   Save the value of slope estimated from the data.
 -   Then, simulate the bootstrap distribution of the slope using 1,000 bootstrap samples.
 -   Visualize the bootstrap distribution.
 -   Calculate the bounds of the confidence interval using the percentile method.
 -   Interpret the confidence interval in the context of the data.
+
+**Add code block here.**
+
+*Add written answer here.*
+
+::: callout-tip
+Bootstrapping can take some time. You'll notice it make take more time to render your document once you've added your bootstrapped confidence interval.
+:::
 
 ## Exercise 10
 
@@ -162,28 +208,21 @@ Use bootstrapping to construct a 93% confidence interval for the slope for Lake 
 
 Does the confidence interval you calculated in the previous exercise support or refute this claim? Briefly explain.
 
-::: render-commit-push
-Render, commit, and push your final changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you've made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.
+*Written answer here.*
+
+::: callout-tip
+Render your document here.
 :::
 
 # Submission
 
-In this class, we'll be submitting PDF documents to Gradescope.
+We'll be submitting PDF documents and .qmd files to Canvas.
 
 ::: callout-warning
-Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
-
-Remember -- you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.
+Before you wrap up the assignment, make sure you have rendered your document and that the PDF appears as you want it to.
 :::
 
-To submit your assignment:
-
--   Go to <http://www.gradescope.com> and click *Log in* in the top right corner.
--   Click *School Credentials* `r emo::ji("arrow_right")` *Duke NetID* and log in using your NetID credentials.
--   Click on your *STA 210* course.
--   Click on the assignment, and you'll be prompted to submit it.
--   Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be "checked").
--   Select the first page of your .PDF submission to be associated with the *"Workflow & formatting"* section.
+To submit your assignment, upload the .qmd and PDF files to Canvas. Please unzip them before uploading them.
 
 # Grading (50 pts)
 
@@ -203,4 +242,4 @@ To submit your assignment:
 | Ex 10                 | 4      |
 | Workflow & formatting | 4[^2]  |
 
-[^2]: The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.
+[^2]: The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having a neatly organized document with readable code and your name and the date in the YAML.
