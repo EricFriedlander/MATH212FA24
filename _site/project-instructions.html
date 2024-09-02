@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./project-tips.html" rel="next">
+<link href="./computing-r-resources.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -108,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Final project</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./project-instructions.html">Project</a></li><li class="breadcrumb-item"><a href="./project-instructions.html">Instructions</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -191,8 +193,33 @@ window.Quarto = {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Project</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Project</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project-instructions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project-tips.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tips + resources</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project-rubric.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rubric</span></a>
+  </div>
+</li>
+      </ul>
   </li>
     </ul>
     </div>
@@ -232,7 +259,7 @@ window.Quarto = {
   <li><a href="#poster-presentation" id="toc-poster-presentation" class="nav-link" data-scroll-target="#poster-presentation">Stage VI: Poster Presentation</a></li>
   <li><a href="#writing-tips" id="toc-writing-tips" class="nav-link" data-scroll-target="#writing-tips">Writing Tips</a>
   <ul class="collapse">
-  <li><a href="#some-tipes-for-writing-the-results-section" id="toc-some-tipes-for-writing-the-results-section" class="nav-link" data-scroll-target="#some-tipes-for-writing-the-results-section">Some tipes for writing the results section</a></li>
+  <li><a href="#some-tips-for-writing-the-results-section" id="toc-some-tips-for-writing-the-results-section" class="nav-link" data-scroll-target="#some-tips-for-writing-the-results-section">Some tips for writing the results section</a></li>
   <li><a href="#some-tips-for-writing-the-discussion-section." id="toc-some-tips-for-writing-the-discussion-section." class="nav-link" data-scroll-target="#some-tips-for-writing-the-discussion-section.">Some tips for writing the Discussion section.</a></li>
   <li><a href="#other-hints" id="toc-other-hints" class="nav-link" data-scroll-target="#other-hints">Other hints</a></li>
   </ul></li>
@@ -242,7 +269,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./project-instructions.html">Project</a></li><li class="breadcrumb-item"><a href="./project-instructions.html">Instructions</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Final project</h1>
 </div>
@@ -301,12 +328,12 @@ window.Quarto = {
 <li>How were data collected? From whom, by whom, where and when.</li>
 <li>How is each variable defined and measured?</li>
 </ul>
-<p>Because you’ll want to use several explanatory variables and explore interactions, it is best if your dataset contains at least 100-150 observations. (Rule of thumb says at least 10 observations per variable to avoid over-fitting). There is no maximum size, though R does start to slow down for really big data; if you have a truly humungous data set you may want to take a random sample to work with for your project.</p>
+<p>Because you’ll want to use several explanatory variables and explore interactions, it is best if your dataset contains at least 100-150 observations. (Rule of thumb says at least 10 observations per variable to avoid over-fitting). There is no maximum size, though R does start to slow down for really big data; if you have a truly humongous data set you may want to take a random sample to work with for your project.</p>
 <section id="logistics" class="level3">
 <h3 class="anchored" data-anchor-id="logistics">Logistics</h3>
 <p>The four primary deliverables for the final project are</p>
 <ol type="1">
-<li>A written, reproducible report detailing your analysis to be submitted in either microsoft word or a PDF and uploaded to Canvas.</li>
+<li>A written, reproducible report detailing your analysis to be submitted in either Microsoft word or a PDF and uploaded to Canvas.</li>
 <li>The .qmd and PDF from a Quarto appendix you create.</li>
 <li>Formal peer review on another team’s work and presentation feedback.</li>
 <li>A PDF of a poster to be uploaded to Canvas and a physical poster which you will present at during the final exam period.</li>
@@ -315,7 +342,7 @@ window.Quarto = {
 </section>
 <section id="project-proposal" class="level2">
 <h2 class="anchored" data-anchor-id="project-proposal">Stage I: Project proposal</h2>
-<p>Your proposal, to be turned in as a Word document on Canvas, will include the following:</p>
+<p>Your proposal, to be turned in as a Word document or PDF on Canvas, will include the following:</p>
 <ol type="1">
 <li><p>Identify the original data source. Include a brief summary of how, from whom, and by whom, the data were collected. The data can come from one source or multiple sources. Students can collect their own data through experiment, survey, or study, but this is not required. If you decide to do this, start early and come see me, you may need to get IRB approval. Upload a copy of the data set: not a link to it, but an actual downloaded file in a format that R can open. (This is so I can look at it if I have questions about your proposal). If you plan to collect your own data, you must provide details on the design and implementation of the experiment or survey (in that case, you don’t actually need to have the data set “in hand” yet).</p></li>
 <li><p>Identify the important research question(s) which will guide your project (e.g.&nbsp;“Do youth who participate in physical exercise class have lower BMI?”, “Are males more likely to drink and drive after adjusting for confounding variables?”) and describe why your chosen project is interesting to you.</p></li>
@@ -396,7 +423,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="exploratory-analysis">Stage II: Exploratory Data Analysis</h2>
 <p>The second stage of your project is to conduct Exploratory Data Analysis.</p>
 <ol type="1">
-<li>You may need to “clean” your dataset first. Make note of any problematic data and observations that need to be removed. Consider implications about any decisions you make about missing data.<a href="https://www.uvm.edu/~statdhtx/StatPages/Missing_Data/Missing.html">This website</a> shares some simple approaches to missing data (and the relative advantages/disadvantages of each approach).</li>
+<li>You may need to “clean” your dataset first. Make note of any problematic data and observations that need to be removed. Consider implications about any decisions you make about missing data. <a href="https://www.uvm.edu/~statdhtx/StatPages/Missing_Data/Missing.html">This website</a> shares some simple approaches to missing data (and the relative advantages/disadvantages of each approach).</li>
 <li>Produce descriptive statistics (5-number summaries and histograms or boxplots for continuous variables; tables of counts/proportions and bar charts for categorical variables) for all relevant variables in your data set.</li>
 <li>Explore the relationships between important pairs of variables both graphically and numerically. Depending on the type of your response and explanatory variables, you may consider graphs such as boxplots, scatterplots/jitterplots, or segmented bar charts. You may consider summary statistics (like mean, median, or standard deviation) by group, correlations, and two-way tables with proportions. At this stage plots can be loose in terms of titles and labels, but for your final paper it is essential that your figures have (meaningful) captions and axis labels!</li>
 <li>You should not be fitting any models at this point.</li>
@@ -424,7 +451,7 @@ window.Quarto = {
 <li>You should also upload to Canvas:
 <ul>
 <li>A Quarto document with R code and (commented) output so that I can trace how you constructed your final data set, what the results of your exploratory data analyses were, and what plots you generated. Comments should be short, but clarify what you’ve done and why.</li>
-<li>The knitted pdf document that was created from the Quarto above.</li>
+<li>The rendered pdf document that was created from the Quarto above.</li>
 <li>The data file (as .txt, .csv, or .xls).</li>
 </ul></li>
 </ol>
@@ -432,25 +459,51 @@ window.Quarto = {
 </section>
 <section id="draft-report" class="level2">
 <h2 class="anchored" data-anchor-id="draft-report">Stage III: Project Report</h2>
-<p>Your report should be a thoughtful, concise, and polished document, no longer than 8 pages. Relevant tables and/or figures should be formatted neatly into your report. Be sure to label and reference your graphs and tables so they are interpretable on their own. An annotated appendix containing less relevant figures and tables along with important R code and output should be attached to the end of your report (see below for more details). The report should include four LABELED sections plus bibliography and annotated appendix. There is no page limit on the bibliography and appendix. The rubric that I use to grade the reports is [insert].</p>
+<p>Your report should be a thoughtful, concise, and polished document, no longer than 8 pages. Relevant tables and/or figures should be formatted neatly into your report. Be sure to label and reference your graphs and tables so they are interpretable on their own. An annotated appendix containing less relevant figures and tables along with important R code and output should be attached to the end of your report (see below for more details). The report should include four LABELED sections plus bibliography and annotated appendix. There is no page limit on the bibliography and appendix. The rubric that I use to grade the reports is <a href="./project-rubric.html">here</a>.</p>
 <section id="introduction" class="level3">
 <h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
 <p>A few paragraphs that contain background information, motivation for your research, and a statement of your research goals. Be sure to incorporate your supporting references into the text. The purpose of the background is to place your work in the greater context of the literature in the area you are investigating. Then you should explicitly identify the research question that you will investigate with your analysis.</p>
 </section>
 <section id="methods" class="level3">
 <h3 class="anchored" data-anchor-id="methods">Methods</h3>
-<p>A few paragraphs that… - Briefly describe your data, where it came from (source), definitions of important variables, and how it was collected (random/representative sampling? From what population?) - Indicate any modifications made to the data, recoding, or decisions about missing data. Be sure to report the sample size and the number of observations removed, if any. - Briefly but thoroughly describe the statistical methods used to investigate the association between your outcome and predictor variables. What summary statistics were calculated? (Just list: e.g.&nbsp;proportions, and conditional proportions for categorical variables; means, medians, and standard deviation for quantitative variables). What statistical tests were performed? What type of modeling was done?<br>
-- Do not report results in the Methods section!</p>
+<p>A few paragraphs that…</p>
+<ul>
+<li>Briefly describe your data, where it came from (source), definitions of important variables, and how it was collected (random/representative sampling? From what population?)</li>
+<li>Indicate any modifications made to the data, recoding, or decisions about missing data. Be sure to report the sample size and the number of observations removed, if any.</li>
+<li>Briefly but thoroughly describe the statistical methods used to investigate the association between your outcome and predictor variables. What summary statistics were calculated? (Just list: e.g.&nbsp;proportions, and conditional proportions for categorical variables; means, medians, and standard deviation for quantitative variables). What statistical tests were performed? What type of modeling was done?<br>
+</li>
+<li>Do not report results in the Methods section!</li>
+</ul>
 <p><em>Note: If you are using a method not covered in this class (e.g., a nonparametric method, time series), you may choose to expand Methods a bit to describe your statistical method.</em></p>
 </section>
 <section id="results" class="level3">
 <h3 class="anchored" data-anchor-id="results">Results</h3>
-<p>The densest (but not necessarily longest) section of your report, which should include… - A general description of your data. (This is where you integrate your exploratory data analysis from Stage II.) - The final model, presented in a table with variables, coefficients, standard errors, p-values, and confidence intervals for each coefficient. - A description of the results from your analyses, including interpretations of parameter estimates and/or confidence intervals in context. - Tables that summarize results and figures that illustrate results. These tables and figures should be well-labeled, numbered (e.g.&nbsp;Figure 1), and have good, descriptive captions. Each report should have a minimum of two tables/figures. Rarely are residual plots part of the main body of the report unless they are an integral part of the story. - It may be helpful to refer to the articles you’ve cited as a guide for the writing style of the results section. - While you should interpret confidence intervals and/or coefficients in this section, you should not editorialize here! Save that for the Discussion. - <span class="math inline">\(R^2\)</span> (for linear regression) or misclassification rate (for logistic regression) should be reported here or in the Discussion (or both).</p>
+<p>The densest (but not necessarily longest) section of your report, which should include…</p>
+<ul>
+<li>A general description of your data. (This is where you integrate your exploratory data analysis from Stage II.)</li>
+<li>The final model, presented in a table with variables, coefficients, standard errors, p-values, and confidence intervals for each coefficient.</li>
+<li>A description of the results from your analyses, including interpretations of parameter estimates and/or confidence intervals in context.</li>
+<li>Tables that summarize results and figures that illustrate results. These tables and figures should be well-labeled, numbered (e.g.&nbsp;Figure 1), and have good, descriptive captions. Each report should have a minimum of two tables/figures. Rarely are residual plots part of the main body of the report unless they are an integral part of the story.</li>
+<li>It may be helpful to refer to the articles you’ve cited as a guide for the writing style of the results section.</li>
+<li>While you should interpret confidence intervals and/or coefficients in this section, you should not editorialize here! Save that for the Discussion.</li>
+<li><span class="math inline">\(R^2\)</span> (for linear regression) or misclassification rate (for logistic regression) should be reported here or in the Discussion (or both).</li>
+</ul>
 </section>
 <section id="discussion" class="level3">
 <h3 class="anchored" data-anchor-id="discussion">Discussion</h3>
-<p>A few paragraphs that: - Begin with an accurate summary statement; describe how the results help answer your research questions and what was most interesting from your analysis. In fact, the first paragraph of the Discussion is very important – in professional journals, it is often the first and sometimes the only paragraph that is read in a paper. After the first sentence highlights primary results, the remainder of the first paragraph might compare your results to others in the literature or include interesting secondary results. - Discuss possible implications of the results in the context of the research question. - Make a statement regarding potential confounding variables in your study. - Make a statement about the generalizability of your results. Don’t give generic statements of possible causation and generalizability, but thoughtfully discuss relevant issues – confounding variables, representativeness of the sample, etc. You should demonstrate your knowledge of these issues and their importance in context; the research topic is the focus here, not statistics for statistics sake.<br>
-- Identify any limitations of your study. Discuss the potential impact of such limitations on the conclusions. - Identify strengths and weaknesses of your analysis. This is where you should (briefly) mention whether the conditions of the model are met. - Make suggestions for future research. Identify important next steps that a researcher could take to build on your work. - Do not include test statistics or p-values in this section, although you can of course reference Results when discussing your overall conclusions. - See the end of this document for some additional advice about writing Discussions.</p>
+<p>A few paragraphs that:</p>
+<ul>
+<li>Begin with an accurate summary statement; describe how the results help answer your research questions and what was most interesting from your analysis. In fact, the first paragraph of the Discussion is very important – in professional journals, it is often the first and sometimes the only paragraph that is read in a paper. After the first sentence highlights primary results, the remainder of the first paragraph might compare your results to others in the literature or include interesting secondary results.</li>
+<li>Discuss possible implications of the results in the context of the research question.</li>
+<li>Make a statement regarding potential confounding variables in your study.</li>
+<li>Make a statement about the generalizability of your results. Don’t give generic statements of possible causation and generalizability, but thoughtfully discuss relevant issues – confounding variables, representativeness of the sample, etc. You should demonstrate your knowledge of these issues and their importance in context; the research topic is the focus here, not statistics for statistics sake.<br>
+</li>
+<li>Identify any limitations of your study. Discuss the potential impact of such limitations on the conclusions.</li>
+<li>Identify strengths and weaknesses of your analysis. This is where you should (briefly) mention whether the conditions of the model are met.</li>
+<li>Make suggestions for future research. Identify important next steps that a researcher could take to build on your work.</li>
+<li>Do not include test statistics or p-values in this section, although you can of course reference Results when discussing your overall conclusions.</li>
+<li>See the end of this document for some additional advice about writing Discussions.</li>
+</ul>
 </section>
 <section id="bibliography" class="level3">
 <h3 class="anchored" data-anchor-id="bibliography">Bibliography</h3>
@@ -484,7 +537,11 @@ window.Quarto = {
 </section>
 <section id="poster-presentation" class="level2">
 <h2 class="anchored" data-anchor-id="poster-presentation">Stage VI: Poster Presentation</h2>
-<p>[Insert]</p>
+<p>The following is from <a href="https://ldierker1.github.io/passiondrivenstatistics/posters.html">Passion-Driven Statistics</a>:</p>
+<p>You have conducted a quantitative research project. Now you will learn how to present your results as a research poster and presentation. Posters offer the opportunity to engage with an audience and to meaningfully disseminate your research findings to others.</p>
+<p>Learn keys to a successful poster presentation. Consider your audience and frame your research question and results in an understandable and interesting way. Understand you should be brief, use large font size, and incorporate graphics instead of text whenever possible. See how being clear and concise with a logical layout will ensure the viewing experience is intellectually and aesthetically satisfying for your audience. Click <a href="https://www.youtube.com/watch?v=WpRpCzoumOQ">HERE</a> to a watch the video lesson.</p>
+<p>You will create a 3 column, 40” X 36” poster including an introduction, research questions, methods, results, and discussion.</p>
+<p>A rubric and poster template will be posted closer to the assignment.</p>
 </section>
 <section id="writing-tips" class="level2">
 <h2 class="anchored" data-anchor-id="writing-tips">Writing Tips</h2>
@@ -496,8 +553,8 @@ window.Quarto = {
 <p><strong>Methods:</strong> Where do the data come from? What did we do to it?</p>
 <p><strong>Results:</strong> What did we learn from the data? Tell me a story supported with statistics, not about statistics. The results section will also include labeled Figures and Tables with informative captions. Tell me a story with pictures and tables! (But not so many that it’s overwhelming.)</p>
 <p><strong>Discussion:</strong> Why do we care about what we found? How generalizable are the results? What other questions would we like to answer?</p>
-<section id="some-tipes-for-writing-the-results-section" class="level3">
-<h3 class="anchored" data-anchor-id="some-tipes-for-writing-the-results-section">Some tipes for writing the results section</h3>
+<section id="some-tips-for-writing-the-results-section" class="level3">
+<h3 class="anchored" data-anchor-id="some-tips-for-writing-the-results-section">Some tips for writing the results section</h3>
 <section id="the-results-section-should-include" class="level4">
 <h4 class="anchored" data-anchor-id="the-results-section-should-include">The Results section should include:</h4>
 <ul>
@@ -968,6 +1025,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./computing-r-resources.html" class="pagination-link" aria-label="R resources">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R resources</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./project-tips.html" class="pagination-link" aria-label="Tips + resources">
+        <span class="nav-page-text">Tips + resources</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

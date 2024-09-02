@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 210 - Fall 2023 - Final project tips + resources</title>
+<title>MAT 212 - Fall 2024 - Final project tips + resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./stats-experience.html" rel="next">
-<link href="./project-instructions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./project-instructions.html">Project</a></li><li class="breadcrumb-item"><a href="./project-tips.html">Tips + resources</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Final project tips + resources</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -132,29 +130,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
-      <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/sta210-fa23" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
-    <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="quarto-navigation-tool px-1" aria-label="RStudio Containers"><i class="bi bi-code-square"></i></a>
-    <div class="dropdown">
-      <a href="" title="Sakai" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Sakai"><i class="bi bi-person-fill"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/site/f2e8b7dc-61e6-4431-9b5c-29f8411ee5db">
-            Sakai
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://edstem.org/us/courses/44523/discussion/">
-            Ed Discussion
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/584312">
-            Gradescope
-            </a>
-          </li>
-      </ul>
-    </div>
+      <div class="sidebar-tools-main">
+    <a href="https://rstudio.collegeofidaho.edu/" title="RStudio" class="quarto-navigation-tool px-1" aria-label="RStudio"><i class="bi bi-code-square"></i></a>
+    <a href="https://cofi.instructure.com/courses/15692" title="Canvas" class="quarto-navigation-tool px-1" aria-label="Canvas"><i class="bi bi-person"></i></a>
 </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -205,8 +183,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./computing-troubleshooting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Troubleshooting</span></a>
+  <a href="./computing-inferencesummary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inference Summary Cheatsheet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -218,40 +196,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Project</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./project-instructions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Instructions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./project-tips.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Tips + resources</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Project</span></span>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./stats-experience.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistics experience</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://docs.google.com/spreadsheets/d/1dUD4SOpM79BL2kdvue9I2TP-ibcdxfpOIkHkMreYx64/edit?usp=sharing" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture recordings</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -264,15 +211,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#data-sources" id="toc-data-sources" class="nav-link active" data-scroll-target="#data-sources">Data sources</a></li>
   <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips">Tips</a></li>
-  <li><a href="#formatting-communication-tips" id="toc-formatting-communication-tips" class="nav-link" data-scroll-target="#formatting-communication-tips">Formatting + communication tips</a></li>
   <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional resources</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta210-fa23/website/edit/main/project-tips.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta210-fa23/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/project-tips.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./project-instructions.html">Project</a></li><li class="breadcrumb-item"><a href="./project-tips.html">Tips + resources</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Final project tips + resources</h1>
 </div>
@@ -327,117 +273,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="tips">Tips</h3>
 <ul>
 <li><p>Ask questions if any of the expectations are unclear.</p></li>
-<li><p><em>Code</em>: In your write up your code should be hidden (<code>echo = FALSE</code>) so that your document is neat and easy to read. However your document should include all your code such that if I re-knit your Qmd file I should be able to obtain the results you presented.</p>
-<ul>
-<li><strong>Exception:</strong> If you want to highlight something specific about a piece of code, you’re welcome to show that portion.</li>
-</ul></li>
-<li><p>Merge conflicts will happen, issues will arise, and that’s fine! Commit and push often, and ask questions when stuck.</p></li>
 <li><p>Make sure each team member is contributing, both in terms of quality and quantity of contribution (we will be reviewing commits from different team members).</p></li>
 <li><p>All team members are expected to contribute equally to the completion of this assignment and group assessments will be given at its completion - anyone judged to not have sufficient contributed to the final product will have their grade penalized. While different teams members may have different backgrounds and abilities, it is the responsibility of every team member to understand how and why all code and approaches in the assignment works.</p></li>
 </ul>
-</section>
-<section id="formatting-communication-tips" class="level3">
-<h3 class="anchored" data-anchor-id="formatting-communication-tips">Formatting + communication tips</h3>
-<section id="suppress-code-warnings-messages" class="level4">
-<h4 class="anchored" data-anchor-id="suppress-code-warnings-messages">Suppress Code, Warnings, &amp; Messages</h4>
-<ul>
-<li>Include the following code in a code chunk at the top of your .qmd file to suppress all code, warnings, and other messages. Use the code chunk header <code>{r set-up, include = FALSE}</code> to suppress this set up code.</li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">warning =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">message =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><p>An alternative approach is to add the following code to the YAML:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>execute<span class="sc">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  echo<span class="sc">:</span> false</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  warning<span class="sc">:</span> false</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  message<span class="sc">:</span> false</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></li>
-</ul>
-</section>
-<section id="headers" class="level4">
-<h4 class="anchored" data-anchor-id="headers">Headers</h4>
-<ul>
-<li>Use headers to clearly label each section. Make sure there is a space between the last <code>#</code> and the title, so the header renders correctly. For example, <code>###Section Title</code> will not render as header, but <code>### Section Title</code> will.</li>
-</ul>
-</section>
-<section id="references" class="level4">
-<h4 class="anchored" data-anchor-id="references">References</h4>
-<ul>
-<li>Include all references in a section called “References” at the end of the report.</li>
-<li>This course does not have specific requirements for formatting citations and references.</li>
-</ul>
-</section>
-<section id="appendix" class="level4">
-<h4 class="anchored" data-anchor-id="appendix">Appendix</h4>
-<ul>
-<li>If you have additional work that does not fit or does not belong in the body of the report, you may put it at the end of the document in section called “Appendix”.</li>
-<li>The items in the appendix should be properly labeled.</li>
-<li>The appendix should only be for additional material. The reader should be able to fully understand your report without viewing content in the appendix.</li>
-</ul>
-</section>
-<section id="resize-figures" class="level4">
-<h4 class="anchored" data-anchor-id="resize-figures">Resize figures</h4>
-<ul>
-<li>Resize plots and figures, so you have more space for the narrative.
-<ul>
-<li><strong>Resize individual figures</strong>: Use the code chunk header <code>{r plot1, fig.height = 3, fig.width = 5}</code>, replacing <code>plot1</code> with a meaningful label and the height and width with values appropriate for your write up.</li>
-<li><strong>Resize all figures</strong>: Include the <code>fig_width</code> and <code>fig_height</code> options in your YAML header as shown below:</li>
-</ul></li>
-</ul>
-<!-- -->
-<pre><code>---
-title: "Your title"
-author: "Your names"
-format:
-  pdf:
-    fig-width: 7
-    fig-height: 5
----</code></pre>
-<p>Replace the height and width values with values appropriate for your write up.</p>
-</section>
-<section id="arranging-plots" class="level4">
-<h4 class="anchored" data-anchor-id="arranging-plots">Arranging plots</h4>
-<p>Arrange plots in a grid, instead of one after the other. This is especially useful when displaying plots for exploratory data analysis and to check assumptions.</p>
-<ul>
-<li><p>If you’re using ggplot2 functions, the <code>patchwork</code> package makes it easy to arrange plots in a grid. See the documentation and examples <a href="https://patchwork.data-imaginist.com/">here</a>.</p></li>
-<li><p>If you’re using base R function, i.e.&nbsp;when using the <code>emplogit</code> functions, put the code <code>par(mfrow = c(rows,columns))</code> before the code to make the plots. For example, <code>par(mfrow = c(2,3))</code> will arrange plots in a grid with 2 rows and 3 columns.</p></li>
-</ul>
-</section>
-<section id="plot-titles-and-axis-labels" class="level4">
-<h4 class="anchored" data-anchor-id="plot-titles-and-axis-labels">Plot titles and axis labels</h4>
-<p>Be sure all plot titles and axis labels are visible and easy to read.</p>
-<ul>
-<li>Use informative titles, <u>not</u> variable names, for titles and axis labels.</li>
-<li>Use <code>coord_flip()</code> to flip the <em>x</em> and <em>y</em> axes on the plot. This is useful if you a bar plot with an x-axis that is difficult to read due to overlapping text.</li>
-</ul>
-<p>❌ <strong>NO! The x-axis is hard to read because the names overlap.</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="fu">aes</span>(<span class="at">x =</span> manufacturer)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="project-tips_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>✅ <strong>YES! Names are readable</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="fu">aes</span>(<span class="at">x =</span> manufacturer)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="project-tips_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
 <section id="do-a-little-more-to-make-the-plot-look-professional" class="level4">
 <h4 class="anchored" data-anchor-id="do-a-little-more-to-make-the-plot-look-professional">Do a little more to make the plot look professional!</h4>
 <ul>
@@ -449,20 +287,20 @@ format:
 <li><em>Optional: Applied a theme - Use same theme throughout paper / presentation</em></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(manufacturer) <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">manufacturer =</span> <span class="fu">str_to_title</span>(manufacturer)) <span class="sc">|&gt;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(manufacturer,n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Manufacturer"</span>, </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Count"</span>, </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"The most common manufacturer is Dodge"</span>) <span class="sc">+</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(manufacturer) <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">manufacturer =</span> <span class="fu">str_to_title</span>(manufacturer)) <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(manufacturer,n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Manufacturer"</span>, </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Count"</span>, </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"The most common manufacturer is Dodge"</span>) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="project-tips_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="project-tips_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -478,11 +316,11 @@ format:
 </ul></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> hp, <span class="at">data =</span> mtcars)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(model) <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> hp, <span class="at">data =</span> mtcars)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(model) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">term</th>
@@ -520,7 +358,7 @@ format:
 <li>❌ There is a negative linear relationship between mpg and hp.</li>
 <li>✅ There is a negative linear relationship between a car’s fuel economy (in miles per gallon) and its horsepower.</li>
 </ul></li>
-<li><strong>Know your audience:</strong> Your report should be written for a general audience who has an understanding of statistics at the level of STA 210.</li>
+<li><strong>Know your audience:</strong> Your report should be written for a general audience who has an understanding of statistics at the level of MAT 212.</li>
 <li><strong>Avoid subject matter jargon:</strong> Don’t assume the audience knows all of the specific terminology related to your subject area. If you must use jargon, include a brief definition the first time you introduce a term.</li>
 <li><strong>Tell the “so what”:</strong> Your report and presentation should be more than a list of interpretations and technical definitions. Focus on what the results mean, i.e.&nbsp;what you want the audience to know about your topic after reading your report or viewing your presentation.
 <ul>
@@ -537,18 +375,7 @@ format:
 <ul>
 <li><a href="https://www.rstudio.com/blog/exploring-rstudio-visual-markdown-editor/">Exploring RStudio’s Visual Markdown Editor</a></li>
 <li><a href="https://r4ds.had.co.nz/">R for Data Science</a></li>
-<li>Quarto documentation:
-<ul>
-<li><a href="https://quarto.org/docs/output-formats/pdf-basics.html">Quarto PDF Basics</a></li>
-<li><a href="https://quarto.org/docs/presentations/revealjs/">Presentations in Quarto</a></li>
-</ul></li>
-<li>Data visualization
-<ul>
-<li><a href="https://ggplot2.tidyverse.org/reference/index.html">ggplot2 Reference</a></li>
-<li><a href="https://ggplot2-book.org/">ggplot2: Elegant Graphics for Data Analysis</a></li>
-<li><a href="https://socviz.co/index.html">Data Visualization: A Practice Introduction</a></li>
-<li><a href="https://patchwork.data-imaginist.com/index.html">Patchwork R Package</a></li>
-</ul></li>
+<li><a href="https://socviz.co/index.html">Data Visualization: A Practical Introduction</a></li>
 </ul>
 
 
@@ -636,7 +463,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/sta210-fa23\.netlify\.app");
+      var filterRegex = new RegExp("https:\/\/mat212fa24\.netlify\.app\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -964,27 +791,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./project-instructions.html" class="pagination-link" aria-label="Instructions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Instructions</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./stats-experience.html" class="pagination-link" aria-label="Statistics experience">
-        <span class="nav-page-text">Statistics experience</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© Copyright 2022, Maria Tackett</p>
+<p>© Copyright 2024, Eric Friedlander</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta210-fa23/website/edit/main/project-tips.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sta210-fa23/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/project-tips.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

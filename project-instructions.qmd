@@ -79,21 +79,21 @@ Because you’ll want to use several explanatory variables and explore
 interactions, it is best if your dataset contains at least 100-150
 observations. (Rule of thumb says at least 10 observations per variable
 to avoid over-fitting). There is no maximum size, though R does start to
-slow down for really big data; if you have a truly humungous data set
+slow down for really big data; if you have a truly humongous data set
 you may want to take a random sample to work with for your project.
 
 ### Logistics
 
 The four primary deliverables for the final project are
 
-1. A written, reproducible report detailing your analysis to be submitted in either microsoft word or a PDF and uploaded to Canvas.
+1. A written, reproducible report detailing your analysis to be submitted in either Microsoft word or a PDF and uploaded to Canvas.
 2. The .qmd and PDF from a Quarto appendix you create.
 3. Formal peer review on another team's work and presentation feedback.
 4. A PDF of a poster to be uploaded to Canvas and a physical poster which you will present at during the final exam period.
 
 ## Stage I: Project proposal {#project-proposal}
 
-Your proposal, to be turned in as a Word document on Canvas, will
+Your proposal, to be turned in as a Word document or PDF on Canvas, will
 include the following:
 
 1.  Identify the original data source. Include a brief summary of how,
@@ -161,7 +161,7 @@ You are more than welcome to contact me with any questions about your project bu
 
 The second stage of your project is to conduct Exploratory Data Analysis. 
 
-1.	You may need to "clean" your dataset first. Make note of any problematic data and observations that need to be removed. Consider implications about any decisions you make about missing data.[This website](https://www.uvm.edu/~statdhtx/StatPages/Missing_Data/Missing.html) shares some simple approaches to missing data (and the relative advantages/disadvantages of each approach).
+1.	You may need to "clean" your dataset first. Make note of any problematic data and observations that need to be removed. Consider implications about any decisions you make about missing data. [This website](https://www.uvm.edu/~statdhtx/StatPages/Missing_Data/Missing.html) shares some simple approaches to missing data (and the relative advantages/disadvantages of each approach).
 2.	Produce descriptive statistics (5-number summaries and histograms or boxplots for continuous variables; tables of counts/proportions and bar charts for categorical variables) for all relevant variables in your data set. 
 3.	Explore the relationships between important pairs of variables both graphically and numerically. Depending on the type of your response and explanatory variables, you may consider graphs such as boxplots, scatterplots/jitterplots, or segmented bar charts.  You may consider summary statistics (like mean, median, or standard deviation) by group, correlations, and two-way tables with proportions. At this stage plots can be loose in terms of titles and labels, but for your final paper it is essential that your figures have (meaningful) captions and axis labels!
 4.	You should not be fitting any models at this point.
@@ -185,19 +185,20 @@ b)  Your EDA report should also include an Annotated Appendix and References sec
 
 c) You should also upload to Canvas:
     +	A Quarto document with R code and (commented) output so that I can trace how you constructed your final data set, what the results of your exploratory data analyses were, and what plots you generated. Comments should be short, but clarify what you’ve done and why.
-    +	The knitted pdf document that was created from the Quarto above.
+    +	The rendered pdf document that was created from the Quarto above.
     +	The data file (as .txt, .csv, or .xls).
 
 ## Stage III: Project Report {#draft-report}
 
 Your report should be a thoughtful, concise, and polished document, no longer than 8 pages. Relevant tables and/or figures should be formatted neatly into your report. Be sure to label and reference your graphs and tables so they are interpretable on their own. An annotated appendix containing less relevant figures and tables along with important R code and output should be attached to the end of your report (see below for more details).
-The report should include four LABELED sections plus bibliography and annotated appendix. There is no page limit on the bibliography and appendix. The rubric that I use to grade the reports is [insert].
+The report should include four LABELED sections plus bibliography and annotated appendix. There is no page limit on the bibliography and appendix. The rubric that I use to grade the reports is [here](project-rubric.qmd).
 
 ### Introduction 
 A few paragraphs that contain background information, motivation for your research, and a statement of your research goals. Be sure to incorporate your supporting references into the text. The purpose of the background is to place your work in the greater context of the literature in the area you are investigating. Then you should explicitly identify the research question that you will investigate with your analysis.
 
 ### Methods 
 A few paragraphs that…
+
   -	Briefly describe your data, where it came from (source), definitions of important variables, and how it was collected (random/representative sampling? From what population?)
   -	Indicate any modifications made to the data, recoding, or decisions about missing data. Be sure to report the sample size and the number of observations removed, if any.
   -	Briefly but thoroughly describe the statistical methods used to investigate the association between your outcome and predictor variables.  What summary statistics were calculated?  (Just list: e.g. proportions, and conditional proportions for categorical variables; means, medians, and standard deviation for quantitative variables). What statistical tests were performed?  What type of modeling was done?  
@@ -206,7 +207,9 @@ A few paragraphs that…
 *Note: If you are using a method not covered in this class (e.g., a nonparametric method, time series), you may choose to expand Methods a bit to describe your statistical method.*
 
 ### Results 
+
 The densest (but not necessarily longest) section of your report, which should include…
+
 -	A general description of your data. (This is where you integrate your exploratory data analysis from Stage II.)
 -	The final model, presented in a table with variables, coefficients, standard errors, p-values, and confidence intervals for each coefficient.
 -	A description of the results from your analyses, including interpretations of parameter estimates and/or confidence intervals in context. 
@@ -216,7 +219,9 @@ The densest (but not necessarily longest) section of your report, which should i
 -	$R^2$ (for linear regression) or misclassification rate (for logistic regression) should be reported here or in the Discussion (or both). 
 
 ### Discussion 
+
 A few paragraphs that:
+
 -	Begin with an accurate summary statement; describe how the results help answer your research questions and what was most interesting from your analysis. In fact, the first paragraph of the Discussion is very important – in professional journals, it is often the first and sometimes the only paragraph that is read in a paper. After the first sentence highlights primary results, the remainder of the first paragraph might compare your results to others in the literature or include interesting secondary results.
 -	Discuss possible implications of the results in the context of the research question.
 -	Make a statement regarding potential confounding variables in your study.
@@ -251,8 +256,15 @@ An important part of any work is reflection and review. When you submit your pap
 After submitting your project report, you will receive feedback from your professor and 1-2 peers. You will have the opportunity to revise your project paper and resubmit it. A portion of your revision grade is based on the adequacy of your response to comments. (This means that if you just resubmit the first copy of your paper without changes, it will receive a lower grade.)
 
 ## Stage VI: Poster Presentation {#poster-presentation}
-[Insert]
+The following is from [Passion-Driven Statistics](https://ldierker1.github.io/passiondrivenstatistics/posters.html):
 
+You have conducted a quantitative research project. Now you will learn how to present your results as a research poster and presentation. Posters offer the opportunity to engage with an audience and to meaningfully disseminate your research findings to others.
+
+Learn keys to a successful poster presentation. Consider your audience and frame your research question and results in an understandable and interesting way. Understand you should be brief, use large font size, and incorporate graphics instead of text whenever possible. See how being clear and concise with a logical layout will ensure the viewing experience is intellectually and aesthetically satisfying for your audience. Click [HERE](https://www.youtube.com/watch?v=WpRpCzoumOQ) to a watch the video lesson.
+
+You will create a 3 column, 40" X 36" poster including an introduction, research questions, methods, results, and discussion.
+
+A rubric and poster template will be posted closer to the assignment.
 
 ## Writing Tips
 
@@ -272,7 +284,7 @@ An article in this style includes four labelled sections:
 
 **Discussion:** Why do we care about what we found? How generalizable are the results? What other questions would we like to answer?
 
-### Some tipes for writing the results section
+### Some tips for writing the results section
 
 #### The Results section should include:
 
