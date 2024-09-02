@@ -1,19 +1,22 @@
 ---
-title: "AE 05: Randomization test for the slope"
+title: "AE 04: Randomization test for the slope"
 subtitle: "Bikeshare"
 date: "Sep 13, 2022"
 editor: visual
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta210-fa23) and locate your `ae-05` repo to get started.
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-04"
 
-Render, commit, and push your responses to GitHub by the end of class. The responses are due in your GitHub repo no later than Saturday, September 16 at 11:59pm.
+- Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/181485) and locate your `AE 04` assignment to get started.
+
+-   Upload the `ae-04.qmd` and `dcbikeshare.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas no later than Thursday, September 12 at 11:59pm.
 :::
 
 ```{r load-packages}
 #| message: false
 library(tidyverse)
+library(infer)
 library(ggformula)
 library(broom)
 library(openintro)
@@ -123,5 +126,5 @@ get_p_value(
 To submit the AE:
 
 -   Render the document to produce the PDF with all of your work from today's class.
--   Push all your work to your `ae-05` repo on GitHub. (You do not submit AEs on Gradescope).
+-   Upload your PDf and .qmd files to Canvas.
 :::
