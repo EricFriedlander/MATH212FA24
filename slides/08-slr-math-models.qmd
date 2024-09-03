@@ -1,7 +1,7 @@
 ---
 title: "SLR: Mathematical models for inference"
 author: "Prof. Eric Friedlander"
-date: "2024-08-28"
+date: "2024-09-11"
 date-format: "MMM DD, YYYY"
 footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
@@ -233,7 +233,7 @@ $$
 **p-value:** Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed
 
 $$
-\text{p-value} = P(|t| > |\text{test statistic}|),
+\text{p-value} = P(|T| > |\text{test statistic}|),
 $$
 
 calculated from a $t$ distribution with $n - 2$ degrees of freedom

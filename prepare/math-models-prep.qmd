@@ -1,0 +1,8 @@
+---
+title: "September 9th lecture"
+subtitle: "Simple linear regression"
+---
+
+## Assigned reading
+
+Stat2 Textbook: Chapter 2.1, 2.3, 2.3

@@ -4296,7 +4296,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference",
     "crumbs": [
       "Schedule"
     ]
@@ -10876,5 +10876,215 @@
     "title": "SLR: Randomization test for the slope",
     "section": "Compute the p-value",
     "text": "Compute the p-value\n\nWhat does this warning mean?\n\n\nget_p_value(\n  null_dist,\n  obs_stat = obs_fit,\n  direction = \"two-sided\"\n)\n\nWarning: Please be cautious in reporting a p-value of 0. This result is an approximation\nbased on the number of `reps` chosen in the `generate()` step.\nℹ See `get_p_value()` (`?infer::get_p_value()`) for more information.\nPlease be cautious in reporting a p-value of 0. This result is an approximation\nbased on the number of `reps` chosen in the `generate()` step.\nℹ See `get_p_value()` (`?infer::get_p_value()`) for more information.\n\n\n# A tibble: 2 × 2\n  term         p_value\n  &lt;chr&gt;          &lt;dbl&gt;\n1 Avg_Income_K       0\n2 intercept          0"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#topics",
+    "href": "slides/08-slr-math-models.html#topics",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Topics",
+    "text": "Topics\n\nDefine mathematical models to conduct inference for the slope\nUse mathematical models to\n\ncalculate confidence interval for the slope\nconduct a hypothesis test for the slope"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#computational-setup",
+    "href": "slides/08-slr-math-models.html#computational-setup",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(broom)       # for formatting model output\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(kableExtra)  # also for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# HEB Dataset\nheb &lt;- read_csv(\"data/HEBIncome.csv\") |&gt; \n  mutate(Avg_Income_K = Avg_Household_Income/1000)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#the-regression-model-revisited",
+    "href": "slides/08-slr-math-models.html#the-regression-model-revisited",
+    "title": "SLR: Mathematical models for inference",
+    "section": "The regression model, revisited",
+    "text": "The regression model, revisited\n\nheb_fit &lt;- lm(Number_Organic ~ Avg_Income_K, data = heb)\n\ntidy(heb_fit) |&gt;\n  kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#inference-revisited",
+    "href": "slides/08-slr-math-models.html#inference-revisited",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Inference, revisited",
+    "text": "Inference, revisited\n\n\nEarlier we computed a confidence interval and conducted a hypothesis test via simulation:\n\nCI: Bootstrap the observed sample to simulate the distribution of the slope\nHT: Permute the observed sample to simulate the distribution of the slope under the assumption that the null hypothesis is true\n\nNow we’ll do these based on theoretical results, i.e., by using the Central Limit Theorem to define the distribution of the slope and use features (shape, center, spread) of this distribution to compute bounds of the confidence interval and the p-value for the hypothesis test"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#mathematical-representation-of-the-model",
+    "href": "slides/08-slr-math-models.html#mathematical-representation-of-the-model",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Mathematical representation of the model",
+    "text": "Mathematical representation of the model\n\\[\n\\begin{aligned}\nY &= Model + Error \\\\\n&= f(X) + \\epsilon \\\\\n&= \\mu_{Y|X} + \\epsilon \\\\\n&= \\beta_0 + \\beta_1 X + \\epsilon\n\\end{aligned}\n\\]\nwhere the errors are independent and normally distributed:\n\n\nindependent: Knowing the error term for one observation doesn’t tell you anything about the error term for another observation\nnormally distributed: \\(\\epsilon \\sim N(0, \\sigma_\\epsilon^2)\\)"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#mathematical-representation-visualized",
+    "href": "slides/08-slr-math-models.html#mathematical-representation-visualized",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Mathematical representation, visualized",
+    "text": "Mathematical representation, visualized\n\\[\nY|X \\sim N(\\beta_0 + \\beta_1 X, \\sigma_\\epsilon^2)\n\\]\n\n\n\n\n\nImage source: Introduction to the Practice of Statistics (5th ed)\n\n\n\n\nMean: \\(\\beta_0 + \\beta_1 X\\), the predicted value based on the regression model\nVariance: \\(\\sigma_\\epsilon^2\\), constant across the range of \\(X\\)\n\nHow do we estimate \\(\\sigma_\\epsilon^2\\)?"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#regression-standard-error",
+    "href": "slides/08-slr-math-models.html#regression-standard-error",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Regression standard error",
+    "text": "Regression standard error\nOnce we fit the model, we can use the residuals to estimate the regression standard error, the average distance between the observed values and the regression line\n\\[\n\\hat{\\sigma}_\\epsilon = \\sqrt{\\frac{\\sum_\\limits{i=1}^n(y_i - \\hat{y}_i)^2}{n-2}} = \\sqrt{\\frac{\\sum_\\limits{i=1}^ne_i^2}{n-2}}\n\\]\n\n\n\nWhy divide by \\(n - 2\\)?\nWhy do we care about the value of the regression standard error?"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#standard-error-of-hatbeta_1",
+    "href": "slides/08-slr-math-models.html#standard-error-of-hatbeta_1",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Standard error of \\(\\hat{\\beta}_1\\)",
+    "text": "Standard error of \\(\\hat{\\beta}_1\\)\nThe standard error of \\(\\hat{\\beta}_1\\) quantifies the sampling variability in the estimated slopes\n\\[\nSE_{\\hat{\\beta}_1} = \\hat{\\sigma}_\\epsilon\\sqrt{\\frac{1}{(n-1)s_X^2}}\n\\]\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#hypothesis-test-for-the-slope",
+    "href": "slides/08-slr-math-models.html#hypothesis-test-for-the-slope",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Hypothesis test for the slope",
+    "text": "Hypothesis test for the slope\nHypotheses: \\(H_0: \\beta_1 = 0\\) vs. \\(H_A: \\beta_1 \\ne 0\\)\n\nTest statistic: Number of standard errors the estimate is away from the null\n\\[\nT = \\frac{\\text{Estimate - Null Value}}{\\text{Standard error}} \\\\\n\\]\n\n\np-value: Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed\n\\[\n\\text{p-value} = P(|T| &gt; |\\text{test statistic}|),\n\\]\ncalculated from a \\(t\\) distribution with \\(n - 2\\) degrees of freedom"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#hypothesis-test-test-statistic",
+    "href": "slides/08-slr-math-models.html#hypothesis-test-test-statistic",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Hypothesis test: Test statistic",
+    "text": "Hypothesis test: Test statistic\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00\n\n\n\n\n\n\n\n\\[\nT = \\frac{\\hat{\\beta}_1 - 0}{SE_{\\hat{\\beta}_1}} = \\frac{0.96 - 0}{0.13} = 7.38\n\\]\n\nHow should we interpret this test statistic?"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#hypothesis-test-p-value",
+    "href": "slides/08-slr-math-models.html#hypothesis-test-p-value",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Hypothesis test: p-value",
+    "text": "Hypothesis test: p-value\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#hypothesis-test-p-value-1",
+    "href": "slides/08-slr-math-models.html#hypothesis-test-p-value-1",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Hypothesis test: p-value",
+    "text": "Hypothesis test: p-value\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00\n\n\n\n\n\n\n\nA more exact p-value\n\n2 * pt(q = 7.38, df = 35, lower.tail = FALSE)\n\n[1] 1.243448e-08\n\n\n\nInterpret this p-value."
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#understanding-the-p-value",
+    "href": "slides/08-slr-math-models.html#understanding-the-p-value",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Understanding the p-value",
+    "text": "Understanding the p-value\n\n\n\nMagnitude of p-value\nInterpretation\n\n\n\n\np-value &lt; 0.01\nstrong evidence against \\(H_0\\)\n\n\n0.01 &lt; p-value &lt; 0.05\nmoderate evidence against \\(H_0\\)\n\n\n0.05 &lt; p-value &lt; 0.1\nweak evidence against \\(H_0\\)\n\n\np-value &gt; 0.1\neffectively no evidence against \\(H_0\\)\n\n\n\n\n\n\n\n\n\nImportant\n\n\nThese are general guidelines. The strength of evidence depends on the context of the problem."
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#hypothesis-test-conclusion-in-context",
+    "href": "slides/08-slr-math-models.html#hypothesis-test-conclusion-in-context",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Hypothesis test: Conclusion, in context",
+    "text": "Hypothesis test: Conclusion, in context\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00\n\n\n\n\n\n\n\n\nThe data provide convincing evidence that the population slope \\(\\beta_1\\) is different from 0.\nThe data provide convincing evidence of a linear relationship between average household income and the number of organic vegetable options available."
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#confidence-interval-for-the-slope",
+    "href": "slides/08-slr-math-models.html#confidence-interval-for-the-slope",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Confidence interval for the slope",
+    "text": "Confidence interval for the slope\n\\[\n\\text{Estimate} \\pm \\text{ (critical value) } \\times \\text{SE}\n\\]\n\n\\[\n\\hat{\\beta}_1 \\pm t^* \\times SE_{\\hat{\\beta}_1}\n\\]\nwhere \\(t^*\\) is calculated from a \\(t\\) distribution with \\(n-2\\) degrees of freedom"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#confidence-interval-critical-value",
+    "href": "slides/08-slr-math-models.html#confidence-interval-critical-value",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Confidence interval: Critical value",
+    "text": "Confidence interval: Critical value\n\n\n\n\n# confidence level: 95%\nqt(0.975, df = nrow(heb) - 2)\n\n[1] 2.030108\n\n\n\n\n\n# confidence level: 90%\nqt(0.95, df = nrow(heb) - 2)\n\n[1] 1.689572\n\n\n\n\n\n# confidence level: 99%\nqt(0.995, df = nrow(heb) - 2)\n\n[1] 2.723806"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#ci-for-the-slope-calculation",
+    "href": "slides/08-slr-math-models.html#ci-for-the-slope-calculation",
+    "title": "SLR: Mathematical models for inference",
+    "section": "95% CI for the slope: Calculation",
+    "text": "95% CI for the slope: Calculation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00\n\n\n\n\n\n\n\n\\[\\hat{\\beta}_1 = 0.96 \\hspace{15mm} t^* = 2.03 \\hspace{15mm} SE_{\\hat{\\beta}_1} = 0.13\\]\n\n\\[\n0.96 \\pm 2.03 \\times 0.13 = (0.70, 1.22)\n\\]"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#ci-for-the-slope-computation",
+    "href": "slides/08-slr-math-models.html#ci-for-the-slope-computation",
+    "title": "SLR: Mathematical models for inference",
+    "section": "95% CI for the slope: Computation",
+    "text": "95% CI for the slope: Computation\n\ntidy(heb_fit, conf.int = TRUE, conf.level = 0.95) |&gt; \n  kable(digits = 2)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-14.72\n9.30\n-1.58\n0.12\n-33.59\n4.16\n\n\nAvg_Income_K\n0.96\n0.13\n7.50\n0.00\n0.70\n1.22"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#intervals-for-predictions-1",
+    "href": "slides/08-slr-math-models.html#intervals-for-predictions-1",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Intervals for predictions",
+    "text": "Intervals for predictions\n\nQuestion: “What is the predicted number of organic vegetable options in a neighborhood with an average income of $70k?”\nWe said reporting a single estimate for the slope is not wise, and we should report a plausible range instead\nSimilarly, reporting a single prediction for a new value is not wise, and we should report a plausible range instead"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#two-types-of-predictions",
+    "href": "slides/08-slr-math-models.html#two-types-of-predictions",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Two types of predictions",
+    "text": "Two types of predictions\n\nPrediction for the mean: “What is the average predicted number of organic vegetable options in a neighborhood with an average income of $70k?”\nPrediction for an individual observation: “What is the predicted number of organic vegetable options at a single HEB in a neighborhood with an average income of $70k?”\n\n\n\nWhich would you expect to be more variable? The average prediction or the prediction for an individual observation? Based on your answer, how would you expect the widths of plausible ranges for these two predictions to compare?"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#uncertainty-in-predictions",
+    "href": "slides/08-slr-math-models.html#uncertainty-in-predictions",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Uncertainty in predictions",
+    "text": "Uncertainty in predictions\nConfidence interval for the mean outcome: \\[\\large{\\hat{y} \\pm t_{n-2}^* \\times \\color{purple}{\\mathbf{SE}_{\\hat{\\boldsymbol{\\mu}}}}}\\]\n\nPrediction interval for an individual observation: \\[\\large{\\hat{y} \\pm t_{n-2}^* \\times \\color{purple}{\\mathbf{SE_{\\hat{y}}}}}\\]"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#standard-errors",
+    "href": "slides/08-slr-math-models.html#standard-errors",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Standard errors",
+    "text": "Standard errors\nStandard error of the mean outcome: \\[SE_{\\hat{\\mu}} = \\hat{\\sigma}_\\epsilon\\sqrt{\\frac{1}{n} + \\frac{(x-\\bar{x})^2}{\\sum\\limits_{i=1}^n(x_i - \\bar{x})^2}}\\]\n\nStandard error of an individual outcome: \\[SE_{\\hat{y}} = \\hat{\\sigma}_\\epsilon\\sqrt{1 + \\frac{1}{n} + \\frac{(x-\\bar{x})^2}{\\sum\\limits_{i=1}^n(x_i - \\bar{x})^2}}\\]"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#standard-errors-1",
+    "href": "slides/08-slr-math-models.html#standard-errors-1",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Standard errors",
+    "text": "Standard errors\nStandard error of the mean outcome: \\[SE_{\\hat{\\mu}} = \\hat{\\sigma}_\\epsilon\\sqrt{\\frac{1}{n} + \\frac{(x-\\bar{x})^2}{\\sum\\limits_{i=1}^n(x_i - \\bar{x})^2}}\\]\nStandard error of an individual outcome: \\[SE_{\\hat{y}} = \\hat{\\sigma}_\\epsilon\\sqrt{\\mathbf{\\color{purple}{\\Large{1}}} + \\frac{1}{n} + \\frac{(x-\\bar{x})^2}{\\sum\\limits_{i=1}^n(x_i - \\bar{x})^2}}\\]"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#confidence-interval",
+    "href": "slides/08-slr-math-models.html#confidence-interval",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Confidence interval",
+    "text": "Confidence interval\nThe 95% confidence interval for the mean outcome:\n\nnew_neighborhood &lt;- tibble(Avg_Income_K = 70)\n\npredict(heb_fit, newdata = new_neighborhood, interval = \"confidence\", level = 0.95) |&gt;\n  kable()\n\n\n\n\nfit\nlwr\nupr\n\n\n\n\n52.4175\n46.58558\n58.24942\n\n\n\n\n\n\n\nWe are 95% confident that the mean number of organic vegetable options offered by HEB in a neighborhood with an average income of $70k is between 46.59 and 58.25."
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#prediction-interval",
+    "href": "slides/08-slr-math-models.html#prediction-interval",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Prediction interval",
+    "text": "Prediction interval\nThe 95% prediction interval for an individual outcome:\n\npredict(heb_fit, newdata = new_neighborhood, interval = \"prediction\", level = 0.95) |&gt;\n  kable()\n\n\n\n\nfit\nlwr\nupr\n\n\n\n\n52.4175\n16.48941\n88.34559\n\n\n\n\n\n\nWe are 95% confident that the number of organic vegetable options offered by HEB in a neighborhood with an average income of $70k is between 16.49 and 88.35."
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#comparing-intervals",
+    "href": "slides/08-slr-math-models.html#comparing-intervals",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Comparing intervals",
+    "text": "Comparing intervals"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#extrapolation",
+    "href": "slides/08-slr-math-models.html#extrapolation",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Extrapolation",
+    "text": "Extrapolation\nUsing the model to predict for values outside the range of the original data is extrapolation.\n\n\n\n\nCalculate the prediction interval for the number of organic options in an extremely wealthy neighborhood with an average household income of $500k.\n\nNo, thanks!"
+  },
+  {
+    "objectID": "slides/08-slr-math-models.html#extrapolation-1",
+    "href": "slides/08-slr-math-models.html#extrapolation-1",
+    "title": "SLR: Mathematical models for inference",
+    "section": "Extrapolation",
+    "text": "Extrapolation\n\nWhy do we want to avoid extrapolation?\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "prepare/math-models-prep.html",
+    "href": "prepare/math-models-prep.html",
+    "title": "September 9th lecture",
+    "section": "",
+    "text": "Stat2 Textbook: Chapter 2.1, 2.3, 2.3"
+  },
+  {
+    "objectID": "prepare/math-models-prep.html#assigned-reading",
+    "href": "prepare/math-models-prep.html#assigned-reading",
+    "title": "September 9th lecture",
+    "section": "",
+    "text": "Stat2 Textbook: Chapter 2.1, 2.3, 2.3"
   }
 ]
