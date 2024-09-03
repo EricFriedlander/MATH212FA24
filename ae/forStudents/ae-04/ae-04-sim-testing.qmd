@@ -1,6 +1,7 @@
 ---
 title: "AE 04: Randomization test for the slope"
 subtitle: "Bikeshare"
+author: "Driver: _____, Reporter: ______, Gopher: ______"
 date: "Sep 6, 2024"
 editor: visual
 format: 

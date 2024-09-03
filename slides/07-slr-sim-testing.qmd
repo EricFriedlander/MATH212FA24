@@ -58,12 +58,10 @@ bibliography: references.bib
 # load packages
 library(tidyverse)   # for data wrangling and visualization
 library(broom)       # for nearly formatting model output
+library(ggformula)   # for plotting
 library(infer)       # for simulation based inference
-library(usdata)      # for the county_2019 dataset
 library(scales)      # for pretty axis labels
-library(glue)        # for constructing character strings
 library(knitr)       # for neatly formatted tables
-library(kableExtra)  # also for neatly formatted tablesf
 
 
 # set default theme and larger font size for ggplot2
@@ -389,4 +387,127 @@ ggplot(null_dist |> filter(term == "Avg_Income_K"),
   geom_vline(xintercept = -1*slope, color = "#8F2D56", size = 1, linetype = "dashed") +
   scale_x_continuous(limits = c(-slope, slope), breaks = seq(-150, 150, 50))
 ```
+
+
+
+## Permutation pipeline I
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|1|3|4"
+
+set.seed(1218)
+
+heb |>
+  specify(Number_Organic ~ Avg_Income_K)
+```
+
+## Permutation pipeline II
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|5"
+
+set.seed(1218)
+
+heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
+  hypothesize(null = "independence")
+```
+
+## Permutation pipeline III
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|6"
+
+set.seed(1218)
+
+heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute")
+```
+
+## Permutation pipeline IV
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|7"
+
+set.seed(1218)
+
+heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  fit()
+```
+
+## Permutation pipeline V
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|3"
+
+set.seed(1218)
+
+heb |>
+  specify(Number_Organic ~ Avg_Income_K) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  fit()
+```
+
+## Visualize the null distribution
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|2"
+
+null_dist |>
+  filter(term == "Avg_Income_K") |>
+  gf_histogram(~estimate, color = "white")
+```
+
+## Reason around the p-value {.smaller}
+
+::: question
+In a world where the there is no relationship between the the number of organic food options and the nearby average household income ($\beta_1 = 0$), what is the probability that we observe a sample of `r nrow(heb)` stores where the slope fo the model predicting the number of organic options from average household income is 0.96 or even more extreme?
+:::
+
+```{r}
+#| echo: false
+
+null_dist |>
+  filter(term == "area") |>
+  ggplot(aes(x = estimate)) +
+  geom_histogram(binwidth = 10, color = "white") +
+  geom_vline(xintercept = slope, color = "#8F2D56", size = 1) +
+  geom_vline(xintercept = -1*slope, color = "#8F2D56", size = 1, linetype = "dashed") +
+  scale_x_continuous(limits = c(-slope, slope), breaks = seq(-150, 150, 50))
+```
+
+## Compute the p-value
+
+::: question
+What does this warning mean?
+:::
+
+```{r}
+#| echo: true
+#| warning: true
+
+get_p_value(
+  null_dist,
+  obs_stat = obs_fit,
+  direction = "two-sided"
+)
+```
+
+# Application exercise
+
+::: appex
+📋 [AE 04: Randomization test for the slope](https://mat212fa24.netlify.app/ae/ae-04-sim-testing)
+:::
 

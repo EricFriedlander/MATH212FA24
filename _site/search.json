@@ -2539,7 +2539,7 @@
     "href": "slides/07-slr-sim-testing.html#computational-setup",
     "title": "SLR: Randomization test for the slope",
     "section": "Computational setup",
-    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(broom)       # for nearly formatting model output\nlibrary(infer)       # for simulation based inference\nlibrary(usdata)      # for the county_2019 dataset\nlibrary(scales)      # for pretty axis labels\nlibrary(glue)        # for constructing character strings\nlibrary(knitr)       # for neatly formatted tables\nlibrary(kableExtra)  # also for neatly formatted tablesf\n\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))"
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(broom)       # for nearly formatting model output\nlibrary(ggformula)   # for plotting\nlibrary(infer)       # for simulation based inference\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for neatly formatted tables\n\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))"
   },
   {
     "objectID": "slides/07-slr-sim-testing.html#data-san-antonio-income-organic-food-access",
@@ -2686,7 +2686,7 @@
     "href": "slides/07-slr-sim-testing.html#concluding-the-hypothesis-test",
     "title": "SLR: Randomization test for the slope",
     "section": "Concluding the hypothesis test",
-    "text": "Concluding the hypothesis test\n\nIs the observed slope of \\(\\hat{\\beta_1} = 159\\) (or an even more extreme slope) a likely outcome under the null hypothesis that \\(\\beta = 0\\)? What does this mean for our original question: “Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+    "text": "Concluding the hypothesis test\n\nIs the observed slope of \\(\\hat{\\beta_1} = 159\\) (or an even more extreme slope) a likely outcome under the null hypothesis that \\(\\beta = 0\\)? What does this mean for our original question: “Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”"
   },
   {
     "objectID": "slides/07-slr-conditions-eval-old.html#announcements",
@@ -10820,5 +10820,61 @@
     "crumbs": [
       "Support"
     ]
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#permutation-pipeline-i",
+    "href": "slides/07-slr-sim-testing.html#permutation-pipeline-i",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Permutation pipeline I",
+    "text": "Permutation pipeline I\n\nset.seed(1218)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K)\n\nResponse: Number_Organic (numeric)\nExplanatory: Avg_Income_K (numeric)\n# A tibble: 37 × 2\n   Number_Organic Avg_Income_K\n            &lt;dbl&gt;        &lt;dbl&gt;\n 1             36         71.2\n 2              4         34.2\n 3             28         71.2\n 4             31         48.8\n 5             78         78.1\n 6             14         40.5\n 7             12         38.2\n 8             18         50.4\n 9             38         49.4\n10             84         66.1\n# ℹ 27 more rows"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#permutation-pipeline-ii",
+    "href": "slides/07-slr-sim-testing.html#permutation-pipeline-ii",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Permutation pipeline II",
+    "text": "Permutation pipeline II\n\nset.seed(1218)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  hypothesize(null = \"independence\")\n\nResponse: Number_Organic (numeric)\nExplanatory: Avg_Income_K (numeric)\nNull Hypothesis: independence\n# A tibble: 37 × 2\n   Number_Organic Avg_Income_K\n            &lt;dbl&gt;        &lt;dbl&gt;\n 1             36         71.2\n 2              4         34.2\n 3             28         71.2\n 4             31         48.8\n 5             78         78.1\n 6             14         40.5\n 7             12         38.2\n 8             18         50.4\n 9             38         49.4\n10             84         66.1\n# ℹ 27 more rows"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#permutation-pipeline-iii",
+    "href": "slides/07-slr-sim-testing.html#permutation-pipeline-iii",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Permutation pipeline III",
+    "text": "Permutation pipeline III\n\nset.seed(1218)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\")\n\nResponse: Number_Organic (numeric)\nExplanatory: Avg_Income_K (numeric)\nNull Hypothesis: independence\n# A tibble: 37,000 × 3\n# Groups:   replicate [1,000]\n   Number_Organic Avg_Income_K replicate\n            &lt;dbl&gt;        &lt;dbl&gt;     &lt;int&gt;\n 1             38         71.2         1\n 2             56         34.2         1\n 3             28         71.2         1\n 4             14         48.8         1\n 5             29         78.1         1\n 6             36         40.5         1\n 7             84         38.2         1\n 8             18         50.4         1\n 9             96         49.4         1\n10             26         66.1         1\n# ℹ 36,990 more rows"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#permutation-pipeline-iv",
+    "href": "slides/07-slr-sim-testing.html#permutation-pipeline-iv",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Permutation pipeline IV",
+    "text": "Permutation pipeline IV\n\nset.seed(1218)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\") |&gt;\n  fit()\n\n# A tibble: 2,000 × 3\n# Groups:   replicate [1,000]\n   replicate term         estimate\n       &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1         1 intercept     47.8   \n 2         1 Avg_Income_K   0.0555\n 3         2 intercept     58.0   \n 4         2 Avg_Income_K  -0.0914\n 5         3 intercept     57.3   \n 6         3 Avg_Income_K  -0.0817\n 7         4 intercept     78.9   \n 8         4 Avg_Income_K  -0.394 \n 9         5 intercept     34.8   \n10         5 Avg_Income_K   0.244 \n# ℹ 1,990 more rows"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#permutation-pipeline-v",
+    "href": "slides/07-slr-sim-testing.html#permutation-pipeline-v",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Permutation pipeline V",
+    "text": "Permutation pipeline V\n\nset.seed(1218)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\") |&gt;\n  fit()\n\n# A tibble: 2,000 × 3\n# Groups:   replicate [1,000]\n   replicate term         estimate\n       &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1         1 intercept     47.8   \n 2         1 Avg_Income_K   0.0555\n 3         2 intercept     58.0   \n 4         2 Avg_Income_K  -0.0914\n 5         3 intercept     57.3   \n 6         3 Avg_Income_K  -0.0817\n 7         4 intercept     78.9   \n 8         4 Avg_Income_K  -0.394 \n 9         5 intercept     34.8   \n10         5 Avg_Income_K   0.244 \n# ℹ 1,990 more rows"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#visualize-the-null-distribution",
+    "href": "slides/07-slr-sim-testing.html#visualize-the-null-distribution",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Visualize the null distribution",
+    "text": "Visualize the null distribution\n\nnull_dist |&gt;\n  filter(term == \"Avg_Income_K\") |&gt;\n  gf_histogram(~estimate, color = \"white\")"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#reason-around-the-p-value",
+    "href": "slides/07-slr-sim-testing.html#reason-around-the-p-value",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Reason around the p-value",
+    "text": "Reason around the p-value\n\nIn a world where the there is no relationship between the the number of organic food options and the nearby average household income (\\(\\beta_1 = 0\\)), what is the probability that we observe a sample of 37 stores where the slope fo the model predicting the number of organic options from average household income is 0.96 or even more extreme?"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#compute-the-p-value",
+    "href": "slides/07-slr-sim-testing.html#compute-the-p-value",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Compute the p-value",
+    "text": "Compute the p-value\n\nWhat does this warning mean?\n\n\nget_p_value(\n  null_dist,\n  obs_stat = obs_fit,\n  direction = \"two-sided\"\n)\n\nWarning: Please be cautious in reporting a p-value of 0. This result is an approximation\nbased on the number of `reps` chosen in the `generate()` step.\nℹ See `get_p_value()` (`?infer::get_p_value()`) for more information.\nPlease be cautious in reporting a p-value of 0. This result is an approximation\nbased on the number of `reps` chosen in the `generate()` step.\nℹ See `get_p_value()` (`?infer::get_p_value()`) for more information.\n\n\n# A tibble: 2 × 2\n  term         p_value\n  &lt;chr&gt;          &lt;dbl&gt;\n1 Avg_Income_K       0\n2 intercept          0"
   }
 ]

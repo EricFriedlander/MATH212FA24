@@ -429,16 +429,14 @@ Prof.&nbsp;Eric Friedlander
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load packages</span></span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)   <span class="co"># for data wrangling and visualization</span></span>
 <span id="cb1-3"><a></a><span class="fu">library</span>(broom)       <span class="co"># for nearly formatting model output</span></span>
-<span id="cb1-4"><a></a><span class="fu">library</span>(infer)       <span class="co"># for simulation based inference</span></span>
-<span id="cb1-5"><a></a><span class="fu">library</span>(usdata)      <span class="co"># for the county_2019 dataset</span></span>
+<span id="cb1-4"><a></a><span class="fu">library</span>(ggformula)   <span class="co"># for plotting</span></span>
+<span id="cb1-5"><a></a><span class="fu">library</span>(infer)       <span class="co"># for simulation based inference</span></span>
 <span id="cb1-6"><a></a><span class="fu">library</span>(scales)      <span class="co"># for pretty axis labels</span></span>
-<span id="cb1-7"><a></a><span class="fu">library</span>(glue)        <span class="co"># for constructing character strings</span></span>
-<span id="cb1-8"><a></a><span class="fu">library</span>(knitr)       <span class="co"># for neatly formatted tables</span></span>
-<span id="cb1-9"><a></a><span class="fu">library</span>(kableExtra)  <span class="co"># also for neatly formatted tablesf</span></span>
-<span id="cb1-10"><a></a></span>
-<span id="cb1-11"><a></a></span>
-<span id="cb1-12"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
-<span id="cb1-13"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a></a><span class="fu">library</span>(knitr)       <span class="co"># for neatly formatted tables</span></span>
+<span id="cb1-8"><a></a></span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
+<span id="cb1-11"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section>
@@ -793,14 +791,201 @@ H_A: \beta_1 \ne 0
 <div class="question">
 <p>Is the observed slope of <span class="math inline">\(\hat{\beta_1} = 159\)</span> (or an even more extreme slope) a likely outcome under the null hypothesis that <span class="math inline">\(\beta = 0\)</span>? What does this mean for our original question: “Do the data provide sufficient evidence that <span class="math inline">\(\beta_1\)</span> (the true slope for the population) is different from 0?”</p>
 </div>
+
+<img data-src="07-slr-sim-testing_files/figure-revealjs/unnamed-chunk-15-1.png" style="width:60.0%" class="r-stretch"></section>
+<section id="permutation-pipeline-i" class="slide level2">
+<h2>Permutation pipeline I</h2>
 <div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="07-slr-sim-testing_files/figure-revealjs/unnamed-chunk-15-1.png" style="width:60.0%"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb16" data-code-line-numbers="|1|3|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1218</span>)</span>
+<span id="cb16-2"><a></a></span>
+<span id="cb16-3"><a></a>heb <span class="sc">|&gt;</span></span>
+<span id="cb16-4"><a></a>  <span class="fu">specify</span>(Number_Organic <span class="sc">~</span> Avg_Income_K)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: Number_Organic (numeric)
+Explanatory: Avg_Income_K (numeric)
+# A tibble: 37 × 2
+   Number_Organic Avg_Income_K
+            &lt;dbl&gt;        &lt;dbl&gt;
+ 1             36         71.2
+ 2              4         34.2
+ 3             28         71.2
+ 4             31         48.8
+ 5             78         78.1
+ 6             14         40.5
+ 7             12         38.2
+ 8             18         50.4
+ 9             38         49.4
+10             84         66.1
+# ℹ 27 more rows</code></pre>
 </div>
 </div>
+</section>
+<section id="permutation-pipeline-ii" class="slide level2">
+<h2>Permutation pipeline II</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1218</span>)</span>
+<span id="cb18-2"><a></a></span>
+<span id="cb18-3"><a></a>heb <span class="sc">|&gt;</span></span>
+<span id="cb18-4"><a></a>  <span class="fu">specify</span>(Number_Organic <span class="sc">~</span> Avg_Income_K) <span class="sc">|&gt;</span></span>
+<span id="cb18-5"><a></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: Number_Organic (numeric)
+Explanatory: Avg_Income_K (numeric)
+Null Hypothesis: independence
+# A tibble: 37 × 2
+   Number_Organic Avg_Income_K
+            &lt;dbl&gt;        &lt;dbl&gt;
+ 1             36         71.2
+ 2              4         34.2
+ 3             28         71.2
+ 4             31         48.8
+ 5             78         78.1
+ 6             14         40.5
+ 7             12         38.2
+ 8             18         50.4
+ 9             38         49.4
+10             84         66.1
+# ℹ 27 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="permutation-pipeline-iii" class="slide level2">
+<h2>Permutation pipeline III</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1218</span>)</span>
+<span id="cb20-2"><a></a></span>
+<span id="cb20-3"><a></a>heb <span class="sc">|&gt;</span></span>
+<span id="cb20-4"><a></a>  <span class="fu">specify</span>(Number_Organic <span class="sc">~</span> Avg_Income_K) <span class="sc">|&gt;</span></span>
+<span id="cb20-5"><a></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-6"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: Number_Organic (numeric)
+Explanatory: Avg_Income_K (numeric)
+Null Hypothesis: independence
+# A tibble: 37,000 × 3
+# Groups:   replicate [1,000]
+   Number_Organic Avg_Income_K replicate
+            &lt;dbl&gt;        &lt;dbl&gt;     &lt;int&gt;
+ 1             38         71.2         1
+ 2             56         34.2         1
+ 3             28         71.2         1
+ 4             14         48.8         1
+ 5             29         78.1         1
+ 6             36         40.5         1
+ 7             84         38.2         1
+ 8             18         50.4         1
+ 9             96         49.4         1
+10             26         66.1         1
+# ℹ 36,990 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="permutation-pipeline-iv" class="slide level2">
+<h2>Permutation pipeline IV</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1218</span>)</span>
+<span id="cb22-2"><a></a></span>
+<span id="cb22-3"><a></a>heb <span class="sc">|&gt;</span></span>
+<span id="cb22-4"><a></a>  <span class="fu">specify</span>(Number_Organic <span class="sc">~</span> Avg_Income_K) <span class="sc">|&gt;</span></span>
+<span id="cb22-5"><a></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb22-6"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb22-7"><a></a>  <span class="fu">fit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2,000 × 3
+# Groups:   replicate [1,000]
+   replicate term         estimate
+       &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;
+ 1         1 intercept     47.8   
+ 2         1 Avg_Income_K   0.0555
+ 3         2 intercept     58.0   
+ 4         2 Avg_Income_K  -0.0914
+ 5         3 intercept     57.3   
+ 6         3 Avg_Income_K  -0.0817
+ 7         4 intercept     78.9   
+ 8         4 Avg_Income_K  -0.394 
+ 9         5 intercept     34.8   
+10         5 Avg_Income_K   0.244 
+# ℹ 1,990 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="permutation-pipeline-v" class="slide level2">
+<h2>Permutation pipeline V</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1218</span>)</span>
+<span id="cb24-2"><a></a></span>
+<span id="cb24-3"><a></a>heb <span class="sc">|&gt;</span></span>
+<span id="cb24-4"><a></a>  <span class="fu">specify</span>(Number_Organic <span class="sc">~</span> Avg_Income_K) <span class="sc">|&gt;</span></span>
+<span id="cb24-5"><a></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-6"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-7"><a></a>  <span class="fu">fit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2,000 × 3
+# Groups:   replicate [1,000]
+   replicate term         estimate
+       &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;
+ 1         1 intercept     47.8   
+ 2         1 Avg_Income_K   0.0555
+ 3         2 intercept     58.0   
+ 4         2 Avg_Income_K  -0.0914
+ 5         3 intercept     57.3   
+ 6         3 Avg_Income_K  -0.0817
+ 7         4 intercept     78.9   
+ 8         4 Avg_Income_K  -0.394 
+ 9         5 intercept     34.8   
+10         5 Avg_Income_K   0.244 
+# ℹ 1,990 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="visualize-the-null-distribution" class="slide level2">
+<h2>Visualize the null distribution</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26" data-code-line-numbers="|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>null_dist <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"Avg_Income_K"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb26-3"><a></a>  <span class="fu">gf_histogram</span>(<span class="sc">~</span>estimate, <span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="07-slr-sim-testing_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"></section>
+<section id="reason-around-the-p-value" class="slide level2 smaller">
+<h2>Reason around the p-value</h2>
+<div class="question">
+<p>In a world where the there is no relationship between the the number of organic food options and the nearby average household income (<span class="math inline">\(\beta_1 = 0\)</span>), what is the probability that we observe a sample of 37 stores where the slope fo the model predicting the number of organic options from average household income is 0.96 or even more extreme?</p>
+</div>
+
+<img data-src="07-slr-sim-testing_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch"></section>
+<section id="compute-the-p-value" class="slide level2">
+<h2>Compute the p-value</h2>
+<div class="question">
+<p>What does this warning mean?</p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">get_p_value</span>(</span>
+<span id="cb27-2"><a></a>  null_dist,</span>
+<span id="cb27-3"><a></a>  <span class="at">obs_stat =</span> obs_fit,</span>
+<span id="cb27-4"><a></a>  <span class="at">direction =</span> <span class="st">"two-sided"</span></span>
+<span id="cb27-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Please be cautious in reporting a p-value of 0. This result is an approximation
+based on the number of `reps` chosen in the `generate()` step.
+ℹ See `get_p_value()` (`?infer::get_p_value()`) for more information.
+Please be cautious in reporting a p-value of 0. This result is an approximation
+based on the number of `reps` chosen in the `generate()` step.
+ℹ See `get_p_value()` (`?infer::get_p_value()`) for more information.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  term         p_value
+  &lt;chr&gt;          &lt;dbl&gt;
+1 Avg_Income_K       0
+2 intercept          0</code></pre>
+</div>
+</div>
+</section></section>
+<section id="application-exercise" class="title-slide slide level1 center">
+<h1>Application exercise</h1>
+<div class="appex">
+<p>📋 <a href="https://mat212fa24.netlify.app/ae/ae-04-sim-testing">AE 04: Randomization test for the slope</a></p>
 </div>
 
 <div class="quarto-auto-generated-content">
@@ -809,7 +994,7 @@ H_A: \beta_1 \ne 0
 <p><a href="https://mat212fa24.netlify.app/schedule">🔗 MAT 212 - Fall 2024 - Schedule</a></p>
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
