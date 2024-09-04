@@ -7686,7 +7686,7 @@
     "href": "slides/06-slr-bootstrap.html#computational-setup",
     "title": "SLR: Simulation-based inference",
     "section": "Computational setup",
-    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(ggformula)  # for modeling\nlibrary(scales)      # for pretty axis labels\n# library(glue)        # for constructing character strings\nlibrary(knitr)       # for neatly formatted tables\nlibrary(kableExtra)  # also for neatly formatted tablesf\n\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))"
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(ggformula)  # for modeling\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for neatly formatted tables\nlibrary(kableExtra)  # also for neatly formatted tablesf\n\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))"
   },
   {
     "objectID": "slides/06-slr-bootstrap.html#data-san-antonio-income-organic-food-access",
@@ -7728,7 +7728,7 @@
     "href": "slides/06-slr-bootstrap.html#inference-for-simple-linear-regression",
     "title": "SLR: Simulation-based inference",
     "section": "Inference for simple linear regression",
-    "text": "Inference for simple linear regression\n\n\nCalculate a confidence interval for the slope, \\(\\beta_1\\)\nConduct a hypothesis test for the slope,\\(\\beta_1\\)\nWhy not \\(\\beta_0\\)?\nWe can but it isn’t super interesting typically\n\n\n\n\n\nWhat is a confidence interval?\nWhat is a hypothesis test?"
+    "text": "Inference for simple linear regression\n\n\nCalculate a confidence interval for the slope, \\(\\beta_1\\)\nConduct a hypothesis test for the slope, \\(\\beta_1\\)\nWhy not \\(\\beta_0\\)?\nWe can but it isn’t super interesting typically\n\n\n\n\n\nWhat is a confidence interval?\nWhat is a hypothesis test?"
   },
   {
     "objectID": "slides/06-slr-bootstrap.html#confidence-interval",

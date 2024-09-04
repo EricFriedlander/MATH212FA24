@@ -137,7 +137,6 @@ Bootstrap confidence intervals
 library(tidyverse)   # for data wrangling and visualization
 library(ggformula)  # for modeling
 library(scales)      # for pretty axis labels
-# library(glue)        # for constructing character strings
 library(knitr)       # for neatly formatted tables
 library(kableExtra)  # also for neatly formatted tablesf
 
@@ -224,7 +223,7 @@ slope <- tidy(heb_fit) |> filter(term == "Avg_Income_K") |> pull(estimate) |> ro
 
 -   Calculate a confidence interval for the slope, $\beta_1$
 
--   Conduct a hypothesis test for the slope,$\beta_1$
+-   Conduct a hypothesis test for the slope, $\beta_1$
 
 -   Why not $\beta_0$?
 
@@ -597,6 +596,12 @@ get_confidence_interval(
   level = 0.99, type = "percentile"
 )
 ```
+
+# Application exercise
+
+::: appex
+📋 [AE 03: Bootstrap confidence intervals](https://mat212fa24.netlify.app/ae/ae-03-bootstrap)
+:::
 
 ## Recap {.smaller}
 
