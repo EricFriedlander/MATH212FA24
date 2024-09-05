@@ -1,0 +1,173 @@
+---
+title: "SLR: Model evaluation"
+author: "Prof. Eric Friedlander"
+date: "2024-09-11"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r setup}
+#| include: false
+
+library(countdown)
+
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.asp = 0.618,
+  fig.retina = 3,
+  dpi = 300,
+  out.width = "80%",
+  fig.align = "center"
+)
+```
+
+# Questions from last class?
+
+# Model conditions
+
+## Model conditions
+
+1.  **Linearity:** There is a linear relationship between the outcome and predictor variables
+2.  **Constant variance:** The variability of the errors is equal for all values of the predictor variable
+3.  **Normality:** The errors follow a normal distribution
+4.  **Independence:** The errors are independent from each other
+
+## Computational set up
+
+```{r packages}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)   # for data wrangling and visualization
+library(ggformula)   # for plotting using formulas
+library(broom)       # for formatting model output
+library(scales)      # for pretty axis labels
+library(knitr)       # for pretty tables
+library(patchwork)   # arrange plots
+
+# HEB Dataset
+heb <- read_csv("data/HEBIncome.csv") |> 
+  mutate(Avg_Income_K = Avg_Household_Income/1000)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
+```
+
+## Regression model, revisited
+
+```{r}
+#| echo: true
+heb_fit <- lm(Number_Organic ~ Avg_Income_K, data = heb)
+
+tidy(heb_fit) |>
+  kable(digits = 3)
+```
+
+# Model evaluation
+
+## Two statistics {.small}
+
+::: incremental
+-   **R-squared**, $R^2$, **Coefficient of Determination** : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)
+
+    $$
+    R^2 = Cor(x,y)^2 = Cor(y, \hat{y})^2
+    $$
+
+-   **Root mean square error, RMSE**: A measure of the average error (average difference between observed and predicted values of the outcome)
+
+    $$
+    RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
+    $$
+:::
+
+. . .
+
+::: question
+What indicates a good model fit? Higher or lower $R^2$? Higher or lower RMSE?
+:::
+
+## $R^2$
+
+::: incremental
+-   Ranges between 0 (terrible predictor) and 1 (perfect predictor)
+
+-   Has no units
+
+-   Calculate with `glance()` or `summary()` using the fitted model:
+
+```{r}
+#| echo: true
+glance(heb_fit)
+
+glance(heb_fit)$r.squared
+```
+:::
+
+## Interpreting $R^2$ {.smaller}
+
+```{r}
+#| echo: false
+heb_fit_rsq <- round(glance(heb_fit)$r.squared * 100, 1)
+```
+
+::: poll
+🗳️ **Discussion**
+
+::: midi
+::: poll
+The $R^2$ of the model for `Number_Organic` from `Average_Income_K` is `r heb_fit_rsq`%. Which of the following is the correct interpretation of this value?
+:::
+
+1.  `Avg_Income_K` correctly predicts `r heb_fit_rsq`% of `Number_Organic` in San Anontio HEBs.
+2.  `r heb_fit_rsq`% of the variability in `Number_Organic` can be explained by `Avg_Income_K`.
+3.  `r heb_fit_rsq`% of the variability in `Avg_Income_K` can be explained by `Number_Organic`.
+4.  `r heb_fit_rsq`% of the time `Number_Organic` can be predicted by `Avg_Income_K`.
+:::
+:::
+
+## RMSE
+
+::: incremental
+-   Ranges between 0 (perfect predictor) and infinity (terrible predictor)
+
+-   Same units as the response variable
+
+-   Calculate with `glance()` using the augmented data:
+
+    ```{r}
+    #| echo: true
+
+    glance(heb_fit)$sigma
+    ```
+
+-   The value of RMSE is not very meaningful on its own, but it's useful for comparing across models (more on this when we get to regression with multiple predictors)
+:::
+
+<!-- # Application exercise -->
+
+<!-- ::: appex -->
+<!-- 📋 [sta210-fa23.netlify.app/ae/ae-06-conditions](https://sta210-fa23.netlify.app/ae/ae-06-conditions.html) -->
+<!-- ::: -->

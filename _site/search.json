@@ -243,14 +243,14 @@
     "href": "slides/xx-slr-outliers.html#example-planets",
     "title": "SLR: Transformations",
     "section": "Example: Planets",
-    "text": "Example: Planets\n\nplanets &lt;- read_csv(\"data/planets.csv\")\n\nRows: 9 Columns: 7\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): Planet\ndbl (6): Distance, Year, Mass, Day, Diameter, Gravity\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\n\\(Y =\\) length of the “year” for planets\n\\(X =\\) distance from the Sun"
+    "text": "Example: Planets\n\nplanets &lt;- read_csv(\"data/planets.csv\")\n\n\n\\(Y =\\) length of the “year” for planets\n\\(X =\\) distance from the Sun"
   },
   {
     "objectID": "slides/xx-slr-outliers.html#example-planets-1",
     "href": "slides/xx-slr-outliers.html#example-planets-1",
     "title": "SLR: Transformations",
     "section": "Example: Planets",
-    "text": "Example: Planets\n\nModel: \\(Y = \\beta_0 + \\beta_1\\times X\\)\n\n\n\nCode\ngf_point(Distance ~ Year, data = planets) |&gt; \n  gf_lm()\n\n\nWarning: Using the `size` aesthetic with geom_line was deprecated in ggplot2 3.4.0.\nℹ Please use the `linewidth` aesthetic instead."
+    "text": "Example: Planets\n\nModel: \\(Y = \\beta_0 + \\beta_1\\times X\\)\n\n\n\nCode\ngf_point(Distance ~ Year, data = planets) |&gt; \n  gf_lm()"
   },
   {
     "objectID": "slides/xx-slr-outliers.html#example-planets-2",
@@ -278,7 +278,7 @@
     "href": "slides/xx-slr-outliers.html#example-mammal-species",
     "title": "SLR: Transformations",
     "section": "Example: Mammal Species",
-    "text": "Example: Mammal Species\n\nSpeciesArea &lt;- read_csv(\"data/SpeciesArea.csv\")\n\nRows: 14 Columns: 5\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): Name\ndbl (4): Area, Species, logArea, logSpecies\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\n\\(Y =\\) number of mammal species on an island\n\\(X =\\) area of the island"
+    "text": "Example: Mammal Species\n\nSpeciesArea &lt;- read_csv(\"data/SpeciesArea.csv\")\n\n\n\\(Y =\\) number of mammal species on an island\n\\(X =\\) area of the island"
   },
   {
     "objectID": "slides/xx-slr-outliers.html#example-mammal-species-1",
@@ -4030,14 +4030,14 @@
     "href": "slides/02-big-picture.html#topics",
     "title": "The big picture",
     "section": "Topics",
-    "text": "Topics\n\nData analysis life cycle\nReproducible data analysis"
+    "text": "Topics\n\nData analysis life cycle\nReproducible data analysis\n\n\n\n\n\nSource: R for Data Science with additions from The Art of Statistics: How to Learn from Data.\n\n\n\n\n\n\nSource:R for Data Science"
   },
   {
     "objectID": "slides/02-big-picture.html#reproducibility-checklist",
     "href": "slides/02-big-picture.html#reproducibility-checklist",
     "title": "The big picture",
     "section": "Reproducibility checklist",
-    "text": "Reproducibility checklist\n\nWhat does it mean for an analysis to be reproducible?\n\n\nNear term goals:\n✔️ Can the tables and figures be exactly reproduced from the code and data?\n✔️ Does the code actually do what you think it does?\n✔️ In addition to what was done, is it clear why it was done?\n\n\nLong term goals:\n✔️ Can the code be used for other data?\n✔️ Can you extend the code to do other things?"
+    "text": "Reproducibility checklist\n\nWhat does it mean for an analysis to be reproducible?\n\n. . .\nNear term goals:\n✔️ Can the tables and figures be exactly reproduced from the code and data?\n✔️ Does the code actually do what you think it does?\n✔️ In addition to what was done, is it clear why it was done?\n. . .\nLong term goals:\n✔️ Can the code be used for other data?\n✔️ Can you extend the code to do other things?"
   },
   {
     "objectID": "slides/02-big-picture.html#why-is-reproducibility-important",
@@ -4065,7 +4065,7 @@
     "href": "slides/02-big-picture.html#r-and-rstudio",
     "title": "The big picture",
     "section": "R and RStudio",
-    "text": "R and RStudio\n\nR is a statistical programming language\nRStudio is a convenient interface for R (an integrated development environment, IDE)\n\n\nSource: Statistical Inference via Data Science"
+    "text": "R and RStudio\n\nR is a statistical programming language\nRStudio is a convenient interface for R (an integrated development environment, IDE)\n\n\n\n\nSource: Statistical Inference via Data Science"
   },
   {
     "objectID": "slides/02-big-picture.html#rstudio-ide",
@@ -4113,8 +4113,8 @@
     "objectID": "slides/01-welcome.html#meet-prof.-friedlander",
     "href": "slides/01-welcome.html#meet-prof.-friedlander",
     "title": "Welcome to MAT 212!",
-    "section": "Meet Prof. Friedlander!",
-    "text": "Meet Prof. Friedlander!\n\n\nEducation and career journey\n\nGrew up outside New York City\nBS in Math & Statistics from Rice University (Houston, TX)\nBusiness Analyst at Capital One (Plano, TX)\nMS and PhD in Statistics & Operations Research from UNC-Chapel Hill\nPostdoc in Population Genetics at University of Chicago\nAssistant Professor of Math at St. Norbert College (Green Bay, WI)\n\nWork focuses on statistics education, queueing theory, and population genetics\nBig sports fan: NY Knicks, Giants, Rangers, Yankess, UNC Tarheels\nDad of three cute dogs: Allie, Miriam, Tony"
+    "section": "",
+    "text": "Education and career journey\n\nGrew up outside New York City\nBS in Math & Statistics from Rice University (Houston, TX)\nBusiness Analyst at Capital One (Plano, TX)\nMS and PhD in Statistics & Operations Research from UNC-Chapel Hill\nPostdoc in Population Genetics at University of Chicago\nAssistant Professor of Math at St. Norbert College (Green Bay, WI)\n\nWork focuses on statistics education, queueing theory, and population genetics\nBig sports fan: NY Knicks, Giants, Rangers, Yankess, UNC Tarheels\nDad of three cute dogs: Allie, Miriam, Tony"
   },
   {
     "objectID": "slides/01-welcome.html#meet-prof.-friedlander-1",
@@ -4127,8 +4127,8 @@
     "objectID": "slides/01-welcome.html#tell-me-about-yourself",
     "href": "slides/01-welcome.html#tell-me-about-yourself",
     "title": "Welcome to MAT 212!",
-    "section": "Tell me about yourself",
-    "text": "Tell me about yourself\nNavigate to Poll Everywhere and answer the survey questions. Note that your answers will not be visible by anyone but myself."
+    "section": "",
+    "text": "Navigate to Poll Everywhere and answer the survey questions. Note that your answers will not be visible by anyone but myself."
   },
   {
     "objectID": "slides/01-welcome.html#what-is-a-model",
@@ -4170,7 +4170,7 @@
     "href": "slides/01-welcome.html#course-faq",
     "title": "Welcome to MAT 212!",
     "section": "Course FAQ",
-    "text": "Course FAQ\nQ - What background is assumed for the course?\nA - Introductory statistics or previous experience with mathematics at a level that would allow you to learn intro stats concepts relatively easily\n\nQ - Will we be doing computing?\nA - Yes. We will use the computing language R for analysis and Quarto for writing up results.\n\n\nQ - Am I expected to have experience using any of these tools?\nA - No. I do not expect you to have any exposure to R and certainly not Quarto.\n\n\nQ - Will we learn the mathematical theory of regression?\nA - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression."
+    "text": "Course FAQ\nQ - What background is assumed for the course?\nA - Introductory statistics or previous experience with mathematics at a level that would allow you to learn intro stats concepts relatively easily\n. . .\nQ - Will we be doing computing?\nA - Yes. We will use the computing language R for analysis and Quarto for writing up results.\n. . .\nQ - Am I expected to have experience using any of these tools?\nA - No. I do not expect you to have any exposure to R and certainly not Quarto.\n. . .\nQ - Will we learn the mathematical theory of regression?\nA - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression."
   },
   {
     "objectID": "slides/01-welcome.html#course-learning-objectives",
@@ -4184,7 +4184,7 @@
     "href": "slides/01-welcome.html#course-topics",
     "title": "Welcome to MAT 212!",
     "section": "Course Topics",
-    "text": "Course Topics\n\nWhat is a quantitative and what is a categorical variable?\n\n\n\n\n\nChapter\nResponse\nPredictor/Explanatory\n\n\n\n\n1-2\nQuantitative\nSingle Quantitative\n\n\n3-4\nQuantitative\nMultiple Quantitative\n\n\n5\nQuantitative\nSingle Categorical\n\n\n6-8\nQuantitative\nMultiple Categorical\n\n\n9\nCategorical\nSingle Quant/Cat\n\n\n10\nCategorical\nMultiple Quant/Cat\n\n\n11\nBoth\nBoth"
+    "text": "Course Topics\n\nWhat is a quantitative and what is a categorical variable?\n\n. . .\n\n\n\nChapter\nResponse\nPredictor/Explanatory\n\n\n\n\n1-2\nQuantitative\nSingle Quantitative\n\n\n3-4\nQuantitative\nMultiple Quantitative\n\n\n5\nQuantitative\nSingle Categorical\n\n\n6-8\nQuantitative\nMultiple Categorical\n\n\n9\nCategorical\nSingle Quant/Cat\n\n\n10\nCategorical\nMultiple Quant/Cat\n\n\n11\nBoth\nBoth"
   },
   {
     "objectID": "slides/01-welcome.html#course-toolkit",
@@ -4261,14 +4261,14 @@
     "href": "slides/01-welcome.html#use-of-artificial-intelligence-ai",
     "title": "Welcome to MAT 212!",
     "section": "Use of artificial intelligence (AI)",
-    "text": "Use of artificial intelligence (AI)\n\nYou should treat AI tools, such as ChatGPT, the same as other online resources.\nThere are two guiding principles that govern how you can use AI in this course:1\n\n(1) Cognitive dimension: Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate—rather than hinder—learning.\n(2) Ethical dimension: Students using AI should be transparent about their use and make sure it aligns with academic integrity.\n\n\nThese guiding principles are based on Course Policies related to ChatGPT and other AI Tools developed by Joel Gladd, Ph.D.↩︎"
+    "text": "Use of artificial intelligence (AI)\n\nYou should treat AI tools, such as ChatGPT, the same as other online resources.\nThere are two guiding principles that govern how you can use AI in this course:1\n\n(1) Cognitive dimension: Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate—rather than hinder—learning.\n(2) Ethical dimension: Students using AI should be transparent about their use and make sure it aligns with academic integrity."
   },
   {
     "objectID": "slides/01-welcome.html#use-of-artificial-intelligence-ai-1",
     "href": "slides/01-welcome.html#use-of-artificial-intelligence-ai-1",
     "title": "Welcome to MAT 212!",
     "section": "Use of artificial intelligence (AI)",
-    "text": "Use of artificial intelligence (AI)\n✅ AI tools for code: You may make use of the technology for coding examples on assignments; if you do so, you must explicitly cite where you obtained the code.\n❌ No AI tools for narrative: Unless instructed otherwise, AI is not permitted for writing narrative on assignments.\n\n\n\n\n\n\nImportant\n\n\nIn general, you may use AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content."
+    "text": "Use of artificial intelligence (AI)\n✅ AI tools for code: You may make use of the technology for coding examples on assignments; if you do so, you must explicitly cite where you obtained the code.\n❌ No AI tools for narrative: Unless instructed otherwise, AI is not permitted for writing narrative on assignments.\n\n\n\n\n\n\nImportant\n\n\n\nIn general, you may use AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content."
   },
   {
     "objectID": "slides/01-welcome.html#five-tips-for-success",
@@ -4289,14 +4289,14 @@
     "href": "slides/01-welcome.html#application-exercise",
     "title": "Welcome to MAT 212!",
     "section": "Application exercise",
-    "text": "Application exercise\n\n📋 AE 01 - Movie Budgets and Revenues\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+    "text": "Application exercise\n\n📋 AE 01 - Movie Budgets and Revenues"
   },
   {
     "objectID": "schedule.html",
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Model conditions",
     "crumbs": [
       "Schedule"
     ]
@@ -11169,7 +11169,7 @@
     "href": "slides/09-slr-conditions-eval.html#non-constant-variance",
     "title": "SLR: Conditions + Model evaluation",
     "section": "Non-constant variance",
-    "text": "Non-constant variance"
+    "text": "Non-constant variance\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThink: Is my error/variance proportional to the thing I’m predicting?"
   },
   {
     "objectID": "slides/09-slr-conditions-eval.html#normality",
@@ -11218,7 +11218,7 @@
     "href": "slides/09-slr-conditions-eval.html#recap",
     "title": "SLR: Conditions + Model evaluation",
     "section": "Recap",
-    "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\n\nLinearity\nConstant variance\n\n\n\n\n\nNormality\nIndependence\n\n\n\n\n\n\nWhich of these conditions are required for fitting a SLR? Which for simulation-based inference for the slope for an SLR? Which for inference with mathematical models?\n\n\n\n\n−+\n03:00"
+    "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\n\nLinearity\nConstant variance\n\n\n\n\n\nNormality\nIndependence\n\n\n\n\n\n\n\nWhich of these conditions are required for fitting a SLR (and not doing any inference)?\nWhich for simulation-based inference for the slope for an SLR?\nWhich for inference with mathematical models?\n\n\n\n\n\n−+\n03:00"
   },
   {
     "objectID": "slides/09-slr-conditions-eval.html#comparing-inferential-methods",
@@ -11254,5 +11254,635 @@
     "title": "SLR: Conditions + Model evaluation",
     "section": "RMSE",
     "text": "RMSE\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nCalculate with glance() using the augmented data:\n\nglance(heb_fit)$sigma\n\n[1] 17.46292\n\n\nThe value of RMSE is not very meaningful on its own, but it’s useful for comparing across models (more on this when we get to regression with multiple predictors)\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "slides/09-slr-conditions-eval.html#the-augment-function",
+    "href": "slides/09-slr-conditions-eval.html#the-augment-function",
+    "title": "SLR: Conditions + Model evaluation",
+    "section": "The augment function",
+    "text": "The augment function\n\nheb_aug &lt;- augment(heb_fit)\n\nhead(heb_aug) |&gt; kable()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber_Organic\nAvg_Income_K\n.fitted\n.resid\n.hat\n.sigma\n.cooksd\n.std.resid\n\n\n\n\n36\n71.186\n53.55498\n-17.554983\n0.0272386\n17.45293\n0.0145449\n-1.0192493\n\n\n4\n34.234\n18.11468\n-14.114677\n0.0925015\n17.53471\n0.0366889\n-0.8484596\n\n\n28\n71.186\n53.55498\n-25.554983\n0.0272386\n17.15160\n0.0308219\n-1.4837325\n\n\n31\n48.760\n32.04642\n-1.046423\n0.0493994\n17.71691\n0.0000981\n-0.0614599\n\n\n78\n78.096\n60.18230\n17.817702\n0.0312671\n17.44374\n0.0173428\n1.0366517\n\n\n14\n40.506\n24.13009\n-10.130092\n0.0711183\n17.62593\n0.0138683\n-0.6018889"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html",
+    "href": "slides/10-slr-model-eval.html",
+    "title": "SLR: Model evaluation",
+    "section": "",
+    "text": "# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(tidymodels)  # for modeling\nlibrary(openintro)   # for the duke_forest dataset\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(kableExtra)  # also for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#computational-set-up",
+    "href": "slides/10-slr-model-eval.html#computational-set-up",
+    "title": "SLR: Model evaluation",
+    "section": "Computational set up",
+    "text": "Computational set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(ggformula)   # for plotting using formulas\nlibrary(broom)       # for formatting model output\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# HEB Dataset\nheb &lt;- read_csv(\"data/HEBIncome.csv\") |&gt; \n  mutate(Avg_Income_K = Avg_Household_Income/1000)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#model-conditions-1",
+    "href": "slides/10-slr-model-eval.html#model-conditions-1",
+    "title": "SLR: Model evaluation",
+    "section": "Model conditions",
+    "text": "Model conditions\n\nLinearity: There is a linear relationship between the outcome and predictor variables\nConstant variance: The variability of the errors is equal for all values of the predictor variable\nNormality: The errors follow a normal distribution\nIndependence: The errors are independent from each other"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#augmented-data-frame",
+    "href": "slides/10-slr-model-eval.html#augmented-data-frame",
+    "title": "SLR: Model evaluation",
+    "section": "Augmented data frame",
+    "text": "Augmented data frame\n\ndf_fit &lt;- linear_reg() |&gt;\n  fit(price ~ area, data = duke_forest)\n\ndf_aug &lt;- augment(df_fit$fit)\n\nhead(df_aug)\n\n# A tibble: 6 × 8\n    price  area  .fitted  .resid   .hat  .sigma  .cooksd .std.resid\n    &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;\n1 1520000  6040 1079931. 440069. 0.133  162605. 0.604         2.80 \n2 1030000  4475  830340. 199660. 0.0435 168386. 0.0333        1.21 \n3  420000  1745  394951.  25049. 0.0226 169664. 0.000260      0.150\n4  680000  2091  450132. 229868. 0.0157 168011. 0.0150        1.37 \n5  428500  1772  399257.  29243. 0.0220 169657. 0.000345      0.175\n6  456000  1950  427645.  28355. 0.0182 169659. 0.000266      0.170"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#two-statistics",
+    "href": "slides/10-slr-model-eval.html#two-statistics",
+    "title": "SLR: Model evaluation",
+    "section": "Two statistics",
+    "text": "Two statistics\n\n\nR-squared, \\(R^2\\), Coefficient of Determination : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)\n\\[\nR^2 = Cor(x,y)^2 = Cor(y, \\hat{y})^2\n\\]\nRoot mean square error, RMSE: A measure of the average error (average difference between observed and predicted values of the outcome)\n\\[\nRMSE = \\sqrt{\\frac{\\sum_{i = 1}^n (y_i - \\hat{y}_i)^2}{n}}\n\\]\n\n\n\n\nWhat indicates a good model fit? Higher or lower \\(R^2\\)? Higher or lower RMSE?"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#r2",
+    "href": "slides/10-slr-model-eval.html#r2",
+    "title": "SLR: Model evaluation",
+    "section": "\\(R^2\\)",
+    "text": "\\(R^2\\)\n\n\nRanges between 0 (terrible predictor) and 1 (perfect predictor)\nHas no units\nCalculate with glance() or summary() using the fitted model:\n\n\nglance(heb_fit)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic       p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.617         0.606  17.5      56.3 0.00000000863     1  -157.  321.  325.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\nglance(heb_fit)$r.squared\n\n[1] 0.6167334"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#interpreting-r2",
+    "href": "slides/10-slr-model-eval.html#interpreting-r2",
+    "title": "SLR: Model evaluation",
+    "section": "Interpreting \\(R^2\\)",
+    "text": "Interpreting \\(R^2\\)\n\n🗳️ Discussion\n\n\nThe \\(R^2\\) of the model for Number_Organic from Average_Income_K is 61.7%. Which of the following is the correct interpretation of this value?\n\n\nAvg_Income_K correctly predicts 61.7% of Number_Organic in San Anontio HEBs.\n61.7% of the variability in Number_Organic can be explained by Avg_Income_K.\n61.7% of the variability in Avg_Income_K can be explained by Number_Organic.\n61.7% of the time Number_Organic can be predicted by Avg_Income_K."
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#alternative-approach-for-r2",
+    "href": "slides/10-slr-model-eval.html#alternative-approach-for-r2",
+    "title": "SLR: Model evaluation",
+    "section": "Alternative approach for \\(R^2\\)",
+    "text": "Alternative approach for \\(R^2\\)\nAlternatively, use glance() to construct a single row summary of the model fit, including \\(R^2\\):\n\nglance(df_fit)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared   sigma statistic  p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.445         0.439 168798.      77.0 6.29e-14     1 -1318. 2641. 2649.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\n\n\n. . .\n\nglance(df_fit)$r.squared\n\n[1] 0.4451945"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#rmse",
+    "href": "slides/10-slr-model-eval.html#rmse",
+    "title": "SLR: Model evaluation",
+    "section": "RMSE",
+    "text": "RMSE\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nCalculate with glance() using the augmented data:\n\nglance(heb_fit)$sigma\n\n[1] 17.46292\n\n\nThe value of RMSE is not very meaningful on its own, but it’s useful for comparing across models (more on this when we get to regression with multiple predictors)\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#obtaining-r2-and-rmse",
+    "href": "slides/10-slr-model-eval.html#obtaining-r2-and-rmse",
+    "title": "SLR: Model evaluation",
+    "section": "Obtaining \\(R^2\\) and RMSE",
+    "text": "Obtaining \\(R^2\\) and RMSE\n\n\nUse rsq() and rmse(), respectively\n\nrsq(df_aug, truth = price, estimate = .fitted)\nrmse(df_aug, truth = price, estimate = .fitted)\n\nFirst argument: data frame containing truth and estimate columns\nSecond argument: name of the column containing truth (observed outcome)\nThird argument: name of the column containing estimate (predicted outcome)"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#computational-set-up",
+    "href": "slides/10-slr-transformations-outliers.html#computational-set-up",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Computational set up",
+    "text": "Computational set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(broom)       # for formatting model output\nlibrary(ggformula)   # for creating plots using formulas\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(moderndive)  # for house_price dataset\nlibrary(fivethirtyeight) # for fandango dataset\nlibrary(kableExtra)  # also for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#data-house_prices",
+    "href": "slides/10-slr-transformations-outliers.html#data-house_prices",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Data: house_prices",
+    "text": "Data: house_prices\n\n\nContains house sale prices for King County, which includes Seattle, from homes sold between May 2014 and May 2015\nObtained from Kaggle.com\n\n\n\nglimpse(house_prices)\n\nRows: 21,613\nColumns: 21\n$ id            &lt;chr&gt; \"7129300520\", \"6414100192\", \"5631500400\", \"2487200875\", …\n$ date          &lt;date&gt; 2014-10-13, 2014-12-09, 2015-02-25, 2014-12-09, 2015-02…\n$ price         &lt;dbl&gt; 221900, 538000, 180000, 604000, 510000, 1225000, 257500,…\n$ bedrooms      &lt;int&gt; 3, 3, 2, 4, 3, 4, 3, 3, 3, 3, 3, 2, 3, 3, 5, 4, 3, 4, 2,…\n$ bathrooms     &lt;dbl&gt; 1.00, 2.25, 1.00, 3.00, 2.00, 4.50, 2.25, 1.50, 1.00, 2.…\n$ sqft_living   &lt;int&gt; 1180, 2570, 770, 1960, 1680, 5420, 1715, 1060, 1780, 189…\n$ sqft_lot      &lt;int&gt; 5650, 7242, 10000, 5000, 8080, 101930, 6819, 9711, 7470,…\n$ floors        &lt;dbl&gt; 1.0, 2.0, 1.0, 1.0, 1.0, 1.0, 2.0, 1.0, 1.0, 2.0, 1.0, 1…\n$ waterfront    &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …\n$ view          &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0,…\n$ condition     &lt;fct&gt; 3, 3, 3, 5, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 4, 4,…\n$ grade         &lt;fct&gt; 7, 7, 6, 7, 8, 11, 7, 7, 7, 7, 8, 7, 7, 7, 7, 9, 7, 7, 7…\n$ sqft_above    &lt;int&gt; 1180, 2170, 770, 1050, 1680, 3890, 1715, 1060, 1050, 189…\n$ sqft_basement &lt;int&gt; 0, 400, 0, 910, 0, 1530, 0, 0, 730, 0, 1700, 300, 0, 0, …\n$ yr_built      &lt;int&gt; 1955, 1951, 1933, 1965, 1987, 2001, 1995, 1963, 1960, 20…\n$ yr_renovated  &lt;int&gt; 0, 1991, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ zipcode       &lt;fct&gt; 98178, 98125, 98028, 98136, 98074, 98053, 98003, 98198, …\n$ lat           &lt;dbl&gt; 47.5112, 47.7210, 47.7379, 47.5208, 47.6168, 47.6561, 47…\n$ long          &lt;dbl&gt; -122.257, -122.319, -122.233, -122.393, -122.045, -122.0…\n$ sqft_living15 &lt;int&gt; 1340, 1690, 2720, 1360, 1800, 4760, 2238, 1650, 1780, 23…\n$ sqft_lot15    &lt;int&gt; 5650, 7639, 8062, 5000, 7503, 101930, 6819, 9711, 8113, …"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#variables",
+    "href": "slides/10-slr-transformations-outliers.html#variables",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Variables",
+    "text": "Variables\n\nOutcome\n\nprice: the sale price\n\nPredictor\n\nsqft_living: the square footage of the home"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#recap-fit-the-model",
+    "href": "slides/10-slr-transformations-outliers.html#recap-fit-the-model",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Recap: Fit the model",
+    "text": "Recap: Fit the model\n\nhp_fit &lt;- lm(price ~ sqft_living, data = house_prices)\ntidy(hp_fit) |&gt;  kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-43580.74\n4402.69\n-9.90\n0\n\n\nsqft_living\n280.62\n1.94\n144.92\n0\n\n\n\n\n\n\nModel: \\(\\text{price} = -43580.74 + 280.62\\times\\text{sqft_living}\\)\nInterpretation: If the square footage of the house increases by 1, the price increases by and average of $280.62 and a (theoretical) house with 0 square feet with cost $-43,580.74."
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#recap-fit-the-model-1",
+    "href": "slides/10-slr-transformations-outliers.html#recap-fit-the-model-1",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Recap: Fit the model",
+    "text": "Recap: Fit the model\n\n\nCode\ngf_point(price ~ sqft_living, data = house_prices,\n         alpha = 0.25, size = 0.01) |&gt; \n  gf_smooth(method = \"lm\", color = \"red\") |&gt; \n  gf_labs(x = \"Square Footage\", \n       y = \"Sale Price\")  |&gt; \n  gf_refine(scale_y_continuous(labels = label_dollar()),\n  scale_x_continuous(labels = label_number()))"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#recap-model-conditions",
+    "href": "slides/10-slr-transformations-outliers.html#recap-model-conditions",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Recap: Model conditions",
+    "text": "Recap: Model conditions\n\nLinearity: There is a linear relationship between the outcome and predictor variables\nConstant variance: The variability of the errors is equal for all values of the predictor variable\nNormality: The errors follow a normal distribution\nIndependence: The errors are independent from each other\n\n\n\nHow should we check these assumptions?"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#recap-residual-histogram",
+    "href": "slides/10-slr-transformations-outliers.html#recap-residual-histogram",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Recap: Residual Histogram",
+    "text": "Recap: Residual Histogram\n\n\nCode\nhp_aug &lt;- augment(hp_fit)\n\ngf_histogram(~.resid, data = hp_aug, bins = 100) |&gt; \n  gf_labs(x = \"Residual\", \n       y = \"Count\", \n       title = \"Residual Histogram\")"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#recap-qq-plot-of-residuals",
+    "href": "slides/10-slr-transformations-outliers.html#recap-qq-plot-of-residuals",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Recap: QQ-Plot of Residuals",
+    "text": "Recap: QQ-Plot of Residuals\n\n\nCode\ngf_qq(~.resid, data = hp_aug) |&gt; \n  gf_qqline() |&gt;\n  gf_labs(x = \"Theoretical quantile\", \n       y = \"Observed quantile\", \n       title = \"Normal QQ-plot of residuals\")"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#recap-residuals-vs.-fitted-values",
+    "href": "slides/10-slr-transformations-outliers.html#recap-residuals-vs.-fitted-values",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Recap: Residuals vs. Fitted Values",
+    "text": "Recap: Residuals vs. Fitted Values\n\n\nCode\ngf_point(.resid ~ .fitted, data = hp_aug, \n         alpha = 0.25, size = 0.01) |&gt; \n  gf_hline(yintercept = 0, linetype = \"dashed\") |&gt; \n  gf_labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Residuals vs. fitted values\"\n  )"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#are-model-conditions-satisfied",
+    "href": "slides/10-slr-transformations-outliers.html#are-model-conditions-satisfied",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Are model conditions satisfied?",
+    "text": "Are model conditions satisfied?\n\nLinearity: ❓\nConstant variance: ❌\nNormality: ❌\nIndependence: ✅"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#what-to-do-when-regression-conditions-are-violated",
+    "href": "slides/10-slr-transformations-outliers.html#what-to-do-when-regression-conditions-are-violated",
+    "title": "SLR: Transformations + Outliers",
+    "section": "What to do when regression conditions are violated",
+    "text": "What to do when regression conditions are violated\nExamples:\n\nLack of normality in residuals\nPatterns in residuals\nHeteroscedasticity (nonconstant variance)\nOutliers: influential points, large residuals"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#data-transformations",
+    "href": "slides/10-slr-transformations-outliers.html#data-transformations",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Data Transformations",
+    "text": "Data Transformations\nCan be used to:\n\nAddress nonlinear patterns\nStabilize variance\nRemove skewness from resiudals\nMinimize effects of outliers"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#common-transformations",
+    "href": "slides/10-slr-transformations-outliers.html#common-transformations",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Common Transformations",
+    "text": "Common Transformations\nFor either the response \\(Y\\) or predictor \\(X\\):\n\nLogarithm \\(Z \\to \\log(Z)\\)\n\nNote: “log” means “log base \\(e\\)”\n\nSquare Root \\(Z \\to \\sqrt{Z}\\)\nExponential \\(Z \\to e^Z\\)\nPower functions \\(Z \\to Z^2, Z^3, Z^4, \\ldots\\)\nReciprocal \\(Z \\to 1/Z\\)"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#example-planets",
+    "href": "slides/10-slr-transformations-outliers.html#example-planets",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Planets",
+    "text": "Example: Planets\n\nplanets &lt;- read_csv(\"data/planets.csv\")\n\n\n\\(Y =\\) length of the “year” for planets\n\\(X =\\) distance from the Sun"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#example-planets-1",
+    "href": "slides/10-slr-transformations-outliers.html#example-planets-1",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Planets",
+    "text": "Example: Planets\n\nModel: \\(Y = \\beta_0 + \\beta_1\\times X\\)\n\n\n\nCode\ngf_point(Distance ~ Year, data = planets) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#example-planets-2",
+    "href": "slides/10-slr-transformations-outliers.html#example-planets-2",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Planets",
+    "text": "Example: Planets\n\nModel: \\(\\log(Y) = \\beta_0 + \\beta_1\\times X\\)\n\n\n\nCode\ngf_point(log(Distance) ~ Year, data = planets) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#example-planets-3",
+    "href": "slides/10-slr-transformations-outliers.html#example-planets-3",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Planets",
+    "text": "Example: Planets\n\nModel: \\(Y = \\beta_0 + \\beta_1\\times \\log(X)\\)\n\n\n\nCode\ngf_point(Distance ~ log(Year), data = planets) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#example-planets-4",
+    "href": "slides/10-slr-transformations-outliers.html#example-planets-4",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Planets",
+    "text": "Example: Planets\n\nModel: \\(\\log(Y) = \\beta_0 + \\beta_1\\times \\log(X)\\)\n\n\n\nCode\ngf_point(log(Distance) ~ log(Year), data = planets) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#example-mammal-species",
+    "href": "slides/10-slr-transformations-outliers.html#example-mammal-species",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Mammal Species",
+    "text": "Example: Mammal Species\n\nSpeciesArea &lt;- read_csv(\"data/SpeciesArea.csv\")\n\n\n\\(Y =\\) number of mammal species on an island\n\\(X =\\) area of the island"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#example-mammal-species-1",
+    "href": "slides/10-slr-transformations-outliers.html#example-mammal-species-1",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Mammal Species",
+    "text": "Example: Mammal Species\n\nModel: \\(Y = \\beta_0 + \\beta_1\\times X\\)\n\n\n\nCode\ngf_point(Species ~ Area, data = SpeciesArea) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#example-mammal-species-2",
+    "href": "slides/10-slr-transformations-outliers.html#example-mammal-species-2",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Mammal Species",
+    "text": "Example: Mammal Species\n\nModel: \\(\\log(Y) = \\beta_0 + \\beta_1\\times \\log(X)\\)\n\n\n\nCode\ngf_point(log(Species) ~ log(Area), data = SpeciesArea) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#why-a-log-transformation",
+    "href": "slides/10-slr-transformations-outliers.html#why-a-log-transformation",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Why a Log Transformation?",
+    "text": "Why a Log Transformation?\n\nSome relationship are multiplicative (not linear)\n\nExample: Area of a circle\n\\[\n\\begin{aligned}\nA &= \\pi r^2 \\text{ (not linear)}\\\\\n\\log(A) &= \\log(\\pi r^2)\n= \\log(\\pi) + 2\\log(r)\\\\\n\\log(A) &= \\beta_0 + \\beta_1\\times \\log(r)\\\\\n\\implies & \\log(A) \\text{ is a linear function of } \\log(r)\n\\end{aligned}\n\\]\nLook for:\n\nStrongly right-skewed distributions\nCurvative in scatterplot\nIncreasing variability in scatterplot"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#back-to-house_sales",
+    "href": "slides/10-slr-transformations-outliers.html#back-to-house_sales",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Back to house_sales",
+    "text": "Back to house_sales\n\n\nCode\np1 &lt;- gf_point(price ~ sqft_living, data = house_prices,\n         alpha = 0.25, size = 0.01) |&gt; \n  gf_smooth(method = \"lm\", color = \"red\") |&gt; \n  gf_labs(x = \"Square Footage\", \n       y = \"Sale Price\")  |&gt; \n  gf_refine(scale_y_continuous(labels = label_dollar()),\n  scale_x_continuous(labels = label_number()))\n\np2 &lt;- gf_point(log(price) ~ sqft_living, data = house_prices,\n         alpha = 0.25, size = 0.01) |&gt; \n  gf_smooth(method = \"lm\", color = \"red\") |&gt; \n  gf_labs(x = \"Square Footage\", \n       y = \"log(Sale Price)\")  |&gt; \n  gf_refine(scale_y_continuous(labels = label_dollar()),\n  scale_x_continuous(labels = label_number()))\n\np3 &lt;- gf_point(price ~ log(sqft_living), data = house_prices,\n         alpha = 0.25, size = 0.01) |&gt; \n  gf_smooth(method = \"lm\", color = \"red\") |&gt; \n  gf_labs(x = \"log(Square Footage)\", \n       y = \"Sale Price\")  |&gt; \n  gf_refine(scale_y_continuous(labels = label_dollar()),\n  scale_x_continuous(labels = label_number()))\n\np4 &lt;- gf_point(log(price) ~ log(sqft_living), data = house_prices,\n         alpha = 0.25, size = 0.01) |&gt; \n  gf_smooth(method = \"lm\", color = \"red\") |&gt; \n  gf_labs(x = \"log(Square Footage)\", \n       y = \"log(Sale Price)\")  |&gt; \n  gf_refine(scale_y_continuous(labels = label_dollar()),\n  scale_x_continuous(labels = label_number()))\n\n(p1 + p2)/ (p3 + p4)"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#fitting-transformed-models",
+    "href": "slides/10-slr-transformations-outliers.html#fitting-transformed-models",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Fitting Transformed Models",
+    "text": "Fitting Transformed Models\n\n\n\nlogprice_model &lt;- lm(log(price) ~ sqft_living, data = house_prices)\ntidy(logprice_model) |&gt; kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n12.2184641\n0.0063741\n1916.8830\n0\n\n\nsqft_living\n0.0003987\n0.0000028\n142.2326\n0\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\log(Y) &= 12.22  + 3.99\\times 10^{-4}\\times X\\\\\nY &= e^{12.22 + 3.99\\times 10^{-4}\\times X}\\\\\n&= 202805\\times e^{3.99\\times 10^{-4}\\times X}\n\\end{aligned}\n\\]\n\n\nloglog_model &lt;- lm(log(price) ~ log(sqft_living), data = house_prices)\ntidy(loglog_model) |&gt; kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n6.729916\n0.0470620\n143.0011\n0\n\n\nlog(sqft_living)\n0.836771\n0.0062233\n134.4587\n0\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\log(Y) &=6.73 + 0.837\\times \\log(X)\\\\\n\\log(Y) &= \\log(e^{6.73})  + \\log(X^{0.837})\\\\\nY &= 873.15\\times X^{0.837}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#residuals-histograms",
+    "href": "slides/10-slr-transformations-outliers.html#residuals-histograms",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Residuals Histograms",
+    "text": "Residuals Histograms\n\n\nCode\nlp_aug &lt;- augment(logprice_model)\nll_aug &lt;- augment(loglog_model)\n\np1 &lt;- gf_histogram(~.resid, data = lp_aug, bins = 100) |&gt; \n  gf_labs(x = \"Residual\", \n       y = \"Count\", \n       title = \"Log Price Residuals\")\n\np2 &lt;- gf_histogram(~.resid, data = ll_aug, bins = 100) |&gt; \n  gf_labs(x = \"Residual\", \n       y = \"Count\", \n       title = \"Log-Log Residuals\")\n\n(p1 + p2)"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#qq-plots-of-residuals",
+    "href": "slides/10-slr-transformations-outliers.html#qq-plots-of-residuals",
+    "title": "SLR: Transformations + Outliers",
+    "section": "QQ-Plots of Residuals",
+    "text": "QQ-Plots of Residuals\n\n\nCode\np1 &lt;- gf_qq(~.resid, data = lp_aug) |&gt; \n  gf_qqline() |&gt;\n  gf_labs(x = \"Theoretical quantile\", \n       y = \"Observed quantile\", \n       title = \"Log Price QQ\")\n\np2 &lt;- gf_qq(~.resid, data = ll_aug) |&gt; \n  gf_qqline() |&gt;\n  gf_labs(x = \"Theoretical quantile\", \n       y = \"Observed quantile\", \n       title = \"Log-Log QQ\")\n\np1 + p2"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#residuals-vs.-fitted-values",
+    "href": "slides/10-slr-transformations-outliers.html#residuals-vs.-fitted-values",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Residuals vs. Fitted Values",
+    "text": "Residuals vs. Fitted Values\n\n\nCode\np1 &lt;- gf_point(.resid ~ .fitted, data = lp_aug, \n         alpha = 0.25, size = 0.01) |&gt; \n  gf_hline(yintercept = 0, linetype = \"dashed\") |&gt; \n  gf_labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Log Price Model\"\n  )\n\np2 &lt;- gf_point(.resid ~ .fitted, data = ll_aug, \n         alpha = 0.25, size = 0.01) |&gt; \n  gf_hline(yintercept = 0, linetype = \"dashed\") |&gt; \n  gf_labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Log-Log Model\"\n  )\n\np1 + p2"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#types-of-unusual-points-in-slr",
+    "href": "slides/10-slr-transformations-outliers.html#types-of-unusual-points-in-slr",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Types of “Unusual” Points in SLR",
+    "text": "Types of “Unusual” Points in SLR\n\nOutlier: a data point that is far from the regression line\nInfluential point: a data point that has a large effect on the regression fit\n\n\n\n\nHow do we measure “far”?\nHow do we measure “effect on the fit”?"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#detecting-unusual-cases-overview",
+    "href": "slides/10-slr-transformations-outliers.html#detecting-unusual-cases-overview",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Detecting Unusual Cases: Overview",
+    "text": "Detecting Unusual Cases: Overview\n\nCompute residuals\n\n“raw”, standardized, studentized\n\nPlots of residuals\n\nboxplot, scatterplot, normal plot\n\nLeverage\n\nunusual values for the predictors"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#example-movie-scores",
+    "href": "slides/10-slr-transformations-outliers.html#example-movie-scores",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Movie scores",
+    "text": "Example: Movie scores\n\n\n\nData behind the FiveThirtyEight story Be Suspicious Of Online Movie Ratings, Especially Fandango’s\nIn the fivethirtyeight package: fandango\nContains every film released in 2014 and 2015 that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#data-prep",
+    "href": "slides/10-slr-transformations-outliers.html#data-prep",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Data prep",
+    "text": "Data prep\n\nRename Rotten Tomatoes columns as critics and audience\nRename the dataset as movie_scores\n\n\nmovie_scores &lt;- fandango |&gt;\n  rename(critics = rottentomatoes, \n         audience = rottentomatoes_user)"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#example-movie-scores-1",
+    "href": "slides/10-slr-transformations-outliers.html#example-movie-scores-1",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Movie Scores",
+    "text": "Example: Movie Scores\n\n\nCode\nmovie_scores |&gt; \n  gf_point(audience ~ critics) |&gt; \n  gf_lm() |&gt; \n  gf_labs(x = \"Critics Score\", \n       y = \"Audience Score\")"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#boxplot-of-residuals",
+    "href": "slides/10-slr-transformations-outliers.html#boxplot-of-residuals",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Boxplot of Residuals",
+    "text": "Boxplot of Residuals\n\n\n\nmovie_fit &lt;- lm(audience ~ critics, data = movie_scores)\nmovie_fit_aug &lt;- augment(movie_fit)\n\ngf_boxplot(.resid~\"\", data = movie_fit_aug, \n           fill = \"salmon\", ylab = \"Residuals\", xlab = \"\")\n\n\n\n\n\n\n\n\n\n\n\n\nDots (outliers) indicate data points more than 1.5 IQRs above (or below) quartiles"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#standardized-residuals",
+    "href": "slides/10-slr-transformations-outliers.html#standardized-residuals",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Standardized Residuals",
+    "text": "Standardized Residuals\n\n\nRecall: Z-scores\nFact: If \\(X\\) has mean \\(\\mu\\) and standard deviation \\(\\sigma\\), then \\((X-\\mu)/\\sigma\\) has mean 0 and stanard deviation 1\nFor residuals: mean 0 and standard deviation \\(\\hat{\\sigma}_\\epsilon\\)\nStandardized residuals: \\(\\frac{y_i-\\hat{y}_i}{\\hat{\\sigma}_\\epsilon}\\)\n\nLook for values beyond \\(\\pm 2\\) or \\(\\pm 3\\)"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#example-movie-scores-2",
+    "href": "slides/10-slr-transformations-outliers.html#example-movie-scores-2",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Movie Scores",
+    "text": "Example: Movie Scores\n\nmovie_fit_aug |&gt;  # Augmented data\n  gf_point(.std.resid ~ .fitted, \n           xlab = \"Predicted\", ylab = \"Standardized Residual\")"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#externally-studentized-residuals",
+    "href": "slides/10-slr-transformations-outliers.html#externally-studentized-residuals",
+    "title": "SLR: Transformations + Outliers",
+    "section": "(Externally) Studentized Residuals",
+    "text": "(Externally) Studentized Residuals\n\nConcern: An unusual value may exert great influence on the fit\n\nIts residual might be underestimated because the model “moves” a lot to fit it\nThe standard error may also be inflated due to the outlier error\n\nStudentize: Fit the model without that case, then find new \\(\\hat{\\sigma}_\\epsilon\\)"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#example-movie-scores-3",
+    "href": "slides/10-slr-transformations-outliers.html#example-movie-scores-3",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Movie Scores",
+    "text": "Example: Movie Scores\n\nmovie_fit_aug |&gt;  # Augmented data\n  mutate(studentized_residual = rstudent(movie_fit)) |&gt; \n  gf_point(.std.resid ~ .fitted, \n           xlab = \"Predicted\", ylab = \"Studentized Residual\")"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#what-to-do-with-an-outlier",
+    "href": "slides/10-slr-transformations-outliers.html#what-to-do-with-an-outlier",
+    "title": "SLR: Transformations + Outliers",
+    "section": "What to do with an outlier?",
+    "text": "What to do with an outlier?\n\nLook into it\nIf something is unusual about it and you can make a case that it is not a good representation of the population you can throw it out\nIf not and the value is just unusual, keep it"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#influence-vs.-leverage",
+    "href": "slides/10-slr-transformations-outliers.html#influence-vs.-leverage",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Influence vs. Leverage",
+    "text": "Influence vs. Leverage\n\nHigh Influence Point: point that DOES impact the regression line\nHigh Leverage Point: point with “potential” to impact regression line because \\(X\\)-value is unusual"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#high-leverage-low-influence",
+    "href": "slides/10-slr-transformations-outliers.html#high-leverage-low-influence",
+    "title": "SLR: Transformations + Outliers",
+    "section": "High Leverage, Low Influence",
+    "text": "High Leverage, Low Influence"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#high-leverage-high-influence",
+    "href": "slides/10-slr-transformations-outliers.html#high-leverage-high-influence",
+    "title": "SLR: Transformations + Outliers",
+    "section": "High Leverage, High Influence",
+    "text": "High Leverage, High Influence"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#low-leverage-low-influence",
+    "href": "slides/10-slr-transformations-outliers.html#low-leverage-low-influence",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Low Leverage, Low Influence",
+    "text": "Low Leverage, Low Influence"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#low-leverage-high-influence",
+    "href": "slides/10-slr-transformations-outliers.html#low-leverage-high-influence",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Low Leverage, High Influence",
+    "text": "Low Leverage, High Influence"
+  },
+  {
+    "objectID": "slides/10-slr-transformations-outliers.html#low-leverage-high-influence-1",
+    "href": "slides/10-slr-transformations-outliers.html#low-leverage-high-influence-1",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Low Leverage, High Influence",
+    "text": "Low Leverage, High Influence\n\n\n\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#regression-model-revisited",
+    "href": "slides/10-slr-model-eval.html#regression-model-revisited",
+    "title": "SLR: Model evaluation",
+    "section": "Regression model, revisited",
+    "text": "Regression model, revisited\n\nheb_fit &lt;- lm(Number_Organic ~ Avg_Income_K, data = heb)\n\ntidy(heb_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.719\n9.298\n-1.583\n0.122\n\n\nAvg_Income_K\n0.959\n0.128\n7.505\n0.000"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#computational-set-up",
+    "href": "slides/09-slr-conditions.html#computational-set-up",
+    "title": "SLR: Conditions",
+    "section": "Computational set up",
+    "text": "Computational set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(ggformula)   # for plotting using formulas\nlibrary(broom)       # for formatting model output\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# HEB Dataset\nheb &lt;- read_csv(\"data/HEBIncome.csv\") |&gt; \n  mutate(Avg_Income_K = Avg_Household_Income/1000)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#regression-model-revisited",
+    "href": "slides/09-slr-conditions.html#regression-model-revisited",
+    "title": "SLR: Conditions",
+    "section": "Regression model, revisited",
+    "text": "Regression model, revisited\n\nheb_fit &lt;- lm(Number_Organic ~ Avg_Income_K, data = heb)\n\ntidy(heb_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.719\n9.298\n-1.583\n0.122\n\n\nAvg_Income_K\n0.959\n0.128\n7.505\n0.000"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#mathematical-representation-visualized",
+    "href": "slides/09-slr-conditions.html#mathematical-representation-visualized",
+    "title": "SLR: Conditions",
+    "section": "Mathematical representation, visualized",
+    "text": "Mathematical representation, visualized\n\\[\nY|X \\sim N(\\beta_0 + \\beta_1 X, \\sigma_\\epsilon^2)\n\\]\n\nImage source: Introduction to the Practice of Statistics (5th ed)"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#model-conditions-1",
+    "href": "slides/09-slr-conditions.html#model-conditions-1",
+    "title": "SLR: Conditions",
+    "section": "Model conditions",
+    "text": "Model conditions\n\nLinearity: There is a linear relationship between the outcome and predictor variables\nConstant variance: The variability of the errors is equal for all values of the predictor variable\nNormality: The errors follow a normal distribution\nIndependence: The errors are independent from each other"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#linearity",
+    "href": "slides/09-slr-conditions.html#linearity",
+    "title": "SLR: Conditions",
+    "section": "Linearity",
+    "text": "Linearity\n\nIf the linear model, \\(\\hat{y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1x_i\\), adequately describes the relationship between \\(X\\) and \\(Y\\), then the residuals should reflect random (chance) error\nTo assess this, we can look at a plot of the residuals vs. the fitted values\nLinearity satisfied if there is no distinguishable pattern in the residuals plot, i.e. the residuals should be randomly scattered\nA non-random pattern (e.g. a parabola) suggests a linear model does not adequately describe the relationship between \\(X\\) and \\(Y\\)"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#linearity-1",
+    "href": "slides/09-slr-conditions.html#linearity-1",
+    "title": "SLR: Conditions",
+    "section": "Linearity",
+    "text": "Linearity\n✅ The residuals vs. fitted values plot should show a random scatter of residuals (no distinguishable pattern or structure)"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#the-augment-function",
+    "href": "slides/09-slr-conditions.html#the-augment-function",
+    "title": "SLR: Conditions",
+    "section": "The augment function",
+    "text": "The augment function\n\nheb_aug &lt;- augment(heb_fit)\n\nhead(heb_aug) |&gt; kable()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber_Organic\nAvg_Income_K\n.fitted\n.resid\n.hat\n.sigma\n.cooksd\n.std.resid\n\n\n\n\n36\n71.186\n53.55498\n-17.554983\n0.0272386\n17.45293\n0.0145449\n-1.0192493\n\n\n4\n34.234\n18.11468\n-14.114677\n0.0925015\n17.53471\n0.0366889\n-0.8484596\n\n\n28\n71.186\n53.55498\n-25.554983\n0.0272386\n17.15160\n0.0308219\n-1.4837325\n\n\n31\n48.760\n32.04642\n-1.046423\n0.0493994\n17.71691\n0.0000981\n-0.0614599\n\n\n78\n78.096\n60.18230\n17.817702\n0.0312671\n17.44374\n0.0173428\n1.0366517\n\n\n14\n40.506\n24.13009\n-10.130092\n0.0711183\n17.62593\n0.0138683\n-0.6018889"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#residuals-vs.-fitted-values-code",
+    "href": "slides/09-slr-conditions.html#residuals-vs.-fitted-values-code",
+    "title": "SLR: Conditions",
+    "section": "Residuals vs. fitted values (code)",
+    "text": "Residuals vs. fitted values (code)\n\nheb_aug &lt;- augment(heb_fit)\n\ngf_point(.resid ~ .fitted, data = heb_aug) |&gt; \n  gf_hline(yintercept = 0, linetype = \"dashed\") |&gt; \n  gf_labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Residuals vs. fitted values\"\n  )"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#non-linear-relationships",
+    "href": "slides/09-slr-conditions.html#non-linear-relationships",
+    "title": "SLR: Conditions",
+    "section": "Non-linear relationships",
+    "text": "Non-linear relationships"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#constant-variance",
+    "href": "slides/09-slr-conditions.html#constant-variance",
+    "title": "SLR: Conditions",
+    "section": "Constant variance",
+    "text": "Constant variance\n\nIf the spread of the distribution of \\(Y\\) is equal for all values of \\(X\\) then the spread of the residuals should be approximately equal for each value of \\(X\\)\nTo assess this, we can look at a plot of the residuals vs. the fitted values\nConstant variance satisfied if the vertical spread of the residuals is approximately equal as you move from left to right (i.e. there is no “fan” pattern)\nA fan pattern suggests the constant variance assumption is not satisfied and transformation or some other remedy is required (more on this later in the semester)\nCAREFUL: Inconsistent distribution of \\(X\\)s can make it seem as if there is non-constant variance"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#constant-variance-1",
+    "href": "slides/09-slr-conditions.html#constant-variance-1",
+    "title": "SLR: Conditions",
+    "section": "Constant variance",
+    "text": "Constant variance\n✅ The vertical spread of the residuals is relatively constant across the plot"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#non-constant-variance",
+    "href": "slides/09-slr-conditions.html#non-constant-variance",
+    "title": "SLR: Conditions",
+    "section": "Non-constant variance",
+    "text": "Non-constant variance\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThink: Is my error/variance proportional to the thing I’m predicting?"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#normality",
+    "href": "slides/09-slr-conditions.html#normality",
+    "title": "SLR: Conditions",
+    "section": "Normality",
+    "text": "Normality\n\nThe linear model assumes that the distribution of \\(Y\\) is Normal for every value of \\(X\\)\nThis is impossible to check in practice, so we will look at the overall distribution of the residuals to assess if the normality assumption is satisfied\nNormality satisfied if a histogram of the residuals is approximately normal\n\nCan also check that the points on a normal QQ-plot falls along a diagonal line\n\nMost inferential methods for regression are robust to some departures from normality, so we can proceed with inference if the sample size is sufficiently large, \\(n &gt; 30\\)"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#normality-1",
+    "href": "slides/09-slr-conditions.html#normality-1",
+    "title": "SLR: Conditions",
+    "section": "Normality",
+    "text": "Normality"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#check-normality-using-a-qq-plot",
+    "href": "slides/09-slr-conditions.html#check-normality-using-a-qq-plot",
+    "title": "SLR: Conditions",
+    "section": "Check normality using a QQ-plot",
+    "text": "Check normality using a QQ-plot\n\n\n\n\nCode\ngf_histogram(~.resid, data = heb_aug,\n             bins=7, color = \"white\") |&gt; \n  gf_labs(\n    x = \"Residual\",\n    y = \"Count\",\n    title = \"Histogram of residuals\"\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\ngf_qq(~.resid, data = heb_aug) |&gt; \n  gf_qqline() |&gt;  \n  gf_labs(x = \"Theoretical quantile\", \n       y = \"Observed quantile\", \n       title = \"Normal QQ-plot of residuals\")\n\n\n\n\n\n\n\n\n\n\n\n\nAssess whether residuals lie along the diagonal line of the Quantile-quantile plot (QQ-plot).\nIf so, the residuals are normally distributed."
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#normality-2",
+    "href": "slides/09-slr-conditions.html#normality-2",
+    "title": "SLR: Conditions",
+    "section": "Normality",
+    "text": "Normality\n\n❌ The residuals do not appear to follow a normal distribution, because the points do not lie on the diagonal line, so normality is not satisfied.\n✅ The sample size \\(n =  37 &gt; 30\\), so the sample size is large enough to relax this condition and proceed with inference."
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#independence",
+    "href": "slides/09-slr-conditions.html#independence",
+    "title": "SLR: Conditions",
+    "section": "Independence",
+    "text": "Independence\n\nWe can often check the independence assumption based on the context of the data and how the observations were collected\nTwo common violations of the independence assumption:\n\nSerial Effect: If the data were collected over time, plot the residuals in time order to see if there is a pattern (serial correlation)\nCluster Effect: If there are subgroups represented in the data that are not accounted for in the model (e.g., type of supermarket), you can color the points in the residual plots by group to see if the model systematically over or under predicts for a particular subgroup"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#independence-1",
+    "href": "slides/09-slr-conditions.html#independence-1",
+    "title": "SLR: Conditions",
+    "section": "Independence",
+    "text": "Independence\nRecall the description of the data:\n\nAverage household income (per zip code) and number of organic vegetable offerings in San Antonio, TX\nData from HEB website, compiled by high school student Linda Saucedo, Fall 2019\n\n\n❌ Based on the information we have, it’s unclear if the data are independent. In fact, I’d guess that they are likely geographically correlated."
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#recap",
+    "href": "slides/09-slr-conditions.html#recap",
+    "title": "SLR: Conditions",
+    "section": "Recap",
+    "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\n\nLinearity\nConstant variance\n\n\n\n\n\nNormality\nIndependence\n\n\n\n\n\n\n\nWhich of these conditions are required for fitting a SLR (and not doing any inference)?\nWhich for simulation-based inference for the slope for an SLR?\nWhich for inference with mathematical models?\n\n\n\n\n\n−+\n03:00"
+  },
+  {
+    "objectID": "slides/09-slr-conditions.html#comparing-inferential-methods",
+    "href": "slides/09-slr-conditions.html#comparing-inferential-methods",
+    "title": "SLR: Conditions",
+    "section": "Comparing inferential methods",
+    "text": "Comparing inferential methods\n\n\nWhat are the advantages of using simulation-based inference methods? What are the advantages of using inference methods based on mathematical models?\nUnder what scenario(s) would you prefer to use simulation-based methods? Under what scenario(s) would you prefer to use methods based on mathematical models?\n\n\n\n\n\n−+\n02:00\n\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "prepare/model-conditions-prep.html",
+    "href": "prepare/model-conditions-prep.html",
+    "title": "September 11 lecture",
+    "section": "",
+    "text": "Stat2: Topic 1.3 Assessing Conditions"
+  },
+  {
+    "objectID": "prepare/model-conditions-prep.html#assigned-reading",
+    "href": "prepare/model-conditions-prep.html#assigned-reading",
+    "title": "September 11 lecture",
+    "section": "",
+    "text": "Stat2: Topic 1.3 Assessing Conditions"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval-old.html",
+    "href": "slides/10-slr-model-eval-old.html",
+    "title": "SLR: Model evaluation",
+    "section": "",
+    "text": "# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(tidymodels)  # for modeling\nlibrary(openintro)   # for the duke_forest dataset\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(kableExtra)  # also for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval-old.html#computational-set-up",
+    "href": "slides/10-slr-model-eval-old.html#computational-set-up",
+    "title": "SLR: Model evaluation",
+    "section": "",
+    "text": "# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(tidymodels)  # for modeling\nlibrary(openintro)   # for the duke_forest dataset\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(kableExtra)  # also for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval-old.html#model-conditions-1",
+    "href": "slides/10-slr-model-eval-old.html#model-conditions-1",
+    "title": "SLR: Model evaluation",
+    "section": "Model conditions",
+    "text": "Model conditions\n\nLinearity: There is a linear relationship between the outcome and predictor variables\nConstant variance: The variability of the errors is equal for all values of the predictor variable\nNormality: The errors follow a normal distribution\nIndependence: The errors are independent from each other"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval-old.html#augmented-data-frame",
+    "href": "slides/10-slr-model-eval-old.html#augmented-data-frame",
+    "title": "SLR: Model evaluation",
+    "section": "Augmented data frame",
+    "text": "Augmented data frame\n\ndf_fit &lt;- linear_reg() |&gt;\n  fit(price ~ area, data = duke_forest)\n\ndf_aug &lt;- augment(df_fit$fit)\n\nhead(df_aug)\n\n# A tibble: 6 × 8\n    price  area  .fitted  .resid   .hat  .sigma  .cooksd .std.resid\n    &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;\n1 1520000  6040 1079931. 440069. 0.133  162605. 0.604         2.80 \n2 1030000  4475  830340. 199660. 0.0435 168386. 0.0333        1.21 \n3  420000  1745  394951.  25049. 0.0226 169664. 0.000260      0.150\n4  680000  2091  450132. 229868. 0.0157 168011. 0.0150        1.37 \n5  428500  1772  399257.  29243. 0.0220 169657. 0.000345      0.175\n6  456000  1950  427645.  28355. 0.0182 169659. 0.000266      0.170"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval-old.html#two-statistics",
+    "href": "slides/10-slr-model-eval-old.html#two-statistics",
+    "title": "SLR: Model evaluation",
+    "section": "Two statistics",
+    "text": "Two statistics\n\n\nR-squared, \\(R^2\\) : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)\n\\[\nR^2 = Cor(x,y)^2 = Cor(y, \\hat{y})^2\n\\]\nRoot mean square error, RMSE: A measure of the average error (average difference between observed and predicted values of the outcome)\n\\[\nRMSE = \\sqrt{\\frac{\\sum_{i = 1}^n (y_i - \\hat{y}_i)^2}{n}}\n\\]\n\n\n. . .\n\nWhat indicates a good model fit? Higher or lower \\(R^2\\)? Higher or lower RMSE?"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval-old.html#r2",
+    "href": "slides/10-slr-model-eval-old.html#r2",
+    "title": "SLR: Model evaluation",
+    "section": "\\(R^2\\)",
+    "text": "\\(R^2\\)\n\n\nRanges between 0 (terrible predictor) and 1 (perfect predictor)\nHas no units\nCalculate with rsq() using the augmented data:\n\n\nrsq(df_aug, truth = price, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rsq     standard       0.445"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval-old.html#interpreting-r2",
+    "href": "slides/10-slr-model-eval-old.html#interpreting-r2",
+    "title": "SLR: Model evaluation",
+    "section": "Interpreting \\(R^2\\)",
+    "text": "Interpreting \\(R^2\\)\n\n🗳️ Discussion\n\n\nThe \\(R^2\\) of the model for price from area of houses in Duke Forest is 44.5%. Which of the following is the correct interpretation of this value?\n\n\nArea correctly predicts 44.5% of price for houses in Duke Forest.\n44.5% of the variability in price for houses in Duke Forest can be explained by area.\n44.5% of the variability in area for houses in Duke Forest can be explained by price\n44.5% of the time price for houses in Duke Forest can be predicted by area."
+  },
+  {
+    "objectID": "slides/10-slr-model-eval-old.html#alternative-approach-for-r2",
+    "href": "slides/10-slr-model-eval-old.html#alternative-approach-for-r2",
+    "title": "SLR: Model evaluation",
+    "section": "Alternative approach for \\(R^2\\)",
+    "text": "Alternative approach for \\(R^2\\)\nAlternatively, use glance() to construct a single row summary of the model fit, including \\(R^2\\):\n\nglance(df_fit)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared   sigma statistic  p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.445         0.439 168798.      77.0 6.29e-14     1 -1318. 2641. 2649.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\n\n\n. . .\n\nglance(df_fit)$r.squared\n\n[1] 0.4451945"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval-old.html#rmse",
+    "href": "slides/10-slr-model-eval-old.html#rmse",
+    "title": "SLR: Model evaluation",
+    "section": "RMSE",
+    "text": "RMSE\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nCalculate with rmse() using the augmented data:\n\nrmse(df_aug, truth = price, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard     167067.\n\n\nThe value of RMSE is not very meaningful on its own, but it’s useful for comparing across models (more on this when we get to regression with multiple predictors)"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval-old.html#obtaining-r2-and-rmse",
+    "href": "slides/10-slr-model-eval-old.html#obtaining-r2-and-rmse",
+    "title": "SLR: Model evaluation",
+    "section": "Obtaining \\(R^2\\) and RMSE",
+    "text": "Obtaining \\(R^2\\) and RMSE\n\n\nUse rsq() and rmse(), respectively\n\nrsq(df_aug, truth = price, estimate = .fitted)\nrmse(df_aug, truth = price, estimate = .fitted)\n\nFirst argument: data frame containing truth and estimate columns\nSecond argument: name of the column containing truth (observed outcome)\nThird argument: name of the column containing estimate (predicted outcome)"
+  },
+  {
+    "objectID": "slides/01-welcome.html",
+    "href": "slides/01-welcome.html",
+    "title": "Welcome to MAT 212!",
+    "section": "",
+    "text": "Education and career journey\n\nGrew up outside New York City\nBS in Math & Statistics from Rice University (Houston, TX)\nBusiness Analyst at Capital One (Plano, TX)\nMS and PhD in Statistics & Operations Research from UNC-Chapel Hill\nPostdoc in Population Genetics at University of Chicago\nAssistant Professor of Math at St. Norbert College (Green Bay, WI)\n\nWork focuses on statistics education, queueing theory, and population genetics\nBig sports fan: NY Knicks, Giants, Rangers, Yankess, UNC Tarheels\nDad of three cute dogs: Allie, Miriam, Tony\n\n\n\n\n\n\n\n\n\nNavigate to Poll Everywhere and answer the survey questions. Note that your answers will not be visible by anyone but myself."
+  },
+  {
+    "objectID": "slides/01-welcome.html#footnotes",
+    "href": "slides/01-welcome.html#footnotes",
+    "title": "Welcome to MAT 212!",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThese guiding principles are based on Course Policies related to ChatGPT and other AI Tools developed by Joel Gladd, Ph.D.↩︎↩︎"
   }
 ]

@@ -1,0 +1,8 @@
+---
+title: "September 11 lecture"
+subtitle: "Simple linear regression - Conditions"
+---
+
+## Assigned reading
+
+- Stat2: Topic 1.3 Assessing Conditions

@@ -403,7 +403,7 @@ Prof.&nbsp;Eric Friedlander
 </div>
 </div>
 
-  <p class="date">Aug 28, 2024</p>
+  <p class="date">Sep 13, 2024</p>
 </section>
 <section id="computational-set-up" class="slide level2">
 <h2>Computational set up</h2>
@@ -527,7 +527,7 @@ $ sqft_lot15    &lt;int&gt; 5650, 7639, 8062, 5000, 7503, 101930, 6819, 9711, 81
 </details>
 
 </div>
-<img data-src="xx-slr-outliers_files/figure-html/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="xx-slr-outliers_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="recap-model-conditions" class="slide level2">
 <h2>Recap: Model conditions</h2>
 <ol type="1">
@@ -556,7 +556,7 @@ $ sqft_lot15    &lt;int&gt; 5650, 7639, 8062, 5000, 7503, 101930, 6819, 9711, 81
 </details>
 
 </div>
-<img data-src="xx-slr-outliers_files/figure-html/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="xx-slr-outliers_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="recap-qq-plot-of-residuals" class="slide level2">
 <h2>Recap: QQ-Plot of Residuals</h2>
 <div class="cell" data-layout-align="center">
@@ -570,7 +570,7 @@ $ sqft_lot15    &lt;int&gt; 5650, 7639, 8062, 5000, 7503, 101930, 6819, 9711, 81
 </details>
 
 </div>
-<img data-src="xx-slr-outliers_files/figure-html/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="xx-slr-outliers_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="recap-residuals-vs.-fitted-values" class="slide level2">
 <h2>Recap: Residuals vs.&nbsp;Fitted Values</h2>
 <div class="cell" data-layout-align="center">
@@ -586,7 +586,7 @@ $ sqft_lot15    &lt;int&gt; 5650, 7639, 8062, 5000, 7503, 101930, 6819, 9711, 81
 </details>
 
 </div>
-<img data-src="xx-slr-outliers_files/figure-html/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>:::</p>
+<img data-src="xx-slr-outliers_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>:::</p>
 </section>
 <section id="are-model-conditions-satisfied" class="slide level2">
 <h2><span class="r-fit-text">Are model conditions satisfied?</span></h2>
@@ -640,16 +640,6 @@ $ sqft_lot15    &lt;int&gt; 5650, 7639, 8062, 5000, 7503, 101930, 6819, 9711, 81
 <h2>Example: Planets</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>planets <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/planets.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 9 Columns: 7
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (1): Planet
-dbl (6): Distance, Year, Mass, Day, Diameter, Gravity
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
 </div>
 <ul>
 <li><span class="math inline">\(Y =\)</span> length of the “year” for planets</li>
@@ -664,16 +654,12 @@ dbl (6): Distance, Year, Mass, Day, Diameter, Gravity
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">gf_point</span>(Distance <span class="sc">~</span> Year, <span class="at">data =</span> planets) <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a></a>  <span class="fu">gf_lm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">gf_point</span>(Distance <span class="sc">~</span> Year, <span class="at">data =</span> planets) <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a></a>  <span class="fu">gf_lm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using the `size` aesthetic with geom_line was deprecated in ggplot2 3.4.0.
-ℹ Please use the `linewidth` aesthetic instead.</code></pre>
-</div>
 
 </div>
-<img data-src="xx-slr-outliers_files/figure-html/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="xx-slr-outliers_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="example-planets-2" class="slide level2">
 <h2>Example: Planets</h2>
 <ul>
@@ -682,12 +668,12 @@ dbl (6): Distance, Year, Mass, Day, Diameter, Gravity
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">gf_point</span>(<span class="fu">log</span>(Distance) <span class="sc">~</span> Year, <span class="at">data =</span> planets) <span class="sc">|&gt;</span> </span>
-<span id="cb13-2"><a></a>  <span class="fu">gf_lm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">gf_point</span>(<span class="fu">log</span>(Distance) <span class="sc">~</span> Year, <span class="at">data =</span> planets) <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a></a>  <span class="fu">gf_lm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="xx-slr-outliers_files/figure-html/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="xx-slr-outliers_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="example-planets-3" class="slide level2">
 <h2>Example: Planets</h2>
 <ul>
@@ -696,12 +682,12 @@ dbl (6): Distance, Year, Mass, Day, Diameter, Gravity
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">gf_point</span>(Distance <span class="sc">~</span> <span class="fu">log</span>(Year), <span class="at">data =</span> planets) <span class="sc">|&gt;</span> </span>
-<span id="cb14-2"><a></a>  <span class="fu">gf_lm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">gf_point</span>(Distance <span class="sc">~</span> <span class="fu">log</span>(Year), <span class="at">data =</span> planets) <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a></a>  <span class="fu">gf_lm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="xx-slr-outliers_files/figure-html/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="xx-slr-outliers_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="example-planets-4" class="slide level2">
 <h2>Example: Planets</h2>
 <ul>
@@ -710,26 +696,16 @@ dbl (6): Distance, Year, Mass, Day, Diameter, Gravity
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">gf_point</span>(<span class="fu">log</span>(Distance) <span class="sc">~</span> <span class="fu">log</span>(Year), <span class="at">data =</span> planets) <span class="sc">|&gt;</span> </span>
-<span id="cb15-2"><a></a>  <span class="fu">gf_lm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">gf_point</span>(<span class="fu">log</span>(Distance) <span class="sc">~</span> <span class="fu">log</span>(Year), <span class="at">data =</span> planets) <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a></a>  <span class="fu">gf_lm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="xx-slr-outliers_files/figure-html/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="xx-slr-outliers_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="example-mammal-species" class="slide level2">
 <h2>Example: Mammal Species</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>SpeciesArea <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/SpeciesArea.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 14 Columns: 5
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (1): Name
-dbl (4): Area, Species, logArea, logSpecies
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>SpeciesArea <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/SpeciesArea.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><span class="math inline">\(Y =\)</span> number of mammal species on an island</li>
@@ -744,12 +720,12 @@ dbl (4): Area, Species, logArea, logSpecies
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">gf_point</span>(Species <span class="sc">~</span> Area, <span class="at">data =</span> SpeciesArea) <span class="sc">|&gt;</span> </span>
-<span id="cb18-2"><a></a>  <span class="fu">gf_lm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">gf_point</span>(Species <span class="sc">~</span> Area, <span class="at">data =</span> SpeciesArea) <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a></a>  <span class="fu">gf_lm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="xx-slr-outliers_files/figure-html/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="xx-slr-outliers_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="example-mammal-species-2" class="slide level2">
 <h2>Example: Mammal Species</h2>
 <ul>
@@ -758,12 +734,12 @@ dbl (4): Area, Species, logArea, logSpecies
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">gf_point</span>(<span class="fu">log</span>(Species) <span class="sc">~</span> <span class="fu">log</span>(Area), <span class="at">data =</span> SpeciesArea) <span class="sc">|&gt;</span> </span>
-<span id="cb19-2"><a></a>  <span class="fu">gf_lm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">gf_point</span>(<span class="fu">log</span>(Species) <span class="sc">~</span> <span class="fu">log</span>(Area), <span class="at">data =</span> SpeciesArea) <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a></a>  <span class="fu">gf_lm</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="xx-slr-outliers_files/figure-html/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="xx-slr-outliers_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="why-a-log-transformation" class="slide level2 smaller">
 <h2>Why a Log Transformation?</h2>
 <blockquote>
@@ -791,50 +767,50 @@ A &amp;= \pi r^2 \text{ (not linear)}\\
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(price <span class="sc">~</span> sqft_living, <span class="at">data =</span> house_prices,</span>
-<span id="cb20-2"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb20-3"><a></a>  <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb20-4"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Square Footage"</span>, </span>
-<span id="cb20-5"><a></a>       <span class="at">y =</span> <span class="st">"Sale Price"</span>)  <span class="sc">|&gt;</span> </span>
-<span id="cb20-6"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()),</span>
-<span id="cb20-7"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>()))</span>
-<span id="cb20-8"><a></a></span>
-<span id="cb20-9"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(<span class="fu">log</span>(price) <span class="sc">~</span> sqft_living, <span class="at">data =</span> house_prices,</span>
-<span id="cb20-10"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb20-11"><a></a>  <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb20-12"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Square Footage"</span>, </span>
-<span id="cb20-13"><a></a>       <span class="at">y =</span> <span class="st">"log(Sale Price)"</span>)  <span class="sc">|&gt;</span> </span>
-<span id="cb20-14"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()),</span>
-<span id="cb20-15"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>()))</span>
-<span id="cb20-16"><a></a></span>
-<span id="cb20-17"><a></a>p3 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(price <span class="sc">~</span> <span class="fu">log</span>(sqft_living), <span class="at">data =</span> house_prices,</span>
-<span id="cb20-18"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb20-19"><a></a>  <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb20-20"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"log(Square Footage)"</span>, </span>
-<span id="cb20-21"><a></a>       <span class="at">y =</span> <span class="st">"Sale Price"</span>)  <span class="sc">|&gt;</span> </span>
-<span id="cb20-22"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()),</span>
-<span id="cb20-23"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>()))</span>
-<span id="cb20-24"><a></a></span>
-<span id="cb20-25"><a></a>p4 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(<span class="fu">log</span>(price) <span class="sc">~</span> <span class="fu">log</span>(sqft_living), <span class="at">data =</span> house_prices,</span>
-<span id="cb20-26"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb20-27"><a></a>  <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb20-28"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"log(Square Footage)"</span>, </span>
-<span id="cb20-29"><a></a>       <span class="at">y =</span> <span class="st">"log(Sale Price)"</span>)  <span class="sc">|&gt;</span> </span>
-<span id="cb20-30"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()),</span>
-<span id="cb20-31"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>()))</span>
-<span id="cb20-32"><a></a></span>
-<span id="cb20-33"><a></a>(p1 <span class="sc">+</span> p2)<span class="sc">/</span> (p3 <span class="sc">+</span> p4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(price <span class="sc">~</span> sqft_living, <span class="at">data =</span> house_prices,</span>
+<span id="cb17-2"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb17-3"><a></a>  <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb17-4"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Square Footage"</span>, </span>
+<span id="cb17-5"><a></a>       <span class="at">y =</span> <span class="st">"Sale Price"</span>)  <span class="sc">|&gt;</span> </span>
+<span id="cb17-6"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()),</span>
+<span id="cb17-7"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>()))</span>
+<span id="cb17-8"><a></a></span>
+<span id="cb17-9"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(<span class="fu">log</span>(price) <span class="sc">~</span> sqft_living, <span class="at">data =</span> house_prices,</span>
+<span id="cb17-10"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb17-11"><a></a>  <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb17-12"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Square Footage"</span>, </span>
+<span id="cb17-13"><a></a>       <span class="at">y =</span> <span class="st">"log(Sale Price)"</span>)  <span class="sc">|&gt;</span> </span>
+<span id="cb17-14"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()),</span>
+<span id="cb17-15"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>()))</span>
+<span id="cb17-16"><a></a></span>
+<span id="cb17-17"><a></a>p3 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(price <span class="sc">~</span> <span class="fu">log</span>(sqft_living), <span class="at">data =</span> house_prices,</span>
+<span id="cb17-18"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb17-19"><a></a>  <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb17-20"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"log(Square Footage)"</span>, </span>
+<span id="cb17-21"><a></a>       <span class="at">y =</span> <span class="st">"Sale Price"</span>)  <span class="sc">|&gt;</span> </span>
+<span id="cb17-22"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()),</span>
+<span id="cb17-23"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>()))</span>
+<span id="cb17-24"><a></a></span>
+<span id="cb17-25"><a></a>p4 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(<span class="fu">log</span>(price) <span class="sc">~</span> <span class="fu">log</span>(sqft_living), <span class="at">data =</span> house_prices,</span>
+<span id="cb17-26"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb17-27"><a></a>  <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb17-28"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"log(Square Footage)"</span>, </span>
+<span id="cb17-29"><a></a>       <span class="at">y =</span> <span class="st">"log(Sale Price)"</span>)  <span class="sc">|&gt;</span> </span>
+<span id="cb17-30"><a></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()),</span>
+<span id="cb17-31"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>()))</span>
+<span id="cb17-32"><a></a></span>
+<span id="cb17-33"><a></a>(p1 <span class="sc">+</span> p2)<span class="sc">/</span> (p3 <span class="sc">+</span> p4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="xx-slr-outliers_files/figure-html/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="xx-slr-outliers_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="fitting-transformed-models" class="slide level2 smaller">
 <h2>Fitting Transformed Models</h2>
 <div class="columns">
 <div class="column">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>logprice_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(price) <span class="sc">~</span> sqft_living, <span class="at">data =</span> house_prices)</span>
-<span id="cb21-2"><a></a><span class="fu">tidy</span>(logprice_model) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>logprice_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(price) <span class="sc">~</span> sqft_living, <span class="at">data =</span> house_prices)</span>
+<span id="cb18-2"><a></a><span class="fu">tidy</span>(logprice_model) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top">
 <thead>
@@ -874,8 +850,8 @@ Y &amp;= e^{12.22 + 3.99\times 10^{-4}\times X}\\
 \]</span></p>
 </div><div class="column">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>loglog_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(price) <span class="sc">~</span> <span class="fu">log</span>(sqft_living), <span class="at">data =</span> house_prices)</span>
-<span id="cb22-2"><a></a><span class="fu">tidy</span>(loglog_model) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>loglog_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(price) <span class="sc">~</span> <span class="fu">log</span>(sqft_living), <span class="at">data =</span> house_prices)</span>
+<span id="cb19-2"><a></a><span class="fu">tidy</span>(loglog_model) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top">
 <thead>
@@ -921,73 +897,73 @@ Y &amp;= 873.15\times X^{0.837}
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>lp_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(logprice_model)</span>
-<span id="cb23-2"><a></a>ll_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(loglog_model)</span>
-<span id="cb23-3"><a></a></span>
-<span id="cb23-4"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> lp_aug, <span class="at">bins =</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb23-5"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Residual"</span>, </span>
-<span id="cb23-6"><a></a>       <span class="at">y =</span> <span class="st">"Count"</span>, </span>
-<span id="cb23-7"><a></a>       <span class="at">title =</span> <span class="st">"Log Price Residuals"</span>)</span>
-<span id="cb23-8"><a></a></span>
-<span id="cb23-9"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> ll_aug, <span class="at">bins =</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb23-10"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Residual"</span>, </span>
-<span id="cb23-11"><a></a>       <span class="at">y =</span> <span class="st">"Count"</span>, </span>
-<span id="cb23-12"><a></a>       <span class="at">title =</span> <span class="st">"Log-Log Residuals"</span>)</span>
-<span id="cb23-13"><a></a></span>
-<span id="cb23-14"><a></a>(p1 <span class="sc">+</span> p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>lp_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(logprice_model)</span>
+<span id="cb20-2"><a></a>ll_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(loglog_model)</span>
+<span id="cb20-3"><a></a></span>
+<span id="cb20-4"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> lp_aug, <span class="at">bins =</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb20-5"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Residual"</span>, </span>
+<span id="cb20-6"><a></a>       <span class="at">y =</span> <span class="st">"Count"</span>, </span>
+<span id="cb20-7"><a></a>       <span class="at">title =</span> <span class="st">"Log Price Residuals"</span>)</span>
+<span id="cb20-8"><a></a></span>
+<span id="cb20-9"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> ll_aug, <span class="at">bins =</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb20-10"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Residual"</span>, </span>
+<span id="cb20-11"><a></a>       <span class="at">y =</span> <span class="st">"Count"</span>, </span>
+<span id="cb20-12"><a></a>       <span class="at">title =</span> <span class="st">"Log-Log Residuals"</span>)</span>
+<span id="cb20-13"><a></a></span>
+<span id="cb20-14"><a></a>(p1 <span class="sc">+</span> p2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="xx-slr-outliers_files/figure-html/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="xx-slr-outliers_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="qq-plots-of-residuals" class="slide level2">
 <h2>QQ-Plots of Residuals</h2>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_qq</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> lp_aug) <span class="sc">|&gt;</span> </span>
-<span id="cb24-2"><a></a>  <span class="fu">gf_qqline</span>() <span class="sc">|&gt;</span></span>
-<span id="cb24-3"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Theoretical quantile"</span>, </span>
-<span id="cb24-4"><a></a>       <span class="at">y =</span> <span class="st">"Observed quantile"</span>, </span>
-<span id="cb24-5"><a></a>       <span class="at">title =</span> <span class="st">"Log Price QQ"</span>)</span>
-<span id="cb24-6"><a></a></span>
-<span id="cb24-7"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_qq</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> ll_aug) <span class="sc">|&gt;</span> </span>
-<span id="cb24-8"><a></a>  <span class="fu">gf_qqline</span>() <span class="sc">|&gt;</span></span>
-<span id="cb24-9"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Theoretical quantile"</span>, </span>
-<span id="cb24-10"><a></a>       <span class="at">y =</span> <span class="st">"Observed quantile"</span>, </span>
-<span id="cb24-11"><a></a>       <span class="at">title =</span> <span class="st">"Log-Log QQ"</span>)</span>
-<span id="cb24-12"><a></a></span>
-<span id="cb24-13"><a></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_qq</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> lp_aug) <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a></a>  <span class="fu">gf_qqline</span>() <span class="sc">|&gt;</span></span>
+<span id="cb21-3"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Theoretical quantile"</span>, </span>
+<span id="cb21-4"><a></a>       <span class="at">y =</span> <span class="st">"Observed quantile"</span>, </span>
+<span id="cb21-5"><a></a>       <span class="at">title =</span> <span class="st">"Log Price QQ"</span>)</span>
+<span id="cb21-6"><a></a></span>
+<span id="cb21-7"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_qq</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> ll_aug) <span class="sc">|&gt;</span> </span>
+<span id="cb21-8"><a></a>  <span class="fu">gf_qqline</span>() <span class="sc">|&gt;</span></span>
+<span id="cb21-9"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Theoretical quantile"</span>, </span>
+<span id="cb21-10"><a></a>       <span class="at">y =</span> <span class="st">"Observed quantile"</span>, </span>
+<span id="cb21-11"><a></a>       <span class="at">title =</span> <span class="st">"Log-Log QQ"</span>)</span>
+<span id="cb21-12"><a></a></span>
+<span id="cb21-13"><a></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="xx-slr-outliers_files/figure-html/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="xx-slr-outliers_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="residuals-vs.-fitted-values" class="slide level2">
 <h2>Residuals vs.&nbsp;Fitted Values</h2>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(.resid <span class="sc">~</span> .fitted, <span class="at">data =</span> lp_aug, </span>
-<span id="cb25-2"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb25-3"><a></a>  <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb25-4"><a></a>  <span class="fu">gf_labs</span>(</span>
-<span id="cb25-5"><a></a>    <span class="at">x =</span> <span class="st">"Fitted value"</span>, <span class="at">y =</span> <span class="st">"Residual"</span>,</span>
-<span id="cb25-6"><a></a>    <span class="at">title =</span> <span class="st">"Log Price Model"</span></span>
-<span id="cb25-7"><a></a>  )</span>
-<span id="cb25-8"><a></a></span>
-<span id="cb25-9"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(.resid <span class="sc">~</span> .fitted, <span class="at">data =</span> ll_aug, </span>
-<span id="cb25-10"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb25-11"><a></a>  <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb25-12"><a></a>  <span class="fu">gf_labs</span>(</span>
-<span id="cb25-13"><a></a>    <span class="at">x =</span> <span class="st">"Fitted value"</span>, <span class="at">y =</span> <span class="st">"Residual"</span>,</span>
-<span id="cb25-14"><a></a>    <span class="at">title =</span> <span class="st">"Log-Log Model"</span></span>
-<span id="cb25-15"><a></a>  )</span>
-<span id="cb25-16"><a></a></span>
-<span id="cb25-17"><a></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(.resid <span class="sc">~</span> .fitted, <span class="at">data =</span> lp_aug, </span>
+<span id="cb22-2"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb22-3"><a></a>  <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb22-4"><a></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb22-5"><a></a>    <span class="at">x =</span> <span class="st">"Fitted value"</span>, <span class="at">y =</span> <span class="st">"Residual"</span>,</span>
+<span id="cb22-6"><a></a>    <span class="at">title =</span> <span class="st">"Log Price Model"</span></span>
+<span id="cb22-7"><a></a>  )</span>
+<span id="cb22-8"><a></a></span>
+<span id="cb22-9"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_point</span>(.resid <span class="sc">~</span> .fitted, <span class="at">data =</span> ll_aug, </span>
+<span id="cb22-10"><a></a>         <span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">size =</span> <span class="fl">0.01</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb22-11"><a></a>  <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb22-12"><a></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb22-13"><a></a>    <span class="at">x =</span> <span class="st">"Fitted value"</span>, <span class="at">y =</span> <span class="st">"Residual"</span>,</span>
+<span id="cb22-14"><a></a>    <span class="at">title =</span> <span class="st">"Log-Log Model"</span></span>
+<span id="cb22-15"><a></a>  )</span>
+<span id="cb22-16"><a></a></span>
+<span id="cb22-17"><a></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="xx-slr-outliers_files/figure-html/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+<p><img data-src="xx-slr-outliers_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
@@ -1212,6 +1188,82 @@ Y &amp;= 873.15\times X^{0.837}
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

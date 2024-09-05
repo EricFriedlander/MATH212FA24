@@ -1,0 +1,231 @@
+ ---
+title: "SLR: Model evaluation"
+author: "Prof. Eric Friedlander"
+date: "2024-09-25"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r setup}
+#| include: false
+
+library(countdown)
+
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.asp = 0.618,
+  fig.retina = 3,
+  dpi = 300,
+  out.width = "80%",
+  fig.align = "center"
+)
+```
+
+
+# Questions from last class?
+
+## Computational set up
+
+```{r packages}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)   # for data wrangling and visualization
+library(tidymodels)  # for modeling
+library(openintro)   # for the duke_forest dataset
+library(scales)      # for pretty axis labels
+library(knitr)       # for pretty tables
+library(kableExtra)  # also for pretty tables
+library(patchwork)   # arrange plots
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
+```
+
+# Model conditions
+
+## Model conditions
+
+1.  **Linearity:** There is a linear relationship between the outcome and predictor variables
+2.  **Constant variance:** The variability of the errors is equal for all values of the predictor variable
+3.  **Normality:** The errors follow a normal distribution
+4.  **Independence:** The errors are independent from each other
+
+## Augmented data frame
+
+```{r}
+#| echo: true
+
+df_fit <- linear_reg() |>
+  fit(price ~ area, data = duke_forest)
+
+df_aug <- augment(df_fit$fit)
+
+head(df_aug)
+
+```
+
+# Application exercise
+
+::: appex
+📋 [sta210-fa23.netlify.app/ae/ae-07-model-eval](https://sta210-fa23.netlify.app/ae/ae-07-model-eval.html)
+:::
+
+# Model evaluation
+
+## Two statistics {.small}
+
+::: incremental
+-   **R-squared**, $R^2$ : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)
+
+    $$
+    R^2 = Cor(x,y)^2 = Cor(y, \hat{y})^2
+    $$
+
+-   **Root mean square error, RMSE**: A measure of the average error (average difference between observed and predicted values of the outcome)
+
+    $$
+    RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
+    $$
+:::
+
+. . .
+
+::: question
+What indicates a good model fit? Higher or lower $R^2$? Higher or lower RMSE?
+:::
+
+## $R^2$
+
+::: incremental
+-   Ranges between 0 (terrible predictor) and 1 (perfect predictor)
+
+-   Has no units
+
+-   Calculate with `rsq()` using the augmented data:
+
+```{r}
+#| echo: true
+
+rsq(df_aug, truth = price, estimate = .fitted)
+```
+:::
+
+## Interpreting $R^2$ {.smaller}
+
+```{r}
+#| echo: false
+df_fit_rsq <- round(glance(df_fit)$r.squared * 100, 1)
+```
+
+::: poll
+🗳️ **Discussion**
+
+::: midi
+::: poll
+The $R^2$ of the model for price from area of houses in Duke Forest is `r df_fit_rsq`%. Which of the following is the correct interpretation of this value?
+:::
+
+1.  Area correctly predicts `r df_fit_rsq`% of price for houses in Duke Forest.
+2.  `r df_fit_rsq`% of the variability in price for houses in Duke Forest can be explained by area.
+3.  `r df_fit_rsq`% of the variability in area for houses in Duke Forest can be explained by price
+4.  `r df_fit_rsq`% of the time price for houses in Duke Forest can be predicted by area.
+:::
+:::
+
+## Alternative approach for $R^2$
+
+Alternatively, use `glance()` to construct a single row summary of the model fit, including $R^2$:
+
+```{r}
+#| echo: true
+
+glance(df_fit)
+```
+
+<br>
+
+. . .
+
+```{r}
+glance(df_fit)$r.squared
+```
+
+## RMSE
+
+::: incremental
+-   Ranges between 0 (perfect predictor) and infinity (terrible predictor)
+
+-   Same units as the response variable
+
+-   Calculate with `rmse()` using the augmented data:
+
+    ```{r}
+    #| echo: true
+
+    rmse(df_aug, truth = price, estimate = .fitted)
+    ```
+
+-   The value of RMSE is not very meaningful on its own, but it's useful for comparing across models (more on this when we get to regression with multiple predictors)
+:::
+
+## Obtaining $R^2$ and RMSE
+
+::: incremental
+-   Use `rsq()` and `rmse()`, respectively
+
+    ```{r}
+    #| echo: true
+    #| eval: false
+
+    rsq(df_aug, truth = price, estimate = .fitted)
+    rmse(df_aug, truth = price, estimate = .fitted)
+    ```
+
+-   First argument: data frame containing `truth` and `estimate` columns
+
+-   Second argument: name of the column containing `truth` (observed outcome)
+
+-   Third argument: name of the column containing `estimate` (predicted outcome)
+:::
+
+# Application exercise
+
+::: appex
+📋 [sta210-fa23.netlify.app/ae/ae-07-model-eval](https://sta210-fa23.netlify.app/ae/ae-07-model-evals.html)
+:::
+
+# Questions about SLR? {.midi}
+
+We have officially completed simple linear regression! What remaining questions do you have? Please submit all questions by Thu, Sep 28. These questions will be used to make the Exam 01 review.
+
+*Note: Questions must be specific. For example:*
+
+-   *❌ How do you do simulation-based hypothesis testing?*
+-   *✅ Why does a small p-value correspond to rejecting the null hypothesis?*
+
+::: appex
+Submit questions: <https://forms.office.com/r/XkYeS3eSMM>
+:::

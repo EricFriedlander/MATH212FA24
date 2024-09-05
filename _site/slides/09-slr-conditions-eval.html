@@ -515,17 +515,113 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <p>✅ The residuals vs.&nbsp;fitted values plot should show a random scatter of residuals (no distinguishable pattern or structure)</p>
 
 <img data-src="09-slr-conditions-eval_files/figure-revealjs/res-vs-fit-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
-<section id="residuals-vs.-fitted-values-code" class="slide level2">
-<h2>Residuals vs.&nbsp;fitted values (code)</h2>
+<section id="the-augment-function" class="slide level2 smaller">
+<h2>The augment function</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>heb_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(heb_fit)</span>
 <span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a><span class="fu">gf_point</span>(.resid <span class="sc">~</span> .fitted, <span class="at">data =</span> heb_aug) <span class="sc">|&gt;</span> </span>
-<span id="cb3-4"><a></a>  <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb3-5"><a></a>  <span class="fu">gf_labs</span>(</span>
-<span id="cb3-6"><a></a>    <span class="at">x =</span> <span class="st">"Fitted value"</span>, <span class="at">y =</span> <span class="st">"Residual"</span>,</span>
-<span id="cb3-7"><a></a>    <span class="at">title =</span> <span class="st">"Residuals vs. fitted values"</span></span>
-<span id="cb3-8"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a></a><span class="fu">head</span>(heb_aug) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 14%">
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Number_Organic</th>
+<th style="text-align: right;">Avg_Income_K</th>
+<th style="text-align: right;">.fitted</th>
+<th style="text-align: right;">.resid</th>
+<th style="text-align: right;">.hat</th>
+<th style="text-align: right;">.sigma</th>
+<th style="text-align: right;">.cooksd</th>
+<th style="text-align: right;">.std.resid</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">71.186</td>
+<td style="text-align: right;">53.55498</td>
+<td style="text-align: right;">-17.554983</td>
+<td style="text-align: right;">0.0272386</td>
+<td style="text-align: right;">17.45293</td>
+<td style="text-align: right;">0.0145449</td>
+<td style="text-align: right;">-1.0192493</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">34.234</td>
+<td style="text-align: right;">18.11468</td>
+<td style="text-align: right;">-14.114677</td>
+<td style="text-align: right;">0.0925015</td>
+<td style="text-align: right;">17.53471</td>
+<td style="text-align: right;">0.0366889</td>
+<td style="text-align: right;">-0.8484596</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">71.186</td>
+<td style="text-align: right;">53.55498</td>
+<td style="text-align: right;">-25.554983</td>
+<td style="text-align: right;">0.0272386</td>
+<td style="text-align: right;">17.15160</td>
+<td style="text-align: right;">0.0308219</td>
+<td style="text-align: right;">-1.4837325</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">48.760</td>
+<td style="text-align: right;">32.04642</td>
+<td style="text-align: right;">-1.046423</td>
+<td style="text-align: right;">0.0493994</td>
+<td style="text-align: right;">17.71691</td>
+<td style="text-align: right;">0.0000981</td>
+<td style="text-align: right;">-0.0614599</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">78.096</td>
+<td style="text-align: right;">60.18230</td>
+<td style="text-align: right;">17.817702</td>
+<td style="text-align: right;">0.0312671</td>
+<td style="text-align: right;">17.44374</td>
+<td style="text-align: right;">0.0173428</td>
+<td style="text-align: right;">1.0366517</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">40.506</td>
+<td style="text-align: right;">24.13009</td>
+<td style="text-align: right;">-10.130092</td>
+<td style="text-align: right;">0.0711183</td>
+<td style="text-align: right;">17.62593</td>
+<td style="text-align: right;">0.0138683</td>
+<td style="text-align: right;">-0.6018889</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="residuals-vs.-fitted-values-code" class="slide level2">
+<h2>Residuals vs.&nbsp;fitted values (code)</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>heb_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(heb_fit)</span>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a><span class="fu">gf_point</span>(.resid <span class="sc">~</span> .fitted, <span class="at">data =</span> heb_aug) <span class="sc">|&gt;</span> </span>
+<span id="cb4-4"><a></a>  <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-5"><a></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb4-6"><a></a>    <span class="at">x =</span> <span class="st">"Fitted value"</span>, <span class="at">y =</span> <span class="st">"Residual"</span>,</span>
+<span id="cb4-7"><a></a>    <span class="at">title =</span> <span class="st">"Residuals vs. fitted values"</span></span>
+<span id="cb4-8"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="non-linear-relationships" class="slide level2">
@@ -536,7 +632,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<p><img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -546,7 +642,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<p><img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -568,21 +664,11 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <h2>Constant variance</h2>
 <p>✅ The vertical spread of the residuals is relatively constant across the plot</p>
 
-<img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="non-constant-variance" class="slide level2">
 <h2>Non-constant variance</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -592,8 +678,21 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 </div>
 </div>
 </div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
 </div>
 </div>
+</div>
+</div>
+</div>
+<ul>
+<li>Think: Is my error/variance proportional to the thing I’m predicting?</li>
+</ul>
 </section>
 <section id="normality" class="slide level2 midi">
 <h2>Normality</h2>
@@ -610,7 +709,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <section id="normality-1" class="slide level2">
 <h2>Normality</h2>
 
-<img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="check-normality-using-a-qq-plot" class="slide level2">
 <h2>Check normality using a QQ-plot</h2>
 <div class="columns">
@@ -618,18 +717,18 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> heb_aug,</span>
-<span id="cb4-2"><a></a>             <span class="at">bins=</span><span class="dv">7</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb4-3"><a></a>  <span class="fu">gf_labs</span>(</span>
-<span id="cb4-4"><a></a>    <span class="at">x =</span> <span class="st">"Residual"</span>,</span>
-<span id="cb4-5"><a></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
-<span id="cb4-6"><a></a>    <span class="at">title =</span> <span class="st">"Histogram of residuals"</span></span>
-<span id="cb4-7"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> heb_aug,</span>
+<span id="cb5-2"><a></a>             <span class="at">bins=</span><span class="dv">7</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb5-3"><a></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb5-4"><a></a>    <span class="at">x =</span> <span class="st">"Residual"</span>,</span>
+<span id="cb5-5"><a></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb5-6"><a></a>    <span class="at">title =</span> <span class="st">"Histogram of residuals"</span></span>
+<span id="cb5-7"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+<p><img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
@@ -639,16 +738,16 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">gf_qq</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> heb_aug) <span class="sc">|&gt;</span> </span>
-<span id="cb6-2"><a></a>  <span class="fu">gf_qqline</span>() <span class="sc">|&gt;</span>  </span>
-<span id="cb6-3"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Theoretical quantile"</span>, </span>
-<span id="cb6-4"><a></a>       <span class="at">y =</span> <span class="st">"Observed quantile"</span>, </span>
-<span id="cb6-5"><a></a>       <span class="at">title =</span> <span class="st">"Normal QQ-plot of residuals"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">gf_qq</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> heb_aug) <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a></a>  <span class="fu">gf_qqline</span>() <span class="sc">|&gt;</span>  </span>
+<span id="cb7-3"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Theoretical quantile"</span>, </span>
+<span id="cb7-4"><a></a>       <span class="at">y =</span> <span class="st">"Observed quantile"</span>, </span>
+<span id="cb7-5"><a></a>       <span class="at">title =</span> <span class="st">"Normal QQ-plot of residuals"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+<p><img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
@@ -663,7 +762,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <section id="normality-2" class="slide level2">
 <h2>Normality</h2>
 
-<img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>❌ The residuals do not appear to follow a normal distribution, because the points do not lie on the diagonal line, so normality is not satisfied.</p>
+<img data-src="09-slr-conditions-eval_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>❌ The residuals do not appear to follow a normal distribution, because the points do not lie on the diagonal line, so normality is not satisfied.</p>
 <p>✅ The sample size <span class="math inline">\(n =  37 &gt; 30\)</span>, so the sample size is large enough to relax this condition and proceed with inference.</p>
 </section>
 <section id="independence" class="slide level2 midi">
@@ -709,11 +808,15 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 </div>
 <div class="fragment">
 <div class="question">
-<p>Which of these conditions are required for fitting a SLR? Which for simulation-based inference for the slope for an SLR? Which for inference with mathematical models?</p>
+<ol type="1">
+<li>Which of these conditions are required for fitting a SLR (and not doing any inference)?</li>
+<li>Which for simulation-based inference for the slope for an SLR?</li>
+<li>Which for inference with mathematical models?</li>
+</ol>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="countdown" id="timer_4957a2a5" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_806813f2" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -731,7 +834,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="countdown" id="timer_bea391ab" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_13f6ef76" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -776,7 +879,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 <li class="fragment"><p>Calculate with <code>glance()</code> or <code>summary()</code> using the fitted model:</p></li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">glance</span>(heb_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">glance</span>(heb_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 12
   r.squared adj.r.squared sigma statistic       p.value    df logLik   AIC   BIC
@@ -784,7 +887,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 1     0.617         0.606  17.5      56.3 0.00000000863     1  -157.  321.  325.
 # ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">glance</span>(heb_fit)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">glance</span>(heb_fit)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6167334</code></pre>
 </div>
@@ -816,7 +919,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 <li class="fragment"><p>Same units as the response variable</p></li>
 <li class="fragment"><p>Calculate with <code>glance()</code> using the augmented data:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">glance</span>(heb_fit)<span class="sc">$</span>sigma</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">glance</span>(heb_fit)<span class="sc">$</span>sigma</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 17.46292</code></pre>
 </div>
