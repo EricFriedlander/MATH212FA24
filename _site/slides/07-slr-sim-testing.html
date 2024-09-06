@@ -938,34 +938,15 @@ Null Hypothesis: independence
 <span id="cb24-4"><a></a>  <span class="fu">specify</span>(Number_Organic <span class="sc">~</span> Avg_Income_K) <span class="sc">|&gt;</span></span>
 <span id="cb24-5"><a></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb24-6"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb24-7"><a></a>  <span class="fu">fit</span>()</span>
-<span id="cb24-8"><a></a></span>
-<span id="cb24-9"><a></a>null_dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2,000 × 3
-# Groups:   replicate [1,000]
-   replicate term         estimate
-       &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;
- 1         1 intercept     47.8   
- 2         1 Avg_Income_K   0.0555
- 3         2 intercept     58.0   
- 4         2 Avg_Income_K  -0.0914
- 5         3 intercept     57.3   
- 6         3 Avg_Income_K  -0.0817
- 7         4 intercept     78.9   
- 8         4 Avg_Income_K  -0.394 
- 9         5 intercept     34.8   
-10         5 Avg_Income_K   0.244 
-# ℹ 1,990 more rows</code></pre>
-</div>
+<span id="cb24-7"><a></a>  <span class="fu">fit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="visualize-the-null-distribution" class="slide level2">
 <h2>Visualize the null distribution</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26" data-code-line-numbers="|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>null_dist <span class="sc">|&gt;</span></span>
-<span id="cb26-2"><a></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"Avg_Income_K"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb26-3"><a></a>  <span class="fu">gf_histogram</span>(<span class="sc">~</span>estimate, <span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25" data-code-line-numbers="|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>null_dist <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"Avg_Income_K"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb25-3"><a></a>  <span class="fu">gf_histogram</span>(<span class="sc">~</span>estimate, <span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="07-slr-sim-testing_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"></section>
@@ -982,11 +963,11 @@ Null Hypothesis: independence
 <p>What does this warning mean?</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">get_p_value</span>(</span>
-<span id="cb27-2"><a></a>  null_dist,</span>
-<span id="cb27-3"><a></a>  <span class="at">obs_stat =</span> obs_fit,</span>
-<span id="cb27-4"><a></a>  <span class="at">direction =</span> <span class="st">"two-sided"</span></span>
-<span id="cb27-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">get_p_value</span>(</span>
+<span id="cb26-2"><a></a>  null_dist,</span>
+<span id="cb26-3"><a></a>  <span class="at">obs_stat =</span> obs_fit,</span>
+<span id="cb26-4"><a></a>  <span class="at">direction =</span> <span class="st">"two-sided"</span></span>
+<span id="cb26-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Please be cautious in reporting a p-value of 0. This result is an approximation
 based on the number of `reps` chosen in the `generate()` step.

@@ -470,8 +470,6 @@ null_dist <- heb |>
   hypothesize(null = "independence") |>
   generate(reps = 1000, type = "permute") |>
   fit()
-
-null_dist
 ```
 
 ## Visualize the null distribution
@@ -497,10 +495,10 @@ In a world where the there is no relationship between the the number of organic 
 null_dist |>
   filter(term == "Avg_Income_K") |>
   ggplot(aes(x = estimate)) +
-  geom_histogram(binwidth = 10, color = "white") +
+  geom_histogram(color = "white") +
   geom_vline(xintercept = slope, color = "#8F2D56", size = 1) +
   geom_vline(xintercept = -1*slope, color = "#8F2D56", size = 1, linetype = "dashed") +
-  scale_x_continuous(limits = c(-slope, slope), breaks = seq(-150, 150, 50))
+  scale_x_continuous(limits = c(-slope, slope))
 ```
 
 ## Compute the p-value
