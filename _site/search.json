@@ -2686,7 +2686,7 @@
     "href": "slides/07-slr-sim-testing.html#concluding-the-hypothesis-test",
     "title": "SLR: Randomization test for the slope",
     "section": "Concluding the hypothesis test",
-    "text": "Concluding the hypothesis test\n\nIs the observed slope of \\(\\hat{\\beta_1} = 159\\) (or an even more extreme slope) a likely outcome under the null hypothesis that \\(\\beta = 0\\)? What does this mean for our original question: “Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”"
+    "text": "Concluding the hypothesis test\n\nIs the observed slope of \\(\\hat{\\beta_1} = 0.96\\) (or an even more extreme slope) a likely outcome under the null hypothesis that \\(\\beta = 0\\)? What does this mean for our original question: “Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”"
   },
   {
     "objectID": "slides/07-slr-conditions-eval-old.html#announcements",
@@ -10854,7 +10854,7 @@
     "href": "slides/07-slr-sim-testing.html#permutation-pipeline-v",
     "title": "SLR: Randomization test for the slope",
     "section": "Permutation pipeline V",
-    "text": "Permutation pipeline V\n\nset.seed(1218)\n\nheb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\") |&gt;\n  fit()\n\n# A tibble: 2,000 × 3\n# Groups:   replicate [1,000]\n   replicate term         estimate\n       &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1         1 intercept     47.8   \n 2         1 Avg_Income_K   0.0555\n 3         2 intercept     58.0   \n 4         2 Avg_Income_K  -0.0914\n 5         3 intercept     57.3   \n 6         3 Avg_Income_K  -0.0817\n 7         4 intercept     78.9   \n 8         4 Avg_Income_K  -0.394 \n 9         5 intercept     34.8   \n10         5 Avg_Income_K   0.244 \n# ℹ 1,990 more rows"
+    "text": "Permutation pipeline V\n\nset.seed(1218)\n\nnull_dist &lt;- heb |&gt;\n  specify(Number_Organic ~ Avg_Income_K) |&gt;\n  hypothesize(null = \"independence\") |&gt;\n  generate(reps = 1000, type = \"permute\") |&gt;\n  fit()\n\nnull_dist\n\n# A tibble: 2,000 × 3\n# Groups:   replicate [1,000]\n   replicate term         estimate\n       &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1         1 intercept     47.8   \n 2         1 Avg_Income_K   0.0555\n 3         2 intercept     58.0   \n 4         2 Avg_Income_K  -0.0914\n 5         3 intercept     57.3   \n 6         3 Avg_Income_K  -0.0817\n 7         4 intercept     78.9   \n 8         4 Avg_Income_K  -0.394 \n 9         5 intercept     34.8   \n10         5 Avg_Income_K   0.244 \n# ℹ 1,990 more rows"
   },
   {
     "objectID": "slides/07-slr-sim-testing.html#visualize-the-null-distribution",

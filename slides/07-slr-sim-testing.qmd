@@ -380,7 +380,7 @@ ggplot(heb_perms_1000,
 ## Concluding the hypothesis test {.smaller}
 
 ::: question
-Is the observed slope of $\hat{\beta_1} = 159$ (or an even more extreme slope) a likely outcome under the null hypothesis that $\beta = 0$? What does this mean for our original question: "Do the data provide sufficient evidence that $\beta_1$ (the true slope for the population) is different from 0?"
+Is the observed slope of $\hat{\beta_1} = 0.96$ (or an even more extreme slope) a likely outcome under the null hypothesis that $\beta = 0$? What does this mean for our original question: "Do the data provide sufficient evidence that $\beta_1$ (the true slope for the population) is different from 0?"
 :::
 
 ```{r}
@@ -465,11 +465,13 @@ heb |>
 
 set.seed(1218)
 
-heb |>
+null_dist <- heb |>
   specify(Number_Organic ~ Avg_Income_K) |>
   hypothesize(null = "independence") |>
   generate(reps = 1000, type = "permute") |>
   fit()
+
+null_dist
 ```
 
 ## Visualize the null distribution
@@ -493,7 +495,7 @@ In a world where the there is no relationship between the the number of organic 
 #| echo: false
 
 null_dist |>
-  filter(term == "area") |>
+  filter(term == "Avg_Income_K") |>
   ggplot(aes(x = estimate)) +
   geom_histogram(binwidth = 10, color = "white") +
   geom_vline(xintercept = slope, color = "#8F2D56", size = 1) +
