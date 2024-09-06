@@ -77,6 +77,10 @@ library(infer)       # for simulation based inference
 library(scales)      # for pretty axis labels
 library(knitr)       # for neatly formatted tables
 
+# load my data
+heb <- read_csv("data/HEBIncome.csv") |> 
+  mutate(Avg_Income_K = Avg_Household_Income/1000)
+
 
 # set default theme and larger font size for ggplot2
 ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
@@ -88,10 +92,6 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 
 ```{r}
 #| echo: false
-
-heb <- read_csv("data/HEBIncome.csv") |> 
-  mutate(Avg_Income_K = Avg_Household_Income/1000)
-
 ggplot(heb, aes(x = Avg_Income_K, y = Number_Organic)) +
   geom_point(alpha = 0.7) +
   labs(
@@ -146,7 +146,7 @@ slope <- tidy(heb_fit) |> filter(term == "Avg_Income_K") |> pull(estimate) |> ro
 #| echo: true
 #| code-line-numbers: "|1|3|4"
 
-set.seed(210)
+set.seed(212)
 
 heb |>
   specify(Number_Organic ~ Avg_Income_K)
@@ -158,7 +158,7 @@ heb |>
 #| echo: true
 #| code-line-numbers: "|5"
 
-set.seed(210)
+set.seed(212)
 
 heb |>
   specify(Number_Organic ~ Avg_Income_K) |>
@@ -171,7 +171,7 @@ heb |>
 #| echo: true
 #| code-line-numbers: "|6"
 
-set.seed(210)
+set.seed(212)
 
 heb |>
   specify(Number_Organic ~ Avg_Income_K) |>
@@ -185,7 +185,7 @@ heb |>
 #| echo: true
 #| code-line-numbers: "|3"
 
-set.seed(210)
+set.seed(212)
 
 boot_dist <- heb |>
   specify(Number_Organic ~ Avg_Income_K) |>
@@ -201,8 +201,7 @@ boot_dist <- heb |>
 
 boot_dist |>
   filter(term == "Avg_Income_K") |>
-  ggplot(aes(x = estimate)) +
-  geom_histogram(bins = 15)
+  gf_histogram(~estimate, bins = 15)
 ```
 
 ## Compute the CI
