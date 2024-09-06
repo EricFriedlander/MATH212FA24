@@ -1,7 +1,8 @@
 ---
-title: "AE 06: Conditions and model evaluation"
+title: "AE 05: Model Conditions"
 subtitle: "Songs on Spotify"
-date: "Sep 20, 2022"
+author: "Driver: _______, Reporter: _______, Gopher: ________"
+date: "Sep 11, 2024"
 editor: visual
 execute: 
   warning: false
@@ -9,9 +10,11 @@ execute:
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta210-fa23) and locate your `ae-06` repo to get started.
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-05"
 
-Render, commit, and push your responses to GitHub by the end of class. The responses are due in your GitHub repo no later than Saturday, September 23 at 11:59pm.
+-   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/181485) and locate your `AE 04` assignment to get started.
+
+-   Upload the `ae-04.qmd` and `dcbikeshare.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas no later than Thursday, September 12 at 11:59pm.
 :::
 
 ```{r}
@@ -32,7 +35,7 @@ The data set for this assignment is a subset from the [Spotify Songs](https://gi
 It contains numerous characteristics for each song. You can see the full list of variables and definitions [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md). This analysis will focus specifically on the following variables:
 
 | variable         | class     | description                                                                                                                                                                                                                                                                                                                                                                               |
-|:-----------------|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:--------|:--------|:------------------------------------------------------|
 | track_id         | character | Song unique ID                                                                                                                                                                                                                                                                                                                                                                            |
 | track_name       | character | Song Name                                                                                                                                                                                                                                                                                                                                                                                 |
 | track_artist     | character | Song Artist                                                                                                                                                                                                                                                                                                                                                                               |

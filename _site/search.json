@@ -11884,5 +11884,12 @@
     "title": "Welcome to MAT 212!",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nThese guiding principles are based on Course Policies related to ChatGPT and other AI Tools developed by Joel Gladd, Ph.D.↩︎↩︎"
+  },
+  {
+    "objectID": "slides/07-slr-sim-testing.html#concept-check",
+    "href": "slides/07-slr-sim-testing.html#concept-check",
+    "title": "SLR: Randomization test for the slope",
+    "section": "Concept Check",
+    "text": "Concept Check\n\nYou professor is interested in calculating the average amount of time CofI students spend doing homework.\n\nIf he collects a set of data and asks 100 students to compute 95% confidence intervals from that data, how many of those would you expect to contain the true average?\nIf, instead, he has each of those 100 students collect their own data and compute 95% confidence intervals from their own data, how many would you expect to contain the true average?"
   }
 ]

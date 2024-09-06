@@ -33,6 +33,15 @@ bibliography: references.bib
 📋 [AE 03: Bootstrap confidence intervals](https://mat212fa24.netlify.app/ae/ae-03-bootstrap)
 :::
 
+## Concept Check
+
+:::{.question}
+You professor is interested in calculating the average amount of time CofI students spend doing homework.
+
+1. If he collects a set of data and asks 100 students to compute 95% confidence intervals from that data, how many of those would you expect to contain the true average?
+2. If, instead, he has each of those 100 students collect their own data and compute 95% confidence intervals from their own data, how many would you expect to contain the true average?
+:::
+
 ## From last time {.smaller}
 
 -   **Population:** Complete set of observations of whatever we are studying, e.g., people, tweets, photographs, etc. (population size = $N$)
