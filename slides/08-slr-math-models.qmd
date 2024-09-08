@@ -27,70 +27,12 @@ knitr:
 bibliography: references.bib
 ---
 
-<!-- ## Announcements -->
 
-<!-- -   HW 01: due Wed, Sep 20 at 11:59pm -->
+# Application exercise
 
-<!--     -   Questions? -->
-
-<!-- -   [Statistics experience](https://sta210-fa23.netlify.app/stats-experience.html) - due Mon, Nov 20 at 11:59pm -->
-
-<!-- ## Course policy reminders {.midi} -->
-
-<!-- -   [Late work](https://sta210-fa23.netlify.app/syllabus#late-work-policy) -->
-
-<!--     -   HW and labs accepted up to 2 days late. -->
-<!--     -   5% deduction for each 24-hour period the assignment is late. -->
-
-<!-- -   [One time late waiver](https://sta210-fa23.netlify.app/syllabus#waiver-for-extenuating-circumstances) -->
-
-<!--     -   Can use on HW and individual labs -->
-
-<!-- -   Lowest HW and lowest lab grade dropped at the end of the semester. -->
-
-<!-- ## Course policy reminders -->
-
-<!-- -   [Regrade requests](https://sta210-fa23.netlify.app/syllabus#regrade-requests) -->
-
-<!--     -   Opened 1 day after assignment is returned and due within 1 week -->
-<!--     -   Only submit regrade if there is an error in the grading not to dispute points -->
-<!--     -   Prof. Tackett or Sam the Head TA will regrade the entire exercise being disputed, which could result in a lower grade -->
-
-<!--     ::: callout-tip -->
-<!--     See the posted solutions and ask during office hours before submitting a regrade request -->
-<!--     ::: -->
-
-<!-- ## Statistician of the day: Regina Nuzzo {.small} -->
-
-<!-- ::: columns -->
-<!-- ::: {.column width="40%"} -->
-<!-- ![](images/statistician-of-the-day/nuzzo.jpg){fig-alt="Picture of Regina Nuzzo" fig-align="center"} -->
-<!-- ::: -->
-
-<!-- ::: {.column width="60%"} -->
-<!-- *Dr. Nuzzo received her PhD in Statistics from Stanford University and is now Professor of Science, Technology, & Mathematics at [Gallaudet University](https://gallaudet.edu/). Dr. Nuzzo teaches statistics using American Sign Language.* -->
-
-<!-- *Her work has appeared in Nature, Los Angeles Times, New York Times, Reader's Digest, New Scientist, and Scientific American. Primarily, she works to help lay-audiences understand science and statistics in particular. She earned the American Statistical Association's 2014 Excellence in Statistical Reporting Award for her article on p-values in Nature. Her work led to the [ASA's statement on p-values](https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108).* -->
-
-<!-- Source: [hardin47.github.io/CURV/scholars/nuzzo](https://hardin47.github.io/CURV/scholars/nuzzo.html)\ -->
-<!-- ::: -->
-<!-- ::: -->
-
-<!-- ## Regina Nuzzo {.midi} -->
-
-<!-- From ["Tips for Communicating Statistical Significance."](https://www.nih.gov/about-nih/what-we-do/science-health-public-trust/perspectives/science-health-public-trust/tips-communicating-statistical-significance) -->
-
-<!-- *"That we use p-values to alert us to surprising data results, not to give a final answer on anything. (Or at least that's what we should be doing). And that results can get flagged as "statistically surprising" with a small p-value for a number of reasons"* -->
-
-<!-- 1.  *There was a fluke.* -->
-
-<!-- 2.  *Something was violated.* -->
-
-<!-- 3.  *There was a real but tiny relationship.* -->
-
-<!-- 4.  *There was a relationship that is worth more study.* -->
-
-<!-- *Or any combination of the above.* -->
+::: appex
+📋 [AE 04: Randomization test for the slope](https://mat212fa24.netlify.app/ae/ae-04-sim-testing)
+:::
 
 # Mathematical models for inference
 
