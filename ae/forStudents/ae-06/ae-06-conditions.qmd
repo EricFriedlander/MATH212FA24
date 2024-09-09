@@ -1,20 +1,23 @@
 ---
-title: "AE 05: Mathematical Models"
+title: "AE 06: Model Conditions"
 subtitle: "Songs on Spotify"
 author: "Driver: _______, Reporter: _______, Gopher: ________"
-date: "Sep 11, 2024"
+date: "Sep 13, 2024"
 editor: visual
 execute: 
   warning: false
   message: false
+format: 
+  pdf:
+    pdf-engine: pdflatex
 ---
 
 ::: callout-important
--   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-05"
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-06"
 
--   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/181903) and locate your `AE 05` assignment to get started.
+-   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/181928) and locate your `AE 06` assignment to get started.
 
--   Upload the `ae-05.qmd` and `spotify-popular.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas no later than Monday, September 16 at 11:59pm.
+-   Upload the `ae-06.qmd` and `spotify-popular.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas no later than Monday, September 16 at 11:59pm.
 :::
 
 ```{r}
@@ -28,6 +31,10 @@ library(knitr)
 library(patchwork) #arrange plots in a grid
 ```
 
+## Introduction
+
+This is a continuation of AE-05. The **Data** section below is the same as in that exercise. Feel free to skip it if you feel you remember everything about the data set or simply use it as a reference when needed.
+
 ## Data
 
 The data set for this assignment is a subset from the [Spotify Songs](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md) Tidy Tuesday data set. The data were originally obtained from Spotify using the **spotifyr** R package.
@@ -35,7 +42,7 @@ The data set for this assignment is a subset from the [Spotify Songs](https://gi
 It contains numerous characteristics for each song. You can see the full list of variables and definitions [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md). This analysis will focus specifically on the following variables:
 
 | variable         | class     | description                                                                                                                                                                                                                                                                                                                                                                               |
-|:--------|:--------|:------------------------------------------------------|
+|:------------|:------------|:----------------------------------------------|
 | track_id         | character | Song unique ID                                                                                                                                                                                                                                                                                                                                                                            |
 | track_name       | character | Song Name                                                                                                                                                                                                                                                                                                                                                                                 |
 | track_artist     | character | Song Artist                                                                                                                                                                                                                                                                                                                                                                               |
@@ -77,17 +84,17 @@ gf_point(valence ~ energy, data = spotify) |>
        y = "Valence")
 ```
 
-## Exercise 1
+## Exercise 0
 
-Fit a model using the `energy` of a song to predict its `valence`, i.e. positiveness. Include the 90% confidence interval for the coefficients, and display the output using 3 digits.
+Fit a model using the `energy` of a song to predict its `valence`.
 
 ```{r fit-model}
 ## add code
 ```
 
-## Exercise 2
+## Exercise 1
 
-Let's check the model conditions before doing any inference. Fill in the code below to use the `augment()` function to create a new data frame containing the residuals and fitted values (among other information)
+Last time, we were too hasty in performing statistical inference. We need to make sure you data satifies the four conditions of inference. Let's check those model conditions now. Fill in the code below to use the `augment()` function to create a new data frame containing the residuals and fitted values (among other information)/
 
 ::: callout-important
 Note: Remove `#|eval: false` from the code chunk after you have filled in the code.
@@ -139,25 +146,9 @@ Assess the four model conditions. Use the plots from the previous exercises to h
 -   Normality
 -   Independence
 
-## Exercise 6
-
-Calculate $R^2$ and interpret this value in the context of the data.
-
-```{r}
-#| label: calc-rsq
-```
-
-## Exercise 7
-
-Calculate RMSE and interpret this value in the context of the data.
-
-```{r}
-#| label: calc-rmse
-```
-
 ::: callout-important
 To submit the AE:
 
--   Render the document to produce the PDF with all of your work from today's class.
--   Push all your work to your `ae-06` repo on GitHub. (You do not submit AEs on Gradescope).
+- Render the document to produce the PDF with all of your work from today's class.
+- Upload your QMD and PDF files to the Canvas assignment.
 :::

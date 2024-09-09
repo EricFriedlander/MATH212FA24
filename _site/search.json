@@ -4296,7 +4296,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due",
     "crumbs": [
       "Schedule"
     ]
@@ -5240,63 +5240,63 @@
   {
     "objectID": "ae/ae-06-conditions.html",
     "href": "ae/ae-06-conditions.html",
-    "title": "AE 05: Model Conditions",
+    "title": "AE 06: Model Conditions",
     "section": "",
-    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-05”\nGo to the Canvas and locate your AE 05 assignment to get started.\nUpload the ae-05.qmd and spotify-popular.csv files into the folder you just created. The .qmd and PDF responses are due in Canvas no later than Monday, September 16 at 11:59pm.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(knitr)\nlibrary(patchwork) #arrange plots in a grid"
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-06”\nGo to the Canvas and locate your AE 06 assignment to get started.\nUpload the ae-06.qmd and spotify-popular.csv files into the folder you just created. The .qmd and PDF responses are due in Canvas no later than Monday, September 16 at 11:59pm.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(knitr)\nlibrary(patchwork) #arrange plots in a grid"
   },
   {
     "objectID": "ae/ae-06-conditions.html#data",
     "href": "ae/ae-06-conditions.html#data",
-    "title": "AE 05: Model Conditions",
+    "title": "AE 06: Model Conditions",
     "section": "Data",
     "text": "Data\nThe data set for this assignment is a subset from the Spotify Songs Tidy Tuesday data set. The data were originally obtained from Spotify using the spotifyr R package.\nIt contains numerous characteristics for each song. You can see the full list of variables and definitions here. This analysis will focus specifically on the following variables:\n\n\n\n\n\n\n\n\nvariable\nclass\ndescription\n\n\n\n\ntrack_id\ncharacter\nSong unique ID\n\n\ntrack_name\ncharacter\nSong Name\n\n\ntrack_artist\ncharacter\nSong Artist\n\n\ntrack_popularity\ndouble\nSong Popularity (0-100) where higher is better\n\n\nenergy\ndouble\nEnergy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.\n\n\nvalence\ndouble\nA measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).\n\n\n\n\nspotify &lt;- read_csv(\"data/spotify-popular.csv\")\n\nAre high energy songs more positive? To answer this question, we’ll analyze data on some of the most popular songs on Spotify, i.e. those with track_popularity &gt;= 80. We’ll use linear regression to fit a model to predict a song’s positiveness (valence) based on its energy level (energy).\nBelow are plots as part of the exploratory data analysis.\n\np1 &lt;- gf_histogram(~valence, data = spotify) |&gt;  \n  gf_labs(title = \"Distribution of Valence\", \n       subtitle = \" for Popular songs on Spotify\", \n       x = \"Valence\")\n\np2 &lt;- gf_histogram(~energy, data = spotify) |&gt; \n  gf_labs(title = \"Distribution of Energy\", \n       subtitle = \"for Popular songs on Spotify\", \n       x = \"Energy\")\np1 + p2 # The patchwork package will arrange your plots for you\n\n\n\n\n\n\n\n\n\ngf_point(valence ~ energy, data = spotify) |&gt; \n  gf_labs(title = \"Valence vs. Energy\", \n       subtitle = \"Popular songs on Spotify\", \n       x = \"Energy\", \n       y = \"Valence\")"
   },
   {
     "objectID": "ae/ae-06-conditions.html#exercise-1",
     "href": "ae/ae-06-conditions.html#exercise-1",
-    "title": "AE 05: Model Conditions",
+    "title": "AE 06: Model Conditions",
     "section": "Exercise 1",
-    "text": "Exercise 1\nFit a model using the energy of a song to predict its valence, i.e. positiveness. Include the 90% confidence interval for the coefficients, and display the output using 3 digits.\n\n## add code"
+    "text": "Exercise 1\nLast time, we were too hasty in performing statistical inference. We need to make sure you data satifies the four conditions of inference. Let’s check those model conditions now. Fill in the code below to use the augment() function to create a new data frame containing the residuals and fitted values (among other information)/\n\n\n\n\n\n\nImportant\n\n\n\nNote: Remove #|eval: false from the code chunk after you have filled in the code.\n\n\n\nspotify_aug &lt;- augment(_____)"
   },
   {
     "objectID": "ae/ae-06-conditions.html#exercise-2",
     "href": "ae/ae-06-conditions.html#exercise-2",
-    "title": "AE 05: Model Conditions",
+    "title": "AE 06: Model Conditions",
     "section": "Exercise 2",
     "text": "Exercise 2\nLet’s check the model conditions before doing any inference. Fill in the code below to use the augment() function to create a new data frame containing the residuals and fitted values (among other information)\n\n\n\n\n\n\nImportant\n\n\n\nNote: Remove #|eval: false from the code chunk after you have filled in the code.\n\n\n\nspotify_aug &lt;- augment(_____)"
   },
   {
     "objectID": "ae/ae-06-conditions.html#exercise-3",
     "href": "ae/ae-06-conditions.html#exercise-3",
-    "title": "AE 05: Model Conditions",
+    "title": "AE 06: Model Conditions",
     "section": "Exercise 3",
     "text": "Exercise 3\nMake a plot of the residual vs. fitted values.\n\n# add code here"
   },
   {
     "objectID": "ae/ae-06-conditions.html#exercise-4",
     "href": "ae/ae-06-conditions.html#exercise-4",
-    "title": "AE 05: Model Conditions",
+    "title": "AE 06: Model Conditions",
     "section": "Exercise 4",
     "text": "Exercise 4\nFill in the code to make a histogram of the residuals and a normal QQ-plot.\n\nresid_hist &lt;- gf_histogram(~____, data = ____)) |&gt; \n  gf_labs(x = \"_____\", \n       y = \"_____\", \n       title = \"____\")\n\nresid_qq &lt;- gf_qq(~____, data = ____)  |&gt;\n  gf_qqline() |&gt; \n  gf_labs(x = \"_____\", \n       y = \"_____\", \n       title = \"____\")\n\nresid_hist + resid_qq"
   },
   {
     "objectID": "ae/ae-06-conditions.html#exercise-5",
     "href": "ae/ae-06-conditions.html#exercise-5",
-    "title": "AE 05: Model Conditions",
+    "title": "AE 06: Model Conditions",
     "section": "Exercise 5",
-    "text": "Exercise 5\nAssess the four model conditions. Use the plots from the previous exercises to help make the assessment.\n\nLinearity\nConstant variance\nNormality\nIndependence"
+    "text": "Exercise 5\nAssess the four model conditions. Use the plots from the previous exercises to help make the assessment.\n\nLinearity\nConstant variance\nNormality\nIndependence\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
   },
   {
     "objectID": "ae/ae-06-conditions.html#exercise-6",
     "href": "ae/ae-06-conditions.html#exercise-6",
-    "title": "AE 05: Model Conditions",
+    "title": "AE 06: Model Conditions",
     "section": "Exercise 6",
     "text": "Exercise 6\nCalculate \\(R^2\\) and interpret this value in the context of the data."
   },
   {
     "objectID": "ae/ae-06-conditions.html#exercise-7",
     "href": "ae/ae-06-conditions.html#exercise-7",
-    "title": "AE 05: Model Conditions",
+    "title": "AE 06: Model Conditions",
     "section": "Exercise 7",
     "text": "Exercise 7\nCalculate RMSE and interpret this value in the context of the data.\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-06 repo on GitHub. (You do not submit AEs on Gradescope)."
   },
@@ -12563,5 +12563,19 @@
     "title": "HW 02: Ice duration and air temperature in Madison, WI",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nhttps://lter.github.io/lterdatasampler/index.html↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.↩︎"
+  },
+  {
+    "objectID": "ae/ae-06-conditions.html#introduction",
+    "href": "ae/ae-06-conditions.html#introduction",
+    "title": "AE 06: Model Conditions",
+    "section": "Introduction",
+    "text": "Introduction\nThis is a continuation of AE-05. The Data section below is the same as in that exercise. Feel free to skip it if you feel you remember everything about the data set or simply use it as a reference when needed."
+  },
+  {
+    "objectID": "ae/ae-06-conditions.html#exercise-0",
+    "href": "ae/ae-06-conditions.html#exercise-0",
+    "title": "AE 06: Model Conditions",
+    "section": "Exercise 0",
+    "text": "Exercise 0\nFit a model using the energy of a song to predict its valence.\n\n## add code"
   }
 ]
