@@ -1,0 +1,9 @@
+---
+title: "September 13 lecture"
+subtitle: "Simple linear regression - Model Evaluation"
+---
+
+## Assigned reading
+
+- Stat2: Topic 2.2 Partitioning Variability - ANOVA
+- Stat2: Topic 2.3 Regression and Correlation

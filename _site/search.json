@@ -11295,21 +11295,21 @@
     "href": "slides/10-slr-model-eval.html#two-statistics",
     "title": "SLR: Model evaluation",
     "section": "Two statistics",
-    "text": "Two statistics\n\n\nR-squared, \\(R^2\\), Coefficient of Determination : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)\n\\[\nR^2 = Cor(x,y)^2 = Cor(y, \\hat{y})^2\n\\]\nRoot mean square error, RMSE: A measure of the average error (average difference between observed and predicted values of the outcome)\n\\[\nRMSE = \\sqrt{\\frac{\\sum_{i = 1}^n (y_i - \\hat{y}_i)^2}{n}}\n\\]\n\n\n\n\nWhat indicates a good model fit? Higher or lower \\(R^2\\)? Higher or lower RMSE?"
+    "text": "Two statistics\n\n\nR-squared, \\(R^2\\), Coefficient of Determination : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)\n\\[\nR^2 = Cor(y, \\hat{y})^2\n\\]\n\nAlso called PRE (Percent Reduction in Error) because:\n\\[\nR^2 = \\frac{SSModel}{SSTotal}\n\\]\n\nRoot mean square error, RMSE: A measure of the average error (average difference between observed and predicted values of the outcome)\n\\[\nRMSE = \\sqrt{\\frac{\\sum_{i = 1}^n (y_i - \\hat{y}_i)^2}{n}}\n\\]\n\n\n\n\nWhat indicates a good model fit? Higher or lower \\(R^2\\)? Higher or lower RMSE?"
   },
   {
     "objectID": "slides/10-slr-model-eval.html#r2",
     "href": "slides/10-slr-model-eval.html#r2",
     "title": "SLR: Model evaluation",
     "section": "\\(R^2\\)",
-    "text": "\\(R^2\\)\n\n\nRanges between 0 (terrible predictor) and 1 (perfect predictor)\nHas no units\nCalculate with glance() or summary() using the fitted model:\n\n\nglance(heb_fit)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic       p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.617         0.606  17.5      56.3 0.00000000863     1  -157.  321.  325.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\nglance(heb_fit)$r.squared\n\n[1] 0.6167334"
+    "text": "\\(R^2\\)\n\n\nRanges between 0 (terrible predictor) and 1 (perfect predictor)\nHas no units\nCalculate with rsq() from yardstick package using the augmented data:\n\n\nlibrary(yardstick)\nheb_aug &lt;- augment(heb_fit)\n\nrsq(heb_aug, truth = Number_Organic, estimate = .fitted) |&gt; kable()\n\n\n\n\n.metric\n.estimator\n.estimate\n\n\n\n\nrsq\nstandard\n0.6167334"
   },
   {
     "objectID": "slides/10-slr-model-eval.html#interpreting-r2",
     "href": "slides/10-slr-model-eval.html#interpreting-r2",
     "title": "SLR: Model evaluation",
     "section": "Interpreting \\(R^2\\)",
-    "text": "Interpreting \\(R^2\\)\n\n🗳️ Discussion\n\n\nThe \\(R^2\\) of the model for Number_Organic from Average_Income_K is 61.7%. Which of the following is the correct interpretation of this value?\n\n\nAvg_Income_K correctly predicts 61.7% of Number_Organic in San Anontio HEBs.\n61.7% of the variability in Number_Organic can be explained by Avg_Income_K.\n61.7% of the variability in Avg_Income_K can be explained by Number_Organic.\n61.7% of the time Number_Organic can be predicted by Avg_Income_K."
+    "text": "Interpreting \\(R^2\\)\n\n🗳️ Discussion\n\n\nThe \\(R^2\\) of the model for Number_Organic from Average_Income_K is 61.7%. Which of the following is the correct interpretation of this value?\n\n\nAvg_Income_K correctly predicts 61.7% of Number_Organic in San Antontio HEBs.\n61.7% of the variability in Number_Organic can be explained by Avg_Income_K.\n61.7% of the variability in Avg_Income_K can be explained by Number_Organic.\n61.7% of the time Number_Organic can be predicted by Avg_Income_K."
   },
   {
     "objectID": "slides/10-slr-model-eval.html#alternative-approach-for-r2",
@@ -11323,7 +11323,7 @@
     "href": "slides/10-slr-model-eval.html#rmse",
     "title": "SLR: Model evaluation",
     "section": "RMSE",
-    "text": "RMSE\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nCalculate with glance() using the augmented data:\n\nglance(heb_fit)$sigma\n\n[1] 17.46292\n\n\nThe value of RMSE is not very meaningful on its own, but it’s useful for comparing across models (more on this when we get to regression with multiple predictors)\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+    "text": "RMSE\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nCalculate with rsq() from yardstick package using the augmented data:\n\n\nrmse(heb_aug, truth = Number_Organic, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard        17.0\n\n\n\nThe value of RMSE is not very meaningful on its own, but it’s useful for comparing across models (more on this and ANOVA when we get to regression with multiple predictors)\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
   },
   {
     "objectID": "slides/10-slr-model-eval.html#obtaining-r2-and-rmse",
@@ -11904,14 +11904,14 @@
     "href": "ae/ae-05-conditions.html",
     "title": "AE 05: Model Conditions",
     "section": "",
-    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-05”\nGo to the Canvas and locate your AE 04 assignment to get started.\nUpload the ae-04.qmd and dcbikeshare.csv files into the folder you just created. The .qmd and PDF responses are due in Canvas no later than Thursday, September 12 at 11:59pm.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(knitr)\nlibrary(patchwork) #arrange plots in a grid"
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-05”\nGo to the Canvas and locate your AE 05 assignment to get started.\nUpload the ae-05.qmd and ae-05.pdf files into the folder you just created. The .qmd and PDF responses are due in Canvas no later than Monday, September 16 at 11:59pm.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(knitr)\nlibrary(patchwork) #arrange plots in a grid"
   },
   {
     "objectID": "ae/ae-05-conditions.html#data",
     "href": "ae/ae-05-conditions.html#data",
     "title": "AE 05: Model Conditions",
     "section": "Data",
-    "text": "Data\nThe data set for this assignment is a subset from the Spotify Songs Tidy Tuesday data set. The data were originally obtained from Spotify using the spotifyr R package.\nIt contains numerous characteristics for each song. You can see the full list of variables and definitions here. This analysis will focus specifically on the following variables:\n\n\n\n\n\n\n\n\nvariable\nclass\ndescription\n\n\n\n\ntrack_id\ncharacter\nSong unique ID\n\n\ntrack_name\ncharacter\nSong Name\n\n\ntrack_artist\ncharacter\nSong Artist\n\n\ntrack_popularity\ndouble\nSong Popularity (0-100) where higher is better\n\n\nenergy\ndouble\nEnergy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.\n\n\nvalence\ndouble\nA measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).\n\n\n\n\nspotify &lt;- read_csv(\"data/spotify-popular.csv\")\n\nAre high energy songs more positive? To answer this question, we’ll analyze data on some of the most popular songs on Spotify, i.e. those with track_popularity &gt;= 80. We’ll use linear regression to fit a model to predict a song’s positiveness (valence) based on its energy level (energy).\nBelow are plots as part of the exploratory data analysis.\n\np1 &lt;- gf_histogram(~valence, data = spotify) |&gt;  \n  gf_labs(title = \"Distribution of Valence\", \n       subtitle = \" for Popular songs on Spotify\", \n       x = \"Valence\")\n\np2 &lt;- gf_histogram(~energy, data = spotify) |&gt; \n  gf_labs(title = \"Distribution of Energy\", \n       subtitle = \"for Popular songs on Spotify\", \n       x = \"Energy\")\np1 + p2\n\n\n\n\n\n\n\n\n\ngf_point(valence ~ energy, data = spotify) |&gt; \n  gf_labs(title = \"Valence vs. Energy\", \n       subtitle = \"Popular songs on Spotify\", \n       x = \"Energy\", \n       y = \"Valence\")"
+    "text": "Data\nThe data set for this assignment is a subset from the Spotify Songs Tidy Tuesday data set. The data were originally obtained from Spotify using the spotifyr R package.\nIt contains numerous characteristics for each song. You can see the full list of variables and definitions here. This analysis will focus specifically on the following variables:\n\n\n\n\n\n\n\n\nvariable\nclass\ndescription\n\n\n\n\ntrack_id\ncharacter\nSong unique ID\n\n\ntrack_name\ncharacter\nSong Name\n\n\ntrack_artist\ncharacter\nSong Artist\n\n\ntrack_popularity\ndouble\nSong Popularity (0-100) where higher is better\n\n\nenergy\ndouble\nEnergy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.\n\n\nvalence\ndouble\nA measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).\n\n\n\n\nspotify &lt;- read_csv(\"data/spotify-popular.csv\")\n\nAre high energy songs more positive? To answer this question, we’ll analyze data on some of the most popular songs on Spotify, i.e. those with track_popularity &gt;= 80. We’ll use linear regression to fit a model to predict a song’s positiveness (valence) based on its energy level (energy).\nBelow are plots as part of the exploratory data analysis.\n\np1 &lt;- gf_histogram(~valence, data = spotify) |&gt;  \n  gf_labs(title = \"Distribution of Valence\", \n       subtitle = \" for Popular songs on Spotify\", \n       x = \"Valence\")\n\np2 &lt;- gf_histogram(~energy, data = spotify) |&gt; \n  gf_labs(title = \"Distribution of Energy\", \n       subtitle = \"for Popular songs on Spotify\", \n       x = \"Energy\")\np1 + p2 # The patchwork package will arrange your plots for you\n\n\n\n\n\n\n\n\n\ngf_point(valence ~ energy, data = spotify) |&gt; \n  gf_labs(title = \"Valence vs. Energy\", \n       subtitle = \"Popular songs on Spotify\", \n       x = \"Energy\", \n       y = \"Valence\")"
   },
   {
     "objectID": "ae/ae-05-conditions.html#exercise-1",
@@ -11961,5 +11961,103 @@
     "title": "AE 05: Model Conditions",
     "section": "Exercise 7",
     "text": "Exercise 7\nCalculate RMSE and interpret this value in the context of the data.\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-06 repo on GitHub. (You do not submit AEs on Gradescope)."
+  },
+  {
+    "objectID": "prepare/model-eval-prep.html",
+    "href": "prepare/model-eval-prep.html",
+    "title": "September 13 lecture",
+    "section": "",
+    "text": "Stat2: Topic 2.2 Partitioning Variability - ANOVA\nStat2: Topic 2.3 Regression and Correlation"
+  },
+  {
+    "objectID": "prepare/model-eval-prep.html#assigned-reading",
+    "href": "prepare/model-eval-prep.html#assigned-reading",
+    "title": "September 13 lecture",
+    "section": "",
+    "text": "Stat2: Topic 2.2 Partitioning Variability - ANOVA\nStat2: Topic 2.3 Regression and Correlation"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#recall-correlation-coefficient",
+    "href": "slides/10-slr-model-eval.html#recall-correlation-coefficient",
+    "title": "SLR: Model evaluation",
+    "section": "Recall: Correlation Coefficient",
+    "text": "Recall: Correlation Coefficient\n\nThe correlation coefficient, \\(r\\), is a number between -1 and +1 that measures how strong the linear relationship between two variables \\(x\\) and \\(y\\) is.\n\n\\[\nr = \\frac{\\sum(x_i - \\bar{x})(y_i-\\bar{y})}{\\sqrt{\\sum(x_i-\\bar{x})^2\\sum(y_i-\\bar{y})^2}}\n= \\frac{\\sum(x_i - \\bar{x})(y_i-\\bar{y})}{s_xs_y}\n\\]"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#sum-of-squared-erros",
+    "href": "slides/10-slr-model-eval.html#sum-of-squared-erros",
+    "title": "SLR: Model evaluation",
+    "section": "Sum of Squared Erros",
+    "text": "Sum of Squared Erros"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#partitioning-variability",
+    "href": "slides/10-slr-model-eval.html#partitioning-variability",
+    "title": "SLR: Model evaluation",
+    "section": "Partitioning Variability",
+    "text": "Partitioning Variability\nLet’s think about variation:\n\n\nDATA = MODEL + ERROR\n\\(\\substack{\\text{Variation} \\\\ \\text{in Y}} = \\substack{\\text{Variation explained} \\\\ \\text{by model}} + \\substack{\\text{Variation not explained} \\\\ \\text{by model}}\\)"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#recall-variance",
+    "href": "slides/10-slr-model-eval.html#recall-variance",
+    "title": "SLR: Model evaluation",
+    "section": "Recall Variance:",
+    "text": "Recall Variance:\n\nVariance: A measure of how variable a variable is.\nIntuition: The average squared distance from the mean (deviation) for each observation\n\n\\[\ns_y^2 = \\frac{\\sum(y_i-\\bar{y})^2}{n-1}\n\\]"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#partitioning-variability-1",
+    "href": "slides/10-slr-model-eval.html#partitioning-variability-1",
+    "title": "SLR: Model evaluation",
+    "section": "Partitioning Variability",
+    "text": "Partitioning Variability\n\n\n\\(y_i - \\bar{y} = (\\hat{y}_i - \\bar{y}) + (y_i-\\hat{y}_i)\\)\nSquare and sum: \\(\\sum(y_i-\\bar{y})^2 = \\sum(\\hat{y} - \\bar{y})^2 + \\sum(y-\\hat{y})^2\\)\n\\(\\substack{\\text{Sum of squares} \\\\ \\text{Total}} = \\substack{\\text{Sum of squares} \\\\ \\text{model}} + \\substack{\\text{Sum of squares} \\\\ \\text{error}}\\)\n\\(SSTotal = SSModel + SSE\\)\n\\(SST = SSM + SSE\\)"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#partitioning-variability-2",
+    "href": "slides/10-slr-model-eval.html#partitioning-variability-2",
+    "title": "SLR: Model evaluation",
+    "section": "Partitioning Variability",
+    "text": "Partitioning Variability\n\n\n\\(y_i - \\bar{y} = (\\hat{y}_i - \\bar{y}) + (y_i-\\hat{y}_i)\\)\nSquare and sum: \\(\\sum(y_i-\\bar{y})^2 = (\\hat{y} - \\bar{y})^2 + (y-\\hat{y})^2\\)\n\\(\\substack{\\text{Sum of squares} \\\\ \\text{Total}} = \\substack{\\text{Sum of squares} \\\\ \\text{model}} + \\substack{\\text{Sum of squares} \\\\ \\text{error}}\\)\n\\(SSTotal = SSModel + SSE\\)\n\\(SST = SSM + SSE\\)"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#anova-in-r",
+    "href": "slides/10-slr-model-eval.html#anova-in-r",
+    "title": "SLR: Model evaluation",
+    "section": "ANOVA in R",
+    "text": "ANOVA in R\n\nanova(heb_fit) |&gt; \n  tidy() |&gt; \n  kable()\n\n\n\n\nterm\ndf\nsumsq\nmeansq\nstatistic\np.value\n\n\n\n\nAvg_Income_K\n1\n17175.06\n17175.0595\n56.32026\n0\n\n\nResiduals\n35\n10673.37\n304.9535\nNA\nNA\n\n\n\n\n\n\n\nMore on this later in the semester"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#activity",
+    "href": "slides/10-slr-model-eval.html#activity",
+    "title": "SLR: Model evaluation",
+    "section": "Activity",
+    "text": "Activity\n\nIn groups, at the board, design a simulation-based procedure for producing a p-value for the following hypothesis test.\n\n\\(H_0: R^2 = 0\\)\n\\(H_A: R^2 \\neq 0\\)"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#partitioning-variability-anova",
+    "href": "slides/10-slr-model-eval.html#partitioning-variability-anova",
+    "title": "SLR: Model evaluation",
+    "section": "Partitioning Variability (ANOVA)",
+    "text": "Partitioning Variability (ANOVA)\n\n\n\\(y_i - \\bar{y} = (\\hat{y}_i - \\bar{y}) + (y_i-\\hat{y}_i)\\)\nSquare and sum: \\(\\sum(y_i-\\bar{y})^2 = \\sum(\\hat{y} - \\bar{y})^2 + \\sum(y-\\hat{y})^2\\)\n\\(\\substack{\\text{Sum of squares} \\\\ \\text{Total}} = \\substack{\\text{Sum of squares} \\\\ \\text{model}} + \\substack{\\text{Sum of squares} \\\\ \\text{error}}\\)\n\\(SSTotal = SSModel + SSE\\)\n\\(SST = SSM + SSE\\)"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#anova",
+    "href": "slides/10-slr-model-eval.html#anova",
+    "title": "SLR: Model evaluation",
+    "section": "ANOVA",
+    "text": "ANOVA\n\n\\(MSModel = \\frac{SSModel}{1}\\)\n\\(MSE = \\frac{SSE}{n-2}\\)\nTest Statistic: \\(F = \\frac{MSModel}{MSE}\\)\nNull Hypothesis: $F\n\n\nanova(heb_fit) |&gt; tidy()\n\n# A tibble: 2 × 6\n  term            df  sumsq meansq statistic  p.value\n  &lt;chr&gt;        &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 Avg_Income_K     1 17175. 17175.      56.3  8.63e-9\n2 Residuals       35 10673.   305.      NA   NA      \n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#two-statistics-r2",
+    "href": "slides/10-slr-model-eval.html#two-statistics-r2",
+    "title": "SLR: Model evaluation",
+    "section": "Two statistics: \\(R^2\\)",
+    "text": "Two statistics: \\(R^2\\)\n\n\nR-squared, \\(R^2\\), Coefficient of Determination : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor) \\[\nR^2 = Cor(y, \\hat{y})^2\n\\]\n\nAlso called **PRE (Percent Reduction in Error)** because:\n\\[\nR^2 = \\frac{SSModel}{SSTotal}\n\\]"
+  },
+  {
+    "objectID": "slides/10-slr-model-eval.html#two-statistics-rmse",
+    "href": "slides/10-slr-model-eval.html#two-statistics-rmse",
+    "title": "SLR: Model evaluation",
+    "section": "Two statistics: RMSE",
+    "text": "Two statistics: RMSE\n\nRoot mean square error, RMSE: A measure of the average error (average difference between observed and predicted values of the outcome)\n\\[\nRMSE = \\sqrt{\\frac{\\sum_{i = 1}^n (y_i - \\hat{y}_i)^2}{n}}\n\\]\n\nSometimes people just case about numerator (SSE) or version without the square-root (MSE)\nSometimes the denominator may have \\(n-1\\) instead\n\n\n\n\nWhat indicates a good model fit? Higher or lower \\(R^2\\)? Higher or lower RMSE?"
   }
 ]

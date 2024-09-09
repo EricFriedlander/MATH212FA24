@@ -1,7 +1,7 @@
 ---
 title: "SLR: Model evaluation"
 author: "Prof. Eric Friedlander"
-date: "2024-09-11"
+date: "2024-09-13"
 date-format: "MMM DD, YYYY"
 footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
@@ -87,21 +87,72 @@ tidy(heb_fit) |>
 
 # Model evaluation
 
-## Two statistics {.small}
+## Partitioning Variability
+
+Let's think about variation:
+
+:::{.incremental}
+- DATA = MODEL + ERROR
+- $\substack{\text{Variation} \\ \text{in Y}} = \substack{\text{Variation explained} \\ \text{by model}} + \substack{\text{Variation not explained} \\ \text{by model}}$
+:::
+
+## Partitioning Variability (ANOVA)
+
+:::{.incremental}
+-   $y_i - \bar{y} = (\hat{y}_i - \bar{y}) + (y_i-\hat{y}_i)$
+-   Square and sum: $\sum(y_i-\bar{y})^2 = \sum(\hat{y} - \bar{y})^2 + \sum(y-\hat{y})^2$
+-   $\substack{\text{Sum of squares} \\ \text{Total}} = \substack{\text{Sum of squares} \\ \text{model}} + \substack{\text{Sum of squares} \\ \text{error}}$
+-   $SSTotal = SSModel + SSE$
+-   $SST = SSM + SSE$
+:::
+
+## ANOVA in R
+
+```{r}
+anova(heb_fit) |> 
+  tidy() |> 
+  kable()
+```
+
+:::{.fragment}
+- More on this later in the semester
+:::
+
+## Recall: Correlation Coefficient
+
+-   The **correlation coefficient**, $r$, is a number between -1 and +1 that measures how strong the linear relationship between two variables $x$ and $y$ is.
+
+$$
+r = \frac{\sum(x_i - \bar{x})(y_i-\bar{y})}{\sqrt{\sum(x_i-\bar{x})^2\sum(y_i-\bar{y})^2}}
+= \frac{\sum(x_i - \bar{x})(y_i-\bar{y})}{s_xs_y}
+$$
+
+
+## Two statistics: $R^2$ {.smaller}
 
 ::: incremental
 -   **R-squared**, $R^2$, **Coefficient of Determination** : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)
+$$
+R^2 = Cor(y, \hat{y})^2
+$$
+    +     Also called **PRE (Percent Reduction in Error)** because:
+$$
+R^2 = \frac{SSModel}{SSTotal}
+$$
+:::
 
-    $$
-    R^2 = Cor(x,y)^2 = Cor(y, \hat{y})^2
-    $$
+ 
+## Two statistics: RMSE {.smaller}
 
 -   **Root mean square error, RMSE**: A measure of the average error (average difference between observed and predicted values of the outcome)
 
     $$
     RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
     $$
-:::
+    
+    +   Sometimes people just case about numerator (SSE) or version without the square-root (MSE)
+    
+    +   Sometimes the denominator may have $n-1$ instead
 
 . . .
 
@@ -116,13 +167,16 @@ What indicates a good model fit? Higher or lower $R^2$? Higher or lower RMSE?
 
 -   Has no units
 
--   Calculate with `glance()` or `summary()` using the fitted model:
+-   Calculate with `rsq()` from `yardstick` package using the augmented data:
 
 ```{r}
 #| echo: true
-glance(heb_fit)
 
-glance(heb_fit)$r.squared
+library(yardstick)
+heb_aug <- augment(heb_fit)
+
+rsq(heb_aug, truth = Number_Organic, estimate = .fitted) |> kable()
+
 ```
 :::
 
@@ -130,7 +184,8 @@ glance(heb_fit)$r.squared
 
 ```{r}
 #| echo: false
-heb_fit_rsq <- round(glance(heb_fit)$r.squared * 100, 1)
+#| 
+heb_fit_rsq <- round(rsq(heb_aug, truth = Number_Organic, estimate = .fitted) |> pull(.estimate) * 100, 1)
 ```
 
 ::: poll
@@ -141,11 +196,20 @@ heb_fit_rsq <- round(glance(heb_fit)$r.squared * 100, 1)
 The $R^2$ of the model for `Number_Organic` from `Average_Income_K` is `r heb_fit_rsq`%. Which of the following is the correct interpretation of this value?
 :::
 
-1.  `Avg_Income_K` correctly predicts `r heb_fit_rsq`% of `Number_Organic` in San Anontio HEBs.
+1.  `Avg_Income_K` correctly predicts `r heb_fit_rsq`% of `Number_Organic` in San Antontio HEBs.
 2.  `r heb_fit_rsq`% of the variability in `Number_Organic` can be explained by `Avg_Income_K`.
 3.  `r heb_fit_rsq`% of the variability in `Avg_Income_K` can be explained by `Number_Organic`.
 4.  `r heb_fit_rsq`% of the time `Number_Organic` can be predicted by `Avg_Income_K`.
 :::
+:::
+
+## Activity
+
+::: appex
+In groups, at the board, design a simulation-based procedure for producing a p-value for the following hypothesis test.
+
+- $H_0: R^2 = 0$
+- $H_A: R^2 \neq 0$
 :::
 
 ## RMSE
@@ -155,16 +219,17 @@ The $R^2$ of the model for `Number_Organic` from `Average_Income_K` is `r heb_fi
 
 -   Same units as the response variable
 
--   Calculate with `glance()` using the augmented data:
+-   Calculate with  `rsq()` from `yardstick` package using the augmented data:
 
-    ```{r}
-    #| echo: true
+```{r}
+#| echo: true
 
-    glance(heb_fit)$sigma
-    ```
+rmse(heb_aug, truth = Number_Organic, estimate = .fitted)
+```
 
--   The value of RMSE is not very meaningful on its own, but it's useful for comparing across models (more on this when we get to regression with multiple predictors)
+-   The value of RMSE is not very meaningful on its own, but it's useful for comparing across models (more on this and ANOVA when we get to regression with multiple predictors)
 :::
+
 
 <!-- # Application exercise -->
 

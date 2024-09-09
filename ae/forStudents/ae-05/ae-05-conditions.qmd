@@ -4,9 +4,6 @@ subtitle: "Songs on Spotify"
 author: "Driver: _______, Reporter: _______, Gopher: ________"
 date: "Sep 11, 2024"
 editor: visual
-format: 
-  pdf:
-    pdf-engine: pdflatex
 execute: 
   warning: false
   message: false
