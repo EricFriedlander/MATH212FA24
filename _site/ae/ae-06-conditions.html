@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-09-20">
+<meta name="author" content="Driver: _______, Reporter: _______, Gopher: ________">
+<meta name="dcterms.date" content="2024-09-11">
 
-<title>MAT 212 - Fall 2024 - AE 06: Conditions and model evaluation</title>
+<title>MAT 212 - Fall 2024 - AE 05: Model Conditions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -143,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 06: Conditions and model evaluation</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 05: Model Conditions</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -273,14 +274,14 @@ window.Quarto = {
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-06-conditions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-06-conditions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ae-06-conditions.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 06: Conditions and model evaluation</h1>
+<h1 class="title">AE 05: Model Conditions</h1>
 <p class="subtitle lead">Songs on Spotify</p>
 </div>
 
@@ -288,11 +289,17 @@ window.Quarto = {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Driver: _______, Reporter: _______, Gopher: ________ </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 20, 2022</p>
+      <p class="date">September 11, 2024</p>
     </div>
   </div>
   
@@ -314,8 +321,11 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Go to the <a href="https://github.com/sta210-fa23">course GitHub organization</a> and locate your <code>ae-06</code> repo to get started.</p>
-<p>Render, commit, and push your responses to GitHub by the end of class. The responses are due in your GitHub repo no later than Saturday, September 23 at 11:59pm.</p>
+<ul>
+<li><p>Open <a href="https://rstudio.collegeofidaho.edu/">RStudio</a> and create a subfolder in your AE folder called “AE-05”</p></li>
+<li><p>Go to the <a href="https://cofi.instructure.com/courses/15692/assignments/181903">Canvas</a> and locate your <code>AE 05</code> assignment to get started.</p></li>
+<li><p>Upload the <code>ae-05.qmd</code> and <code>spotify-popular.csv</code> files into the folder you just created. The <code>.qmd</code> and PDF responses are due in Canvas no later than Monday, September 16 at 11:59pm.</p></li>
+</ul>
 </div>
 </div>
 <div class="cell">
@@ -331,9 +341,9 @@ Important
 <p>It contains numerous characteristics for each song. You can see the full list of variables and definitions <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md">here</a>. This analysis will focus specifically on the following variables:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 4%">
-<col style="width: 2%">
-<col style="width: 92%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 64%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -390,7 +400,7 @@ Important
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Energy"</span>, </span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"for Popular songs on Spotify"</span>, </span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Energy"</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2 <span class="co"># The patchwork package will arrange your plots for you</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">

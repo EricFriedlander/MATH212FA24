@@ -1,12 +1,9 @@
 ---
-title: "AE 05: Model Conditions"
+title: "AE 05: Mathematical Models"
 subtitle: "Songs on Spotify"
 author: "Driver: _______, Reporter: _______, Gopher: ________"
 date: "Sep 11, 2024"
 editor: visual
-format: 
-  pdf:
-    pdf-engine: pdflatex
 execute: 
   warning: false
   message: false
@@ -17,7 +14,7 @@ execute:
 
 -   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/181903) and locate your `AE 05` assignment to get started.
 
--   Upload the `ae-05.qmd` and `ae-05.pdf` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas no later than Monday, September 16 at 11:59pm.
+-   Upload the `ae-05.qmd` and `spotify-popular.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas no later than Monday, September 16 at 11:59pm.
 :::
 
 ```{r}
@@ -38,7 +35,7 @@ The data set for this assignment is a subset from the [Spotify Songs](https://gi
 It contains numerous characteristics for each song. You can see the full list of variables and definitions [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md). This analysis will focus specifically on the following variables:
 
 | variable         | class     | description                                                                                                                                                                                                                                                                                                                                                                               |
-|:------------|:------------|:----------------------------------------------|
+|:--------|:--------|:------------------------------------------------------|
 | track_id         | character | Song unique ID                                                                                                                                                                                                                                                                                                                                                                            |
 | track_name       | character | Song Name                                                                                                                                                                                                                                                                                                                                                                                 |
 | track_artist     | character | Song Artist                                                                                                                                                                                                                                                                                                                                                                               |
@@ -50,7 +47,7 @@ It contains numerous characteristics for each song. You can see the full list of
 #| label: load-data
 #| warning: false
 #| message: false
-spotify <- read_csv("data/spotify-popular.csv")
+spotify <- read_csv("spotify-popular.csv")
 ```
 
 Are high energy songs more positive? To answer this question, we'll analyze data on some of the most popular songs on Spotify, i.e. those with `track_popularity >= 80`. We'll use linear regression to fit a model to predict a song's positiveness (`valence`) based on its energy level (`energy`).

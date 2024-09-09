@@ -1,5 +1,5 @@
 ---
-title: "AE 05: Model Conditions"
+title: "AE 05: Mathematical Models"
 subtitle: "Songs on Spotify"
 author: "Driver: _______, Reporter: _______, Gopher: ________"
 date: "Sep 11, 2024"
@@ -7,6 +7,9 @@ editor: visual
 execute: 
   warning: false
   message: false
+format: 
+  pdf:
+    pdf-engine: pdflatex
 ---
 
 ::: callout-important
@@ -14,7 +17,7 @@ execute:
 
 -   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/181903) and locate your `AE 05` assignment to get started.
 
--   Upload the `ae-05.qmd` and `ae-05.pdf` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas no later than Monday, September 16 at 11:59pm.
+-   Upload the `ae-05.qmd` and `spotify-popular.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas no later than Saturday, September 14 at 11:59pm.
 :::
 
 ```{r}
@@ -35,7 +38,7 @@ The data set for this assignment is a subset from the [Spotify Songs](https://gi
 It contains numerous characteristics for each song. You can see the full list of variables and definitions [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md). This analysis will focus specifically on the following variables:
 
 | variable         | class     | description                                                                                                                                                                                                                                                                                                                                                                               |
-|:------------|:------------|:----------------------------------------------|
+|:----------------|:----------------|:--------------------------------------|
 | track_id         | character | Song unique ID                                                                                                                                                                                                                                                                                                                                                                            |
 | track_name       | character | Song Name                                                                                                                                                                                                                                                                                                                                                                                 |
 | track_artist     | character | Song Artist                                                                                                                                                                                                                                                                                                                                                                               |
@@ -47,7 +50,7 @@ It contains numerous characteristics for each song. You can see the full list of
 #| label: load-data
 #| warning: false
 #| message: false
-spotify <- read_csv("data/spotify-popular.csv")
+spotify <- read_csv("spotify-popular.csv")
 ```
 
 Are high energy songs more positive? To answer this question, we'll analyze data on some of the most popular songs on Spotify, i.e. those with `track_popularity >= 80`. We'll use linear regression to fit a model to predict a song's positiveness (`valence`) based on its energy level (`energy`).
@@ -87,77 +90,24 @@ Fit a model using the `energy` of a song to predict its `valence`, i.e. positive
 
 ## Exercise 2
 
-Let's check the model conditions before doing any inference. Fill in the code below to use the `augment()` function to create a new data frame containing the residuals and fitted values (among other information)
-
-::: callout-important
-Note: Remove `#|eval: false` from the code chunk after you have filled in the code.
-:::
-
-```{r}
-#| eval: false
-spotify_aug <- augment(_____)
-```
+In words interpret the estimate and confidence interval for the slope in the previous exercise.
 
 ## Exercise 3
 
-Make a plot of the residual vs. fitted values.
+Interpret the p-value from Exercise 1.
 
-```{r}
-#| label: resid-vs-fitted
+## Exericse 4
 
-# add code here
-```
+Predict what the average valence for a song with an energy score 0.5 is. Report and interpret a 90% confidence interval for the average valence.
 
-## Exercise 4
+## Exericse 5
 
-Fill in the code to make a histogram of the residuals and a normal QQ-plot.
+Report and interpret a 90% confidence interval for a single song with energy score 0.8.
 
-```{r}
-#| label: resid-dist
-#| eval: false
-
-resid_hist <- gf_histogram(~____, data = ____)) |> 
-  gf_labs(x = "_____", 
-       y = "_____", 
-       title = "____")
-
-resid_qq <- gf_qq(~____, data = ____)  |>
-  gf_qqline() |> 
-  gf_labs(x = "_____", 
-       y = "_____", 
-       title = "____")
-
-resid_hist + resid_qq
-```
-
-## Exercise 5
-
-Assess the four model conditions. Use the plots from the previous exercises to help make the assessment.
-
--   Linearity
--   Constant variance
--   Normality
--   Independence
-
-## Exercise 6
-
-Calculate $R^2$ and interpret this value in the context of the data.
-
-```{r}
-#| label: calc-rsq
-```
-
-## Exercise 7
-
-Calculate RMSE and interpret this value in the context of the data.
-
-```{r}
-#| label: calc-rmse
-```
 
 ::: callout-important
 To submit the AE:
 
 -   Render the document to produce the PDF with all of your work from today's class.
--   Push all your work to your `ae-06` repo on GitHub. (You do not submit AEs on Gradescope).
+-   Upload your qmd and pdf files to the Canvas assignment.
 :::

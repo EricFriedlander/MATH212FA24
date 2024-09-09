@@ -387,6 +387,10 @@
       margin-right: 0; 
     }
   </style>
+  <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+  <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
   <link href="../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
 
   <script src="../site_libs/countdown-0.4.0/countdown.js"></script>
@@ -423,14 +427,15 @@ Prof.&nbsp;Eric Friedlander
 <span id="cb1-4"><a></a><span class="fu">library</span>(broom)       <span class="co"># for formatting model output</span></span>
 <span id="cb1-5"><a></a><span class="fu">library</span>(scales)      <span class="co"># for pretty axis labels</span></span>
 <span id="cb1-6"><a></a><span class="fu">library</span>(knitr)       <span class="co"># for pretty tables</span></span>
-<span id="cb1-7"><a></a><span class="fu">library</span>(patchwork)   <span class="co"># arrange plots</span></span>
-<span id="cb1-8"><a></a></span>
-<span id="cb1-9"><a></a><span class="co"># HEB Dataset</span></span>
-<span id="cb1-10"><a></a>heb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/HEBIncome.csv"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb1-11"><a></a>  <span class="fu">mutate</span>(<span class="at">Avg_Income_K =</span> Avg_Household_Income<span class="sc">/</span><span class="dv">1000</span>)</span>
-<span id="cb1-12"><a></a></span>
-<span id="cb1-13"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
-<span id="cb1-14"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a></a><span class="fu">library</span>(kableExtra)  <span class="co"># also for pretty tables</span></span>
+<span id="cb1-8"><a></a><span class="fu">library</span>(patchwork)   <span class="co"># arrange plots</span></span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a><span class="co"># HEB Dataset</span></span>
+<span id="cb1-11"><a></a>heb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/HEBIncome.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-12"><a></a>  <span class="fu">mutate</span>(<span class="at">Avg_Income_K =</span> Avg_Household_Income<span class="sc">/</span><span class="dv">1000</span>)</span>
+<span id="cb1-13"><a></a></span>
+<span id="cb1-14"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
+<span id="cb1-15"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="regression-model-revisited" class="slide level2">
@@ -477,7 +482,293 @@ Prof.&nbsp;Eric Friedlander
 Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 \]</span></p>
 
-<img data-src="images/06/regression.png" class="r-stretch quarto-figure-center"><p class="caption">Image source: <em>Introduction to the Practice of Statistics (5th ed)</em></p></section></section>
+<img data-src="images/06/regression.png" class="r-stretch quarto-figure-center"><p class="caption">Image source: <em>Introduction to the Practice of Statistics (5th ed)</em></p></section>
+<section id="confidence-interval-for-the-slope" class="slide level2">
+<h2>Confidence interval for the slope</h2>
+<p><span class="math display">\[
+\text{Estimate} \pm \text{ (critical value) } \times \text{SE}
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
+\hat{\beta}_1 \pm t^* \times SE_{\hat{\beta}_1}
+\]</span></p>
+<p>where <span class="math inline">\(t^*\)</span> is calculated from a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-2\)</span> degrees of freedom</p>
+</div>
+</section>
+<section id="confidence-interval-critical-value" class="slide level2">
+<h2>Confidence interval: Critical value</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="fragment" data-fragment-index="1">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># confidence level: 95%</span></span>
+<span id="cb3-2"><a></a><span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">nrow</span>(heb) <span class="sc">-</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.030108</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment" data-fragment-index="2">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># confidence level: 90%</span></span>
+<span id="cb5-2"><a></a><span class="fu">qt</span>(<span class="fl">0.95</span>, <span class="at">df =</span> <span class="fu">nrow</span>(heb) <span class="sc">-</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.689572</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment" data-fragment-index="3">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># confidence level: 99%</span></span>
+<span id="cb7-2"><a></a><span class="fu">qt</span>(<span class="fl">0.995</span>, <span class="at">df =</span> <span class="fu">nrow</span>(heb) <span class="sc">-</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.723806</code></pre>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ci-for-the-slope-calculation" class="slide level2">
+<h2>95% CI for the slope: Calculation</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-14.72</td>
+<td style="text-align: right;">9.30</td>
+<td style="text-align: right;">-1.58</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(217, 227, 228, 255) !important;">Avg_Income_K</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.96</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.13</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">7.50</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.00</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><span class="math display">\[\hat{\beta}_1 = 0.96 \hspace{15mm} t^* = 2.03 \hspace{15mm} SE_{\hat{\beta}_1} = 0.13\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
+0.96 \pm 2.03 \times 0.13 = (0.70, 1.22)
+\]</span></p>
+</div>
+</section>
+<section id="ci-for-the-slope-computation" class="slide level2">
+<h2>95% CI for the slope: Computation</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">tidy</span>(heb_fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 13%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 13%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+<th style="text-align: right;">conf.low</th>
+<th style="text-align: right;">conf.high</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-14.72</td>
+<td style="text-align: right;">9.30</td>
+<td style="text-align: right;">-1.58</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">-33.59</td>
+<td style="text-align: right;">4.16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Avg_Income_K</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">7.50</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.70</td>
+<td style="text-align: right;">1.22</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section></section>
+<section>
+<section id="intervals-for-predictions" class="title-slide slide level1 center">
+<h1>Intervals for predictions</h1>
+
+</section>
+<section id="intervals-for-predictions-1" class="slide level2 smaller">
+<h2>Intervals for predictions</h2>
+<ul>
+<li>Question: <em>“What is the predicted number of organic vegetable options in a neighborhood with an average income of $70k?”</em></li>
+<li>We said reporting a single estimate for the slope is not wise, and we should report a plausible range instead</li>
+<li>Similarly, reporting a single prediction for a new value is not wise, and we should report a plausible range instead</li>
+</ul>
+
+<img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="two-types-of-predictions" class="slide level2">
+<h2>Two types of predictions</h2>
+<ol type="1">
+<li><p>Prediction for the mean: “What is the average predicted number of organic vegetable options in a neighborhood with an average income of $70k?”</p></li>
+<li><p>Prediction for an individual observation: “What is the predicted number of organic vegetable options at a single HEB in a neighborhood with an average income of $70k?”</p></li>
+</ol>
+<div class="fragment">
+<div class="question">
+<p>Which would you expect to be more variable? The average prediction or the prediction for an individual observation? Based on your answer, how would you expect the widths of plausible ranges for these two predictions to compare?</p>
+</div>
+</div>
+</section>
+<section id="uncertainty-in-predictions" class="slide level2">
+<h2>Uncertainty in predictions</h2>
+<p><strong>Confidence interval for the mean outcome:</strong> <span class="math display">\[\large{\hat{y} \pm t_{n-2}^* \times \color{purple}{\mathbf{SE}_{\hat{\boldsymbol{\mu}}}}}\]</span></p>
+<div class="fragment">
+<p><strong>Prediction interval for an individual observation:</strong> <span class="math display">\[\large{\hat{y} \pm t_{n-2}^* \times \color{purple}{\mathbf{SE_{\hat{y}}}}}\]</span></p>
+</div>
+</section>
+<section id="standard-errors" class="slide level2">
+<h2>Standard errors</h2>
+<p><strong>Standard error of the mean outcome:</strong> <span class="math display">\[SE_{\hat{\mu}} = \hat{\sigma}_\epsilon\sqrt{\frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}\]</span></p>
+<div class="fragment">
+<p><strong>Standard error of an individual outcome:</strong> <span class="math display">\[SE_{\hat{y}} = \hat{\sigma}_\epsilon\sqrt{1 + \frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}\]</span></p>
+</div>
+</section>
+<section id="standard-errors-1" class="slide level2">
+<h2>Standard errors</h2>
+<p><strong>Standard error of the mean outcome:</strong> <span class="math display">\[SE_{\hat{\mu}} = \hat{\sigma}_\epsilon\sqrt{\frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}\]</span></p>
+<p><strong>Standard error of an individual outcome:</strong> <span class="math display">\[SE_{\hat{y}} = \hat{\sigma}_\epsilon\sqrt{\mathbf{\color{purple}{\Large{1}}} + \frac{1}{n} + \frac{(x-\bar{x})^2}{\sum\limits_{i=1}^n(x_i - \bar{x})^2}}\]</span></p>
+</section>
+<section id="confidence-interval" class="slide level2">
+<h2>Confidence interval</h2>
+<p>The 95% <strong>confidence interval</strong> for the <em>mean</em> outcome:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>new_neighborhood <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Avg_Income_K =</span> <span class="dv">70</span>)</span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a><span class="fu">predict</span>(heb_fit, <span class="at">newdata =</span> new_neighborhood, <span class="at">interval =</span> <span class="st">"confidence"</span>, <span class="at">level =</span> <span class="fl">0.95</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-4"><a></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">fit</th>
+<th style="text-align: right;">lwr</th>
+<th style="text-align: right;">upr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">52.4175</td>
+<td style="text-align: right;">46.58558</td>
+<td style="text-align: right;">58.24942</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>We are 95% confident that the <em>mean</em> number of organic vegetable options offered by HEB in a neighborhood with an average income of $70k is between 46.59 and 58.25.</li>
+</ul>
+</div>
+</section>
+<section id="prediction-interval" class="slide level2">
+<h2>Prediction interval</h2>
+<p>The 95% <strong>prediction interval</strong> for an <em>individual</em> outcome:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">predict</span>(heb_fit, <span class="at">newdata =</span> new_neighborhood, <span class="at">interval =</span> <span class="st">"prediction"</span>, <span class="at">level =</span> <span class="fl">0.95</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">fit</th>
+<th style="text-align: right;">lwr</th>
+<th style="text-align: right;">upr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">52.4175</td>
+<td style="text-align: right;">16.48941</td>
+<td style="text-align: right;">88.34559</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="fragment">
+<p>We are 95% confident that the number of organic vegetable options offered by HEB in a neighborhood with an average income of $70k is between 16.49 and 88.35.</p>
+</div>
+</section>
+<section id="comparing-intervals" class="slide level2">
+<h2>Comparing intervals</h2>
+
+<img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="extrapolation" class="slide level2">
+<h2>Extrapolation</h2>
+<p>Using the model to predict for values outside the range of the original data is <strong>extrapolation</strong>.</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="question">
+<p>Calculate the prediction interval for the number of organic options in an extremely wealthy neighborhood with an average household income of $500k.</p>
+</div>
+<p><span class="fragment"><em>No, thanks!</em></span></p>
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/07/Dall_ERichPersonVeges.jpg" class="quarto-figure quarto-figure-center" alt="AI Generated Image of &quot;A very rich person eating organic vegetables&quot;"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="extrapolation-1" class="slide level2">
+<h2>Extrapolation</h2>
+<div class="question">
+<p>Why do we want to avoid extrapolation?</p>
+</div>
+</section></section>
 <section>
 <section id="model-conditions" class="title-slide slide level1 center">
 <h1>Model conditions</h1>
@@ -509,9 +800,9 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <section id="the-augment-function" class="slide level2 smaller">
 <h2>The augment function</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>heb_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(heb_fit)</span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a><span class="fu">head</span>(heb_aug) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>heb_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(heb_fit)</span>
+<span id="cb12-2"><a></a></span>
+<span id="cb12-3"><a></a><span class="fu">head</span>(heb_aug) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top">
 <colgroup>
@@ -605,14 +896,14 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <section id="residuals-vs.-fitted-values-code" class="slide level2">
 <h2>Residuals vs.&nbsp;fitted values (code)</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>heb_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(heb_fit)</span>
-<span id="cb4-2"><a></a></span>
-<span id="cb4-3"><a></a><span class="fu">gf_point</span>(.resid <span class="sc">~</span> .fitted, <span class="at">data =</span> heb_aug) <span class="sc">|&gt;</span> </span>
-<span id="cb4-4"><a></a>  <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb4-5"><a></a>  <span class="fu">gf_labs</span>(</span>
-<span id="cb4-6"><a></a>    <span class="at">x =</span> <span class="st">"Fitted value"</span>, <span class="at">y =</span> <span class="st">"Residual"</span>,</span>
-<span id="cb4-7"><a></a>    <span class="at">title =</span> <span class="st">"Residuals vs. fitted values"</span></span>
-<span id="cb4-8"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>heb_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(heb_fit)</span>
+<span id="cb13-2"><a></a></span>
+<span id="cb13-3"><a></a><span class="fu">gf_point</span>(.resid <span class="sc">~</span> .fitted, <span class="at">data =</span> heb_aug) <span class="sc">|&gt;</span> </span>
+<span id="cb13-4"><a></a>  <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb13-5"><a></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb13-6"><a></a>    <span class="at">x =</span> <span class="st">"Fitted value"</span>, <span class="at">y =</span> <span class="st">"Residual"</span>,</span>
+<span id="cb13-7"><a></a>    <span class="at">title =</span> <span class="st">"Residuals vs. fitted values"</span></span>
+<span id="cb13-8"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="non-linear-relationships" class="slide level2">
@@ -623,7 +914,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<p><img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -633,7 +924,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<p><img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -655,7 +946,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <h2>Constant variance</h2>
 <p>✅ The vertical spread of the residuals is relatively constant across the plot</p>
 
-<img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="non-constant-variance" class="slide level2">
 <h2>Non-constant variance</h2>
 <div class="columns">
@@ -664,7 +955,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<p><img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -674,7 +965,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<p><img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -700,7 +991,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <section id="normality-1" class="slide level2">
 <h2>Normality</h2>
 
-<img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section id="check-normality-using-a-qq-plot" class="slide level2">
 <h2>Check normality using a QQ-plot</h2>
 <div class="columns">
@@ -708,18 +999,18 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> heb_aug,</span>
-<span id="cb5-2"><a></a>             <span class="at">bins=</span><span class="dv">7</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb5-3"><a></a>  <span class="fu">gf_labs</span>(</span>
-<span id="cb5-4"><a></a>    <span class="at">x =</span> <span class="st">"Residual"</span>,</span>
-<span id="cb5-5"><a></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
-<span id="cb5-6"><a></a>    <span class="at">title =</span> <span class="st">"Histogram of residuals"</span></span>
-<span id="cb5-7"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">gf_histogram</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> heb_aug,</span>
+<span id="cb14-2"><a></a>             <span class="at">bins=</span><span class="dv">7</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a></a>  <span class="fu">gf_labs</span>(</span>
+<span id="cb14-4"><a></a>    <span class="at">x =</span> <span class="st">"Residual"</span>,</span>
+<span id="cb14-5"><a></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb14-6"><a></a>    <span class="at">title =</span> <span class="st">"Histogram of residuals"</span></span>
+<span id="cb14-7"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+<p><img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
@@ -729,16 +1020,16 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">gf_qq</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> heb_aug) <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a></a>  <span class="fu">gf_qqline</span>() <span class="sc">|&gt;</span>  </span>
-<span id="cb7-3"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Theoretical quantile"</span>, </span>
-<span id="cb7-4"><a></a>       <span class="at">y =</span> <span class="st">"Observed quantile"</span>, </span>
-<span id="cb7-5"><a></a>       <span class="at">title =</span> <span class="st">"Normal QQ-plot of residuals"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">gf_qq</span>(<span class="sc">~</span>.resid, <span class="at">data =</span> heb_aug) <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a></a>  <span class="fu">gf_qqline</span>() <span class="sc">|&gt;</span>  </span>
+<span id="cb16-3"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Theoretical quantile"</span>, </span>
+<span id="cb16-4"><a></a>       <span class="at">y =</span> <span class="st">"Observed quantile"</span>, </span>
+<span id="cb16-5"><a></a>       <span class="at">title =</span> <span class="st">"Normal QQ-plot of residuals"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+<p><img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
@@ -753,7 +1044,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 <section id="normality-2" class="slide level2">
 <h2>Normality</h2>
 
-<img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>❌ The residuals do not appear to follow a normal distribution, because the points do not lie on the diagonal line, so normality is not satisfied.</p>
+<img data-src="09-slr-conditions_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><p>❌ The residuals do not appear to follow a normal distribution, because the points do not lie on the diagonal line, so normality is not satisfied.</p>
 <p>✅ The sample size <span class="math inline">\(n =  37 &gt; 30\)</span>, so the sample size is large enough to relax this condition and proceed with inference.</p>
 </section>
 <section id="independence" class="slide level2 midi">
@@ -807,7 +1098,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="countdown" id="timer_8e246c73" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_965a2e74" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -825,7 +1116,7 @@ Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="countdown" id="timer_d4e4e5e7" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:2em;">
+<div class="countdown" id="timer_3b1396c4" data-update-every="1" tabindex="0" style="right:0;bottom:0;font-size:2em;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>

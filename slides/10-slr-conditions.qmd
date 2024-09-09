@@ -1,7 +1,7 @@
 ---
 title: "SLR: Conditions"
 author: "Prof. Eric Friedlander"
-date: "2024-09-11"
+date: "2024-09-13"
 date-format: "MMM DD, YYYY"
 footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
@@ -56,6 +56,7 @@ library(ggformula)   # for plotting using formulas
 library(broom)       # for formatting model output
 library(scales)      # for pretty axis labels
 library(knitr)       # for pretty tables
+library(kableExtra)  # also for pretty tables
 library(patchwork)   # arrange plots
 
 # HEB Dataset
