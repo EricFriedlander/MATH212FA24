@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MAT 212 - Fall 2024 - HW 03: Multiple linear regression, Part 2</title>
+<title>MAT 212 - Fall 2024 - Homework 03: Coffee grades</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,27 +54,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -162,7 +142,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 03: Multiple linear regression, Part 2</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Homework 03: Coffee grades</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -283,11 +263,13 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  </ul></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#data-legos" id="toc-data-legos" class="nav-link" data-scroll-target="#data-legos">Data: LEGOs</a></li>
+  <li><a href="#data-coffee-grades" id="toc-data-coffee-grades" class="nav-link" data-scroll-target="#data-coffee-grades">Data: Coffee grades</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
@@ -300,15 +282,10 @@ window.Quarto = {
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
   <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
-  <li><a href="#exercise-11" id="toc-exercise-11" class="nav-link" data-scroll-target="#exercise-11">Exercise 11</a></li>
-  <li><a href="#exercise-12" id="toc-exercise-12" class="nav-link" data-scroll-target="#exercise-12">Exercise 12</a></li>
-  <li><a href="#exercise-13" id="toc-exercise-13" class="nav-link" data-scroll-target="#exercise-13">Exercise 13</a></li>
-  <li><a href="#exercise-14" id="toc-exercise-14" class="nav-link" data-scroll-target="#exercise-14">Exercise 14</a></li>
   </ul></li>
-  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
-  <li><a href="#grading-50-points" id="toc-grading-50-points" class="nav-link" data-scroll-target="#grading-50-points">Grading (50 points)</a>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a>
   <ul class="collapse">
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#grading-50-pts" id="toc-grading-50-pts" class="nav-link" data-scroll-target="#grading-50-pts">Grading (50 pts)</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/hw/hw-03.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -318,8 +295,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HW 03: Multiple linear regression, Part 2</h1>
-<p class="subtitle lead">due Wednesday, November 1 at 11:59pm</p>
+<h1 class="title">Homework 03: Coffee grades</h1>
+<p class="subtitle lead">Inference for simple linear regression using mathematical models</p>
 </div>
 
 
@@ -336,36 +313,6 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>In this analysis you will use multiple linear regression to fit and evaluate models using characteristics of LEGO sets to understand variability in the price.</p>
-</section>
-<section id="learning-goals" class="level1">
-<h1>Learning goals</h1>
-<p>In this assignment, you will…</p>
-<ul>
-<li>Use exploratory data analysis to inform feature engineering steps</li>
-<li>Use cross validation to evaluate and compare models</li>
-<li>Assess model conditions and multicollinearity</li>
-<li>Use inference to draw conclusions</li>
-<li>Continue developing a workflow for reproducible data analysis.</li>
-</ul>
-</section>
-<section id="getting-started" class="level1">
-<h1>Getting started</h1>
-<p>The repo for this assignment is available on GitHub at <a href="https://github.com/sta210-fa23" title="Course GitHub organization">github.com/sta210-fa23</a> and starts with the prefix <strong>hw-03</strong>. See <a href="../labs/lab-01.html">Lab 01</a> for more detailed instructions on getting started.</p>
-</section>
-<section id="packages" class="level1">
-<h1>Packages</h1>
-<p>The following packages will be used in this assignment:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels) </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr) </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rms)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># add other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -376,33 +323,55 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.</p>
+<p>Due: Friday, September 20, 11:59pm</p>
 </div>
+</div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In this weeks homework you will analyze data from over 1,000 different coffees to explore the relationship between a coffee’s aroma and its flavor grade.</p>
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
+<p>By the end of the homework you will…</p>
+<ul>
+<li>be able to use mathematical models to conduct inference for the slope</li>
+<li>be able to assess conditions for simple linear regression</li>
+</ul>
+</section>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting started</h1>
+<ul>
+<li><p>Go to <a href="https://rstudio.collegeofidaho.edu">RStudio</a> and login with your College of Idaho Email and Password.</p></li>
+<li><p>Make a subfolder in your hw directory to store this homework.</p></li>
+<li><p>Log into <a href="https://cofi.instructure.com/courses/15692/assignments/181930">Canvas</a>, navigate to Homework 3 and upload the <code>hw-03.qmd</code> and <code>coffee-grades.csv</code> file into the folder your just made.</p></li>
+</ul>
+</section>
+<section id="packages" class="level1">
+<h1>Packages</h1>
+<p>The following packages are used in the homework.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="data-legos" class="level1">
-<h1>Data: LEGOs</h1>
-<p>The data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from <span class="citation" data-cites="peterson2021">Peterson and Ziegler (<a href="#ref-peterson2021" role="doc-biblioref">2021</a>)</span>.</p>
-<p>You will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are</p>
+<section id="data-coffee-grades" class="level1">
+<h1>Data: Coffee grades</h1>
+<p>The dataset for this homework comes from the <a href="https://github.com/jldbc/coffee-quality-database">Coffee Quality Database</a> and was obtained from the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md">#TidyTuesday GitHub repo</a>. It includes information about the origin, producer, measures of various characteristics, and the quality measure for over 1,000 coffees. The coffees can be reasonably be treated as a random sample.</p>
+<p>This homework will focus on the following variables:</p>
 <ul>
-<li><code>Pieces</code>: Number of pieces in the set from brickset.com.</li>
-<li><code>Minifigures</code>: Number of minifigures (LEGO people) in the set scraped from brickset.com. LEGO sets with no minifigures have been coded as NA. NA’s also represent missing data. This is due to how brickset.com reports their data.</li>
-<li><code>Amazon_Price</code>: Amazon price of the set scraped from brickset.com (in U.S. dollars)</li>
-<li><code>Size</code>: General size of the interlocking bricks (Large = LEGO Duplo sets - which include large brick pieces safe for children ages 1 to 5, Small = LEGO sets which- include the traditional smaller brick pieces created for age groups 5 and - older, e.g., City, Friends)</li>
-<li><code>Theme</code>: Theme of the LEGO set</li>
-<li><code>Year</code> : Year the LEGO set was produced</li>
-<li><code>Pages</code>: Number of pages in the instruction booklet</li>
+<li><code>aroma</code>: Aroma grade, 0 (worst aroma) - 10 (best aroma)</li>
+<li><code>flavor</code>: Flavor grade, 0 (worst flavor) - 10 (best flavor)</li>
 </ul>
-<p>The data are contained in <code>lego-sample.csv</code>. Use the code below to read in the data, replace the <code>NA</code>s in Minifigure with 0, and remove any observations that have missing values for the relevant variables.</p>
+<p><a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md">Click here</a> for the definitions of all variables in the data set. <a href="http://www.scaa.org/?page=resources&amp;d=cupping-protocols&amp;mod=article_inline">Click here</a> for more details about how these measures are obtained.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>legos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/lego-sample.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Size, Pieces, Theme, Amazon_Price, Year, Pages, Minifigures) <span class="sc">|&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Minifigures =</span> <span class="fu">replace_na</span>(Minifigures, <span class="dv">0</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>coffee <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/coffee-grades.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
+<hr>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -413,79 +382,71 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.</p>
+<p>Make sure to do the following as you complete the assignment:</p>
+<ul>
+<li>Write all code and narrative in your Quarto file. I should be able to read all your code in the rendered PDF.</li>
+<li>Write all narrative in complete sentences.</li>
+<li>Use informative axis titles and labels on all graphs.</li>
+<li>You should periodically <strong>render</strong> your Quarto document to produce the updated PDF to make sure your output is as you expect it to be.</li>
+</ul>
 </div>
 </div>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>In this analysis, we dropped observations that have missing values for some of the relevant variables. What is a disadvantage of dropping observations that have missing values, instead of using a method to impute, i.e., fill in, the missing data? How might dropping these observations impact the generalizability of conclusions? What is the disadvantage of replacing the <code>NA</code>s in Minifigures to 0?</p>
+<p><strong>Goal</strong>: The goal of this analysis is to use linear regression to understand variability in coffee flavor grades based on the aroma grade.</p>
+<section id="exercise-1" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
+<p>Visualize the relationship between the aroma and flavor grades. Write two observations from the plot.</p>
 </section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Visualize the distributions of the predictor variables <code>Pieces</code>, <code>Size</code>, <code>Year</code>, and <code>Pages</code>. Neatly arrange the plots using the <a href="https://patchwork.data-imaginist.com/index.html">patchwork</a> package.</p>
+<section id="exercise-2" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
+<p>Fit the linear model using aroma grade to understand variability in the flavor grade. Neatly display the model using three digits and include the <strong>95%</strong> confidence interval for the model coefficients in the output.</p>
 </section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>What are some feature engineering steps you might use to prepare the variables in the previous exercise for the model? Describe the steps and the function you would use. The list should incorporate at least three different <code>step_</code> functions.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Use the <a href="https://recipes.tidymodels.org/reference/index.html">recipes reference page</a> for a list of <code>step_</code> functions.</p>
-</div>
-</div>
+<section id="exercise-3" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
+<ul>
+<li><p>Interpret the slope in the context of the data.</p></li>
+<li><p>Assume you are a coffee drinker. Would you drink a coffee represented by the intercept? Why or why not?</p></li>
+</ul>
 </section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>The distribution of <code>Theme</code> is shown below. The bars are ordered by the frequency they occur in the data set.</p>
+<section id="exercise-4" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
+<p>Input the model name in the code below to calculate the regression standard error, <span class="math inline">\(\hat{\sigma}_\epsilon\)</span>. State the definition of this value in the context of the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>legos <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Theme) <span class="sc">|&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(Theme, n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Lego Set Theme"</span>, </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Theme"</span>, </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Number of LEGO sets"</span>) <span class="sc">+</span> </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hw-03_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(____)<span class="sc">$</span>sigma</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-<p>What is one reason we should avoid putting the variable <code>Theme</code> in a model as is?</p>
 </section>
-<section id="exercise-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>We will use v-fold cross validation to compare two models. We’ll start by preparing the data, creating the folds, and defining the model specification that will be used for both models.</p>
+<section id="exercise-5" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
+<p>Do the data provide evidence of a statistically significant linear relationship between aroma and flavor grades? Conduct a hypothesis test using mathematical models to answer this question. In your response</p>
 <ul>
-<li><p>Split the data into training (75%) and testing (25%) sets. Use a seed of <code>6</code>.</p></li>
-<li><p>Split the training data into 12 folds. Set the seed to <code>6</code> again.</p></li>
-<li><p>Specify the model.</p></li>
+<li>State the null and alternative hypotheses in words and in mathematical notation.</li>
+<li>What is the test statistic? State what the test statistic means in the context of this problem.</li>
+<li>What distribution was used to calculate the p-value? Be specific.</li>
+<li>State the conclusion in the context of the data using a threshold of <span class="math inline">\(\alpha = 0.05\)</span> to make your decision.</li>
 </ul>
 </section>
-<section id="exercise-6" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Use the training data to create a recipe for the first model. The model uses the variables <code>Size</code>, <code>Theme</code>, and <code>Pages</code> to predict <code>Amazon_Price</code>. Conduct the following feature engineering steps:</p>
+<section id="exercise-6" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
 <ul>
-<li>Use <a href="https://recipes.tidymodels.org/reference/step_other.html"><code>step_other()</code></a> to collapse <code>Theme</code> into fewer categories. Define the threshold such that any levels of <code>Theme</code> with fewer than 20 observations is defined as “Other”.</li>
-<li>Mean-center <code>Pages</code>.</li>
-<li>Make dummy variables for all categorical predictors.</li>
-<li>Remove any predictors with zero variance.</li>
+<li><p>What is the critical value (i.e.&nbsp;<span class="math inline">\(t^*\)</span>) used to calculate the 95% confidence interval displayed in Exercise 2 using the <code>qt</code> function? Show the code and output used to get your response.</p></li>
+<li><p>Is the confidence interval consistent with the conclusions from the hypothesis test? Briefly explain why or why not.</p></li>
 </ul>
-<p>Then create the workflow that brings together this recipe and the model specification from the previous exercise.</p>
 </section>
-<section id="exercise-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Conduct 12-fold cross validation using the workflow from the previous exercise. Calculate and display mean <strong>RMSE</strong> across the 12 folds.</p>
+<section id="exercise-7" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
+<ul>
+<li><p>Calculate the 95% confidence interval for the mean flavor grade for coffees with aroma grade of 7.5. Interpret this value in the context of the data.</p></li>
+<li><p>One coffee produced by the Ethiopia Commodity Exchange has an aroma of 7.5. Calculate the the 95% prediction interval for the flavor grade for this coffee. Interpret this value in the context of the data.</p></li>
+<li><p>How do the predicted values compare? How do the intervals compare? If there are differences in the predictions and/or intervals, briefly explain why.</p></li>
+</ul>
+</section>
+<section id="exercise-8" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-8">Exercise 8</h3>
+<p>We’d like to check the model conditions to assess the reliability of the inferential results. To do so, we will create a data frame called <code>coffee_aug</code> that includes the residuals and predicted values from the model. Input the name of your model in the code below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval: false</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>coffee_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(_____)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Make a scatterplot of the residuals (<code>.resid</code>) vs.&nbsp;fitted values (<code>.fitted</code>). Use <a href="https://www.mosaic-web.org/ggformula/reference/gf_lines.html"><code>gf_hline()</code></a> to add a horizontal dotted line at <span class="math inline">\(residuals = 0\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -496,167 +457,49 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We will just use RMSE to compare models for this assignment; however, in practice, it is best to take into account multiple model fit statistics to get a more holistic evaluation and comparison of the models.</p>
-</div>
-</div>
-</section>
-<section id="exercise-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>Now let’s consider a new model that includes all the variables used in model from Exercise 6 along with <code>Year</code>, <code>Pieces</code> and <code>Minifigures</code>.</p>
-<ul>
-<li><p>Use the training data to create a recipe that uses all the feature engineering steps in Exercise 6 with the addition of the following steps:</p>
-<ul>
-<li>Create a new variable called <code>since2018</code> that calculates the number of years since 2018.</li>
-<li>Remove <code>Year</code> as a potential predictor.</li>
-<li>Mean-center <code>Pieces</code>.</li>
-</ul></li>
-<li><p>Create the workflow that brings together this recipe and the model specification from Exercise 5.</p></li>
-<li><p>Conduct 12-fold cross validation using this model workflow. Calculate and display mean <strong>RMSE</strong> across the 12 folds.</p></li>
-</ul>
-</section>
-<section id="exercise-9" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<p>Compare the cross validation results from Exercises 7 and 8. Which model do you select based on RMSE? Briefly explain your choice.</p>
-</section>
-<section id="exercise-10" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
-<p>Refit the selected model on the entire training data. Neatly display the model using 3 digits.</p>
-<p>Then, calculate VIF for the model and use it to comment on whether there are potential issues with multicollinearity.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>When we fit a model using <code>recipe</code> and <code>workflow</code>, we need to extract the model object before using <code>augment</code> or <code>vif</code> functions. Fill in the name of the selected model in both blanks in the code below to extract the model object and calculate VIF</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>legos_fit_model <span class="ot">&lt;-</span> <span class="fu">extract_fit_parsnip</span>(______)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(legos_fit_model<span class="sc">$</span>fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="exercise-11" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-11">Exercise 11</h2>
-<p>Calculate RMSE on the training data and on the testing data. Use it to comment on how well the model performs on new data and whether there are signs of model overfit.</p>
-</section>
-<section id="exercise-12" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-12">Exercise 12</h2>
-<p><em>Though we do not check the model conditions in this assignment, complete this exercise assuming the model conditions are met.</em></p>
-<p>Describe the effect of <code>Theme</code> on the price of LEGO sets, including an indication of which levels are statistically significant. Use a threshold of 0.05 to determine significance.</p>
-<div class="render-commit-push">
-<p>Before submitting, make sure you render your document and commit (with a meaningful commit message) and push all updates.</p>
-</div>
-</section>
-<section id="exercise-13" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-13">Exercise 13</h2>
-<p>The World Bank collects “world development indicators” about the past and current development of countries. These data are made available on the <a href="https://data.worldbank.org/indicator">World Bank’s website</a>. It can be used to understand the relationships between these various factors and trends over time.<br>
+<p>The <strong>linearity condition</strong> is satisfied if there is random scatter of the residuals (no distinguishable pattern or structure) in the plot of residuals vs.&nbsp;fitted values.<br>
 <br>
-For this analysis, we focus on indicators from 2011 on 165 countries. The variables of interest are:</p>
+The <strong>constant variance</strong> condition is satisfied if the vertical spread of the residuals is relatively across the plot.</p>
+</div>
+</div>
 <ul>
-<li><p><code>gdp.per.capita</code>: gross domestic product divided by midyear population. GDP is the sum of gross value added by all resident producers in the economy plus any product taxes and minus any subsidies not included in the value of the products. It is calculated without making deductions for depreciation of fabricated assets or for depletion and degradation of natural resources. Data are in current U.S. dollars.</p></li>
-<li><p><code>sanit.access.factor</code>: Population access to sanitation facilities (Low, High)</p></li>
-<li><p><code>edu.expend</code>: Government expenditure on education, total (% of government expenditure)</p></li>
-<li><p><code>life.expect</code>: Life expectancy at birth (in years)</p></li>
+<li><p>Is the linearity condition satisfied? Briefly explain why or why not.</p></li>
+<li><p>Is the constant variance condition satisfied? Briefly explain why or why not.</p></li>
 </ul>
-<p>You fit a model using sanitation access, education expenditures, and life expectancy to understand variability in GDP. The model takes the form</p>
-<p><span class="math display">\[
-\begin{aligned}\widehat{\log(GDP)} = \hat{\beta}_0 &amp;+ \hat{\beta}_1 ~ sanit.access.factor + \hat{\beta}_2 ~ edu.expend + \hat{\beta}_3 ~life.expect \\ &amp;+ \hat{\beta}_4 ~ sanit.access.factor \times life.expect\end{aligned}
-\]</span></p>
-<p>The output from R is shown below.</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 49%">
-<col style="width: 12%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">4.491</td>
-<td style="text-align: right;">1.638</td>
-<td style="text-align: right;">2.742</td>
-<td style="text-align: right;">0.007</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">sanit.access.factorhigh</td>
-<td style="text-align: right;">-6.993</td>
-<td style="text-align: right;">1.971</td>
-<td style="text-align: right;">-3.548</td>
-<td style="text-align: right;">0.001</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">edu.expend</td>
-<td style="text-align: right;">0.097</td>
-<td style="text-align: right;">0.038</td>
-<td style="text-align: right;">2.550</td>
-<td style="text-align: right;">0.012</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">life.expect</td>
-<td style="text-align: right;">0.030</td>
-<td style="text-align: right;">0.029</td>
-<td style="text-align: right;">1.061</td>
-<td style="text-align: right;">0.291</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">sanit.access.factorhigh:life.expect</td>
-<td style="text-align: right;">0.122</td>
-<td style="text-align: right;">0.032</td>
-<td style="text-align: right;">3.853</td>
-<td style="text-align: right;">0.000</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<ul>
-<li><p>Interpret the coefficient of <code>edu.expend</code> in the context of the data.</p></li>
-<li><p>Interpret the coefficient of <code>life.expect</code> for countries with high sanitation access in the context of the data.</p>
-<div class="callout callout-style-default callout-important callout-titled">
+</section>
+<section id="exercise-9" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-9">Exercise 9</h3>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Write all interpretations in terms of the original units, <u>not</u> the log-transformed units.</p>
+<p>The <strong>normality</strong> condition is satisfied if the distribution of the residuals is approximately normal. This condition can be relaxed if the sample size is sufficiently large <span class="math inline">\((n &gt; 30)\)</span>.</p>
 </div>
-</div></li>
-</ul>
+</div>
+<p>Make a histogram or density plot of the residuals (<code>.resid</code>). Is the normality condition satisfied? Briefly explain why or why not.</p>
 </section>
-<section id="exercise-14" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-14">Exercise 14</h2>
-<p>Below are plots from the exploratory data analysis of the relationships between the predictor variables. Based on these plots, what appears to be a potential issue with the model from Exercise 13? Briefly explain your response.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hw-03_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<section id="exercise-10" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-10">Exercise 10</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>The <strong>independence</strong> condition means that knowing one residual will not provide information about another. We often check this by assessing whether the observations are independent based on what we know about the subject matter and how the data were collected.</p>
 </div>
+</div>
+<p>Is the independence condition satisfied? Briefly explain why or why not.</p>
 </section>
 </section>
 <section id="submission" class="level1">
@@ -671,57 +514,76 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
-<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
+<p>Before you wrap up the assignment, make sure you have rendered your document and that the PDF appears as you want it to.</p>
 </div>
 </div>
-<p>To submit your assignment:</p>
-<ul>
-<li>Go to <a href="http://www.gradescope.com/">http://www.gradescope.com</a> and click <em>Log in</em> in the top right corner.</li>
-<li>Click <em>School Credentials</em> ➡️ <em>Duke NetID</em> and log in using your NetID credentials.</li>
-<li>Click on your <em>STA 210</em> course.</li>
-<li>Click on the assignment, and you’ll be prompted to submit it.</li>
-<li>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</li>
-<li>Select the first page of your PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</li>
-</ul>
-</section>
-<section id="grading-50-points" class="level1">
-<h1>Grading (50 points)</h1>
+<p>To submit your assignment, upload the .qmd and PDF files to Canvas.</p>
+<section id="grading-50-pts" class="level2">
+<h2 class="anchored" data-anchor-id="grading-50-pts">Grading (50 pts)</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Component</th>
-<th>Points</th>
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Points</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Ex 1 - 14</td>
-<td>47</td>
+<td style="text-align: left;">Ex 1</td>
+<td style="text-align: left;">4</td>
 </tr>
 <tr class="even">
-<td>Workflow &amp; formatting</td>
-<td>3<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
+<td style="text-align: left;">Ex 2</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 3</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 4</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 5</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 6</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 7</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 8</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 9</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 10</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Workflow &amp; formatting</td>
+<td style="text-align: left;">3<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
 </tr>
 </tbody>
 </table>
-<section id="references" class="level2">
-
-
 
 
 </section>
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-peterson2021" class="csl-entry" role="listitem">
-Peterson, Anna D., and Laura Ziegler. 2021. <span>“Building a Multiple Linear Regression Model With LEGO Brick Data.”</span> <em>Journal of Statistics and Data Science Education</em> 29 (3): 297–303. <a href="https://doi.org/10.1080/26939169.2021.1946450">https://doi.org/10.1080/26939169.2021.1946450</a>.
-</div>
-</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.<a href="https://sta210-fa23.netlify.app/hw/hw-01#fnref2">↩︎</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

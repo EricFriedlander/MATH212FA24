@@ -6079,9 +6079,9 @@
   {
     "objectID": "hw/hw-03.html",
     "href": "hw/hw-03.html",
-    "title": "HW 03: Multiple linear regression, Part 2",
+    "title": "Homework 03: Coffee grades",
     "section": "",
-    "text": "In this analysis you will use multiple linear regression to fit and evaluate models using characteristics of LEGO sets to understand variability in the price."
+    "text": "Important\n\n\n\nDue: Friday, September 20, 11:59pm"
   },
   {
     "objectID": "hw/hw-03.html#exercise-1",
@@ -6184,9 +6184,9 @@
   {
     "objectID": "hw/hw-03.html#footnotes",
     "href": "hw/hw-03.html#footnotes",
-    "title": "HW 03: Multiple linear regression, Part 2",
+    "title": "Homework 03: Coffee grades",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.↩︎↩︎"
+    "text": "Footnotes\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.↩︎"
   },
   {
     "objectID": "hw/hw-05.html",
@@ -12577,5 +12577,19 @@
     "title": "AE 06: Model Conditions",
     "section": "Exercise 0",
     "text": "Exercise 0\nFit a model using the energy of a song to predict its valence.\n\n## add code"
+  },
+  {
+    "objectID": "hw/hw-03.html#learning-goals",
+    "href": "hw/hw-03.html#learning-goals",
+    "title": "Homework 03: Coffee grades",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the homework you will…\n\nbe able to use mathematical models to conduct inference for the slope\nbe able to assess conditions for simple linear regression"
+  },
+  {
+    "objectID": "hw/hw-03.html#grading-50-pts",
+    "href": "hw/hw-03.html#grading-50-pts",
+    "title": "Homework 03: Coffee grades",
+    "section": "Grading (50 pts)",
+    "text": "Grading (50 pts)\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1\n4\n\n\nEx 2\n3\n\n\nEx 3\n4\n\n\nEx 4\n3\n\n\nEx 5\n8\n\n\nEx 6\n5\n\n\nEx 7\n8\n\n\nEx 8\n6\n\n\nEx 9\n4\n\n\nEx 10\n2\n\n\nWorkflow & formatting\n31"
   }
 ]
