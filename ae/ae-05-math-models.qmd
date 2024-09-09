@@ -35,7 +35,7 @@ The data set for this assignment is a subset from the [Spotify Songs](https://gi
 It contains numerous characteristics for each song. You can see the full list of variables and definitions [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md). This analysis will focus specifically on the following variables:
 
 | variable         | class     | description                                                                                                                                                                                                                                                                                                                                                                               |
-|:-----------------|:-----------------|:-----------------------------------|
+|:-----------------|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | track_id         | character | Song unique ID                                                                                                                                                                                                                                                                                                                                                                            |
 | track_name       | character | Song Name                                                                                                                                                                                                                                                                                                                                                                                 |
 | track_artist     | character | Song Artist                                                                                                                                                                                                                                                                                                                                                                               |
@@ -100,7 +100,6 @@ Predict what the average valence for a song with an energy score 0.5 is. Report 
 ## Exericse 5
 
 Report and interpret a 90% confidence interval for a single song with energy score 0.8.
-
 
 ::: callout-important
 To submit the AE:

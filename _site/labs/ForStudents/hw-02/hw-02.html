@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Driver: _______, Reporter: _______, Gopher: ________">
-<meta name="dcterms.date" content="2024-09-11">
+<meta name="author" content="Insert Name Here">
 
-<title>MAT 212 - Fall 2024 - AE 05: Mathematical Models</title>
+<title>MAT 212 - Fall 2024 - HW 02: Ice duration and air temperature in Madison, WI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,22 +58,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -103,6 +102,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -115,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 05: Mathematical Models</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 02: Ice duration and air temperature in Madison, WI</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -129,8 +157,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      <img src="../../../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://rstudio.collegeofidaho.edu/" title="RStudio" class="quarto-navigation-tool px-1" aria-label="RStudio"><i class="bi bi-code-square"></i></a>
@@ -146,25 +174,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../schedule.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../support.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../support.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Support</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../links.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../links.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Useful links</span></a>
   </div>
 </li>
@@ -179,19 +207,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../computing-access.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../computing-access.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Access</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../computing-inferencesummary.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../computing-inferencesummary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Inference Summary Cheatsheet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../computing-r-resources.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../computing-r-resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R resources</span></a>
   </div>
 </li>
@@ -208,19 +236,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project-instructions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../project-instructions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Instructions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project-tips.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../project-tips.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tips + resources</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project-rubric.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../project-rubric.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rubric</span></a>
   </div>
 </li>
@@ -236,22 +264,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  </ul></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#data-ice-cover-and-air-temperature" id="toc-data-ice-cover-and-air-temperature" class="nav-link" data-scroll-target="#data-ice-cover-and-air-temperature">Data: Ice cover and air temperature</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  <li><a href="#exericse-4" id="toc-exericse-4" class="nav-link" data-scroll-target="#exericse-4">Exericse 4</a></li>
-  <li><a href="#exericse-5" id="toc-exericse-5" class="nav-link" data-scroll-target="#exericse-5">Exericse 5</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
+  </ul></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  <li><a href="#grading-50-pts" id="toc-grading-50-pts" class="nav-link" data-scroll-target="#grading-50-pts">Grading (50 pts)</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-05-math-models.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/labs/ForStudents/hw-02/hw-02.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 05: Mathematical Models</h1>
-<p class="subtitle lead">Songs on Spotify</p>
+<h1 class="title">HW 02: Ice duration and air temperature in Madison, WI</h1>
+<p class="subtitle lead">Bootstrap confidence interval for the slope</p>
 </div>
 
 
@@ -261,16 +305,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Driver: _______, Reporter: _______, Gopher: ________ </p>
+             <p>Insert Name Here </p>
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 11, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -290,131 +328,87 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Due:</p>
 <ul>
-<li><p>Open <a href="https://rstudio.collegeofidaho.edu/">RStudio</a> and create a subfolder in your AE folder called “AE-05”</p></li>
-<li><p>Go to the <a href="https://cofi.instructure.com/courses/15692/assignments/181903">Canvas</a> and locate your <code>AE 05</code> assignment to get started.</p></li>
-<li><p>Upload the <code>ae-05.qmd</code> and <code>spotify-popular.csv</code> files into the folder you just created. The <code>.qmd</code> and PDF responses are due in Canvas no later than Saturday, September 14 at 11:59pm.</p></li>
+<li>Wednesday, September</li>
 </ul>
 </div>
 </div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In today’s lab, you’ll use simple linear regression to analyze the relationship between air temperature and ice duration for two lakes in Wisconsin.</p>
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
+<p>By the end of the lab you will…</p>
+<ul>
+<li>Be able to fit a simple linear regression model using R.</li>
+<li>Be able to interpret the slope and intercept for the model.</li>
+<li>Be able to use simulation-based inference to draw conclusions about the slope.</li>
+<li>Continue developing a workflow for reproducible data analysis.</li>
+</ul>
+</section>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting started</h1>
+<ul>
+<li><p>Go to the <a href="https://www.github.com/sta210-fa23">sta210-fa23</a> organization on GitHub. Click on the repo with the prefix <strong>lab-02-</strong>. It contains the starter documents you need to complete the lab.</p></li>
+<li><p>Clone the repo and start a new project in RStudio. See the <a href="lab-01.qmd">Lab 01 instructions</a> for details on cloning a repo, starting a new project in R, and configuring git.</p></li>
+</ul>
+</section>
+<section id="packages" class="level1">
+<h1>Packages</h1>
+<p>The following packages are used in the lab:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork) <span class="co">#arrange plots in a grid</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lterdatasampler) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>The data set for this assignment is a subset from the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md">Spotify Songs</a> Tidy Tuesday data set. The data were originally obtained from Spotify using the <strong>spotifyr</strong> R package.</p>
-<p>It contains numerous characteristics for each song. You can see the full list of variables and definitions <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md">here</a>. This analysis will focus specifically on the following variables:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 4%">
-<col style="width: 2%">
-<col style="width: 92%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">variable</th>
-<th style="text-align: left;">class</th>
-<th style="text-align: left;">description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">track_id</td>
-<td style="text-align: left;">character</td>
-<td style="text-align: left;">Song unique ID</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">track_name</td>
-<td style="text-align: left;">character</td>
-<td style="text-align: left;">Song Name</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">track_artist</td>
-<td style="text-align: left;">character</td>
-<td style="text-align: left;">Song Artist</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">track_popularity</td>
-<td style="text-align: left;">double</td>
-<td style="text-align: left;">Song Popularity (0-100) where higher is better</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">energy</td>
-<td style="text-align: left;">double</td>
-<td style="text-align: left;">Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">valence</td>
-<td style="text-align: left;">double</td>
-<td style="text-align: left;">A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g.&nbsp;happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g.&nbsp;sad, depressed, angry).</td>
-</tr>
-</tbody>
-</table>
+</section>
+<section id="data-ice-cover-and-air-temperature" class="level1">
+<h1>Data: Ice cover and air temperature</h1>
+<p>The datasets <a href="https://lter.github.io/lterdatasampler/reference/ntl_icecover.html"><code>ntl_icecover</code></a> and <a href="https://lter.github.io/lterdatasampler/reference/ntl_airtemp.html"><code>ntl_airtemp</code></a> <a href="https://lter.github.io/lterdatasampler/index.html">lterdatasampler</a> R package<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> contain information about ice cover and air temperature, respectively, at Lake Monona and Lake Mendota for days in 1885 through 2019. The data were originally collected at a <a href="https://lternet.edu/">US Long Term Ecological Research program (LTER) Network</a>.</p>
+<p>The primary variables for this analysis are</p>
+<ul>
+<li><p><code>year</code>: a number denoting the year of observation</p></li>
+<li><p><code>lakeid</code>: a factor denoting the lake name</p></li>
+<li><p><code>ice_duration</code>: a number denoting the number of days between the freeze and breakup dates of each lake</p></li>
+<li><p><code>ave_air_temp_adjusted</code>: a number denoting the air temperature in degrees Celsius, collected in Madison, WI and adjusted for biases</p></li>
+</ul>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<p><strong>Goal</strong>: The goal of this analysis is to use linear regression understand the association between average air temperature and ice duration for two lakes in Madison, Wisconsin that freeze for a portion of the year. Because ice cover is impacted by various environmental factors, researchers are interested in examining the association between these two factors to better understand how changing air temperature is impacting the ice duration.</p>
+<hr>
+<p>Write all code and narrative in your Quarto file. Write all narrative in complete sentences. Throughout the assignment, you should periodically <strong>render</strong> your Quarto document to produce the updated PDF, <strong>commit</strong> the changes in the Git pane, and <strong>push</strong> the updated files to GitHub.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make sure we can read all of your code in your PDF document. This means you will need to break up long lines of code. One way to help avoid long lines of code is is start a new line after every pipe (<code>|&gt;</code>) and plus sign (<code>+</code>).</p>
+</div>
+</div>
+<section id="exercise-1" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
+<p>Fill in the code below to create a new data frame, <code>icecover_avg</code>, of the average ice duration by lake then year. How many observations (rows) are in <code>icecover_avg</code>? How many variables (columns)?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>spotify <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/spotify-popular.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Are high energy songs more positive? To answer this question, we’ll analyze data on some of the most popular songs on Spotify, i.e.&nbsp;those with <code>track_popularity &gt;= 80</code>. We’ll use linear regression to fit a model to predict a song’s positiveness (<code>valence</code>) based on its energy level (<code>energy</code>).</p>
-<p>Below are plots as part of the exploratory data analysis.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>valence, <span class="at">data =</span> spotify) <span class="sc">|&gt;</span>  </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Valence"</span>, </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">" for Popular songs on Spotify"</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Valence"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>energy, <span class="at">data =</span> spotify) <span class="sc">|&gt;</span> </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Energy"</span>, </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"for Popular songs on Spotify"</span>, </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Energy"</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2 <span class="co"># The patchwork package will arrange your plots for you</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ae-05-math-models_files/figure-html/univariate-eda-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_point</span>(valence <span class="sc">~</span> energy, <span class="at">data =</span> spotify) <span class="sc">|&gt;</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_labs</span>(<span class="at">title =</span> <span class="st">"Valence vs. Energy"</span>, </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Popular songs on Spotify"</span>, </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Energy"</span>, </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Valence"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ae-05-math-models_files/figure-html/bivariate-eda-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>icecover_avg <span class="ot">&lt;-</span> ntl_icecover <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(____, _____) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_ice_duration =</span> <span class="fu">mean</span>(_____), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Fit a model using the <code>energy</code> of a song to predict its <code>valence</code>, i.e.&nbsp;positiveness. Include the 90% confidence interval for the coefficients, and display the output using 3 digits.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## add code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>In words interpret the estimate and confidence interval for the slope in the previous exercise.</p>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Interpret the p-value from Exercise 1.</p>
-</section>
-<section id="exericse-4" class="level2">
-<h2 class="anchored" data-anchor-id="exericse-4">Exericse 4</h2>
-<p>Predict what the average valence for a song with an energy score 0.5 is. Report and interpret a 90% confidence interval for the average valence.</p>
-</section>
-<section id="exericse-5" class="level2">
-<h2 class="anchored" data-anchor-id="exericse-5">Exericse 5</h2>
-<p>Report and interpret a 90% confidence interval for a single song with energy score 0.8.</p>
+<section id="exercise-2" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
+<ul>
+<li><p>Use <code>ntl_airtemp</code> to create a new data frame <code>airtemp_avg</code> of the average air temperature by year.</p></li>
+<li><p>Then, join <code>icecover_avg</code> and <code>airtemp_avg</code> to make a new data frame <code>ice_air_joined</code>. Remove the years that have missing data for the average annual air temperature or the average annual ice duration.</p></li>
+</ul>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -425,18 +419,183 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To submit the AE:</p>
+<p>You will use <code>ice_air_joined</code> for exercises 3 - 7.</p>
+</div>
+</div>
+</section>
+<section id="exercise-3" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
+<p>Make a histogram to visualize the distribution of <code>avg_ice_duration</code> and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.</p>
+<p>Use the visualization and summary statistics to describe the distribution of <code>avg_ice_duration</code> . Include the shape, center, spread, and potential presence of outliers in the description.</p>
+</section>
+<section id="exercise-4" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
+<p>Make a histogram of the distribution of <code>avg_air_temp</code>. Then make another visualization of the distribution of <code>avg_air_temp</code> using a different type of plot. Include informative axis labels and an informative title on both visualizations.</p>
+<p>What type of plot did you make? What is one feature of the distribution that is more apparent in the histogram than in the other plot? What is one feature of the distribution that is more apparent in the other plot than in the histogram?</p>
+<div class="render-commit-push">
+<p>This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you’ve made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.</p>
+</div>
+</section>
+<section id="exercise-5" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
+<p>Make a visualization of <code>avg_ice_duration</code> versus <code>year</code> with the points colored by <code>lakeid</code>. Write two observations from the visualization.</p>
+</section>
+<section id="exercise-6" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
+<p>Create a visualization of <code>avg_air_temp</code> versus <code>year</code>. Include informative axis labels and an informative title on the visualization.</p>
 <ul>
-<li>Render the document to produce the PDF with all of your work from today’s class.</li>
-<li>Upload your qmd and pdf files to the Canvas assignment.</li>
+<li><p>Use the visualization to write two observations about the trend of average air temperature over time.</p></li>
+<li><p>Based on the visualizations of average ice duration and average air temperature over time, would you expect the linear model describing the association between average ice duration and average air temperature to have a positive or negative slope? Briefly explain.</p></li>
 </ul>
+</section>
+<section id="exercise-7" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
+<p>Researchers would like to use a linear model to understand variability in the average ice duration based on the average air temperature. <strong>Their analysis will focus only on Lake Monona.</strong> Write the form of the statistical model the researchers would like to estimate. Use mathematical notation and variable names (<code>avg_air_temp</code> and <code>avg_ice_duration</code>) in the equation.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p><a href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">Click here</a> for a guide on writing mathematical symbols using LaTex. You will need to use a backslash (\) before each underscore in the LaTex code. For example, <code>avg_air_temp</code> will be written as <em>avg\_air\_temp.</em></p>
+</div>
+</div>
+<div class="render-commit-push">
+<p>This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you’ve made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.</p>
+</div>
+</section>
+<section id="exercise-8" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-8">Exercise 8</h3>
+<p>Fit and display the output of the regression model corresponding to the statistical model in the previous exercise. <strong>As in the previous exercise, only observations from Lake Monona should be included in the analysis.</strong> Use the <code>tidy</code> and <code>kable</code> functions to neatly display the model output using three decimal places.</p>
+<ul>
+<li><p>Write the equation of the fitted model. Use mathematical notation and variable names (<code>avg_air_temp</code> and <code>avg_ice_duration</code>) in the equation.</p></li>
+<li><p>Interpret the slope in the context of the data.</p></li>
+<li><p>Does the intercept have a meaningful interpretation in this context? If so, interpret the intercept in the context of the data. Otherwise, explain why not.</p></li>
+</ul>
+</section>
+<section id="exercise-9" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-9">Exercise 9</h3>
+<p>Use bootstrapping to construct a 93% confidence interval for the slope for Lake Monona. Follow these steps to accomplish this:</p>
+<ul>
+<li>First, set a seed for simulating reproducibly. Use the seed <code>210</code>.</li>
+<li>Save the value of slope estimated from the data.</li>
+<li>Then, simulate the bootstrap distribution of the slope using 1,000 bootstrap samples.</li>
+<li>Visualize the bootstrap distribution.</li>
+<li>Calculate the bounds of the confidence interval using the percentile method.</li>
+<li>Interpret the confidence interval in the context of the data.</li>
+</ul>
+</section>
+<section id="exercise-10" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
+<blockquote class="blockquote">
+<p>There is a statistically significant linear relationship between average air temperature and average ice duration on Lake Monona <span class="math inline">\((\beta_1 \neq 0)\)</span>.</p>
+</blockquote>
+<p>Does the confidence interval you calculated in the previous exercise support or refute this claim? Briefly explain.</p>
+<div class="render-commit-push">
+<p>Render, commit, and push your final changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you’ve made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.</p>
+</div>
+</section>
+</section>
+<section id="submission" class="level1">
+<h1>Submission</h1>
+<p>In this class, we’ll be submitting PDF documents to Gradescope.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
+<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
+</div>
+</div>
+<p>To submit your assignment:</p>
+<ul>
+<li>Go to <a href="http://www.gradescope.com" class="uri">http://www.gradescope.com</a> and click <em>Log in</em> in the top right corner.</li>
+<li>Click <em>School Credentials</em> ➡️ <em>Duke NetID</em> and log in using your NetID credentials.</li>
+<li>Click on your <em>STA 210</em> course.</li>
+<li>Click on the assignment, and you’ll be prompted to submit it.</li>
+<li>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</li>
+<li>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</li>
+</ul>
+</section>
+<section id="grading-50-pts" class="level1">
+<h1>Grading (50 pts)</h1>
+<p><br></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ex 1</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 2</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 3</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 4</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 5</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 6</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 7</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 8</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 9</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 10</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Workflow &amp; formatting</td>
+<td style="text-align: left;">4<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>https://lter.github.io/lterdatasampler/index.html<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -854,7 +1013,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-05-math-models.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/labs/ForStudents/hw-02/hw-02.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
