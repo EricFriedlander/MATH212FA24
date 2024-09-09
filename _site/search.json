@@ -4296,7 +4296,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned",
     "crumbs": [
       "Schedule"
     ]
@@ -12591,5 +12591,117 @@
     "title": "Homework 03: Coffee grades",
     "section": "Grading (50 pts)",
     "text": "Grading (50 pts)\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1\n4\n\n\nEx 2\n3\n\n\nEx 3\n4\n\n\nEx 4\n3\n\n\nEx 5\n8\n\n\nEx 6\n5\n\n\nEx 7\n8\n\n\nEx 8\n6\n\n\nEx 9\n4\n\n\nEx 10\n2\n\n\nWorkflow & formatting\n31"
+  },
+  {
+    "objectID": "hw/hw-03-old.html",
+    "href": "hw/hw-03-old.html",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "",
+    "text": "In this analysis you will use multiple linear regression to fit and evaluate models using characteristics of LEGO sets to understand variability in the price."
+  },
+  {
+    "objectID": "hw/hw-03-old.html#exercise-1",
+    "href": "hw/hw-03-old.html#exercise-1",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nIn this analysis, we dropped observations that have missing values for some of the relevant variables. What is a disadvantage of dropping observations that have missing values, instead of using a method to impute, i.e., fill in, the missing data? How might dropping these observations impact the generalizability of conclusions? What is the disadvantage of replacing the NAs in Minifigures to 0?"
+  },
+  {
+    "objectID": "hw/hw-03-old.html#exercise-2",
+    "href": "hw/hw-03-old.html#exercise-2",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nVisualize the distributions of the predictor variables Pieces, Size, Year, and Pages. Neatly arrange the plots using the patchwork package."
+  },
+  {
+    "objectID": "hw/hw-03-old.html#exercise-3",
+    "href": "hw/hw-03-old.html#exercise-3",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nWhat are some feature engineering steps you might use to prepare the variables in the previous exercise for the model? Describe the steps and the function you would use. The list should incorporate at least three different step_ functions.\n\n\n\n\n\n\nTip\n\n\n\nUse the recipes reference page for a list of step_ functions."
+  },
+  {
+    "objectID": "hw/hw-03-old.html#exercise-4",
+    "href": "hw/hw-03-old.html#exercise-4",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nThe distribution of Theme is shown below. The bars are ordered by the frequency they occur in the data set.\n\nlegos |&gt;\n  count(Theme) |&gt;\nggplot(aes(x = fct_reorder(Theme, n), y = n)) +\n  geom_col() + \n    labs(title = \"Lego Set Theme\", \n         x = \"Theme\", \n         y = \"Number of LEGO sets\") + \n  coord_flip()\n\n\n\n\n\n\n\n\nWhat is one reason we should avoid putting the variable Theme in a model as is?"
+  },
+  {
+    "objectID": "hw/hw-03-old.html#exercise-5",
+    "href": "hw/hw-03-old.html#exercise-5",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nWe will use v-fold cross validation to compare two models. We’ll start by preparing the data, creating the folds, and defining the model specification that will be used for both models.\n\nSplit the data into training (75%) and testing (25%) sets. Use a seed of 6.\nSplit the training data into 12 folds. Set the seed to 6 again.\nSpecify the model."
+  },
+  {
+    "objectID": "hw/hw-03-old.html#exercise-6",
+    "href": "hw/hw-03-old.html#exercise-6",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nUse the training data to create a recipe for the first model. The model uses the variables Size, Theme, and Pages to predict Amazon_Price. Conduct the following feature engineering steps:\n\nUse step_other() to collapse Theme into fewer categories. Define the threshold such that any levels of Theme with fewer than 20 observations is defined as “Other”.\nMean-center Pages.\nMake dummy variables for all categorical predictors.\nRemove any predictors with zero variance.\n\nThen create the workflow that brings together this recipe and the model specification from the previous exercise."
+  },
+  {
+    "objectID": "hw/hw-03-old.html#exercise-7",
+    "href": "hw/hw-03-old.html#exercise-7",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nConduct 12-fold cross validation using the workflow from the previous exercise. Calculate and display mean RMSE across the 12 folds.\n\n\n\n\n\n\nNote\n\n\n\nWe will just use RMSE to compare models for this assignment; however, in practice, it is best to take into account multiple model fit statistics to get a more holistic evaluation and comparison of the models."
+  },
+  {
+    "objectID": "hw/hw-03-old.html#exercise-8",
+    "href": "hw/hw-03-old.html#exercise-8",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nNow let’s consider a new model that includes all the variables used in model from Exercise 6 along with Year, Pieces and Minifigures.\n\nUse the training data to create a recipe that uses all the feature engineering steps in Exercise 6 with the addition of the following steps:\n\nCreate a new variable called since2018 that calculates the number of years since 2018.\nRemove Year as a potential predictor.\nMean-center Pieces.\n\nCreate the workflow that brings together this recipe and the model specification from Exercise 5.\nConduct 12-fold cross validation using this model workflow. Calculate and display mean RMSE across the 12 folds."
+  },
+  {
+    "objectID": "hw/hw-03-old.html#exercise-9",
+    "href": "hw/hw-03-old.html#exercise-9",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nCompare the cross validation results from Exercises 7 and 8. Which model do you select based on RMSE? Briefly explain your choice."
+  },
+  {
+    "objectID": "hw/hw-03-old.html#exercise-10",
+    "href": "hw/hw-03-old.html#exercise-10",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nRefit the selected model on the entire training data. Neatly display the model using 3 digits.\nThen, calculate VIF for the model and use it to comment on whether there are potential issues with multicollinearity.\n\n\n\n\n\n\nTip\n\n\n\nWhen we fit a model using recipe and workflow, we need to extract the model object before using augment or vif functions. Fill in the name of the selected model in both blanks in the code below to extract the model object and calculate VIF\n\nlegos_fit_model &lt;- extract_fit_parsnip(______)\nvif(legos_fit_model$fit)"
+  },
+  {
+    "objectID": "hw/hw-03-old.html#exercise-11",
+    "href": "hw/hw-03-old.html#exercise-11",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 11",
+    "text": "Exercise 11\nCalculate RMSE on the training data and on the testing data. Use it to comment on how well the model performs on new data and whether there are signs of model overfit."
+  },
+  {
+    "objectID": "hw/hw-03-old.html#exercise-12",
+    "href": "hw/hw-03-old.html#exercise-12",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 12",
+    "text": "Exercise 12\nThough we do not check the model conditions in this assignment, complete this exercise assuming the model conditions are met.\nDescribe the effect of Theme on the price of LEGO sets, including an indication of which levels are statistically significant. Use a threshold of 0.05 to determine significance.\n\nBefore submitting, make sure you render your document and commit (with a meaningful commit message) and push all updates."
+  },
+  {
+    "objectID": "hw/hw-03-old.html#exercise-13",
+    "href": "hw/hw-03-old.html#exercise-13",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 13",
+    "text": "Exercise 13\nThe World Bank collects “world development indicators” about the past and current development of countries. These data are made available on the World Bank’s website. It can be used to understand the relationships between these various factors and trends over time.\n\nFor this analysis, we focus on indicators from 2011 on 165 countries. The variables of interest are:\n\ngdp.per.capita: gross domestic product divided by midyear population. GDP is the sum of gross value added by all resident producers in the economy plus any product taxes and minus any subsidies not included in the value of the products. It is calculated without making deductions for depreciation of fabricated assets or for depletion and degradation of natural resources. Data are in current U.S. dollars.\nsanit.access.factor: Population access to sanitation facilities (Low, High)\nedu.expend: Government expenditure on education, total (% of government expenditure)\nlife.expect: Life expectancy at birth (in years)\n\nYou fit a model using sanitation access, education expenditures, and life expectancy to understand variability in GDP. The model takes the form\n\\[\n\\begin{aligned}\\widehat{\\log(GDP)} = \\hat{\\beta}_0 &+ \\hat{\\beta}_1 ~ sanit.access.factor + \\hat{\\beta}_2 ~ edu.expend + \\hat{\\beta}_3 ~life.expect \\\\ &+ \\hat{\\beta}_4 ~ sanit.access.factor \\times life.expect\\end{aligned}\n\\]\nThe output from R is shown below.\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n4.491\n1.638\n2.742\n0.007\n\n\nsanit.access.factorhigh\n-6.993\n1.971\n-3.548\n0.001\n\n\nedu.expend\n0.097\n0.038\n2.550\n0.012\n\n\nlife.expect\n0.030\n0.029\n1.061\n0.291\n\n\nsanit.access.factorhigh:life.expect\n0.122\n0.032\n3.853\n0.000\n\n\n\n\n\n\nInterpret the coefficient of edu.expend in the context of the data.\nInterpret the coefficient of life.expect for countries with high sanitation access in the context of the data.\n\n\n\n\n\n\nImportant\n\n\n\nWrite all interpretations in terms of the original units, not the log-transformed units."
+  },
+  {
+    "objectID": "hw/hw-03-old.html#exercise-14",
+    "href": "hw/hw-03-old.html#exercise-14",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 14",
+    "text": "Exercise 14\nBelow are plots from the exploratory data analysis of the relationships between the predictor variables. Based on these plots, what appears to be a potential issue with the model from Exercise 13? Briefly explain your response."
+  },
+  {
+    "objectID": "hw/hw-03-old.html#footnotes",
+    "href": "hw/hw-03-old.html#footnotes",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.↩︎↩︎"
   }
 ]
