@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-09-25">
+<meta name="author" content="Driver: _______, Reporter: _______, Gopher: ________">
 
 <title>MAT 212 - Fall 2024 - AE 07: Model evaluation</title>
 <style>
@@ -288,13 +288,13 @@ window.Quarto = {
 
 <div class="quarto-title-meta">
 
-    
     <div>
-    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 25, 2023</p>
-    </div>
+             <p>Driver: _______, Reporter: _______, Gopher: ________ </p>
+          </div>
   </div>
+    
   
     
   </div>
@@ -314,16 +314,20 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Go to the <a href="https://github.com/sta210-fa23">course GitHub organization</a> and locate your <code>ae-07</code> repo to get started.</p>
-<p>Render, commit, and push your responses to GitHub by the end of class. The responses are due in your GitHub repo no later than Thursday, September 28 at 11:59pm.</p>
+<ul>
+<li><p>Open <a href="https://rstudio.collegeofidaho.edu/">RStudio</a> and create a subfolder in your AE folder called “AE-07”.</p></li>
+<li><p>Go to the <a href="https://cofi.instructure.com/courses/15692/assignments/182123">Canvas</a> and locate your <code>AE 07</code> assignment to get started.</p></li>
+<li><p>Upload the <code>ae-07.qmd</code> and <code>spotify-popular.csv</code> files into the folder you just created. The <code>.qmd</code> and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.</p></li>
+</ul>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork) <span class="co">#arrange plots in a grid</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork) <span class="co">#arrange plots in a grid</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
@@ -331,9 +335,9 @@ Important
 <p>It contains numerous characteristics for each song. You can see the full list of variables and definitions <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md">here</a>. This analysis will focus specifically on the following variables:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 4%">
-<col style="width: 2%">
-<col style="width: 92%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 75%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -512,21 +516,15 @@ Important
 </section>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Assess the four model conditions. State whether the condition is satisfied and briefly explain your response.</p>
-<ul>
-<li>Linearity</li>
-<li>Constant variance</li>
-<li>Normality</li>
-<li>Independence</li>
-</ul>
+<p>Calculate <span class="math inline">\(R^2\)</span> and interpret this value in the context of the data.</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Calculate <span class="math inline">\(R^2\)</span> and interpret this value in the context of the data.</p>
+<p>Calculate RMSE and interpret this value in the context of the data.</p>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Calculate RMSE and interpret this value in the context of the data.</p>
+<p>Choose another quantitative variable in the data set. Check <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md">here</a> for specific definitions of variables. After Dr.&nbsp;Friedlander approves your choice, fit a model predicting <code>valence</code> using that variable as a predictor. Make an argument, citing quantitative evidence, for which model is better, the energy model or your new model. Reporters, be ready to discuss with the class.</p>
 </section>
 <section id="to-submit-the-ae" class="level2">
 <h2 class="anchored" data-anchor-id="to-submit-the-ae">To submit the AE:</h2>
@@ -542,7 +540,7 @@ Important
 <div class="callout-body-container callout-body">
 <ul>
 <li>Render the document to produce the PDF with all of your work from today’s class.</li>
-<li>Push all your work to your <code>ae-07</code> repo on GitHub. (You do not submit AEs on Gradescope).</li>
+<li>Upload your QMD and PDF files to the Canvas assignment.</li>
 </ul>
 </div>
 </div>

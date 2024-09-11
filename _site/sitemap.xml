@@ -210,7 +210,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-07-model-eval.html</loc>
-    <lastmod>2024-08-07T19:08:50.943Z</lastmod>
+    <lastmod>2024-09-11T21:25:42.644Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-09-feature-engineering.html</loc>
@@ -422,7 +422,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/prepare/model-conditions-prep.html</loc>
-    <lastmod>2024-09-05T20:32:53.815Z</lastmod>
+    <lastmod>2024-09-11T20:48:53.427Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/10-slr-model-eval-old.html</loc>
@@ -434,7 +434,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/prepare/model-eval-prep.html</loc>
-    <lastmod>2024-09-08T15:12:04.657Z</lastmod>
+    <lastmod>2024-09-11T20:50:46.334Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/10-slr-conditions.html</loc>
@@ -459,5 +459,9 @@
   <url>
     <loc>https://mat212fa24.netlify.app/hw/hw-03-old.html</loc>
     <lastmod>2024-06-07T20:17:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/11-slr-model-eval.html</loc>
+    <lastmod>2024-09-11T21:04:36.011Z</lastmod>
   </url>
 </urlset>

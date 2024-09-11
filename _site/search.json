@@ -4296,7 +4296,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model Evaluation",
     "crumbs": [
       "Schedule"
     ]
@@ -5466,7 +5466,7 @@
     "href": "ae/ae-07-model-eval.html",
     "title": "AE 07: Model evaluation",
     "section": "",
-    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-07 repo to get started.\nRender, commit, and push your responses to GitHub by the end of class. The responses are due in your GitHub repo no later than Thursday, September 28 at 11:59pm.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(knitr)\nlibrary(patchwork) #arrange plots in a grid"
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-07”.\nGo to the Canvas and locate your AE 07 assignment to get started.\nUpload the ae-07.qmd and spotify-popular.csv files into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(mosaic)\nlibrary(broom)\nlibrary(knitr)\nlibrary(patchwork) #arrange plots in a grid"
   },
   {
     "objectID": "ae/ae-07-model-eval.html#data",
@@ -5501,28 +5501,28 @@
     "href": "ae/ae-07-model-eval.html#exercise-1",
     "title": "AE 07: Model evaluation",
     "section": "Exercise 1",
-    "text": "Exercise 1\nAssess the four model conditions. State whether the condition is satisfied and briefly explain your response.\n\nLinearity\nConstant variance\nNormality\nIndependence"
+    "text": "Exercise 1\nCalculate \\(R^2\\) and interpret this value in the context of the data."
   },
   {
     "objectID": "ae/ae-07-model-eval.html#exercise-2",
     "href": "ae/ae-07-model-eval.html#exercise-2",
     "title": "AE 07: Model evaluation",
     "section": "Exercise 2",
-    "text": "Exercise 2\nCalculate \\(R^2\\) and interpret this value in the context of the data."
+    "text": "Exercise 2\nCalculate RMSE and interpret this value in the context of the data."
   },
   {
     "objectID": "ae/ae-07-model-eval.html#exercise-3",
     "href": "ae/ae-07-model-eval.html#exercise-3",
     "title": "AE 07: Model evaluation",
     "section": "Exercise 3",
-    "text": "Exercise 3\nCalculate RMSE and interpret this value in the context of the data."
+    "text": "Exercise 3\nChoose another quantitative variable in the data set. Check here for specific definitions of variables. After Dr. Friedlander approves your choice, fit a model predicting valence using that variable as a predictor. Make an argument, citing quantitative evidence, for which model is better, the energy model or your new model. Reporters, be ready to discuss with the class."
   },
   {
     "objectID": "ae/ae-07-model-eval.html#to-submit-the-ae",
     "href": "ae/ae-07-model-eval.html#to-submit-the-ae",
     "title": "AE 07: Model evaluation",
     "section": "To submit the AE:",
-    "text": "To submit the AE:\n\n\n\n\n\n\nImportant\n\n\n\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-07 repo on GitHub. (You do not submit AEs on Gradescope)."
+    "text": "To submit the AE:\n\n\n\n\n\n\nImportant\n\n\n\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
   },
   {
     "objectID": "ae/ae-09-feature-engineering.html",
@@ -11790,14 +11790,14 @@
   {
     "objectID": "prepare/model-conditions-prep.html",
     "href": "prepare/model-conditions-prep.html",
-    "title": "September 11 lecture",
+    "title": "September 13 lecture",
     "section": "",
     "text": "Stat2: Topic 1.3 Assessing Conditions"
   },
   {
     "objectID": "prepare/model-conditions-prep.html#assigned-reading",
     "href": "prepare/model-conditions-prep.html#assigned-reading",
-    "title": "September 11 lecture",
+    "title": "September 13 lecture",
     "section": "",
     "text": "Stat2: Topic 1.3 Assessing Conditions"
   },
@@ -11965,14 +11965,14 @@
   {
     "objectID": "prepare/model-eval-prep.html",
     "href": "prepare/model-eval-prep.html",
-    "title": "September 13 lecture",
+    "title": "September 16 lecture",
     "section": "",
     "text": "Stat2: Topic 2.2 Partitioning Variability - ANOVA\nStat2: Topic 2.3 Regression and Correlation"
   },
   {
     "objectID": "prepare/model-eval-prep.html#assigned-reading",
     "href": "prepare/model-eval-prep.html#assigned-reading",
-    "title": "September 13 lecture",
+    "title": "September 16 lecture",
     "section": "",
     "text": "Stat2: Topic 2.2 Partitioning Variability - ANOVA\nStat2: Topic 2.3 Regression and Correlation"
   },
@@ -12703,5 +12703,96 @@
     "title": "HW 03: Multiple linear regression, Part 2",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.↩︎↩︎"
+  },
+  {
+    "objectID": "slides/11-slr-model-eval.html#model-conditions-1",
+    "href": "slides/11-slr-model-eval.html#model-conditions-1",
+    "title": "SLR: Model evaluation",
+    "section": "Model conditions",
+    "text": "Model conditions\n\nLinearity: There is a linear relationship between the outcome and predictor variables\nConstant variance: The variability of the errors is equal for all values of the predictor variable\nNormality: The errors follow a normal distribution\nIndependence: The errors are independent from each other"
+  },
+  {
+    "objectID": "slides/11-slr-model-eval.html#computational-set-up",
+    "href": "slides/11-slr-model-eval.html#computational-set-up",
+    "title": "SLR: Model evaluation",
+    "section": "Computational set up",
+    "text": "Computational set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(ggformula)   # for plotting using formulas\nlibrary(broom)       # for formatting model output\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# HEB Dataset\nheb &lt;- read_csv(\"data/HEBIncome.csv\") |&gt; \n  mutate(Avg_Income_K = Avg_Household_Income/1000)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/11-slr-model-eval.html#regression-model-revisited",
+    "href": "slides/11-slr-model-eval.html#regression-model-revisited",
+    "title": "SLR: Model evaluation",
+    "section": "Regression model, revisited",
+    "text": "Regression model, revisited\n\nheb_fit &lt;- lm(Number_Organic ~ Avg_Income_K, data = heb)\n\ntidy(heb_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.719\n9.298\n-1.583\n0.122\n\n\nAvg_Income_K\n0.959\n0.128\n7.505\n0.000"
+  },
+  {
+    "objectID": "slides/11-slr-model-eval.html#partitioning-variability",
+    "href": "slides/11-slr-model-eval.html#partitioning-variability",
+    "title": "SLR: Model evaluation",
+    "section": "Partitioning Variability",
+    "text": "Partitioning Variability\nLet’s think about variation:\n\n\nDATA = MODEL + ERROR\n\\(\\substack{\\text{Variation} \\\\ \\text{in Y}} = \\substack{\\text{Variation explained} \\\\ \\text{by model}} + \\substack{\\text{Variation not explained} \\\\ \\text{by model}}\\)"
+  },
+  {
+    "objectID": "slides/11-slr-model-eval.html#partitioning-variability-anova",
+    "href": "slides/11-slr-model-eval.html#partitioning-variability-anova",
+    "title": "SLR: Model evaluation",
+    "section": "Partitioning Variability (ANOVA)",
+    "text": "Partitioning Variability (ANOVA)\n\n\n\\(y_i - \\bar{y} = (\\hat{y}_i - \\bar{y}) + (y_i-\\hat{y}_i)\\)\nSquare and sum: \\(\\sum(y_i-\\bar{y})^2 = \\sum(\\hat{y} - \\bar{y})^2 + \\sum(y-\\hat{y})^2\\)\n\\(\\substack{\\text{Sum of squares} \\\\ \\text{Total}} = \\substack{\\text{Sum of squares} \\\\ \\text{model}} + \\substack{\\text{Sum of squares} \\\\ \\text{error}}\\)\n\\(SSTotal = SSModel + SSE\\)\n\\(SST = SSM + SSE\\)"
+  },
+  {
+    "objectID": "slides/11-slr-model-eval.html#anova-in-r",
+    "href": "slides/11-slr-model-eval.html#anova-in-r",
+    "title": "SLR: Model evaluation",
+    "section": "ANOVA in R",
+    "text": "ANOVA in R\n\nheb_fit |&gt; \n  anova() |&gt; \n  tidy() |&gt; \n  kable()\n\n\n\n\nterm\ndf\nsumsq\nmeansq\nstatistic\np.value\n\n\n\n\nAvg_Income_K\n1\n17175.06\n17175.0595\n56.32026\n0\n\n\nResiduals\n35\n10673.37\n304.9535\nNA\nNA\n\n\n\n\n\n\n\nMore on this later in the semester"
+  },
+  {
+    "objectID": "slides/11-slr-model-eval.html#recall-correlation-coefficient",
+    "href": "slides/11-slr-model-eval.html#recall-correlation-coefficient",
+    "title": "SLR: Model evaluation",
+    "section": "Recall: Correlation Coefficient",
+    "text": "Recall: Correlation Coefficient\n\nThe correlation coefficient, \\(r\\), is a number between -1 and +1 that measures how strong the linear relationship between two variables \\(x\\) and \\(y\\) is.\n\n\\[\nr = \\frac{\\sum(x_i - \\bar{x})(y_i-\\bar{y})}{\\sqrt{\\sum(x_i-\\bar{x})^2\\sum(y_i-\\bar{y})^2}}\n= \\frac{\\sum(x_i - \\bar{x})(y_i-\\bar{y})}{s_xs_y}\n\\]"
+  },
+  {
+    "objectID": "slides/11-slr-model-eval.html#two-statistics-r2",
+    "href": "slides/11-slr-model-eval.html#two-statistics-r2",
+    "title": "SLR: Model evaluation",
+    "section": "Two statistics: \\(R^2\\)",
+    "text": "Two statistics: \\(R^2\\)\n\n\nR-squared, \\(R^2\\), Coefficient of Determination : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor) \\[\nR^2 = Cor(y, \\hat{y})^2\n\\]\n\nAlso called PRE (Percent Reduction in Error) because: \\[\nR^2 = \\frac{SSModel}{SSTotal}\n\\]"
+  },
+  {
+    "objectID": "slides/11-slr-model-eval.html#two-statistics-rmse",
+    "href": "slides/11-slr-model-eval.html#two-statistics-rmse",
+    "title": "SLR: Model evaluation",
+    "section": "Two statistics: RMSE",
+    "text": "Two statistics: RMSE\n\nRoot mean square error, RMSE: A measure of the average error (average difference between observed and predicted values of the outcome) \\[\nRMSE = \\sqrt{\\frac{\\sum_{i = 1}^n (y_i - \\hat{y}_i)^2}{n}}\n\\]\n\nSometimes people just case about numerator (SSE) or version without the square-root (MSE)\nSometimes the denominator may have \\(n-1\\) instead\n\n\n\n\nWhat indicates a good model fit? Higher or lower \\(R^2\\)? Higher or lower RMSE?"
+  },
+  {
+    "objectID": "slides/11-slr-model-eval.html#r2",
+    "href": "slides/11-slr-model-eval.html#r2",
+    "title": "SLR: Model evaluation",
+    "section": "\\(R^2\\)",
+    "text": "\\(R^2\\)\n\n\nRanges between 0 (terrible predictor) and 1 (perfect predictor)\nHas no units\nCalculate with rsq() from yardstick package using the augmented data:\n\n\nlibrary(yardstick)\nheb_aug &lt;- augment(heb_fit)\n\nrsq(heb_aug, truth = Number_Organic, estimate = .fitted) |&gt; kable()\n\n\n\n\n.metric\n.estimator\n.estimate\n\n\n\n\nrsq\nstandard\n0.6167334"
+  },
+  {
+    "objectID": "slides/11-slr-model-eval.html#interpreting-r2",
+    "href": "slides/11-slr-model-eval.html#interpreting-r2",
+    "title": "SLR: Model evaluation",
+    "section": "Interpreting \\(R^2\\)",
+    "text": "Interpreting \\(R^2\\)\n\n🗳️ Discussion\n\n\nThe \\(R^2\\) of the model for Number_Organic from Average_Income_K is 61.7%. Which of the following is the correct interpretation of this value?\n\n\nAvg_Income_K correctly predicts 61.7% of Number_Organic in San Antontio HEBs.\n61.7% of the variability in Number_Organic can be explained by Avg_Income_K.\n61.7% of the variability in Avg_Income_K can be explained by Number_Organic.\n61.7% of the time Number_Organic can be predicted by Avg_Income_K."
+  },
+  {
+    "objectID": "slides/11-slr-model-eval.html#activity",
+    "href": "slides/11-slr-model-eval.html#activity",
+    "title": "SLR: Model evaluation",
+    "section": "Activity",
+    "text": "Activity\n\nIn groups, at the board, design a simulation-based procedure for producing a p-value for the following hypothesis test.\n\n\\(H_0: R^2 = 0\\)\n\\(H_A: R^2 \\neq 0\\)"
+  },
+  {
+    "objectID": "slides/11-slr-model-eval.html#rmse",
+    "href": "slides/11-slr-model-eval.html#rmse",
+    "title": "SLR: Model evaluation",
+    "section": "RMSE",
+    "text": "RMSE\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nCalculate with rsq() from yardstick package using the augmented data:\n\n\nrmse(heb_aug, truth = Number_Organic, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard        17.0\n\n\n\nThe value of RMSE is not very meaningful on its own, but it’s useful for comparing across models (more on this and ANOVA when we get to regression with multiple predictors)\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
   }
 ]

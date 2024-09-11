@@ -1,5 +1,5 @@
 ---
-title: "September 13 lecture"
+title: "September 16 lecture"
 subtitle: "Simple linear regression - Model Evaluation"
 ---
 

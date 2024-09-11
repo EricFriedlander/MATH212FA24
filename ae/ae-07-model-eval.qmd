@@ -1,14 +1,16 @@
 ---
 title: "AE 07: Model evaluation"
 subtitle: "Songs on Spotify"
-date: "Sep 25, 2023"
+author: "Driver: _______, Reporter: _______, Gopher: ________"
 editor: visual
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta210-fa23) and locate your `ae-07` repo to get started.
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-07".
 
-Render, commit, and push your responses to GitHub by the end of class. The responses are due in your GitHub repo no later than Thursday, September 28 at 11:59pm.
+-   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/182123) and locate your `AE 07` assignment to get started.
+
+-   Upload the `ae-07.qmd` and `spotify-popular.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.
 :::
 
 ```{r}
@@ -17,6 +19,7 @@ Render, commit, and push your responses to GitHub by the end of class. The respo
 #| message: false
 library(tidyverse)
 library(ggformula)
+library(mosaic)
 library(broom)
 library(knitr)
 library(patchwork) #arrange plots in a grid
@@ -29,7 +32,7 @@ The data set for this assignment is a subset from the [Spotify Songs](https://gi
 It contains numerous characteristics for each song. You can see the full list of variables and definitions [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md). This analysis will focus specifically on the following variables:
 
 | variable         | class     | description                                                                                                                                                                                                                                                                                                                                                                               |
-|:-----------------|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:--------|:--------|:------------------------------------------------------|
 | track_id         | character | Song unique ID                                                                                                                                                                                                                                                                                                                                                                            |
 | track_name       | character | Song Name                                                                                                                                                                                                                                                                                                                                                                                 |
 | track_artist     | character | Song Artist                                                                                                                                                                                                                                                                                                                                                                               |
@@ -127,22 +130,13 @@ resid_hist + resid_qq
 
 ## Exercise 1
 
-Assess the four model conditions. State whether the condition is satisfied and briefly explain your response.
-
--   Linearity
--   Constant variance
--   Normality
--   Independence
-
-## Exercise 2
-
 Calculate $R^2$ and interpret this value in the context of the data.
 
 ```{r}
 #| label: calc-rsq
 ```
 
-## Exercise 3
+## Exercise 2
 
 Calculate RMSE and interpret this value in the context of the data.
 
@@ -150,9 +144,13 @@ Calculate RMSE and interpret this value in the context of the data.
 #| label: calc-rmse
 ```
 
+## Exercise 3
+
+Choose another quantitative variable in the data set. Check [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md) for specific definitions of variables. After Dr. Friedlander approves your choice, fit a model predicting `valence` using that variable as a predictor. Make an argument, citing quantitative evidence, for which model is better, the energy model or your new model. Reporters, be ready to discuss with the class.
+
 ## To submit the AE:
 
 ::: callout-important
--   Render the document to produce the PDF with all of your work from today's class.
--   Push all your work to your `ae-07` repo on GitHub. (You do not submit AEs on Gradescope).
+- Render the document to produce the PDF with all of your work from today's class.
+- Upload your QMD and PDF files to the Canvas assignment.
 :::

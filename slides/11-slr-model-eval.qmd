@@ -1,7 +1,7 @@
 ---
 title: "SLR: Model evaluation"
 author: "Prof. Eric Friedlander"
-date: "2024-09-13"
+date: "2024-09-16"
 date-format: "MMM DD, YYYY"
 footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
@@ -109,7 +109,8 @@ Let's think about variation:
 ## ANOVA in R
 
 ```{r}
-anova(heb_fit) |> 
+heb_fit |> 
+  anova() |> 
   tidy() |> 
   kable()
 ```
@@ -135,7 +136,7 @@ $$
 $$
 R^2 = Cor(y, \hat{y})^2
 $$
-    +     Also called **PRE (Percent Reduction in Error)** because:
+    -  Also called **PRE (Percent Reduction in Error)** because:
 $$
 R^2 = \frac{SSModel}{SSTotal}
 $$
@@ -145,14 +146,11 @@ $$
 ## Two statistics: RMSE {.smaller}
 
 -   **Root mean square error, RMSE**: A measure of the average error (average difference between observed and predicted values of the outcome)
-
-    $$
-    RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
-    $$
-    
-    +   Sometimes people just case about numerator (SSE) or version without the square-root (MSE)
-    
-    +   Sometimes the denominator may have $n-1$ instead
+$$
+RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
+$$
+    + Sometimes people just case about numerator (SSE) or version without the square-root (MSE)
+    + Sometimes the denominator may have $n-1$ instead
 
 . . .
 
@@ -164,11 +162,8 @@ What indicates a good model fit? Higher or lower $R^2$? Higher or lower RMSE?
 
 ::: incremental
 -   Ranges between 0 (terrible predictor) and 1 (perfect predictor)
-
 -   Has no units
-
 -   Calculate with `rsq()` from `yardstick` package using the augmented data:
-
 ```{r}
 #| echo: true
 
