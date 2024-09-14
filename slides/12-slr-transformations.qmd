@@ -443,3 +443,12 @@ p2 <- gf_point(.resid ~ .fitted, data = ll_aug,
 
 p1 + p2
 ```
+
+## A note on evaluation
+
+If you are computing your evaluation metrics (e.g. $R^2$ or RMSE), you should use transform you predictions BACK to their original scale, especially if you're trying to choose the best model
+
+:::{.question}
+- Why do we need to undo the transformation for evaluation metrics by not residuals plots? 
+- Why don't we need to worry about the predictors?
+:::

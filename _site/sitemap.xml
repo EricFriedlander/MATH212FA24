@@ -98,7 +98,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/schedule.html</loc>
-    <lastmod>2024-08-19T21:15:59.360Z</lastmod>
+    <lastmod>2024-08-19T21:15:59.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/project-rubric.html</loc>
@@ -474,7 +474,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/12-slr-transformations.html</loc>
-    <lastmod>2024-09-14T14:22:09.685Z</lastmod>
+    <lastmod>2024-09-14T18:23:36.725Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/13-slr-outliers.html</loc>
@@ -487,5 +487,9 @@
   <url>
     <loc>https://mat212fa24.netlify.app/prepare/outliers-prep.html</loc>
     <lastmod>2024-09-13T20:19:15.408Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/ae/ae-08-transformations.html</loc>
+    <lastmod>2024-09-14T18:25:05.288Z</lastmod>
   </url>
 </urlset>

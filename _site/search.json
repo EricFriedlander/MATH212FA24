@@ -4296,7 +4296,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Outliers",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Outliers",
     "crumbs": [
       "Schedule"
     ]
@@ -13311,7 +13311,7 @@
     "href": "slides/12-slr-transformations.html#residuals-vs.-fitted-values",
     "title": "SLR: Transformations",
     "section": "Residuals vs. Fitted Values",
-    "text": "Residuals vs. Fitted Values\n\n\nCode\np1 &lt;- gf_point(.resid ~ .fitted, data = lp_aug, \n         alpha = 0.25, size = 0.01) |&gt; \n  gf_hline(yintercept = 0, linetype = \"dashed\") |&gt; \n  gf_labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Log Price Model\"\n  )\n\np2 &lt;- gf_point(.resid ~ .fitted, data = ll_aug, \n         alpha = 0.25, size = 0.01) |&gt; \n  gf_hline(yintercept = 0, linetype = \"dashed\") |&gt; \n  gf_labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Log-Log Model\"\n  )\n\np1 + p2\n\n\n\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+    "text": "Residuals vs. Fitted Values\n\n\nCode\np1 &lt;- gf_point(.resid ~ .fitted, data = lp_aug, \n         alpha = 0.25, size = 0.01) |&gt; \n  gf_hline(yintercept = 0, linetype = \"dashed\") |&gt; \n  gf_labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Log Price Model\"\n  )\n\np2 &lt;- gf_point(.resid ~ .fitted, data = ll_aug, \n         alpha = 0.25, size = 0.01) |&gt; \n  gf_hline(yintercept = 0, linetype = \"dashed\") |&gt; \n  gf_labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Log-Log Model\"\n  )\n\np1 + p2"
   },
   {
     "objectID": "slides/13-slr-outliers.html#computational-set-up",
@@ -13473,5 +13473,82 @@
     "title": "September 18 lecture",
     "section": "",
     "text": "Stat2: Topic 1.4 Transformations/Reexpressions\nStat2: Topic 1.5 Outliers and Influential Points"
+  },
+  {
+    "objectID": "ae/ae-08-transformations.html",
+    "href": "ae/ae-08-transformations.html",
+    "title": "AE 08: Transformations",
+    "section": "",
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-08”.\nGo to the Canvas and locate your AE 08 assignment to get started.\nUpload the ae-08.qmd files into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(yardstick)\nlibrary(Stat2Data)\nlibrary(mosaic)\nlibrary(broom)\nlibrary(knitr)\nlibrary(patchwork) #arrange plots in a grid"
+  },
+  {
+    "objectID": "ae/ae-08-transformations.html#data",
+    "href": "ae/ae-08-transformations.html#data",
+    "title": "AE 08: Transformations",
+    "section": "Data",
+    "text": "Data\nThe data set for this assignment is from the Stat2Data R package which is the companion package for this course’s textbook. The data was originally generated by the American Medical Association and concerns the availability of health care in counties in the United States. You can find information here by searching for the County Health Resources dataset.\n\ndata(\"CountyHealth\") # Loads the data from the package\n\nIt is relatively easy to count the number of hospitals a county has, whereas counting the number of doctors is much more difficult. We’d like to build a linear model to predict the number of doctors, contained the variable MDs, from the number of hospitals, Hospitals."
+  },
+  {
+    "objectID": "ae/ae-08-transformations.html#exercise-1",
+    "href": "ae/ae-08-transformations.html#exercise-1",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nUse a visualization and to argue why a simple linear regression model would not be appropriate for the data if we do not make any transformations."
+  },
+  {
+    "objectID": "ae/ae-08-transformations.html#exercise-2",
+    "href": "ae/ae-08-transformations.html#exercise-2",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nUse visualizations to find the best model that involves at least one log transformation."
+  },
+  {
+    "objectID": "ae/ae-08-transformations.html#exercise-3",
+    "href": "ae/ae-08-transformations.html#exercise-3",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nFit that model and write the equation that describes it."
+  },
+  {
+    "objectID": "ae/ae-08-transformations.html#exercise-4-time-permitting",
+    "href": "ae/ae-08-transformations.html#exercise-4-time-permitting",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 4 (Time Permitting)",
+    "text": "Exercise 4 (Time Permitting)\nIs the model you created in exercise 2 or exercise 3 a “better” model. Use the residuals and evaluation metrics to make your argument. Hint: you want to look at the residuals of the transformed models but look at the evaluation metrics when you transform your predictions back to the original scale."
+  },
+  {
+    "objectID": "ae/ae-08-transformations.html#to-submit-the-ae",
+    "href": "ae/ae-08-transformations.html#to-submit-the-ae",
+    "title": "AE 08: Transformations",
+    "section": "To submit the AE:",
+    "text": "To submit the AE:\n\n\n\n\n\n\nImportant\n\n\n\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#a-note-on-evaluation",
+    "href": "slides/12-slr-transformations.html#a-note-on-evaluation",
+    "title": "SLR: Transformations",
+    "section": "A note on evaluation",
+    "text": "A note on evaluation\nIf you are computing your evaluation metrics (e.g. \\(R^2\\) or RMSE), you should use transform you predictions BACK to their original scale, especially if you’re trying to choose the best model\n\n\nWhy do we need to undo the transformation for evaluation metrics by not residuals plots?\nWhy don’t we need to worry about the predictors?\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "ae/ae-08-transformations.html#exercise-4",
+    "href": "ae/ae-08-transformations.html#exercise-4",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nUse visualizations to find the best model the involves at least one square root transformation. Hint: you can create square root transformations in the same way you can make log transformations by replacing log with sqrt."
+  },
+  {
+    "objectID": "ae/ae-08-transformations.html#exercise-5",
+    "href": "ae/ae-08-transformations.html#exercise-5",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nFit that model and write the equation that describes it."
+  },
+  {
+    "objectID": "ae/ae-08-transformations.html#exercise-6-time-permitting",
+    "href": "ae/ae-08-transformations.html#exercise-6-time-permitting",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 6 (Time Permitting)",
+    "text": "Exercise 6 (Time Permitting)\nIs the model you created in exercise 3 or exercise 5 a “better” model? Use residuals and evaluation metrics to make your argument. Hint: you want to look at the residuals of the transformed models but look at the evaluation metrics when you transform your predictions back to the original scale."
   }
 ]
