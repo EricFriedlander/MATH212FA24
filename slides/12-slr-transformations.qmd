@@ -452,3 +452,9 @@ If you are computing your evaluation metrics (e.g. $R^2$ or RMSE), you should us
 - Why do we need to undo the transformation for evaluation metrics by not residuals plots? 
 - Why don't we need to worry about the predictors?
 :::
+
+# Application exercise
+
+::: appex
+📋 [AE-08: Transformations](https://mat212fa24.netlify.app/ae/ae-08-transformations)
+:::

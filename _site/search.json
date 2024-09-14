@@ -13528,7 +13528,7 @@
     "href": "slides/12-slr-transformations.html#a-note-on-evaluation",
     "title": "SLR: Transformations",
     "section": "A note on evaluation",
-    "text": "A note on evaluation\nIf you are computing your evaluation metrics (e.g. \\(R^2\\) or RMSE), you should use transform you predictions BACK to their original scale, especially if you’re trying to choose the best model\n\n\nWhy do we need to undo the transformation for evaluation metrics by not residuals plots?\nWhy don’t we need to worry about the predictors?\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+    "text": "A note on evaluation\nIf you are computing your evaluation metrics (e.g. \\(R^2\\) or RMSE), you should use transform you predictions BACK to their original scale, especially if you’re trying to choose the best model\n\n\nWhy do we need to undo the transformation for evaluation metrics by not residuals plots?\nWhy don’t we need to worry about the predictors?"
   },
   {
     "objectID": "ae/ae-08-transformations.html#exercise-4",
