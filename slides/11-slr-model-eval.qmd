@@ -53,6 +53,25 @@ knitr::opts_chunk$set(
 3.  **Normality:** The errors follow a normal distribution
 4.  **Independence:** The errors are independent from each other
 
+## Warm-Up: Comparing inferential methods
+
+::: question
+-   What are the advantages of using simulation-based inference methods? What are the advantages of using inference methods based on mathematical models?
+
+-   Under what scenario(s) would you prefer to use simulation-based methods? Under what scenario(s) would you prefer to use methods based on mathematical models?
+:::
+
+```{r}
+#| echo: false
+countdown(minutes = 2, font_size = "2em")
+```
+
+# Application exercise
+
+::: appex
+📋 [AE-06: Model Conditions](https://mat212fa24.netlify.app/ae/ae-06-conditions)
+:::
+
 ## Computational set up
 
 ```{r packages}
@@ -226,8 +245,8 @@ rmse(heb_aug, truth = Number_Organic, estimate = .fitted)
 :::
 
 
-<!-- # Application exercise -->
+# Application exercise
 
-<!-- ::: appex -->
-<!-- 📋 [sta210-fa23.netlify.app/ae/ae-06-conditions](https://sta210-fa23.netlify.app/ae/ae-06-conditions.html) -->
-<!-- ::: -->
+::: appex
+📋 [AE-07: Evaluating Models](https://mat212fa24.netlify.app/ae/ae-07-model-eval)
+:::

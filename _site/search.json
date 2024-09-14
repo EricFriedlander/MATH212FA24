@@ -4296,7 +4296,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model Evaluation",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Outliers",
     "crumbs": [
       "Schedule"
     ]
@@ -12296,7 +12296,7 @@
     "href": "slides/10-slr-conditions.html#recap",
     "title": "SLR: Conditions",
     "section": "Recap",
-    "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\n\nLinearity\nConstant variance\n\n\n\n\n\nNormality\nIndependence\n\n\n\n\n\n\n\nWhich of these conditions are required for fitting a SLR (and not doing any inference)?\nWhich for simulation-based inference for the slope for an SLR?\nWhich for inference with mathematical models?\n\n\n\n\n\n−+\n03:00"
+    "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\n\nLinearity\nConstant variance\n\n\n\n\n\nNormality\nIndependence\n\n\n\n\n\n\n\nWhich of these conditions are required for fitting a SLR (and not doing any inference)?\nWhich for simulation-based inference for the slope for an SLR?\nWhich for inference with mathematical models?\n\n\n\n\n\n−+\n03:00\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
   },
   {
     "objectID": "slides/10-slr-conditions.html#comparing-inferential-methods",
@@ -12793,6 +12793,685 @@
     "href": "slides/11-slr-model-eval.html#rmse",
     "title": "SLR: Model evaluation",
     "section": "RMSE",
-    "text": "RMSE\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nCalculate with rsq() from yardstick package using the augmented data:\n\n\nrmse(heb_aug, truth = Number_Organic, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard        17.0\n\n\n\nThe value of RMSE is not very meaningful on its own, but it’s useful for comparing across models (more on this and ANOVA when we get to regression with multiple predictors)\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+    "text": "RMSE\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nCalculate with rsq() from yardstick package using the augmented data:\n\n\nrmse(heb_aug, truth = Number_Organic, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard        17.0\n\n\n\nThe value of RMSE is not very meaningful on its own, but it’s useful for comparing across models (more on this and ANOVA when we get to regression with multiple predictors)"
+  },
+  {
+    "objectID": "slides/11-slr-model-eval.html#warm-up-comparing-inferential-methods",
+    "href": "slides/11-slr-model-eval.html#warm-up-comparing-inferential-methods",
+    "title": "SLR: Model evaluation",
+    "section": "Warm-Up: Comparing inferential methods",
+    "text": "Warm-Up: Comparing inferential methods\n\n\nWhat are the advantages of using simulation-based inference methods? What are the advantages of using inference methods based on mathematical models?\nUnder what scenario(s) would you prefer to use simulation-based methods? Under what scenario(s) would you prefer to use methods based on mathematical models?\n\n\n\n\n\n−+\n02:00"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#computational-set-up",
+    "href": "slides/12-slr-transformations-outliers.html#computational-set-up",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Computational set up",
+    "text": "Computational set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(broom)       # for formatting model output\nlibrary(ggformula)   # for creating plots using formulas\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(moderndive)  # for house_price dataset\nlibrary(fivethirtyeight) # for fandango dataset\nlibrary(kableExtra)  # also for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#data-house_prices",
+    "href": "slides/12-slr-transformations-outliers.html#data-house_prices",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Data: house_prices",
+    "text": "Data: house_prices\n\n\nContains house sale prices for King County, which includes Seattle, from homes sold between May 2014 and May 2015\nObtained from Kaggle.com\n\n\n\nglimpse(house_prices)\n\nRows: 21,613\nColumns: 21\n$ id            &lt;chr&gt; \"7129300520\", \"6414100192\", \"5631500400\", \"2487200875\", …\n$ date          &lt;date&gt; 2014-10-13, 2014-12-09, 2015-02-25, 2014-12-09, 2015-02…\n$ price         &lt;dbl&gt; 221900, 538000, 180000, 604000, 510000, 1225000, 257500,…\n$ bedrooms      &lt;int&gt; 3, 3, 2, 4, 3, 4, 3, 3, 3, 3, 3, 2, 3, 3, 5, 4, 3, 4, 2,…\n$ bathrooms     &lt;dbl&gt; 1.00, 2.25, 1.00, 3.00, 2.00, 4.50, 2.25, 1.50, 1.00, 2.…\n$ sqft_living   &lt;int&gt; 1180, 2570, 770, 1960, 1680, 5420, 1715, 1060, 1780, 189…\n$ sqft_lot      &lt;int&gt; 5650, 7242, 10000, 5000, 8080, 101930, 6819, 9711, 7470,…\n$ floors        &lt;dbl&gt; 1.0, 2.0, 1.0, 1.0, 1.0, 1.0, 2.0, 1.0, 1.0, 2.0, 1.0, 1…\n$ waterfront    &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …\n$ view          &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0,…\n$ condition     &lt;fct&gt; 3, 3, 3, 5, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 4, 4,…\n$ grade         &lt;fct&gt; 7, 7, 6, 7, 8, 11, 7, 7, 7, 7, 8, 7, 7, 7, 7, 9, 7, 7, 7…\n$ sqft_above    &lt;int&gt; 1180, 2170, 770, 1050, 1680, 3890, 1715, 1060, 1050, 189…\n$ sqft_basement &lt;int&gt; 0, 400, 0, 910, 0, 1530, 0, 0, 730, 0, 1700, 300, 0, 0, …\n$ yr_built      &lt;int&gt; 1955, 1951, 1933, 1965, 1987, 2001, 1995, 1963, 1960, 20…\n$ yr_renovated  &lt;int&gt; 0, 1991, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ zipcode       &lt;fct&gt; 98178, 98125, 98028, 98136, 98074, 98053, 98003, 98198, …\n$ lat           &lt;dbl&gt; 47.5112, 47.7210, 47.7379, 47.5208, 47.6168, 47.6561, 47…\n$ long          &lt;dbl&gt; -122.257, -122.319, -122.233, -122.393, -122.045, -122.0…\n$ sqft_living15 &lt;int&gt; 1340, 1690, 2720, 1360, 1800, 4760, 2238, 1650, 1780, 23…\n$ sqft_lot15    &lt;int&gt; 5650, 7639, 8062, 5000, 7503, 101930, 6819, 9711, 8113, …"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#variables",
+    "href": "slides/12-slr-transformations-outliers.html#variables",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Variables",
+    "text": "Variables\n\nOutcome\n\nprice: the sale price in dollars\n\nPredictor\n\nsqft_living: the square footage of the home"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#recap-fit-the-model",
+    "href": "slides/12-slr-transformations-outliers.html#recap-fit-the-model",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Recap: Fit the model",
+    "text": "Recap: Fit the model\n\nhp_fit &lt;- lm(price ~ sqft_living, data = house_prices)\ntidy(hp_fit) |&gt;  kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-43580.74\n4402.69\n-9.90\n0\n\n\nsqft_living\n280.62\n1.94\n144.92\n0\n\n\n\n\n\n\n\nWrite down the model:\n\nModel: \\(\\hat{\\text{price}} = -43580.74 + 280.62\\times\\text{sqft_living}\\)\n\nInterpret the slope and intercept in the context of this problem:\n\nInterpretation: If the square footage of the house increases by 1, the price increases by and average of $280.62 and a (theoretical) house with 0 square feet with cost -$43,580.74."
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#recap-fit-the-model-1",
+    "href": "slides/12-slr-transformations-outliers.html#recap-fit-the-model-1",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Recap: Fit the model",
+    "text": "Recap: Fit the model\n\n\nCode\ngf_point(price ~ sqft_living, data = house_prices,\n         alpha = 0.25, size = 0.01) |&gt; \n  gf_smooth(method = \"lm\", color = \"red\") |&gt; \n  gf_labs(x = \"Square Footage\", \n       y = \"Sale Price\")  |&gt; \n  gf_refine(scale_y_continuous(labels = label_dollar()),\n  scale_x_continuous(labels = label_number()))"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#recap-model-conditions",
+    "href": "slides/12-slr-transformations-outliers.html#recap-model-conditions",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Recap: Model conditions",
+    "text": "Recap: Model conditions\n\nLinearity: There is a linear relationship between the outcome and predictor variables\nConstant variance: The variability of the errors is equal for all values of the predictor variable\nNormality: The errors follow a normal distribution\nIndependence: The errors are independent from each other\n\n\n\nHow should we check these assumptions?"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#recap-residual-histogram",
+    "href": "slides/12-slr-transformations-outliers.html#recap-residual-histogram",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Recap: Residual Histogram",
+    "text": "Recap: Residual Histogram\n\n\nCode\nhp_aug &lt;- augment(hp_fit)\n\ngf_histogram(~.resid, data = hp_aug, bins = 100) |&gt; \n  gf_labs(x = \"Residual\", \n       y = \"Count\", \n       title = \"Residual Histogram\")"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#recap-qq-plot-of-residuals",
+    "href": "slides/12-slr-transformations-outliers.html#recap-qq-plot-of-residuals",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Recap: QQ-Plot of Residuals",
+    "text": "Recap: QQ-Plot of Residuals\n\n\nCode\ngf_qq(~.resid, data = hp_aug) |&gt; \n  gf_qqline() |&gt;\n  gf_labs(x = \"Theoretical quantile\", \n       y = \"Observed quantile\", \n       title = \"Normal QQ-plot of residuals\")"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#recap-residuals-vs.-fitted-values",
+    "href": "slides/12-slr-transformations-outliers.html#recap-residuals-vs.-fitted-values",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Recap: Residuals vs. Fitted Values",
+    "text": "Recap: Residuals vs. Fitted Values\n\n\nCode\ngf_point(.resid ~ .fitted, data = hp_aug, \n         alpha = 0.25, size = 0.01) |&gt; \n  gf_hline(yintercept = 0, linetype = \"dashed\") |&gt; \n  gf_labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Residuals vs. fitted values\"\n  )"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#are-model-conditions-satisfied",
+    "href": "slides/12-slr-transformations-outliers.html#are-model-conditions-satisfied",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Are model conditions satisfied?",
+    "text": "Are model conditions satisfied?\n\nLinearity: ❓\nConstant variance: ❌\nNormality: ❌\nIndependence: ✅"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#what-to-do-when-regression-conditions-are-violated",
+    "href": "slides/12-slr-transformations-outliers.html#what-to-do-when-regression-conditions-are-violated",
+    "title": "SLR: Transformations + Outliers",
+    "section": "What to do when regression conditions are violated",
+    "text": "What to do when regression conditions are violated\nExamples:\n\nLack of normality in residuals\nPatterns in residuals\nHeteroscedasticity (nonconstant variance)\nOutliers: influential points, large residuals"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#data-transformations",
+    "href": "slides/12-slr-transformations-outliers.html#data-transformations",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Data Transformations",
+    "text": "Data Transformations\nCan be used to:\n\nAddress nonlinear patterns\nStabilize variance\nRemove skewness from residuals\nMinimize effects of outliers"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#common-transformations",
+    "href": "slides/12-slr-transformations-outliers.html#common-transformations",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Common Transformations",
+    "text": "Common Transformations\nFor either the response \\(Y\\) or predictor \\(X\\):\n\nLogarithm \\(Z \\to \\log(Z)\\)\n\nNote: “log” means “log base \\(e\\)”\n\nSquare Root \\(Z \\to \\sqrt{Z}\\)\nExponential \\(Z \\to e^Z\\)\nPower functions \\(Z \\to Z^2, Z^3, Z^4, \\ldots\\)\nReciprocal \\(Z \\to 1/Z\\)"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#example-planets",
+    "href": "slides/12-slr-transformations-outliers.html#example-planets",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Planets",
+    "text": "Example: Planets\n\nplanets &lt;- read_csv(\"data/planets.csv\")\n\n\n\\(Y =\\) length of the “year” for planets\n\\(X =\\) distance from the Sun"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#example-planets-1",
+    "href": "slides/12-slr-transformations-outliers.html#example-planets-1",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Planets",
+    "text": "Example: Planets\n\nModel: \\(Y = \\beta_0 + \\beta_1\\times X\\)\n\n\n\nCode\ngf_point(Distance ~ Year, data = planets) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#example-planets-2",
+    "href": "slides/12-slr-transformations-outliers.html#example-planets-2",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Planets",
+    "text": "Example: Planets\n\nModel: \\(\\log(Y) = \\beta_0 + \\beta_1\\times X\\)\n\n\n\nCode\ngf_point(log(Distance) ~ Year, data = planets) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#example-planets-3",
+    "href": "slides/12-slr-transformations-outliers.html#example-planets-3",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Planets",
+    "text": "Example: Planets\n\nModel: \\(Y = \\beta_0 + \\beta_1\\times \\log(X)\\)\n\n\n\nCode\ngf_point(Distance ~ log(Year), data = planets) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#example-planets-4",
+    "href": "slides/12-slr-transformations-outliers.html#example-planets-4",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Planets",
+    "text": "Example: Planets\n\nModel: \\(\\log(Y) = \\beta_0 + \\beta_1\\times \\log(X)\\)\n\n\n\nCode\ngf_point(log(Distance) ~ log(Year), data = planets) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#example-mammal-species",
+    "href": "slides/12-slr-transformations-outliers.html#example-mammal-species",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Mammal Species",
+    "text": "Example: Mammal Species\n\nSpeciesArea &lt;- read_csv(\"data/SpeciesArea.csv\")\n\n\n\\(Y =\\) number of mammal species on an island\n\\(X =\\) area of the island"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#example-mammal-species-1",
+    "href": "slides/12-slr-transformations-outliers.html#example-mammal-species-1",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Mammal Species",
+    "text": "Example: Mammal Species\n\nModel: \\(Y = \\beta_0 + \\beta_1\\times X\\)\n\n\n\nCode\ngf_point(Species ~ Area, data = SpeciesArea) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#example-mammal-species-2",
+    "href": "slides/12-slr-transformations-outliers.html#example-mammal-species-2",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Mammal Species",
+    "text": "Example: Mammal Species\n\nModel: \\(\\log(Y) = \\beta_0 + \\beta_1\\times \\log(X)\\)\n\n\n\nCode\ngf_point(log(Species) ~ log(Area), data = SpeciesArea) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#why-a-log-transformation",
+    "href": "slides/12-slr-transformations-outliers.html#why-a-log-transformation",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Why a Log Transformation?",
+    "text": "Why a Log Transformation?\n\nSome relationship are multiplicative (not linear)\n\nExample: Area of a circle\n\\[\n\\begin{aligned}\nA &= \\pi r^2 \\text{ (not linear)}\\\\\n\\log(A) &= \\log(\\pi r^2)\n= \\log(\\pi) + 2\\log(r)\\\\\n\\log(A) &= \\beta_0 + \\beta_1\\times \\log(r)\\\\\n\\implies & \\log(A) \\text{ is a linear function of } \\log(r)\n\\end{aligned}\n\\]\nLook for:\n\nStrongly right-skewed distributions\nCurvative in scatterplot\nIncreasing variability in scatterplot"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#back-to-house_sales",
+    "href": "slides/12-slr-transformations-outliers.html#back-to-house_sales",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Back to house_sales",
+    "text": "Back to house_sales\n\n\nCode\np1 &lt;- gf_point(price ~ sqft_living, data = house_prices,\n         alpha = 0.25, size = 0.01) |&gt; \n  gf_smooth(method = \"lm\", color = \"red\") |&gt; \n  gf_labs(x = \"Square Footage\", \n       y = \"Sale Price\")  |&gt; \n  gf_refine(scale_y_continuous(labels = label_dollar()),\n  scale_x_continuous(labels = label_number()))\n\np2 &lt;- gf_point(log(price) ~ sqft_living, data = house_prices,\n         alpha = 0.25, size = 0.01) |&gt; \n  gf_smooth(method = \"lm\", color = \"red\") |&gt; \n  gf_labs(x = \"Square Footage\", \n       y = \"log(Sale Price)\")  |&gt; \n  gf_refine(scale_y_continuous(labels = label_dollar()),\n  scale_x_continuous(labels = label_number()))\n\np3 &lt;- gf_point(price ~ log(sqft_living), data = house_prices,\n         alpha = 0.25, size = 0.01) |&gt; \n  gf_smooth(method = \"lm\", color = \"red\") |&gt; \n  gf_labs(x = \"log(Square Footage)\", \n       y = \"Sale Price\")  |&gt; \n  gf_refine(scale_y_continuous(labels = label_dollar()),\n  scale_x_continuous(labels = label_number()))\n\np4 &lt;- gf_point(log(price) ~ log(sqft_living), data = house_prices,\n         alpha = 0.25, size = 0.01) |&gt; \n  gf_smooth(method = \"lm\", color = \"red\") |&gt; \n  gf_labs(x = \"log(Square Footage)\", \n       y = \"log(Sale Price)\")  |&gt; \n  gf_refine(scale_y_continuous(labels = label_dollar()),\n  scale_x_continuous(labels = label_number()))\n\n(p1 + p2)/ (p3 + p4)"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#fitting-transformed-models",
+    "href": "slides/12-slr-transformations-outliers.html#fitting-transformed-models",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Fitting Transformed Models",
+    "text": "Fitting Transformed Models\n\n\n\nlogprice_model &lt;- lm(log(price) ~ sqft_living, data = house_prices)\ntidy(logprice_model) |&gt; kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n12.2184641\n0.0063741\n1916.8830\n0\n\n\nsqft_living\n0.0003987\n0.0000028\n142.2326\n0\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\log(Y) &= 12.22  + 3.99\\times 10^{-4}\\times X\\\\\nY &= e^{12.22 + 3.99\\times 10^{-4}\\times X}\\\\\n&= 202805\\times e^{3.99\\times 10^{-4}\\times X}\n\\end{aligned}\n\\]\n\n\nloglog_model &lt;- lm(log(price) ~ log(sqft_living), data = house_prices)\ntidy(loglog_model) |&gt; kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n6.729916\n0.0470620\n143.0011\n0\n\n\nlog(sqft_living)\n0.836771\n0.0062233\n134.4587\n0\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\log(Y) &=6.73 + 0.837\\times \\log(X)\\\\\n\\log(Y) &= \\log(e^{6.73})  + \\log(X^{0.837})\\\\\nY &= 873.15\\times X^{0.837}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#residuals-histograms",
+    "href": "slides/12-slr-transformations-outliers.html#residuals-histograms",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Residuals Histograms",
+    "text": "Residuals Histograms\n\n\nCode\nlp_aug &lt;- augment(logprice_model)\nll_aug &lt;- augment(loglog_model)\n\np1 &lt;- gf_histogram(~.resid, data = lp_aug, bins = 100) |&gt; \n  gf_labs(x = \"Residual\", \n       y = \"Count\", \n       title = \"Log Price Residuals\")\n\np2 &lt;- gf_histogram(~.resid, data = ll_aug, bins = 100) |&gt; \n  gf_labs(x = \"Residual\", \n       y = \"Count\", \n       title = \"Log-Log Residuals\")\n\n(p1 + p2)"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#qq-plots-of-residuals",
+    "href": "slides/12-slr-transformations-outliers.html#qq-plots-of-residuals",
+    "title": "SLR: Transformations + Outliers",
+    "section": "QQ-Plots of Residuals",
+    "text": "QQ-Plots of Residuals\n\n\nCode\np1 &lt;- gf_qq(~.resid, data = lp_aug) |&gt; \n  gf_qqline() |&gt;\n  gf_labs(x = \"Theoretical quantile\", \n       y = \"Observed quantile\", \n       title = \"Log Price QQ\")\n\np2 &lt;- gf_qq(~.resid, data = ll_aug) |&gt; \n  gf_qqline() |&gt;\n  gf_labs(x = \"Theoretical quantile\", \n       y = \"Observed quantile\", \n       title = \"Log-Log QQ\")\n\np1 + p2"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#residuals-vs.-fitted-values",
+    "href": "slides/12-slr-transformations-outliers.html#residuals-vs.-fitted-values",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Residuals vs. Fitted Values",
+    "text": "Residuals vs. Fitted Values\n\n\nCode\np1 &lt;- gf_point(.resid ~ .fitted, data = lp_aug, \n         alpha = 0.25, size = 0.01) |&gt; \n  gf_hline(yintercept = 0, linetype = \"dashed\") |&gt; \n  gf_labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Log Price Model\"\n  )\n\np2 &lt;- gf_point(.resid ~ .fitted, data = ll_aug, \n         alpha = 0.25, size = 0.01) |&gt; \n  gf_hline(yintercept = 0, linetype = \"dashed\") |&gt; \n  gf_labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Log-Log Model\"\n  )\n\np1 + p2"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#types-of-unusual-points-in-slr",
+    "href": "slides/12-slr-transformations-outliers.html#types-of-unusual-points-in-slr",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Types of “Unusual” Points in SLR",
+    "text": "Types of “Unusual” Points in SLR\n\nOutlier: a data point that is far from the regression line\nInfluential point: a data point that has a large effect on the regression fit\n\n\n\n\nHow do we measure “far”?\nHow do we measure “effect on the fit”?"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#detecting-unusual-cases-overview",
+    "href": "slides/12-slr-transformations-outliers.html#detecting-unusual-cases-overview",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Detecting Unusual Cases: Overview",
+    "text": "Detecting Unusual Cases: Overview\n\nCompute residuals\n\n“raw”, standardized, studentized\n\nPlots of residuals\n\nboxplot, scatterplot, normal plot\n\nLeverage\n\nunusual values for the predictors"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#example-movie-scores",
+    "href": "slides/12-slr-transformations-outliers.html#example-movie-scores",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Movie scores",
+    "text": "Example: Movie scores\n\n\n\nData behind the FiveThirtyEight story Be Suspicious Of Online Movie Ratings, Especially Fandango’s\nIn the fivethirtyeight package: fandango\nContains every film released in 2014 and 2015 that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#data-prep",
+    "href": "slides/12-slr-transformations-outliers.html#data-prep",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Data prep",
+    "text": "Data prep\n\nRename Rotten Tomatoes columns as critics and audience\nRename the dataset as movie_scores\n\n\nmovie_scores &lt;- fandango |&gt;\n  rename(critics = rottentomatoes, \n         audience = rottentomatoes_user)"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#example-movie-scores-1",
+    "href": "slides/12-slr-transformations-outliers.html#example-movie-scores-1",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Movie Scores",
+    "text": "Example: Movie Scores\n\n\nCode\nmovie_scores |&gt; \n  gf_point(audience ~ critics) |&gt; \n  gf_lm() |&gt; \n  gf_labs(x = \"Critics Score\", \n       y = \"Audience Score\")"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#boxplot-of-residuals",
+    "href": "slides/12-slr-transformations-outliers.html#boxplot-of-residuals",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Boxplot of Residuals",
+    "text": "Boxplot of Residuals\n\n\n\nmovie_fit &lt;- lm(audience ~ critics, data = movie_scores)\nmovie_fit_aug &lt;- augment(movie_fit)\n\ngf_boxplot(.resid~\"\", data = movie_fit_aug, \n           fill = \"salmon\", ylab = \"Residuals\", xlab = \"\")\n\n\n\n\n\n\n\n\n\n\n\n\nDots (outliers) indicate data points more than 1.5 IQRs above (or below) quartiles"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#standardized-residuals",
+    "href": "slides/12-slr-transformations-outliers.html#standardized-residuals",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Standardized Residuals",
+    "text": "Standardized Residuals\n\n\nRecall: Z-scores\nFact: If \\(X\\) has mean \\(\\mu\\) and standard deviation \\(\\sigma\\), then \\((X-\\mu)/\\sigma\\) has mean 0 and stanard deviation 1\nFor residuals: mean 0 and standard deviation \\(\\hat{\\sigma}_\\epsilon\\)\nStandardized residuals: \\(\\frac{y_i-\\hat{y}_i}{\\hat{\\sigma}_\\epsilon}\\)\n\nLook for values beyond \\(\\pm 2\\) or \\(\\pm 3\\)"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#example-movie-scores-2",
+    "href": "slides/12-slr-transformations-outliers.html#example-movie-scores-2",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Movie Scores",
+    "text": "Example: Movie Scores\n\nmovie_fit_aug |&gt;  # Augmented data\n  gf_point(.std.resid ~ .fitted, \n           xlab = \"Predicted\", ylab = \"Standardized Residual\")"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#externally-studentized-residuals",
+    "href": "slides/12-slr-transformations-outliers.html#externally-studentized-residuals",
+    "title": "SLR: Transformations + Outliers",
+    "section": "(Externally) Studentized Residuals",
+    "text": "(Externally) Studentized Residuals\n\nConcern: An unusual value may exert great influence on the fit\n\nIts residual might be underestimated because the model “moves” a lot to fit it\nThe standard error may also be inflated due to the outlier error\n\nStudentize: Fit the model without that case, then find new \\(\\hat{\\sigma}_\\epsilon\\)"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#example-movie-scores-3",
+    "href": "slides/12-slr-transformations-outliers.html#example-movie-scores-3",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Example: Movie Scores",
+    "text": "Example: Movie Scores\n\nmovie_fit_aug |&gt;  # Augmented data\n  mutate(studentized_residual = rstudent(movie_fit)) |&gt; \n  gf_point(.std.resid ~ .fitted, \n           xlab = \"Predicted\", ylab = \"Studentized Residual\")"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#what-to-do-with-an-outlier",
+    "href": "slides/12-slr-transformations-outliers.html#what-to-do-with-an-outlier",
+    "title": "SLR: Transformations + Outliers",
+    "section": "What to do with an outlier?",
+    "text": "What to do with an outlier?\n\nLook into it\nIf something is unusual about it and you can make a case that it is not a good representation of the population you can throw it out\nIf not and the value is just unusual, keep it"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#influence-vs.-leverage",
+    "href": "slides/12-slr-transformations-outliers.html#influence-vs.-leverage",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Influence vs. Leverage",
+    "text": "Influence vs. Leverage\n\nHigh Influence Point: point that DOES impact the regression line\nHigh Leverage Point: point with “potential” to impact regression line because \\(X\\)-value is unusual"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#high-leverage-low-influence",
+    "href": "slides/12-slr-transformations-outliers.html#high-leverage-low-influence",
+    "title": "SLR: Transformations + Outliers",
+    "section": "High Leverage, Low Influence",
+    "text": "High Leverage, Low Influence"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#high-leverage-high-influence",
+    "href": "slides/12-slr-transformations-outliers.html#high-leverage-high-influence",
+    "title": "SLR: Transformations + Outliers",
+    "section": "High Leverage, High Influence",
+    "text": "High Leverage, High Influence"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#low-leverage-low-influence",
+    "href": "slides/12-slr-transformations-outliers.html#low-leverage-low-influence",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Low Leverage, Low Influence",
+    "text": "Low Leverage, Low Influence"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#low-leverage-high-influence",
+    "href": "slides/12-slr-transformations-outliers.html#low-leverage-high-influence",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Low Leverage, High Influence",
+    "text": "Low Leverage, High Influence"
+  },
+  {
+    "objectID": "slides/12-slr-transformations-outliers.html#low-leverage-high-influence-1",
+    "href": "slides/12-slr-transformations-outliers.html#low-leverage-high-influence-1",
+    "title": "SLR: Transformations + Outliers",
+    "section": "Low Leverage, High Influence",
+    "text": "Low Leverage, High Influence\n\n\n\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "prepare/transformations-outliers-prep.html",
+    "href": "prepare/transformations-outliers-prep.html",
+    "title": "September 18 lecture",
+    "section": "",
+    "text": "Stat2: Topic 1.4 Transformations/Reexpressions\nStat2: Topic 1.5 Outliers and Influential Points"
+  },
+  {
+    "objectID": "prepare/transformations-outliers-prep.html#assigned-reading",
+    "href": "prepare/transformations-outliers-prep.html#assigned-reading",
+    "title": "September 18 lecture",
+    "section": "",
+    "text": "Stat2: Topic 1.4 Transformations/Reexpressions\nStat2: Topic 1.5 Outliers and Influential Points"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#computational-set-up",
+    "href": "slides/12-slr-transformations.html#computational-set-up",
+    "title": "SLR: Transformations",
+    "section": "Computational set up",
+    "text": "Computational set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(broom)       # for formatting model output\nlibrary(ggformula)   # for creating plots using formulas\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(moderndive)  # for house_price dataset\nlibrary(fivethirtyeight) # for fandango dataset\nlibrary(kableExtra)  # also for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#data-house_prices",
+    "href": "slides/12-slr-transformations.html#data-house_prices",
+    "title": "SLR: Transformations",
+    "section": "Data: house_prices",
+    "text": "Data: house_prices\n\n\nContains house sale prices for King County, which includes Seattle, from homes sold between May 2014 and May 2015\nObtained from Kaggle.com\n\n\n\nglimpse(house_prices)\n\nRows: 21,613\nColumns: 21\n$ id            &lt;chr&gt; \"7129300520\", \"6414100192\", \"5631500400\", \"2487200875\", …\n$ date          &lt;date&gt; 2014-10-13, 2014-12-09, 2015-02-25, 2014-12-09, 2015-02…\n$ price         &lt;dbl&gt; 221900, 538000, 180000, 604000, 510000, 1225000, 257500,…\n$ bedrooms      &lt;int&gt; 3, 3, 2, 4, 3, 4, 3, 3, 3, 3, 3, 2, 3, 3, 5, 4, 3, 4, 2,…\n$ bathrooms     &lt;dbl&gt; 1.00, 2.25, 1.00, 3.00, 2.00, 4.50, 2.25, 1.50, 1.00, 2.…\n$ sqft_living   &lt;int&gt; 1180, 2570, 770, 1960, 1680, 5420, 1715, 1060, 1780, 189…\n$ sqft_lot      &lt;int&gt; 5650, 7242, 10000, 5000, 8080, 101930, 6819, 9711, 7470,…\n$ floors        &lt;dbl&gt; 1.0, 2.0, 1.0, 1.0, 1.0, 1.0, 2.0, 1.0, 1.0, 2.0, 1.0, 1…\n$ waterfront    &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …\n$ view          &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0,…\n$ condition     &lt;fct&gt; 3, 3, 3, 5, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 4, 4,…\n$ grade         &lt;fct&gt; 7, 7, 6, 7, 8, 11, 7, 7, 7, 7, 8, 7, 7, 7, 7, 9, 7, 7, 7…\n$ sqft_above    &lt;int&gt; 1180, 2170, 770, 1050, 1680, 3890, 1715, 1060, 1050, 189…\n$ sqft_basement &lt;int&gt; 0, 400, 0, 910, 0, 1530, 0, 0, 730, 0, 1700, 300, 0, 0, …\n$ yr_built      &lt;int&gt; 1955, 1951, 1933, 1965, 1987, 2001, 1995, 1963, 1960, 20…\n$ yr_renovated  &lt;int&gt; 0, 1991, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ zipcode       &lt;fct&gt; 98178, 98125, 98028, 98136, 98074, 98053, 98003, 98198, …\n$ lat           &lt;dbl&gt; 47.5112, 47.7210, 47.7379, 47.5208, 47.6168, 47.6561, 47…\n$ long          &lt;dbl&gt; -122.257, -122.319, -122.233, -122.393, -122.045, -122.0…\n$ sqft_living15 &lt;int&gt; 1340, 1690, 2720, 1360, 1800, 4760, 2238, 1650, 1780, 23…\n$ sqft_lot15    &lt;int&gt; 5650, 7639, 8062, 5000, 7503, 101930, 6819, 9711, 8113, …"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#variables",
+    "href": "slides/12-slr-transformations.html#variables",
+    "title": "SLR: Transformations",
+    "section": "Variables",
+    "text": "Variables\n\nOutcome\n\nprice: the sale price in dollars\n\nPredictor\n\nsqft_living: the square footage of the home"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#recap-fit-the-model",
+    "href": "slides/12-slr-transformations.html#recap-fit-the-model",
+    "title": "SLR: Transformations",
+    "section": "Recap: Fit the model",
+    "text": "Recap: Fit the model\n\nhp_fit &lt;- lm(price ~ sqft_living, data = house_prices)\ntidy(hp_fit) |&gt;  kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-43580.74\n4402.69\n-9.90\n0\n\n\nsqft_living\n280.62\n1.94\n144.92\n0\n\n\n\n\n\n\n\nWrite down the model:\n\nModel: \\(\\hat{\\text{price}} = -43580.74 + 280.62\\times\\text{sqft_living}\\)\n\nInterpret the slope and intercept in the context of this problem:\n\nInterpretation: If the square footage of the house increases by 1, the price increases by and average of $280.62 and a (theoretical) house with 0 square feet with cost -$43,580.74."
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#recap-fit-the-model-1",
+    "href": "slides/12-slr-transformations.html#recap-fit-the-model-1",
+    "title": "SLR: Transformations",
+    "section": "Recap: Fit the model",
+    "text": "Recap: Fit the model\n\n\nCode\ngf_point(price ~ sqft_living, data = house_prices,\n         alpha = 0.25, size = 0.01) |&gt; \n  gf_smooth(method = \"lm\", color = \"red\") |&gt; \n  gf_labs(x = \"Square Footage\", \n       y = \"Sale Price\")  |&gt; \n  gf_refine(scale_y_continuous(labels = label_dollar()),\n  scale_x_continuous(labels = label_number()))"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#recap-model-conditions",
+    "href": "slides/12-slr-transformations.html#recap-model-conditions",
+    "title": "SLR: Transformations",
+    "section": "Recap: Model conditions",
+    "text": "Recap: Model conditions\n\nLinearity: There is a linear relationship between the outcome and predictor variables\nConstant variance: The variability of the errors is equal for all values of the predictor variable\nNormality: The errors follow a normal distribution\nIndependence: The errors are independent from each other\n\n\n\nHow should we check these assumptions?"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#recap-residual-histogram",
+    "href": "slides/12-slr-transformations.html#recap-residual-histogram",
+    "title": "SLR: Transformations",
+    "section": "Recap: Residual Histogram",
+    "text": "Recap: Residual Histogram\n\n\nCode\nhp_aug &lt;- augment(hp_fit)\n\ngf_histogram(~.resid, data = hp_aug, bins = 100) |&gt; \n  gf_labs(x = \"Residual\", \n       y = \"Count\", \n       title = \"Residual Histogram\")"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#recap-qq-plot-of-residuals",
+    "href": "slides/12-slr-transformations.html#recap-qq-plot-of-residuals",
+    "title": "SLR: Transformations",
+    "section": "Recap: QQ-Plot of Residuals",
+    "text": "Recap: QQ-Plot of Residuals\n\n\nCode\ngf_qq(~.resid, data = hp_aug) |&gt; \n  gf_qqline() |&gt;\n  gf_labs(x = \"Theoretical quantile\", \n       y = \"Observed quantile\", \n       title = \"Normal QQ-plot of residuals\")"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#recap-residuals-vs.-fitted-values",
+    "href": "slides/12-slr-transformations.html#recap-residuals-vs.-fitted-values",
+    "title": "SLR: Transformations",
+    "section": "Recap: Residuals vs. Fitted Values",
+    "text": "Recap: Residuals vs. Fitted Values\n\n\nCode\ngf_point(.resid ~ .fitted, data = hp_aug, \n         alpha = 0.25, size = 0.01) |&gt; \n  gf_hline(yintercept = 0, linetype = \"dashed\") |&gt; \n  gf_labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Residuals vs. fitted values\"\n  )"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#are-model-conditions-satisfied",
+    "href": "slides/12-slr-transformations.html#are-model-conditions-satisfied",
+    "title": "SLR: Transformations",
+    "section": "Are model conditions satisfied?",
+    "text": "Are model conditions satisfied?\n\nLinearity: ❓\nConstant variance: ❌\nNormality: ❌\nIndependence: ✅"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#what-to-do-when-regression-conditions-are-violated",
+    "href": "slides/12-slr-transformations.html#what-to-do-when-regression-conditions-are-violated",
+    "title": "SLR: Transformations",
+    "section": "What to do when regression conditions are violated",
+    "text": "What to do when regression conditions are violated\nExamples:\n\nLack of normality in residuals\nPatterns in residuals\nHeteroscedasticity (nonconstant variance)\nOutliers: influential points, large residuals"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#data-transformations",
+    "href": "slides/12-slr-transformations.html#data-transformations",
+    "title": "SLR: Transformations",
+    "section": "Data Transformations",
+    "text": "Data Transformations\nCan be used to:\n\nAddress nonlinear patterns\nStabilize variance\nRemove skewness from residuals\nMinimize effects of outliers"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#common-transformations",
+    "href": "slides/12-slr-transformations.html#common-transformations",
+    "title": "SLR: Transformations",
+    "section": "Common Transformations",
+    "text": "Common Transformations\nFor either the response \\(Y\\) or predictor \\(X\\):\n\nLogarithm \\(Z \\to \\log(Z)\\)\n\nNote: “log” means “log base \\(e\\)”\n\nSquare Root \\(Z \\to \\sqrt{Z}\\)\nExponential \\(Z \\to e^Z\\)\nPower functions \\(Z \\to Z^2, Z^3, Z^4, \\ldots\\)\nReciprocal \\(Z \\to 1/Z\\)"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#example-planets",
+    "href": "slides/12-slr-transformations.html#example-planets",
+    "title": "SLR: Transformations",
+    "section": "Example: Planets",
+    "text": "Example: Planets\n\nplanets &lt;- read_csv(\"data/planets.csv\")\n\n\n\\(Y =\\) length of the “year” for planets\n\\(X =\\) distance from the Sun"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#example-planets-1",
+    "href": "slides/12-slr-transformations.html#example-planets-1",
+    "title": "SLR: Transformations",
+    "section": "Example: Planets",
+    "text": "Example: Planets\n\nModel: \\(Y = \\beta_0 + \\beta_1\\times X\\)\n\n\n\nCode\ngf_point(Distance ~ Year, data = planets) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#example-planets-2",
+    "href": "slides/12-slr-transformations.html#example-planets-2",
+    "title": "SLR: Transformations",
+    "section": "Example: Planets",
+    "text": "Example: Planets\n\nModel: \\(\\log(Y) = \\beta_0 + \\beta_1\\times X\\)\n\n\n\nCode\ngf_point(log(Distance) ~ Year, data = planets) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#example-planets-3",
+    "href": "slides/12-slr-transformations.html#example-planets-3",
+    "title": "SLR: Transformations",
+    "section": "Example: Planets",
+    "text": "Example: Planets\n\nModel: \\(Y = \\beta_0 + \\beta_1\\times \\log(X)\\)\n\n\n\nCode\ngf_point(Distance ~ log(Year), data = planets) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#example-planets-4",
+    "href": "slides/12-slr-transformations.html#example-planets-4",
+    "title": "SLR: Transformations",
+    "section": "Example: Planets",
+    "text": "Example: Planets\n\nModel: \\(\\log(Y) = \\beta_0 + \\beta_1\\times \\log(X)\\)\n\n\n\nCode\ngf_point(log(Distance) ~ log(Year), data = planets) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#example-mammal-species",
+    "href": "slides/12-slr-transformations.html#example-mammal-species",
+    "title": "SLR: Transformations",
+    "section": "Example: Mammal Species",
+    "text": "Example: Mammal Species\n\nSpeciesArea &lt;- read_csv(\"data/SpeciesArea.csv\")\n\n\n\\(Y =\\) number of mammal species on an island\n\\(X =\\) area of the island"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#example-mammal-species-1",
+    "href": "slides/12-slr-transformations.html#example-mammal-species-1",
+    "title": "SLR: Transformations",
+    "section": "Example: Mammal Species",
+    "text": "Example: Mammal Species\n\nModel: \\(Y = \\beta_0 + \\beta_1\\times X\\)\n\n\n\nCode\ngf_point(Species ~ Area, data = SpeciesArea) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#example-mammal-species-2",
+    "href": "slides/12-slr-transformations.html#example-mammal-species-2",
+    "title": "SLR: Transformations",
+    "section": "Example: Mammal Species",
+    "text": "Example: Mammal Species\n\nModel: \\(\\log(Y) = \\beta_0 + \\beta_1\\times \\log(X)\\)\n\n\n\nCode\ngf_point(log(Species) ~ log(Area), data = SpeciesArea) |&gt; \n  gf_lm()"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#why-a-log-transformation",
+    "href": "slides/12-slr-transformations.html#why-a-log-transformation",
+    "title": "SLR: Transformations",
+    "section": "Why a Log Transformation?",
+    "text": "Why a Log Transformation?\n\nSome relationship are multiplicative (not linear)\n\nExample: Area of a circle\n\\[\n\\begin{aligned}\nA &= \\pi r^2 \\text{ (not linear)}\\\\\n\\log(A) &= \\log(\\pi r^2)\n= \\log(\\pi) + 2\\log(r)\\\\\n\\log(A) &= \\beta_0 + \\beta_1\\times \\log(r)\\\\\n\\implies & \\log(A) \\text{ is a linear function of } \\log(r)\n\\end{aligned}\n\\]\nLook for:\n\nStrongly right-skewed distributions\nCurvative in scatterplot\nIncreasing variability in scatterplot"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#back-to-house_sales",
+    "href": "slides/12-slr-transformations.html#back-to-house_sales",
+    "title": "SLR: Transformations",
+    "section": "Back to house_sales",
+    "text": "Back to house_sales\n\n\nCode\np1 &lt;- gf_point(price ~ sqft_living, data = house_prices,\n         alpha = 0.25, size = 0.01) |&gt; \n  gf_smooth(method = \"lm\", color = \"red\") |&gt; \n  gf_labs(x = \"Square Footage\", \n       y = \"Sale Price\")  |&gt; \n  gf_refine(scale_y_continuous(labels = label_dollar()),\n  scale_x_continuous(labels = label_number()))\n\np2 &lt;- gf_point(log(price) ~ sqft_living, data = house_prices,\n         alpha = 0.25, size = 0.01) |&gt; \n  gf_smooth(method = \"lm\", color = \"red\") |&gt; \n  gf_labs(x = \"Square Footage\", \n       y = \"log(Sale Price)\")  |&gt; \n  gf_refine(scale_y_continuous(labels = label_dollar()),\n  scale_x_continuous(labels = label_number()))\n\np3 &lt;- gf_point(price ~ log(sqft_living), data = house_prices,\n         alpha = 0.25, size = 0.01) |&gt; \n  gf_smooth(method = \"lm\", color = \"red\") |&gt; \n  gf_labs(x = \"log(Square Footage)\", \n       y = \"Sale Price\")  |&gt; \n  gf_refine(scale_y_continuous(labels = label_dollar()),\n  scale_x_continuous(labels = label_number()))\n\np4 &lt;- gf_point(log(price) ~ log(sqft_living), data = house_prices,\n         alpha = 0.25, size = 0.01) |&gt; \n  gf_smooth(method = \"lm\", color = \"red\") |&gt; \n  gf_labs(x = \"log(Square Footage)\", \n       y = \"log(Sale Price)\")  |&gt; \n  gf_refine(scale_y_continuous(labels = label_dollar()),\n  scale_x_continuous(labels = label_number()))\n\n(p1 + p2)/ (p3 + p4)"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#fitting-transformed-models",
+    "href": "slides/12-slr-transformations.html#fitting-transformed-models",
+    "title": "SLR: Transformations",
+    "section": "Fitting Transformed Models",
+    "text": "Fitting Transformed Models\n\n\n\nlogprice_model &lt;- lm(log(price) ~ sqft_living, data = house_prices)\ntidy(logprice_model) |&gt; kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n12.2184641\n0.0063741\n1916.8830\n0\n\n\nsqft_living\n0.0003987\n0.0000028\n142.2326\n0\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\log(Y) &= 12.22  + 3.99\\times 10^{-4}\\times X\\\\\nY &= e^{12.22 + 3.99\\times 10^{-4}\\times X}\\\\\n&= 202805\\times e^{3.99\\times 10^{-4}\\times X}\n\\end{aligned}\n\\]\n\n\nloglog_model &lt;- lm(log(price) ~ log(sqft_living), data = house_prices)\ntidy(loglog_model) |&gt; kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n6.729916\n0.0470620\n143.0011\n0\n\n\nlog(sqft_living)\n0.836771\n0.0062233\n134.4587\n0\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\log(Y) &=6.73 + 0.837\\times \\log(X)\\\\\n\\log(Y) &= \\log(e^{6.73})  + \\log(X^{0.837})\\\\\nY &= 873.15\\times X^{0.837}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#residuals-histograms",
+    "href": "slides/12-slr-transformations.html#residuals-histograms",
+    "title": "SLR: Transformations",
+    "section": "Residuals Histograms",
+    "text": "Residuals Histograms\n\n\nCode\nlp_aug &lt;- augment(logprice_model)\nll_aug &lt;- augment(loglog_model)\n\np1 &lt;- gf_histogram(~.resid, data = lp_aug, bins = 100) |&gt; \n  gf_labs(x = \"Residual\", \n       y = \"Count\", \n       title = \"Log Price Residuals\")\n\np2 &lt;- gf_histogram(~.resid, data = ll_aug, bins = 100) |&gt; \n  gf_labs(x = \"Residual\", \n       y = \"Count\", \n       title = \"Log-Log Residuals\")\n\n(p1 + p2)"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#qq-plots-of-residuals",
+    "href": "slides/12-slr-transformations.html#qq-plots-of-residuals",
+    "title": "SLR: Transformations",
+    "section": "QQ-Plots of Residuals",
+    "text": "QQ-Plots of Residuals\n\n\nCode\np1 &lt;- gf_qq(~.resid, data = lp_aug) |&gt; \n  gf_qqline() |&gt;\n  gf_labs(x = \"Theoretical quantile\", \n       y = \"Observed quantile\", \n       title = \"Log Price QQ\")\n\np2 &lt;- gf_qq(~.resid, data = ll_aug) |&gt; \n  gf_qqline() |&gt;\n  gf_labs(x = \"Theoretical quantile\", \n       y = \"Observed quantile\", \n       title = \"Log-Log QQ\")\n\np1 + p2"
+  },
+  {
+    "objectID": "slides/12-slr-transformations.html#residuals-vs.-fitted-values",
+    "href": "slides/12-slr-transformations.html#residuals-vs.-fitted-values",
+    "title": "SLR: Transformations",
+    "section": "Residuals vs. Fitted Values",
+    "text": "Residuals vs. Fitted Values\n\n\nCode\np1 &lt;- gf_point(.resid ~ .fitted, data = lp_aug, \n         alpha = 0.25, size = 0.01) |&gt; \n  gf_hline(yintercept = 0, linetype = \"dashed\") |&gt; \n  gf_labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Log Price Model\"\n  )\n\np2 &lt;- gf_point(.resid ~ .fitted, data = ll_aug, \n         alpha = 0.25, size = 0.01) |&gt; \n  gf_hline(yintercept = 0, linetype = \"dashed\") |&gt; \n  gf_labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Log-Log Model\"\n  )\n\np1 + p2\n\n\n\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#computational-set-up",
+    "href": "slides/13-slr-outliers.html#computational-set-up",
+    "title": "SLR: Outliers",
+    "section": "Computational set up",
+    "text": "Computational set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(broom)       # for formatting model output\nlibrary(ggformula)   # for creating plots using formulas\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(moderndive)  # for house_price dataset\nlibrary(fivethirtyeight) # for fandango dataset\nlibrary(kableExtra)  # also for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#types-of-unusual-points-in-slr",
+    "href": "slides/13-slr-outliers.html#types-of-unusual-points-in-slr",
+    "title": "SLR: Outliers",
+    "section": "Types of “Unusual” Points in SLR",
+    "text": "Types of “Unusual” Points in SLR\n\nOutlier: a data point that is far from the regression line\nInfluential point: a data point that has a large effect on the regression fit\n\n\n\n\nHow do we measure “far”?\nHow do we measure “effect on the fit”?"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#detecting-unusual-cases-overview",
+    "href": "slides/13-slr-outliers.html#detecting-unusual-cases-overview",
+    "title": "SLR: Outliers",
+    "section": "Detecting Unusual Cases: Overview",
+    "text": "Detecting Unusual Cases: Overview\n\nCompute residuals\n\n“raw”, standardized, studentized\n\nPlots of residuals\n\nboxplot, scatterplot, normal plot\n\nLeverage\n\nunusual values for the predictors"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#example-movie-scores",
+    "href": "slides/13-slr-outliers.html#example-movie-scores",
+    "title": "SLR: Outliers",
+    "section": "Example: Movie scores",
+    "text": "Example: Movie scores\n\n\n\nData behind the FiveThirtyEight story Be Suspicious Of Online Movie Ratings, Especially Fandango’s\nIn the fivethirtyeight package: fandango\nContains every film released in 2014 and 2015 that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#data-prep",
+    "href": "slides/13-slr-outliers.html#data-prep",
+    "title": "SLR: Outliers",
+    "section": "Data prep",
+    "text": "Data prep\n\nRename Rotten Tomatoes columns as critics and audience\nRename the dataset as movie_scores\n\n\nmovie_scores &lt;- fandango |&gt;\n  rename(critics = rottentomatoes, \n         audience = rottentomatoes_user)"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#example-movie-scores-1",
+    "href": "slides/13-slr-outliers.html#example-movie-scores-1",
+    "title": "SLR: Outliers",
+    "section": "Example: Movie Scores",
+    "text": "Example: Movie Scores\n\n\nCode\nmovie_scores |&gt; \n  gf_point(audience ~ critics) |&gt; \n  gf_lm() |&gt; \n  gf_labs(x = \"Critics Score\", \n       y = \"Audience Score\")"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#boxplot-of-residuals",
+    "href": "slides/13-slr-outliers.html#boxplot-of-residuals",
+    "title": "SLR: Outliers",
+    "section": "Boxplot of Residuals",
+    "text": "Boxplot of Residuals\n\n\n\nmovie_fit &lt;- lm(audience ~ critics, data = movie_scores)\nmovie_fit_aug &lt;- augment(movie_fit)\n\ngf_boxplot(.resid ~ \"\", data = movie_fit_aug, \n           fill = \"salmon\", ylab = \"Residuals\", xlab = \"\")\n\n\n\n\n\n\n\n\n\n\n\n\nDots (outliers) indicate data points more than 1.5 IQRs above (or below) quartiles"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#standardized-residuals",
+    "href": "slides/13-slr-outliers.html#standardized-residuals",
+    "title": "SLR: Outliers",
+    "section": "Standardized Residuals",
+    "text": "Standardized Residuals\n\n\nRecall: Z-scores\nFact: If \\(X\\) has mean \\(\\mu\\) and standard deviation \\(\\sigma\\), then \\((X-\\mu)/\\sigma\\) has mean 0 and standard deviation 1\nFor residuals: mean 0 and standard deviation \\(\\hat{\\sigma}_\\epsilon\\)\nStandardized residuals: \\(\\frac{y_i-\\hat{y}_i}{\\hat{\\sigma}_\\epsilon}\\)\n\nLook for values beyond \\(\\pm 2\\) or \\(\\pm 3\\)"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#example-movie-scores-2",
+    "href": "slides/13-slr-outliers.html#example-movie-scores-2",
+    "title": "SLR: Outliers",
+    "section": "Example: Movie Scores",
+    "text": "Example: Movie Scores\n\n\nCode\np1 &lt;- movie_fit_aug |&gt;  # Augmented data\n  gf_boxplot(\"\" ~ .std.resid, \n           xlab = \"Standardized Residual\")\n\np2 &lt;- movie_fit_aug |&gt;  # Augmented data\n  gf_point(.std.resid ~ .fitted, \n           xlab = \"Predicted\", ylab = \"Standardized Residual\")\n\np1 + p2"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#externally-studentized-residuals",
+    "href": "slides/13-slr-outliers.html#externally-studentized-residuals",
+    "title": "SLR: Outliers",
+    "section": "(Externally) Studentized Residuals",
+    "text": "(Externally) Studentized Residuals\n\nConcern: An unusual value may exert great influence on the fit\n\nIts residual might be underestimated because the model “moves” a lot to fit it\nThe standard error may also be inflated due to the outlier error\n\nStudentize: Fit the model without that case, then find new \\(\\hat{\\sigma}_\\epsilon\\)"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#example-movie-scores-3",
+    "href": "slides/13-slr-outliers.html#example-movie-scores-3",
+    "title": "SLR: Outliers",
+    "section": "Example: Movie Scores",
+    "text": "Example: Movie Scores\n\nmovie_fit_aug |&gt;  # Augmented data\n  mutate(studentized_residual = rstudent(movie_fit)) |&gt; \n  gf_point(studentized_residual ~ .fitted, \n           xlab = \"Predicted\", ylab = \"Studentized Residual\")"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#what-to-do-with-an-outlier",
+    "href": "slides/13-slr-outliers.html#what-to-do-with-an-outlier",
+    "title": "SLR: Outliers",
+    "section": "What to do with an outlier?",
+    "text": "What to do with an outlier?\n\nLook into it\nIf something is unusual about it and you can make a case that it is not a good representation of the population you can throw it out\nIf not and the value is just unusual, keep it"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#influence-vs.-leverage",
+    "href": "slides/13-slr-outliers.html#influence-vs.-leverage",
+    "title": "SLR: Outliers",
+    "section": "Influence vs. Leverage",
+    "text": "Influence vs. Leverage\n\nHigh Influence Point: point that DOES impact the regression line\nHigh Leverage Point: point with “potential” to impact regression line because \\(X\\)-value is unusual"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#high-leverage-low-influence",
+    "href": "slides/13-slr-outliers.html#high-leverage-low-influence",
+    "title": "SLR: Outliers",
+    "section": "High Leverage, Low Influence",
+    "text": "High Leverage, Low Influence"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#high-leverage-high-influence",
+    "href": "slides/13-slr-outliers.html#high-leverage-high-influence",
+    "title": "SLR: Outliers",
+    "section": "High Leverage, High Influence",
+    "text": "High Leverage, High Influence"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#low-leverage-low-influence",
+    "href": "slides/13-slr-outliers.html#low-leverage-low-influence",
+    "title": "SLR: Outliers",
+    "section": "Low Leverage, Low Influence",
+    "text": "Low Leverage, Low Influence"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#low-leverage-high-influence",
+    "href": "slides/13-slr-outliers.html#low-leverage-high-influence",
+    "title": "SLR: Outliers",
+    "section": "Low Leverage, High Influence",
+    "text": "Low Leverage, High Influence"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#low-leverage-high-influence-1",
+    "href": "slides/13-slr-outliers.html#low-leverage-high-influence-1",
+    "title": "SLR: Outliers",
+    "section": "Low Leverage, High Influence",
+    "text": "Low Leverage, High Influence\n\n\n\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "slides/13-slr-outliers.html#recap-augment-function",
+    "href": "slides/13-slr-outliers.html#recap-augment-function",
+    "title": "SLR: Outliers",
+    "section": "Recap: Augment function",
+    "text": "Recap: Augment function\n\nmovie_fit_aug |&gt; \n  head() |&gt; \n  kable()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\naudience\ncritics\n.fitted\n.resid\n.hat\n.sigma\n.cooksd\n.std.resid\n\n\n\n\n86\n74\n70.69768\n15.302321\n0.0081597\n12.51615\n0.0061774\n1.2254688\n\n\n80\n85\n76.40313\n3.596866\n0.0112688\n12.57830\n0.0004743\n0.2885034\n\n\n90\n80\n73.80975\n16.190255\n0.0096283\n12.50817\n0.0081839\n1.2975389\n\n\n84\n18\n41.65173\n42.348272\n0.0207618\n12.06226\n0.1234982\n3.4131653\n\n\n28\n14\n39.57702\n-11.577018\n0.0234805\n12.54373\n0.0104964\n-0.9343768\n\n\n62\n63\n64.99222\n-2.992225\n0.0068844\n12.57943\n0.0001988\n-0.2394750"
+  },
+  {
+    "objectID": "prepare/transformations-prep.html",
+    "href": "prepare/transformations-prep.html",
+    "title": "September 18 lecture",
+    "section": "",
+    "text": "Stat2: Topic 1.4 Transformations/Reexpressions\nStat2: Topic 1.5 Outliers and Influential Points"
+  },
+  {
+    "objectID": "prepare/transformations-prep.html#assigned-reading",
+    "href": "prepare/transformations-prep.html#assigned-reading",
+    "title": "September 18 lecture",
+    "section": "",
+    "text": "Stat2: Topic 1.4 Transformations/Reexpressions\nStat2: Topic 1.5 Outliers and Influential Points"
+  },
+  {
+    "objectID": "prepare/outliers-prep.html",
+    "href": "prepare/outliers-prep.html",
+    "title": "September 18 lecture",
+    "section": "",
+    "text": "Stat2: Topic 1.4 Transformations/Reexpressions\nStat2: Topic 1.5 Outliers and Influential Points"
+  },
+  {
+    "objectID": "prepare/outliers-prep.html#assigned-reading",
+    "href": "prepare/outliers-prep.html#assigned-reading",
+    "title": "September 18 lecture",
+    "section": "",
+    "text": "Stat2: Topic 1.4 Transformations/Reexpressions\nStat2: Topic 1.5 Outliers and Influential Points"
   }
 ]

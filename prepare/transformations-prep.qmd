@@ -1,0 +1,9 @@
+---
+title: "September 18 lecture"
+subtitle: "Simple linear regression - Transformations and Outliers"
+---
+
+## Assigned reading
+
+- Stat2: Topic 1.4 Transformations/Reexpressions
+- Stat2: Topic 1.5 Outliers and Influential Points

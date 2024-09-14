@@ -45,7 +45,7 @@ knitr::opts_chunk$set(
 # Application exercise
 
 ::: appex
-📋 [AE - 5 Model Conditions](https://mat212fa24.netlify.app/ae/ae-05-math-models)
+📋 [AE - 5 Mathematical Models](https://mat212fa24.netlify.app/ae/ae-05-math-models)
 :::
 
 # Questions from last class?
@@ -423,23 +423,4 @@ Used residual plots to check conditions for SLR:
 #| echo: false
 countdown(minutes = 3, font_size = "2em")
 ```
-
-## Comparing inferential methods
-
-::: question
--   What are the advantages of using simulation-based inference methods? What are the advantages of using inference methods based on mathematical models?
-
--   Under what scenario(s) would you prefer to use simulation-based methods? Under what scenario(s) would you prefer to use methods based on mathematical models?
-:::
-
-```{r}
-#| echo: false
-countdown(minutes = 2, font_size = "2em")
-```
-
-# Application exercise
-
-::: appex
-📋 [AE-06: Model Conditions](https://mat212fa24.netlify.app/ae/ae-06-conditions)
-:::
 
