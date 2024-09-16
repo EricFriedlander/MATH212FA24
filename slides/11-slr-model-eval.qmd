@@ -233,7 +233,7 @@ In groups, at the board, design a simulation-based procedure for producing a p-v
 
 -   Same units as the response variable
 
--   Calculate with  `rsq()` from `yardstick` package using the augmented data:
+-   Calculate with  `rmse()` from `yardstick` package using the augmented data:
 
 ```{r}
 #| echo: true

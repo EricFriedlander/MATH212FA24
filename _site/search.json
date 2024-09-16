@@ -12793,7 +12793,7 @@
     "href": "slides/11-slr-model-eval.html#rmse",
     "title": "SLR: Model evaluation",
     "section": "RMSE",
-    "text": "RMSE\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nCalculate with rsq() from yardstick package using the augmented data:\n\n\nrmse(heb_aug, truth = Number_Organic, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard        17.0\n\n\n\nThe value of RMSE is not very meaningful on its own, but it’s useful for comparing across models (more on this and ANOVA when we get to regression with multiple predictors)"
+    "text": "RMSE\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nCalculate with rmse() from yardstick package using the augmented data:\n\n\nrmse(heb_aug, truth = Number_Organic, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard        17.0\n\n\n\nThe value of RMSE is not very meaningful on its own, but it’s useful for comparing across models (more on this and ANOVA when we get to regression with multiple predictors)"
   },
   {
     "objectID": "slides/11-slr-model-eval.html#warm-up-comparing-inferential-methods",
