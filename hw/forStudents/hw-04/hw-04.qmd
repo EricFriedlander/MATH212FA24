@@ -7,6 +7,9 @@ execute:
   eval: false
   warning: false
   message: false
+format:
+  pdf:
+    pdf-engine: pdflatex
 ---
 
 ::: callout-important
@@ -66,7 +69,7 @@ The information in this data set was collected from the [PayScale College Salary
 | stem_percent              | double    | Percent of degrees awarded in science, technology, engineering, or math subjects |
 
 ```{r}
-alumni <- read_csv("data/alumni-salaries.csv")
+alumni <- read_csv("alumni-salaries.csv")
 ```
 
 # Exercises
