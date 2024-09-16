@@ -1,0 +1,12 @@
+---
+title: "September 23rd lecture"
+subtitle: "Introducing the project"
+---
+
+## Assigned reading
+
+Read through project description:
+
+- [Project Instructions](https://mat212fa24.netlify.app/project-instructions)
+- [Tips + resources](https://mat212fa24.netlify.app/project-tips)
+- [Rubric](https://mat212fa24.netlify.app/project-rubric)
