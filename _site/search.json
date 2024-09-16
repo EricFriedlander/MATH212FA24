@@ -4296,7 +4296,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 Due/ HW 04 Assigned",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 Due/ HW 04 Assigned",
     "crumbs": [
       "Schedule"
     ]
@@ -13550,5 +13550,131 @@
     "title": "AE 08: Transformations",
     "section": "Exercise 6 (Time Permitting)",
     "text": "Exercise 6 (Time Permitting)\nIs the model you created in exercise 3 or exercise 5 a “better” model? Use residuals and evaluation metrics to make your argument. Hint: you want to look at the residuals of the transformed models but look at the evaluation metrics when you transform your predictions back to the original scale."
+  },
+  {
+    "objectID": "ae/forStudents/ae-08/ae-08-transformations.html",
+    "href": "ae/forStudents/ae-08/ae-08-transformations.html",
+    "title": "AE 08: Transformations",
+    "section": "",
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-08”.\nGo to the Canvas and locate your AE 08 assignment to get started.\nUpload the ae-08.qmd files into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(yardstick)\nlibrary(Stat2Data)\nlibrary(mosaic)\nlibrary(broom)\nlibrary(knitr)\nlibrary(patchwork) #arrange plots in a grid"
+  },
+  {
+    "objectID": "ae/forStudents/ae-08/ae-08-transformations.html#data",
+    "href": "ae/forStudents/ae-08/ae-08-transformations.html#data",
+    "title": "AE 08: Transformations",
+    "section": "Data",
+    "text": "Data\nThe data set for this assignment is from the Stat2Data R package which is the companion package for this course’s textbook. The data was originally generated by the American Medical Association and concerns the availability of health care in counties in the United States. You can find information here by searching for the County Health Resources dataset.\n\ndata(\"CountyHealth\") # Loads the data from the package\n\nIt is relatively easy to count the number of hospitals a county has, whereas counting the number of doctors is much more difficult. We’d like to build a linear model to predict the number of doctors, contained the variable MDs, from the number of hospitals, Hospitals."
+  },
+  {
+    "objectID": "ae/forStudents/ae-08/ae-08-transformations.html#exercise-1",
+    "href": "ae/forStudents/ae-08/ae-08-transformations.html#exercise-1",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nUse a visualization and to argue why a simple linear regression model would not be appropriate for the data if we do not make any transformations."
+  },
+  {
+    "objectID": "ae/forStudents/ae-08/ae-08-transformations.html#exercise-2",
+    "href": "ae/forStudents/ae-08/ae-08-transformations.html#exercise-2",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nUse visualizations to find the best model that involves at least one log transformation."
+  },
+  {
+    "objectID": "ae/forStudents/ae-08/ae-08-transformations.html#exercise-3",
+    "href": "ae/forStudents/ae-08/ae-08-transformations.html#exercise-3",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nFit that model and write the equation that describes it."
+  },
+  {
+    "objectID": "ae/forStudents/ae-08/ae-08-transformations.html#exercise-4",
+    "href": "ae/forStudents/ae-08/ae-08-transformations.html#exercise-4",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nUse visualizations to find the best model the involves at least one square root transformation. Hint: you can create square root transformations in the same way you can make log transformations by replacing log with sqrt."
+  },
+  {
+    "objectID": "ae/forStudents/ae-08/ae-08-transformations.html#exercise-5",
+    "href": "ae/forStudents/ae-08/ae-08-transformations.html#exercise-5",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nFit that model and write the equation that describes it."
+  },
+  {
+    "objectID": "ae/forStudents/ae-08/ae-08-transformations.html#exercise-6-time-permitting",
+    "href": "ae/forStudents/ae-08/ae-08-transformations.html#exercise-6-time-permitting",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 6 (Time Permitting)",
+    "text": "Exercise 6 (Time Permitting)\nIs the model you created in exercise 3 or exercise 5 a “better” model? Use residuals and evaluation metrics to make your argument. Hint: you want to look at the residuals of the transformed models but look at the evaluation metrics when you transform your predictions back to the original scale."
+  },
+  {
+    "objectID": "ae/forStudents/ae-08/ae-08-transformations.html#to-submit-the-ae",
+    "href": "ae/forStudents/ae-08/ae-08-transformations.html#to-submit-the-ae",
+    "title": "AE 08: Transformations",
+    "section": "To submit the AE:",
+    "text": "To submit the AE:\n\n\n\n\n\n\nImportant\n\n\n\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
+  },
+  {
+    "objectID": "ae/ae-09-outliers.html",
+    "href": "ae/ae-09-outliers.html",
+    "title": "AE 09: Outliers",
+    "section": "",
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-09”.\nGo to the Canvas and locate your AE-09 assignment to get started.\nUpload the ae-09.qmd file into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(yardstick)\nlibrary(Stat2Data)\nlibrary(mosaic)\nlibrary(broom)\nlibrary(knitr)\nlibrary(patchwork) #arrange plots in a grid"
+  },
+  {
+    "objectID": "ae/ae-09-outliers.html#data",
+    "href": "ae/ae-09-outliers.html#data",
+    "title": "AE 09: Outliers",
+    "section": "Data",
+    "text": "Data\nThe data set for this assignment is from the Stat2Data R package which is the companion package for this course’s textbook. The data contains data from all MLB games played on August, 11, 2017. On this day there were no extra-innings games or rain delays. You can find information here by searching for the Baseball Game TImes of One Day in 2017 dataset.\n\ndata(\"BaseballTimes2017\") # Loads the data from the package\n\nWe are interested in predicting Time the time in minutes to play the game, from either Runs, the number of runs scores by the two teams combined, or Pitchers, the number of pitchers sued total for the two teams."
+  },
+  {
+    "objectID": "ae/ae-09-outliers.html#exercise-1",
+    "href": "ae/ae-09-outliers.html#exercise-1",
+    "title": "AE 09: Outliers",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nArgue that Runs is a better predictor of Time than Pitchers."
+  },
+  {
+    "objectID": "ae/ae-09-outliers.html#exercise-2",
+    "href": "ae/ae-09-outliers.html#exercise-2",
+    "title": "AE 09: Outliers",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nArgue whether you think the CIN-MIL game would be considered a high leverage and/or high influence point."
+  },
+  {
+    "objectID": "ae/ae-09-outliers.html#exercise-3",
+    "href": "ae/ae-09-outliers.html#exercise-3",
+    "title": "AE 09: Outliers",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nRemove the CIN-MIL game from the data set. Which model is better now?"
+  },
+  {
+    "objectID": "ae/ae-09-outliers.html#exercise-4",
+    "href": "ae/ae-09-outliers.html#exercise-4",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nUse visualizations to find the best model the involves at least one square root transformation. Hint: you can create square root transformations in the same way you can make log transformations by replacing log with sqrt."
+  },
+  {
+    "objectID": "ae/ae-09-outliers.html#exercise-5",
+    "href": "ae/ae-09-outliers.html#exercise-5",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nFit that model and write the equation that describes it."
+  },
+  {
+    "objectID": "ae/ae-09-outliers.html#exercise-6-time-permitting",
+    "href": "ae/ae-09-outliers.html#exercise-6-time-permitting",
+    "title": "AE 08: Transformations",
+    "section": "Exercise 6 (Time Permitting)",
+    "text": "Exercise 6 (Time Permitting)\nIs the model you created in exercise 3 or exercise 5 a “better” model? Use residuals and evaluation metrics to make your argument. Hint: you want to look at the residuals of the transformed models but look at the evaluation metrics when you transform your predictions back to the original scale."
+  },
+  {
+    "objectID": "ae/ae-09-outliers.html#to-submit-the-ae",
+    "href": "ae/ae-09-outliers.html#to-submit-the-ae",
+    "title": "AE 09: Outliers",
+    "section": "To submit the AE:",
+    "text": "To submit the AE:\n\n\n\n\n\n\nImportant\n\n\n\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
   }
 ]

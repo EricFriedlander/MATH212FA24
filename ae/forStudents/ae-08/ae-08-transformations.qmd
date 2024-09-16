@@ -71,3 +71,4 @@ Is the model you created in exercise 3 or exercise 5 a "better" model? Use resid
 -   Render the document to produce the PDF with all of your work from today's class.
 -   Upload your QMD and PDF files to the Canvas assignment.
 :::
+
