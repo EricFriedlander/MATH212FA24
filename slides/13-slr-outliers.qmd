@@ -280,3 +280,9 @@ ggplot(aes(x = x, y = y), data = simulated_data) +
   geom_smooth( method = lm, se = FALSE,  data = simulated_data |>  filter(y > -10), fullrange=TRUE) +
   coord_cartesian(ylim = c(-1, 12))
 ```
+
+# Application exercise
+
+::: appex
+📋 [AE-09: Outliers](https://mat212fa24.netlify.app/ae/ae-09-outliers)
+:::
