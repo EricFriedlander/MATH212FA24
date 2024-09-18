@@ -243,10 +243,3 @@ rmse(heb_aug, truth = Number_Organic, estimate = .fitted)
 
 -   The value of RMSE is not very meaningful on its own, but it's useful for comparing across models (more on this and ANOVA when we get to regression with multiple predictors)
 :::
-
-
-# Application exercise
-
-::: appex
-📋 [AE-07: Evaluating Models](https://mat212fa24.netlify.app/ae/ae-07-model-eval)
-:::

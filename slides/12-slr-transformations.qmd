@@ -27,6 +27,12 @@ knitr:
 bibliography: references.bib
 ---
 
+# Application exercise
+
+::: appex
+📋 [AE-07: Evaluating Models](https://mat212fa24.netlify.app/ae/ae-07-model-eval)
+:::
+
 ```{r setup}
 #| include: false
 
