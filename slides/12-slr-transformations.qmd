@@ -1,7 +1,7 @@
 ---
 title: "SLR: Transformations"
 author: "Prof. Eric Friedlander"
-date: "2024-09-18"
+date: "2024-09-20"
 date-format: "MMM DD, YYYY"
 footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
