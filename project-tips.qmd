@@ -37,6 +37,8 @@ library(broom)
 -   [CDC](https://www.cdc.gov/datastatistics/index.html)
 -   [World Bank](https://datacatalog.worldbank.org/)
 -   [Election Studies](https://electionstudies.org//)
+-   [Kaggle](https://www.kaggle.com/)
+-   [UC Irvine ML Repository](https://archive.ics.uci.edu/)
 
 ### Tips
 
