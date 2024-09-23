@@ -8,6 +8,7 @@ title: Final project tips + resources
 #| echo: false
 library(tidyverse)
 library(knitr)
+library(ggformula)
 library(broom)
 ```
 
@@ -62,13 +63,12 @@ library(broom)
 mpg |>
   count(manufacturer) |>
   mutate(manufacturer = str_to_title(manufacturer)) |>
-  ggplot(aes(x = fct_reorder(manufacturer,n), y = n)) +
-  geom_bar(stat = "identity", fill = "steelblue") +
-  coord_flip() +
-  labs(x = "Manufacturer", 
+  gf_col(n ~ fct_reorder(manufacturer, n) , stat = "identity", fill = "steelblue") |> 
+  gf_refine(coord_flip()) |> 
+  gf_labs(x = "Manufacturer", 
        y = "Count", 
-       title = "The most common manufacturer is Dodge") +
-  theme_bw() 
+       title = "The most common manufacturer is Dodge") |> 
+  gf_refine(theme_bw() )
 ```
 
 #### Tables and model output
