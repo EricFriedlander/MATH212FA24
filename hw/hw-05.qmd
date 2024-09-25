@@ -1,160 +1,228 @@
 ---
-title: "HW 05: Multinomial Logistic Regression"
+title: "HW 05: Candy Competition"
+subtitle: "Feature engineering + Model comparison"
 execute:
   freeze: auto
   echo: true
-  eval: true
+  eval: false
   warning: false
   message: false
-bibliography: references.bib
 ---
 
 ::: callout-important
-Due Wednesday, November 29 at 11:59pm
+Due:
+
+-   Friday, October 20, 11:59pm (Tuesday labs)
+-   Friday, October 20, 11:59pm (Thursday labs)
 :::
 
-# Introduction
+## Introduction
 
-In this assignment, you will use multinomial logistic regression to analyze data from the 2014 article ["An evaluation of lineup presentation, weapon presence, and a distinctive feature using ROC analysis"](https://www.sciencedirect.com/science/article/abs/pii/S2211368114000229) by Curt Carlson and Maria Carlson[^1].
+In today's lab you will analyze data about candy that was collected from an online experiment conducted at [FiveThirtyEight](https://fivethirtyeight.com/).
 
-[^1]: Carlson, C. A., & Carlson, M. A. (2014). [An evaluation of lineup presentation, weapon presence, and a distinctive feature using ROC analysis](https://www.sciencedirect.com/science/article/abs/pii/S2211368114000229). *Journal of Applied Research in Memory and Cognition*, *3*(2), 45-53
+### Learning goals
 
-## Learning goals
+By the end of the lab you will be able to
 
-In this assignment, you will...
-
--   Fit and interpret multinomial logistic regression models.
-
--   Evaluate conditions for multinomial logistic regression
-
--   Continue developing a workflow for reproducible data analysis.
+-   describe the components of a recipe
+-   fit a model using recipes
+-   compare models
+-   continue developing a collaborative workflow with your teammates
 
 ## Getting started
 
-The repo for this assignment is available on GitHub at [github.com/sta210-fa23](https://github.com/sta210-fa23 "Course GitHub organization") and starts with the prefix **hw-05**. See [Lab 01](../labs/lab-01.html) for more detailed instructions on getting started.
+-   A repository has already been created for you and your teammates. Everyone in your team has access to the same repo.
+-   Go to the [sta210-fa23](https://github.com/sta210-fa23) organization on GitHub. Click on the repo with the prefix **lab-05**. It contains the starter documents you need to complete the lab.
+-   Each person on the team should clone the repository and open a new project in RStudio. Throughout the lab, each person should get a chance to make commits and push to the repo.
+-   **Do not make any changes to the `.qmd` file until the instructions tell you do to so.**
+
+## Workflow: Using Git and GitHub as a team
+
+::: callout-important
+There are no Team Member markers in this lab; however, you should use a similar workflow as in Lab 04. Only one person should type in the group's .qmd file at a time. Once that person has finished typing the group's responses, they should *render, commit, and push* the changes to GitHub. All other teammates can *pull* to see the updates in RStudio.
+
+Every teammate must have at least one commit in the lab. Everyone is expected to contribute to discussion even when they are not typing.
+:::
 
 ## Packages
 
-The following packages will be used for this assignment.
+The following packages are used in the lab.
 
 ```{r}
+#| label: load-packages
+#| message: false
+#| eval: true
+
 library(tidyverse)
 library(tidymodels)
+library(fivethirtyeight)
 library(knitr)
-library(patchwork)
 
 # add other packages as needed
 ```
 
-## The Data
+## Data: Candy
 
-For this assignment, we will analyze data from the eye witness identification experiment in [Carlson and Carlson (2014)](https://www.sciencedirect.com/science/article/pii/S2211368114000229). In this experiment, participants were asked to watch a video of a mock crime (from the first person perspective), spend a few minutes completing a random task, and then identify the perpetrator of the mock crime from a line up shown on the screen. Every lineup in this analysis included the true perpetrator from the video. After viewing the line-up , each participant could make one of the following decisions (**`id`**):
+The data from this lab comes from the the article FiveThirtyEight [*The Ultimate Halloween Candy Power Ranking*](https://fivethirtyeight.com/features/the-ultimate-halloween-candy-power-ranking) by Walt Hickey. To collect data, Hickey and collaborators at FiveThirtyEight set up an experiment people could vote on a series of randomly generated candy matchups (e.g. Reeses vs. Skittles). Click [here](http://walthickey.com/2017/10/18/whats-the-best-halloween-candy/) to check out some of the match ups.
 
--   **correct**: correctly identified the true perpetrator
--   **foil**: incorrectly identified the "foil", i.e. a person who looks very similar to the perpetrator
--   **reject**: incorrectly concluded the true perpetrator is not in the lineup
+The data set contains the characteristics and win percentage from 85 candies in the experiment. The variables are
 
-The main objective of the analysis is to understand how different conditions of the mock crime and suspect lineup affect the decision made by the participant. We will consider the following conditions to describe the decisions:
+| Variable           | Description                                                               |
+|--------------------|---------------------------------------------------------------------------|
+| `chocolate`        | Does it contain chocolate?                                                |
+| `fruity`           | Is it fruit flavored?                                                     |
+| `caramel`          | Is there caramel in the candy?                                            |
+| `peanutalmondy`    | Does it contain peanuts, peanut butter or almonds?                        |
+| `nougat`           | Does it contain nougat?                                                   |
+| `crispedricewafer` | Does it contain crisped rice, wafers, or a cookie component?              |
+| `hard`             | Is it a hard candy?                                                       |
+| `bar`              | Is it a candy bar?                                                        |
+| `pluribus`         | Is it one of many candies in a bag or box?                                |
+| `sugarpercent`     | The percentile of sugar it falls under within the data set. Values 0 - 1. |
+| `pricepercent`     | The unit price percentile compared to the rest of the set. Values 0 - 1.  |
+| `winpercent`       | The overall win percentage according to 269,000 matchups. Values 0 - 100. |
 
--   **`lineup`**: How potential suspects are shown to the participants
-    -   **Simultaneous Lineup**: Participants were shown photos of all 6 potential suspects at the same time and were required to make a single decision (identify someone from the lineup or reject the lineup).
-    -   **Sequential 5 Lineup**: Photos of the 6 suspects were shown one at a time. The participant was required to make a decision (choose or don't choose) as each photo was shown. Once a decision was made, participants were not allowed to reexamine a photo. If the participant made an identification, the remaining photos were not shown. In each of these lineups the true perpetrator was always the 5<sup>th</sup> photo in the lineup.
--   **`weapon`**: Whether or not a weapon was present in the video of the mock crime.
--   **`feature`**: Whether or not the perpetrator had a distinctive marking on his face. In this experiment, the distinctive feature was a large "N" sticker on one cheek. (The letter "N" was chosen to represent the first author's alma mater - University of Nebraska.)
+Use the code below to get a glimpse of the `candy_rankings` data frame in the **fivethirtyeight** R package.
 
-The data may be found in `eyewitness.csv` in the `data` folder.
-
-```{r}
-ew <- read_csv("data/eyewitness.csv")
-ew <- ew |>
-  mutate(id = as_factor(id))
+```{r eval = T}
+glimpse(candy_rankings)
 ```
 
-# Exercises
+## Exercises
 
-## Exercise 1
+The goal of this analysis is to use multiple linear regression to understand the factors that make a good candy.
 
-Let's begin by doing some exploratory data analysis. The univariate plots for each of the predictor variables and the response variable are shown below.
+### Exercise 1
 
-```{r echo = F}
-ew <- read_csv("data/eyewitness.csv")
-p1 <- ggplot(data = ew, aes(x = id)) +
-  geom_bar() + 
-  labs(title = "Distribution of Decision", 
-       x = "id (Decision)")
-p2 <- ggplot(data = ew, aes(x = lineup)) +
-  geom_bar() + 
-  labs(title = "Distribution of Lineup", 
-       x = "Lineup")
+-   Use `ggplot` to make a graph of your choice exploring the relationship between at least 3 variables in the data set.
 
-p3 <- ggplot(data = ew, aes(x = weapon)) +
-  geom_bar() + 
-  labs(title = "Distribution of Weapon", 
-       x = "Weapon")
+-   Write two observations from your graph.
 
-p4 <- ggplot(data = ew, aes(x = feature)) +
-  geom_bar() + 
-  labs(title = "Distribution of Feature", 
-       x = "Feature")
+### Exercise 2
 
-cowplot::plot_grid(p1, p2, p3, p4, ncol = 2)
-```
+Split the data into training (80%) and testing sets (20%). Call the training set `candy_train` and the testing set `candy_test`. Use a seed of `2`.
 
-Complete the exploratory data analysis by creating the plots and/or summary statistics to examine the relationship between the response variable (`id`) and each of the explanatory variables (`lineup`, `weapon`, and `feature`).
+### Exercise 3
 
-## Exercise 2
+Below is a recipe for a model that uses the characteristics of candy to understand variability in the win percentage. The lines of the `recipe` code are labeled *Line 1* - *Line 9.* Describe what each line of code does. The explanation should be written comprehensively and specifically enough that someone could replicate the data manipulation steps based on your description.
 
-Using the plots/tables from Question 1:
+For example, if a line of code is `step_center(X)`, a comprehensive and specific explanation something similar to the following: "This line of code mean centers the variable $X$ by subtracting $\bar{X}$ from each value of $X$ in the training data."
 
--   What is one thing you learn about the data from the univariate plots?
--   Based on the bivariate plots, do any of the predictors appear to have a significant effect on the `id`? Briefly explain.
-
-## Exercise 3
-
-Briefly explain why you should use a multinomial logistic regression model to predict `id` using `lineup`, `weapon` and `feature`.
-
-## Exercise 4
-
-Fit the multinomial logistic model that only includes main effects. Display the model output.
-
--   What is the baseline category for the response variable?
--   Interpret the intercepts for each part of the model in terms of the odds.
--   Interpret the coefficients of `lineup` for each part of the model in terms of the odds.
-
-## Exercise 5
-
-You want to consider all possible interaction effects for the model.
-
--   Use the appropriate test to determine if there is at least one significant interaction effect.
-
-<!-- -->
-
--   Based on your test, is there evidence of any significant interaction effects? Briefly explain.
-
-::: callout-important
-*Regardless of your answer to Question 5, use the model that includes the interaction terms for the remainder of the assignment.*
+::: callout-tip
+Use the [Recipes Function Reference](https://recipes.tidymodels.org/reference/index.html) page as a resource to learn more about the `step_` functions.
 :::
 
-## Exercise 6
+```{r}
+#| eval: false
 
-According to the model,
+#Line 1
+candy_rec <- recipe(winpercent ~ ., data = candy_train) |> 
+#Line 2
+  update_role(competitorname, new_role = "ID") |> 
+# Line 3
+  step_cut(sugarpercent, breaks = c(0, 0.25, 0.5, 0.75, 1)) |> 
+#Line 4
+  step_mutate(pricepercent = pricepercent * 100) |> 
+#Line 5
+  step_dummy(all_nominal_predictors()) |> 
+#Line 6
+  step_interact(terms =~ pricepercent:chocolate) |> 
+#Line 7
+  step_interact(terms =~ peanutyalmondy:chocolate) |> 
+#Line 8
+  step_rm(fruity, caramel, hard, pluribus, bar, nougat, crispedricewafer) |> 
+#Line 9
+  step_zv(all_predictors()) 
+```
 
--   If there was no weapon but the perpetrator had a distinctive feature in the mock crime, how do the **log-odds** of reject vs. a correct ID change when there is a simultaneous lineup vs. a sequential lineup?
--   If there was no weapon but the perpetrator had a distinctive feature in the mock crime, how do the **odds** of reject vs. a correct ID change when there is a simultaneous lineup vs. a sequential lineup?
--   Which group of participants (i.e. which set of experimental conditions) is described by the intercept?
+### Exercise 4
 
-## Exercise 7
+Fill in the code to use `prep` and `bake` for a preview of what will happen when the recipe in Exercise 3 is applied.
 
-Are the conditions for inference met? List the conditions, and, **if relevant**, create visualizations to check the conditions and evaluate whether each condition is met. Include an assessment about each condition and a brief explanation about your conclusion.
+```{r}
+candy_rec |>
+  prep() |>
+  bake(_____) |>
+  glimpse()
+```
 
-## Exercise 8
+How many terms (not including the intercept) will be in the model produced by this recipe?
 
-Use the model to predict the decision made by each participant. Make a table of the predicted vs.the actual decisions.
+### Exercise 5
 
--   Briefly describe how the predicted decision is determined for each participant.
--   What is the misclassification rate?
+Fill in the code to specify model, build the model workflow using the recipe in Exercise 2, and fit the model to the training data. Then, neatly display the model using 3 digits.
 
-# Submission
+```{r}
+#specify the model
+candy_spec <- linear_reg() |>
+  set_engine("lm")
+
+#build model workflow
+candy_workflow <- workflow() |>
+  add_model(_____) |>
+  add_recipe(_____) 
+
+# fit the model 
+candy_fit <- candy_workflow |>
+  fit(data = _____)
+```
+
+### Exercise 6
+
+Interpret the following in the context of the data:
+
+-   Intercept
+
+-   Coefficient of `sugarpercent_X.0.75.1.`
+
+-   Coefficient of `pricepercent_x_chocolateTRUE`
+
+-   Effect of `pricepercent` for chocolate candy
+
+### Exercise 7
+
+Let's consider another model. Use the `recipe` workflow to fit a new model that meets the following criteria:
+
+-   Includes variables `chocolate`, `pricepercent`, `crispedricewafer`, `peanutyalmondy`, `sugarpercent`
+
+-   Update `pricepercent` so it ranges from 0 to 100 (instead of 0 to 1)
+
+-   Makes `sugarpercent` a factor where the levels equal the four quartiles: 0 - 0.25, 0.25 - 0.50, 0.50 - 0.75, 0.75 - 1
+
+-   Includes the interaction between `pricepercent` and `peanutyalmondy`
+
+Neatly display the model using 3 digits.
+
+::: callout-tip
+See the [Function Reference](https://recipes.tidymodels.org/reference/index.html) page on [recipes.tidymodels.org](https://recipes.tidymodels.org) to find the appropriate recipe functions.
+:::
+
+### Exercise 8
+
+-   Consider the model from Exercise 5 "Model 1" and the model fit in Exercise 7 "Model 2". Use the `glance()` function to calculate $R^2$ for both of these models.
+
+-   Which model would you choose based on $R^2$? Briefly explain your choice.
+
+### Exercise 9
+
+We will use RMSE to evalulate the predictive performance of each model on the testing data.
+
+-   Use the code below to calculate predicted values and RMSE for Model 1 on the testing data. Then get the RMSE for Model 2 on the testing data.
+
+```{r}
+predict_test1 <- predict(candy_fit, candy_test) |> 
+  bind_cols(candy_test)
+
+rmse1 <- rmse(predict_test1, truth = winpercent, estimate = .pred)
+```
+
+-   Which model would you choose based on RMSE on the testing data? Briefly explain your choice.
+
+### Exercise 10
+
+-   Use the model you selected in Exercise 9 to describe what generally makes a good candy, i.e., one with a high win percentage.
+
+## Submission
 
 ::: callout-warning
 Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
@@ -162,25 +230,31 @@ Before you wrap up the assignment, make sure all documents are updated on your G
 Remember -- you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.
 :::
 
-To submit your assignment
+**One team member submit the assignment:**
 
--   Go to [http://www.gradescope.com](http://www.gradescope.com/) and click *Log in* in the top right corner.
--   Click *School Credentials* ➡️ *Duke NetID* and log in using your NetID credentials.
+-   Go to [http://www.gradescope.com](http://www.gradescope.com/) and log in using your NetID credentials.
 -   Click on your *STA 210* course.
 -   Click on the assignment, and you'll be prompted to submit it.
+-   Select all team members' names, so they receive credit on the assignment. [Click here](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members) for video on adding team members to assignment on Gradescope.
 -   Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be "checked").
--   Select the first page of your PDF submission to be associated with the *"Workflow & formatting"* section.\
-    Grading (50 pts)
+-   Select the first page of your PDF submission to be associated with the *"Workflow & formatting"* section.
 
-# Grading
+## Grading
 
-| **Total**                 | **50** |
-|---------------------------|:------:|
-| Exercise 1- 8             |   47   |
-| Workflow & formatting[^2] |   5    |
+Total points available: 50 points.
 
-[^2]: The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.[↩︎](https://sta210-fa23.netlify.app/hw/hw-01#fnref2)
+| Component             | Points |
+|-----------------------|--------|
+| Ex 1                  | 6      |
+| Ex 2                  | 3      |
+| Ex 3                  | 5      |
+| Ex 4                  | 1      |
+| Ex 5                  | 2      |
+| Ex 6                  | 8      |
+| Ex 7                  | 8      |
+| Ex 8                  | 4      |
+| Ex 9                  | 4      |
+| Ex 10                 | 4      |
+| Workflow & formatting | 5[^1]  |
 
-# References
-
-[Carlson, C. and Carlson, M., 2014, An evaluation of lineup presentation, weapon presence, and a distinctive feature using ROC analysis, *Journal of Applied Research in Memory and Cognition*, 3: 45-53.](https://www.sciencedirect.com/science/article/pii/S2211368114000229)
+[^1]: The "Workflow & formatting" grade is to assess the reproducible workflow and collaboration. This includes having at least one meaningful commit from each team member and updating the team name and date in the YAML.

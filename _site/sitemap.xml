@@ -258,7 +258,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/hw/hw-05.html</loc>
-    <lastmod>2024-06-07T20:17:50.000Z</lastmod>
+    <lastmod>2024-09-25T17:03:55.686Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/labs/ForStudents/lab-02/lab-02.html</loc>
@@ -515,5 +515,9 @@
   <url>
     <loc>https://mat212fa24.netlify.app/prepare/mlr-prep.html</loc>
     <lastmod>2024-09-25T15:29:01.074Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/hw/hw-05-old.html</loc>
+    <lastmod>2024-06-07T20:17:50.000Z</lastmod>
   </url>
 </urlset>

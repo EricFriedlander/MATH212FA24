@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MAT 212 - Fall 2024 - HW 05: Candy Competition</title>
+<title>MAT 212 - Fall 2024 - HW 05: Multinomial Logistic Regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -101,35 +101,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -142,7 +113,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 05: Candy Competition</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 05: Multinomial Logistic Regression</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -266,11 +237,10 @@ window.Quarto = {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
-  </ul></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#workflow-using-git-and-github-as-a-team" id="toc-workflow-using-git-and-github-as-a-team" class="nav-link" data-scroll-target="#workflow-using-git-and-github-as-a-team">Workflow: Using Git and GitHub as a team</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#data-candy" id="toc-data-candy" class="nav-link" data-scroll-target="#data-candy">Data: Candy</a></li>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The Data</a></li>
+  </ul></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
@@ -281,21 +251,19 @@ window.Quarto = {
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
-  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
-  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
   </ul></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/hw/hw-05.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/hw/hw-05-old.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HW 05: Candy Competition</h1>
-<p class="subtitle lead">Feature engineering + Model comparison</p>
+<h1 class="title">HW 05: Multinomial Logistic Regression</h1>
 </div>
 
 
@@ -322,38 +290,110 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Due:</p>
-<ul>
-<li>Friday, October 20, 11:59pm (Tuesday labs)</li>
-<li>Friday, October 20, 11:59pm (Thursday labs)</li>
-</ul>
+<p>Due Wednesday, November 29 at 11:59pm</p>
 </div>
 </div>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In today’s lab you will analyze data about candy that was collected from an online experiment conducted at <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>.</p>
-<section id="learning-goals" class="level3">
-<h3 class="anchored" data-anchor-id="learning-goals">Learning goals</h3>
-<p>By the end of the lab you will be able to</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In this assignment, you will use multinomial logistic regression to analyze data from the 2014 article <a href="https://www.sciencedirect.com/science/article/abs/pii/S2211368114000229">“An evaluation of lineup presentation, weapon presence, and a distinctive feature using ROC analysis”</a> by Curt Carlson and Maria Carlson<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
+<p>In this assignment, you will…</p>
 <ul>
-<li>describe the components of a recipe</li>
-<li>fit a model using recipes</li>
-<li>compare models</li>
-<li>continue developing a collaborative workflow with your teammates</li>
+<li><p>Fit and interpret multinomial logistic regression models.</p></li>
+<li><p>Evaluate conditions for multinomial logistic regression</p></li>
+<li><p>Continue developing a workflow for reproducible data analysis.</p></li>
 </ul>
-</section>
 </section>
 <section id="getting-started" class="level2">
 <h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<p>The repo for this assignment is available on GitHub at <a href="https://github.com/sta210-fa23" title="Course GitHub organization">github.com/sta210-fa23</a> and starts with the prefix <strong>hw-05</strong>. See <a href="../labs/lab-01.html">Lab 01</a> for more detailed instructions on getting started.</p>
+</section>
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">Packages</h2>
+<p>The following packages will be used for this assignment.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># add other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-data">The Data</h2>
+<p>For this assignment, we will analyze data from the eye witness identification experiment in <a href="https://www.sciencedirect.com/science/article/pii/S2211368114000229">Carlson and Carlson (2014)</a>. In this experiment, participants were asked to watch a video of a mock crime (from the first person perspective), spend a few minutes completing a random task, and then identify the perpetrator of the mock crime from a line up shown on the screen. Every lineup in this analysis included the true perpetrator from the video. After viewing the line-up , each participant could make one of the following decisions (<strong><code>id</code></strong>):</p>
 <ul>
-<li>A repository has already been created for you and your teammates. Everyone in your team has access to the same repo.</li>
-<li>Go to the <a href="https://github.com/sta210-fa23">sta210-fa23</a> organization on GitHub. Click on the repo with the prefix <strong>lab-05</strong>. It contains the starter documents you need to complete the lab.</li>
-<li>Each person on the team should clone the repository and open a new project in RStudio. Throughout the lab, each person should get a chance to make commits and push to the repo.</li>
-<li><strong>Do not make any changes to the <code>.qmd</code> file until the instructions tell you do to so.</strong></li>
+<li><strong>correct</strong>: correctly identified the true perpetrator</li>
+<li><strong>foil</strong>: incorrectly identified the “foil”, i.e.&nbsp;a person who looks very similar to the perpetrator</li>
+<li><strong>reject</strong>: incorrectly concluded the true perpetrator is not in the lineup</li>
+</ul>
+<p>The main objective of the analysis is to understand how different conditions of the mock crime and suspect lineup affect the decision made by the participant. We will consider the following conditions to describe the decisions:</p>
+<ul>
+<li><strong><code>lineup</code></strong>: How potential suspects are shown to the participants
+<ul>
+<li><strong>Simultaneous Lineup</strong>: Participants were shown photos of all 6 potential suspects at the same time and were required to make a single decision (identify someone from the lineup or reject the lineup).</li>
+<li><strong>Sequential 5 Lineup</strong>: Photos of the 6 suspects were shown one at a time. The participant was required to make a decision (choose or don’t choose) as each photo was shown. Once a decision was made, participants were not allowed to reexamine a photo. If the participant made an identification, the remaining photos were not shown. In each of these lineups the true perpetrator was always the 5<sup>th</sup> photo in the lineup.</li>
+</ul></li>
+<li><strong><code>weapon</code></strong>: Whether or not a weapon was present in the video of the mock crime.</li>
+<li><strong><code>feature</code></strong>: Whether or not the perpetrator had a distinctive marking on his face. In this experiment, the distinctive feature was a large “N” sticker on one cheek. (The letter “N” was chosen to represent the first author’s alma mater - University of Nebraska.)</li>
+</ul>
+<p>The data may be found in <code>eyewitness.csv</code> in the <code>data</code> folder.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ew <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/eyewitness.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ew <span class="ot">&lt;-</span> ew <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">as_factor</span>(id))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Let’s begin by doing some exploratory data analysis. The univariate plots for each of the predictor variables and the response variable are shown below.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw-05-old_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Complete the exploratory data analysis by creating the plots and/or summary statistics to examine the relationship between the response variable (<code>id</code>) and each of the explanatory variables (<code>lineup</code>, <code>weapon</code>, and <code>feature</code>).</p>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Using the plots/tables from Question 1:</p>
+<ul>
+<li>What is one thing you learn about the data from the univariate plots?</li>
+<li>Based on the bivariate plots, do any of the predictors appear to have a significant effect on the <code>id</code>? Briefly explain.</li>
 </ul>
 </section>
-<section id="workflow-using-git-and-github-as-a-team" class="level2">
-<h2 class="anchored" data-anchor-id="workflow-using-git-and-github-as-a-team">Workflow: Using Git and GitHub as a team</h2>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>Briefly explain why you should use a multinomial logistic regression model to predict <code>id</code> using <code>lineup</code>, <code>weapon</code> and <code>feature</code>.</p>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>Fit the multinomial logistic model that only includes main effects. Display the model output.</p>
+<ul>
+<li>What is the baseline category for the response variable?</li>
+<li>Interpret the intercepts for each part of the model in terms of the odds.</li>
+<li>Interpret the coefficients of <code>lineup</code> for each part of the model in terms of the odds.</li>
+</ul>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>You want to consider all possible interaction effects for the model.</p>
+<ul>
+<li>Use the appropriate test to determine if there is at least one significant interaction effect.</li>
+</ul>
+<!-- -->
+<ul>
+<li>Based on your test, is there evidence of any significant interaction effects? Briefly explain.</li>
+</ul>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -364,258 +404,34 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>There are no Team Member markers in this lab; however, you should use a similar workflow as in Lab 04. Only one person should type in the group’s .qmd file at a time. Once that person has finished typing the group’s responses, they should <em>render, commit, and push</em> the changes to GitHub. All other teammates can <em>pull</em> to see the updates in RStudio.</p>
-<p>Every teammate must have at least one commit in the lab. Everyone is expected to contribute to discussion even when they are not typing.</p>
+<p><em>Regardless of your answer to Question 5, use the model that includes the interaction terms for the remainder of the assignment.</em></p>
 </div>
 </div>
 </section>
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p>The following packages are used in the lab.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fivethirtyeight)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># add other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="data-candy" class="level2">
-<h2 class="anchored" data-anchor-id="data-candy">Data: Candy</h2>
-<p>The data from this lab comes from the the article FiveThirtyEight <a href="https://fivethirtyeight.com/features/the-ultimate-halloween-candy-power-ranking"><em>The Ultimate Halloween Candy Power Ranking</em></a> by Walt Hickey. To collect data, Hickey and collaborators at FiveThirtyEight set up an experiment people could vote on a series of randomly generated candy matchups (e.g.&nbsp;Reeses vs.&nbsp;Skittles). Click <a href="http://walthickey.com/2017/10/18/whats-the-best-halloween-candy/">here</a> to check out some of the match ups.</p>
-<p>The data set contains the characteristics and win percentage from 85 candies in the experiment. The variables are</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 21%">
-<col style="width: 78%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>chocolate</code></td>
-<td>Does it contain chocolate?</td>
-</tr>
-<tr class="even">
-<td><code>fruity</code></td>
-<td>Is it fruit flavored?</td>
-</tr>
-<tr class="odd">
-<td><code>caramel</code></td>
-<td>Is there caramel in the candy?</td>
-</tr>
-<tr class="even">
-<td><code>peanutalmondy</code></td>
-<td>Does it contain peanuts, peanut butter or almonds?</td>
-</tr>
-<tr class="odd">
-<td><code>nougat</code></td>
-<td>Does it contain nougat?</td>
-</tr>
-<tr class="even">
-<td><code>crispedricewafer</code></td>
-<td>Does it contain crisped rice, wafers, or a cookie component?</td>
-</tr>
-<tr class="odd">
-<td><code>hard</code></td>
-<td>Is it a hard candy?</td>
-</tr>
-<tr class="even">
-<td><code>bar</code></td>
-<td>Is it a candy bar?</td>
-</tr>
-<tr class="odd">
-<td><code>pluribus</code></td>
-<td>Is it one of many candies in a bag or box?</td>
-</tr>
-<tr class="even">
-<td><code>sugarpercent</code></td>
-<td>The percentile of sugar it falls under within the data set. Values 0 - 1.</td>
-</tr>
-<tr class="odd">
-<td><code>pricepercent</code></td>
-<td>The unit price percentile compared to the rest of the set. Values 0 - 1.</td>
-</tr>
-<tr class="even">
-<td><code>winpercent</code></td>
-<td>The overall win percentage according to 269,000 matchups. Values 0 - 100.</td>
-</tr>
-</tbody>
-</table>
-<p>Use the code below to get a glimpse of the <code>candy_rankings</code> data frame in the <strong>fivethirtyeight</strong> R package.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(candy_rankings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 85
-Columns: 13
-$ competitorname   &lt;chr&gt; "100 Grand", "3 Musketeers", "One dime", "One quarter…
-$ chocolate        &lt;lgl&gt; TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, F…
-$ fruity           &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE…
-$ caramel          &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE,…
-$ peanutyalmondy   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, …
-$ nougat           &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE,…
-$ crispedricewafer &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE…
-$ hard             &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALS…
-$ bar              &lt;lgl&gt; TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, F…
-$ pluribus         &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE…
-$ sugarpercent     &lt;dbl&gt; 0.732, 0.604, 0.011, 0.011, 0.906, 0.465, 0.604, 0.31…
-$ pricepercent     &lt;dbl&gt; 0.860, 0.511, 0.116, 0.511, 0.511, 0.767, 0.767, 0.51…
-$ winpercent       &lt;dbl&gt; 66.97173, 67.60294, 32.26109, 46.11650, 52.34146, 50.…</code></pre>
-</div>
-</div>
-</section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<p>The goal of this analysis is to use multiple linear regression to understand the factors that make a good candy.</p>
-<section id="exercise-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>According to the model,</p>
 <ul>
-<li><p>Use <code>ggplot</code> to make a graph of your choice exploring the relationship between at least 3 variables in the data set.</p></li>
-<li><p>Write two observations from your graph.</p></li>
+<li>If there was no weapon but the perpetrator had a distinctive feature in the mock crime, how do the <strong>log-odds</strong> of reject vs.&nbsp;a correct ID change when there is a simultaneous lineup vs.&nbsp;a sequential lineup?</li>
+<li>If there was no weapon but the perpetrator had a distinctive feature in the mock crime, how do the <strong>odds</strong> of reject vs.&nbsp;a correct ID change when there is a simultaneous lineup vs.&nbsp;a sequential lineup?</li>
+<li>Which group of participants (i.e.&nbsp;which set of experimental conditions) is described by the intercept?</li>
 </ul>
 </section>
-<section id="exercise-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
-<p>Split the data into training (80%) and testing sets (20%). Call the training set <code>candy_train</code> and the testing set <code>candy_test</code>. Use a seed of <code>2</code>.</p>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>Are the conditions for inference met? List the conditions, and, <strong>if relevant</strong>, create visualizations to check the conditions and evaluate whether each condition is met. Include an assessment about each condition and a brief explanation about your conclusion.</p>
 </section>
-<section id="exercise-3" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
-<p>Below is a recipe for a model that uses the characteristics of candy to understand variability in the win percentage. The lines of the <code>recipe</code> code are labeled <em>Line 1</em> - <em>Line 9.</em> Describe what each line of code does. The explanation should be written comprehensively and specifically enough that someone could replicate the data manipulation steps based on your description.</p>
-<p>For example, if a line of code is <code>step_center(X)</code>, a comprehensive and specific explanation something similar to the following: “This line of code mean centers the variable <span class="math inline">\(X\)</span> by subtracting <span class="math inline">\(\bar{X}\)</span> from each value of <span class="math inline">\(X\)</span> in the training data.”</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Use the <a href="https://recipes.tidymodels.org/reference/index.html">Recipes Function Reference</a> page as a resource to learn more about the <code>step_</code> functions.</p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Line 1</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>candy_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(winpercent <span class="sc">~</span> ., <span class="at">data =</span> candy_train) <span class="sc">|&gt;</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Line 2</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">update_role</span>(competitorname, <span class="at">new_role =</span> <span class="st">"ID"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Line 3</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_cut</span>(sugarpercent, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Line 4</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_mutate</span>(<span class="at">pricepercent =</span> pricepercent <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Line 5</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>()) <span class="sc">|&gt;</span> </span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Line 6</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_interact</span>(<span class="at">terms =</span><span class="sc">~</span> pricepercent<span class="sc">:</span>chocolate) <span class="sc">|&gt;</span> </span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Line 7</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_interact</span>(<span class="at">terms =</span><span class="sc">~</span> peanutyalmondy<span class="sc">:</span>chocolate) <span class="sc">|&gt;</span> </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Line 8</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_rm</span>(fruity, caramel, hard, pluribus, bar, nougat, crispedricewafer) <span class="sc">|&gt;</span> </span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">#Line 9</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_zv</span>(<span class="fu">all_predictors</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="exercise-4" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
-<p>Fill in the code to use <code>prep</code> and <code>bake</code> for a preview of what will happen when the recipe in Exercise 3 is applied.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>candy_rec <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prep</span>() <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bake</span>(_____) <span class="sc">|&gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>How many terms (not including the intercept) will be in the model produced by this recipe?</p>
-</section>
-<section id="exercise-5" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
-<p>Fill in the code to specify model, build the model workflow using the recipe in Exercise 2, and fit the model to the training data. Then, neatly display the model using 3 digits.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#specify the model</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>candy_spec <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#build model workflow</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>candy_workflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(_____) <span class="sc">|&gt;</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(_____) </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># fit the model </span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>candy_fit <span class="ot">&lt;-</span> candy_workflow <span class="sc">|&gt;</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(<span class="at">data =</span> _____)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="exercise-6" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
-<p>Interpret the following in the context of the data:</p>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<p>Use the model to predict the decision made by each participant. Make a table of the predicted vs.the actual decisions.</p>
 <ul>
-<li><p>Intercept</p></li>
-<li><p>Coefficient of <code>sugarpercent_X.0.75.1.</code></p></li>
-<li><p>Coefficient of <code>pricepercent_x_chocolateTRUE</code></p></li>
-<li><p>Effect of <code>pricepercent</code> for chocolate candy</p></li>
-</ul>
-</section>
-<section id="exercise-7" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
-<p>Let’s consider another model. Use the <code>recipe</code> workflow to fit a new model that meets the following criteria:</p>
-<ul>
-<li><p>Includes variables <code>chocolate</code>, <code>pricepercent</code>, <code>crispedricewafer</code>, <code>peanutyalmondy</code>, <code>sugarpercent</code></p></li>
-<li><p>Update <code>pricepercent</code> so it ranges from 0 to 100 (instead of 0 to 1)</p></li>
-<li><p>Makes <code>sugarpercent</code> a factor where the levels equal the four quartiles: 0 - 0.25, 0.25 - 0.50, 0.50 - 0.75, 0.75 - 1</p></li>
-<li><p>Includes the interaction between <code>pricepercent</code> and <code>peanutyalmondy</code></p></li>
-</ul>
-<p>Neatly display the model using 3 digits.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>See the <a href="https://recipes.tidymodels.org/reference/index.html">Function Reference</a> page on <a href="https://recipes.tidymodels.org">recipes.tidymodels.org</a> to find the appropriate recipe functions.</p>
-</div>
-</div>
-</section>
-<section id="exercise-8" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-8">Exercise 8</h3>
-<ul>
-<li><p>Consider the model from Exercise 5 “Model 1” and the model fit in Exercise 7 “Model 2”. Use the <code>glance()</code> function to calculate <span class="math inline">\(R^2\)</span> for both of these models.</p></li>
-<li><p>Which model would you choose based on <span class="math inline">\(R^2\)</span>? Briefly explain your choice.</p></li>
-</ul>
-</section>
-<section id="exercise-9" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-9">Exercise 9</h3>
-<p>We will use RMSE to evalulate the predictive performance of each model on the testing data.</p>
-<ul>
-<li>Use the code below to calculate predicted values and RMSE for Model 1 on the testing data. Then get the RMSE for Model 2 on the testing data.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>predict_test1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(candy_fit, candy_test) <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(candy_test)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>rmse1 <span class="ot">&lt;-</span> <span class="fu">rmse</span>(predict_test1, <span class="at">truth =</span> winpercent, <span class="at">estimate =</span> .pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Which model would you choose based on RMSE on the testing data? Briefly explain your choice.</li>
-</ul>
-</section>
-<section id="exercise-10" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-10">Exercise 10</h3>
-<ul>
-<li>Use the model you selected in Exercise 9 to describe what generally makes a good candy, i.e., one with a high win percentage.</li>
+<li>Briefly describe how the predicted decision is determined for each participant.</li>
+<li>What is the misclassification rate?</li>
 </ul>
 </section>
 </section>
-<section id="submission" class="level2">
-<h2 class="anchored" data-anchor-id="submission">Submission</h2>
+<section id="submission" class="level1">
+<h1>Submission</h1>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -630,73 +446,41 @@ Warning
 <p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
 </div>
 </div>
-<p><strong>One team member submit the assignment:</strong></p>
+<p>To submit your assignment</p>
 <ul>
-<li>Go to <a href="http://www.gradescope.com/">http://www.gradescope.com</a> and log in using your NetID credentials.</li>
+<li>Go to <a href="http://www.gradescope.com/">http://www.gradescope.com</a> and click <em>Log in</em> in the top right corner.</li>
+<li>Click <em>School Credentials</em> ➡️ <em>Duke NetID</em> and log in using your NetID credentials.</li>
 <li>Click on your <em>STA 210</em> course.</li>
 <li>Click on the assignment, and you’ll be prompted to submit it.</li>
-<li>Select all team members’ names, so they receive credit on the assignment. <a href="https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members">Click here</a> for video on adding team members to assignment on Gradescope.</li>
 <li>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</li>
-<li>Select the first page of your PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</li>
+<li>Select the first page of your PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.<br>
+Grading (50 pts)</li>
 </ul>
 </section>
-<section id="grading" class="level2">
-<h2 class="anchored" data-anchor-id="grading">Grading</h2>
-<p>Total points available: 50 points.</p>
+<section id="grading" class="level1">
+<h1>Grading</h1>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Component</th>
-<th>Points</th>
+<th><strong>Total</strong></th>
+<th style="text-align: center;"><strong>50</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Ex 1</td>
-<td>6</td>
+<td>Exercise 1- 8</td>
+<td style="text-align: center;">47</td>
 </tr>
 <tr class="even">
-<td>Ex 2</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>Ex 3</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Ex 4</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td>Ex 5</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>Ex 6</td>
-<td>8</td>
-</tr>
-<tr class="odd">
-<td>Ex 7</td>
-<td>8</td>
-</tr>
-<tr class="even">
-<td>Ex 8</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Ex 9</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Ex 10</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Workflow &amp; formatting</td>
-<td>5<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
+<td>Workflow &amp; formatting<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
+<td style="text-align: center;">5</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<p><a href="https://www.sciencedirect.com/science/article/pii/S2211368114000229">Carlson, C. and Carlson, M., 2014, An evaluation of lineup presentation, weapon presence, and a distinctive feature using ROC analysis, <em>Journal of Applied Research in Memory and Cognition</em>, 3: 45-53.</a></p>
 
 
 </section>
@@ -705,7 +489,8 @@ Warning
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and collaboration. This includes having at least one meaningful commit from each team member and updating the team name and date in the YAML.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Carlson, C. A., &amp; Carlson, M. A. (2014). <a href="https://www.sciencedirect.com/science/article/abs/pii/S2211368114000229">An evaluation of lineup presentation, weapon presence, and a distinctive feature using ROC analysis</a>. <em>Journal of Applied Research in Memory and Cognition</em>, <em>3</em>(2), 45-53<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.<a href="https://sta210-fa23.netlify.app/hw/hw-01#fnref2">↩︎</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1125,7 +910,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/hw/hw-05.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/hw/hw-05-old.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
