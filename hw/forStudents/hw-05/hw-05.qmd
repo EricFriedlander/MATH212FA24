@@ -7,6 +7,9 @@ execute:
   eval: false
   warning: false
   message: false
+format:
+  pdf:
+    pdf-engine: pdflatex
 ---
 
 ::: callout-important

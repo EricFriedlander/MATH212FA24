@@ -170,4 +170,4 @@ Upload the qmd and PDF files to Canvas.
 | Ex 8                    | 6      |
 | Workflow & formatting   | 4[^2]  |
 
-[^2]: The "Workflow & formatting" grade is to assess the reproducible workflowamd overall readability.
+[^2]: The "Workflow & formatting" grade is to assess the reproducible workflow and overall readability.

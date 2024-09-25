@@ -4296,7 +4296,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 Due/ HW 04 Assigned\n\n\n6\nM\nSep 23\nProject Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Stage I Assigned\n\n\n\nW\nSep 25\nSLR: Evaluations + Transformation Activities\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 27\nSLR: Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 Due/HW 05 Assigned\n\n\n\nM\nSep 30\nMultiple linear regression",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 Due/ HW 04 Assigned\n\n\n6\nM\nSep 23\nProject Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Stage I Assigned\n\n\n\nW\nSep 25\nSLR: Evaluations + Transformation Activities\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 27\nSLR: Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 Due/HW 05 Assigned\n\n\n\nM\nSep 30\nMultiple linear regression",
     "crumbs": [
       "Schedule"
     ]
@@ -6191,9 +6191,9 @@
   {
     "objectID": "hw/hw-05.html",
     "href": "hw/hw-05.html",
-    "title": "HW 05: Candy Competition",
+    "title": "HW 05: County Health",
     "section": "",
-    "text": "Important\n\n\n\nDue:\n\nFriday, October 20, 11:59pm (Tuesday labs)\nFriday, October 20, 11:59pm (Thursday labs)"
+    "text": "Important\n\n\n\nDue: Friday, October 4th, 11:59pm\nIn this homework, you’ll use simple and multiple linear regression to analyze the relationship between the number of doctors in a county, the number of beds, and the number of hospitals."
   },
   {
     "objectID": "hw/hw-05.html#learning-goals",
@@ -6226,65 +6226,65 @@
   {
     "objectID": "hw/hw-05.html#exercise-1",
     "href": "hw/hw-05.html#exercise-1",
-    "title": "HW 05: Multinomial Logistic Regression",
+    "title": "HW 05: County Health",
     "section": "Exercise 1",
-    "text": "Exercise 1\nLet’s begin by doing some exploratory data analysis. The univariate plots for each of the predictor variables and the response variable are shown below.\n\n\n\n\n\n\n\n\n\nComplete the exploratory data analysis by creating the plots and/or summary statistics to examine the relationship between the response variable (id) and each of the explanatory variables (lineup, weapon, and feature)."
+    "text": "Exercise 1\nDescribe was an observational unit represents for this data set. How many are there?"
   },
   {
     "objectID": "hw/hw-05.html#exercise-2",
     "href": "hw/hw-05.html#exercise-2",
-    "title": "HW 05: Multinomial Logistic Regression",
+    "title": "HW 05: County Health",
     "section": "Exercise 2",
-    "text": "Exercise 2\nUsing the plots/tables from Question 1:\n\nWhat is one thing you learn about the data from the univariate plots?\nBased on the bivariate plots, do any of the predictors appear to have a significant effect on the id? Briefly explain."
+    "text": "Exercise 2\nIn Example 1.7 of Stat2, they consider a simple linear model to predict the number of doctors (MDs) from the number of hospitals (Hospitals) in a metropolitan area. In that example, they found that a square root transformation on the response variable produced a more linear relationship. Create a new variable in the CountyHealth data frame called sqrtMDs. Hint: use the sqrt function inside the mutate function."
   },
   {
     "objectID": "hw/hw-05.html#exercise-3",
     "href": "hw/hw-05.html#exercise-3",
-    "title": "HW 05: Multinomial Logistic Regression",
+    "title": "HW 05: County Health",
     "section": "Exercise 3",
-    "text": "Exercise 3\nBriefly explain why you should use a multinomial logistic regression model to predict id using lineup, weapon and feature."
+    "text": "Exercise 3\nUse the function ggpairs from the package GGally to generate a grid scatter plots and correlations. Note that you will need to select the variables you want to use. Which explanatory variable (Hospitals or Beds) has the highest correlation with SqrtMDs? Is this consistent with your visual assessment?"
   },
   {
     "objectID": "hw/hw-05.html#exercise-4",
     "href": "hw/hw-05.html#exercise-4",
-    "title": "HW 05: Multinomial Logistic Regression",
+    "title": "HW 05: County Health",
     "section": "Exercise 4",
-    "text": "Exercise 4\nFit the multinomial logistic model that only includes main effects. Display the model output.\n\nWhat is the baseline category for the response variable?\nInterpret the intercepts for each part of the model in terms of the odds.\nInterpret the coefficients of lineup for each part of the model in terms of the odds."
+    "text": "Exercise 4\nFit a simple linear model using SqrtMDs as the response variable and Hospitals as the predictor. You may use sqrt(MDs) in your lm call instead of SqrtMDs if you like. How much of the variability in the SqrtMDs values is explained by Hospitals? How much of the variability in MDs is explained by the model you just fit. To figure this out:\n\nAugment your model.\nConvert the fitted and observed response variables back to number of MDs rather than square-root of the number of MDs.\nCompute the \\(R^2\\).\n\nWhy are these two numbers different?"
   },
   {
     "objectID": "hw/hw-05.html#exercise-5",
     "href": "hw/hw-05.html#exercise-5",
-    "title": "HW 05: Multinomial Logistic Regression",
+    "title": "HW 05: County Health",
     "section": "Exercise 5",
-    "text": "Exercise 5\nYou want to consider all possible interaction effects for the model.\n\nUse the appropriate test to determine if there is at least one significant interaction effect.\n\n\n\nBased on your test, is there evidence of any significant interaction effects? Briefly explain.\n\n\n\n\n\n\n\nImportant\n\n\n\nRegardless of your answer to Question 5, use the model that includes the interaction terms for the remainder of the assignment."
+    "text": "Exercise 5\nDo you think taking the square root of Beds would improve this model? Support your argument with plots and/or numbers."
   },
   {
     "objectID": "hw/hw-05.html#exercise-6",
     "href": "hw/hw-05.html#exercise-6",
-    "title": "HW 05: Multinomial Logistic Regression",
+    "title": "HW 05: County Health",
     "section": "Exercise 6",
-    "text": "Exercise 6\nAccording to the model,\n\nIf there was no weapon but the perpetrator had a distinctive feature in the mock crime, how do the log-odds of reject vs. a correct ID change when there is a simultaneous lineup vs. a sequential lineup?\nIf there was no weapon but the perpetrator had a distinctive feature in the mock crime, how do the odds of reject vs. a correct ID change when there is a simultaneous lineup vs. a sequential lineup?\nWhich group of participants (i.e. which set of experimental conditions) is described by the intercept?"
+    "text": "Exercise 6\nRepeat exercise 4 above with Beds as the predictor instead of Hospitals."
   },
   {
     "objectID": "hw/hw-05.html#exercise-7",
     "href": "hw/hw-05.html#exercise-7",
-    "title": "HW 05: Multinomial Logistic Regression",
+    "title": "HW 05: County Health",
     "section": "Exercise 7",
-    "text": "Exercise 7\nAre the conditions for inference met? List the conditions, and, if relevant, create visualizations to check the conditions and evaluate whether each condition is met. Include an assessment about each condition and a brief explanation about your conclusion."
+    "text": "Exercise 7\nFor the model you just fit, are there any high-influence outliers? Justify your answer using something from the lecture on outliers. There appear to be at least two high-leverage points. Which observations are these?"
   },
   {
     "objectID": "hw/hw-05.html#exercise-8",
     "href": "hw/hw-05.html#exercise-8",
-    "title": "HW 05: Multinomial Logistic Regression",
+    "title": "HW 05: County Health",
     "section": "Exercise 8",
-    "text": "Exercise 8\nUse the model to predict the decision made by each participant. Make a table of the predicted vs.the actual decisions.\n\nBriefly describe how the predicted decision is determined for each participant.\nWhat is the misclassification rate?"
+    "text": "Exercise 8\nFit a multiple linear model using SqrtMDs are the response variable and both Hospitals and Beds as the predictors. Interpret both slopes and the intercept in the context of the problem."
   },
   {
     "objectID": "hw/hw-05.html#footnotes",
     "href": "hw/hw-05.html#footnotes",
-    "title": "HW 05: Candy Competition",
+    "title": "HW 05: County Health",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and collaboration. This includes having at least one meaningful commit from each team member and updating the team name and date in the YAML.↩︎"
+    "text": "Footnotes\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow, clarity, and professionalism.↩︎"
   },
   {
     "objectID": "labs/ForStudents/lab-02/lab-02.html",
@@ -14086,9 +14086,9 @@
   {
     "objectID": "hw/hw-05.html#grading",
     "href": "hw/hw-05.html#grading",
-    "title": "HW 05: Candy Competition",
+    "title": "HW 05: County Health",
     "section": "Grading",
-    "text": "Grading\nTotal points available: 50 points.\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1\n6\n\n\nEx 2\n3\n\n\nEx 3\n5\n\n\nEx 4\n1\n\n\nEx 5\n2\n\n\nEx 6\n8\n\n\nEx 7\n8\n\n\nEx 8\n4\n\n\nEx 9\n4\n\n\nEx 10\n4\n\n\nWorkflow & formatting\n51"
+    "text": "Grading\nTotal points available: 50 points.\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1\n3\n\n\nEx 2\n3\n\n\nEx 3\n5\n\n\nEx 4\n8\n\n\nEx 5\n4\n\n\nEx 6\n3\n\n\nEx 7\n5\n\n\nEx 8\n6\n\n\nEx 9\n4\n\n\nEx 10\n4\n\n\nWorkflow & formatting\n51"
   },
   {
     "objectID": "hw/hw-05-old.html",
@@ -14187,5 +14187,96 @@
     "title": "HW 05: Multinomial Logistic Regression",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nCarlson, C. A., & Carlson, M. A. (2014). An evaluation of lineup presentation, weapon presence, and a distinctive feature using ROC analysis. Journal of Applied Research in Memory and Cognition, 3(2), 45-53↩︎\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.↩︎↩︎"
+  },
+  {
+    "objectID": "hw/hw-05.html#data-county-health",
+    "href": "hw/hw-05.html#data-county-health",
+    "title": "HW 05: County Health",
+    "section": "Data: County Health",
+    "text": "Data: County Health\nThe data set for this homework is from the Stat2Data R package which is the companion package for this course’s textbook. It is the same data set that we used in AE-08. The data was originally generated by the American Medical Association and concerns the availability of health care in counties in the United States. You can find information here by searching for the County Health Resources dataset.\n\ndata(\"CountyHealth\") # Loads the data from the package\n\nIt is relatively easy to count the number of hospitals a county has, whereas counting the number of doctors is much more difficult. We’d like to build a linear model to predict the number of doctors, contained in the variable MDs, from the number of hospitals, Hospitals and the number of beds, Beds."
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-9",
+    "href": "hw/hw-05.html#exercise-9",
+    "title": "HW 05: County Health",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nHow much of the variation in MDs is explained by the model you just fit? Which model would you say is the “best”, given what we’ve learned through the first lecture on multiple linear regression."
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-10",
+    "href": "hw/hw-05.html#exercise-10",
+    "title": "HW 05: County Health",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nUsing the “best” model, predict the average number of doctors in a metro area with 1,000 beds and 4 hospitals. Report a 95% prediction interval and interpret your results in context."
+  },
+  {
+    "objectID": "hw/forStudents/hw-04/hw-04.html",
+    "href": "hw/forStudents/hw-04/hw-04.html",
+    "title": "HW 04: Alumni jobs",
+    "section": "",
+    "text": "Important\n\n\n\nDue: Friday, September 27, 11:59pm\nIn this homework, you’ll use simple linear regression to analyze the relationship between the median early career salary and percent of alumni who perceive their job as making the world a better place for colleges and universities in the United States."
+  },
+  {
+    "objectID": "hw/forStudents/hw-04/hw-04.html#exercise-1",
+    "href": "hw/forStudents/hw-04/hw-04.html#exercise-1",
+    "title": "HW 04: Alumni jobs",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFit a linear model that can be used to predict the typical (median) early career pay based on the percent of STEM degrees. Display the model output using 3 digits for numerical values."
+  },
+  {
+    "objectID": "hw/forStudents/hw-04/hw-04.html#exercise-2",
+    "href": "hw/forStudents/hw-04/hw-04.html#exercise-2",
+    "title": "HW 04: Alumni jobs",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nCalculate the predicted values and residuals from your model and save these results in a data frame. Print the first five rows of the new data frame."
+  },
+  {
+    "objectID": "hw/forStudents/hw-04/hw-04.html#exercise-3",
+    "href": "hw/forStudents/hw-04/hw-04.html#exercise-3",
+    "title": "HW 04: Alumni jobs",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nBefore using the model for prediction, let’s check the model conditions. To figure out how to do so, we type the following prompt into ChatGPT (“an AI powered language model”) “How do you check the model conditions for simple linear regression?”\nThe response from ChatGPT shown below would receive partial credit. For each condition, state whether it is correct or incorrect/incomplete. If it incorrect/incomplete, state what is wrong or missing, then write the correct response. Please put all answers after the ChatGPT text.\n\nIn simple linear regression, you’re trying to establish a linear relationship between two variables: a dependent variable (Y) and an independent variable (X). The model conditions or assumptions for simple linear regression are important to check to ensure that your model is valid and reliable. Here are the key assumptions and how to check them:\n1. Linearity Assumption:\n\nAssumption: The relationship between the independent variable (X) and the dependent variable (Y) is linear.\nHow to Check: Create a scatterplot of Y against X. If the points roughly form a straight line, the linearity assumption is likely met.\n\n2. Independence Assumption:\n\nAssumption: The residuals (the differences between observed Y and predicted Y) are independent of each other.\nHow to Check: Plot the residuals against the independent variable (X) or the predicted values. Look for patterns or trends in the residuals. There should be no clear structure or autocorrelation in the residuals.\n\n3. Homoscedasticity [Constant variance] Assumption:\n\nAssumption: The variance of the residuals is constant across all levels of the independent variable.\nHow to Check: Plot the residuals against the predicted values or the independent variable (X). The spread of the residuals should remain roughly constant across the range of X.\n\n4. Normality Assumption:\n\nAssumption: The residuals follow a normal distribution.\nHow to Check: Create a histogram or a normal probability plot (Q-Q plot) of the residuals. If the residuals are approximately normally distributed, they should follow a bell-shaped curve in the histogram and lie along a straight line in the Q-Q plot.\n\nIt’s important to note that these assumptions may not always hold perfectly in real-world data, and minor violations may not necessarily invalidate your model. However, if you detect significant violations of these assumptions, you may need to consider alternative modeling techniques or transformations of your data to address the issues."
+  },
+  {
+    "objectID": "hw/forStudents/hw-04/hw-04.html#exercise-4",
+    "href": "hw/forStudents/hw-04/hw-04.html#exercise-4",
+    "title": "HW 04: Alumni jobs",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nDetermine whether the model conditions hold.\n\n\n\n\n\n\nImportant\n\n\n\nRegardless of your previous answer, you can proceed assuming all the model conditions are satisfied."
+  },
+  {
+    "objectID": "hw/forStudents/hw-04/hw-04.html#exercise-5",
+    "href": "hw/forStudents/hw-04/hw-04.html#exercise-5",
+    "title": "HW 04: Alumni jobs",
+    "section": "Exercise 5",
+    "text": "Exercise 5\n\n31 percent of the alumni at Johns Hopkins University received a STEM degree. Calculate the predicted early career pay at this university and the appropriate 95% interval. Interpret the interval in the context of the data.\nThe actual early career pay at this university is $67,200. Is this what you expected based on your analysis? Briefly explain your reasoning."
+  },
+  {
+    "objectID": "hw/forStudents/hw-04/hw-04.html#exercise-6",
+    "href": "hw/forStudents/hw-04/hw-04.html#exercise-6",
+    "title": "HW 04: Alumni jobs",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nNext, let’s consider how well the model fits the relationship between the early career pay and percent with a STEM degree.\n\nCalculate \\(R^2\\) and interpret it in the context of the data.\nCalculate RMSE and interpret it in the context of the data."
+  },
+  {
+    "objectID": "hw/forStudents/hw-04/hw-04.html#exercise-7",
+    "href": "hw/forStudents/hw-04/hw-04.html#exercise-7",
+    "title": "HW 04: Alumni jobs",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nDo you think the model is useful for understanding and predicting the typical early career pay for alumni at a university? Briefly explain your reasoning."
+  },
+  {
+    "objectID": "hw/forStudents/hw-04/hw-04.html#exercise-8",
+    "href": "hw/forStudents/hw-04/hw-04.html#exercise-8",
+    "title": "HW 04: Alumni jobs",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nFit another model which predicts the typical early career pay using only the percentage of alumni that believe their career will make the world a better place.\n\nNeatly display this model with 3 digits.\nWhich model do you think is better - this model or the model fit in Exercise 1? Explain your response showing any analysis used to make the decision."
+  },
+  {
+    "objectID": "hw/forStudents/hw-04/hw-04.html#footnotes",
+    "href": "hw/forStudents/hw-04/hw-04.html#footnotes",
+    "title": "HW 04: Alumni jobs",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and overall readability.↩︎"
   }
 ]
