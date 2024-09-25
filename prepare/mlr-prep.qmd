@@ -1,0 +1,9 @@
+---
+title: "September 27 lecture"
+subtitle: "Multiple Linear Regression"
+---
+
+## Assigned reading
+
+- Stat2: Topic 3.1 Multiple Linear Regression Model
+- Stat2: Topic 4.5 Coding Categoricadl Predictors

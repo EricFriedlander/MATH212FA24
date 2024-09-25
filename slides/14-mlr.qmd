@@ -1,7 +1,7 @@
 ---
 title: "Multiple linear regression (MLR)"
 author: "Prof. Eric Friedlander"
-date: "2024-08-28"
+date: "2024-09-27"
 date-format: "MMM DD, YYYY"
 footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
@@ -26,16 +26,6 @@ knitr:
     width: 200
 bibliography: references.bib
 ---
-
-<!-- ## Announcements {.midi} -->
-
-<!-- -   HW 02 due Mon, Oct 2 at 11:59pm. -->
-<!-- -   All lecture recordings available until Wed, Oct 4 at 9am. -->
-<!--     -   [Click here](https://docs.google.com/spreadsheets/d/1dUD4SOpM79BL2kdvue9I2TP-ibcdxfpOIkHkMreYx64/edit?usp=sharing) for link to videos. You can also find the link in the navigation bar of the course website. -->
-<!-- -   Lab groups start this week. You will get your assigned group when you go to lab. -->
-<!-- -   Submit questions about SLR by Thu, Sep 28. These questions will be used to make the Exam Review. [Click here](https://sta210-fa23.netlify.app/slides/08-slr-model-eval#/questions-about-slr) for more info. -->
-<!-- -   Exam 01: Wed, Oct 4 (in-class + take-home) -->
-<!-- -   Exam 01 review: Mon, Oct 2 -->
 
 ## Computational setup
 
@@ -87,9 +77,10 @@ loan50 |>
 
 ```{r}
 #| echo: false
-ggplot(loan50, aes(x = interest_rate)) +
-  geom_density(fill = "steelblue") +
-  labs(title = "Distribution of interest rate")
+#| code-fold: true
+loan50 |> 
+  gf_density(~interest_rate, fill = "steelblue") |> 
+  gf_labs(title = "Distribution of interest rate")
 ```
 
 ```{r}
@@ -221,7 +212,7 @@ $$
 # Model fit {.smaller}
 
 ```{r}
-#| echo: false
+#| echo: true
 
 int_fit <- lm(interest_rate ~ debt_to_income + verified_income  + annual_income_k,
       data = loan50)
@@ -386,6 +377,7 @@ loan50 |>
 -   The **reference level** is the category that doesn't have a term in the model.
 -   The coefficients of the indicator variables in the model are interpreted as the expected change in the response compared to the baseline, holding all other variables constant.
 -   This approach is also called **dummy coding**.
+-   `lm` will do this for you.
 
 . . .
 
@@ -513,7 +505,7 @@ tidy(int_int_fit) |>
 
 ## Data manipulation 3: Create interaction variables {.smaller}
 
-Defining the interaction variable in the model formula as `verified_income * annual_income_k_cent` is an implicit data manipulation step as well
+Defining the interaction variable in the model formula as `verified_income * annual_income_k_cent` is an implicit data manipulation step as well (R will do this for you)
 
 ```{r}
 #| echo: false
@@ -523,4 +515,45 @@ framed <- model_frame(interest_rate ~ debt_to_income  +  debt_to_income + annual
 
 model_matrix(framed$terms, framed$data) |>
   glimpse()
+```
+
+# Wrap up
+
+## Recap
+
+-   Introduced multiple linear regression
+
+-   Interpreted coefficients in the multiple linear regression model
+
+-   Calculated predictions and associated intervals for multiple linear regression models
+
+-   Mean-centered quantitative predictors
+
+-   Used indicator variables for categorical predictors
+
+-   Used interaction terms
+
+## Looking backward {.midi}
+
+Data manipulation, with **dplyr** (from **tidyverse**):
+
+```{r}
+#| echo: true
+#| results: hide
+
+loan50 |>
+  select(interest_rate, annual_income, debt_to_income, verified_income) |>
+  mutate(
+    # 1. rescale income
+    annual_income_th = annual_income / 1000,
+    # 2. mean-center quantitative predictors
+    debt_inc_cent = debt_to_income - mean(debt_to_income),
+    annual_income_th_cent = annual_income_th - mean(annual_income_th),
+    # 3. create dummy variables for verified_income
+    source_verified = if_else(verified_income == "Source Verified", 1, 0),
+    verified = if_else(verified_income == "Verified", 1, 0),
+    # 4. create interaction variables
+    `annual_income_th_cent:verified_incomeSource Verified` = annual_income_th_cent * source_verified,
+    `annual_income_th_cent:verified_incomeVerified` = annual_income_th_cent * verified
+  )
 ```
