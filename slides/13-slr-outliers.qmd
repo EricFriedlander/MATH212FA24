@@ -27,6 +27,8 @@ knitr:
 bibliography: references.bib
 ---
 
+
+
 ```{r setup}
 #| include: false
 
@@ -41,6 +43,18 @@ knitr::opts_chunk$set(
   fig.align = "center"
 )
 ```
+
+
+# Double Application Exercise
+
+::: appex
+📋 [AE-07: Evaluating Models](https://mat212fa24.netlify.app/ae/ae-07-model-eval)
+:::
+
+::: appex
+📋 [AE-08: Transformations](https://mat212fa24.netlify.app/ae/ae-08-transformations)
+:::
+
 
 
 ## Computational set up
