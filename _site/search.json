@@ -4296,7 +4296,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 Due/ HW 04 Assigned\n\n\n6\nM\nSep 23\nProject Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Stage I Assigned\n\n\n\nW\nSep 25\nSLR: Evaluations + Transformation Activities\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 27\nSLR: Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 Due/HW 05 Assigned\n\n\n\nM\nSep 30\nMultiple linear regression",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 Due/ HW 04 Assigned\n\n\n6\nM\nSep 23\nProject Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Stage I Assigned\n\n\n\nW\nSep 25\nSLR: Evaluations + Transformation Activities\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 27\nSLR: Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 Due/HW 05 Assigned\n\n\n7\nM\nSep 30\nMultiple linear regression",
     "crumbs": [
       "Schedule"
     ]
@@ -13815,35 +13815,35 @@
     "href": "slides/14-mlr.html#computational-setup",
     "title": "Multiple linear regression (MLR)",
     "section": "Computational setup",
-    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(mosaic)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(mosaic)\nlibrary(ISLR2)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(scales)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
   },
   {
     "objectID": "slides/14-mlr.html#data-peer-to-peer-lender",
     "href": "slides/14-mlr.html#data-peer-to-peer-lender",
     "title": "Multiple linear regression (MLR)",
     "section": "Data: Peer-to-peer lender",
-    "text": "Data: Peer-to-peer lender\nToday’s data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the loan50 data frame in the openintro R package.\n\n\n\n\n\nannual_income\ndebt_to_income\nverified_income\ninterest_rate\n\n\n\n\n59000\n0.5575254\nNot Verified\n10.90\n\n\n60000\n1.3056833\nNot Verified\n9.92\n\n\n75000\n1.0562800\nVerified\n26.30\n\n\n75000\n0.5743467\nNot Verified\n9.92\n\n\n254000\n0.2381496\nNot Verified\n9.43\n\n\n67000\n1.0770448\nSource Verified\n9.92\n\n\n28800\n0.0997222\nSource Verified\n17.09\n\n\n80000\n0.3509125\nNot Verified\n6.08\n\n\n34000\n0.6975000\nNot Verified\n7.97\n\n\n80000\n0.1668542\nSource Verified\n12.62"
+    "text": "Data: Peer-to-peer lender\nToday’s data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the loan50 data frame in the openintro R package.\n\n\nRows: 50\nColumns: 18\n$ state                   &lt;fct&gt; NJ, CA, SC, CA, OH, IN, NY, MO, FL, FL, MD, HI…\n$ emp_length              &lt;dbl&gt; 3, 10, NA, 0, 4, 6, 2, 10, 6, 3, 8, 10, 10, 2,…\n$ term                    &lt;dbl&gt; 60, 36, 36, 36, 60, 36, 36, 36, 60, 60, 36, 36…\n$ homeownership           &lt;fct&gt; rent, rent, mortgage, rent, mortgage, mortgage…\n$ annual_income           &lt;dbl&gt; 59000, 60000, 75000, 75000, 254000, 67000, 288…\n$ verified_income         &lt;fct&gt; Not Verified, Not Verified, Verified, Not Veri…\n$ debt_to_income          &lt;dbl&gt; 0.55752542, 1.30568333, 1.05628000, 0.57434667…\n$ total_credit_limit      &lt;int&gt; 95131, 51929, 301373, 59890, 422619, 349825, 1…\n$ total_credit_utilized   &lt;int&gt; 32894, 78341, 79221, 43076, 60490, 72162, 2872…\n$ num_cc_carrying_balance &lt;int&gt; 8, 2, 14, 10, 2, 4, 1, 3, 10, 4, 3, 4, 3, 2, 3…\n$ loan_purpose            &lt;fct&gt; debt_consolidation, credit_card, debt_consolid…\n$ loan_amount             &lt;int&gt; 22000, 6000, 25000, 6000, 25000, 6400, 3000, 1…\n$ grade                   &lt;fct&gt; B, B, E, B, B, B, D, A, A, C, D, A, A, A, A, E…\n$ interest_rate           &lt;dbl&gt; 10.90, 9.92, 26.30, 9.92, 9.43, 9.92, 17.09, 6…\n$ public_record_bankrupt  &lt;int&gt; 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0…\n$ loan_status             &lt;fct&gt; Current, Current, Current, Current, Current, C…\n$ has_second_income       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALS…\n$ total_income            &lt;dbl&gt; 59000, 60000, 75000, 75000, 254000, 67000, 288…"
   },
   {
     "objectID": "slides/14-mlr.html#variables",
     "href": "slides/14-mlr.html#variables",
     "title": "Multiple linear regression (MLR)",
     "section": "Variables",
-    "text": "Variables\nPredictors:\n\n\nannual_income: Annual income\ndebt_to_income: Debt-to-income ratio, i.e. the percentage of a borrower’s total debt divided by their total income\nverified_income: Whether borrower’s income source and amount have been verified (Not Verified, Source Verified, Verified)\n\n\nOutcome: interest_rate: Interest rate for the loan"
+    "text": "Variables\nFeatures (another name for predictors)\n\nIncome: Annual income (in 1000’s of US dollars)\nRating: Credit Rating\n\nOutcome\n\nLimit: Credit limit\n\n\nComplete Exercises 0-1. Please don’t look ahead in the slides."
   },
   {
     "objectID": "slides/14-mlr.html#outcome-interest_rate",
     "href": "slides/14-mlr.html#outcome-interest_rate",
     "title": "Multiple linear regression (MLR)",
     "section": "Outcome: interest_rate",
-    "text": "Outcome: interest_rate\n\n\n\n\n\n\n\nmin\nQ1\nmedian\nQ3\nmax\nmean\nsd\nn\nmissing\n\n\n\n\n\n5.31\n7.96\n9.93\n13.715\n26.3\n11.5672\n5.052115\n50\n0"
+    "text": "Outcome: interest_rate\n\n\nCode\nloan50 |&gt; \n  gf_density(~interest_rate, fill = \"steelblue\") |&gt; \n  gf_labs(title = \"Distribution of interest rate\")|&gt; \n  gf_refine(scale_x_continuous(labels = percent_format(scale = 1)))\n\n\n\n\n\n\n\n\n\nmin\nQ1\nmedian\nQ3\nmax\nmean\nsd\nn\nmissing\n\n\n\n\n\n5.31\n7.96\n9.93\n13.715\n26.3\n11.5672\n5.052115\n50\n0"
   },
   {
     "objectID": "slides/14-mlr.html#predictors",
     "href": "slides/14-mlr.html#predictors",
     "title": "Multiple linear regression (MLR)",
     "section": "Predictors",
-    "text": "Predictors"
+    "text": "Predictors\n\n\nCode\np1 &lt;- Credit |&gt; \n  gf_density(~Limit, fill = \"steelblue\") |&gt; \n  gf_labs(title = \"Distribution of credit limit\",\n          x = \"Credit Limit\")|&gt; \n    gf_refine(scale_x_continuous(labels = dollar_format()))\n\np2 &lt;- Credit |&gt; \n  gf_histogram(~Rating, binwidth = 50) |&gt; \n  gf_labs(title = \"\",\n       x = \"Credit Rating\")\n\np3 &lt;- Credit |&gt; \n  gf_histogram(~Income, binwidth = 10) |&gt; \n  gf_labs(title = \"\",\n       x = \"Annual income (in $1,000s)\") |&gt; \n  gf_refine(scale_x_continuous(labels = dollar_format()))\n\np1 / (p2 + p3)"
   },
   {
     "objectID": "slides/14-mlr.html#data-manipulation-1-rescale-income",
@@ -13857,7 +13857,7 @@
     "href": "slides/14-mlr.html#outcome-vs.-predictors",
     "title": "Multiple linear regression (MLR)",
     "section": "Outcome vs. predictors",
-    "text": "Outcome vs. predictors"
+    "text": "Outcome vs. predictors\n\n\nCode\np4 &lt;- Credit |&gt; \n  gf_point(Limit ~ Rating, color = \"steelblue\") |&gt; \n  gf_labs(\n    y = \"Credit Limit\",\n    x = \"Credit Rating\"\n  ) |&gt; \n  gf_refine(scale_y_continuous(labels = dollar_format()))\n\n\np5 &lt;- Credit |&gt; \n  gf_point(Limit ~ Income, color = \"steelblue\") |&gt; \n  gf_labs(\n    y = \"Credit Limit\",\n    x = \"Annual income (in $1,000s)\"\n  ) |&gt; \n  gf_refine(scale_x_continuous(labels = dollar_format()),\n                               scale_y_continuous(labels = percent_format(scale = 1)))\n\np4 / p5"
   },
   {
     "objectID": "slides/14-mlr.html#single-vs.-multiple-predictors",
@@ -13871,7 +13871,7 @@
     "href": "slides/14-mlr.html#multiple-linear-regression-mlr",
     "title": "Multiple linear regression (MLR)",
     "section": "Multiple linear regression (MLR)",
-    "text": "Multiple linear regression (MLR)\nBased on the analysis goals, we will use a multiple linear regression model of the following form\n\\[\n\\begin{aligned}\\hat{\\text{interest_rate}} ~ =\n\\hat{\\beta}_0 & + \\hat{\\beta}_1 \\text{debt_to_income} \\\\ & + \\hat{\\beta}_2 \\text{verified_income} \\\\ &+ \\hat{\\beta}_3 \\text{annual_income_k}\n\\end{aligned}\n\\]\nSimilar to simple linear regression, this model assumes that at each combination of the predictor variables, the values interest_rate follow a Normal distribution."
+    "text": "Multiple linear regression (MLR)\nBased on the analysis goals, we will use a multiple linear regression model of the following form\n\\[\n\\begin{aligned}\\hat{\\text{Limit}} ~ =\n\\hat{\\beta}_0 & + \\hat{\\beta}_1 \\text{Rating} + \\hat{\\beta}_2 \\text{Income}\n\\end{aligned}\n\\]\nSimilar to simple linear regression, this model assumes that at each combination of the predictor variables, the values Limit follow a Normal distribution."
   },
   {
     "objectID": "slides/14-mlr.html#multiple-linear-regression-1",
@@ -13892,42 +13892,42 @@
     "href": "slides/14-mlr.html#model-equation",
     "title": "Multiple linear regression (MLR)",
     "section": "Model equation",
-    "text": "Model equation\n\\[\n\\begin{align}\\hat{\\text{interest_rate}} =  10.726 &+0.671 \\times \\text{debt_to_income}\\\\\n&+ 2.211 \\times \\text{source_verified}\\\\  \n&+ 6.880 \\times \\text{verified}\\\\\n& -0.021 \\times \\text{annual_income_k}\n\\end{align}\n\\]\n\n\n\n\n\n\nNote\n\n\nWe will talk about why there are two terms in the model for verified_income shortly!"
+    "text": "Model equation\n\\[\n\\begin{align}\\hat{\\text{Limit}} =  -532.471 &+14.771 \\times \\text{Rating}\\\\\n& -0.557 \\times \\text{Income}\n\\end{align}\n\\]"
   },
   {
     "objectID": "slides/14-mlr.html#interpreting-hatbeta_j",
     "href": "slides/14-mlr.html#interpreting-hatbeta_j",
     "title": "Multiple linear regression (MLR)",
     "section": "Interpreting \\(\\hat{\\beta}_j\\)",
-    "text": "Interpreting \\(\\hat{\\beta}_j\\)\n\nThe estimated coefficient \\(\\hat{\\beta}_j\\) is the expected change in the mean of \\(y\\) when \\(x_j\\) increases by one unit, holding the values of all other predictor variables constant.\n\n\n\nExample: The estimated coefficient for debt_to_income is 0.671. This means for each point in an borrower’s debt to income ratio, the interest rate on the loan is expected to be greater by 0.671%, holding annual income and income verification constant."
+    "text": "Interpreting \\(\\hat{\\beta}_j\\)\n\nThe estimated coefficient \\(\\hat{\\beta}_j\\) is the expected change in the mean of \\(y\\) when \\(x_j\\) increases by one unit, holding the values of all other predictor variables constant.\n\n\n\nComplete Exercises 5-6."
   },
   {
     "objectID": "slides/14-mlr.html#prediction",
     "href": "slides/14-mlr.html#prediction",
     "title": "Multiple linear regression (MLR)",
     "section": "Prediction",
-    "text": "Prediction\n\nWhat is the predicted interest rate for an borrower with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000?\n\n\n\n10.726 + 0.671 * 0.558 + 2.211 * 0 + 6.880 * 0 - 0.021 * 59\n\n[1] 9.861418\n\n\n\nThe predicted interest rate for an borrower with with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000 is 9.86%."
+    "text": "Prediction\n\nWhat is the predicted credit limit for an borrower with an credit rating of ratio of 700, and who has an annual income of $59,000?\n\n\n\n-532.471 + 14.771 * 700 + - .577 * 59\n\n[1] 9773.186\n\n\n\nThe predicted credit limit for an borrower with an credit rating of ratio of 700, and who has an annual income of $59,000 is $9773.19."
   },
   {
     "objectID": "slides/14-mlr.html#prediction-revisited",
     "href": "slides/14-mlr.html#prediction-revisited",
     "title": "Multiple linear regression (MLR)",
     "section": "Prediction, revisited",
-    "text": "Prediction, revisited\nJust like with simple linear regression, we can use the predict() function in R to calculate the appropriate intervals for our predicted values:\n\nnew_borrower &lt;- tibble(\n  debt_to_income  = 0.558, \n  verified_income = \"Not Verified\", \n  annual_income_k = 59\n)\n\npredict(int_fit, new_borrower)\n\n       1 \n9.890888 \n\n\n\n\n\n\n\n\nNote\n\n\nDifference in predicted value due to rounding the coefficients on the previous slide."
+    "text": "Prediction, revisited\nJust like with simple linear regression, we can use the predict function in R to calculate the appropriate intervals for our predicted values:\n\n\n       fit      lwr      upr\n1 9840.213 9476.983 10203.44\n\n\n\n\n\n\n\n\nNote\n\n\nDifference in predicted value due to rounding the coefficients on the previous slide."
   },
   {
     "objectID": "slides/14-mlr.html#confidence-interval-for-hatmu_y",
     "href": "slides/14-mlr.html#confidence-interval-for-hatmu_y",
     "title": "Multiple linear regression (MLR)",
     "section": "Confidence interval for \\(\\hat{\\mu}_y\\)",
-    "text": "Confidence interval for \\(\\hat{\\mu}_y\\)\n\nCalculate a 90% confidence interval for the estimated mean interest rate for borrowers with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000.\n\n\n\npredict(int_fit, new_borrower, interval = \"confidence\", level = 0.90)\n\n       fit      lwr      upr\n1 9.890888 8.159246 11.62253"
+    "text": "Confidence interval for \\(\\hat{\\mu}_y\\)\n\nCalculate a 90% confidence interval for the estimated mean interest rate for borrowers with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000.\n\n\n\npredict(int_fit, new_borrower, interval = \"confidence\", level = 0.90)\n\n        fit       lwr       upr\n1 -491.3498 -557.3297 -425.3699"
   },
   {
     "objectID": "slides/14-mlr.html#prediction-interval-for-haty",
     "href": "slides/14-mlr.html#prediction-interval-for-haty",
     "title": "Multiple linear regression (MLR)",
     "section": "Prediction interval for \\(\\hat{y}\\)",
-    "text": "Prediction interval for \\(\\hat{y}\\)\n\nCalculate a 90% confidence interval for the predicted interest rate for an individual applicant with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000.\n\n\n\npredict(int_fit, new_borrower, interval = \"prediction\", level = 0.90)\n\n       fit      lwr      upr\n1 9.890888 2.180521 17.60126"
+    "text": "Prediction interval for \\(\\hat{y}\\)\n\nCalculate a 90% confidence interval for the predicted credit limit for an individual borrower an credit rating of ratio of 700, and who has an annual income of $59,000?\n\n\n\npredict(lim_fit, new_borrower, interval = \"prediction\", level = 0.90)\n\n       fit      lwr      upr\n1 9840.213 9535.599 10144.83\n\n\n\nWhen would you use \"confidence\"? Would the interval be wider or narrower?"
   },
   {
     "objectID": "slides/14-mlr.html#cautions",
@@ -13941,7 +13941,7 @@
     "href": "slides/14-mlr.html#interpreting-results",
     "title": "Multiple linear regression (MLR)",
     "section": "Interpreting results",
-    "text": "Interpreting results\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n10.726\n1.507\n7.116\n0.000\n7.690\n13.762\n\n\ndebt_to_income\n0.671\n0.676\n0.993\n0.326\n-0.690\n2.033\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n-0.606\n5.028\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n3.253\n10.508\n\n\nannual_income_k\n-0.021\n0.011\n-1.804\n0.078\n-0.043\n0.002\n\n\n\n\n\n\n\n\nDescribe the subset of borrowers who are expected to get an interest rate of 10.726% based on our model. Is this interpretation meaningful? Why or why not?"
+    "text": "Interpreting results\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-532.471\n24.173\n-22.028\n0.000\n-579.994\n-484.948\n\n\nRating\n14.771\n0.096\n153.124\n0.000\n14.582\n14.961\n\n\nIncome\n0.557\n0.423\n1.316\n0.189\n-0.275\n1.390\n\n\n\n\n\n\n\n\nDescribe the subset of borrowers who are expected to get an interest rate of 10.726% based on our model. Is this interpretation meaningful? Why or why not?"
   },
   {
     "objectID": "slides/14-mlr.html#indicator-variables-1",
@@ -13969,21 +13969,21 @@
     "href": "slides/14-mlr.html#interpreting-verified_income",
     "title": "Multiple linear regression (MLR)",
     "section": "Interpreting verified_income",
-    "text": "Interpreting verified_income\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n10.726\n1.507\n7.116\n0.000\n7.690\n13.762\n\n\ndebt_to_income\n0.671\n0.676\n0.993\n0.326\n-0.690\n2.033\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n-0.606\n5.028\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n3.253\n10.508\n\n\nannual_income_k\n-0.021\n0.011\n-1.804\n0.078\n-0.043\n0.002\n\n\n\n\n\n\n\n\n\n\nThe reference level is Not verified.\nPeople with source verified income are expected to take a loan with an interest rate that is 2.211% higher, on average, than the rate on loans to those whose income is not verified, holding all else constant.\n\n\n\n\n\nInterpret the coefficient of Verified in the context of the data."
+    "text": "Interpreting verified_income\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n10.726\n1.507\n7.116\n0.000\n7.690\n13.762\n\n\ndebt_to_income\n0.671\n0.676\n0.993\n0.326\n-0.690\n2.033\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n-0.606\n5.028\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n3.253\n10.508\n\n\nannual_income\n0.000\n0.000\n-1.804\n0.078\n0.000\n0.000\n\n\n\n\n\n\n\n\n\n\nThe reference level is Not verified.\nPeople with source verified income are expected to take a loan with an interest rate that is 2.211% higher, on average, than the rate on loans to those whose income is not verified, holding all else constant.\n\n\n\n\n\nInterpret the coefficient of Verified in the context of the data."
   },
   {
     "objectID": "slides/14-mlr.html#interaction-terms-1",
     "href": "slides/14-mlr.html#interaction-terms-1",
     "title": "Multiple linear regression (MLR)",
     "section": "Interaction terms",
-    "text": "Interaction terms\n\nSometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.\nThis is an interaction effect.\nTo account for this, we can include interaction terms in the model."
+    "text": "Interaction terms\n\nSometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.\nThis is an interaction effect.\nTo account for this, we can include interaction terms in the model.\nWe want a model of the form:\n\n\\[\n\\begin{aligned}\\hat{\\text{Limit}} ~ =\n\\hat{\\beta}_0 & + \\hat{\\beta}_1 \\text{Rating} + \\hat{\\beta}_2 \\text{Income} +\n\\hat{\\beta}_3\\text{Rating}\\times\\text{Income}\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "slides/14-mlr.html#interest-rate-vs.-annual-income",
     "href": "slides/14-mlr.html#interest-rate-vs.-annual-income",
     "title": "Multiple linear regression (MLR)",
     "section": "Interest rate vs. annual income",
-    "text": "Interest rate vs. annual income\nThe lines are not parallel indicating there is an interaction effect. The slope of annual income differs based on the income verification."
+    "text": "Interest rate vs. annual income\nThe lines are not parallel indicating there is an interaction effect. The slope of annual income differs based on the income verification.\n\nlim_fit_aug &lt;- lim_fit |&gt; \n  augment() |&gt; \n  mutate(interaction = Income*Rating)\n\nlim_fit_aug |&gt; head()\n\n# A tibble: 6 × 10\n  Limit Rating Income .fitted .resid    .hat .sigma   .cooksd .std.resid\n  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1  3606    283   14.9   3656.  -50.1 0.00467   182. 0.000119     -0.275 \n2  6645    483  106.    6661.  -16.1 0.0119    182. 0.0000316    -0.0887\n3  7075    514  105.    7118.  -43.2 0.0102    182. 0.000196     -0.238 \n4  9504    681  149.    9610. -106.  0.0245    182. 0.00289      -0.587 \n5  4897    357   55.9   4772.  125.  0.00307   182. 0.000485      0.687 \n6  8047    569   80.2   7917.  130.  0.00737   182. 0.00127       0.716 \n# ℹ 1 more variable: interaction &lt;dbl&gt;\n\n\n\n# Interaction terms\n\n## Interaction terms\n\n-   Sometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.\n-   This is an **interaction effect**.\n-   To account for this, we can include **interaction terms** in the model.\n\n## Interest rate vs. annual income\n\nThe lines are not parallel indicating there is an **interaction effect**. The slope of annual income differs based on the income verification.\n\n::: {.cell}\n::: {.cell-output-display}\n![](14-mlr_files/figure-revealjs/unnamed-chunk-14-1.png){width=960}\n:::\n:::\n\n## Interaction term in model {.smaller}\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlim_fit &lt;- lm(Limit ~ Rating  + Income  * Income,\n      data = Credit)\n:::"
   },
   {
     "objectID": "slides/14-mlr.html#interaction-terms-3",
@@ -14004,35 +14004,35 @@
     "href": "slides/14-mlr.html#interaction-term-in-model",
     "title": "Multiple linear regression (MLR)",
     "section": "Interaction term in model",
-    "text": "Interaction term in model\n\nint_int_fit &lt;- lm(interest_rate ~ debt_to_income + verified_income + annual_income_k + verified_income * annual_income_k,\n      data = loan50)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n9.560\n2.034\n4.700\n0.000\n\n\ndebt_to_income\n0.691\n0.685\n1.009\n0.319\n\n\nverified_incomeSource Verified\n3.577\n2.539\n1.409\n0.166\n\n\nverified_incomeVerified\n9.923\n3.654\n2.716\n0.009\n\n\nannual_income_k\n-0.007\n0.020\n-0.341\n0.735\n\n\nverified_incomeSource Verified:annual_income_k\n-0.016\n0.026\n-0.643\n0.523\n\n\nverified_incomeVerified:annual_income_k\n-0.032\n0.033\n-0.979\n0.333"
+    "text": "Interaction term in model\n\nint_int_fit &lt;- lm(Limit ~ Rating  + Income  * Income,\n      data = Credit)"
   },
   {
     "objectID": "slides/14-mlr.html#interpreting-interaction-terms",
     "href": "slides/14-mlr.html#interpreting-interaction-terms",
     "title": "Multiple linear regression (MLR)",
     "section": "Interpreting interaction terms",
-    "text": "Interpreting interaction terms\n\nWhat the interaction means: The effect of annual income on the interest rate differs by -0.016 when the income is source verified compared to when it is not verified, holding all else constant.\nInterpreting annual_income for source verified: If the income is source verified, we expect the interest rate to decrease by 0.023% (-0.007 + -0.016) for each additional thousand dollars in annual income, holding all else constant."
+    "text": "Interpreting interaction terms\n\nWhat the interaction means: The effect of annual income on the credit limit depends on the borrowers credit rating"
   },
   {
     "objectID": "slides/14-mlr.html#data-manipulation-3-create-interaction-variables",
     "href": "slides/14-mlr.html#data-manipulation-3-create-interaction-variables",
     "title": "Multiple linear regression (MLR)",
     "section": "Data manipulation 3: Create interaction variables",
-    "text": "Data manipulation 3: Create interaction variables\nDefining the interaction variable in the model formula as verified_income * annual_income_k_cent is an implicit data manipulation step as well (R will do this for you)\n\n\nRows: 50\nColumns: 9\n$ `(Intercept)`                                    &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, …\n$ debt_to_income                                   &lt;dbl&gt; 0.55752542, 1.3056833…\n$ annual_income_k                                  &lt;dbl&gt; 59.0, 60.0, 75.0, 75.…\n$ `verified_incomeNot Verified`                    &lt;dbl&gt; 1, 1, 0, 1, 1, 0, 0, …\n$ `verified_incomeSource Verified`                 &lt;dbl&gt; 0, 0, 0, 0, 0, 1, 1, …\n$ verified_incomeVerified                          &lt;dbl&gt; 0, 0, 1, 0, 0, 0, 0, …\n$ `annual_income_k:verified_incomeNot Verified`    &lt;dbl&gt; 59, 60, 0, 75, 254, 0…\n$ `annual_income_k:verified_incomeSource Verified` &lt;dbl&gt; 0.0, 0.0, 0.0, 0.0, 0…\n$ `annual_income_k:verified_incomeVerified`        &lt;dbl&gt; 0, 0, 75, 0, 0, 0, 0,…"
+    "text": "Data manipulation 3: Create interaction variables\nDefining the interaction variable in the model formula as verified_income * Income_cent is an implicit data manipulation step as well (R will do this for you)\n\n\nRows: 400\nColumns: 3\n$ `(Intercept)` &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ Rating        &lt;dbl&gt; 283, 483, 514, 681, 357, 569, 259, 512, 266, 491, 589, 1…\n$ Income        &lt;dbl&gt; 14.891, 106.025, 104.593, 148.924, 55.882, 80.180, 20.99…"
   },
   {
     "objectID": "slides/14-mlr.html#recap",
     "href": "slides/14-mlr.html#recap",
     "title": "Multiple linear regression (MLR)",
     "section": "Recap",
-    "text": "Recap\n\nIntroduced multiple linear regression\nInterpreted coefficients in the multiple linear regression model\nCalculated predictions and associated intervals for multiple linear regression models\nMean-centered quantitative predictors\nUsed indicator variables for categorical predictors\nUsed interaction terms"
+    "text": "Recap\n\nIntroduced multiple linear regression\nInterpreted coefficients in the multiple linear regression model\nCalculated predictions and associated intervals for multiple linear regression models\nUsed interaction terms\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
   },
   {
     "objectID": "slides/14-mlr.html#looking-backward",
     "href": "slides/14-mlr.html#looking-backward",
     "title": "Multiple linear regression (MLR)",
     "section": "Looking backward",
-    "text": "Looking backward\nData manipulation, with dplyr (from tidyverse):\n\nloan50 |&gt;\n  select(interest_rate, annual_income, debt_to_income, verified_income) |&gt;\n  mutate(\n    # 1. rescale income\n    annual_income_th = annual_income / 1000,\n    # 2. mean-center quantitative predictors\n    debt_inc_cent = debt_to_income - mean(debt_to_income),\n    annual_income_th_cent = annual_income_th - mean(annual_income_th),\n    # 3. create dummy variables for verified_income\n    source_verified = if_else(verified_income == \"Source Verified\", 1, 0),\n    verified = if_else(verified_income == \"Verified\", 1, 0),\n    # 4. create interaction variables\n    `annual_income_th_cent:verified_incomeSource Verified` = annual_income_th_cent * source_verified,\n    `annual_income_th_cent:verified_incomeVerified` = annual_income_th_cent * verified\n  )\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+    "text": "Looking backward\nData manipulation, with dplyr (from tidyverse):"
   },
   {
     "objectID": "prepare/mlr-prep.html",
@@ -14278,5 +14278,516 @@
     "title": "HW 04: Alumni jobs",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and overall readability.↩︎"
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html",
+    "href": "ae/ae-10-mlr.html",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "",
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-10”.\nGo to the Canvas and locate your AE-10 assignment to get started.\nUpload the ae-10.qmd file into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment."
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#packages-data",
+    "href": "ae/ae-10-mlr.html#packages-data",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Packages + data",
+    "text": "Packages + data\n\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(knitr)\nlibrary(ISLR2)\nlibrary(GGally)\nlibrary(yardstick)\n\nThe data for this AE is from the Credit data set in the ISLR2 R package. It is a simulated data set of 400 credit card customers. We will focus on the following variables:\nPredictors\n\nIncome: Annual income (in 1000’s of US dollars)\nRating: Credit Rating\n\nResponse\n\nLimit: Credit limit"
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#analysis-goal",
+    "href": "ae/ae-10-mlr.html#analysis-goal",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Analysis goal",
+    "text": "Analysis goal\nThe goals of this analysis are to fit a linear regression model that has the following predictors:\n\nIncome\nRating\nAn interaction term between the two"
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#exercise-1",
+    "href": "ae/ae-10-mlr.html#exercise-1",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nUse the function ggpairs from the GGally package (already loaded) to create a matrix of plots and correlations for our three variables of interest. Note that you will have to use select to select the four columns you are interested in. Which variable do you think will be the best predictor of Limit?"
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#exercise-2",
+    "href": "ae/ae-10-mlr.html#exercise-2",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nFit a linear model with just Income as the predictor and get the p-value associated with it’s coefficient. Is it statistically significant?"
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#exercise-3",
+    "href": "ae/ae-10-mlr.html#exercise-3",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nFit a linear model with just Rating as the predictor and get the p-value associated with it’s coefficient. Is it statistically significant?"
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#exericse-4",
+    "href": "ae/ae-10-mlr.html#exericse-4",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Exericse 4",
+    "text": "Exericse 4\nFit a model with all three annual_income, debt_to_income, and verified_income as predictors (no interaction term for now). Are the coefficients for verified_income the same as they were when only verified_income was a predictor? Why do you think this is? Be prepared to discuss your answer with the class."
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#exercise-5",
+    "href": "ae/ae-10-mlr.html#exercise-5",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nInterpret all coefficients in the model."
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#exercise-6-optional",
+    "href": "ae/ae-10-mlr.html#exercise-6-optional",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Exercise 6 (Optional)",
+    "text": "Exercise 6 (Optional)\nThe following code will fit a polynomial of order 2 to your data and then output the \\(R^2\\) value. Run this code repeatedly increase the order of the polynomial. Doese your \\(R^2\\) value ever decrease? If not, why do think this is? Does it imply that our model is ALWAYS getting “better”?\n\npoly_model &lt;- lm(interest_rate ~ poly(debt_to_income, degree = 2, raw = TRUE),\n                 data = loan50)\n\npoly_aug &lt;- augment(poly_model)\n\nrsq(poly_aug, truth = interest_rate, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rsq     standard      0.0770"
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#to-submit-the-ae",
+    "href": "ae/ae-10-mlr.html#to-submit-the-ae",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "To submit the AE",
+    "text": "To submit the AE\n\n\n\n\n\n\nImportant\n\n\n\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html",
+    "href": "slides/14-mlr.knit.html",
+    "title": "Multiple linear regression (MLR)",
+    "section": "",
+    "text": "# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(mosaic)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#computational-setup",
+    "href": "slides/14-mlr.knit.html#computational-setup",
+    "title": "Multiple linear regression (MLR)",
+    "section": "",
+    "text": "# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(mosaic)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#data-peer-to-peer-lender",
+    "href": "slides/14-mlr.knit.html#data-peer-to-peer-lender",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Data: Peer-to-peer lender",
+    "text": "Data: Peer-to-peer lender\nToday’s data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the loan50 data frame in the openintro R package.\n\n\n\n\n\nannual_income\ndebt_to_income\nverified_income\ninterest_rate\n\n\n\n\n59000\n0.5575254\nNot Verified\n10.90\n\n\n60000\n1.3056833\nNot Verified\n9.92\n\n\n75000\n1.0562800\nVerified\n26.30\n\n\n75000\n0.5743467\nNot Verified\n9.92\n\n\n254000\n0.2381496\nNot Verified\n9.43\n\n\n67000\n1.0770448\nSource Verified\n9.92\n\n\n28800\n0.0997222\nSource Verified\n17.09\n\n\n80000\n0.3509125\nNot Verified\n6.08\n\n\n34000\n0.6975000\nNot Verified\n7.97\n\n\n80000\n0.1668542\nSource Verified\n12.62"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#variables",
+    "href": "slides/14-mlr.knit.html#variables",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Variables",
+    "text": "Variables\nPredictors:\n\n\nannual_income: Annual income\ndebt_to_income: Debt-to-income ratio, i.e. the percentage of a borrower’s total debt divided by their total income\nverified_income: Whether borrower’s income source and amount have been verified (Not Verified, Source Verified, Verified)\n\n\nOutcome: interest_rate: Interest rate for the loan"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#outcome-interest_rate",
+    "href": "slides/14-mlr.knit.html#outcome-interest_rate",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Outcome: interest_rate",
+    "text": "Outcome: interest_rate\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmin\nQ1\nmedian\nQ3\nmax\nmean\nsd\nn\nmissing\n\n\n\n\n\n5.31\n7.96\n9.93\n13.715\n26.3\n11.5672\n5.052115\n50\n0"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#predictors",
+    "href": "slides/14-mlr.knit.html#predictors",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Predictors",
+    "text": "Predictors"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#data-manipulation-1-rescale-income",
+    "href": "slides/14-mlr.knit.html#data-manipulation-1-rescale-income",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Data manipulation 1: Rescale income",
+    "text": "Data manipulation 1: Rescale income\n\nloan50 &lt;- loan50 |&gt;\n  mutate(annual_income_k = annual_income / 1000)\n\ngf_histogram(~annual_income_k, data = loan50, binwidth = 20) |&gt; \n  gf_labs(title = \"Annual income (in $1000s)\", \n       x = \"\")"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#outcome-vs.-predictors",
+    "href": "slides/14-mlr.knit.html#outcome-vs.-predictors",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Outcome vs. predictors",
+    "text": "Outcome vs. predictors"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#single-vs.-multiple-predictors",
+    "href": "slides/14-mlr.knit.html#single-vs.-multiple-predictors",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Single vs. multiple predictors",
+    "text": "Single vs. multiple predictors\nSo far we’ve used a single predictor variable to understand variation in a quantitative response variable\n. . .\nNow we want to use multiple predictor variables to understand variation in a quantitative response variable"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#multiple-linear-regression-mlr",
+    "href": "slides/14-mlr.knit.html#multiple-linear-regression-mlr",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Multiple linear regression (MLR)",
+    "text": "Multiple linear regression (MLR)\nBased on the analysis goals, we will use a multiple linear regression model of the following form\n\\[\n\\begin{aligned}\\hat{\\text{interest_rate}} ~ =\n\\hat{\\beta}_0 & + \\hat{\\beta}_1 \\text{debt_to_income} \\\\ & + \\hat{\\beta}_2 \\text{verified_income} \\\\ &+ \\hat{\\beta}_3 \\text{annual_income_k}\n\\end{aligned}\n\\]\nSimilar to simple linear regression, this model assumes that at each combination of the predictor variables, the values interest_rate follow a Normal distribution."
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#multiple-linear-regression-1",
+    "href": "slides/14-mlr.knit.html#multiple-linear-regression-1",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\nRecall: The simple linear regression model assumes\n\\[\nY|X\\sim N(\\beta_0 + \\beta_1 X, \\sigma_{\\epsilon}^2)\n\\]\n. . .\nSimilarly: The multiple linear regression model assumes\n\\[\nY|X_1, X_2, \\ldots, X_p \\sim N(\\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\dots + \\beta_p X_p, \\sigma_{\\epsilon}^2)\n\\]"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#multiple-linear-regression-2",
+    "href": "slides/14-mlr.knit.html#multiple-linear-regression-2",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\nAt any combination of the predictors, the mean value of the response \\(Y\\), is\n\\[\n\\mu_{Y|X_1, \\ldots, X_p} = \\beta_0 + \\beta_1 X_{1} + \\beta_2 X_2 + \\dots + \\beta_p X_p\n\\]\n. . .\nUsing multiple linear regression, we can estimate the mean response for any combination of predictors\n\\[\n\\hat{Y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_{1} + \\hat{\\beta}_2 X_2 + \\dots + \\hat{\\beta}_p X_{p}\n\\]"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#model-equation",
+    "href": "slides/14-mlr.knit.html#model-equation",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Model equation",
+    "text": "Model equation\n\\[\n\\begin{align}\\hat{\\text{interest_rate}} =  10.726 &+0.671 \\times \\text{debt_to_income}\\\\\n&+ 2.211 \\times \\text{source_verified}\\\\  \n&+ 6.880 \\times \\text{verified}\\\\\n& -0.021 \\times \\text{annual_income_k}\n\\end{align}\n\\]\n\n\n\n\n\n\nNote\n\n\n\nWe will talk about why there are two terms in the model for verified_income shortly!"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#interpreting-hatbeta_j",
+    "href": "slides/14-mlr.knit.html#interpreting-hatbeta_j",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Interpreting \\(\\hat{\\beta}_j\\)",
+    "text": "Interpreting \\(\\hat{\\beta}_j\\)\n\nThe estimated coefficient \\(\\hat{\\beta}_j\\) is the expected change in the mean of \\(y\\) when \\(x_j\\) increases by one unit, holding the values of all other predictor variables constant.\n\n. . .\n\nExample: The estimated coefficient for debt_to_income is 0.671. This means for each point in an borrower’s debt to income ratio, the interest rate on the loan is expected to be greater by 0.671%, holding annual income and income verification constant."
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#prediction",
+    "href": "slides/14-mlr.knit.html#prediction",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Prediction",
+    "text": "Prediction\n\nWhat is the predicted interest rate for an borrower with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000?\n\n\n\n10.726 + 0.671 * 0.558 + 2.211 * 0 + 6.880 * 0 - 0.021 * 59\n\n[1] 9.861418\n\n\n. . .\nThe predicted interest rate for an borrower with with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000 is 9.86%."
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#prediction-revisited",
+    "href": "slides/14-mlr.knit.html#prediction-revisited",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Prediction, revisited",
+    "text": "Prediction, revisited\nJust like with simple linear regression, we can use the predict() function in R to calculate the appropriate intervals for our predicted values:\n\nnew_borrower &lt;- tibble(\n  debt_to_income  = 0.558, \n  verified_income = \"Not Verified\", \n  annual_income_k = 59\n)\n\npredict(int_fit, new_borrower)\n\n       1 \n9.890888 \n\n\n\n\n\n\n\n\nNote\n\n\n\nDifference in predicted value due to rounding the coefficients on the previous slide."
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#confidence-interval-for-hatmu_y",
+    "href": "slides/14-mlr.knit.html#confidence-interval-for-hatmu_y",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Confidence interval for \\(\\hat{\\mu}_y\\)",
+    "text": "Confidence interval for \\(\\hat{\\mu}_y\\)\n\nCalculate a 90% confidence interval for the estimated mean interest rate for borrowers with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000.\n\n\n\npredict(int_fit, new_borrower, interval = \"confidence\", level = 0.90)\n\n       fit      lwr      upr\n1 9.890888 8.159246 11.62253"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#prediction-interval-for-haty",
+    "href": "slides/14-mlr.knit.html#prediction-interval-for-haty",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Prediction interval for \\(\\hat{y}\\)",
+    "text": "Prediction interval for \\(\\hat{y}\\)\n\nCalculate a 90% confidence interval for the predicted interest rate for an individual applicant with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000.\n\n\n\npredict(int_fit, new_borrower, interval = \"prediction\", level = 0.90)\n\n       fit      lwr      upr\n1 9.890888 2.180521 17.60126"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#cautions",
+    "href": "slides/14-mlr.knit.html#cautions",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Cautions",
+    "text": "Cautions\n\nDo not extrapolate! Because there are multiple predictor variables, there is the potential to extrapolate in many directions\nThe multiple regression model only shows association, not causality\n\nTo show causality, you must have a carefully designed experiment or carefully account for confounding variables in an observational study"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#interpreting-results",
+    "href": "slides/14-mlr.knit.html#interpreting-results",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Interpreting results",
+    "text": "Interpreting results\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n10.726\n1.507\n7.116\n0.000\n7.690\n13.762\n\n\ndebt_to_income\n0.671\n0.676\n0.993\n0.326\n-0.690\n2.033\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n-0.606\n5.028\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n3.253\n10.508\n\n\nannual_income_k\n-0.021\n0.011\n-1.804\n0.078\n-0.043\n0.002\n\n\n\n\n\n. . .\n\n\nDescribe the subset of borrowers who are expected to get an interest rate of 10.726% based on our model. Is this interpretation meaningful? Why or why not?"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#indicator-variables-1",
+    "href": "slides/14-mlr.knit.html#indicator-variables-1",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Indicator variables",
+    "text": "Indicator variables\n\nSuppose there is a categorical variable with \\(K\\) categories (levels)\nWe can make \\(K\\) indicator variables - one indicator for each category\nAn indicator variable takes values 1 or 0\n\n1 if the observation belongs to that category\n0 if the observation does not belong to that category"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#data-manipulation-2-create-indicator-variables-for-verified_income",
+    "href": "slides/14-mlr.knit.html#data-manipulation-2-create-indicator-variables-for-verified_income",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Data manipulation 2: Create indicator variables for verified_income",
+    "text": "Data manipulation 2: Create indicator variables for verified_income\n\nloan50 &lt;- loan50 |&gt;\n  mutate(\n    not_verified = if_else(verified_income == \"Not Verified\", 1, 0),\n    source_verified = if_else(verified_income == \"Source Verified\", 1, 0),\n    verified = if_else(verified_income == \"Verified\", 1, 0)\n  )\n\n. . .\n\n\n\n\n\nverified_income\nnot_verified\nsource_verified\nverified\n\n\n\n\nNot Verified\n1\n0\n0\n\n\nVerified\n0\n0\n1\n\n\nSource Verified\n0\n1\n0"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#indicators-in-the-model",
+    "href": "slides/14-mlr.knit.html#indicators-in-the-model",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Indicators in the model",
+    "text": "Indicators in the model\n\nWe will use \\(K-1\\) of the indicator variables in the model.\nThe reference level is the category that doesn’t have a term in the model.\nThe coefficients of the indicator variables in the model are interpreted as the expected change in the response compared to the baseline, holding all other variables constant.\nThis approach is also called dummy coding.\nlm will do this for you.\n\n. . .\n\nloan50 |&gt;\n  select(verified_income, source_verified, verified) |&gt;\n  slice(1, 3, 6) |&gt; \n  kable()\n\n\n\n\nverified_income\nsource_verified\nverified\n\n\n\n\nNot Verified\n0\n0\n\n\nVerified\n0\n1\n\n\nSource Verified\n1\n0"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#interpreting-verified_income",
+    "href": "slides/14-mlr.knit.html#interpreting-verified_income",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Interpreting verified_income",
+    "text": "Interpreting verified_income\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n10.726\n1.507\n7.116\n0.000\n7.690\n13.762\n\n\ndebt_to_income\n0.671\n0.676\n0.993\n0.326\n-0.690\n2.033\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n-0.606\n5.028\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n3.253\n10.508\n\n\nannual_income_k\n-0.021\n0.011\n-1.804\n0.078\n-0.043\n0.002\n\n\n\n\n\n\n\n. . .\n\n\nThe reference level is Not verified.\nPeople with source verified income are expected to take a loan with an interest rate that is 2.211% higher, on average, than the rate on loans to those whose income is not verified, holding all else constant.\n\n\n. . .\n\nInterpret the coefficient of Verified in the context of the data."
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#interaction-terms-1",
+    "href": "slides/14-mlr.knit.html#interaction-terms-1",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Interaction terms",
+    "text": "Interaction terms\n\nSometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.\nThis is an interaction effect.\nTo account for this, we can include interaction terms in the model."
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#interest-rate-vs.-annual-income",
+    "href": "slides/14-mlr.knit.html#interest-rate-vs.-annual-income",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Interest rate vs. annual income",
+    "text": "Interest rate vs. annual income\nThe lines are not parallel indicating there is an interaction effect. The slope of annual income differs based on the income verification."
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#interaction-terms-3",
+    "href": "slides/14-mlr.knit.html#interaction-terms-3",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Interaction terms",
+    "text": "Interaction terms\n\nSometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.\nThis is an interaction effect.\nTo account for this, we can include interaction terms in the model."
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#interest-rate-vs.-annual-income-1",
+    "href": "slides/14-mlr.knit.html#interest-rate-vs.-annual-income-1",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Interest rate vs. annual income",
+    "text": "Interest rate vs. annual income\nThe lines are not parallel indicating there is an interaction effect. The slope of annual income differs based on the income verification."
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#interaction-term-in-model",
+    "href": "slides/14-mlr.knit.html#interaction-term-in-model",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Interaction term in model",
+    "text": "Interaction term in model\n\nint_int_fit &lt;- lm(interest_rate ~ debt_to_income + verified_income + annual_income_k + verified_income * annual_income_k,\n      data = loan50)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n9.560\n2.034\n4.700\n0.000\n\n\ndebt_to_income\n0.691\n0.685\n1.009\n0.319\n\n\nverified_incomeSource Verified\n3.577\n2.539\n1.409\n0.166\n\n\nverified_incomeVerified\n9.923\n3.654\n2.716\n0.009\n\n\nannual_income_k\n-0.007\n0.020\n-0.341\n0.735\n\n\nverified_incomeSource Verified:annual_income_k\n-0.016\n0.026\n-0.643\n0.523\n\n\nverified_incomeVerified:annual_income_k\n-0.032\n0.033\n-0.979\n0.333"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#interpreting-interaction-terms",
+    "href": "slides/14-mlr.knit.html#interpreting-interaction-terms",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Interpreting interaction terms",
+    "text": "Interpreting interaction terms\n\nWhat the interaction means: The effect of annual income on the interest rate differs by -0.016 when the income is source verified compared to when it is not verified, holding all else constant.\nInterpreting annual_income for source verified: If the income is source verified, we expect the interest rate to decrease by 0.023% (-0.007 + -0.016) for each additional thousand dollars in annual income, holding all else constant."
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#data-manipulation-3-create-interaction-variables",
+    "href": "slides/14-mlr.knit.html#data-manipulation-3-create-interaction-variables",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Data manipulation 3: Create interaction variables",
+    "text": "Data manipulation 3: Create interaction variables\nDefining the interaction variable in the model formula as verified_income * annual_income_k_cent is an implicit data manipulation step as well (R will do this for you)\n\n\nRows: 50\nColumns: 9\n$ `(Intercept)`                                    &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, …\n$ debt_to_income                                   &lt;dbl&gt; 0.55752542, 1.3056833…\n$ annual_income_k                                  &lt;dbl&gt; 59.0, 60.0, 75.0, 75.…\n$ `verified_incomeNot Verified`                    &lt;dbl&gt; 1, 1, 0, 1, 1, 0, 0, …\n$ `verified_incomeSource Verified`                 &lt;dbl&gt; 0, 0, 0, 0, 0, 1, 1, …\n$ verified_incomeVerified                          &lt;dbl&gt; 0, 0, 1, 0, 0, 0, 0, …\n$ `annual_income_k:verified_incomeNot Verified`    &lt;dbl&gt; 59, 60, 0, 75, 254, 0…\n$ `annual_income_k:verified_incomeSource Verified` &lt;dbl&gt; 0.0, 0.0, 0.0, 0.0, 0…\n$ `annual_income_k:verified_incomeVerified`        &lt;dbl&gt; 0, 0, 75, 0, 0, 0, 0,…"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#recap",
+    "href": "slides/14-mlr.knit.html#recap",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Recap",
+    "text": "Recap\n\nIntroduced multiple linear regression\nInterpreted coefficients in the multiple linear regression model\nCalculated predictions and associated intervals for multiple linear regression models\nMean-centered quantitative predictors\nUsed indicator variables for categorical predictors\nUsed interaction terms"
+  },
+  {
+    "objectID": "slides/14-mlr.knit.html#looking-backward",
+    "href": "slides/14-mlr.knit.html#looking-backward",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Looking backward",
+    "text": "Looking backward\nData manipulation, with dplyr (from tidyverse):\n\nloan50 |&gt;\n  select(interest_rate, annual_income, debt_to_income, verified_income) |&gt;\n  mutate(\n    # 1. rescale income\n    annual_income_th = annual_income / 1000,\n    # 2. mean-center quantitative predictors\n    debt_inc_cent = debt_to_income - mean(debt_to_income),\n    annual_income_th_cent = annual_income_th - mean(annual_income_th),\n    # 3. create dummy variables for verified_income\n    source_verified = if_else(verified_income == \"Source Verified\", 1, 0),\n    verified = if_else(verified_income == \"Verified\", 1, 0),\n    # 4. create interaction variables\n    `annual_income_th_cent:verified_incomeSource Verified` = annual_income_th_cent * source_verified,\n    `annual_income_th_cent:verified_incomeVerified` = annual_income_th_cent * verified\n  )"
+  },
+  {
+    "objectID": "ae/ae-09-feature-engineering-old.html",
+    "href": "ae/ae-09-feature-engineering-old.html",
+    "title": "AE 09: Feature engineering with recipes",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-09 repo to get started.\nRender, commit, and push your responses to GitHub by the end of class. The responses are due in your GitHub repo no later than Thursday, October 12 at 11:59pm."
+  },
+  {
+    "objectID": "ae/ae-09-feature-engineering-old.html#packages-data",
+    "href": "ae/ae-09-feature-engineering-old.html#packages-data",
+    "title": "AE 09: Feature engineering with recipes",
+    "section": "Packages + data",
+    "text": "Packages + data\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)\nlibrary(openintro)\n\nThe data for this AE is from the loan50 data set in the openintro R package. We will focus on the following variables:\nPredictors\n\nannual_income: Annual income (in US dollars)\ndebt_to_income: Debt-to-income ratio, i.e. the percentage of a borrower’s total debt divided by their total income\nverified_income: Whether borrower’s income source and amount have been verified (Not Verified, Source Verified, Verified)\n\nResponse\n\ninterest_rate: Interest rate for the loan (0- 100)"
+  },
+  {
+    "objectID": "ae/ae-09-feature-engineering-old.html#analysis-goal",
+    "href": "ae/ae-09-feature-engineering-old.html#analysis-goal",
+    "title": "AE 09: Feature engineering with recipes",
+    "section": "Analysis goal",
+    "text": "Analysis goal\nThe goals of this analysis are to build a recipe to fit a linear regression model on the training data that has the following features:\n\nannual_income rescaled to thousands of dollars\nMean-centered quantitative variables\nIndicator (dummy) variables for the categorical predictor\nInteraction term between rescaled annual_income and verified_income\n\nand (2) use prep() and bake() to check the recipe"
+  },
+  {
+    "objectID": "ae/ae-09-feature-engineering-old.html#testtrain-split",
+    "href": "ae/ae-09-feature-engineering-old.html#testtrain-split",
+    "title": "AE 09: Feature engineering with recipes",
+    "section": "Test/train split",
+    "text": "Test/train split\nFill in the code to split the data into 90% training, 10% testing.\n\n\n\n\n\n\nImportant\n\n\n\nRemove #| eval: false from the code chunk.\n\n\n\nset.seed(123)\n\nloans_split &lt;- initial_split(loan50, prop = _____)\nloan_train &lt;- training(_____)\nloan_test  &lt;- _____(loan_split)"
+  },
+  {
+    "objectID": "ae/ae-09-feature-engineering-old.html#build-a-recipe",
+    "href": "ae/ae-09-feature-engineering-old.html#build-a-recipe",
+    "title": "AE 09: Feature engineering with recipes",
+    "section": "Build a recipe",
+    "text": "Build a recipe\n\nUse step_mutate() to create a new variable annual_income_th that is annual_income rescaled to thousands of dollars\nUse step_center() to mean-center quantitative variables\nUse step_dummy() to create indicator variables for the categorical predictor\nUse step_interact() to create interaction between annual_income_th and verified_income\n\n\n\n\n\n\n\nImportant\n\n\n\nRemove #| eval: false from the code chunk.\n\n\n\n# use original variables when specifying recipe\nloan_rec &lt;-  recipe(interest_rate ~ annaul_income + debt_to_income + verified_income, \n                    data = loan_train) |&gt;\n  # add recipe steps\n\n\nloan_rec"
+  },
+  {
+    "objectID": "ae/ae-09-feature-engineering-old.html#check-recipe-using-prep-and-bake",
+    "href": "ae/ae-09-feature-engineering-old.html#check-recipe-using-prep-and-bake",
+    "title": "AE 09: Feature engineering with recipes",
+    "section": "Check recipe using prep() and bake()",
+    "text": "Check recipe using prep() and bake()\nRemove #| eval: false from the code chunk\n\n# determine required parameters to be estimated\nloan_rec_trained &lt;- prep(loan_rec)\n\n# apply recipe computations to data\nbake(loan_rec_trained, loan_train) |&gt;\n  glimpse()"
+  },
+  {
+    "objectID": "ae/ae-09-feature-engineering-old.html#to-submit-the-ae",
+    "href": "ae/ae-09-feature-engineering-old.html#to-submit-the-ae",
+    "title": "AE 09: Feature engineering with recipes",
+    "section": "To submit the AE",
+    "text": "To submit the AE\n\n\n\n\n\n\nImportant\n\n\n\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-09 repo on GitHub. (You do not submit AEs on Gradescope)."
+  },
+  {
+    "objectID": "slides/14-mlr.html#data-manipulation-rescale-income",
+    "href": "slides/14-mlr.html#data-manipulation-rescale-income",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Data manipulation: Rescale income",
+    "text": "Data manipulation: Rescale income\n\nloan50 &lt;- loan50 |&gt;\n  mutate(annual_income_k = annual_income / 1000)\n\ngf_histogram(~annual_income_k, data = loan50, binwidth = 20) |&gt; \n  gf_labs(title = \"Annual income (in $1000s)\", \n       x = \"\")"
+  },
+  {
+    "objectID": "slides/14-mlr.html#trying-something-new",
+    "href": "slides/14-mlr.html#trying-something-new",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Trying something new",
+    "text": "Trying something new\n\nOpen but do not start AE-10\nNotify Dr. F when you’re ready to proceed\nThe goal is to integrate the activity into the lecture (keep track of how you like this approach and give Dr. F feedback at the end of class)\nWhile you’re waiting feel free to start on Exercise 0\n\n\n📋 AE 10 - Credit Cards"
+  },
+  {
+    "objectID": "slides/14-mlr.html#data-credit-cards",
+    "href": "slides/14-mlr.html#data-credit-cards",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Data: Credit Cards",
+    "text": "Data: Credit Cards\nThe data is from the Credit data set in the ISLR2 R package. It is a simulated data set of 400 credit card customers.\n\n\nRows: 400\nColumns: 11\n$ Income    &lt;dbl&gt; 14.891, 106.025, 104.593, 148.924, 55.882, 80.180, 20.996, 7…\n$ Limit     &lt;dbl&gt; 3606, 6645, 7075, 9504, 4897, 8047, 3388, 7114, 3300, 6819, …\n$ Rating    &lt;dbl&gt; 283, 483, 514, 681, 357, 569, 259, 512, 266, 491, 589, 138, …\n$ Cards     &lt;dbl&gt; 2, 3, 4, 3, 2, 4, 2, 2, 5, 3, 4, 3, 1, 1, 2, 3, 3, 3, 1, 2, …\n$ Age       &lt;dbl&gt; 34, 82, 71, 36, 68, 77, 37, 87, 66, 41, 30, 64, 57, 49, 75, …\n$ Education &lt;dbl&gt; 11, 15, 11, 11, 16, 10, 12, 9, 13, 19, 14, 16, 7, 9, 13, 15,…\n$ Own       &lt;fct&gt; No, Yes, No, Yes, No, No, Yes, No, Yes, Yes, No, No, Yes, No…\n$ Student   &lt;fct&gt; No, Yes, No, No, No, No, No, No, No, Yes, No, No, No, No, No…\n$ Married   &lt;fct&gt; Yes, Yes, No, No, Yes, No, No, No, No, Yes, Yes, No, Yes, Ye…\n$ Region    &lt;fct&gt; South, West, West, West, South, South, East, West, South, Ea…\n$ Balance   &lt;dbl&gt; 333, 903, 580, 964, 331, 1151, 203, 872, 279, 1350, 1407, 0,…"
+  },
+  {
+    "objectID": "slides/14-mlr.html#outcome-limit",
+    "href": "slides/14-mlr.html#outcome-limit",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Outcome: Limit",
+    "text": "Outcome: Limit\n\n\nCode\nCredit |&gt; \n  gf_density(~Limit, fill = \"steelblue\") |&gt; \n  gf_labs(title = \"Distribution of credit limit\",\n          x = \"Credit Limit\")|&gt; \n  gf_refine(scale_x_continuous(labels = dollar_format()))\n\n\n\n\n\n\n\n\n\nmin\nQ1\nmedian\nQ3\nmax\nmean\nsd\nn\nmissing\n\n\n\n\n\n855\n3088\n4622.5\n5872.75\n13913\n4735.6\n2308.199\n400\n0"
+  },
+  {
+    "objectID": "slides/14-mlr.html#model-fit-1",
+    "href": "slides/14-mlr.html#model-fit-1",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Model fit",
+    "text": "Model fit\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-532.471\n24.173\n-22.028\n0.000\n\n\nRating\n14.771\n0.096\n153.124\n0.000\n\n\nIncome\n0.557\n0.423\n1.316\n0.189"
+  },
+  {
+    "objectID": "slides/14-mlr.html#visualizing-model",
+    "href": "slides/14-mlr.html#visualizing-model",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Visualizing Model",
+    "text": "Visualizing Model"
+  },
+  {
+    "objectID": "slides/14-mlr.html#model-equation-1",
+    "href": "slides/14-mlr.html#model-equation-1",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Model equation",
+    "text": "Model equation\n\\[\n\\begin{align}\\hat{\\text{Limit}} =  \\beta &+14.771 \\times \\text{Rating}\\\\\n& -0.557 \\times \\text{Income}\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "slides/14-mlr.html#visualizing-interaction-model-exagerated",
+    "href": "slides/14-mlr.html#visualizing-interaction-model-exagerated",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Visualizing Interaction Model Exagerated",
+    "text": "Visualizing Interaction Model Exagerated"
+  },
+  {
+    "objectID": "slides/14-mlr.html#visualizing-interaction-model",
+    "href": "slides/14-mlr.html#visualizing-interaction-model",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Visualizing Interaction Model",
+    "text": "Visualizing Interaction Model"
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#exercise-0",
+    "href": "ae/ae-10-mlr.html#exercise-0",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Exercise 0",
+    "text": "Exercise 0\nWhat is a credit rating and what is a credit limit as it applies to a credit card? The primary credit rating in the US is called a FICO score. Based on the data, do you think that Rating corresponds to the borrower’s FICO score?"
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#exercise-1b-option",
+    "href": "ae/ae-10-mlr.html#exercise-1b-option",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Exercise 1B (Option)",
+    "text": "Exercise 1B (Option)\nIf you have extra time, examine the variable individually and Comment on anything that you think is relevant."
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#exercise-4",
+    "href": "ae/ae-10-mlr.html#exercise-4",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nFit a model with both Income and Rating as predictors. Find a spot on the white board to write down an equation representing the fitted model. How do the coefficients and p-values of Income and Rating compare to those in the two models above? Discuss what you see and the possible reasons you see them."
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#exercise-6",
+    "href": "ae/ae-10-mlr.html#exercise-6",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nWhat is the predicted credit limit for an single borrower with a credit rating of 700 and an annual income of $59,000? Include a 90% confidence interval. Hint: make a new tibble and use the predict function. How would you interpret this interval in context?"
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#exercise-7",
+    "href": "ae/ae-10-mlr.html#exercise-7",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nAdd an interaction term between Rating and Income. Interpret all coefficients in context. What do you notice about the p-values now?"
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#exercise-8",
+    "href": "ae/ae-10-mlr.html#exercise-8",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nWhat is the predicted credit limit for an single borrower with a credit rating of 700 and an annual income of $59,000? Include a 90% confidence interval. How does it compare to your answer to Exercise 6."
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#exercise-9-optional",
+    "href": "ae/ae-10-mlr.html#exercise-9-optional",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Exercise 9 (Optional)",
+    "text": "Exercise 9 (Optional)\nNote that this data set only considers borrowers who have actually been granted loans. How does this impact the generalizability of our analysis?"
+  },
+  {
+    "objectID": "slides/14-mlr.html#visualizing-interaction-model-exaggerated",
+    "href": "slides/14-mlr.html#visualizing-interaction-model-exaggerated",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Visualizing Interaction Model Exaggerated",
+    "text": "Visualizing Interaction Model Exaggerated"
+  },
+  {
+    "objectID": "slides/14-mlr.html#application-exercise",
+    "href": "slides/14-mlr.html#application-exercise",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Application Exercise",
+    "text": "Application Exercise\n\nComplete Activity"
+  },
+  {
+    "objectID": "slides/14-mlr.html#model-fit-2",
+    "href": "slides/14-mlr.html#model-fit-2",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Model Fit",
+    "text": "Model Fit\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-579.85561\n37.48489\n-15.46905\n0.00000\n\n\nIncome\n1.81240\n0.86962\n2.08414\n0.03779\n\n\nRating\n14.87125\n0.11375\n130.73507\n0.00000\n\n\nIncome:Rating\n-0.00221\n0.00134\n-1.65140\n0.09945\n\n\n\n\n\n\\[\n\\begin{aligned}\\hat{\\text{Limit}} ~ =\n&  -579.85561 + 14.87125~\\text{Rating} + 1.81240~\\text{Income}\\\\\n& \\qquad- 0.00221~\\text{Rating}\\times\\text{Income}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/14-mlr.html#whats-actually-happening",
+    "href": "slides/14-mlr.html#whats-actually-happening",
+    "title": "Multiple linear regression (MLR)",
+    "section": "What’s actually happening:",
+    "text": "What’s actually happening:\n\nCredit_int &lt;- Credit |&gt; \n  mutate(Interaction = Income * Rating) \n\nCredit_int |&gt; \n  select(Limit, Income, Rating, Interaction) |&gt; \n  head() |&gt; \n  kable()\n\n\n\n\nLimit\nIncome\nRating\nInteraction\n\n\n\n\n3606\n14.891\n283\n4214.153\n\n\n6645\n106.025\n483\n51210.075\n\n\n7075\n104.593\n514\n53760.802\n\n\n9504\n148.924\n681\n101417.244\n\n\n4897\n55.882\n357\n19949.874\n\n\n8047\n80.180\n569\n45622.420"
+  },
+  {
+    "objectID": "slides/14-mlr.html#whats-actually-happening-1",
+    "href": "slides/14-mlr.html#whats-actually-happening-1",
+    "title": "Multiple linear regression (MLR)",
+    "section": "What’s actually happening:",
+    "text": "What’s actually happening:\n\nlm(Limit ~ Income + Rating + Interaction, data = Credit_int) |&gt; \n  tidy() |&gt; \n  kable(digits = 5)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-579.85561\n37.48489\n-15.46905\n0.00000\n\n\nIncome\n1.81240\n0.86962\n2.08414\n0.03779\n\n\nRating\n14.87125\n0.11375\n130.73507\n0.00000\n\n\nInteraction\n-0.00221\n0.00134\n-1.65140\n0.09945"
+  },
+  {
+    "objectID": "slides/14-mlr.html#interpreting-the-interaction-term",
+    "href": "slides/14-mlr.html#interpreting-the-interaction-term",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Interpreting the interaction term",
+    "text": "Interpreting the interaction term\n\nFor a fixed Rating the slope of Income is \\((1.81240 - 0.0021\\times\\text{Rating})\\)\nFor a fixed Income the slope of Rating is \\((14.87125 - 0.0021\\times\\text{Income})\\)"
+  },
+  {
+    "objectID": "ae/ae-10-mlr.html#exercise-1b-optional",
+    "href": "ae/ae-10-mlr.html#exercise-1b-optional",
+    "title": "AE 10: Multiple Linear Regression",
+    "section": "Exercise 1B (Optional)",
+    "text": "Exercise 1B (Optional)\nIf you have extra time, examine the variables individually and comment on anything that you think is relevant."
   }
 ]

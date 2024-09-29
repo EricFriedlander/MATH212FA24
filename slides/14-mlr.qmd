@@ -1,7 +1,7 @@
 ---
 title: "Multiple linear regression (MLR)"
 author: "Prof. Eric Friedlander"
-date: "2024-09-27"
+date: "2024-09-30"
 date-format: "MMM DD, YYYY"
 footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
@@ -19,13 +19,24 @@ html-math-method:
 execute:
   freeze: auto
   echo: true
-  cache: true
+  cache: false
 knitr:
   opts_chunk: 
     R.options:      
     width: 200
 bibliography: references.bib
 ---
+
+## Trying something new {.smaller}
+
+-   Open but do not start AE-10 
+-   Notify Dr. F when you're ready to proceed
+-   The goal is to integrate the activity into the lecture (keep track of how you like this approach and give Dr. F feedback at the end of class)
+-   While you're waiting feel free to start on Exercise 0
+
+::: appex
+📋 [AE 10 - Credit Cards](https://mat212fa24.netlify.app/ae/ae-10-mlr)
+:::
 
 ## Computational setup
 
@@ -37,10 +48,11 @@ bibliography: references.bib
 library(tidyverse)
 library(broom)
 library(mosaic)
-library(openintro)
+library(ISLR2)
 library(patchwork)
 library(knitr)
 library(kableExtra)
+library(scales)
 
 # set default theme and larger font size for ggplot2
 ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
@@ -48,44 +60,44 @@ ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
 
 # Considering multiple variables
 
-## Data: Peer-to-peer lender
+## Data: Credit Cards
 
-Today's data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the `loan50` data frame in the **openintro** R package.
+The data is from the `Credit` data set in the **ISLR2** R package. It is a simulated data set of 400 credit card customers.
 
 ```{r}
 #| echo: false
-loan50 |>
-  select(annual_income, debt_to_income, verified_income, interest_rate) |> 
-  head(10) |> 
-  kable("html") |> 
-  kable_styling(font_size = 18)
+Credit |>  glimpse()
 ```
 
 ## Variables
 
-**Predictors**:
+**Features (another name for predictors)**
 
-::: nonincremental
--   `annual_income`: Annual income
--   `debt_to_income`: Debt-to-income ratio, i.e. the percentage of a borrower's total debt divided by their total income
--   `verified_income`: Whether borrower's income source and amount have been verified (`Not Verified`, `Source Verified`, `Verified`)
+-   `Income`: Annual income (in 1000's of US dollars)
+-   `Rating`: Credit Rating
+
+**Outcome**
+
+-   `Limit`: Credit limit
+
+::: appex
+Complete Exercises 0-1. Please don't look ahead in the slides.
 :::
 
-**Outcome**: `interest_rate`: Interest rate for the loan
-
-## Outcome: `interest_rate`
+## Outcome: `Limit`
 
 ```{r}
-#| echo: false
 #| code-fold: true
-loan50 |> 
-  gf_density(~interest_rate, fill = "steelblue") |> 
-  gf_labs(title = "Distribution of interest rate")
+Credit |> 
+  gf_density(~Limit, fill = "steelblue") |> 
+  gf_labs(title = "Distribution of credit limit",
+          x = "Credit Limit")|> 
+  gf_refine(scale_x_continuous(labels = dollar_format()))
 ```
 
 ```{r}
 #| echo: false
-favstats(~interest_rate, data = loan50)|>
+favstats(~Limit, data = Credit)|>
   kable("html") |> 
   kable_styling(font_size = 24)
 ```
@@ -93,66 +105,51 @@ favstats(~interest_rate, data = loan50)|>
 ## Predictors {.small}
 
 ```{r}
-#| echo: false
+#| code-fold: true
 #| out.width: "100%"
-p1 <- ggplot(loan50, aes(y = verified_income)) +
-  geom_bar() +
-  labs(title = "Verified Income", 
-       y = "")
+p1 <- Credit |> 
+  gf_density(~Limit, fill = "steelblue") |> 
+  gf_labs(title = "Distribution of credit limit",
+          x = "Credit Limit")|> 
+    gf_refine(scale_x_continuous(labels = dollar_format()))
 
-p2 <- ggplot(loan50, aes(x = debt_to_income)) +
-  geom_histogram(binwidth = 0.25) +
-  labs(title = "",
-       x = "Debt to income ratio")
+p2 <- Credit |> 
+  gf_histogram(~Rating, binwidth = 50) |> 
+  gf_labs(title = "",
+       x = "Credit Rating")
 
-p3 <- ggplot(loan50, aes(x = annual_income)) +
-  geom_histogram(binwidth = 20000) +
-  labs(title = "",
-       x = "Annual income")
+p3 <- Credit |> 
+  gf_histogram(~Income, binwidth = 10) |> 
+  gf_labs(title = "",
+       x = "Annual income (in $1,000s)") |> 
+  gf_refine(scale_x_continuous(labels = dollar_format()))
 
-p1 + p2 / p3
-```
-
-## Data manipulation 1: Rescale income
-
-```{r}
-#| echo: true
-
-loan50 <- loan50 |>
-  mutate(annual_income_k = annual_income / 1000)
-
-gf_histogram(~annual_income_k, data = loan50, binwidth = 20) |> 
-  gf_labs(title = "Annual income (in $1000s)", 
-       x = "")
+p1 / (p2 + p3)
 ```
 
 ## Outcome vs. predictors {.small}
 
 ```{r}
-#| echo: false
-p4 <- ggplot(loan50, aes(x = verified_income, y = interest_rate)) +
-  geom_boxplot(fill = "steelblue") +
-  labs(
-    y = "Interest Rate",
-    x = "Income verification"
-  )
-
-p5 <- ggplot(loan50, aes(x = debt_to_income, y = interest_rate)) +
-  geom_point(color = "steelblue") +
-  labs(
-    y = NULL,
-    x = "Debt to income ratio"
-  )
+#| code-fold: true
+p4 <- Credit |> 
+  gf_point(Limit ~ Rating, color = "steelblue") |> 
+  gf_labs(
+    y = "Credit Limit",
+    x = "Credit Rating"
+  ) |> 
+  gf_refine(scale_y_continuous(labels = dollar_format()))
 
 
-p6 <- ggplot(loan50, aes(x = annual_income_k, y = interest_rate)) +
-  geom_point(color = "steelblue") +
-  labs(
-    y = NULL,
-    x = "Annual income (in $1000s)"
-  )
+p5 <- Credit |> 
+  gf_point(Limit ~ Income, color = "steelblue") |> 
+  gf_labs(
+    y = "Credit Limit",
+    x = "Annual income (in $1,000s)"
+  ) |> 
+  gf_refine(scale_x_continuous(labels = dollar_format()),
+                               scale_y_continuous(labels = percent_format(scale = 1)))
 
-p4 + p5 / p6
+p4 / p5
 ```
 
 ## Single vs. multiple predictors
@@ -170,12 +167,12 @@ Now we want to use *multiple predictor variables* to understand variation in a q
 Based on the analysis goals, we will use a **multiple linear regression** model of the following form
 
 $$
-\begin{aligned}\hat{\text{interest_rate}} ~ = 
-\hat{\beta}_0 & + \hat{\beta}_1 \text{debt_to_income} \\ & + \hat{\beta}_2 \text{verified_income} \\ &+ \hat{\beta}_3 \text{annual_income_k}
+\begin{aligned}\hat{\text{Limit}} ~ = 
+\hat{\beta}_0 & + \hat{\beta}_1 \text{Rating} + \hat{\beta}_2 \text{Income}
 \end{aligned}
 $$
 
-Similar to simple linear regression, this model assumes that at each combination of the predictor variables, the values `interest_rate` follow a Normal distribution.
+Similar to simple linear regression, this model assumes that at each combination of the predictor variables, the values `Limit` follow a Normal distribution.
 
 ## Multiple linear regression
 
@@ -209,31 +206,31 @@ $$
 \hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X_{1} + \hat{\beta}_2 X_2 + \dots + \hat{\beta}_p X_{p}
 $$
 
-# Model fit {.smaller}
+
+# Model fit
+
+::: appex
+Complete exercises 2-4 in the application exercise. Don't look ahead! 
+:::
+
+## Model fit
 
 ```{r}
-#| echo: true
+#| echo: false
+lim_fit <- lm(Limit ~ Rating   + Income,
+      data = Credit)
 
-int_fit <- lm(interest_rate ~ debt_to_income + verified_income  + annual_income_k,
-      data = loan50)
-
-tidy(int_fit) |>
+tidy(lim_fit) |>
   kable(digits = 3)
 ```
 
 ## Model equation
 
 $$
-\begin{align}\hat{\text{interest_rate}} =  10.726 &+0.671 \times \text{debt_to_income}\\
-&+ 2.211 \times \text{source_verified}\\  
-&+ 6.880 \times \text{verified}\\
-& -0.021 \times \text{annual_income_k}
+\begin{align}\hat{\text{Limit}} =  -532.471 &+14.771 \times \text{Rating}\\
+& -0.557 \times \text{Income}
 \end{align}
 $$
-
-::: callout-note
-We will talk about why there are two terms in the model for `verified_income` shortly!
-:::
 
 ## Interpreting $\hat{\beta}_j$
 
@@ -241,13 +238,14 @@ We will talk about why there are two terms in the model for `verified_income` sh
 
 . . .
 
--   **Example:** The estimated coefficient for `debt_to_income` is 0.671. This means for each point in an borrower's debt to income ratio, the interest rate on the loan is expected to be greater by 0.671%, holding annual income and income verification constant.
-
+::: appex
+Complete Exercises 5-6.
+:::
 
 ## Prediction
 
 ::: question
-What is the predicted interest rate for an borrower with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of \$59,000?
+What is the predicted credit limit for an borrower with an credit rating of ratio of 700, and who has an annual income of \$59,000?
 :::
 
 <br>
@@ -255,52 +253,37 @@ What is the predicted interest rate for an borrower with an debt-to-income ratio
 ```{r}
 #| echo: true
 
-10.726 + 0.671 * 0.558 + 2.211 * 0 + 6.880 * 0 - 0.021 * 59
+-532.471 + 14.771 * 700 + - .577 * 59
 
 ```
 
 . . .
 
-The predicted interest rate for an borrower with with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of \$59,000 is `r round(10.726 + 0.671 * 0.558 + 2.211 * 0 + 6.880 * 0 - 0.021 * 59,2)`%.
+The predicted credit limit for an borrower with an credit rating of ratio of 700, and who has an annual income of \$59,000 is \$`r round(-532.471 + 14.771 * 700 + - .577 * 59,2)`.
 
 ## Prediction, revisited {.midi}
 
-Just like with simple linear regression, we can use the `predict()` function in R to calculate the appropriate intervals for our predicted values:
+Just like with simple linear regression, we can use the `predict` function in R to calculate the appropriate intervals for our predicted values:
 
 ```{r}
-#| echo: true
+#| echo: false
 
 new_borrower <- tibble(
-  debt_to_income  = 0.558, 
-  verified_income = "Not Verified", 
-  annual_income_k = 59
+  Rating  = 700, 
+  Income = 59
 )
 
-predict(int_fit, new_borrower)
+predict(lim_fit, new_borrower, interval="prediction")
 ```
 
 ::: callout-note
 Difference in predicted value due to rounding the coefficients on the previous slide.
 :::
 
-## Confidence interval for $\hat{\mu}_y$
-
-::: question
-Calculate a 90% confidence interval for the **estimated mean interest rate** for borrowers with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of \$59,000.
-:::
-
-<br>
-
-```{r}
-#| echo: true
-
-predict(int_fit, new_borrower, interval = "confidence", level = 0.90)
-```
-
 ## Prediction interval for $\hat{y}$
 
 ::: question
-Calculate a 90% confidence interval for the **predicted interest rate** for an individual applicant with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of \$59,000.
+Calculate a 90% confidence interval for the **predicted credit limit** for an individual borrower an credit rating of ratio of 700, and who has an annual income of \$59,000?
 :::
 
 <br>
@@ -308,214 +291,178 @@ Calculate a 90% confidence interval for the **predicted interest rate** for an i
 ```{r}
 #| echo: true
 
-predict(int_fit, new_borrower, interval = "prediction", level = 0.90)
+predict(lim_fit, new_borrower, interval = "prediction", level = 0.90)
 ```
+
+::: question
+When would you use `"confidence"`? Would the interval be wider or narrower?
+:::
 
 ## Cautions
 
 -   **Do not extrapolate!** Because there are multiple predictor variables, there is the potential to extrapolate in many directions
 -   The multiple regression model only shows **association, not causality**
     -   To show causality, you must have a carefully designed experiment or carefully account for confounding variables in an observational study
-
-# Types of predictors
-
-## Interpreting results {.smaller}
+    
+## Visualizing Model
 
 ```{r}
-#| echo: false
-tidy(int_fit, conf.int = TRUE) |>
-  kable(digits = 3)
+#| echo: FALSE
+library(plotly)
+library(reshape2)
+credit_plot <- plot_ly(Credit, 
+         x = ~Rating, 
+         y = ~Income, 
+         z = ~Limit,
+         color = I("red"),
+         opacity = 1,
+         type = "scatter3d", 
+         mode = "markers",
+         size = 1)
+
+axis_x <- seq(min(Credit$Rating), max(Credit$Rating), length.out = 100)
+axis_y <- seq(min(Credit$Income), max(Credit$Income), length.out = 100)
+
+#Sample points
+credit_lm_surface <- expand.grid(Rating = axis_x,Income = axis_y,KEEP.OUT.ATTRS = F)
+credit_lm_surface$Limit <- predict.lm(lim_fit, newdata = credit_lm_surface)
+credit_lm_surface <- acast(credit_lm_surface, Income ~ Rating, value.var = "Limit")
+
+credit_plot |> 
+  add_surface(z = credit_lm_surface,
+           x = axis_x,
+           y = axis_y,
+           opacity = 0.8,
+           inherit = FALSE,
+           contours = list(z = list(show = TRUE, width = 2,
+                                       highlightcolor = "#ff0000", 
+                                       project = list(z = TRUE)),
+                              coloring = "heatmap"))
 ```
 
-. . .
-
-<br>
-
-::: question
-Describe the subset of borrowers who are expected to get an interest rate of 10.726% based on our model. Is this interpretation meaningful? Why or why not?
-:::
-
-# Indicator variables
-
-## Indicator variables
-
--   Suppose there is a categorical variable with $K$ categories (levels)
-
--   We can make $K$ indicator variables - one indicator for each category
-
--   An **indicator variable** takes values 1 or 0
-
-    -   1 if the observation belongs to that category
-    -   0 if the observation does not belong to that category
-
-## Data manipulation 2: Create indicator variables for `verified_income`
-
-```{r}
-#| echo: true
-
-loan50 <- loan50 |>
-  mutate(
-    not_verified = if_else(verified_income == "Not Verified", 1, 0),
-    source_verified = if_else(verified_income == "Source Verified", 1, 0),
-    verified = if_else(verified_income == "Verified", 1, 0)
-  )
-```
-
-. . .
-
-```{r}
-#| echo: false
-loan50 |>
-  select(verified_income, not_verified, source_verified, verified) |>
-  slice(1, 3, 6) |> 
-  kable()
-```
-
-## Indicators in the model {.midi}
-
--   We will use $K-1$ of the indicator variables in the model.
--   The **reference level** is the category that doesn't have a term in the model.
--   The coefficients of the indicator variables in the model are interpreted as the expected change in the response compared to the baseline, holding all other variables constant.
--   This approach is also called **dummy coding**.
--   `lm` will do this for you.
-
-. . .
-
-```{r}
-loan50 |>
-  select(verified_income, source_verified, verified) |>
-  slice(1, 3, 6) |> 
-  kable()
-```
-
-
-## Interpreting `verified_income` {.small}
-
-```{r}
-#| echo: false
-tidy(int_fit, conf.int  = T) |>
-  kable(digits = 3) |>
-  row_spec(c(3,4), background = "#dce5b2")
-```
-
-. . .
-
-::: incremental
--   The reference level is `Not verified`.
--   People with source verified income are expected to take a loan with an interest rate that is 2.211% higher, on average, than the rate on loans to those whose income is not verified, holding all else constant.
-:::
-
-. . .
-
-::: question
-Interpret the coefficient of `Verified` in the context of the data.
-:::
 
 # Interaction terms
 
-## Interaction terms
+## Interaction terms {.smaller}
 
 -   Sometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.
 -   This is an **interaction effect**.
 -   To account for this, we can include **interaction terms** in the model.
+-   We want a model of the form:
 
-## Interest rate vs. annual income
-
-The lines are not parallel indicating there is an **interaction effect**. The slope of annual income differs based on the income verification.
-
-```{r}
-#| echo: false
-
-p1 <- ggplot(loan50, 
-             aes(x = annual_income_k, y = interest_rate)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(
-    x = "Annual income (in $1000s)",
-    y = "Interest rate"
-  )
-
-p2 <- ggplot(loan50, 
-             aes(x = annual_income_k, y = interest_rate,
-                 color = verified_income)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(x = "Annual income (in $1000s)", y = NULL, color = NULL) +
-  theme(legend.position = c(0.6, 0.9))
-
-p1 + p2 +
-  plot_annotation(title = "Interest rate vs. annual income")
-```
-
-# Interaction terms
-
-## Interaction terms
-
--   Sometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.
--   This is an **interaction effect**.
--   To account for this, we can include **interaction terms** in the model.
-
-## Interest rate vs. annual income
-
-The lines are not parallel indicating there is an **interaction effect**. The slope of annual income differs based on the income verification.
-
-```{r}
-#| echo: false
-
-p1 <- ggplot(loan50, 
-             aes(x = annual_income_k, y = interest_rate)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(
-    x = "Annual income (in $1000s)",
-    y = "Interest rate"
-  )
-
-p2 <- ggplot(loan50, 
-             aes(x = annual_income_k, y = interest_rate,
-                 color = verified_income)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(x = "Annual income (in $1000s)", y = NULL, color = NULL) +
-  theme(legend.position = c(0.6, 0.9))
-
-p1 + p2 +
-  plot_annotation(title = "Interest rate vs. annual income")
-```
-
-## Interaction term in model {.smaller}
-
-```{r}
-#| echo: true
-int_int_fit <- lm(interest_rate ~ debt_to_income + verified_income + annual_income_k + verified_income * annual_income_k,
-      data = loan50)
-```
-
-```{r}
-#| echo: false
-tidy(int_int_fit) |>
-  kable(digits = 3) |>
-  row_spec(c(6,7), background = "#dce5b2")
-```
+$$
+\begin{aligned}\hat{\text{Limit}} ~ = 
+\hat{\beta}_0 & + \hat{\beta}_1 \text{Rating} + \hat{\beta}_2 \text{Income} +
+\hat{\beta}_3\text{Rating}\times\text{Income}
+\end{aligned}
+$$
 
 ## Interpreting interaction terms
 
--   What the interaction means: The effect of annual income on the interest rate differs by -0.016 when the income is source verified compared to when it is not verified, holding all else constant.
--   Interpreting `annual_income` for source verified: If the income is source verified, we expect the interest rate to decrease by 0.023% (-0.007 + -0.016) for each additional thousand dollars in annual income, holding all else constant.
+-   What the interaction means: The effect of annual income on the credit limit depends on the borrowers credit rating
 
-## Data manipulation 3: Create interaction variables {.smaller}
-
-Defining the interaction variable in the model formula as `verified_income * annual_income_k_cent` is an implicit data manipulation step as well (R will do this for you)
+## Visualizing Interaction Model Exaggerated
 
 ```{r}
-#| echo: false
-library(hardhat)
+#| echo: FALSE
 
-framed <- model_frame(interest_rate ~ debt_to_income  +  debt_to_income + annual_income_k + verified_income * annual_income_k, data = loan50)
+lim_fit_int <- lm(Limit ~ Rating  + Income + Rating * Income,
+      data = Credit)
 
-model_matrix(framed$terms, framed$data) |>
-  glimpse()
+lim_fit_int$coefficients[3] <- 200
+
+#Sample points
+credit_lm_surface <- expand.grid(Rating = axis_x,Income = axis_y,KEEP.OUT.ATTRS = F)
+credit_lm_surface$Limit <- predict.lm(lim_fit_int, newdata = credit_lm_surface)
+credit_lm_surface <- acast(credit_lm_surface, Income ~ Rating, value.var = "Limit")
+
+credit_plot |> 
+  add_surface(z = credit_lm_surface,
+           x = axis_x,
+           y = axis_y,
+           opacity = 0.8,
+           inherit = FALSE,
+           contours = list(z = list(show = TRUE, width = 2,
+                                       highlightcolor = "#ff0000", 
+                                       project = list(z = TRUE)),
+                              coloring = "heatmap"))
 ```
+
+## Visualizing Interaction Model
+
+```{r}
+#| echo: FALSE
+
+lim_fit_int <- lm(Limit ~ Rating  + Income + Rating * Income,
+      data = Credit)
+
+#Sample points
+credit_lm_surface <- expand.grid(Rating = axis_x,Income = axis_y,KEEP.OUT.ATTRS = F)
+credit_lm_surface$Limit <- predict.lm(lim_fit_int, newdata = credit_lm_surface)
+credit_lm_surface <- acast(credit_lm_surface, Income ~ Rating, value.var = "Limit")
+
+credit_plot |> 
+  add_surface(z = credit_lm_surface,
+           x = axis_x,
+           y = axis_y,
+           opacity = 0.8,
+           inherit = FALSE,
+           contours = list(z = list(show = TRUE, width = 2,
+                                       highlightcolor = "#ff0000", 
+                                       project = list(z = TRUE)),
+                              coloring = "heatmap"))
+```
+
+## Application Exercise
+
+::: appex
+Complete Activity
+:::
+
+## Model Fit {.smaller}
+
+```{r}
+#| echo: FALSE
+lm(Limit ~ Income + Rating + Income * Rating, data = Credit) |> 
+  tidy() |> 
+  kable(digits = 5)
+```
+
+$$
+\begin{aligned}\hat{\text{Limit}} ~ = 
+&  -579.85561 + 14.87125~\text{Rating} + 1.81240~\text{Income}\\
+& \qquad- 0.00221~\text{Rating}\times\text{Income}
+\end{aligned}
+$$
+
+## Interpreting the interaction term
+
+-  For a fixed `Rating` the slope of `Income` is $(1.81240 - 0.0021\times\text{Rating})$
+-  For a fixed `Income` the slope of `Rating` is $(14.87125 - 0.0021\times\text{Income})$
+
+
+
+## What's actually happening: {.smaller}
+
+```{r}
+#| echo: TRUE
+Credit_int <- Credit |> 
+  mutate(Interaction = Income * Rating) 
+
+Credit_int |> 
+  select(Limit, Income, Rating, Interaction) |> 
+  head() |> 
+  kable()
+```
+
+## What's actually happening:
+
+```{r}
+lm(Limit ~ Income + Rating + Interaction, data = Credit_int) |> 
+  tidy() |> 
+  kable(digits = 5)
+```
+
 
 # Wrap up
 
@@ -527,33 +474,4 @@ model_matrix(framed$terms, framed$data) |>
 
 -   Calculated predictions and associated intervals for multiple linear regression models
 
--   Mean-centered quantitative predictors
-
--   Used indicator variables for categorical predictors
-
 -   Used interaction terms
-
-## Looking backward {.midi}
-
-Data manipulation, with **dplyr** (from **tidyverse**):
-
-```{r}
-#| echo: true
-#| results: hide
-
-loan50 |>
-  select(interest_rate, annual_income, debt_to_income, verified_income) |>
-  mutate(
-    # 1. rescale income
-    annual_income_th = annual_income / 1000,
-    # 2. mean-center quantitative predictors
-    debt_inc_cent = debt_to_income - mean(debt_to_income),
-    annual_income_th_cent = annual_income_th - mean(annual_income_th),
-    # 3. create dummy variables for verified_income
-    source_verified = if_else(verified_income == "Source Verified", 1, 0),
-    verified = if_else(verified_income == "Verified", 1, 0),
-    # 4. create interaction variables
-    `annual_income_th_cent:verified_incomeSource Verified` = annual_income_th_cent * source_verified,
-    `annual_income_th_cent:verified_incomeVerified` = annual_income_th_cent * verified
-  )
-```
