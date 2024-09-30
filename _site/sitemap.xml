@@ -522,7 +522,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/hw/forStudents/hw-04/hw-04.html</loc>
-    <lastmod>2024-09-29T18:10:10.006Z</lastmod>
+    <lastmod>2024-09-30T15:27:16.604Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-10-mlr.html</loc>
@@ -535,5 +535,9 @@
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-09-feature-engineering-old.html</loc>
     <lastmod>2024-06-07T20:17:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/prepare/mlr-inference-prep.html</loc>
+    <lastmod>2024-09-30T15:27:02.070Z</lastmod>
   </url>
 </urlset>

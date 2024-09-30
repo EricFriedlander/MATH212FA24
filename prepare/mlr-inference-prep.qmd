@@ -1,0 +1,8 @@
+---
+title: "October 2 lecture"
+subtitle: "Inference for Multiple Linear Regression"
+---
+
+## Assigned reading
+
+- Stat2: Topic 3.2 Assessing a Multiple Regression Model
