@@ -1,0 +1,8 @@
+---
+title: "October 2 lecture"
+subtitle: "Interaction Terms in Multiple Linear Regression"
+---
+
+## Assigned reading
+
+- Stat2: Topic 3.4 New Predictors from Old

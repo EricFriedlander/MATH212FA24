@@ -1,5 +1,5 @@
 ---
-title: "October 2 lecture"
+title: "October 4 lecture"
 subtitle: "Inference for Multiple Linear Regression"
 ---
 

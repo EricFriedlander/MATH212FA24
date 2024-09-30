@@ -4296,7 +4296,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 Due/ HW 04 Assigned\n\n\n6\nM\nSep 23\nProject Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Stage I Assigned\n\n\n\nW\nSep 25\nSLR: Evaluations + Transformation Activities\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 27\nSLR: Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 Due/HW 05 Assigned\n\n\n7\nM\nSep 30\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nOct 2\nInference for MLR",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 Due/ HW 04 Assigned\n\n\n6\nM\nSep 23\nProject Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Stage I Assigned\n\n\n\nW\nSep 25\nSLR: Evaluations + Transformation Activities\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 27\nSLR: Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 Due/HW 05 Assigned\n\n\n7\nM\nSep 30\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nOct 2\nMLR: Interaction Terms",
     "crumbs": [
       "Schedule"
     ]
@@ -13934,7 +13934,7 @@
     "href": "slides/14-mlr.html#cautions",
     "title": "Multiple linear regression (MLR)",
     "section": "Cautions",
-    "text": "Cautions\n\nDo not extrapolate! Because there are multiple predictor variables, there is the potential to extrapolate in many directions\nThe multiple regression model only shows association, not causality\n\nTo show causality, you must have a carefully designed experiment or carefully account for confounding variables in an observational study"
+    "text": "Cautions\n\nDo not extrapolate! Because there are multiple predictor variables, there is the potential to extrapolate in many directions\nThe multiple regression model only shows association, not causality\n\nTo show causality, you must have a carefully designed experiment or carefully account for confounding variables in an observational study\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
   },
   {
     "objectID": "slides/14-mlr.html#interpreting-results",
@@ -14793,15 +14793,176 @@
   {
     "objectID": "prepare/mlr-inference-prep.html",
     "href": "prepare/mlr-inference-prep.html",
-    "title": "October 2 lecture",
+    "title": "October 4 lecture",
     "section": "",
     "text": "Stat2: Topic 3.2 Assessing a Multiple Regression Model"
   },
   {
     "objectID": "prepare/mlr-inference-prep.html#assigned-reading",
     "href": "prepare/mlr-inference-prep.html#assigned-reading",
-    "title": "October 2 lecture",
+    "title": "October 4 lecture",
     "section": "",
     "text": "Stat2: Topic 3.2 Assessing a Multiple Regression Model"
+  },
+  {
+    "objectID": "prepare/mlr-interaction-prep.html",
+    "href": "prepare/mlr-interaction-prep.html",
+    "title": "October 2 lecture",
+    "section": "",
+    "text": "Stat2: Topic 3.4 New Predictors from Old"
+  },
+  {
+    "objectID": "prepare/mlr-interaction-prep.html#assigned-reading",
+    "href": "prepare/mlr-interaction-prep.html#assigned-reading",
+    "title": "October 2 lecture",
+    "section": "",
+    "text": "Stat2: Topic 3.4 New Predictors from Old"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#trying-something-new",
+    "href": "slides/15-mlr-interaction.html#trying-something-new",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Trying something new",
+    "text": "Trying something new\n\nPicking up where we left off\nOpen AE-10\n\n\n📋 AE 10 - Credit Cards"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#computational-setup",
+    "href": "slides/15-mlr-interaction.html#computational-setup",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(mosaic)\nlibrary(ISLR2)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(scales)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#data-credit-cards",
+    "href": "slides/15-mlr-interaction.html#data-credit-cards",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Data: Credit Cards",
+    "text": "Data: Credit Cards\nThe data is from the Credit data set in the ISLR2 R package. It is a simulated data set of 400 credit card customers.\n\n\nRows: 400\nColumns: 11\n$ Income    &lt;dbl&gt; 14.891, 106.025, 104.593, 148.924, 55.882, 80.180, 20.996, 7…\n$ Limit     &lt;dbl&gt; 3606, 6645, 7075, 9504, 4897, 8047, 3388, 7114, 3300, 6819, …\n$ Rating    &lt;dbl&gt; 283, 483, 514, 681, 357, 569, 259, 512, 266, 491, 589, 138, …\n$ Cards     &lt;dbl&gt; 2, 3, 4, 3, 2, 4, 2, 2, 5, 3, 4, 3, 1, 1, 2, 3, 3, 3, 1, 2, …\n$ Age       &lt;dbl&gt; 34, 82, 71, 36, 68, 77, 37, 87, 66, 41, 30, 64, 57, 49, 75, …\n$ Education &lt;dbl&gt; 11, 15, 11, 11, 16, 10, 12, 9, 13, 19, 14, 16, 7, 9, 13, 15,…\n$ Own       &lt;fct&gt; No, Yes, No, Yes, No, No, Yes, No, Yes, Yes, No, No, Yes, No…\n$ Student   &lt;fct&gt; No, Yes, No, No, No, No, No, No, No, Yes, No, No, No, No, No…\n$ Married   &lt;fct&gt; Yes, Yes, No, No, Yes, No, No, No, No, Yes, Yes, No, Yes, Ye…\n$ Region    &lt;fct&gt; South, West, West, West, South, South, East, West, South, Ea…\n$ Balance   &lt;dbl&gt; 333, 903, 580, 964, 331, 1151, 203, 872, 279, 1350, 1407, 0,…"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#variables",
+    "href": "slides/15-mlr-interaction.html#variables",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Variables",
+    "text": "Variables\nFeatures (another name for predictors)\n\nIncome: Annual income (in 1000’s of US dollars)\nRating: Credit Rating\n\nOutcome\n\nLimit: Credit limit"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#multiple-linear-regression",
+    "href": "slides/15-mlr-interaction.html#multiple-linear-regression",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\nThe multiple linear regression model assumes\n\\[\nY|X_1, X_2, \\ldots, X_p \\sim N(\\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\dots + \\beta_p X_p, \\sigma_{\\epsilon}^2)\n\\]"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#multiple-linear-regression-1",
+    "href": "slides/15-mlr-interaction.html#multiple-linear-regression-1",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\nAt any combination of the predictors, the mean value of the response \\(Y\\), is\n\\[\n\\mu_{Y|X_1, \\ldots, X_p} = \\beta_0 + \\beta_1 X_{1} + \\beta_2 X_2 + \\dots + \\beta_p X_p\n\\]\n\nUsing multiple linear regression, we can estimate the mean response for any combination of predictors\n\\[\n\\hat{Y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_{1} + \\hat{\\beta}_2 X_2 + \\dots + \\hat{\\beta}_p X_{p}\n\\]"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#multiple-linear-regression-mlr",
+    "href": "slides/15-mlr-interaction.html#multiple-linear-regression-mlr",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Multiple linear regression (MLR)",
+    "text": "Multiple linear regression (MLR)\nBased on out analysis goals, we will use a multiple linear regression model of the following form\n\\[\n\\begin{aligned}\\hat{\\text{Limit}} ~ =\n\\hat{\\beta}_0 & + \\hat{\\beta}_1 \\text{Rating} + \\hat{\\beta}_2 \\text{Income}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#model-fit",
+    "href": "slides/15-mlr-interaction.html#model-fit",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Model fit",
+    "text": "Model fit\n\nlim_fit &lt;- lm(Limit ~ Rating   + Income,\n      data = Credit)\n\ntidy(lim_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-532.471\n24.173\n-22.028\n0.000\n\n\nRating\n14.771\n0.096\n153.124\n0.000\n\n\nIncome\n0.557\n0.423\n1.316\n0.189"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#model-equation",
+    "href": "slides/15-mlr-interaction.html#model-equation",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Model equation",
+    "text": "Model equation\n\\[\n\\begin{align}\\hat{\\text{Limit}} =  -532.471 &+14.771 \\times \\text{Rating}\\\\\n& -0.557 \\times \\text{Income}\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#visualizing-model",
+    "href": "slides/15-mlr-interaction.html#visualizing-model",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Visualizing Model",
+    "text": "Visualizing Model"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#interaction-terms-1",
+    "href": "slides/15-mlr-interaction.html#interaction-terms-1",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Interaction terms",
+    "text": "Interaction terms\n\nSometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.\nThis is an interaction effect.\nTo account for this, we can include interaction terms in the model.\nWe want a model of the form:\n\n\\[\n\\begin{aligned}\\hat{\\text{Limit}} ~ =\n\\hat{\\beta}_0 & + \\hat{\\beta}_1 \\text{Rating} + \\hat{\\beta}_2 \\text{Income} +\n\\hat{\\beta}_3\\text{Rating}\\times\\text{Income}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#interpreting-interaction-terms",
+    "href": "slides/15-mlr-interaction.html#interpreting-interaction-terms",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Interpreting interaction terms",
+    "text": "Interpreting interaction terms\n\nWhat the interaction means: The effect of annual income on the credit limit depends on the borrowers credit rating"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#visualizing-interaction-model-exaggerated",
+    "href": "slides/15-mlr-interaction.html#visualizing-interaction-model-exaggerated",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Visualizing Interaction Model Exaggerated",
+    "text": "Visualizing Interaction Model Exaggerated"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#visualizing-interaction-model",
+    "href": "slides/15-mlr-interaction.html#visualizing-interaction-model",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Visualizing Interaction Model",
+    "text": "Visualizing Interaction Model"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#application-exercise",
+    "href": "slides/15-mlr-interaction.html#application-exercise",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Application Exercise",
+    "text": "Application Exercise\n\nComplete Activity"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#model-fit-1",
+    "href": "slides/15-mlr-interaction.html#model-fit-1",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Model Fit",
+    "text": "Model Fit\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-579.85561\n37.48489\n-15.46905\n0.00000\n\n\nIncome\n1.81240\n0.86962\n2.08414\n0.03779\n\n\nRating\n14.87125\n0.11375\n130.73507\n0.00000\n\n\nIncome:Rating\n-0.00221\n0.00134\n-1.65140\n0.09945\n\n\n\n\n\n\\[\n\\begin{aligned}\\hat{\\text{Limit}} ~ =\n&  -579.85561 + 14.87125~\\text{Rating} + 1.81240~\\text{Income}\\\\\n& \\qquad- 0.00221~\\text{Rating}\\times\\text{Income}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#interpreting-the-interaction-term",
+    "href": "slides/15-mlr-interaction.html#interpreting-the-interaction-term",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Interpreting the interaction term",
+    "text": "Interpreting the interaction term\n\nFor a fixed Rating the slope of Income is \\((1.81240 - 0.0021\\times\\text{Rating})\\)\nFor a fixed Income the slope of Rating is \\((14.87125 - 0.0021\\times\\text{Income})\\)"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#whats-actually-happening",
+    "href": "slides/15-mlr-interaction.html#whats-actually-happening",
+    "title": "Multiple linear regression (MLR)",
+    "section": "What’s actually happening:",
+    "text": "What’s actually happening:\n\nCredit_int &lt;- Credit |&gt; \n  mutate(Interaction = Income * Rating) \n\nCredit_int |&gt; \n  select(Limit, Income, Rating, Interaction) |&gt; \n  head() |&gt; \n  kable()\n\n\n\n\nLimit\nIncome\nRating\nInteraction\n\n\n\n\n3606\n14.891\n283\n4214.153\n\n\n6645\n106.025\n483\n51210.075\n\n\n7075\n104.593\n514\n53760.802\n\n\n9504\n148.924\n681\n101417.244\n\n\n4897\n55.882\n357\n19949.874\n\n\n8047\n80.180\n569\n45622.420"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#whats-actually-happening-1",
+    "href": "slides/15-mlr-interaction.html#whats-actually-happening-1",
+    "title": "Multiple linear regression (MLR)",
+    "section": "What’s actually happening:",
+    "text": "What’s actually happening:\n\nlm(Limit ~ Income + Rating + Interaction, data = Credit_int) |&gt; \n  tidy() |&gt; \n  kable(digits = 5)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-579.85561\n37.48489\n-15.46905\n0.00000\n\n\nIncome\n1.81240\n0.86962\n2.08414\n0.03779\n\n\nRating\n14.87125\n0.11375\n130.73507\n0.00000\n\n\nInteraction\n-0.00221\n0.00134\n-1.65140\n0.09945"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#recap",
+    "href": "slides/15-mlr-interaction.html#recap",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Recap",
+    "text": "Recap\n\nIntroduced multiple linear regression\nInterpreted coefficients in the multiple linear regression model\nCalculated predictions and associated intervals for multiple linear regression models\nUsed interaction terms\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#picking-up-where-we-left-off",
+    "href": "slides/15-mlr-interaction.html#picking-up-where-we-left-off",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Picking up where we left off",
+    "text": "Picking up where we left off\n\nOpen AE-10\n\n\n📋 AE 10 - Credit Cards"
   }
 ]

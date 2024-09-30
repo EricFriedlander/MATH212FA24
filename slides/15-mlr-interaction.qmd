@@ -1,0 +1,304 @@
+---
+title: "Multiple linear regression (MLR)"
+subtitle: "Interaction Terms"
+author: "Prof. Eric Friedlander"
+date: "2024-10-02"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+## Picking up where we left off
+-   Open AE-10
+
+::: appex
+📋 [AE 10 - Credit Cards](https://mat212fa24.netlify.app/ae/ae-10-mlr)
+:::
+
+## Computational setup
+
+```{r packages}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)
+library(broom)
+library(mosaic)
+library(ISLR2)
+library(patchwork)
+library(knitr)
+library(kableExtra)
+library(scales)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
+```
+
+# Last time
+
+## Data: Credit Cards
+
+The data is from the `Credit` data set in the **ISLR2** R package. It is a simulated data set of 400 credit card customers.
+
+```{r}
+#| echo: false
+Credit |>  glimpse()
+```
+
+## Variables
+
+**Features (another name for predictors)**
+
+-   `Income`: Annual income (in 1000's of US dollars)
+-   `Rating`: Credit Rating
+
+**Outcome**
+
+-   `Limit`: Credit limit
+
+## Multiple linear regression
+
+The multiple linear regression model assumes
+
+$$
+Y|X_1, X_2, \ldots, X_p \sim N(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p, \sigma_{\epsilon}^2)
+$$
+
+## Multiple linear regression
+
+At any combination of the predictors, the mean value of the response $Y$, is
+
+$$
+\mu_{Y|X_1, \ldots, X_p} = \beta_0 + \beta_1 X_{1} + \beta_2 X_2 + \dots + \beta_p X_p
+$$
+
+. . .
+
+Using multiple linear regression, we can estimate the mean response for any combination of predictors
+
+$$
+\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X_{1} + \hat{\beta}_2 X_2 + \dots + \hat{\beta}_p X_{p}
+$$
+
+
+## Multiple linear regression (MLR) {.smaller}
+
+Based on out analysis goals, we will use a **multiple linear regression** model of the following form
+
+$$
+\begin{aligned}\hat{\text{Limit}} ~ = 
+\hat{\beta}_0 & + \hat{\beta}_1 \text{Rating} + \hat{\beta}_2 \text{Income}
+\end{aligned}
+$$
+
+## Model fit
+
+```{r}
+#| echo: true
+lim_fit <- lm(Limit ~ Rating   + Income,
+      data = Credit)
+
+tidy(lim_fit) |>
+  kable(digits = 3)
+```
+
+## Model equation
+
+$$
+\begin{align}\hat{\text{Limit}} =  -532.471 &+14.771 \times \text{Rating}\\
+& -0.557 \times \text{Income}
+\end{align}
+$$
+
+## Visualizing Model
+
+```{r}
+#| echo: FALSE
+library(plotly)
+library(reshape2)
+credit_plot <- plot_ly(Credit, 
+         x = ~Rating, 
+         y = ~Income, 
+         z = ~Limit,
+         color = I("red"),
+         opacity = 1,
+         type = "scatter3d", 
+         mode = "markers",
+         size = 1)
+
+axis_x <- seq(min(Credit$Rating), max(Credit$Rating), length.out = 100)
+axis_y <- seq(min(Credit$Income), max(Credit$Income), length.out = 100)
+
+#Sample points
+credit_lm_surface <- expand.grid(Rating = axis_x,Income = axis_y,KEEP.OUT.ATTRS = F)
+credit_lm_surface$Limit <- predict.lm(lim_fit, newdata = credit_lm_surface)
+credit_lm_surface <- acast(credit_lm_surface, Income ~ Rating, value.var = "Limit")
+
+credit_plot |> 
+  add_surface(z = credit_lm_surface,
+           x = axis_x,
+           y = axis_y,
+           opacity = 0.8,
+           inherit = FALSE,
+           contours = list(z = list(show = TRUE, width = 2,
+                                       highlightcolor = "#ff0000", 
+                                       project = list(z = TRUE)),
+                              coloring = "heatmap"))
+```
+
+
+# Interaction terms
+
+## Interaction terms {.smaller}
+
+-   Sometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.
+-   This is an **interaction effect**.
+-   To account for this, we can include **interaction terms** in the model.
+-   We want a model of the form:
+
+$$
+\begin{aligned}\hat{\text{Limit}} ~ = 
+\hat{\beta}_0 & + \hat{\beta}_1 \text{Rating} + \hat{\beta}_2 \text{Income} +
+\hat{\beta}_3\text{Rating}\times\text{Income}
+\end{aligned}
+$$
+
+## Interpreting interaction terms
+
+-   What the interaction means: The effect of annual income on the credit limit depends on the borrowers credit rating
+
+## Visualizing Interaction Model Exaggerated
+
+```{r}
+#| echo: FALSE
+
+lim_fit_int <- lm(Limit ~ Rating  + Income + Rating * Income,
+      data = Credit)
+
+lim_fit_int$coefficients[3] <- 200
+
+#Sample points
+credit_lm_surface <- expand.grid(Rating = axis_x,Income = axis_y,KEEP.OUT.ATTRS = F)
+credit_lm_surface$Limit <- predict.lm(lim_fit_int, newdata = credit_lm_surface)
+credit_lm_surface <- acast(credit_lm_surface, Income ~ Rating, value.var = "Limit")
+
+credit_plot |> 
+  add_surface(z = credit_lm_surface,
+           x = axis_x,
+           y = axis_y,
+           opacity = 0.8,
+           inherit = FALSE,
+           contours = list(z = list(show = TRUE, width = 2,
+                                       highlightcolor = "#ff0000", 
+                                       project = list(z = TRUE)),
+                              coloring = "heatmap"))
+```
+
+## Visualizing Interaction Model
+
+```{r}
+#| echo: FALSE
+
+lim_fit_int <- lm(Limit ~ Rating  + Income + Rating * Income,
+      data = Credit)
+
+#Sample points
+credit_lm_surface <- expand.grid(Rating = axis_x,Income = axis_y,KEEP.OUT.ATTRS = F)
+credit_lm_surface$Limit <- predict.lm(lim_fit_int, newdata = credit_lm_surface)
+credit_lm_surface <- acast(credit_lm_surface, Income ~ Rating, value.var = "Limit")
+
+credit_plot |> 
+  add_surface(z = credit_lm_surface,
+           x = axis_x,
+           y = axis_y,
+           opacity = 0.8,
+           inherit = FALSE,
+           contours = list(z = list(show = TRUE, width = 2,
+                                       highlightcolor = "#ff0000", 
+                                       project = list(z = TRUE)),
+                              coloring = "heatmap"))
+```
+
+## Application Exercise
+
+::: appex
+Complete Activity
+:::
+
+## Model Fit {.smaller}
+
+```{r}
+#| echo: FALSE
+lm(Limit ~ Income + Rating + Income * Rating, data = Credit) |> 
+  tidy() |> 
+  kable(digits = 5)
+```
+
+$$
+\begin{aligned}\hat{\text{Limit}} ~ = 
+&  -579.85561 + 14.87125~\text{Rating} + 1.81240~\text{Income}\\
+& \qquad- 0.00221~\text{Rating}\times\text{Income}
+\end{aligned}
+$$
+
+## Interpreting the interaction term
+
+-  For a fixed `Rating` the slope of `Income` is $(1.81240 - 0.0021\times\text{Rating})$
+-  For a fixed `Income` the slope of `Rating` is $(14.87125 - 0.0021\times\text{Income})$
+
+
+
+## What's actually happening: {.smaller}
+
+```{r}
+#| echo: TRUE
+Credit_int <- Credit |> 
+  mutate(Interaction = Income * Rating) 
+
+Credit_int |> 
+  select(Limit, Income, Rating, Interaction) |> 
+  head() |> 
+  kable()
+```
+
+## What's actually happening:
+
+```{r}
+lm(Limit ~ Income + Rating + Interaction, data = Credit_int) |> 
+  tidy() |> 
+  kable(digits = 5)
+```
+
+
+# Wrap up
+
+## Recap
+
+-   Introduced multiple linear regression
+
+-   Interpreted coefficients in the multiple linear regression model
+
+-   Calculated predictions and associated intervals for multiple linear regression models
+
+-   Used interaction terms
