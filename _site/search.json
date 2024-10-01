@@ -4296,7 +4296,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 Due/ HW 04 Assigned\n\n\n6\nM\nSep 23\nProject Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Stage I Assigned\n\n\n\nW\nSep 25\nSLR: Evaluations + Transformation Activities\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 27\nSLR: Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 Due/HW 05 Assigned\n\n\n7\nM\nSep 30\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nOct 2\nMLR: Interaction Terms",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 Due/ HW 04 Assigned\n\n\n6\nM\nSep 23\nProject Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Stage I Assigned\n\n\n\nW\nSep 25\nSLR: Evaluations + Transformation Activities\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 27\nSLR: Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 Due/HW 05 Assigned\n\n\n7\nM\nSep 30\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nOct 2\nMLR: Interaction Terms\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nOct 4\nInference for MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 Due/ HW 06 Assigned",
     "crumbs": [
       "Schedule"
     ]
@@ -14964,5 +14964,1195 @@
     "title": "Multiple linear regression (MLR)",
     "section": "Picking up where we left off",
     "text": "Picking up where we left off\n\nOpen AE-10\n\n\n📋 AE 10 - Credit Cards"
+  },
+  {
+    "objectID": "slides/15-mlr-interaction.html#announcements",
+    "href": "slides/15-mlr-interaction.html#announcements",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Announcements",
+    "text": "Announcements\n\nUpdate eval: false to eval: true at the tops of HW’s 03, 04, 05.\nResubmit PDFs from 03 and 04\nOpen AE-10\n\n\n📋 AE 10 - Credit Cards"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#announcements",
+    "href": "slides/16-mlr-inference.html#announcements",
+    "title": "MLR: Inference and conditions",
+    "section": "Announcements",
+    "text": "Announcements\n\nMidterm next Friday 10/11 (right before spring break)\nProject proposal also due 10/11 but will accept until 10/14 without penalty"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#topics",
+    "href": "slides/16-mlr-inference.html#topics",
+    "title": "MLR: Inference and conditions",
+    "section": "Topics",
+    "text": "Topics\n\n\nInference for multiple linear regression\nChecking model conditions"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#computational-setup",
+    "href": "slides/16-mlr-inference.html#computational-setup",
+    "title": "MLR: Inference and conditions",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(mosaic)\nlibrary(ISLR2)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(scales)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#data-rail_trail",
+    "href": "slides/16-mlr-inference.html#data-rail_trail",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Data: rail_trail",
+    "text": "Data: rail_trail\n\n\nThe Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.\nData collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.\n\n\n\n\n\n\n\nvolume\nhightemp\navgtemp\nseason\ncloudcover\nprecip\nday_type\n\n\n\n\n501\n83\n66.5\nSummer\n7.6\n0.00\nWeekday\n\n\n419\n73\n61.0\nSummer\n6.3\n0.29\nWeekday\n\n\n397\n74\n63.0\nSpring\n7.5\n0.32\nWeekday\n\n\n385\n95\n78.0\nSummer\n2.6\n0.00\nWeekend\n\n\n200\n44\n48.0\nSpring\n10.0\n0.14\nWeekday\n\n\n375\n69\n61.5\nSpring\n6.6\n0.02\nWeekday\n\n\n417\n66\n52.5\nSpring\n2.4\n0.00\nWeekday\n\n\n629\n66\n52.0\nSpring\n0.0\n0.00\nWeekend\n\n\n533\n80\n67.5\nSummer\n3.8\n0.00\nWeekend\n\n\n547\n79\n62.0\nSummer\n4.1\n0.00\nWeekday\n\n\n\n\n\nSource: Pioneer Valley Planning Commission via the mosaicData package."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#variables",
+    "href": "slides/16-mlr-inference.html#variables",
+    "title": "MLR: Inference and conditions",
+    "section": "Variables",
+    "text": "Variables\nFeatures (another name for predictors)\n\nIncome: Annual income (in 1000’s of US dollars)\nRating: Credit Rating\n\nOutcome\n\nLimit: Credit limit"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#review-simple-linear-regression-slr",
+    "href": "slides/16-mlr-inference.html#review-simple-linear-regression-slr",
+    "title": "MLR: Inference and conditions",
+    "section": "Review: Simple linear regression (SLR)",
+    "text": "Review: Simple linear regression (SLR)\n\ngf_point(Limit ~ Rating, data = Credit, alpha = 0.5) |&gt; \n  gf_lm()  |&gt; \n  gf_labs(x = \"Credit Rating\", y = \"Income\") |&gt; \n  gf_refine(scale_y_continuous(labels = dollar_format()),\n            scale_x_continuous(labels = dollar_format()))"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#slr-model-summary",
+    "href": "slides/16-mlr-inference.html#slr-model-summary",
+    "title": "MLR: Inference and conditions",
+    "section": "SLR model summary",
+    "text": "SLR model summary\n\nincome_slr_fit &lt;- lm(Limit ~ Income, data = Credit)\n\ntidy(income_slr_fit) |&gt; kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n2389.86941\n114.828758\n20.81246\n0\n\n\nIncome\n51.87502\n2.003836\n25.88785\n0"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#slr-hypothesis-test",
+    "href": "slides/16-mlr-inference.html#slr-hypothesis-test",
+    "title": "MLR: Inference and conditions",
+    "section": "SLR hypothesis test",
+    "text": "SLR hypothesis test\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n2389.87\n114.83\n20.81\n0\n\n\nIncome\n51.88\n2.00\n25.89\n0\n\n\n\n\n\n\nSet hypotheses: \\(H_0: \\beta_1 = 0\\) vs. \\(H_A: \\beta_1 \\ne 0\\)\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t= 25.89\\) . The p-value is calculated using a \\(t\\) distribution with 399 degrees of freedom. The p-value is \\(\\approx 0\\) .\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that income is a helpful predictor for a credit card holder’s credit limit, i.e. there is a linear relationship between income and credit limit."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#multiple-linear-regression",
+    "href": "slides/16-mlr-inference.html#multiple-linear-regression",
+    "title": "MLR: Inference and conditions",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\n\ncredit_fit &lt;- lm(Limit ~ Rating + Income, data = Credit)\n\ntidy(credit_fit) |&gt; kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-532.47\n24.17\n-22.03\n0.00\n\n\nRating\n14.77\n0.10\n153.12\n0.00\n\n\nIncome\n0.56\n0.42\n1.32\n0.19"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#multiple-linear-regression-1",
+    "href": "slides/16-mlr-inference.html#multiple-linear-regression-1",
+    "title": "MLR: Inference and conditions",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\nThe multiple linear regression model assumes \\[Y|X_1, X_2,  \\ldots, X_p \\sim N(\\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\dots + \\beta_p X_p, \\sigma_\\epsilon^2)\\]\n\nFor a given observation \\((x_{i1}, x_{i2}, \\ldots, x_{ip}, y_i)\\), we can rewrite the previous statement as\n\\[y_i = \\beta_0 + \\beta_1 x_{i1} + \\beta_2 x_{i2} + \\dots + \\beta_p x_{ip} + \\epsilon_{i}, \\hspace{10mm} \\epsilon_i \\sim N(0,\\sigma_{\\epsilon}^2)\\]"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#estimating-sigma_epsilon",
+    "href": "slides/16-mlr-inference.html#estimating-sigma_epsilon",
+    "title": "MLR: Inference and conditions",
+    "section": "Estimating \\(\\sigma_\\epsilon\\)",
+    "text": "Estimating \\(\\sigma_\\epsilon\\)\nFor a given observation \\((x_{i1}, x_{i2}, \\ldots,x_{ip}, y_i)\\) the residual is \\[\n\\begin{aligned}\ne_i &= y_{i} - \\hat{y_i}\\\\\n&= y_i - (\\hat{\\beta}_0 + \\hat{\\beta}_1 x_{i1} + \\hat{\\beta}_{2} x_{i2} + \\dots + \\hat{\\beta}_p x_{ip})\n\\end{aligned}\n\\]\n\nThe estimated value of the regression standard error , \\(\\sigma_{\\epsilon}\\), is\n\\[\\hat{\\sigma}_\\epsilon  = \\sqrt{\\frac{\\sum_{i=1}^ne_i^2}{n-p-1}}\\]\n\n\nAs with SLR, we use \\(\\hat{\\sigma}_{\\epsilon}\\) to calculate \\(SE_{\\hat{\\beta}_j}\\), the standard error of each coefficient. See Matrix Form of Linear Regression for more detail."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#mlr-hypothesis-test-hightemp",
+    "href": "slides/16-mlr-inference.html#mlr-hypothesis-test-hightemp",
+    "title": "MLR: Inference and conditions",
+    "section": "MLR hypothesis test: hightemp",
+    "text": "MLR hypothesis test: hightemp\n\nSet hypotheses: \\(H_0: \\beta_{hightemp} = 0\\) vs. \\(H_A: \\beta_{hightemp} \\ne 0\\), given season is in the model\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t = 6.43\\). The p-value is calculated using a \\(t\\) distribution with 86 \\((n - p - 1)\\) degrees of freedom. The p-value is \\(\\approx 0\\).\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that high temperature for the day is a useful predictor in a model that already contains the season as a predictor for number of daily riders."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#the-model-for-season-spring",
+    "href": "slides/16-mlr-inference.html#the-model-for-season-spring",
+    "title": "MLR: Inference and conditions",
+    "section": "The model for season = Spring",
+    "text": "The model for season = Spring\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\widehat{volume} &= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times \\texttt{seasonSpring} - 76.84 \\times \\texttt{seasonSummer} \\\\\n&= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times 1 - 76.84 \\times 0 \\\\\n&= -120.10 + 7.54 \\times \\texttt{hightemp}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#the-model-for-season-summer",
+    "href": "slides/16-mlr-inference.html#the-model-for-season-summer",
+    "title": "MLR: Inference and conditions",
+    "section": "The model for season = Summer",
+    "text": "The model for season = Summer\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\widehat{volume} &= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times \\texttt{seasonSpring} - 76.84 \\times \\texttt{seasonSummer} \\\\\n&= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times 0 - 76.84 \\times 1 \\\\\n&= -202.07 + 7.54 \\times \\texttt{hightemp}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#the-model-for-season-fall",
+    "href": "slides/16-mlr-inference.html#the-model-for-season-fall",
+    "title": "MLR: Inference and conditions",
+    "section": "The model for season = Fall",
+    "text": "The model for season = Fall\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\widehat{volume} &= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times \\texttt{seasonSpring} - 76.84 \\times \\texttt{seasonSummer} \\\\\n&= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times 0 - 76.84 \\times 0 \\\\\n&= -125.23 + 7.54 \\times \\texttt{hightemp}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#the-models",
+    "href": "slides/16-mlr-inference.html#the-models",
+    "title": "MLR: Inference and conditions",
+    "section": "The models",
+    "text": "The models\nSame slope, different intercepts\n\nseason = Spring: \\(-120.10 + 7.54 \\times \\texttt{hightemp}\\)\nseason = Summer: \\(-202.07 + 7.54 \\times \\texttt{hightemp}\\)\nseason = Fall: \\(-125.23 + 7.54 \\times \\texttt{hightemp}\\)"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#interaction-terms",
+    "href": "slides/16-mlr-inference.html#interaction-terms",
+    "title": "MLR: Inference and conditions",
+    "section": "Interaction terms",
+    "text": "Interaction terms\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-579.85561\n37.48489\n-15.46905\n0.00000\n\n\nRating\n14.87125\n0.11375\n130.73507\n0.00000\n\n\nIncome\n1.81240\n0.86962\n2.08414\n0.03779\n\n\nRating:Income\n-0.00221\n0.00134\n-1.65140\n0.09945\n\n\n\n\n\n\n\n\nDo the data provide evidence of a significant interaction effect? Comment on the significance of the interaction terms.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n–&gt;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#confidence-interval-for-beta_j-1",
+    "href": "slides/16-mlr-inference.html#confidence-interval-for-beta_j-1",
+    "title": "MLR: Inference and conditions",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\nThe \\(C\\%\\) confidence interval for \\(\\beta_j\\) \\[\\hat{\\beta}_j \\pm t^* SE(\\hat{\\beta}_j)\\] where \\(t^*\\) follows a \\(t\\) distribution with \\(n - p - 1\\) degrees of freedom.\nGenerically: We are \\(C\\%\\) confident that the interval LB to UB contains the population coefficient of \\(x_j\\).\nIn context: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), we expect \\(y\\) to change by LB to UB units, holding all else constant.\n\n\nComplete Exercise 3."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#confidence-interval-for-beta_j-2",
+    "href": "slides/16-mlr-inference.html#confidence-interval-for-beta_j-2",
+    "title": "MLR: Inference and conditions",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-532.47\n24.17\n-22.03\n0.00\n-579.99\n-484.95\n\n\nRating\n14.77\n0.10\n153.12\n0.00\n14.58\n14.96\n\n\nIncome\n0.56\n0.42\n1.32\n0.19\n-0.28\n1.39"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#ci-for-hightemp",
+    "href": "slides/16-mlr-inference.html#ci-for-hightemp",
+    "title": "MLR: Inference and conditions",
+    "section": "CI for hightemp",
+    "text": "CI for hightemp\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n-267.68\n17.22\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n5.21\n9.87\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n-63.10\n73.36\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n-171.68\n18.00\n\n\n\n\n\n\n\n\nWe are 95% confident that for every degree Fahrenheit the day is warmer, the number of riders increases by 5.21 to 9.87, on average, holding season constant."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#ci-for-seasonspring",
+    "href": "slides/16-mlr-inference.html#ci-for-seasonspring",
+    "title": "MLR: Inference and conditions",
+    "section": "CI for seasonSpring",
+    "text": "CI for seasonSpring\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n-267.68\n17.22\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n5.21\n9.87\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n-63.10\n73.36\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n-171.68\n18.00\n\n\n\n\n\n\n\n\nWe are 95% confident that the number of riders on a Spring day is lower by 63.1 to higher by 73.4 compared to a Fall day, on average, holding high temperature for the day constant.\n\n\nIs season a significant predictor of the number of riders, after accounting for high temperature?"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#large-sample-sizes",
+    "href": "slides/16-mlr-inference.html#large-sample-sizes",
+    "title": "MLR: Inference and conditions",
+    "section": "Large sample sizes",
+    "text": "Large sample sizes\n\n\n\n\n\n\nCaution\n\n\nIf the sample size is large enough, the test will likely result in rejecting \\(H_0: \\beta_j = 0\\) even \\(x_j\\) has a very small effect on \\(y\\).\n\n\nConsider the practical significance of the result not just the statistical significance.\nUse the confidence interval to draw conclusions instead of relying only p-values."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#small-sample-sizes",
+    "href": "slides/16-mlr-inference.html#small-sample-sizes",
+    "title": "MLR: Inference and conditions",
+    "section": "Small sample sizes",
+    "text": "Small sample sizes\n\n\n\n\n\n\nCaution\n\n\nIf the sample size is small, there may not be enough evidence to reject \\(H_0: \\beta_j=0\\).\n\n\nWhen you fail to reject the null hypothesis, DON’T immediately conclude that the variable has no association with the response.\nThere may be a linear association that is just not strong enough to detect given your data, or there may be a non-linear association.\n\n\n\n\n\n\nComplete exercise 4\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#full-model",
+    "href": "slides/16-mlr-inference.html#full-model",
+    "title": "MLR: Inference and conditions",
+    "section": "Full model",
+    "text": "Full model\nIncluding all available predictors\nFit:\n\nrt_full_fit &lt;- lm(volume ~ ., data = rail_trail)\n\n\nSummarize:\n\ntidy(rt_full_fit)\n\n# A tibble: 8 × 5\n  term            estimate std.error statistic p.value\n  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n1 (Intercept)        17.6      76.6      0.230 0.819  \n2 hightemp            7.07      2.42     2.92  0.00450\n3 avgtemp            -2.04      3.14    -0.648 0.519  \n4 seasonSpring       35.9      33.0      1.09  0.280  \n5 seasonSummer       24.2      52.8      0.457 0.649  \n6 cloudcover         -7.25      3.84    -1.89  0.0627 \n7 precip            -95.7      42.6     -2.25  0.0273 \n8 day_typeWeekend    35.9      22.4      1.60  0.113  \n\n\n\n\nAugment:\n\nrt_full_aug &lt;- augment(rt_full_fit)"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#model-conditions",
+    "href": "slides/16-mlr-inference.html#model-conditions",
+    "title": "MLR: Inference and conditions",
+    "section": "Model conditions",
+    "text": "Model conditions\n\nLinearity: There is a linear relationship between the response and predictor variables.\nConstant Variance: The variability about the least squares line is generally constant.\nNormality: The distribution of the residuals is approximately normal.\nIndependence: The residuals are independent from each other."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#checking-linearity",
+    "href": "slides/16-mlr-inference.html#checking-linearity",
+    "title": "MLR: Inference and conditions",
+    "section": "Checking Linearity",
+    "text": "Checking Linearity\n\nLook at a plot of the residuals vs. predicted values\nLook at a plot of the residuals vs. each predictor\nLinearity is met if there is no discernible pattern in each of these plots"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#residuals-vs.-predicted-values",
+    "href": "slides/16-mlr-inference.html#residuals-vs.-predicted-values",
+    "title": "MLR: Inference and conditions",
+    "section": "Residuals vs. predicted values",
+    "text": "Residuals vs. predicted values\n\ngf_point(.resid ~ .fitted, data = rt_full_aug, alpha = 0.7) |&gt; \n  gf_hline(yintercept = 0, color = \"red\", linetype = \"dashed\") |&gt; \n  gf_labs(x = \"Predicted values\", y = \"Residuals\")"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#residuals-vs.-each-predictor",
+    "href": "slides/16-mlr-inference.html#residuals-vs.-each-predictor",
+    "title": "MLR: Inference and conditions",
+    "section": "Residuals vs. each predictor",
+    "text": "Residuals vs. each predictor"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#checking-linearity-1",
+    "href": "slides/16-mlr-inference.html#checking-linearity-1",
+    "title": "MLR: Inference and conditions",
+    "section": "Checking linearity",
+    "text": "Checking linearity\n\nThe plot of the residuals vs. predicted values looked OK\nThe plots of residuals vs. hightemp and avgtemp appear to have a parabolic pattern.\nThe linearity condition does not appear to be satisfied given these plots.\n\n\n\nGiven this conclusion, what might be a next step in the analysis?"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#checking-constant-variance",
+    "href": "slides/16-mlr-inference.html#checking-constant-variance",
+    "title": "MLR: Inference and conditions",
+    "section": "Checking constant variance",
+    "text": "Checking constant variance\n\nDoes the constant variance condition appear to be satisfied?"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#checking-constant-variance-1",
+    "href": "slides/16-mlr-inference.html#checking-constant-variance-1",
+    "title": "MLR: Inference and conditions",
+    "section": "Checking constant variance",
+    "text": "Checking constant variance\n\nThe vertical spread of the residuals is not constant across the plot.\nThe constant variance condition is not satisfied.\n\n\n\nWe will talk about to address this later in the notes."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#checking-normality",
+    "href": "slides/16-mlr-inference.html#checking-normality",
+    "title": "MLR: Inference and conditions",
+    "section": "Checking normality",
+    "text": "Checking normality\n\nThe distribution of the residuals is approximately unimodal and symmetric, so the normality condition is satisfied. The sample size 90 is sufficiently large to relax this condition if it was not satisfied."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#checking-independence",
+    "href": "slides/16-mlr-inference.html#checking-independence",
+    "title": "MLR: Inference and conditions",
+    "section": "Checking independence",
+    "text": "Checking independence\n\nWe can often check the independence condition based on the context of the data and how the observations were collected.\nIf the data were collected in a particular order, examine a scatterplot of the residuals versus order in which the data were collected.\nIf there is a grouping variable lurking in the background, check the residuals based on that grouping variable."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#checking-independence-1",
+    "href": "slides/16-mlr-inference.html#checking-independence-1",
+    "title": "MLR: Inference and conditions",
+    "section": "Checking independence",
+    "text": "Checking independence\nResiduals vs. order of data collection:\n\ngf_line(.resid ~ 1:nrow(rt_full_aug), data = rt_full_aug) |&gt; \n  gf_point()  |&gt; \n  gf_hline(yintercept = 0, color = \"red\", linetype = \"dashed\")  |&gt; \n  gf_labs(x = \"Order of data collection\", y = \"Residuals\")"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#checking-independence-2",
+    "href": "slides/16-mlr-inference.html#checking-independence-2",
+    "title": "MLR: Inference and conditions",
+    "section": "Checking independence",
+    "text": "Checking independence\n\nNo clear pattern in the residuals vs. order of data collection plot.\nIndependence condition appears to be satisfied, as far as we can evaluate it.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n–&gt;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#what-is-multicollinearity",
+    "href": "slides/16-mlr-inference.html#what-is-multicollinearity",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "What is multicollinearity",
+    "text": "What is multicollinearity\nMulticollinearity is the case when two or more predictor variables are strongly correlated with one another"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#example",
+    "href": "slides/16-mlr-inference.html#example",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Example",
+    "text": "Example\nLet’s assume the true population regression equation is \\(y = 3 + 4x\\)\n\nSuppose we try estimating that equation using a model with variables \\(x\\) and \\(z = x/10\\)\n\\[\n\\begin{aligned}\\hat{y}&= \\hat{\\beta}_0 + \\hat{\\beta}_1x  + \\hat{\\beta}_2z\\\\\n&= \\hat{\\beta}_0 + \\hat{\\beta}_1x  + \\hat{\\beta}_2\\frac{x}{10}\\\\\n&= \\hat{\\beta}_0 + \\bigg(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10}\\bigg)x\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#example-1",
+    "href": "slides/16-mlr-inference.html#example-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Example",
+    "text": "Example\n\\[\\hat{y} = \\hat{\\beta}_0 + \\bigg(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10}\\bigg)x\\]\n\nWe can set \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_2\\) to any two numbers such that \\(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10} = 4\\)\nTherefore, we are unable to choose the “best” combination of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_2\\)"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#why-multicollinearity-is-a-problem",
+    "href": "slides/16-mlr-inference.html#why-multicollinearity-is-a-problem",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Why multicollinearity is a problem",
+    "text": "Why multicollinearity is a problem\n\nWhen we have perfect collinearities, we are unable to get estimates for the coefficients\n\nWhen we have almost perfect collinearities (i.e. highly correlated predictor variables), the standard errors for our regression coefficients inflate\nIn other words, we lose precision in our estimates of the regression coefficients\nThis impedes our ability to use the model for inference\nIt is also difficult to interpret the model coefficients"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#detecting-multicollinearity",
+    "href": "slides/16-mlr-inference.html#detecting-multicollinearity",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Detecting Multicollinearity",
+    "text": "Detecting Multicollinearity\nMulticollinearity may occur when…\n\nThere are very high correlations \\((r &gt; 0.9)\\) among two or more predictor variables, especially when the sample size is small\n\n\n\nOne (or more) predictor variables is an almost perfect linear combination of the others\nThere is a quadratic term in the model without mean-centering the variable first\nThere are interactions between two or more continuous variables\n\nCan reduce this by mean-centering the variables first\n\nThere is a categorical predictor with very few observations in the baseline level"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#detecting-multicollinearity-in-the-eda",
+    "href": "slides/16-mlr-inference.html#detecting-multicollinearity-in-the-eda",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Detecting multicollinearity in the EDA",
+    "text": "Detecting multicollinearity in the EDA\n\nLook at a correlation matrix of the predictor variables, including all indicator variables\n\nLook out for values close to 1 or -1\n\nLook at a scatterplot matrix of the predictor variables\n\nLook out for plots that show a relatively linear relationship\n\nLook at the distribution of categorical predictors and avoid setting the baseline to a category with very few observations"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#detecting-multicollinearity-vif",
+    "href": "slides/16-mlr-inference.html#detecting-multicollinearity-vif",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Detecting Multicollinearity (VIF)",
+    "text": "Detecting Multicollinearity (VIF)\nVariance Inflation Factor (VIF): Measure of multicollinearity in the regression model\n\\[VIF(\\hat{\\beta}_j) = \\frac{1}{1-R^2_{X_j|X_{-j}}}\\]\nwhere \\(R^2_{X_j|X_{-j}}\\) is the proportion of variation \\(X\\) that is explained by the linear combination of the other explanatory variables in the model."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#detecting-multicollinearity-vif-1",
+    "href": "slides/16-mlr-inference.html#detecting-multicollinearity-vif-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Detecting Multicollinearity (VIF)",
+    "text": "Detecting Multicollinearity (VIF)\n\nTypically \\(VIF &gt; 5\\) indicates concerning multicollinearity\nVariables with similar values of VIF are typically the ones correlated with each other\nUse the vif() function in the rms R package to calculate VIF"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#vif-for-rail-trail-model",
+    "href": "slides/16-mlr-inference.html#vif-for-rail-trail-model",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "VIF for rail trail model",
+    "text": "VIF for rail trail model\n\nvif(rt_full_fit)\n\n       hightemp         avgtemp    seasonSpring    seasonSummer      cloudcover \n      10.259978       13.086175        2.751577        5.841985        1.587485 \n         precip day_typeWeekend \n       1.295352        1.125741 \n\n\n\n\nhightemp, avgtemp, and seasonSummer are correlated."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#solutions-for-multicollinearity",
+    "href": "slides/16-mlr-inference.html#solutions-for-multicollinearity",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Solutions for Multicollinearity",
+    "text": "Solutions for Multicollinearity\n\nDrop some predictors\nCombine some predictors\nDiscount the individual coefficients and t-tests (i.e. predictions are meaningful but coefficients, tests, and confidence intervals are not)\n\n\nLet’s try removing hightemp and avgtemp (separately)"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#model-without-hightemp",
+    "href": "slides/16-mlr-inference.html#model-without-hightemp",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Model without hightemp",
+    "text": "Model without hightemp\n\nm1 &lt;- lm(volume ~ . - hightemp, data = rail_trail)\n  \nm1 |&gt;\n  tidy() |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n76.071\n77.204\n0.985\n0.327\n\n\navgtemp\n6.003\n1.583\n3.792\n0.000\n\n\nseasonSpring\n34.555\n34.454\n1.003\n0.319\n\n\nseasonSummer\n13.531\n55.024\n0.246\n0.806\n\n\ncloudcover\n-12.807\n3.488\n-3.672\n0.000\n\n\nprecip\n-110.736\n44.137\n-2.509\n0.014\n\n\nday_typeWeekend\n48.420\n22.993\n2.106\n0.038"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#model-without-avgtemp",
+    "href": "slides/16-mlr-inference.html#model-without-avgtemp",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Model without avgtemp",
+    "text": "Model without avgtemp\n\nm2 &lt;- lm(volume ~ . - avgtemp, data = rail_trail)\n  \nm2 |&gt;\n  tidy() |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.421\n74.992\n0.112\n0.911\n\n\nhightemp\n5.696\n1.164\n4.895\n0.000\n\n\nseasonSpring\n31.239\n32.082\n0.974\n0.333\n\n\nseasonSummer\n9.424\n47.504\n0.198\n0.843\n\n\ncloudcover\n-8.353\n3.435\n-2.431\n0.017\n\n\nprecip\n-98.904\n42.137\n-2.347\n0.021\n\n\nday_typeWeekend\n37.062\n22.280\n1.663\n0.100"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#choosing-a-model",
+    "href": "slides/16-mlr-inference.html#choosing-a-model",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Choosing a model",
+    "text": "Choosing a model\nModel without hightemp:\n\n\n\n\n\nadj.r.squared\nAIC\nBIC\n\n\n\n\n0.42\n1087.5\n1107.5\n\n\n\n\n\nModel without avgtemp:\n\n\n\n\n\nadj.r.squared\nAIC\nBIC\n\n\n\n\n0.47\n1079.05\n1099.05\n\n\n\n\n\n\nBased on Adjusted \\(R^2\\), AIC, and BIC, the model without avgtemp is a better fit. Therefore, we choose to remove avgtemp from the model and leave hightemp in the model to deal with the multicollinearity."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#selected-model-for-now",
+    "href": "slides/16-mlr-inference.html#selected-model-for-now",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Selected model (for now)",
+    "text": "Selected model (for now)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.421\n74.992\n0.112\n0.911\n\n\nhightemp\n5.696\n1.164\n4.895\n0.000\n\n\nseasonSpring\n31.239\n32.082\n0.974\n0.333\n\n\nseasonSummer\n9.424\n47.504\n0.198\n0.843\n\n\ncloudcover\n-8.353\n3.435\n-2.431\n0.017\n\n\nprecip\n-98.904\n42.137\n-2.347\n0.021\n\n\nday_typeWeekend\n37.062\n22.280\n1.663\n0.100"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#topics-1",
+    "href": "slides/16-mlr-inference.html#topics-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Topics",
+    "text": "Topics\n\nLog transformation on the response variable\nLog transformation on the predictor variable"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#residuals-vs.-fitted-for-the-selected-model",
+    "href": "slides/16-mlr-inference.html#residuals-vs.-fitted-for-the-selected-model",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Residuals vs. fitted for the selected model",
+    "text": "Residuals vs. fitted for the selected model\n\nThe constant variance condition is not satisfied. We can transform the response variable to address the violation in this condition."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#identifying-a-need-to-transform-y",
+    "href": "slides/16-mlr-inference.html#identifying-a-need-to-transform-y",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Identifying a need to transform \\(Y\\)",
+    "text": "Identifying a need to transform \\(Y\\)\n\nTypically, a “fan-shaped” residual plot indicates the need for a transformation of the response variable \\(Y\\)\n\nThere are multiple ways to transform a variable, e.g., \\(\\sqrt{Y}\\), \\(1/Y\\), \\(\\log(Y)\\)\n\\(\\log(Y)\\) the most straightforward to interpret, so we use that transformation when possible\n\n\n\n\nWhen building a model:\n\nChoose a transformation and build the model on the transformed data\nReassess the residual plots\nIf the residuals plots did not sufficiently improve, try a new transformation!"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#log-transformation-on-y",
+    "href": "slides/16-mlr-inference.html#log-transformation-on-y",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Log transformation on \\(Y\\)",
+    "text": "Log transformation on \\(Y\\)\n\nIf we apply a log transformation to the response variable, we want to estimate the parameters for the statistical model\n\n\\[\n\\log(Y) = \\beta_0+ \\beta_1 X_1 + \\dots +\\beta_pX_p + \\epsilon, \\hspace{10mm} \\epsilon \\sim N(0,\\sigma^2_\\epsilon)\n\\]\n\nThe regression equation is\n\n\\[\\widehat{\\log(Y)} = \\hat{\\beta}_0+ \\hat{\\beta}_1 X + \\dots + \\hat{\\beta}_pX_p\\]"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#log-transformation-on-y-1",
+    "href": "slides/16-mlr-inference.html#log-transformation-on-y-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Log transformation on \\(Y\\)",
+    "text": "Log transformation on \\(Y\\)\nWe want to interpret the model in terms of the original variable \\(Y\\), not \\(\\log(Y)\\), so we need to write the regression equation in terms of \\(Y\\)\n\\[\\begin{align}\\hat{Y} &= \\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1 X + \\dots + \\hat{\\beta}_PX_P\\}\\\\ &= \\exp\\{\\hat{\\beta}_0\\}\\exp\\{\\hat{\\beta}_1X\\}\\dots\\exp\\{\\hat{\\beta}_pX_p\\}\\end{align}\\]\n\n\n\n\n\n\nNote\n\n\nThe predicted value \\(\\hat{Y}\\) is the predicted median of \\(Y\\). Note, when the distribution of \\(Y|X_1, \\ldots, X_p\\) is symmetric, then the median equals the mean. See the slides in the appendix for more detail."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#model-interpretation",
+    "href": "slides/16-mlr-inference.html#model-interpretation",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Model interpretation",
+    "text": "Model interpretation\n\\[\\begin{align}\\hat{Y} &= \\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1 X + \\dots + \\hat{\\beta}_PX_P\\}\\\\ &= \\exp\\{\\hat{\\beta}_0\\}\\exp\\{\\hat{\\beta}_1X\\}\\dots\\exp\\{\\hat{\\beta}_pX_p\\}\\end{align}\\]\n\n\nIntercept: When \\(X_1 = \\dots = X_p =0\\), \\(Y\\) is expected to be \\(\\exp\\{\\hat{\\beta}_0\\}\\)\nSlope: For every one unit increase in \\(X_j\\), the \\(Y\\) is expected to multiply by a factor of \\(\\exp\\{\\hat{\\beta}_j\\}\\), holding all else constant\n\n\nWhy is the interpretation in terms of a multiplicative change?"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#model-for-logvolume",
+    "href": "slides/16-mlr-inference.html#model-for-logvolume",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Model for \\(log(volume)\\)",
+    "text": "Model for \\(log(volume)\\)\n\n#fit model\nlog_rt_fit &lt;- lm(log(volume) ~ hightemp + season + cloudcover + precip + day_type, data = rail_trail)\n\ntidy(log_rt_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n4.738\n0.219\n21.667\n0.000\n\n\nhightemp\n0.018\n0.003\n5.452\n0.000\n\n\nseasonSpring\n0.026\n0.094\n0.283\n0.778\n\n\nseasonSummer\n-0.047\n0.139\n-0.338\n0.736\n\n\ncloudcover\n-0.025\n0.010\n-2.452\n0.016\n\n\nprecip\n-0.294\n0.123\n-2.397\n0.019\n\n\nday_typeWeekend\n0.064\n0.065\n0.987\n0.327"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#interpretation-of-model-for-logvolume",
+    "href": "slides/16-mlr-inference.html#interpretation-of-model-for-logvolume",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Interpretation of model for \\(\\log(volume)\\)",
+    "text": "Interpretation of model for \\(\\log(volume)\\)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n4.738\n0.219\n21.667\n0.000\n\n\nhightemp\n0.018\n0.003\n5.452\n0.000\n\n\nseasonSpring\n0.026\n0.094\n0.283\n0.778\n\n\nseasonSummer\n-0.047\n0.139\n-0.338\n0.736\n\n\ncloudcover\n-0.025\n0.010\n-2.452\n0.016\n\n\nprecip\n-0.294\n0.123\n-2.397\n0.019\n\n\nday_typeWeekend\n0.064\n0.065\n0.987\n0.327\n\n\n\n\n\n\n\nInterpret the intercept in terms of (1) log(volume) and (2) volume.\nInterpret the coefficient of hightemp in terms of (1) log(volume) and (2) volume."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#residuals-for-model-with-logvolume",
+    "href": "slides/16-mlr-inference.html#residuals-for-model-with-logvolume",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Residuals for model with \\(\\log(volume)\\)",
+    "text": "Residuals for model with \\(\\log(volume)\\)"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#compare-residual-plots",
+    "href": "slides/16-mlr-inference.html#compare-residual-plots",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Compare residual plots",
+    "text": "Compare residual plots"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#log-transformation-on-x",
+    "href": "slides/16-mlr-inference.html#log-transformation-on-x",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Log Transformation on \\(X\\)",
+    "text": "Log Transformation on \\(X\\)\n\nTry a transformation on \\(X\\) if the scatterplot shows some curvature but the variance is constant for all values of \\(X\\)"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#respiratory-rate-vs.-age",
+    "href": "slides/16-mlr-inference.html#respiratory-rate-vs.-age",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Respiratory Rate vs. Age",
+    "text": "Respiratory Rate vs. Age\n\nA high respiratory rate can potentially indicate a respiratory infection in children. In order to determine what indicates a “high” rate, we first want to understand the relationship between a child’s age and their respiratory rate.\nThe data contain the respiratory rate for 618 children ages 15 days to 3 years. It was obtained from the Sleuth3 R package and is originally form a 1994 publication “Reference Values for Respiratory Rate in the First 3 Years of Life”.\nVariables:\n\nAge: age in months\nRate: respiratory rate (breaths per minute)"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#rate-vs.-age",
+    "href": "slides/16-mlr-inference.html#rate-vs.-age",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Rate vs. Age",
+    "text": "Rate vs. Age"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#model-with-transformation-on-x",
+    "href": "slides/16-mlr-inference.html#model-with-transformation-on-x",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Model with Transformation on \\(X\\)",
+    "text": "Model with Transformation on \\(X\\)\nSuppose we have the following regression equation:\n\\[\\hat{Y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 \\log(X)\\]\n\n\nIntercept: When \\(X = 1\\) \\((\\log(X) = 0)\\), \\(Y\\) is expected to be \\(\\hat{\\beta}_0\\) (i.e. the mean of \\(Y\\) is \\(\\hat{\\beta}_0\\))\nSlope: When \\(X\\) is multiplied by a factor of \\(\\mathbf{C}\\), the mean of \\(Y\\) is expected to increase by \\(\\boldsymbol{\\hat{\\beta}_1}\\mathbf{\\log(C)}\\) units\n\nExample: when \\(X\\) is multiplied by a factor of 2, \\(Y\\) is expected to increase by \\(\\boldsymbol{\\hat{\\beta}_1}\\mathbf{\\log(2)}\\) units"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#model-interpretation-1",
+    "href": "slides/16-mlr-inference.html#model-interpretation-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Model interpretation",
+    "text": "Model interpretation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n50.135\n0.632\n79.330\n0\n\n\nlog(Age)\n-5.982\n0.263\n-22.781\n0\n\n\n\n\n\n\\[\\hat{\\text{Rate}} = 50.135 - 5.982 \\times \\log\\text{(Age)}\\]\n\n\nInterpret the intercept in the context of the data.\nInterpret the slope in terms of age multiplying by 2 in the context of the data."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#learn-more",
+    "href": "slides/16-mlr-inference.html#learn-more",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Learn more",
+    "text": "Learn more\nSee Log Transformations in Linear Regression for more details about interpreting regression models with log-transformed variables."
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#why-medianyx-instead-of-mu_yx",
+    "href": "slides/16-mlr-inference.html#why-medianyx-instead-of-mu_yx",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Why \\(Median(Y|X)\\) instead of \\(\\mu_{Y|X}\\)",
+    "text": "Why \\(Median(Y|X)\\) instead of \\(\\mu_{Y|X}\\)\nSuppose we have a set of values\n\nx &lt;- c(3, 5, 6, 8, 10, 14, 19)\n\n\n\n\n\nLet’s calculate \\(\\overline{\\log(x)}\\)\n\nlog_x &lt;- log(x)\nmean(log_x)\n\n[1] 2.066476\n\n\n\nLet’s calculate \\(\\log(\\bar{x})\\)\n\nxbar &lt;- mean(x)\nlog(xbar)\n\n[1] 2.228477\n\n\n\n\n\n\n\nNote: \\(\\overline{\\log(x)} \\neq \\log(\\bar{x})\\)"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#why-medianyx-instead-of-mu_yx-1",
+    "href": "slides/16-mlr-inference.html#why-medianyx-instead-of-mu_yx-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Why \\(Median(Y|X)\\) instead of \\(\\mu_{Y|X}\\)",
+    "text": "Why \\(Median(Y|X)\\) instead of \\(\\mu_{Y|X}\\)\n\nx &lt;- c(3, 5, 6, 8, 10, 14, 19)\n\n\n\n\n\nLet’s calculate \\(\\text{Median}(\\log(x))\\)\n\nlog_x &lt;- log(x)\nmedian(log_x)\n\n[1] 2.079442\n\n\n\nLet’s calculate \\(\\log(\\text{Median}(x))\\)\n\nmedian_x &lt;- median(x)\nlog(median_x)\n\n[1] 2.079442\n\n\n\n\n\n\n\nNote: \\(\\text{Median} (\\log(x)) = \\log(\\text{Median}(x))\\)"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#mean-median-and-log",
+    "href": "slides/16-mlr-inference.html#mean-median-and-log",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Mean, Median, and Log",
+    "text": "Mean, Median, and Log\n\nx &lt;- c(3, 5, 6, 8, 10, 14, 19)\n\n\\[\\overline{\\log(x)} \\neq \\log(\\bar{x})\\]\n\nmean(log_x) == log(xbar)\n\n[1] FALSE\n\n\n\n\\[\\text{Median}(\\log(x)) = \\log(\\text{Median}(x))\\]\n\nmedian(log_x) == log(median_x)\n\n[1] TRUE"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#mean-and-median-of-logy",
+    "href": "slides/16-mlr-inference.html#mean-and-median-of-logy",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Mean and median of \\(\\log(Y)\\)",
+    "text": "Mean and median of \\(\\log(Y)\\)\n\nRecall that \\(Y = \\beta_0 + \\beta_1 X\\) is the mean value of the response at the given value of the predictor \\(X\\). This doesn’t hold when we log-transform the response variable.\nMathematically, the mean of the logged values is not necessarily equal to the log of the mean value. Therefore at a given value of \\(X\\)\n\n\n\\[\n\\begin{aligned}\\exp\\{\\text{Mean}(\\log(Y|X))\\} \\neq \\text{Mean}(Y|X) \\\\[5pt]\n\\Rightarrow \\exp\\{\\beta_0 + \\beta_1 X\\} \\neq \\text{Mean}(Y|X) \\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#mean-and-median-of-logy-1",
+    "href": "slides/16-mlr-inference.html#mean-and-median-of-logy-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Mean and median of \\(\\log(y)\\)",
+    "text": "Mean and median of \\(\\log(y)\\)\n\nHowever, the median of the logged values is equal to the log of the median value. Therefore,\n\n\\[\\exp\\{\\text{Median}(\\log(Y|X))\\} = \\text{Median}(Y|X)\\]\n\n\nIf the distribution of \\(\\log(Y)\\) is symmetric about the regression line, for a given value \\(X\\), we can expect \\(Mean(Y)\\) and \\(Median(Y)\\) to be approximately equal.\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#data-credit-cards",
+    "href": "slides/16-mlr-inference.html#data-credit-cards",
+    "title": "MLR: Inference and conditions",
+    "section": "Data: Credit Cards",
+    "text": "Data: Credit Cards\nThe data is from the Credit data set in the ISLR2 R package. It is a simulated data set of 400 credit card customers.\n\n\nRows: 400\nColumns: 11\n$ Income    &lt;dbl&gt; 14.891, 106.025, 104.593, 148.924, 55.882, 80.180, 20.996, 7…\n$ Limit     &lt;dbl&gt; 3606, 6645, 7075, 9504, 4897, 8047, 3388, 7114, 3300, 6819, …\n$ Rating    &lt;dbl&gt; 283, 483, 514, 681, 357, 569, 259, 512, 266, 491, 589, 138, …\n$ Cards     &lt;dbl&gt; 2, 3, 4, 3, 2, 4, 2, 2, 5, 3, 4, 3, 1, 1, 2, 3, 3, 3, 1, 2, …\n$ Age       &lt;dbl&gt; 34, 82, 71, 36, 68, 77, 37, 87, 66, 41, 30, 64, 57, 49, 75, …\n$ Education &lt;dbl&gt; 11, 15, 11, 11, 16, 10, 12, 9, 13, 19, 14, 16, 7, 9, 13, 15,…\n$ Own       &lt;fct&gt; No, Yes, No, Yes, No, No, Yes, No, Yes, Yes, No, No, Yes, No…\n$ Student   &lt;fct&gt; No, Yes, No, No, No, No, No, No, No, Yes, No, No, No, No, No…\n$ Married   &lt;fct&gt; Yes, Yes, No, No, Yes, No, No, No, No, Yes, Yes, No, Yes, Ye…\n$ Region    &lt;fct&gt; South, West, West, West, South, South, East, West, South, Ea…\n$ Balance   &lt;dbl&gt; 333, 903, 580, 964, 331, 1151, 203, 872, 279, 1350, 1407, 0,…"
+  },
+  {
+    "objectID": "slides/16-mlr-inference.html#mlr-hypothesis-test-income",
+    "href": "slides/16-mlr-inference.html#mlr-hypothesis-test-income",
+    "title": "MLR: Inference and conditions",
+    "section": "MLR hypothesis test: Income",
+    "text": "MLR hypothesis test: Income\n\nSet hypotheses: \\(H_0: \\beta_{Income} = 0\\) vs. \\(H_A: \\beta_{Income} \\ne 0\\), given Rating is in the model\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t = 1.32\\). The p-value is calculated using a \\(t\\) distribution with \\[(n - p - 1) = 400 - 2 -1 = 398\\] degrees of freedom. The p-value is \\(\\approx 0.19\\).\n\n\n\n\nState the conclusion: The p-value is not small, so we fail to reject \\(H_0\\). The data does not provide convincing evidence that a borrowers income is a useful predictor in a model that already contains credit rating as a predictor for the credit limit of a borrower.\n\n\nComplete Exercises 1-2."
+  },
+  {
+    "objectID": "ae/ae-11-mlr-inference.html",
+    "href": "ae/ae-11-mlr-inference.html",
+    "title": "AE 11: Inference for Multiple Linear Regression",
+    "section": "",
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-11”.\nGo to the Canvas and locate your AE-11 assignment to get started.\nUpload the ae-11.qmd file into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment."
+  },
+  {
+    "objectID": "ae/ae-11-mlr-inference.html#packages-data",
+    "href": "ae/ae-11-mlr-inference.html#packages-data",
+    "title": "AE 11: Inference for Multiple Linear Regression",
+    "section": "Packages + data",
+    "text": "Packages + data\n\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(knitr)\nlibrary(ISLR2)\nlibrary(GGally)\nlibrary(yardstick)\n\nThe data for this AE is from the Credit data set in the ISLR2 R package. It is a simulated data set of 400 credit card customers. We will focus on the following variables:\nPredictors\n\nIncome: Annual income (in 1000’s of US dollars)\nRating: Credit Rating\n\nResponse\n\nLimit: Credit limit"
+  },
+  {
+    "objectID": "ae/ae-11-mlr-inference.html#analysis-goal",
+    "href": "ae/ae-11-mlr-inference.html#analysis-goal",
+    "title": "AE 11: Inference for Multiple Linear Regression",
+    "section": "Analysis goal",
+    "text": "Analysis goal\nThe goals of this activity are to:\n\nPerform inference for multiple linear regression\nConduct/interpret hypothesis tests\nConstruct/interpret confidence intervals"
+  },
+  {
+    "objectID": "ae/ae-11-mlr-inference.html#exercise-0",
+    "href": "ae/ae-11-mlr-inference.html#exercise-0",
+    "title": "AE 11: Inference for Multiple Linear Regression",
+    "section": "Exercise 0",
+    "text": "Exercise 0\nFit and display two linear regression models predicting Limit from Income and Rating. In one, include an interaction term between the two variables and in the other, do not."
+  },
+  {
+    "objectID": "ae/ae-11-mlr-inference.html#exercise-1",
+    "href": "ae/ae-11-mlr-inference.html#exercise-1",
+    "title": "AE 11: Inference for Multiple Linear Regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nConsider the model without an interaction term. Perform a hypothesis test on Rating (fill in the blanks where appropriate:\n\nSet hypothesis: \\(H_0: \\beta_{Rating} [fill in]\\) vs. \\(\\beta_{Rating} [fill in]\\). Restate these hypothesis in words: [fill in]\nCalculate test statistics and p-value:  The test statistic is \\([fill in]\\). The p-value is \\([fill in]\\).\nState the conclusion: [fill in]"
+  },
+  {
+    "objectID": "ae/ae-11-mlr-inference.html#to-submit-the-ae",
+    "href": "ae/ae-11-mlr-inference.html#to-submit-the-ae",
+    "title": "AE 11: Inference for Multiple Linear Regression",
+    "section": "To submit the AE",
+    "text": "To submit the AE\n\n\n\n\n\n\nImportant\n\n\n\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html",
+    "href": "slides/10-mlr-inference-old.html",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "",
+    "text": "Inference for multiple linear regression\nChecking model conditions\nVariable transformations"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#topics",
+    "href": "slides/10-mlr-inference-old.html#topics",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "",
+    "text": "Inference for multiple linear regression\nChecking model conditions\nVariable transformations"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#computational-setup",
+    "href": "slides/10-mlr-inference-old.html#computational-setup",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.2.0 ──\n\n\n✔ dials        1.3.0     ✔ rsample      1.2.1\n✔ infer        1.0.7     ✔ tune         1.2.1\n✔ modeldata    1.4.0     ✔ workflows    1.1.4\n✔ parsnip      1.2.1     ✔ workflowsets 1.1.0\n✔ recipes      1.1.0     ✔ yardstick    1.3.1\n\n\n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ scales::discard()        masks purrr::discard()\n✖ dplyr::filter()          masks stats::filter()\n✖ recipes::fixed()         masks stringr::fixed()\n✖ kableExtra::group_rows() masks dplyr::group_rows()\n✖ dplyr::lag()             masks stats::lag()\n✖ yardstick::spec()        masks readr::spec()\n✖ Hmisc::src()             masks dplyr::src()\n✖ recipes::step()          masks stats::step()\n✖ Hmisc::summarize()       masks dplyr::summarize()\n✖ parsnip::translate()     masks Hmisc::translate()\n• Use tidymodels_prefer() to resolve common conflicts.\n\nlibrary(ggformula)\nlibrary(broom)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(countdown)\nlibrary(rms)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#data-rail_trail",
+    "href": "slides/10-mlr-inference-old.html#data-rail_trail",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Data: rail_trail",
+    "text": "Data: rail_trail\n\n\nThe Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.\nData collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.\n\n\n\n\nRows: 90 Columns: 7\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): season, day_type\ndbl (5): volume, hightemp, avgtemp, cloudcover, precip\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\n\n\nvolume\nhightemp\navgtemp\nseason\ncloudcover\nprecip\nday_type\n\n\n\n\n501\n83\n66.5\nSummer\n7.6\n0.00\nWeekday\n\n\n419\n73\n61.0\nSummer\n6.3\n0.29\nWeekday\n\n\n397\n74\n63.0\nSpring\n7.5\n0.32\nWeekday\n\n\n385\n95\n78.0\nSummer\n2.6\n0.00\nWeekend\n\n\n200\n44\n48.0\nSpring\n10.0\n0.14\nWeekday\n\n\n375\n69\n61.5\nSpring\n6.6\n0.02\nWeekday\n\n\n417\n66\n52.5\nSpring\n2.4\n0.00\nWeekday\n\n\n629\n66\n52.0\nSpring\n0.0\n0.00\nWeekend\n\n\n533\n80\n67.5\nSummer\n3.8\n0.00\nWeekend\n\n\n547\n79\n62.0\nSummer\n4.1\n0.00\nWeekday\n\n\n\n\n\nSource: Pioneer Valley Planning Commission via the mosaicData package."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#variables",
+    "href": "slides/10-mlr-inference-old.html#variables",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Variables",
+    "text": "Variables\nOutcome:\nvolume estimated number of trail users that day (number of breaks recorded)\n. . .\nPredictors\n\n\nhightemp daily high temperature (in degrees Fahrenheit)\navgtemp average of daily low and daily high temperature (in degrees Fahrenheit)\nseason one of “Fall”, “Spring”, or “Summer”\ncloudcover measure of cloud cover (in oktas)\nprecip measure of precipitation (in inches)\nday_type one of “weekday” or “weekend”"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#review-simple-linear-regression-slr",
+    "href": "slides/10-mlr-inference-old.html#review-simple-linear-regression-slr",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Review: Simple linear regression (SLR)",
+    "text": "Review: Simple linear regression (SLR)\n\ngf_point(volume ~ hightemp, data = rail_trail, alpha = 0.5) |&gt; \n  gf_lm()  |&gt; \n  gf_labs(x = \"High temp (F)\", y = \"Number of riders\")\n\nWarning: Using the `size` aesthetic with geom_line was deprecated in ggplot2 3.4.0.\nℹ Please use the `linewidth` aesthetic instead."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#slr-model-summary",
+    "href": "slides/10-mlr-inference-old.html#slr-model-summary",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "SLR model summary",
+    "text": "SLR model summary\n\nrt_slr_fit &lt;- lm(volume ~ hightemp, data = rail_trail)\n\ntidy(rt_slr_fit) |&gt; kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-17.08\n59.40\n-0.29\n0.77\n\n\nhightemp\n5.70\n0.85\n6.72\n0.00"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#slr-hypothesis-test",
+    "href": "slides/10-mlr-inference-old.html#slr-hypothesis-test",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "SLR hypothesis test",
+    "text": "SLR hypothesis test\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-17.08\n59.40\n-0.29\n0.77\n\n\nhightemp\n5.70\n0.85\n6.72\n0.00\n\n\n\n\n\n\nSet hypotheses: \\(H_0: \\beta_1 = 0\\) vs. \\(H_A: \\beta_1 \\ne 0\\)\n\n. . .\n\nCalculate test statistic and p-value: The test statistic is \\(t= 6.72\\) . The p-value is calculated using a \\(t\\) distribution with 88 degrees of freedom. The p-value is \\(\\approx 0\\) .\n\n. . .\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that high temperature is a helpful predictor for the number of daily riders, i.e. there is a linear relationship between high temperature and number of daily riders."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#multiple-linear-regression",
+    "href": "slides/10-mlr-inference-old.html#multiple-linear-regression",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\n\nrt_mlr_main_fit &lt;- lm(volume ~ hightemp + season, data = rail_trail)\n\ntidy(rt_mlr_main_fit) |&gt; kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#multiple-linear-regression-1",
+    "href": "slides/10-mlr-inference-old.html#multiple-linear-regression-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\nThe multiple linear regression model assumes \\[Y|X_1, X_2,  \\ldots, X_p \\sim N(\\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\dots + \\beta_p X_p, \\sigma_\\epsilon^2)\\]\n. . .\nFor a given observation \\((x_{i1}, x_{i2}, \\ldots, x_{ip}, y_i)\\), we can rewrite the previous statement as\n\\[y_i = \\beta_0 + \\beta_1 x_{i1} + \\beta_2 x_{i2} + \\dots + \\beta_p x_{ip} + \\epsilon_{i} \\hspace{10mm} \\epsilon_i \\sim N(0,\\sigma_{\\epsilon}^2)\\]"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#estimating-sigma_epsilon",
+    "href": "slides/10-mlr-inference-old.html#estimating-sigma_epsilon",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Estimating \\(\\sigma_\\epsilon\\)",
+    "text": "Estimating \\(\\sigma_\\epsilon\\)\nFor a given observation \\((x_{i1}, x_{i2}, \\ldots,x_{ip}, y_i)\\) the residual is \\[\n\\begin{aligned}\ne_i &= y_{i} - \\hat{y_i}\\\\\n&= y_i - (\\hat{\\beta}_0 + \\hat{\\beta}_1 x_{i1} + \\hat{\\beta}_{2} x_{i2} + \\dots + \\hat{\\beta}_p x_{ip})\n\\end{aligned}\n\\]\n. . .\nThe estimated value of the regression standard error , \\(\\sigma_{\\epsilon}\\), is\n\\[\\hat{\\sigma}_\\epsilon  = \\sqrt{\\frac{\\sum_{i=1}^ne_i^2}{n-p-1}}\\]\n. . .\nAs with SLR, we use \\(\\hat{\\sigma}_{\\epsilon}\\) to calculate \\(SE_{\\hat{\\beta}_j}\\), the standard error of each coefficient. See Matrix Form of Linear Regression for more detail."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#mlr-hypothesis-test-hightemp",
+    "href": "slides/10-mlr-inference-old.html#mlr-hypothesis-test-hightemp",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "MLR hypothesis test: hightemp",
+    "text": "MLR hypothesis test: hightemp\n\nSet hypotheses: \\(H_0: \\beta_{hightemp} = 0\\) vs. \\(H_A: \\beta_{hightemp} \\ne 0\\), given season is in the model\n\n. . .\n\nCalculate test statistic and p-value: The test statistic is \\(t = 6.43\\). The p-value is calculated using a \\(t\\) distribution with 86 \\((n - p - 1)\\) degrees of freedom. The p-value is \\(\\approx 0\\).\n\n. . .\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that high temperature for the day is a useful predictor in a model that already contains the season as a predictor for number of daily riders."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#the-model-for-season-spring",
+    "href": "slides/10-mlr-inference-old.html#the-model-for-season-spring",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "The model for season = Spring",
+    "text": "The model for season = Spring\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n\n\n\n\n\n\n. . .\n\\[\n\\begin{aligned}\n\\widehat{volume} &= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times \\texttt{seasonSpring} - 76.84 \\times \\texttt{seasonSummer} \\\\\n&= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times 1 - 76.84 \\times 0 \\\\\n&= -120.10 + 7.54 \\times \\texttt{hightemp}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#the-model-for-season-summer",
+    "href": "slides/10-mlr-inference-old.html#the-model-for-season-summer",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "The model for season = Summer",
+    "text": "The model for season = Summer\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n\n\n\n\n\n\n. . .\n\\[\n\\begin{aligned}\n\\widehat{volume} &= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times \\texttt{seasonSpring} - 76.84 \\times \\texttt{seasonSummer} \\\\\n&= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times 0 - 76.84 \\times 1 \\\\\n&= -202.07 + 7.54 \\times \\texttt{hightemp}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#the-model-for-season-fall",
+    "href": "slides/10-mlr-inference-old.html#the-model-for-season-fall",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "The model for season = Fall",
+    "text": "The model for season = Fall\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n\n\n\n\n\n\n. . .\n\\[\n\\begin{aligned}\n\\widehat{volume} &= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times \\texttt{seasonSpring} - 76.84 \\times \\texttt{seasonSummer} \\\\\n&= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times 0 - 76.84 \\times 0 \\\\\n&= -125.23 + 7.54 \\times \\texttt{hightemp}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#the-models",
+    "href": "slides/10-mlr-inference-old.html#the-models",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "The models",
+    "text": "The models\nSame slope, different intercepts\n\nseason = Spring: \\(-120.10 + 7.54 \\times \\texttt{hightemp}\\)\nseason = Summer: \\(-202.07 + 7.54 \\times \\texttt{hightemp}\\)\nseason = Fall: \\(-125.23 + 7.54 \\times \\texttt{hightemp}\\)"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#interaction-terms",
+    "href": "slides/10-mlr-inference-old.html#interaction-terms",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Interaction terms",
+    "text": "Interaction terms\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-10.53\n166.80\n-0.06\n0.95\n\n\nhightemp\n5.48\n2.95\n1.86\n0.07\n\n\nseasonSpring\n-293.95\n190.33\n-1.54\n0.13\n\n\nseasonSummer\n354.18\n255.08\n1.39\n0.17\n\n\nhightemp:seasonSpring\n4.88\n3.26\n1.50\n0.14\n\n\nhightemp:seasonSummer\n-4.54\n3.75\n-1.21\n0.23\n\n\n\n\n\n\n\n\nDo the data provide evidence of a significant interaction effect? Comment on the significance of the interaction terms."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#confidence-interval-for-beta_j-1",
+    "href": "slides/10-mlr-inference-old.html#confidence-interval-for-beta_j-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\nThe \\(C\\%\\) confidence interval for \\(\\beta_j\\) \\[\\hat{\\beta}_j \\pm t^* SE(\\hat{\\beta}_j)\\] where \\(t^*\\) follows a \\(t\\) distribution with \\(n - p - 1\\) degrees of freedom.\nGenerically: We are \\(C\\%\\) confident that the interval LB to UB contains the population coefficient of \\(x_j\\).\nIn context: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), we expect \\(y\\) to change by LB to UB units, holding all else constant."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#confidence-interval-for-beta_j-2",
+    "href": "slides/10-mlr-inference-old.html#confidence-interval-for-beta_j-2",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\ntidy(rt_mlr_main_fit, conf.int = TRUE) |&gt;\n  kable(\"html\", digits = 2) |&gt; kable_styling(font_size = 24)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n-267.68\n17.22\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n5.21\n9.87\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n-63.10\n73.36\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n-171.68\n18.00"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#ci-for-hightemp",
+    "href": "slides/10-mlr-inference-old.html#ci-for-hightemp",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "CI for hightemp",
+    "text": "CI for hightemp\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n-267.68\n17.22\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n5.21\n9.87\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n-63.10\n73.36\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n-171.68\n18.00\n\n\n\n\n\n\n\n\nWe are 95% confident that for every degree Fahrenheit the day is warmer, the number of riders increases by 5.21 to 9.87, on average, holding season constant."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#ci-for-seasonspring",
+    "href": "slides/10-mlr-inference-old.html#ci-for-seasonspring",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "CI for seasonSpring",
+    "text": "CI for seasonSpring\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n-267.68\n17.22\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n5.21\n9.87\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n-63.10\n73.36\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n-171.68\n18.00\n\n\n\n\n\n\n\n\nWe are 95% confident that the number of riders on a Spring day is lower by 63.1 to higher by 73.4 compared to a Fall day, on average, holding high temperature for the day constant.\n. . .\n\nIs season a significant predictor of the number of riders, after accounting for high temperature?"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#large-sample-sizes",
+    "href": "slides/10-mlr-inference-old.html#large-sample-sizes",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Large sample sizes",
+    "text": "Large sample sizes\n\n\n\n\n\n\nCaution\n\n\n\nIf the sample size is large enough, the test will likely result in rejecting \\(H_0: \\beta_j = 0\\) even \\(x_j\\) has a very small effect on \\(y\\).\n\n\nConsider the practical significance of the result not just the statistical significance.\nUse the confidence interval to draw conclusions instead of relying only p-values."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#small-sample-sizes",
+    "href": "slides/10-mlr-inference-old.html#small-sample-sizes",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Small sample sizes",
+    "text": "Small sample sizes\n\n\n\n\n\n\nCaution\n\n\n\nIf the sample size is small, there may not be enough evidence to reject \\(H_0: \\beta_j=0\\).\n\n\nWhen you fail to reject the null hypothesis, DON’T immediately conclude that the variable has no association with the response.\nThere may be a linear association that is just not strong enough to detect given your data, or there may be a non-linear association."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#full-model",
+    "href": "slides/10-mlr-inference-old.html#full-model",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Full model",
+    "text": "Full model\nIncluding all available predictors\nFit:\n\nrt_full_fit &lt;- lm(volume ~ ., data = rail_trail)\n\n. . .\nSummarize:\n\ntidy(rt_full_fit)\n\n# A tibble: 8 × 5\n  term            estimate std.error statistic p.value\n  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n1 (Intercept)        17.6      76.6      0.230 0.819  \n2 hightemp            7.07      2.42     2.92  0.00450\n3 avgtemp            -2.04      3.14    -0.648 0.519  \n4 seasonSpring       35.9      33.0      1.09  0.280  \n5 seasonSummer       24.2      52.8      0.457 0.649  \n6 cloudcover         -7.25      3.84    -1.89  0.0627 \n7 precip            -95.7      42.6     -2.25  0.0273 \n8 day_typeWeekend    35.9      22.4      1.60  0.113  \n\n\n. . .\nAugment:\n\nrt_full_aug &lt;- augment(rt_full_fit)"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#model-conditions",
+    "href": "slides/10-mlr-inference-old.html#model-conditions",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Model conditions",
+    "text": "Model conditions\n\nLinearity: There is a linear relationship between the response and predictor variables.\nConstant Variance: The variability about the least squares line is generally constant.\nNormality: The distribution of the residuals is approximately normal.\nIndependence: The residuals are independent from each other."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#checking-linearity",
+    "href": "slides/10-mlr-inference-old.html#checking-linearity",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Checking Linearity",
+    "text": "Checking Linearity\n\nLook at a plot of the residuals vs. predicted values\nLook at a plot of the residuals vs. each predictor\nLinearity is met if there is no discernible pattern in each of these plots"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#residuals-vs.-predicted-values",
+    "href": "slides/10-mlr-inference-old.html#residuals-vs.-predicted-values",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Residuals vs. predicted values",
+    "text": "Residuals vs. predicted values\n\ngf_point(.resid ~ .fitted, data = rt_full_aug, alpha = 0.7) |&gt; \n  gf_hline(yintercept = 0, color = \"red\", linetype = \"dashed\") |&gt; \n  gf_labs(x = \"Predicted values\", y = \"Residuals\")"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#residuals-vs.-each-predictor",
+    "href": "slides/10-mlr-inference-old.html#residuals-vs.-each-predictor",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Residuals vs. each predictor",
+    "text": "Residuals vs. each predictor"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#checking-linearity-1",
+    "href": "slides/10-mlr-inference-old.html#checking-linearity-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Checking linearity",
+    "text": "Checking linearity\n\nThe plot of the residuals vs. predicted values looked OK\nThe plots of residuals vs. hightemp and avgtemp appear to have a parabolic pattern.\nThe linearity condition does not appear to be satisfied given these plots.\n\n. . .\n\nGiven this conclusion, what might be a next step in the analysis?"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#checking-constant-variance",
+    "href": "slides/10-mlr-inference-old.html#checking-constant-variance",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Checking constant variance",
+    "text": "Checking constant variance\n\nDoes the constant variance condition appear to be satisfied?"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#checking-constant-variance-1",
+    "href": "slides/10-mlr-inference-old.html#checking-constant-variance-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Checking constant variance",
+    "text": "Checking constant variance\n\nThe vertical spread of the residuals is not constant across the plot.\nThe constant variance condition is not satisfied.\n\n. . .\n\nWe will talk about to address this later in the notes."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#checking-normality",
+    "href": "slides/10-mlr-inference-old.html#checking-normality",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Checking normality",
+    "text": "Checking normality\n\n\n\n\n\n\n\n\n\nThe distribution of the residuals is approximately unimodal and symmetric, so the normality condition is satisfied. The sample size 90 is sufficiently large to relax this condition if it was not satisfied."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#checking-independence",
+    "href": "slides/10-mlr-inference-old.html#checking-independence",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Checking independence",
+    "text": "Checking independence\n\nWe can often check the independence condition based on the context of the data and how the observations were collected.\nIf the data were collected in a particular order, examine a scatterplot of the residuals versus order in which the data were collected.\nIf there is a grouping variable lurking in the background, check the residuals based on that grouping variable."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#checking-independence-1",
+    "href": "slides/10-mlr-inference-old.html#checking-independence-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Checking independence",
+    "text": "Checking independence\nResiduals vs. order of data collection:\n\ngf_line(.resid ~ 1:nrow(rt_full_aug), data = rt_full_aug) |&gt; \n  gf_point()  |&gt; \n  gf_hline(yintercept = 0, color = \"red\", linetype = \"dashed\")  |&gt; \n  gf_labs(x = \"Order of data collection\", y = \"Residuals\")"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#checking-independence-2",
+    "href": "slides/10-mlr-inference-old.html#checking-independence-2",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Checking independence",
+    "text": "Checking independence\n\nNo clear pattern in the residuals vs. order of data collection plot.\nIndependence condition appears to be satisfied, as far as we can evaluate it."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#what-is-multicollinearity",
+    "href": "slides/10-mlr-inference-old.html#what-is-multicollinearity",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "What is multicollinearity",
+    "text": "What is multicollinearity\nMulticollinearity is the case when two or more predictor variables are strongly correlated with one another"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#example",
+    "href": "slides/10-mlr-inference-old.html#example",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Example",
+    "text": "Example\nLet’s assume the true population regression equation is \\(y = 3 + 4x\\)\n. . .\nSuppose we try estimating that equation using a model with variables \\(x\\) and \\(z = x/10\\)\n\\[\n\\begin{aligned}\\hat{y}&= \\hat{\\beta}_0 + \\hat{\\beta}_1x  + \\hat{\\beta}_2z\\\\\n&= \\hat{\\beta}_0 + \\hat{\\beta}_1x  + \\hat{\\beta}_2\\frac{x}{10}\\\\\n&= \\hat{\\beta}_0 + \\bigg(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10}\\bigg)x\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#example-1",
+    "href": "slides/10-mlr-inference-old.html#example-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Example",
+    "text": "Example\n\\[\\hat{y} = \\hat{\\beta}_0 + \\bigg(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10}\\bigg)x\\]\n\nWe can set \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_2\\) to any two numbers such that \\(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10} = 4\\)\nTherefore, we are unable to choose the “best” combination of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_2\\)"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#why-multicollinearity-is-a-problem",
+    "href": "slides/10-mlr-inference-old.html#why-multicollinearity-is-a-problem",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Why multicollinearity is a problem",
+    "text": "Why multicollinearity is a problem\n\nWhen we have perfect collinearities, we are unable to get estimates for the coefficients\n\nWhen we have almost perfect collinearities (i.e. highly correlated predictor variables), the standard errors for our regression coefficients inflate\nIn other words, we lose precision in our estimates of the regression coefficients\nThis impedes our ability to use the model for inference\nIt is also difficult to interpret the model coefficients"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#detecting-multicollinearity",
+    "href": "slides/10-mlr-inference-old.html#detecting-multicollinearity",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Detecting Multicollinearity",
+    "text": "Detecting Multicollinearity\nMulticollinearity may occur when…\n\nThere are very high correlations \\((r &gt; 0.9)\\) among two or more predictor variables, especially when the sample size is small\n\n\n\nOne (or more) predictor variables is an almost perfect linear combination of the others\nThere is a quadratic term in the model without mean-centering the variable first\nThere are interactions between two or more continuous variables\n\nCan reduce this by mean-centering the variables first\n\nThere is a categorical predictor with very few observations in the baseline level"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#detecting-multicollinearity-in-the-eda",
+    "href": "slides/10-mlr-inference-old.html#detecting-multicollinearity-in-the-eda",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Detecting multicollinearity in the EDA",
+    "text": "Detecting multicollinearity in the EDA\n\nLook at a correlation matrix of the predictor variables, including all indicator variables\n\nLook out for values close to 1 or -1\n\nLook at a scatterplot matrix of the predictor variables\n\nLook out for plots that show a relatively linear relationship\n\nLook at the distribution of categorical predictors and avoid setting the baseline to a category with very few observations"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#detecting-multicollinearity-vif",
+    "href": "slides/10-mlr-inference-old.html#detecting-multicollinearity-vif",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Detecting Multicollinearity (VIF)",
+    "text": "Detecting Multicollinearity (VIF)\nVariance Inflation Factor (VIF): Measure of multicollinearity in the regression model\n\\[VIF(\\hat{\\beta}_j) = \\frac{1}{1-R^2_{X_j|X_{-j}}}\\]\nwhere \\(R^2_{X_j|X_{-j}}\\) is the proportion of variation \\(X\\) that is explained by the linear combination of the other explanatory variables in the model."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#detecting-multicollinearity-vif-1",
+    "href": "slides/10-mlr-inference-old.html#detecting-multicollinearity-vif-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Detecting Multicollinearity (VIF)",
+    "text": "Detecting Multicollinearity (VIF)\n\nTypically \\(VIF &gt; 5\\) indicates concerning multicollinearity\nVariables with similar values of VIF are typically the ones correlated with each other\nUse the vif() function in the rms R package to calculate VIF"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#vif-for-rail-trail-model",
+    "href": "slides/10-mlr-inference-old.html#vif-for-rail-trail-model",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "VIF for rail trail model",
+    "text": "VIF for rail trail model\n\nvif(rt_full_fit)\n\n       hightemp         avgtemp    seasonSpring    seasonSummer      cloudcover \n      10.259978       13.086175        2.751577        5.841985        1.587485 \n         precip day_typeWeekend \n       1.295352        1.125741 \n\n\n\n. . .\nhightemp, avgtemp, and seasonSummer are correlated."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#solutions-for-multicollinearity",
+    "href": "slides/10-mlr-inference-old.html#solutions-for-multicollinearity",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Solutions for Multicollinearity",
+    "text": "Solutions for Multicollinearity\n\nDrop some predictors\nCombine some predictors\nDiscount the individual coefficients and t-tests (i.e. predictions are meaningful but coefficients, tests, and confidence intervals are not)\n\n. . .\nLet’s try removing hightemp and avgtemp (separately)"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#model-without-hightemp",
+    "href": "slides/10-mlr-inference-old.html#model-without-hightemp",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Model without hightemp",
+    "text": "Model without hightemp\n\nm1 &lt;- lm(volume ~ . - hightemp, data = rail_trail)\n  \nm1 |&gt;\n  tidy() |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n76.071\n77.204\n0.985\n0.327\n\n\navgtemp\n6.003\n1.583\n3.792\n0.000\n\n\nseasonSpring\n34.555\n34.454\n1.003\n0.319\n\n\nseasonSummer\n13.531\n55.024\n0.246\n0.806\n\n\ncloudcover\n-12.807\n3.488\n-3.672\n0.000\n\n\nprecip\n-110.736\n44.137\n-2.509\n0.014\n\n\nday_typeWeekend\n48.420\n22.993\n2.106\n0.038"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#model-without-avgtemp",
+    "href": "slides/10-mlr-inference-old.html#model-without-avgtemp",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Model without avgtemp",
+    "text": "Model without avgtemp\n\nm2 &lt;- lm(volume ~ . - avgtemp, data = rail_trail)\n  \nm2 |&gt;\n  tidy() |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.421\n74.992\n0.112\n0.911\n\n\nhightemp\n5.696\n1.164\n4.895\n0.000\n\n\nseasonSpring\n31.239\n32.082\n0.974\n0.333\n\n\nseasonSummer\n9.424\n47.504\n0.198\n0.843\n\n\ncloudcover\n-8.353\n3.435\n-2.431\n0.017\n\n\nprecip\n-98.904\n42.137\n-2.347\n0.021\n\n\nday_typeWeekend\n37.062\n22.280\n1.663\n0.100"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#choosing-a-model",
+    "href": "slides/10-mlr-inference-old.html#choosing-a-model",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Choosing a model",
+    "text": "Choosing a model\nModel without hightemp:\n\n\n\n\n\nadj.r.squared\nAIC\nBIC\n\n\n\n\n0.42\n1087.5\n1107.5\n\n\n\n\n\nModel without avgtemp:\n\n\n\n\n\nadj.r.squared\nAIC\nBIC\n\n\n\n\n0.47\n1079.05\n1099.05\n\n\n\n\n\n. . .\nBased on Adjusted \\(R^2\\), AIC, and BIC, the model without avgtemp is a better fit. Therefore, we choose to remove avgtemp from the model and leave hightemp in the model to deal with the multicollinearity."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#selected-model-for-now",
+    "href": "slides/10-mlr-inference-old.html#selected-model-for-now",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Selected model (for now)",
+    "text": "Selected model (for now)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.421\n74.992\n0.112\n0.911\n\n\nhightemp\n5.696\n1.164\n4.895\n0.000\n\n\nseasonSpring\n31.239\n32.082\n0.974\n0.333\n\n\nseasonSummer\n9.424\n47.504\n0.198\n0.843\n\n\ncloudcover\n-8.353\n3.435\n-2.431\n0.017\n\n\nprecip\n-98.904\n42.137\n-2.347\n0.021\n\n\nday_typeWeekend\n37.062\n22.280\n1.663\n0.100"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#topics-1",
+    "href": "slides/10-mlr-inference-old.html#topics-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Topics",
+    "text": "Topics\n\nLog transformation on the response variable\nLog transformation on the predictor variable"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#residuals-vs.-fitted-for-the-selected-model",
+    "href": "slides/10-mlr-inference-old.html#residuals-vs.-fitted-for-the-selected-model",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Residuals vs. fitted for the selected model",
+    "text": "Residuals vs. fitted for the selected model\n\n\n\n\n\n\n\n\n\nThe constant variance condition is not satisfied. We can transform the response variable to address the violation in this condition."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#identifying-a-need-to-transform-y",
+    "href": "slides/10-mlr-inference-old.html#identifying-a-need-to-transform-y",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Identifying a need to transform \\(Y\\)",
+    "text": "Identifying a need to transform \\(Y\\)\n\nTypically, a “fan-shaped” residual plot indicates the need for a transformation of the response variable \\(Y\\)\n\nThere are multiple ways to transform a variable, e.g., \\(\\sqrt{Y}\\), \\(1/Y\\), \\(\\log(Y)\\)\n\\(\\log(Y)\\) the most straightforward to interpret, so we use that transformation when possible\n\n\n. . .\n\nWhen building a model:\n\nChoose a transformation and build the model on the transformed data\nReassess the residual plots\nIf the residuals plots did not sufficiently improve, try a new transformation!"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#log-transformation-on-y",
+    "href": "slides/10-mlr-inference-old.html#log-transformation-on-y",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Log transformation on \\(Y\\)",
+    "text": "Log transformation on \\(Y\\)\n\nIf we apply a log transformation to the response variable, we want to estimate the parameters for the statistical model\n\n\\[\n\\log(Y) = \\beta_0+ \\beta_1 X_1 + \\dots +\\beta_pX_p + \\epsilon, \\hspace{10mm} \\epsilon \\sim N(0,\\sigma^2_\\epsilon)\n\\]\n\nThe regression equation is\n\n\\[\\widehat{\\log(Y)} = \\hat{\\beta}_0+ \\hat{\\beta}_1 X + \\dots + \\hat{\\beta}_pX_p\\]"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#log-transformation-on-y-1",
+    "href": "slides/10-mlr-inference-old.html#log-transformation-on-y-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Log transformation on \\(Y\\)",
+    "text": "Log transformation on \\(Y\\)\nWe want to interpret the model in terms of the original variable \\(Y\\), not \\(\\log(Y)\\), so we need to write the regression equation in terms of \\(Y\\)\n\\[\\begin{align}\\hat{Y} &= \\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1 X + \\dots + \\hat{\\beta}_PX_P\\}\\\\ &= \\exp\\{\\hat{\\beta}_0\\}\\exp\\{\\hat{\\beta}_1X\\}\\dots\\exp\\{\\hat{\\beta}_pX_p\\}\\end{align}\\]\n\n\n\n\n\n\nNote\n\n\n\nThe predicted value \\(\\hat{Y}\\) is the predicted median of \\(Y\\). Note, when the distribution of \\(Y|X_1, \\ldots, X_p\\) is symmetric, then the median equals the mean. See the slides in the appendix for more detail."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#model-interpretation",
+    "href": "slides/10-mlr-inference-old.html#model-interpretation",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Model interpretation",
+    "text": "Model interpretation\n\\[\\begin{align}\\hat{Y} &= \\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1 X + \\dots + \\hat{\\beta}_PX_P\\}\\\\ &= \\exp\\{\\hat{\\beta}_0\\}\\exp\\{\\hat{\\beta}_1X\\}\\dots\\exp\\{\\hat{\\beta}_pX_p\\}\\end{align}\\]\n. . .\n\nIntercept: When \\(X_1 = \\dots = X_p =0\\), \\(Y\\) is expected to be \\(\\exp\\{\\hat{\\beta}_0\\}\\)\nSlope: For every one unit increase in \\(X_j\\), the \\(Y\\) is expected to multiply by a factor of \\(\\exp\\{\\hat{\\beta}_j\\}\\), holding all else constant\n\n\nWhy is the interpretation in terms of a multiplicative change?"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#model-for-logvolume",
+    "href": "slides/10-mlr-inference-old.html#model-for-logvolume",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Model for \\(log(volume)\\)",
+    "text": "Model for \\(log(volume)\\)\n\n#fit model\nlog_rt_fit &lt;- lm(log(volume) ~ hightemp + season + cloudcover + precip + day_type, data = rail_trail)\n\ntidy(log_rt_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n4.738\n0.219\n21.667\n0.000\n\n\nhightemp\n0.018\n0.003\n5.452\n0.000\n\n\nseasonSpring\n0.026\n0.094\n0.283\n0.778\n\n\nseasonSummer\n-0.047\n0.139\n-0.338\n0.736\n\n\ncloudcover\n-0.025\n0.010\n-2.452\n0.016\n\n\nprecip\n-0.294\n0.123\n-2.397\n0.019\n\n\nday_typeWeekend\n0.064\n0.065\n0.987\n0.327"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#interpretation-of-model-for-logvolume",
+    "href": "slides/10-mlr-inference-old.html#interpretation-of-model-for-logvolume",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Interpretation of model for \\(\\log(volume)\\)",
+    "text": "Interpretation of model for \\(\\log(volume)\\)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n4.738\n0.219\n21.667\n0.000\n\n\nhightemp\n0.018\n0.003\n5.452\n0.000\n\n\nseasonSpring\n0.026\n0.094\n0.283\n0.778\n\n\nseasonSummer\n-0.047\n0.139\n-0.338\n0.736\n\n\ncloudcover\n-0.025\n0.010\n-2.452\n0.016\n\n\nprecip\n-0.294\n0.123\n-2.397\n0.019\n\n\nday_typeWeekend\n0.064\n0.065\n0.987\n0.327\n\n\n\n\n\n\n\nInterpret the intercept in terms of (1) log(volume) and (2) volume.\nInterpret the coefficient of hightemp in terms of (1) log(volume) and (2) volume."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#residuals-for-model-with-logvolume",
+    "href": "slides/10-mlr-inference-old.html#residuals-for-model-with-logvolume",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Residuals for model with \\(\\log(volume)\\)",
+    "text": "Residuals for model with \\(\\log(volume)\\)"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#compare-residual-plots",
+    "href": "slides/10-mlr-inference-old.html#compare-residual-plots",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Compare residual plots",
+    "text": "Compare residual plots"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#log-transformation-on-x",
+    "href": "slides/10-mlr-inference-old.html#log-transformation-on-x",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Log Transformation on \\(X\\)",
+    "text": "Log Transformation on \\(X\\)\n\n\n\n\n\n\n\n\n\nTry a transformation on \\(X\\) if the scatterplot shows some curvature but the variance is constant for all values of \\(X\\)"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#respiratory-rate-vs.-age",
+    "href": "slides/10-mlr-inference-old.html#respiratory-rate-vs.-age",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Respiratory Rate vs. Age",
+    "text": "Respiratory Rate vs. Age\n\nA high respiratory rate can potentially indicate a respiratory infection in children. In order to determine what indicates a “high” rate, we first want to understand the relationship between a child’s age and their respiratory rate.\nThe data contain the respiratory rate for 618 children ages 15 days to 3 years. It was obtained from the Sleuth3 R package and is originally form a 1994 publication “Reference Values for Respiratory Rate in the First 3 Years of Life”.\nVariables:\n\nAge: age in months\nRate: respiratory rate (breaths per minute)"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#rate-vs.-age",
+    "href": "slides/10-mlr-inference-old.html#rate-vs.-age",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Rate vs. Age",
+    "text": "Rate vs. Age\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#model-with-transformation-on-x",
+    "href": "slides/10-mlr-inference-old.html#model-with-transformation-on-x",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Model with Transformation on \\(X\\)",
+    "text": "Model with Transformation on \\(X\\)\nSuppose we have the following regression equation:\n\\[\\hat{Y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 \\log(X)\\]\n. . .\n\nIntercept: When \\(X = 1\\) \\((\\log(X) = 0)\\), \\(Y\\) is expected to be \\(\\hat{\\beta}_0\\) (i.e. the mean of \\(Y\\) is \\(\\hat{\\beta}_0\\))\nSlope: When \\(X\\) is multiplied by a factor of \\(\\mathbf{C}\\), the mean of \\(Y\\) is expected to increase by \\(\\boldsymbol{\\hat{\\beta}_1}\\mathbf{\\log(C)}\\) units\n\nExample: when \\(X\\) is multiplied by a factor of 2, \\(Y\\) is expected to increase by \\(\\boldsymbol{\\hat{\\beta}_1}\\mathbf{\\log(2)}\\) units"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#model-interpretation-1",
+    "href": "slides/10-mlr-inference-old.html#model-interpretation-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Model interpretation",
+    "text": "Model interpretation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n50.135\n0.632\n79.330\n0\n\n\nlog(Age)\n-5.982\n0.263\n-22.781\n0\n\n\n\n\n\n\\[\\hat{\\text{Rate}} = 50.135 - 5.982 \\times \\log\\text{(Age)}\\]\n\n\nInterpret the intercept in the context of the data.\nInterpret the slope in terms of age multiplying by 2 in the context of the data."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#learn-more",
+    "href": "slides/10-mlr-inference-old.html#learn-more",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Learn more",
+    "text": "Learn more\nSee Log Transformations in Linear Regression for more details about interpreting regression models with log-transformed variables."
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#why-medianyx-instead-of-mu_yx",
+    "href": "slides/10-mlr-inference-old.html#why-medianyx-instead-of-mu_yx",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Why \\(Median(Y|X)\\) instead of \\(\\mu_{Y|X}\\)",
+    "text": "Why \\(Median(Y|X)\\) instead of \\(\\mu_{Y|X}\\)\nSuppose we have a set of values\n\nx &lt;- c(3, 5, 6, 8, 10, 14, 19)\n\n\n. . .\n\n\nLet’s calculate \\(\\overline{\\log(x)}\\)\n\nlog_x &lt;- log(x)\nmean(log_x)\n\n[1] 2.066476\n\n\n\nLet’s calculate \\(\\log(\\bar{x})\\)\n\nxbar &lt;- mean(x)\nlog(xbar)\n\n[1] 2.228477\n\n\n\n\n\n. . .\nNote: \\(\\overline{\\log(x)} \\neq \\log(\\bar{x})\\)"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#why-medianyx-instead-of-mu_yx-1",
+    "href": "slides/10-mlr-inference-old.html#why-medianyx-instead-of-mu_yx-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Why \\(Median(Y|X)\\) instead of \\(\\mu_{Y|X}\\)",
+    "text": "Why \\(Median(Y|X)\\) instead of \\(\\mu_{Y|X}\\)\n\nx &lt;- c(3, 5, 6, 8, 10, 14, 19)\n\n\n. . .\n\n\nLet’s calculate \\(\\text{Median}(\\log(x))\\)\n\nlog_x &lt;- log(x)\nmedian(log_x)\n\n[1] 2.079442\n\n\n\nLet’s calculate \\(\\log(\\text{Median}(x))\\)\n\nmedian_x &lt;- median(x)\nlog(median_x)\n\n[1] 2.079442\n\n\n\n\n\n. . .\nNote: \\(\\text{Median} (\\log(x)) = \\log(\\text{Median}(x))\\)"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#mean-median-and-log",
+    "href": "slides/10-mlr-inference-old.html#mean-median-and-log",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Mean, Median, and Log",
+    "text": "Mean, Median, and Log\n\nx &lt;- c(3, 5, 6, 8, 10, 14, 19)\n\n\\[\\overline{\\log(x)} \\neq \\log(\\bar{x})\\]\n\nmean(log_x) == log(xbar)\n\n[1] FALSE\n\n\n. . .\n\\[\\text{Median}(\\log(x)) = \\log(\\text{Median}(x))\\]\n\nmedian(log_x) == log(median_x)\n\n[1] TRUE"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#mean-and-median-of-logy",
+    "href": "slides/10-mlr-inference-old.html#mean-and-median-of-logy",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Mean and median of \\(\\log(Y)\\)",
+    "text": "Mean and median of \\(\\log(Y)\\)\n\nRecall that \\(Y = \\beta_0 + \\beta_1 X\\) is the mean value of the response at the given value of the predictor \\(X\\). This doesn’t hold when we log-transform the response variable.\nMathematically, the mean of the logged values is not necessarily equal to the log of the mean value. Therefore at a given value of \\(X\\)\n\n. . .\n\\[\n\\begin{aligned}\\exp\\{\\text{Mean}(\\log(Y|X))\\} \\neq \\text{Mean}(Y|X) \\\\[5pt]\n\\Rightarrow \\exp\\{\\beta_0 + \\beta_1 X\\} \\neq \\text{Mean}(Y|X) \\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/10-mlr-inference-old.html#mean-and-median-of-logy-1",
+    "href": "slides/10-mlr-inference-old.html#mean-and-median-of-logy-1",
+    "title": "MLR: Inference, conditions, and transformations",
+    "section": "Mean and median of \\(\\log(y)\\)",
+    "text": "Mean and median of \\(\\log(y)\\)\n\nHowever, the median of the logged values is equal to the log of the median value. Therefore,\n\n\\[\\exp\\{\\text{Median}(\\log(Y|X))\\} = \\text{Median}(Y|X)\\]\n. . .\n\nIf the distribution of \\(\\log(Y)\\) is symmetric about the regression line, for a given value \\(X\\), we can expect \\(Mean(Y)\\) and \\(Median(Y)\\) to be approximately equal."
+  },
+  {
+    "objectID": "ae/ae-11-mlr-inference.html#exercise-2",
+    "href": "ae/ae-11-mlr-inference.html#exercise-2",
+    "title": "AE 11: Inference for Multiple Linear Regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nConsider the model with an interaction term. Interpret the p-value associated with Income and the p-value associated with the interaction term."
+  },
+  {
+    "objectID": "ae/ae-11-mlr-inference.html#exercise",
+    "href": "ae/ae-11-mlr-inference.html#exercise",
+    "title": "AE 11: Inference for Multiple Linear Regression",
+    "section": "Exercise",
+    "text": "Exercise\nWhat does it mean for two things to be independent in statistics (feel free to use google)? Do we think our p-values are independent?"
+  },
+  {
+    "objectID": "ae/ae-11-mlr-inference.html#exercise-3",
+    "href": "ae/ae-11-mlr-inference.html#exercise-3",
+    "title": "AE 11: Inference for Multiple Linear Regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nGenerate 95% confidence intervals for the model without an interaction term. Hint: use the tidy function with the argument conf.int = TRUE. Interpret the confidence interval for Income and explain why the combination of p-value and confidence interval makes sense."
+  },
+  {
+    "objectID": "ae/ae-11-mlr-inference.html#exercise-4",
+    "href": "ae/ae-11-mlr-inference.html#exercise-4",
+    "title": "AE 11: Inference for Multiple Linear Regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nWhat does it mean for two things to be independent in statistics (feel free to use google)? Do we think our p-values/confidence intervals are independent across variables?"
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html",
+    "href": "slides/17-mlr-conditions.html",
+    "title": "MLR: Inference and conditions",
+    "section": "",
+    "text": "Midterm next Friday 10/11 (right before spring break)\nProject proposal also due 10/11 but will accept until 10/14 without penalty"
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#announcements",
+    "href": "slides/17-mlr-conditions.html#announcements",
+    "title": "MLR: Inference and conditions",
+    "section": "",
+    "text": "Midterm next Friday 10/11 (right before spring break)\nProject proposal also due 10/11 but will accept until 10/14 without penalty"
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#topics",
+    "href": "slides/17-mlr-conditions.html#topics",
+    "title": "MLR: Inference and conditions",
+    "section": "Topics",
+    "text": "Topics\n\n\nInference for multiple linear regression\nChecking model conditions"
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#computational-setup",
+    "href": "slides/17-mlr-conditions.html#computational-setup",
+    "title": "MLR: Inference and conditions",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(broom)\nlibrary(mosaic)\n\nRegistered S3 method overwritten by 'mosaic':\n  method                           from   \n  fortify.SpatialPolygonsDataFrame ggplot2\n\nThe 'mosaic' package masks several functions from core packages in order to add \nadditional features.  The original behavior of these functions should not be affected by this.\n\nAttaching package: 'mosaic'\n\nThe following object is masked from 'package:Matrix':\n\n    mean\n\nThe following objects are masked from 'package:dplyr':\n\n    count, do, tally\n\nThe following object is masked from 'package:purrr':\n\n    cross\n\nThe following object is masked from 'package:ggplot2':\n\n    stat\n\nThe following objects are masked from 'package:stats':\n\n    binom.test, cor, cor.test, cov, fivenum, IQR, median, prop.test,\n    quantile, sd, t.test, var\n\nThe following objects are masked from 'package:base':\n\n    max, mean, min, prod, range, sample, sum\n\nlibrary(ISLR2)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\n\nAttaching package: 'kableExtra'\n\nThe following object is masked from 'package:dplyr':\n\n    group_rows\n\nlibrary(scales)\n\n\nAttaching package: 'scales'\n\nThe following object is masked from 'package:mosaic':\n\n    rescale\n\nThe following object is masked from 'package:purrr':\n\n    discard\n\nThe following object is masked from 'package:readr':\n\n    col_factor\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#data-credit-cards",
+    "href": "slides/17-mlr-conditions.html#data-credit-cards",
+    "title": "MLR: Inference and conditions",
+    "section": "Data: Credit Cards",
+    "text": "Data: Credit Cards\nThe data is from the Credit data set in the ISLR2 R package. It is a simulated data set of 400 credit card customers.\n\n\nRows: 400\nColumns: 11\n$ Income    &lt;dbl&gt; 14.891, 106.025, 104.593, 148.924, 55.882, 80.180, 20.996, 7…\n$ Limit     &lt;dbl&gt; 3606, 6645, 7075, 9504, 4897, 8047, 3388, 7114, 3300, 6819, …\n$ Rating    &lt;dbl&gt; 283, 483, 514, 681, 357, 569, 259, 512, 266, 491, 589, 138, …\n$ Cards     &lt;dbl&gt; 2, 3, 4, 3, 2, 4, 2, 2, 5, 3, 4, 3, 1, 1, 2, 3, 3, 3, 1, 2, …\n$ Age       &lt;dbl&gt; 34, 82, 71, 36, 68, 77, 37, 87, 66, 41, 30, 64, 57, 49, 75, …\n$ Education &lt;dbl&gt; 11, 15, 11, 11, 16, 10, 12, 9, 13, 19, 14, 16, 7, 9, 13, 15,…\n$ Own       &lt;fct&gt; No, Yes, No, Yes, No, No, Yes, No, Yes, Yes, No, No, Yes, No…\n$ Student   &lt;fct&gt; No, Yes, No, No, No, No, No, No, No, Yes, No, No, No, No, No…\n$ Married   &lt;fct&gt; Yes, Yes, No, No, Yes, No, No, No, No, Yes, Yes, No, Yes, Ye…\n$ Region    &lt;fct&gt; South, West, West, West, South, South, East, West, South, Ea…\n$ Balance   &lt;dbl&gt; 333, 903, 580, 964, 331, 1151, 203, 872, 279, 1350, 1407, 0,…"
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#variables",
+    "href": "slides/17-mlr-conditions.html#variables",
+    "title": "MLR: Inference and conditions",
+    "section": "Variables",
+    "text": "Variables\nFeatures (another name for predictors)\n\nIncome: Annual income (in 1000’s of US dollars)\nRating: Credit Rating\n\nOutcome\n\nLimit: Credit limit"
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#review-simple-linear-regression-slr",
+    "href": "slides/17-mlr-conditions.html#review-simple-linear-regression-slr",
+    "title": "MLR: Inference and conditions",
+    "section": "Review: Simple linear regression (SLR)",
+    "text": "Review: Simple linear regression (SLR)\n\ngf_point(Limit ~ Rating, data = Credit, alpha = 0.5) |&gt; \n  gf_lm()  |&gt; \n  gf_labs(x = \"Credit Rating\", y = \"Income\") |&gt; \n  gf_refine(scale_y_continuous(labels = dollar_format()),\n            scale_x_continuous(labels = dollar_format()))\n\nWarning: Using the `size` aesthetic with geom_line was deprecated in ggplot2 3.4.0.\nℹ Please use the `linewidth` aesthetic instead."
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#slr-model-summary",
+    "href": "slides/17-mlr-conditions.html#slr-model-summary",
+    "title": "MLR: Inference and conditions",
+    "section": "SLR model summary",
+    "text": "SLR model summary\n\nincome_slr_fit &lt;- lm(Limit ~ Income, data = Credit)\n\ntidy(income_slr_fit) |&gt; kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n2389.86941\n114.828758\n20.81246\n0\n\n\nIncome\n51.87502\n2.003836\n25.88785\n0"
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#slr-hypothesis-test",
+    "href": "slides/17-mlr-conditions.html#slr-hypothesis-test",
+    "title": "MLR: Inference and conditions",
+    "section": "SLR hypothesis test",
+    "text": "SLR hypothesis test\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n2389.87\n114.83\n20.81\n0\n\n\nIncome\n51.88\n2.00\n25.89\n0\n\n\n\n\n\n\nSet hypotheses: \\(H_0: \\beta_1 = 0\\) vs. \\(H_A: \\beta_1 \\ne 0\\)\n\n. . .\n\nCalculate test statistic and p-value: The test statistic is \\(t= 25.89\\) . The p-value is calculated using a \\(t\\) distribution with 399 degrees of freedom. The p-value is \\(\\approx 0\\) .\n\n. . .\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that income is a helpful predictor for a credit card holder’s credit limit, i.e. there is a linear relationship between income and credit limit."
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#multiple-linear-regression",
+    "href": "slides/17-mlr-conditions.html#multiple-linear-regression",
+    "title": "MLR: Inference and conditions",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\n\ncredit_fit &lt;- lm(Limit ~ Rating + Income, data = Credit)\n\ntidy(credit_fit) |&gt; kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-532.47\n24.17\n-22.03\n0.00\n\n\nRating\n14.77\n0.10\n153.12\n0.00\n\n\nIncome\n0.56\n0.42\n1.32\n0.19"
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#multiple-linear-regression-1",
+    "href": "slides/17-mlr-conditions.html#multiple-linear-regression-1",
+    "title": "MLR: Inference and conditions",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\nThe multiple linear regression model assumes \\[Y|X_1, X_2,  \\ldots, X_p \\sim N(\\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\dots + \\beta_p X_p, \\sigma_\\epsilon^2)\\]\n. . .\nFor a given observation \\((x_{i1}, x_{i2}, \\ldots, x_{ip}, y_i)\\), we can rewrite the previous statement as\n\\[y_i = \\beta_0 + \\beta_1 x_{i1} + \\beta_2 x_{i2} + \\dots + \\beta_p x_{ip} + \\epsilon_{i}, \\hspace{10mm} \\epsilon_i \\sim N(0,\\sigma_{\\epsilon}^2)\\]"
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#estimating-sigma_epsilon",
+    "href": "slides/17-mlr-conditions.html#estimating-sigma_epsilon",
+    "title": "MLR: Inference and conditions",
+    "section": "Estimating \\(\\sigma_\\epsilon\\)",
+    "text": "Estimating \\(\\sigma_\\epsilon\\)\nFor a given observation \\((x_{i1}, x_{i2}, \\ldots,x_{ip}, y_i)\\) the residual is \\[\n\\begin{aligned}\ne_i &= y_{i} - \\hat{y_i}\\\\\n&= y_i - (\\hat{\\beta}_0 + \\hat{\\beta}_1 x_{i1} + \\hat{\\beta}_{2} x_{i2} + \\dots + \\hat{\\beta}_p x_{ip})\n\\end{aligned}\n\\]\n. . .\nThe estimated value of the regression standard error , \\(\\sigma_{\\epsilon}\\), is\n\\[\\hat{\\sigma}_\\epsilon  = \\sqrt{\\frac{\\sum_{i=1}^ne_i^2}{n-p-1}}\\]\n. . .\nAs with SLR, we use \\(\\hat{\\sigma}_{\\epsilon}\\) to calculate \\(SE_{\\hat{\\beta}_j}\\), the standard error of each coefficient. See Matrix Form of Linear Regression for more detail."
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#mlr-hypothesis-test-income",
+    "href": "slides/17-mlr-conditions.html#mlr-hypothesis-test-income",
+    "title": "MLR: Inference and conditions",
+    "section": "MLR hypothesis test: Income",
+    "text": "MLR hypothesis test: Income\n\nSet hypotheses: \\(H_0: \\beta_{Income} = 0\\) vs. \\(H_A: \\beta_{Income} \\ne 0\\), given Rating is in the model\n\n. . .\n\nCalculate test statistic and p-value: The test statistic is \\(t = 1.32\\). The p-value is calculated using a \\(t\\) distribution with \\[(n - p - 1) = 400 - 2 -1 = 398\\] degrees of freedom. The p-value is \\(\\approx 0.19\\).\n\n. . .\n\nState the conclusion: The p-value is not small, so we fail to reject \\(H_0\\). The data does not provide convincing evidence that a borrowers income is a useful predictor in a model that already contains credit rating as a predictor for the credit limit of a borrower.\n\n\nComplete Exercises 1-2."
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#confidence-interval-for-beta_j-1",
+    "href": "slides/17-mlr-conditions.html#confidence-interval-for-beta_j-1",
+    "title": "MLR: Inference and conditions",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\nThe \\(C\\%\\) confidence interval for \\(\\beta_j\\) \\[\\hat{\\beta}_j \\pm t^* SE(\\hat{\\beta}_j)\\] where \\(t^*\\) follows a \\(t\\) distribution with \\(n - p - 1\\) degrees of freedom.\nGenerically: We are \\(C\\%\\) confident that the interval LB to UB contains the population coefficient of \\(x_j\\).\nIn context: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), we expect \\(y\\) to change by LB to UB units, holding all else constant.\n\n\nComplete Exercise 3."
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#confidence-interval-for-beta_j-2",
+    "href": "slides/17-mlr-conditions.html#confidence-interval-for-beta_j-2",
+    "title": "MLR: Inference and conditions",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-532.47\n24.17\n-22.03\n0.00\n-579.99\n-484.95\n\n\nRating\n14.77\n0.10\n153.12\n0.00\n14.58\n14.96\n\n\nIncome\n0.56\n0.42\n1.32\n0.19\n-0.28\n1.39"
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#large-sample-sizes",
+    "href": "slides/17-mlr-conditions.html#large-sample-sizes",
+    "title": "MLR: Inference and conditions",
+    "section": "Large sample sizes",
+    "text": "Large sample sizes\n\n\n\n\n\n\nCaution\n\n\n\nIf the sample size is large enough, the test will likely result in rejecting \\(H_0: \\beta_j = 0\\) even \\(x_j\\) has a very small effect on \\(y\\).\n\n\nConsider the practical significance of the result not just the statistical significance.\nUse the confidence interval to draw conclusions instead of relying only p-values."
+  },
+  {
+    "objectID": "slides/17-mlr-conditions.html#small-sample-sizes",
+    "href": "slides/17-mlr-conditions.html#small-sample-sizes",
+    "title": "MLR: Inference and conditions",
+    "section": "Small sample sizes",
+    "text": "Small sample sizes\n\n\n\n\n\n\nCaution\n\n\n\nIf the sample size is small, there may not be enough evidence to reject \\(H_0: \\beta_j=0\\).\n\n\nWhen you fail to reject the null hypothesis, DON’T immediately conclude that the variable has no association with the response.\nThere may be a linear association that is just not strong enough to detect given your data, or there may be a non-linear association.\n\n\n\n\n\nComplete exercise 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n–&gt;"
   }
 ]

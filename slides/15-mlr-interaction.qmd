@@ -28,7 +28,10 @@ knitr:
 bibliography: references.bib
 ---
 
-## Picking up where we left off
+## Announcements
+
+-   Update `eval: false` to `eval: true` at the tops of HW's 03, 04, 05.
+-   Resubmit PDFs from 03 and 04
 -   Open AE-10
 
 ::: appex

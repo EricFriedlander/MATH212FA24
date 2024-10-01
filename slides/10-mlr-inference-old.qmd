@@ -64,6 +64,7 @@ knitr::opts_chunk$set(
 
 # load packages
 library(tidyverse)
+library(tidymodels)
 library(ggformula)
 library(broom)
 library(patchwork)
