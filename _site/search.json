@@ -4296,7 +4296,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 Due/ HW 04 Assigned\n\n\n6\nM\nSep 23\nProject Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Stage I Assigned\n\n\n\nW\nSep 25\nSLR: Evaluations + Transformation Activities\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 27\nSLR: Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 Due/HW 05 Assigned\n\n\n7\nM\nSep 30\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nOct 2\nMLR: Interaction Terms\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nOct 4\nInference for MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 Due/ HW 06 Assigned",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 Due/ HW 04 Assigned\n\n\n6\nM\nSep 23\nProject Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Stage I Assigned\n\n\n\nW\nSep 25\nSLR: Evaluations + Transformation Activities\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 27\nSLR: Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 Due/HW 05 Assigned\n\n\n7\nM\nSep 30\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nOct 2\nMLR: Interaction Terms\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nOct 4\nInference for MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 Due/ HW 06 Assigned",
     "crumbs": [
       "Schedule"
     ]
@@ -16154,5 +16154,131 @@
     "title": "MLR: Inference and conditions",
     "section": "Small sample sizes",
     "text": "Small sample sizes\n\n\n\n\n\n\nCaution\n\n\n\nIf the sample size is small, there may not be enough evidence to reject \\(H_0: \\beta_j=0\\).\n\n\nWhen you fail to reject the null hypothesis, DON’T immediately conclude that the variable has no association with the response.\nThere may be a linear association that is just not strong enough to detect given your data, or there may be a non-linear association.\n\n\n\n\n\nComplete exercise 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n–&gt;"
+  },
+  {
+    "objectID": "hw/hw-06.html",
+    "href": "hw/hw-06.html",
+    "title": "Homework 06: Candy Competition",
+    "section": "",
+    "text": "Important\n\n\n\nDue: Friday, October 20, 11:59pm"
+  },
+  {
+    "objectID": "hw/hw-06.html#introduction",
+    "href": "hw/hw-06.html#introduction",
+    "title": "Homework 06: Candy Competition",
+    "section": "Introduction",
+    "text": "Introduction\nIn today’s homework you will analyze data about candy that was collected from an online experiment conducted at FiveThirtyEight.\n\nLearning goals\nBy the end of the homework you will be able to\n\nFit a linear model with multiple predictors and an interaction term\nFit a linear model with categorical predictors\nConduct inference on multiple linear models"
+  },
+  {
+    "objectID": "hw/hw-06.html#getting-started",
+    "href": "hw/hw-06.html#getting-started",
+    "title": "Homework 06: Candy Competition",
+    "section": "Getting started",
+    "text": "Getting started\n\nGo to RStudio and login with your College of Idaho Email and Password.\nMake a subfolder in your hw directory to store this homework.\nLog into Canvas, navigate to Homework 6 and upload the hw-06.qmd file into the folder your just made."
+  },
+  {
+    "objectID": "hw/hw-06.html#packages",
+    "href": "hw/hw-06.html#packages",
+    "title": "Homework 06: Candy Competition",
+    "section": "Packages",
+    "text": "Packages\nThe following packages are used in the lab.\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(fivethirtyeight)\nlibrary(knitr)\nlibrary(yardstick)\n\n# add other packages as needed"
+  },
+  {
+    "objectID": "hw/hw-06.html#data-candy",
+    "href": "hw/hw-06.html#data-candy",
+    "title": "Homework 06: Candy Competition",
+    "section": "Data: Candy",
+    "text": "Data: Candy\nThe data from this lab comes from the the article FiveThirtyEight The Ultimate Halloween Candy Power Ranking by Walt Hickey. To collect data, Hickey and collaborators at FiveThirtyEight set up an experiment people could vote on a series of randomly generated candy matchups (e.g. Reeses vs. Skittles). Click here to check out some of the match ups.\nThe data set contains the characteristics and win percentage from 85 candies in the experiment. The variables are\n\n\n\n\n\n\n\nVariable\nDescription\n\n\n\n\nchocolate\nDoes it contain chocolate?\n\n\nfruity\nIs it fruit flavored?\n\n\ncaramel\nIs there caramel in the candy?\n\n\npeanutalmondy\nDoes it contain peanuts, peanut butter or almonds?\n\n\nnougat\nDoes it contain nougat?\n\n\ncrispedricewafer\nDoes it contain crisped rice, wafers, or a cookie component?\n\n\nhard\nIs it a hard candy?\n\n\nbar\nIs it a candy bar?\n\n\npluribus\nIs it one of many candies in a bag or box?\n\n\nsugarpercent\nThe percentile of sugar it falls under within the data set. Values 0 - 1.\n\n\npricepercent\nThe unit price percentile compared to the rest of the set. Values 0 - 1.\n\n\nwinpercent\nThe overall win percentage according to 269,000 matchups. Values 0 - 100.\n\n\n\nUse the code below to get a glimpse of the candy_rankings data frame in the fivethirtyeight R package.\n\nglimpse(candy_rankings)\n\nRows: 85\nColumns: 13\n$ competitorname   &lt;chr&gt; \"100 Grand\", \"3 Musketeers\", \"One dime\", \"One quarter…\n$ chocolate        &lt;lgl&gt; TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, F…\n$ fruity           &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE…\n$ caramel          &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE,…\n$ peanutyalmondy   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, …\n$ nougat           &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE,…\n$ crispedricewafer &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE…\n$ hard             &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALS…\n$ bar              &lt;lgl&gt; TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, F…\n$ pluribus         &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE…\n$ sugarpercent     &lt;dbl&gt; 0.732, 0.604, 0.011, 0.011, 0.906, 0.465, 0.604, 0.31…\n$ pricepercent     &lt;dbl&gt; 0.860, 0.511, 0.116, 0.511, 0.511, 0.767, 0.767, 0.51…\n$ winpercent       &lt;dbl&gt; 66.97173, 67.60294, 32.26109, 46.11650, 52.34146, 50.…"
+  },
+  {
+    "objectID": "hw/hw-06.html#exercises",
+    "href": "hw/hw-06.html#exercises",
+    "title": "Homework 06: Candy Competition",
+    "section": "Exercises",
+    "text": "Exercises\nThe goal of this analysis is to use multiple linear regression to understand the factors that make a good candy."
+  },
+  {
+    "objectID": "hw/hw-06.html#exercise-2",
+    "href": "hw/hw-06.html#exercise-2",
+    "title": "Homework 06: Candy Competition",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\nOur response variable in this homework will be winpercentage. Choose two additional variables, one quantitative and one categorical. Generate a SINGLE plot that visualizes all three variables. Hint: remember that you can tie any aesthetic in your plot (e.g. color) to a variable be writing aesthatic = ~variable_name.\nWrite two observations from your plot."
+  },
+  {
+    "objectID": "hw/hw-06.html#exercise-4",
+    "href": "hw/hw-06.html#exercise-4",
+    "title": "Homework 06: Candy Competition",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nInterpret the following in the context of the data:\n\nIntercept\nCoefficient of your quantitative variable\nCoefficient(s) of your categorical variables\nCoefficient(s) of your interaction term."
+  },
+  {
+    "objectID": "hw/hw-06.html#exercise-5",
+    "href": "hw/hw-06.html#exercise-5",
+    "title": "Homework 06: Candy Competition",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nChoose one of the coefficients from your model and write out all the steps in the hypothesis test that corresponds to it’s p-value as in this slide."
+  },
+  {
+    "objectID": "hw/hw-06.html#exercise-6",
+    "href": "hw/hw-06.html#exercise-6",
+    "title": "Homework 06: Candy Competition",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nInterpret the other p-values in your model in the context of the data. You do not need to write out the full hypothesis testing framework as you did in Exercise 5."
+  },
+  {
+    "objectID": "hw/hw-06.html#exercise-7",
+    "href": "hw/hw-06.html#exercise-7",
+    "title": "Homework 06: Candy Competition",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nGenerate 95% confidence intervals for all of the slopes in your model and interpret them in the context of the data. Are these intervals independent of one another?"
+  },
+  {
+    "objectID": "hw/hw-06.html#grading",
+    "href": "hw/hw-06.html#grading",
+    "title": "Homework 06: Candy Competition",
+    "section": "Grading",
+    "text": "Grading\nTotal points available: 50 points.\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1\n2\n\n\nEx 2\n3\n\n\nEx 3\n5\n\n\nEx 4\n8\n\n\nEx 5\n6\n\n\nEx 6\n5\n\n\nEx 7\n5\n\n\nEx 8\n4\n\n\nEx 9\n4\n\n\nEx 10\n4\n\n\nWorkflow & formatting\n41"
+  },
+  {
+    "objectID": "hw/hw-06.html#footnotes",
+    "href": "hw/hw-06.html#footnotes",
+    "title": "Homework 06: Candy Competition",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow, clarity, and professionalism.↩︎"
+  },
+  {
+    "objectID": "hw/hw-06.html#exercise-1",
+    "href": "hw/hw-06.html#exercise-1",
+    "title": "Homework 06: Candy Competition",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nNotice that the values of pricepercent and sugarpercent are proportions. Change the scale so that they are percentages."
+  },
+  {
+    "objectID": "hw/hw-06.html#exercise-3",
+    "href": "hw/hw-06.html#exercise-3",
+    "title": "Homework 06: Candy Competition",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nFit a linear model including both variables you chose above and include an interaction term between the two."
+  },
+  {
+    "objectID": "hw/hw-06.html#exercise-8",
+    "href": "hw/hw-06.html#exercise-8",
+    "title": "Homework 06: Candy Competition",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nFit a linear model predicting winpercent using chocolate and pricepercent as predictors. Include a interaction term between pricepercent and chocolate. Describe the effect of pricepercent for chocolate candy in the context of the data."
+  },
+  {
+    "objectID": "hw/hw-06.html#exercise-9",
+    "href": "hw/hw-06.html#exercise-9",
+    "title": "Homework 06: Candy Competition",
+    "section": "Exercise 9",
+    "text": "Exercise 9\n\nConsider the model from Exercise 3 “Model 1” and the model fit in Exercise 8 “Model 2”. If you happened to have chosen pricepercent and chocolate in Exercise 3, please choose two new variables and to complete this problem with.\nWhich model would you choose based on \\(R^2\\)? Briefly explain your choice.\nWhich model would you choose based on \\(RMSE\\)? Briefly explain your choice."
+  },
+  {
+    "objectID": "hw/hw-06.html#exercise-10",
+    "href": "hw/hw-06.html#exercise-10",
+    "title": "Homework 06: Candy Competition",
+    "section": "Exercise 10",
+    "text": "Exercise 10\n\nUse the model you selected in Exercise 9 to describe what generally makes a good candy, i.e., one with a high win percentage."
   }
 ]
