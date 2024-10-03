@@ -522,7 +522,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/hw/forStudents/hw-04/hw-04.html</loc>
-    <lastmod>2024-10-03T19:34:15.304Z</lastmod>
+    <lastmod>2024-10-03T20:02:59.238Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-10-mlr.html</loc>
@@ -550,7 +550,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/16-mlr-inference.html</loc>
-    <lastmod>2024-10-01T15:48:56.803Z</lastmod>
+    <lastmod>2024-10-03T19:46:31.396Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-11-mlr-inference.html</loc>
@@ -575,5 +575,13 @@
   <url>
     <loc>https://mat212fa24.netlify.app/slides/18-mlr-conditions.html</loc>
     <lastmod>2024-10-01T15:24:48.135Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/17-categorical-predictors.html</loc>
+    <lastmod>2024-06-07T20:17:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/11-feature-engineering-old.html</loc>
+    <lastmod>2024-06-07T20:17:50.000Z</lastmod>
   </url>
 </urlset>

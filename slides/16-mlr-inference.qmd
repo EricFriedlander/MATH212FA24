@@ -239,5 +239,5 @@ If the sample size is small, there may not be enough evidence to reject $H_0: \b
 :::
 
 ::: appex
-Complete exercise 4
+Complete Exercise 4
 :::
