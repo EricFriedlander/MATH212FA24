@@ -1,0 +1,8 @@
+---
+title: "October 7 lecture"
+subtitle: "Categorical Predictors"
+---
+
+## Assigned reading
+
+- Stat2: Topic 3.4 Comparing two regression lines
