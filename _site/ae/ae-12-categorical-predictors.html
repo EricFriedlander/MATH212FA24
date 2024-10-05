@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MAT 212 - Fall 2024 - AE 11: Inference for Multiple Linear Regression</title>
+<title>MAT 212 - Fall 2024 - AE 12: Categorical Predictors</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,7 +142,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 11: Inference for Multiple Linear Regression</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 12: Categorical Predictors</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -264,12 +264,15 @@ window.Quarto = {
    
   <ul>
   <li><a href="#packages-data" id="toc-packages-data" class="nav-link active" data-scroll-target="#packages-data">Packages + data</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
   <li><a href="#analysis-goal" id="toc-analysis-goal" class="nav-link" data-scroll-target="#analysis-goal">Analysis goal</a></li>
-  <li><a href="#exercise-0" id="toc-exercise-0" class="nav-link" data-scroll-target="#exercise-0">Exercise 0</a></li>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#to-submit-the-ae" id="toc-to-submit-the-ae" class="nav-link" data-scroll-target="#to-submit-the-ae">To submit the AE</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-12-categorical-predictors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -279,8 +282,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 11: Inference for Multiple Linear Regression</h1>
-<p class="subtitle lead">Credit Cards</p>
+<h1 class="title">AE 12: Categorical Predictors</h1>
+<p class="subtitle lead">Pee-to-Peer Loans</p>
 </div>
 
 
@@ -308,9 +311,9 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Open <a href="https://rstudio.collegeofidaho.edu/">RStudio</a> and create a subfolder in your AE folder called “AE-11”.</p></li>
-<li><p>Go to the <a href="https://cofi.instructure.com/courses/15692/assignments/183069">Canvas</a> and locate your <code>AE-11</code> assignment to get started.</p></li>
-<li><p>Upload the <code>ae-11.qmd</code> file into the folder you just created. The <code>.qmd</code> and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.</p></li>
+<li><p>Open <a href="https://rstudio.collegeofidaho.edu/">RStudio</a> and create a subfolder in your AE folder called “AE-12”.</p></li>
+<li><p>Go to the <a href="https://cofi.instructure.com/courses/15692/assignments/183202">Canvas</a> and locate your <code>AE-12</code> assignment to get started.</p></li>
+<li><p>Upload the <code>ae-12.qmd</code> file into the folder you just created. The <code>.qmd</code> and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.</p></li>
 </ul>
 </div>
 </div>
@@ -319,56 +322,233 @@ Important
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR2)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(yardstick)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>loan50 <span class="ot">&lt;-</span> loan50 <span class="sc">|&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">annual_income_k =</span> annual_income <span class="sc">/</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The data for this AE is from the <code>Credit</code> data set in the <strong>ISLR2</strong> R package. It is a simulated data set of 400 credit card customers. We will focus on the following variables:</p>
-<p><strong>Predictors</strong></p>
+<p>The data for this AE is is a sample of 10,000 loans made through a peer-to-peer lending club. The data is in the <code>loan50</code> data frame in the <strong>openintro</strong> R package.</p>
+</section>
+<section id="variables" class="level2">
+<h2 class="anchored" data-anchor-id="variables">Variables</h2>
 <ul>
-<li><code>Income</code>: Annual income (in 1000’s of US dollars)</li>
-<li><code>Rating</code>: Credit Rating</li>
+<li><code>annual_income_k</code>: Annual income in $1,000’s</li>
+<li><code>verified_income</code>: Whether borrower’s income source and amount have been verified (<code>Not Verified</code>, <code>Source Verified</code>, <code>Verified</code>)</li>
 </ul>
-<p><strong>Response</strong></p>
-<ul>
-<li><code>Limit</code>: Credit limit</li>
-</ul>
+<p><strong>Response</strong>: <code>interest_rate</code>: Interest rate for the loan</p>
 </section>
 <section id="analysis-goal" class="level2">
 <h2 class="anchored" data-anchor-id="analysis-goal">Analysis goal</h2>
-<p>The goals of this activity are to:</p>
 <ul>
-<li>Perform inference for multiple linear regression</li>
-<li>Conduct/interpret hypothesis tests</li>
-<li>Construct/interpret confidence intervals</li>
+<li>Predict <code>interest_rate</code> using the categorical variable <code>verified_income</code> as a predictor</li>
+<li>Include other quantitative variables and understand how they interact with <code>verified_income</code></li>
 </ul>
-</section>
-<section id="exercise-0" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-0">Exercise 0</h2>
-<p>Fit and display two linear regression models predicting <code>Limit</code> from <code>Income</code> and <code>Rating</code>. In one, include an interaction term between the two variables and in the other, do not.</p>
 </section>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Consider the model <em>without</em> an interaction term. Perform a hypothesis test on <code>Rating</code> (fill in the blanks where appropriate:</p>
-<ol type="1">
-<li><strong>Set hypothesis:</strong> <span class="math inline">\(H_0: \beta_{Rating} [fill in]\)</span> vs.&nbsp;<span class="math inline">\(\beta_{Rating} [fill in]\)</span>. Restate these hypothesis in words: [fill in]</li>
-<li><strong>Calculate test statistics and p-value: </strong> The test statistic is <span class="math inline">\([fill in]\)</span>. The p-value is <span class="math inline">\([fill in]\)</span>.</li>
-<li><strong>State the conclusion:</strong> [fill in]</li>
-</ol>
+<p>Generate side-by-side boxplots of <code>interest_rate</code> vs.&nbsp;<code>verified_income</code>. Does it appear that there is a relationship between the two variables?</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Consider the model <em>with</em> an interaction term. Interpret the p-value associated with <code>Income</code> and the p-value associated with the interaction term.</p>
+<p>Based on the output of the code below, what do you think would be the best predictions for the interest rate of a borrow with <code>Not Verified</code>, <code>Source Verified</code>, and <code>Verified</code> income, respectively.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">favstats</span>(interest_rate <span class="sc">~</span> verified_income, <span class="at">data =</span> loan50) <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 6%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 3%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">verified_income</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">Q1</th>
+<th style="text-align: right;">median</th>
+<th style="text-align: right;">Q3</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">missing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NaN</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Not Verified</td>
+<td style="text-align: right;">5.31</td>
+<td style="text-align: right;">7.9600</td>
+<td style="text-align: right;">9.44</td>
+<td style="text-align: right;">9.9300</td>
+<td style="text-align: right;">18.45</td>
+<td style="text-align: right;">9.541429</td>
+<td style="text-align: right;">2.984269</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source Verified</td>
+<td style="text-align: right;">6.08</td>
+<td style="text-align: right;">7.8075</td>
+<td style="text-align: right;">10.91</td>
+<td style="text-align: right;">16.2875</td>
+<td style="text-align: right;">19.42</td>
+<td style="text-align: right;">11.765500</td>
+<td style="text-align: right;">4.270998</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Verified</td>
+<td style="text-align: right;">5.32</td>
+<td style="text-align: right;">11.9800</td>
+<td style="text-align: right;">14.08</td>
+<td style="text-align: right;">21.4500</td>
+<td style="text-align: right;">26.30</td>
+<td style="text-align: right;">15.853333</td>
+<td style="text-align: right;">7.694652</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Generate 95% confidence intervals for the model <em>without</em> an interaction term. Hint: use the <code>tidy</code> function with the argument <code>conf.int = TRUE</code>. Interpret the confidence interval for <code>Income</code> and explain why the combination of p-value and confidence interval makes sense.</p>
+<p>Fit a linear model predicting <code>interest_rate</code> from <code>verified_income</code>. What is the reference level for <code>verified_income</code>?</p>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>What does it mean for two things to be <strong>independent</strong> in statistics (feel free to use google)? Do we think our p-values/confidence intervals are <strong>independent</strong> across variables?</p>
+<p>WITHOUT WRITING ANY CODE except for addition, subtraction, multiplication, and addition, what would the model predict the average <code>interest_rate</code> for each of the three levels of <code>verified_income</code>? How do these answers compare to your answers from Exercise 2?</p>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>The linear model below predicts <code>interest_rate</code> from <code>annual_income_k</code>. Add <code>verified_income</code> as a predictor to this model. Do not include an interaction term. Be prepared to discuss how and why the plot changes when you add in <code>verified_income</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ex5_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(interest_rate <span class="sc">~</span> annual_income_k, <span class="at">data =</span> loan50) </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ex5_model <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">12.994265</td>
+<td style="text-align: right;">1.2851395</td>
+<td style="text-align: right;">10.111171</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">annual_income_k</td>
+<td style="text-align: right;">-0.016561</td>
+<td style="text-align: right;">0.0124397</td>
+<td style="text-align: right;">-1.331308</td>
+<td style="text-align: right;">0.1893763</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotModel</span>(ex5_model) <span class="co"># nifty function from the mosaic package</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ae-12-categorical-predictors_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>How do you think the plot above will change if you add in an interaction term between <code>verified_income</code> and <code>interest_rate</code>? <strong>AFTER</strong> thinking about it, add in an interaction term between <code>verified_income</code> and <code>annual_income_k</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ex6_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(interest_rate <span class="sc">~</span> annual_income_k, <span class="at">data =</span> loan50) </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ex6_model <span class="sc">|&gt;</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">12.994265</td>
+<td style="text-align: right;">1.2851395</td>
+<td style="text-align: right;">10.111171</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">annual_income_k</td>
+<td style="text-align: right;">-0.016561</td>
+<td style="text-align: right;">0.0124397</td>
+<td style="text-align: right;">-1.331308</td>
+<td style="text-align: right;">0.1893763</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotModel</span>(ex6_model) <span class="co"># nifty function from the mosaic package</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ae-12-categorical-predictors_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>Based on the model above (and the equation on the slides):</p>
+<ul>
+<li>Write the equation of the model to predict interest rate for applicants with <em>Not Verified</em> income.</li>
+<li>Write the equation of the model to predict interest rate for applicants with <em>Verified</em> income.</li>
+<li>Our degrees of freedom will be <span class="math inline">\(n-p-1\)</span>. What is <span class="math inline">\(p\)</span> in this case? Hint: it isn’t 2.</li>
+</ul>
 </section>
 <section id="to-submit-the-ae" class="level2">
 <h2 class="anchored" data-anchor-id="to-submit-the-ae">To submit the AE</h2>

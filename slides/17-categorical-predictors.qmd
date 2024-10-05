@@ -1,9 +1,9 @@
 ---
-title: "Feature engineering"
-author: "Prof. Maria Tackett"
-date: "2023-10-09"
+title: "Categorical Predictors"
+author: "Prof. Eric Friedlander"
+date: "2024-10-07"
 date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 210 - Fall 2023 -  Schedule](https://sta210-fa23.netlify.app/schedule)"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -19,6 +19,7 @@ html-math-method:
 execute:
   freeze: auto
   echo: true
+  cache: false
 knitr:
   opts_chunk: 
     R.options:      
@@ -30,6 +31,7 @@ bibliography: references.bib
 #| include: false
 
 library(countdown)
+library(coursekata)
 
 knitr::opts_chunk$set(
   fig.width = 10,
@@ -40,48 +42,28 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Announcements
+## Announcements & Getting Started
 
--   Group labs resume this week
+-   Exam Review Wednesday
+-   Exam Friday
+-   Project proposals due Friday!
+    +   Accepted without penalty through Monday 10/14 at 11:59pm
+-   Don't forget about Oral R Quiz!
+    +   Happy to administer over Teams during the break if you'd like...
 
--   Prof. Tackett will not have office hours on Friday
+::: appex
+📋 [AE 12 - P2P Loans](https://mat212fa24.netlify.app/ae/ae-12-categorical-predictors)
 
-    -   Email to schedule an appointment if you need to meet
-
-    -   All other office hours on regular schedule
-
-## Statistician of the day: **Rafael Irizarry** {.small}
-
-::: columns
-::: {.column width="50%"}
-*Dr. Rafael Irizarry is a Professor of Biostatistics at the Harvard T.H. Chan School of Public Health and Professor of Biostatistics and Computational Biology at the Dana-Farber Cancer Institute. He earned a Bachelor of Science degree in Mathematics from the University of Puerto Rico at Rio Piedras and a PhD from the University of California, Berkeley in Statistics. Dr. Irizarry's work is highly cited, and he has been given many prestigious awards including the Presidents' Award given by the Committee of Presidents of Statistical Societies.*
+- Open up AE 12
+- Complete Exercise 0 if you have time.
 :::
 
-::: {.column width="50%"}
-![](images/statistician-of-the-day/irizarry.jpg){fig-alt="Picture of Rafael Irizarry" fig-align="left" width="70%"}
-:::
-:::
-
-Source: [hardin47.github.io/CURV/scholars/irizarry](https://hardin47.github.io/CURV/scholars/irizarry.html)
-
-## Work on impacts of Hurricane Maria {.midi}
-
--   Part of a team that used stratified sampling to survey residents in Puerto Rico about the impacts of the 2017 Hurricane Maria
--   Estimated percent of population who lost access to services, such as electricity and water, and the association with remoteness
--   Used confidence intervals to estimate deaths that were directly and indirectly attributable to the hurricane
-    -   Their estimate was more than 70 times the official count
-
-**Article:** Kishore, N., Marqués, D., Mahmud, A., Kiang, M. V., Rodriguez, I., Fuller, A., \... & Buckee, C. O. (2018). [Mortality in Puerto Rico after Hurricane Maria](https://www.nejm.org/doi/full/10.1056/nejmsa1803972). *New England journal of medicine*, *379*(2), 162-170.
-
-**GitHub repo:** [github.com/c2-d2/pr_mort_official](https://github.com/c2-d2/pr_mort_official)
-
-# Categorical predictors, interactions, & feature engineering
+# Categorical predictors
 
 ## Topics
 
--   Understanding categorical predictors and interaction terms
-
--   Feature engineering
+-   Understanding categorical predictors
+-   Understand how categorical predictors interact with quantitative predictors
 
 ## Computational setup
 
@@ -90,19 +72,19 @@ Source: [hardin47.github.io/CURV/scholars/irizarry](https://hardin47.github.io/C
 
 # load packages
 library(tidyverse)
-library(tidymodels)
+library(ggformula)
+library(mosaic)
+library(broom)
 library(openintro)
 library(patchwork)
 library(knitr)
 library(kableExtra)
-library(colorblindr)
-library(gghighlight)
 
 # set default theme and larger font size for ggplot2
 ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
 ```
 
-# Types of predictors
+# Data
 
 ## Data: Peer-to-peer lender
 
@@ -111,7 +93,7 @@ Today's data is a sample of 50 loans made through a peer-to-peer lending club. T
 ```{r}
 #| echo: false
 loan50 |>
-  select(annual_income, debt_to_income, verified_income, interest_rate)
+  select(annual_income, verified_income, interest_rate)
 ```
 
 ## Variables
@@ -120,7 +102,6 @@ loan50 |>
 
 ::: nonincremental
 -   `annual_income`: Annual income
--   `debt_to_income`: Debt-to-income ratio, i.e. the percentage of a borrower's total debt divided by their total income
 -   `verified_income`: Whether borrower's income source and amount have been verified (`Not Verified`, `Source Verified`, `Verified`)
 :::
 
@@ -150,52 +131,53 @@ loan50 |>
 ## Predictors {.small}
 
 ```{r}
-#| echo: false
 #| out.width: "100%"
-p1 <- ggplot(loan50, aes(y = verified_income)) +
-  geom_bar() +
-  labs(title = "Verified Income", 
+#| code-fold: true
+p1 <- loan50 |> 
+  gf_bar(verified_income~.) |> 
+  gf_labs(title = "Verified Income", 
        y = "")
 
-p2 <- ggplot(loan50, aes(x = debt_to_income)) +
-  geom_histogram(binwidth = 0.25) +
-  labs(title = "",
-       x = "Debt to income ratio")
-
-p3 <- ggplot(loan50, aes(x = annual_income)) +
-  geom_histogram(binwidth = 20000) +
-  labs(title = "",
+p2 <- loan50 |> 
+  gf_histogram(~annual_income, binwidth = 20000) |> 
+  gf_labs(title = "",
        x = "Annual income")
 
-p1 + p2 / p3
+p1 / p2
 ```
 
-## Data manipulation 1: Rescale income
+## Data manipulation: Rescale income
 
 ```{r}
 #| echo: true
 
 loan50 <- loan50 |>
-  mutate(annual_income_th = annual_income / 1000)
+  mutate(annual_income_k = annual_income / 1000)
 
-ggplot(loan50, aes(x = annual_income_th)) +
-  geom_histogram(binwidth = 20) +
-  labs(title = "Annual income (in $1000s)", 
-       x = "")
+loan50 |> 
+  gf_histogram(~annual_income_k, binwidth = 20) |> 
+  gf_labs(title = "Annual income (in $1000s)", x = "")
 ```
 
-## Data manipulation 2: Mean-center numeric predictors
+# Categorical predictor variables
 
-```{r}
-#| echo: true
-loan50 <- loan50 |>
-  mutate(
-    debt_inc_cent = debt_to_income - mean(debt_to_income), 
-    annual_income_th_cent = annual_income_th - mean(annual_income_th)
-    )
-```
+::: appex
+Complete Exercises 1 and 2.
+:::
 
-## Data manipulation 3: Create indicator variables for `verified_income`
+
+## Indicator variables
+
+-   Suppose there is a categorical variable with $K$ categories (levels)
+
+-   We can make $K$ indicator variables - one indicator for each category
+
+-   An **indicator variable** takes values 1 or 0
+
+    -   1 if the observation belongs to that category
+    -   0 if the observation does not belong to that category
+
+## Data manipulation: Create indicator variables for `verified_income`
 
 ```{r}
 #| echo: true
@@ -206,494 +188,154 @@ loan50 <- loan50 |>
     source_verified = if_else(verified_income == "Source Verified", 1, 0),
     verified = if_else(verified_income == "Verified", 1, 0)
   )
+
+loan50 |>
+  select(verified_income, not_verified, source_verified, verified) |>
+  slice(1, 3, 6)
 ```
 
-## Interest rate vs. annual income
+## Indicators in the model {.midi}
 
-The lines are not parallel indicating there is an **interaction effect**. The slope of annual income differs based on the income verification.
+-   We will use $K-1$ of the indicator variables in the model.
+-   The **reference level** or **baseline** is the category that doesn't have a term in the model.
+-   The coefficients of the indicator variables in the model are interpreted as the expected change in the response compared to the baseline, holding all other variables constant.
+-   This approach is also called **dummy coding** and *R will do this for you*
+
+```{r}
+loan50 |>
+  select(verified_income, source_verified, verified) |>
+  slice(1, 3, 6)
+```
+
+## Application Exercise
+
+::: appex
+Complete Exercises 3 & 4
+:::
+
+## Interpreting `verified_income` {.smaller}
+
+::::{.columns}
+:::{.column}
+```{r}
+#| echo: false
+cat_mod <- lm(interest_rate ~ verified_income, data = loan50) 
+cat_mod |> 
+  tidy() |>
+  kable(digits = 3) 
+```
+:::
+:::{.column}
+```{r}
+#| echo: false
+loan50 |> 
+  gf_jitter(interest_rate ~ verified_income, height = 0, width = 0.15) |> 
+  gf_model(cat_mod)
+```
+:::
+::::
+
+::: question
+-   Where do we see each of the estimates in the plot?
+-   Where do we see the values we'd predict in the plot?
+-   Are `verified_income` and `interest_rate` **correlated**?
+:::
+
 
 ```{r}
 #| echo: false
 
-p1 <- ggplot(loan50, 
-             aes(x = annual_income_th, y = interest_rate)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(
-    x = "Annual income (in $1000s)",
-    y = "Interest rate"
-  )
-
-p2 <- ggplot(loan50, 
-             aes(x = annual_income_th, y = interest_rate,
-                 color = verified_income)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(x = "Annual income (in $1000s)", y = NULL, color = NULL) +
-  theme(legend.position = c(0.6, 0.9)) +
-  scale_color_OkabeIto()
-
-p1 + p2 +
-  plot_annotation(title = "Interest rate vs. annual income")
+countdown::countdown(minutes = 3, seconds = 0)
 ```
 
-## Data manipulation 4: Create interaction variables {.smaller}
 
-Defining the interaction variable in the model formula as `verified_income * annual_income_th_cent` is an implicit data manipulation step as well
+## Model equation
+
+$$
+\begin{align}\hat{\text{interest_rate}} =  9.541 &+ 2.224 \times \text{source_verified}\\  
+&+ 6.312 \times \text{verified}
+\end{align}
+$$
+
+# Adding in another predictor
+
+::: appex
+Complete Exercise 5-6.
+:::
+
+## Interest rate vs. annual income: parallel slopes
 
 ```{r}
 #| echo: false
-library(hardhat)
 
-framed <- model_frame(interest_rate ~ debt_inc_cent  +  debt_inc_cent + annual_income_th_cent + verified_income * annual_income_th_cent, data = loan50)
+inc_model <- lm(interest_rate ~ annual_income_k, data = loan50)
 
-model_matrix(framed$terms, framed$data) |>
-  glimpse()
+inc_verinc_model <- lm(interest_rate ~ annual_income_k + verified_income, data = loan50)
+
+p1 <- plotModel(inc_model) |> 
+  gf_labs(title = "SLR")
+p2 <- plotModel(inc_verinc_model) |> 
+  gf_labs(title = "With verified income")
+
+p1 + p2
 ```
 
-## Interaction term in the model {.midi}
+## Parallel slopes interpretation {.smaller}
 
 ```{r}
-#| echo: true
-int_cent_int_fit <- linear_reg() |>
-  set_engine("lm") |>
-  fit(interest_rate ~ debt_inc_cent  +  verified_income + 
-        annual_income_th_cent + verified_income * annual_income_th_cent,
-      data = loan50)
+#| echo: FALSE
+
+inc_verinc_model |> 
+  tidy() |> 
+  kable(digits = 3)
 ```
+
+-   Slope of `annual_income_k` is -0.022 regardless of `verified_income` level
+-   Change in `verified_income` corresponds to a shift in the intercept
+    +   Intercept for `Not Verified` is 11.388
+    +   For `Source Verified` shift intercept up 2.171 
+        -   (i.e. intercept $= 11.388 + 2.171 = 13.599$)
+    +   For `Verified` shift intercept up 6.792 **from `Not Verified`**
+        -   (i.e. intercept $= 11.388 + 6.792 = 18.180$)
+
+
+## Interest rate vs. annual income: interaction term
 
 ```{r}
 #| echo: false
-tidy(int_cent_int_fit) |>
-  kable(digits = 3) |>
-  row_spec(c(6,7), background = "#dce5b2")
+
+inc_verinc_interaction_model <- lm(interest_rate ~ annual_income_k + verified_income + verified_income*annual_income_k, data = loan50)
+
+p1 <- plotModel(inc_verinc_model) |> 
+  gf_labs(title = "No Interaction Term")
+p2 <- plotModel(inc_verinc_interaction_model) |> 
+  gf_labs(title = "Interaction Term")
+
+p1 + p2+ plot_layout(guides = "collect")
 ```
+
 
 ## Interpreting interaction terms
 
--   What the interaction means: The effect of annual income on the interest rate differs by -0.016 when the income is source verified compared to when it is not verified, holding all else constant.
--   Interpreting `annual_income` for source verified: If the income is source verified, we expect the interest rate to decrease by 0.023% (-0.007 + -0.016) for each additional thousand dollars in annual income, holding all else constant.
+```{r}
+#| echo: FALSE
+
+inc_verinc_interaction_model |> 
+  tidy() |> 
+  kable(digits = 3)
+```
+
+-   Slope of `annual_income_k` **depends** on `verified_income` level
+-   **No difference:** fit three separate linear models on the data corresponding to each level of `verified_income`
 
 ## Understanding the model {.midi}
 
 $$
 \begin{aligned}
-\hat{interest\_rate} &= 9.484 + 0.691 \times debt\_inc\_cent\\ &- 0.007 \times annual\_income\_th\_cent \\ &+ 2.157 \times SourceVerified + 7.181 \times Verified \\ &- 0.016 \times annual\_inc\_th\_cent \times SourceVerified\\ &- 0.032 \times annual\_inc\_th\_cent \times Verified
+\hat{interest\_rate} &= 910.303 - 0.009 \times annual\_income\_k \\ &+ 3.423 \times SourceVerified + 9.788 \times Verified \\ &- 0.015 \times annual\_income\_k \times SourceVerified\\ &- 0.031 \times annual\_income\_k \times Verified
 \end{aligned}
 $$
 
-::: question
-1.  What is $p$, the number of predictor terms in the model?
-2.  Write the equation of the model to predict interest rate for applicants with *Not Verified* income.
-3.  Write the equation of the model to predict interest rate for applicants with *Verified* income.
-:::
-
-# Feature engineering
-
-# Introduction
-
-## The Office
-
-![](images/11/the-office.jpeg){fig-alt="Photo of the main characters from the television show \"The Office\"" fig-align="center"}
-
-## Data
-
-The data come from [data.world](https://data.world/anujjain7/the-office-imdb-ratings-dataset), by way of [TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-03-17/readme.md)
-
-```{r}
-#| echo: true
-
-office_ratings <- read_csv("data/office_ratings.csv")
-office_ratings
-```
-
-## IMDB ratings
-
-```{r}
-#| echo: false
-#| 
-ggplot(office_ratings, aes(x = imdb_rating)) +
-  geom_histogram(binwidth = 0.25) +
-  labs(
-    title = "The Office ratings",
-    x = "IMDB rating"
-  )
-```
-
-## IMDB ratings vs. number of votes
-
-```{r}
-#| fig.asp: 0.5
-#| echo: false
-office_ratings |>
-  mutate(season = as_factor(season)) |>
-  ggplot(aes(x = total_votes, y = imdb_rating, color = season)) +
-  geom_jitter(alpha = 0.7) +
-  labs(
-    title = "The Office ratings",
-    x = "Total votes",
-    y = "IMDB rating",
-    color = "Season"
-  ) +
-  theme(legend.position = c(0.9, 0.5)) +
-  scale_color_viridis_d()
-```
-
-## Outliers
-
-```{r}
-#| fig.asp: 0.5
-#| echo: false
-ggplot(office_ratings, aes(x = total_votes, y = imdb_rating)) +
-  geom_jitter() +
-  gghighlight(total_votes > 4000, label_key = title) +
-  labs(
-    title = "The Office ratings",
-    x = "Total votes",
-    y = "IMDB rating"
-  )
-```
-
-## IMDB ratings vs. air date
-
-```{r}
-#| echo: false
-office_ratings |>
-  mutate(season = as_factor(season)) |>
-  ggplot(aes(x = air_date, y = imdb_rating, 
-             color = season, size = total_votes)) +
-  geom_point() +
-  labs(x = "Air date", y = "IMDB rating",
-       title = "The Office Ratings",
-       size = "Total votes") +
-  scale_color_viridis_d()
-```
-
-## IMDB ratings vs. seasons
-
-```{r}
-#| echo: false
-office_ratings |>
-  mutate(season = as_factor(season)) |>
-  ggplot(aes(x = season, y = imdb_rating, color = season)) +
-  geom_boxplot() +
-  geom_jitter() +
-  guides(color = "none") +
-  labs(
-    title = "The Office ratings",
-    x = "Season",
-    y = "IMDB rating"
-  ) +
-  scale_color_viridis_d()
-```
-
-# Modeling
-
-## Spending our data
-
--   There are several steps to create a useful model: parameter estimation, model selection, performance assessment, etc.
-
--   Doing all of this on the entire data we have available leaves us with no other data to assess our choices
-
--   We can allocate specific subsets of data for different tasks, as opposed to allocating the largest possible amount to the model parameter estimation only (which is what we've done so far)
-
-## Splitting the data
-
--   Take a random sample of X% of the data and set aside (**testing data**)
-    -   Typically 10 - 20%
--   Fit a model on the remaining Y% of the data (**training data**)
-    -   Typically 80 - 90%
--   Use the coefficients from the model fit on training data to make predictions and evaluate performance on the testing data
-
-## Train / test
-
-**Step 1:** Create an initial split:
-
-```{r}
-#| echo: true
-
-set.seed(123)
-office_split <- initial_split(office_ratings, prop = 0.75) # prop = 0.75 by default
-```
-
-. . .
-
-<br>
-
-**Step 2:** Save training data
-
-```{r}
-#| echo: true
-
-office_train <- training(office_split)
-dim(office_train)
-```
-
-. . .
-
-<br>
-
-**Step 3:** Save testing data
-
-```{r}
-#| echo: true
-
-office_test  <- testing(office_split)
-dim(office_test)
-```
-
-## Training data
-
-```{r}
-#| echo: true
-
-office_train
-```
-
-## Feature engineering
-
--   We prefer simple (parsimonious) models when possible, but **parsimony** does not mean sacrificing accuracy (or predictive performance) in the interest of simplicity
-
--   Variables that go into the model and how they are represented are just as critical to success of the model
-
--   **Feature engineering** allows us to get creative with our predictors in an effort to make them more useful for our model (to increase its predictive performance and improve interpretability)
-
-## Feature engineering with dplyr
-
-```{r}
-#| echo: false
-options(dplyr.print_max = 6, dplyr.print_min = 6)
-```
-
-```{r}
-#| echo: true
-
-office_train |>
-  mutate(
-    season = as_factor(season),
-    month = lubridate::month(air_date),
-    wday = lubridate::wday(air_date)
-  )
-```
-
-. . .
-
-::: question
-Can you identify any potential problems with this approach?
-:::
-
-```{r}
-#| echo: false
-options(dplyr.print_max = 10, dplyr.print_min = 10)
-```
-
-## Modeling workflow
-
-::: columns
-::: {.column width="70%"}
--   Create a **recipe** for feature engineering steps to be applied to the training data
-
--   Fit the model to the training data after these steps have been applied
-
--   Using the model estimates from the training data, predict outcomes for the test data
-
--   Evaluate the performance of the model on the test data
-:::
-
-::: {.column width="30%"}
-![](images/11/recipes.png){width="100%"}
-:::
-:::
-
-# Building recipes
-
-## Initiate a recipe
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|2|3"
-#| message: true
-
-office_rec <- recipe(
-  imdb_rating ~ .,    # formula
-  data = office_train # data for cataloging names and types of variables
-  )
-
-office_rec
-```
-
-## Step 1: Alter roles
-
-`title` isn't a predictor, but we might want to keep it around as an ID
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|2"
-#| message: true
-
-office_rec <- office_rec |>
-  update_role(title, new_role = "ID")
-
-office_rec
-```
-
-## Step 2: Add features
-
-New features for day of week and month
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|2"
-#| message: true
-
-office_rec <- office_rec |>
-  step_date(air_date, features = c("dow", "month"))
-
-office_rec
-```
-
-## Step 3: Add more features {.midi}
-
-Identify holidays in `air_date`, then remove `air_date`
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|2,3,4,5,6"
-#| message: true
-
-office_rec <- office_rec |>
-  step_holiday(
-    air_date, 
-    holidays = c("USThanksgivingDay", "USChristmasDay", "USNewYearsDay", "USIndependenceDay"), 
-    keep_original_cols = FALSE
-  )
-
-office_rec
-```
-
-## Step 4: Convert numbers to factors {.midi}
-
-Convert `season` to factor
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|2"
-#| message: true
-
-office_rec <- office_rec |>
-  step_num2factor(season, levels = as.character(1:9))
-
-office_rec
-```
-
-## Step 5: Make dummy variables {.midi}
-
-Convert all nominal (categorical) predictors to factors
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|2"
-#| message: true
-
-office_rec <- office_rec |>
-  step_dummy(all_nominal_predictors())
-
-office_rec
-```
-
-## Step 6: Remove zero variance predictors {.midi}
-
-Remove all predictors that contain only a single value
-
-```{r}
-#| echo: true
-#| code-line-numbers: "|2"
-#| message: true
-
-office_rec <- office_rec |>
-  step_zv(all_predictors())
-
-office_rec
-```
-
-## Putting it all together {.small}
-
-```{r}
-#| label: recipe-altogether
-#| echo: true
-#| results: hide
-
-office_rec <- recipe(imdb_rating ~ ., data = office_train) |>
-  # make title's role ID
-  update_role(title, new_role = "ID") |>
-  # extract day of week and month of air_date
-  step_date(air_date, features = c("dow", "month")) |>
-  # identify holidays and add indicators
-  step_holiday(
-    air_date, 
-    holidays = c("USThanksgivingDay", "USChristmasDay", "USNewYearsDay", "USIndependenceDay"), 
-    keep_original_cols = FALSE
-  ) |>
-  # turn season into factor
-  step_num2factor(season, levels = as.character(1:9)) |>
-  # make dummy variables
-  step_dummy(all_nominal_predictors()) |>
-  # remove zero variance predictors
-  step_zv(all_predictors())
-```
-
-## Putting it all together
-
-```{r}
-#| echo: true
-#| message: true
-
-office_rec
-```
-
-## Next step... {.midi}
-
-We will complete the workflow to fit a model predicting IMDB ratings that includes the following predictors:
-
--   `episode`
--   `total_votes`
--   indicator variables for `season`
--   indicator variables for day of week aired (created using `air_date`)
--   indicator variables for month aired (created using `air_date`)
-
-. . .
-
-::: question
-What feature will not end up in the final model? Why is it not included?
-:::
-
-# Application exercise
-
 ::: appex
-📋 [sta210-fa23.netlify.app/ae/ae-09-feature-engineering.html](https://sta210-fa23.netlify.app/ae/ae-09-feature-engineering.html)
-:::
-
-## Working with recipes
-
--   When building recipes you in a pipeline, you don't get to see the effect of the recipe on your data, which can be unsettling
-
--   You can take a peek at what will happen when you ultimately apply the recipe to your data at the time of fitting the model
-
--   This requires two functions: `prep()` to train the recipe and `bake()` to apply it to your data
-
-::: callout-note
-This is optional, we'll show the results for demonstrative purposes. It doesn't need to be part of your modeling pipeline, but it can be assuring to see the effects of the recipe steps as you build the recipe.
-:::
-
-# Application exercise
-
-::: appex
-📋 [sta210-fa23.netlify.app/ae/ae-09-feature-engineering.html](https://sta210-fa23.netlify.app/ae/ae-09-feature-engineering.html)
-:::
-
-## Recap
-
-::: nonincremental
--   Review: Training and testing splits
--   Feature engineering with recipes
+Complete Exercise 7
 :::

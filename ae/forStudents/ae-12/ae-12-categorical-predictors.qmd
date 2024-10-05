@@ -2,6 +2,9 @@
 title: "AE 12: Categorical Predictors"
 subtitle: "Pee-to-Peer Loans"
 editor: visual
+format: 
+  pdf:
+    pdf-engine: pdflatex
 ---
 
 ::: callout-important
@@ -64,7 +67,7 @@ WITHOUT WRITING ANY CODE except for addition, subtraction, multiplication, and a
 
 ## Exercise 5
 
-The linear model below predicts `interest_rate` from `annual_income_k`. Add `verified_income` as a predictor to this model. Do not include an interaction term. Be prepared to discuss how and why the plot changes when you add in `verified_income`. 
+The linear model below predicts `interest_rate` from `annual_income_k`. Add `verified_income` as a predictor to this model. Do not include an interaction term. Be prepared to discuss how and why the plot changes when you add in `verified_income`.
 
 ```{r}
 ex5_model <- lm(interest_rate ~ annual_income_k, data = loan50) 
@@ -77,7 +80,7 @@ plotModel(ex5_model) # nifty function from the mosaic package
 
 ## Exercise 6
 
-How do you think the plot above will change if you add in an interaction term between `verified_income` and `interest_rate`? **AFTER** thinking about it, add in an interaction term between `verified_income` and `annual_income_k`. 
+How do you think the plot above will change if you add in an interaction term between `verified_income` and `interest_rate`? **AFTER** thinking about it, add in an interaction term between `verified_income` and `annual_income_k`.
 
 ```{r}
 ex6_model <- lm(interest_rate ~ annual_income_k, data = loan50) 
@@ -92,9 +95,9 @@ plotModel(ex6_model) # nifty function from the mosaic package
 
 Based on the model above (and the equation on the slides):
 
--  Write the equation of the model to predict interest rate for applicants with *Not Verified* income.
--  Write the equation of the model to predict interest rate for applicants with *Verified* income.
--  Our degrees of freedom will be $n-p-1$. What is $p$ in this case? Hint: it isn't 2.
+-   Write the equation of the model to predict interest rate for applicants with *Not Verified* income.
+-   Write the equation of the model to predict interest rate for applicants with *Verified* income.
+-   Our degrees of freedom will be $n-p-1$. What is $p$ in this case? Hint: it isn't 2.
 
 ## To submit the AE
 
