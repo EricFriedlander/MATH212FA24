@@ -1,0 +1,215 @@
+---
+title: "Exam 01 Review/Practice"
+editor: visual
+---
+
+::: callout-important
+Note that you are not required to turn anything in for this assignment and you should complete this on a sheet of paper.
+:::
+
+## Packages
+
+```{r load-packages}
+#| message: false
+library(tidyverse)
+library(broom)
+library(yardstick)
+library(ggformula)
+library(knitr)
+library(infer)
+library(patchwork)
+```
+
+## Restaurant tips
+
+What factors are associated with the amount customers tip at a restaurant? To answer this question, we will use data collected in 2011 by a student at St. Olaf who worked at a local restaurant.[^1]
+
+[^1]: Dahlquist, Samantha, and Jin Dong. 2011. "The Effects of Credit Cards on Tipping." Project for Statistics 212-Statistics for the Sciences, St. Olaf College.
+
+The variables we'll focus on for this analysis are
+
+-   `Tip`: amount of the tip
+-   `Meal`: which meal this was (`Lunch`, `Late Lunch`, `Dinner`)
+-   `Party`: number of people in the party
+
+View the data set to see the remaining variables.
+
+```{r}
+#| message: false
+
+tips <- read_csv("data/tip-data.csv")
+
+glimpse(tips)
+```
+
+## Exploratory data analysis
+
+```{r}
+#| warning: false
+
+p1 <- tips |> 
+  gf_histogram(~Tip, color = "white", binwidth = 2) |> 
+  gf_labs(x = "Tips ($)",
+       title = "Tips at local restaurant")
+
+p2 <-  tips |> 
+  gf_histogram(~Tip, color = "white") |> 
+  gf_labs(x = "Party",
+       title = "Number of diners in party") |> 
+  gf_lims(x=c(0, 7))
+
+p3 <- tips |>
+  gf_bar(~ Meal) |> 
+  gf_labs(x = "Meal",
+       title = "Number of meal types")
+
+p4 <- tips |>
+  gf_jitter(Tip ~ Party) |> 
+  gf_labs(x = "Number of diners in party", 
+       y = "Tips ($)",
+       title = "Tips vs. Party")
+
+p5 <- tips |>
+  gf_jitter(Tip ~ Meal, height = 0, width = 0.25) |> 
+  gf_labs(x = "Meal", 
+       y = "Tips ($)",
+       title = "Tips vs. Meal")
+
+(p1 + p2) / p3
+
+(p4 + p5)
+```
+
+The goal is to fit a model that uses the number of diners in the party and the meal to understand variability in the tips. For Exercise 2-8, assume we are only using `Party` and **not** `Meal` to predict `Tip`.
+
+## Exercise 1
+
+1. What is another type of plot we could use to look at the relationship between `Meal` and `Tips`?
+2. Why might we want to use a jitter plot instead of a scatter plot to display the relationship between `Party` and `Tips`?
+
+## Exercise 2
+
+Write the statistical model that we will be trying to estimate. Use Greek letters and include an error term.
+
+## Exercise 3
+
+The regression output with 90% confidence intervals for the coefficients is shown below.
+
+```{r}
+tips_fit <- lm(Tip ~ Party, data = tips)
+
+tips_fit |> 
+  tidy() |>
+  kable(digits = 3)
+```
+
+
+1.   Write the regression equation and interpret the slope in the context of the data.
+2.   What would your model predict is the `Tip` for a party of size 3?
+3.    One family for four walks into your restaurant. Consider the following two predictions and intervals for the `Tip` left by this family. Which one is appropriate for this scenario? If you chose the wider one, explain why it is larger. If you chose the narrower one, explain why it is smaller.
+
+```{r}
+family <- tibble(Party = 4)
+predict(tips_fit, newdata = family, interval = "confidence") |> kable(digits = 3)
+predict(tips_fit, newdata = family, interval = "prediction") |> kable(digits = 3)
+```
+
+## Exercise 4
+
+```{r}
+glance(tips_fit) |> kable(digits = 3)
+```
+
+What is the regression error for the model. Write the definition of this value in the context of the data.
+
+## Exercise 5
+
+```{r}
+tips_aug <- augment(tips_fit)
+
+rsq(tips_aug, truth = Tip, estimate = .fitted) |> kable()
+rmse(tips_aug, truth = Tip, estimate = .fitted) |> kable()
+```
+
+1.   Define $R^2$ and interpret it in the context of the data.
+2.   Define RMSE and interpret it in the context of the data.
+
+
+## Exercise 6
+
+The following code can be used to create a bootstrap distribution for the slope (and the intercept, though we'll focus primarily on the slope in our inference) for the coefficient of `Party` in our linear model. Use the plot below to (visually) construct a 90% confidence interval for the slope:
+
+1. Describe why you chose the values you chose for your interval.
+2. Interpret the interval in the context of the data.
+3. How would increasing the number of repetitions change the size of the confidence interval?
+4. How would increasing the sample size change the size of the confidence interval?
+5. How would increasing the confidence level change the size of the condidence interval?
+
+```{r}
+#| cache: TRUE
+set.seed(1234)
+
+boot_dist <- tips |> # <1>
+  specify(Tip ~ Party) |> # <2>
+  generate(reps = 1000, type = "bootstrap") |> # <3>
+  fit()
+
+boot_dist |>
+  filter(term == "Party") |> 
+  gf_histogram(~estimate)
+```
+
+## Exercise 7
+
+Set-up a hypothesis test for the slope of `Party`. Make sure to include:
+
+1. Both hypotheses in mathematical notation and words.
+2. The test statistic.
+3. The distribution of the test statistic.
+4. The p-value.
+5. The result of your test at a significance level of $\alpha= 0.05$.
+
+You may want to refer to the output in Exercise 3.
+
+## Exercise 8
+
+List the conditions necessary for conducting inference. Include how you would test each one and how you would determine if they were satisfied.
+
+Extra credit: Based on the context of this problem, you should expect that the constant variance assumption is likely to be violated... why? Think about how people tip.
+
+## Exercise 9
+
+Consider two models:
+
+**Model 1**
+
+```{r}
+lm(Tip ~ Party + Meal, data = tips) |>
+  tidy() |> 
+  kable(digits = 3)
+```
+
+**Model 2**
+
+```{r}
+lm(Tip ~ Party + Meal + Party*Meal, data = tips) |>
+  tidy() |> 
+  kable(digits = 3)
+```
+
+1. For model 1, interpret the slope and p-value of `Party` in the context of the problem.
+2. For model 1, what is the *reference level* of `Meal`.
+3. Which model has the lower RMSE? How do you know that this is true without being able to see it?
+4. Consider the following two plots of the data. Roughly sketch model 1 on the left and model 2 on the right. You will receive full credit if (a) positive slopes are positive and negative slopes are negative, (b) steeper slopes are steeper, and (c) higher intercepts are higher.
+
+```{r}
+p1 <- tips |> 
+  gf_jitter(Tip ~ Party, color = ~Meal) |> 
+  gf_labs(title = "Sketch model 1")
+
+p2 <- tips |> 
+  gf_jitter(Tip ~ Party, color = ~Meal) |> 
+  gf_labs(title = "Sketch model 2")
+
+p1 + p2 + plot_layout(guides = "collect")
+```

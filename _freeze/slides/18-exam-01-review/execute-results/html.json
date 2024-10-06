@@ -1,0 +1,19 @@
+{
+  "hash": "194c749b094b7d65b6d29377de88474a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Exam 01 review\"\nauthor: \"Prof. Eric Friedlander\"\ndate: \"2024-10-09\"\ndate-format: \"MMM DD, YYYY\"\nfooter: \"[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)\"\nlogo: \"../images/logo.png\"\nformat: \n  revealjs:\n    theme: slides.scss\n    multiplex: false\n    transition: fade\n    slide-number: false\n    incremental: false \n    chalkboard: true\nhtml-math-method:\n  method: mathjax\n  url: \"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"\nexecute:\n  freeze: auto\n  echo: true\n  cache: false\nknitr:\n  opts_chunk: \n    R.options:      \n    width: 200\nbibliography: references.bib\n---\n\n\n## Announcements {.midi}\n\n-   Exam Friday!\n-   Proposal due Friday!\n  +   Accepted until Monday\n-   Don't forget about Oral R Quiz!\n    +   Happy to administer over Teams during the break if you'd like...\n\n## Exam 01 {.midi}\n\n::: columns\n::: {.column width=\"50%\"}\n-   15% of final course grade\n\n-   Exploratory data analysis\n\n-   Fitting and interpreting simple linear regression models\n\n-   Statistical models and regression equations\n\n-   Simulation-based inference\n:::\n\n::: {.column width=\"50%\"}\n-   Mathematical models for inference\n\n-   Prediction\n\n-   Model conditions\n\n-   Model evaluation\n\n-   Multiple linear regression (including basics of categorical response variables)\n:::\n:::\n\n\n# Application exercise\n\n::: appex\n📋 [Exame 1 review/practice](https://mat212fa24.netlify.app/ae/exam-01-review.html)\n:::\n\n-   Feel free to work in groups or separately\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

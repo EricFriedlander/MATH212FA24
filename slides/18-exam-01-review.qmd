@@ -1,0 +1,73 @@
+---
+title: "Exam 01 review"
+author: "Prof. Eric Friedlander"
+date: "2024-10-09"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+## Announcements {.midi}
+
+-   Exam Friday!
+-   Proposal due Friday!
+  +   Accepted until Monday
+-   Don't forget about Oral R Quiz!
+    +   Happy to administer over Teams during the break if you'd like...
+
+## Exam 01 {.midi}
+
+::: columns
+::: {.column width="50%"}
+-   15% of final course grade
+
+-   Exploratory data analysis
+
+-   Fitting and interpreting simple linear regression models
+
+-   Statistical models and regression equations
+
+-   Simulation-based inference
+:::
+
+::: {.column width="50%"}
+-   Mathematical models for inference
+
+-   Prediction
+
+-   Model conditions
+
+-   Model evaluation
+
+-   Multiple linear regression (including basics of categorical response variables)
+:::
+:::
+
+
+# Application exercise
+
+::: appex
+📋 [Exame 1 review/practice](https://mat212fa24.netlify.app/ae/exam-01-review.html)
+:::
+
+-   Feel free to work in groups or separately
