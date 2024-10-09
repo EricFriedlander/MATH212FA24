@@ -32,7 +32,7 @@ The data set for this assignment is a subset from the [Spotify Songs](https://gi
 It contains numerous characteristics for each song. You can see the full list of variables and definitions [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md). This analysis will focus specifically on the following variables:
 
 | variable         | class     | description                                                                                                                                                                                                                                                                                                                                                                               |
-|:--------|:--------|:------------------------------------------------------|
+|:-----------------|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | track_id         | character | Song unique ID                                                                                                                                                                                                                                                                                                                                                                            |
 | track_name       | character | Song Name                                                                                                                                                                                                                                                                                                                                                                                 |
 | track_artist     | character | Song Artist                                                                                                                                                                                                                                                                                                                                                                               |
@@ -144,6 +144,16 @@ Calculate RMSE and interpret this value in the context of the data.
 #| label: calc-rmse
 ```
 
+        \newcommand{\E}{\mathbb{E}}
+        \newcommand{\Var}{\text{Var}}
+        \newcommand{\SD}{\text{SD}}
+        \newcommand{\PP}{\text{P}}
+        \newcommand{\bq}{\begin{questions}}
+        \newcommand{\eq}{\end{questions}}
+        \newcommand{\bp}{\begin{parts}}
+        \newcommand{\ep}{\end{parts}}
+        \newcommand{\bs}{\begin{subparts}}
+        \newcommand{\es}{\end{subparts}}
 ## Exercise 3
 
 Choose another quantitative variable in the data set. Check [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md) for specific definitions of variables. After Dr. Friedlander approves your choice, fit a model predicting `valence` using that variable as a predictor. Make an argument, citing quantitative evidence, for which model is better, the energy model or your new model. Reporters, be ready to discuss with the class.
@@ -151,6 +161,6 @@ Choose another quantitative variable in the data set. Check [here](https://githu
 ## To submit the AE:
 
 ::: callout-important
-- Render the document to produce the PDF with all of your work from today's class.
-- Upload your QMD and PDF files to the Canvas assignment.
+-   Render the document to produce the PDF with all of your work from today's class.
+-   Upload your QMD and PDF files to the Canvas assignment.
 :::

@@ -5508,7 +5508,7 @@
     "href": "ae/ae-07-model-eval.html#exercise-2",
     "title": "AE 07: Model evaluation",
     "section": "Exercise 2",
-    "text": "Exercise 2\nCalculate RMSE and interpret this value in the context of the data."
+    "text": "Exercise 2\nCalculate RMSE and interpret this value in the context of the data.\n    \\newcommand{\\E}{\\mathbb{E}}\n    \\newcommand{\\Var}{\\text{Var}}\n    \\newcommand{\\SD}{\\text{SD}}\n    \\newcommand{\\PP}{\\text{P}}\n    \\newcommand{\\bq}{\\begin{questions}}\n    \\newcommand{\\eq}{\\end{questions}}\n    \\newcommand{\\bp}{\\begin{parts}}\n    \\newcommand{\\ep}{\\end{parts}}\n    \\newcommand{\\bs}{\\begin{subparts}}\n    \\newcommand{\\es}{\\end{subparts}}"
   },
   {
     "objectID": "ae/ae-07-model-eval.html#exercise-3",
@@ -17259,7 +17259,7 @@
     "href": "ae/exam-01-review.html#exploratory-data-analysis",
     "title": "Exam 01 Review/Practice",
     "section": "Exploratory data analysis",
-    "text": "Exploratory data analysis\n\np1 &lt;- tips |&gt; \n  gf_histogram(~Tip, color = \"white\", binwidth = 2) |&gt; \n  gf_labs(x = \"Tips ($)\",\n       title = \"Tips at local restaurant\")\n\np2 &lt;-  tips |&gt; \n  gf_histogram(~Tip, color = \"white\") |&gt; \n  gf_labs(x = \"Party\",\n       title = \"Number of diners in party\") |&gt; \n  gf_lims(x=c(0, 7))\n\np3 &lt;- tips |&gt;\n  gf_bar(~ Meal) |&gt; \n  gf_labs(x = \"Meal\",\n       title = \"Number of meal types\")\n\np4 &lt;- tips |&gt;\n  gf_jitter(Tip ~ Party) |&gt; \n  gf_labs(x = \"Number of diners in party\", \n       y = \"Tips ($)\",\n       title = \"Tips vs. Party\")\n\np5 &lt;- tips |&gt;\n  gf_jitter(Tip ~ Meal, height = 0, width = 0.25) |&gt; \n  gf_labs(x = \"Meal\", \n       y = \"Tips ($)\",\n       title = \"Tips vs. Meal\")\n\n(p1 + p2) / p3\n\n\n\n\n\n\n\n(p4 + p5)\n\n\n\n\n\n\n\n\nThe goal is to fit a model that uses the number of diners in the party and the meal to understand variability in the tips. For Exercise 2-8, assume we are only using Party and not Meal to predict Tip."
+    "text": "Exploratory data analysis\n\np1 &lt;- tips |&gt; \n  gf_histogram(~Tip, color = \"white\", binwidth = 2) |&gt; \n  gf_labs(x = \"Tips ($)\",\n       title = \"Tips at local restaurant\")\n\np2 &lt;-  tips |&gt; \n  gf_histogram(~Party, color = \"white\") |&gt; \n  gf_labs(x = \"Party\",\n       title = \"Number of diners in party\") |&gt; \n  gf_lims(x=c(0, 7))\n\np3 &lt;- tips |&gt;\n  gf_bar(~ Meal) |&gt; \n  gf_labs(x = \"Meal\",\n       title = \"Number of meal types\")\n\np4 &lt;- tips |&gt;\n  gf_jitter(Tip ~ Party) |&gt; \n  gf_labs(x = \"Number of diners in party\", \n       y = \"Tips ($)\",\n       title = \"Tips vs. Party\")\n\np5 &lt;- tips |&gt;\n  gf_jitter(Tip ~ Meal, height = 0, width = 0.25) |&gt; \n  gf_labs(x = \"Meal\", \n       y = \"Tips ($)\",\n       title = \"Tips vs. Meal\")\n\n(p1 + p2) / p3\n\n\n\n\n\n\n\n(p4 + p5)\n\n\n\n\n\n\n\n\nThe goal is to fit a model that uses the number of diners in the party and the meal to understand variability in the tips. For Exercise 2-8, assume we are only using Party and not Meal to predict Tip."
   },
   {
     "objectID": "ae/exam-01-review.html#exercise-1",

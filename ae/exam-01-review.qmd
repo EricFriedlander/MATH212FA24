@@ -53,7 +53,7 @@ p1 <- tips |>
        title = "Tips at local restaurant")
 
 p2 <-  tips |> 
-  gf_histogram(~Tip, color = "white") |> 
+  gf_histogram(~Party, color = "white") |> 
   gf_labs(x = "Party",
        title = "Number of diners in party") |> 
   gf_lims(x=c(0, 7))
@@ -84,8 +84,8 @@ The goal is to fit a model that uses the number of diners in the party and the m
 
 ## Exercise 1
 
-1. What is another type of plot we could use to look at the relationship between `Meal` and `Tips`?
-2. Why might we want to use a jitter plot instead of a scatter plot to display the relationship between `Party` and `Tips`?
+1.  What is another type of plot we could use to look at the relationship between `Meal` and `Tips`?
+2.  Why might we want to use a jitter plot instead of a scatter plot to display the relationship between `Party` and `Tips`?
 
 ## Exercise 2
 
@@ -103,10 +103,9 @@ tips_fit |>
   kable(digits = 3)
 ```
 
-
-1.   Write the regression equation and interpret the slope in the context of the data.
-2.   What would your model predict is the `Tip` for a party of size 3?
-3.    One family for four walks into your restaurant. Consider the following two predictions and intervals for the `Tip` left by this family. Which one is appropriate for this scenario? If you chose the wider one, explain why it is larger. If you chose the narrower one, explain why it is smaller.
+1.  Write the regression equation and interpret the slope in the context of the data.
+2.  What would your model predict is the `Tip` for a party of size 3?
+3.  One family for four walks into your restaurant. Consider the following two predictions and intervals for the `Tip` left by this family. Which one is appropriate for this scenario? If you chose the wider one, explain why it is larger. If you chose the narrower one, explain why it is smaller.
 
 ```{r}
 family <- tibble(Party = 4)
@@ -131,19 +130,18 @@ rsq(tips_aug, truth = Tip, estimate = .fitted) |> kable()
 rmse(tips_aug, truth = Tip, estimate = .fitted) |> kable()
 ```
 
-1.   Define $R^2$ and interpret it in the context of the data.
-2.   Define RMSE and interpret it in the context of the data.
-
+1.  Define $R^2$ and interpret it in the context of the data.
+2.  Define RMSE and interpret it in the context of the data.
 
 ## Exercise 6
 
 The following code can be used to create a bootstrap distribution for the slope (and the intercept, though we'll focus primarily on the slope in our inference) for the coefficient of `Party` in our linear model. Use the plot below to (visually) construct a 90% confidence interval for the slope:
 
-1. Describe why you chose the values you chose for your interval.
-2. Interpret the interval in the context of the data.
-3. How would increasing the number of repetitions change the size of the confidence interval?
-4. How would increasing the sample size change the size of the confidence interval?
-5. How would increasing the confidence level change the size of the condidence interval?
+1.  Describe why you chose the values you chose for your interval.
+2.  Interpret the interval in the context of the data.
+3.  How would increasing the number of repetitions change the size of the confidence interval?
+4.  How would increasing the sample size change the size of the confidence interval?
+5.  How would increasing the confidence level change the size of the condidence interval?
 
 ```{r}
 #| cache: TRUE
@@ -163,11 +161,11 @@ boot_dist |>
 
 Set-up a hypothesis test for the slope of `Party`. Make sure to include:
 
-1. Both hypotheses in mathematical notation and words.
-2. The test statistic.
-3. The distribution of the test statistic.
-4. The p-value.
-5. The result of your test at a significance level of $\alpha= 0.05$.
+1.  Both hypotheses in mathematical notation and words.
+2.  The test statistic.
+3.  The distribution of the test statistic.
+4.  The p-value.
+5.  The result of your test at a significance level of $\alpha= 0.05$.
 
 You may want to refer to the output in Exercise 3.
 
@@ -197,10 +195,10 @@ lm(Tip ~ Party + Meal + Party*Meal, data = tips) |>
   kable(digits = 3)
 ```
 
-1. For model 1, interpret the slope and p-value of `Party` in the context of the problem.
-2. For model 1, what is the *reference level* of `Meal`.
-3. Which model has the lower RMSE? How do you know that this is true without being able to see it?
-4. Consider the following two plots of the data. Roughly sketch model 1 on the left and model 2 on the right. You will receive full credit if (a) positive slopes are positive and negative slopes are negative, (b) steeper slopes are steeper, and (c) higher intercepts are higher.
+1.  For model 1, interpret the slope and p-value of `Party` in the context of the problem.
+2.  For model 1, what is the *reference level* of `Meal`.
+3.  Which model has the lower RMSE? How do you know that this is true without being able to see it?
+4.  Consider the following two plots of the data. Roughly sketch model 1 on the left and model 2 on the right. You will receive full credit if (a) positive slopes are positive and negative slopes are negative, (b) steeper slopes are steeper, and (c) higher intercepts are higher.
 
 ```{r}
 p1 <- tips |> 
