@@ -2,6 +2,9 @@
 title: "AE 13: Conditions for Multiple Linear Regression"
 subtitle: "Rail Trail"
 editor: visual
+format: 
+  pdf:
+    pdf-engine: pdflatex
 ---
 
 ::: callout-important
@@ -23,7 +26,7 @@ library(knitr)
 library(mosaic)
 library(mosaicData)
 
-rail_trail <- read_csv("data/rail_trail.csv")
+rail_trail <- read_csv("rail_trail.csv")
 ```
 
 The data for this AE is based on data from the Pioneer Valley Planning Commission (PVPC) and is included in the **mosaicData** package. The PVPC collected data for ninety days from April 5, 2005 to November 15, 2005. Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station. More information can be found [here](http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf).
@@ -46,8 +49,8 @@ Augment the model you created above using the `augment` function. Generate a sca
 
 Make two plots:
 
-1. Residuals vs. `precip`.
-2. Residuals vs. `day_type`.
+1.  Residuals vs. `precip`.
+2.  Residuals vs. `day_type`.
 
 ## Exercise 3
 

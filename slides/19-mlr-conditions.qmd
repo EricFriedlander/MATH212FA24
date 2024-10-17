@@ -206,6 +206,8 @@ Does the constant variance condition appear to be satisfied?
 Given this conclusion, what might be a next step in the analysis?
 :::
 
+Complete Exercises 5-6.
+
 ## Checking normality
 
 ```{r}

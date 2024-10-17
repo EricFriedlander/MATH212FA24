@@ -17350,7 +17350,7 @@
     "href": "ae/ae-13-mlr-conditions.html#analysis-goal",
     "title": "AE 13: Conditions for Multiple Linear Regression",
     "section": "Analysis goal",
-    "text": "Analysis goal\nThe goals of this activity are to:\n\nPerform inference for multiple linear regression\nConduct/interpret hypothesis tests\nConstruct/interpret confidence intervals"
+    "text": "Analysis goal\nThe goals of this activity are to:\n\nDetermine whether the conditions for inference are satisfied in this multi-predictor setting."
   },
   {
     "objectID": "ae/ae-13-mlr-conditions.html#exercise-0",
@@ -17378,7 +17378,7 @@
     "href": "ae/ae-13-mlr-conditions.html#exercise-3",
     "title": "AE 13: Conditions for Multiple Linear Regression",
     "section": "Exercise 3",
-    "text": "Exercise 3\nBased on the three plots you’ve made and the four on the screen, do you think the linear condition is satisfied?"
+    "text": "Exercise 3\nBased on the three plots you’ve made and the four on the screen, do you think the linearity condition is satisfied?"
   },
   {
     "objectID": "ae/ae-13-mlr-conditions.html#exercise-4",
@@ -17581,7 +17581,7 @@
     "href": "slides/19-mlr-conditions.html#checking-constant-variance-1",
     "title": "MLR: Conditions",
     "section": "Checking constant variance",
-    "text": "Checking constant variance\n\nThe vertical spread of the residuals is not constant across the plot.\nThe constant variance condition is not satisfied.\n\n\n\nGiven this conclusion, what might be a next step in the analysis?"
+    "text": "Checking constant variance\n\nThe vertical spread of the residuals is not constant across the plot.\nThe constant variance condition is not satisfied.\n\n\n\nGiven this conclusion, what might be a next step in the analysis?\n\nComplete Exercises 5-6."
   },
   {
     "objectID": "slides/19-mlr-conditions.html#checking-normality",
@@ -17630,7 +17630,7 @@
     "href": "ae/ae-13-mlr-conditions.html#exercise-5",
     "title": "AE 13: Conditions for Multiple Linear Regression",
     "section": "Exercise 5",
-    "text": "Exercise 5\nGenerate a histogram of the residuals. If you have time, (also generate a QQ-plot of the residuals](https://mat212fa24.netlify.app/slides/10-slr-conditions#/check-normality-using-a-qq-plot). Do you believe the normality condition is satisfied."
+    "text": "Exercise 5\nGenerate a histogram of the residuals. If you have time, also generate a QQ-plot of the residuals. Do you believe the normality condition is satisfied?"
   },
   {
     "objectID": "ae/ae-13-mlr-conditions.html#exercise-6",
