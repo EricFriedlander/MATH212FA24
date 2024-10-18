@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Driver: ____, Reporter: _____, Gopher: _____">
 
-<title>MAT 212 - Fall 2024 - ANOVA Output in R</title>
+<title>MAT 212 - Fall 2024 - AE 14: Model Comparison</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,7 +143,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">ANOVA Output in R</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 14: Model Comparison</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -263,24 +264,39 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#model-fit" id="toc-model-fit" class="nav-link active" data-scroll-target="#model-fit">Model fit</a></li>
-  <li><a href="#anova" id="toc-anova" class="nav-link" data-scroll-target="#anova">ANOVA</a></li>
-  <li><a href="#sum-of-squares-in-anova-table" id="toc-sum-of-squares-in-anova-table" class="nav-link" data-scroll-target="#sum-of-squares-in-anova-table">Sum of squares in ANOVA table</a></li>
+  <li><a href="#packages-data" id="toc-packages-data" class="nav-link active" data-scroll-target="#packages-data">Packages + data</a></li>
+  <li><a href="#analysis-goal" id="toc-analysis-goal" class="nav-link" data-scroll-target="#analysis-goal">Analysis goal</a></li>
+  <li><a href="#exercise-0" id="toc-exercise-0" class="nav-link" data-scroll-target="#exercise-0">Exercise 0</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#to-submit-the-ae" id="toc-to-submit-the-ae" class="nav-link" data-scroll-target="#to-submit-the-ae">To submit the AE</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/slides/anova-table.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-14-comparison.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ANOVA Output in R</h1>
+<h1 class="title">AE 14: Model Comparison</h1>
+<p class="subtitle lead">Tips Data</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Driver: ____, Reporter: _____, Gopher: _____ </p>
+          </div>
+  </div>
     
   
     
@@ -291,255 +307,143 @@ window.Quarto = {
 </header>
 
 
-<p>We will use the Tips data set for this example.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The variables of interest in this analysis are</p>
-<ul>
-<li><code>Party</code>: Number of people in the party</li>
-<li><code>Meal</code>: Time of day (<code>Lunch</code>, <code>Dinner</code>, <code>Late Night</code>)</li>
-<li><code>Age</code>: Age category of person paying the bill (<code>Yadult</code>, <code>Middle</code>, <code>SenCit</code>)</li>
-</ul>
-<section id="model-fit" class="level2">
-<h2 class="anchored" data-anchor-id="model-fit">Model fit</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tip_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Tip <span class="sc">~</span> Party <span class="sc">+</span> Age, <span class="at">data =</span> tips)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(tip_fit) <span class="sc">|&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-0.17</td>
-<td style="text-align: right;">0.37</td>
-<td style="text-align: right;">-0.46</td>
-<td style="text-align: right;">0.64</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Party</td>
-<td style="text-align: right;">1.84</td>
-<td style="text-align: right;">0.12</td>
-<td style="text-align: right;">14.76</td>
-<td style="text-align: right;">0.00</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">AgeMiddle</td>
-<td style="text-align: right;">1.01</td>
-<td style="text-align: right;">0.41</td>
-<td style="text-align: right;">2.47</td>
-<td style="text-align: right;">0.01</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">AgeSenCit</td>
-<td style="text-align: right;">1.39</td>
-<td style="text-align: right;">0.48</td>
-<td style="text-align: right;">2.86</td>
-<td style="text-align: right;">0.00</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="anova" class="level2">
-<h2 class="anchored" data-anchor-id="anova">ANOVA</h2>
-<p>Below is the ANOVA output for the model fit above.</p>
-<div class="cell" data-tbl-colwidths="[60,40]">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(tip_fit) <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 23%">
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 15%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">df</th>
-<th style="text-align: right;">sumsq</th>
-<th style="text-align: right;">meansq</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Party</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1188.64</td>
-<td style="text-align: right;">1188.64</td>
-<td style="text-align: right;">285.71</td>
-<td style="text-align: right;">0.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Age</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">38.03</td>
-<td style="text-align: right;">19.01</td>
-<td style="text-align: right;">4.57</td>
-<td style="text-align: right;">0.01</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Residuals</td>
-<td style="text-align: right;">165</td>
-<td style="text-align: right;">686.44</td>
-<td style="text-align: right;">4.16</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>We will focus on the sum of squares in this document. The sum of squares are as follows:</p>
-<span class="math display">\[\begin{aligned}
-&amp;SS_{Party} = 1188.64 \\
-&amp;SS_{Age|Party} = 38.03 \\
-&amp;SS_{Error} = SS_{Residuals} = 686.44 \\
-&amp;SS_{Total} = 1913.11
-\end{aligned}\]</span>
-</section>
-<section id="sum-of-squares-in-anova-table" class="level2">
-<h2 class="anchored" data-anchor-id="sum-of-squares-in-anova-table">Sum of squares in ANOVA table</h2>
-<p>R uses a sequential method to calculate sum of squares for the variables in the model. This means that the sum of squares attributed to each variable is the variation in the response explained by that variable after accounting for the total variation explained by the other variables already in the model.</p>
-<p>The order of the sequence is determined by the order of the variables in the model fit code. This order is reflected in the order the variables appear in the ANOVA output. The sequential sum of squares attributed to each variable will change if the order of the variables in the model changes; however, the sum of squares attributed to the model overall will <strong>not</strong> change, regardless of the order of the variables.</p>
-<p>Let’s take a look at the sum of squares for <code>Party</code>, the first variable in the model. This value is calculated as the total variation in <code>Tips</code> explained by <code>Party</code> only. We can calculate this value by looking at the ANOVA table for simple linear regression model where <code>Party</code> is the only predictor.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>party_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Tip <span class="sc">~</span> Party, <span class="at">data =</span> tips)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(party_fit) <span class="sc">|&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">df</th>
-<th style="text-align: right;">sumsq</th>
-<th style="text-align: right;">meansq</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Party</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1188.64</td>
-<td style="text-align: right;">1188.64</td>
-<td style="text-align: right;">274</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Residuals</td>
-<td style="text-align: right;">167</td>
-<td style="text-align: right;">724.47</td>
-<td style="text-align: right;">4.34</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>Notice that the sum of squares in this table is the value of <span class="math inline">\(SS_{Party}\)</span> above.</p>
-<p>Next, let’s add <code>Age</code> to the model. The sum of squares associated with <code>Age</code> is the additional variation in <code>Tips</code> explained by <code>Age</code> <u>after</u> accounting for variation explained by <code>Party</code>. This can be understood as the additional model variation in the model with <code>Party</code> and <code>Age</code> compared to a model that only includes <code>Party</code>. We can calculate this additional variation as follows:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(party_fit, tip_fit) <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">df.residual</th>
-<th style="text-align: right;">rss</th>
-<th style="text-align: right;">df</th>
-<th style="text-align: right;">sumsq</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Tip ~ Party</td>
-<td style="text-align: right;">167</td>
-<td style="text-align: right;">724.47</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Tip ~ Party + Age</td>
-<td style="text-align: right;">165</td>
-<td style="text-align: right;">686.44</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">38.03</td>
-<td style="text-align: right;">4.57</td>
-<td style="text-align: right;">0.01</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>Notice that the sum of squares in this table is the value of <span class="math inline">\(SS_{Age|Party}\)</span> above.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>When we input two model is the <code>anova()</code> function, e.g., <code>anova(Model 1, Model 2)</code>, the output produced is the additional sum of squares accounted for by the new variable(s) in <code>Model 2</code> after accounting for the variables in <code>Model 1</code>. In this case, it is the additional sum of squares accounted for by <code>Age</code> after accounting for <code>Party</code>.</p>
+<ul>
+<li><p>Open <a href="https://rstudio.collegeofidaho.edu/">RStudio</a> and create a subfolder in your AE folder called “AE-14”.</p></li>
+<li><p>Go to the <a href="https://cofi.instructure.com/courses/15692/assignments/183786">Canvas</a> and locate your <code>AE-14</code> assignment to get started.</p></li>
+<li><p>Upload the <code>ae-14.qmd</code> and <code>tip-data.csv</code> files into the folder you just created. The <code>.qmd</code> and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.</p></li>
+</ul>
 </div>
 </div>
-<p>When we use the ANOVA table, we are most interested in the variation in the response explained by the entire model, not the contribution from each variable. Therefore, we will primarily consider the <span class="math inline">\(SS_{Model}\)</span>, Sum of Squares Model. Because sum of squares are additive, it can be calculated as</p>
-<p><span class="math display">\[
-\begin{aligned}
-SS_{Model} &amp;= SS_{Total} - SS_{Error} \\
-&amp;= 1913.11 - 686.44 \\
-&amp; = 1226.67
-\end{aligned}
-\]</span>It can also be calculated as</p>
-<p><span class="math display">\[
-\begin{aligned}
-SS_{Model} &amp;= SS_{Party} + SS_{Age | Party} \\
-&amp; = 1188.64 + 38.03 \\
-&amp; = 1226.67
-\end{aligned}
-\]</span></p>
+<section id="packages-data" class="level2">
+<h2 class="anchored" data-anchor-id="packages-data">Packages + data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(yardstick)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>tips <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/tip-data.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What factors are associated with the amount customers tip at a restaurant? To answer this question, we will use data collected in 2011 by a student at St.&nbsp;Olaf who worked at a local restaurant.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>The variables we’ll focus on for this analysis are</p>
+<ul>
+<li><code>Tip</code>: amount of the tip</li>
+<li><code>Meal</code>: which meal this was (<code>Lunch</code>, <code>Dinner</code>, <code>Late Night</code>)</li>
+<li><code>Party</code>: number of people in the party</li>
+<li><code>Age</code>: Age category of person paying the bill (<code>Yadult</code>, <code>Middle</code>, <code>SenCit</code>)</li>
+</ul>
+</section>
+<section id="analysis-goal" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-goal">Analysis goal</h2>
+<p>The goals of this activity are to:</p>
+<ul>
+<li>Use ANOVA to determine whether our model is useful as a whole</li>
+<li>Begin thinking about <span class="math inline">\(R^2\)</span> in a multivariate setting</li>
+</ul>
+</section>
+<section id="exercise-0" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-0">Exercise 0</h2>
+<p>Complete the following to clean and then observe your data:</p>
+<ol type="1">
+<li>Use <code>drop_na</code> to remove any rows where <code>Party</code> is missing.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tips <span class="ot">&lt;-</span> tips <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  _______   <span class="co"># drop missing values from party</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Generate a bar chart of the variable <code>Meal</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># insert code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Run the following code and generate the same bar chart as above. You can even copy and paste your code. What’s the difference between the two plots? What do you think <code>fct_relevel</code> does?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tips <span class="ot">&lt;-</span> tips <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Meal =</span> <span class="fu">fct_relevel</span>(Meal, <span class="st">"Lunch"</span>, <span class="st">"Dinner"</span>, <span class="st">"Late Night"</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Age  =</span> <span class="fu">fct_relevel</span>(Age, <span class="st">"Yadult"</span>, <span class="st">"Middle"</span>, <span class="st">"SenCit"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate plot here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Fit a linear model to predict <code>Tips</code> from <code>Party</code> and <code>Age</code>.</p>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Pipe the model you generated in the previous Exercise into the function <code>anova</code>.</p>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>Based on the output above, compute <span class="math inline">\(SSTotal\)</span>, <span class="math inline">\(SSError\)</span>, and <span class="math inline">\(SSModel\)</span>. You should only need to use addition and/or subtraction.</p>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>Pipe your model into the <code>glance</code> function. Identify, the F-statistic and p-value for an F-test of this model. Interpret the outcome of your test in the context of the problem. Be prepared to discuss the difference between this p-value and the p-values from the individual model coefficients.</p>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>What is the <span class="math inline">\(R^2\)</span> value for this model?</p>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>Fit the full model. What is it’s <span class="math inline">\(R^2\)</span>? Does this model have a higher or lower <span class="math inline">\(R^2\)</span> than the previous model? Does this mean it is a better model? Be prepared to discuss.</p>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>The following code converts the numerical variable <code>Bill</code> into a new categorical variable <code>Bill_factor</code>. Essentially, each different number in <code>Bill</code> is treated as it’s own category. Fit a model predicting <code>Tip</code> from <code>Bill_factor</code>. What is your <code>R^2</code>? Think about the implications of this and what it means for the usefullness of <span class="math inline">\(R^2\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tips <span class="ot">&lt;-</span> tips <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Bill_factor =</span> <span class="fu">factor</span>(Bill))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="to-submit-the-ae" class="level2">
+<h2 class="anchored" data-anchor-id="to-submit-the-ae">To submit the AE</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Render the document to produce the PDF with all of your work from today’s class.</li>
+<li>Upload your QMD and PDF files to the Canvas assignment.</li>
+</ul>
+</div>
+</div>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Dahlquist, Samantha, and Jin Dong. 2011. “The Effects of Credit Cards on Tipping.” Project for Statistics 212-Statistics for the Sciences, St.&nbsp;Olaf College.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -957,7 +861,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/slides/anova-table.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-14-comparison.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

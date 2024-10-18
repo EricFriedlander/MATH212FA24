@@ -1,0 +1,883 @@
+---
+title: "Model comparison"
+author: "Prof. Eric Friedlander"
+date: "2024-10-23"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+
+# figure options
+knitr::opts_chunk$set(
+  fig.width = 10, fig.asp = 0.618,
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+```
+
+## Announcements
+
+-   See Ed Discussion for upcoming events and internship opportunities
+
+-   Statistics Experience due Mon, Nov 20 at 11:59pm
+
+-   Please submit [mid-semester feedback](https://duke.qualtrics.com/jfe/form/SV_86XWKdUFjvStYmW) by Friday
+
+-   Prof. Tackett office hours Fridays 1:30 - 3:30pm for the rest of the semester
+
+## Topics
+
+::: nonincremental
+-   ANOVA for multiple linear regression and sum of squares
+-   Comparing models with $R^2$ vs. $R^2_{adj}$
+-   Comparing models with AIC and BIC
+-   Occam's razor and parsimony
+:::
+
+## Computational setup
+
+```{r}
+#| echo: true
+
+# load packages
+library(tidyverse)
+library(broom)
+library(yardstick)
+library(ggformula)
+library(tidymodels)
+library(patchwork)
+library(knitr)
+library(kableExtra)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
+```
+
+# Introduction
+
+## Data: Restaurant tips
+
+Which variables help us predict the amount customers tip at a restaurant?
+
+```{r}
+#| echo: false
+#| message: false
+tips <- read_csv(here::here("slides", "data/tip-data.csv")) |>
+  filter(!is.na(Party))
+```
+
+```{r}
+#| echo: false
+tips |>
+  select(Tip, Party, Meal, Age)
+```
+
+## Variables
+
+**Predictors**:
+
+::: nonincremental
+-   `Party`: Number of people in the party
+-   `Meal`: Time of day (Lunch, Dinner, Late Night)
+-   `Age`: Age category of person paying the bill (Yadult, Middle, SenCit)
+:::
+
+**Outcome**: `Tip`: Amount of tip
+
+## Outcome: `Tip`
+
+```{r}
+#| echo: false
+ggplot(tips, aes(x = Tip)) +
+  geom_histogram(binwidth = 1) +
+  labs(title = "Distribution of tips")
+```
+
+## Predictors
+
+```{r}
+#| echo: false
+p1 <- ggplot(tips, aes(x = Party)) +
+  geom_histogram(binwidth = 1) +
+  labs(title = "Number of people in party")
+
+p2 <- ggplot(tips, aes(x = Meal)) +
+  geom_bar() +
+  labs(title = "Meal type")
+
+p3 <- ggplot(tips, aes(x = Age)) +
+  geom_bar() +
+  labs(title = "Age of payer")
+
+p1 + (p2 / p3)
+```
+
+## Relevel categorical predictors
+
+```{r}
+#| echo: true
+
+tips <- tips |>
+  mutate(
+    Meal = fct_relevel(Meal, "Lunch", "Dinner", "Late Night"),
+    Age  = fct_relevel(Age, "Yadult", "Middle", "SenCit")
+  )
+```
+
+## Predictors, again
+
+```{r}
+#| echo: false
+p1 <- ggplot(tips, aes(x = Party)) +
+  geom_histogram(binwidth = 1) +
+  labs(title = "Number of people in party")
+
+p2 <- ggplot(tips, aes(x = Meal, fill = Meal)) +
+  geom_bar() +
+  labs(title = "Meal type") +
+  scale_fill_viridis_d(end = 0.8)
+
+p3 <- ggplot(tips, aes(x = Age, fill = Age)) +
+  geom_bar() +
+  labs(title = "Age of payer") +
+  scale_fill_viridis_d(option = "E", end = 0.8)
+
+p1 + (p2 / p3)
+
+```
+
+## Outcome vs. predictors
+
+```{r}
+#| echo: false
+#| fig.width: 12
+#| fig.height: 4
+
+p4 <- ggplot(tips, aes(x = Party, y = Tip)) +
+  geom_point(color = "#5B888C")
+
+p5 <- ggplot(tips, aes(x = Meal, y = Tip, fill = Meal)) +
+  geom_boxplot(show.legend = FALSE) +
+  scale_fill_viridis_d(end = 0.8)
+
+p6 <- ggplot(tips, aes(x = Age, y = Tip, fill = Age)) +
+  geom_boxplot(show.legend = FALSE) +
+  scale_fill_viridis_d(option = "E", end = 0.8)
+
+p4 + p5 + p6
+```
+
+## Fit and summarize model {.midi}
+
+```{r}
+#| echo: true
+
+tip_fit <- linear_reg() |>
+  set_engine("lm") |>
+  fit(Tip ~ Party + Age, data = tips)
+
+tidy(tip_fit) |>
+  kable(digits = 3)
+```
+
+. . .
+
+<br>
+
+::: question
+Is this the best model to explain variation in tips?
+:::
+
+## Another model summary
+
+```{r}
+anova(tip_fit$fit) |>
+  tidy() |>
+  kable(digits = 2)
+```
+
+# Analysis of variance (ANOVA)
+
+## Analysis of variance (ANOVA)
+
+<br>
+
+![](images/13/model-anova.png){fig-align="center"}
+
+## ANOVA
+
+-   **Main Idea:** Decompose the total variation on the outcome into:
+    -   the variation that can be explained by the each of the variables in the model
+
+    -   the variation that **can't** be explained by the model (left in the residuals)
+-   If the variation that can be explained by the variables in the model is greater than the variation in the residuals, this signals that the model might be "valuable" (at least one of the $\beta$s not equal to 0)
+
+## ANOVA output in R[^1]
+
+[^1]: [Click here](anova-table.html) for explanation about the way R calculates sum of squares for each variable.
+
+```{r}
+#| echo: true
+anova(tip_fit$fit) |>
+  tidy() |>
+  kable(digits = 2)
+```
+
+## ANOVA output, with totals
+
+```{r}
+#| echo: false
+anova(tip_fit$fit) |>
+  tidy() |>
+  mutate(across(where(is.numeric), round, 2)) |>
+  janitor::adorn_totals(where = "row", cols = 1:3, fill = "") |>
+  mutate(
+    statistic = if_else(is.na(statistic), "", statistic),
+    p.value = if_else(is.na(p.value), "", p.value)
+    ) |>
+  kable()
+```
+
+## Sum of squares
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: false
+anova(tip_fit$fit) |>
+  tidy() |>
+  mutate(across(where(is.numeric), round, 2)) |>
+  select(term, df, sumsq) |>
+  janitor::adorn_totals(where = "row", cols = 1:3, fill = "") |>
+  kable() |>
+  column_spec(3, background = "#D9E3E4")
+```
+:::
+
+::: {.column width="50%"}
+-   $SS_{Total}$: Total sum of squares, variability of outcome, $\sum_{i = 1}^n (y_i - \bar{y})^2$
+-   $SS_{Error}$: Residual sum of squares, variability of residuals, $\sum_{i = 1}^n (y_i - \hat{y}_i)^2$
+-   $SS_{Model} = SS_{Total} - SS_{Error}$: Variability explained by the model
+:::
+:::
+
+## Sum of squares: $SS_{Total}$
+
+```{r}
+#| echo: false
+anova_df <- anova(tip_fit$fit) |>
+  tidy() |>
+  mutate(across(where(is.numeric), round, 2)) |>
+  select(term, df, sumsq) 
+
+anova_df |>
+  janitor::adorn_totals(where = "row", cols = 1:3, fill = "") |>
+  kable() |>
+  row_spec(4, background = "#D9E3E4")
+```
+
+<br>
+
+<center>
+
+$SS_{Total}$: Total sum of squares, variability of outcome
+
+<br>
+
+$\sum_{i = 1}^n (y_i - \bar{y})^2$ = `r sum(anova_df$sumsq[1:3])`
+
+</center>
+
+## Sum of squares: $SS_{Error}$
+
+```{r}
+#| echo: false
+anova_df <- anova(tip_fit$fit) |>
+  tidy() |>
+  mutate(across(where(is.numeric), round, 2)) |>
+  select(term, df, sumsq) 
+
+anova_df |>
+  janitor::adorn_totals(where = "row", cols = 1:3, fill = "") |>
+  kable() |>
+  row_spec(3, background = "#D9E3E4")
+```
+
+<br>
+
+<center>
+
+$SS_{Error}$: Residual sum of squares, variability of residuals
+
+<br>
+
+$\sum_{i = 1}^n (y_i - \hat{y}_i)^2$ = `r anova_df$sumsq[3]`
+
+</center>
+
+## Sum of squares: $SS_{Model}$
+
+```{r}
+#| echo: false
+anova_df <- anova(tip_fit$fit) |>
+  tidy() |>
+  mutate(across(where(is.numeric), round, 2)) |>
+  select(term, df, sumsq) 
+
+anova_df |>
+  janitor::adorn_totals(where = "row", cols = 1:3, fill = "") |>
+  kable() |>
+  row_spec(c(1,2), background = "#D9E3E4")
+```
+
+<br>
+
+<center>
+
+$SS_{Model}$: Variability explained by the model
+
+<br>
+
+$SS_{Total} - SS_{Error}$ = `r sum(anova_df$sumsq[1:2])`
+
+</center>
+
+## R-squared, $R^2$
+
+**Recall**: $R^2$ is the proportion of the variation in the response variable explained by the regression model.
+
+. . .
+
+$$
+R^2 = \frac{SS_{Model}}{SS_{Total}} = 1 - \frac{SS_{Error}}{SS_{Total}} = 1 - \frac{686.44}{1913.11} = 0.641
+$$
+
+. . .
+
+```{r}
+#| echo: true
+glance(tip_fit)$r.squared
+```
+
+# Model comparison
+
+## R-squared, $R^2$
+
+-   $R^2$ will always increase as we add more variables to the model + If we add enough variables, we can always achieve $R^2=100\%$
+-   If we only use $R^2$ to choose a best fit model, we will be prone to choose the model with the most predictor variables
+
+## Adjusted $R^2$
+
+-   **Adjusted** $R^2$: measure that includes a penalty for unnecessary predictor variables
+-   Similar to $R^2$, it is a measure of the amount of variation in the response that is explained by the regression model
+-   Differs from $R^2$ by using the mean squares (sumsq/df) rather than sums of squares and therefore adjusting for the number of predictor variables
+
+## $R^2$ and Adjusted $R^2$
+
+$$R^2 = \frac{SS_{Model}}{SS_{Total}} = 1 - \frac{SS_{Error}}{SS_{Total}}$$
+
+<br>
+
+. . .
+
+$$R^2_{adj} = 1 - \frac{SS_{Error}/(n-p-1)}{SS_{Total}/(n-1)}$$
+
+where
+
+-   $n$ is the number of observations used to fit the model
+
+-   $p$ is the number of terms (not including the intercept) in the model
+
+## Using $R^2$ and Adjusted $R^2$
+
+-   Adjusted $R^2$ can be used as a quick assessment to compare the fit of multiple models; however, it should not be the only assessment!
+-   Use $R^2$ when describing the relationship between the response and predictor variables
+
+## Comparing models with $R^2_{adj}$ {.smaller}
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+
+tip_fit_1 <- linear_reg() |>
+  set_engine("lm") |>
+  fit(Tip ~ Party + 
+            Age + 
+            Meal,
+      
+    data = tips)
+
+glance(tip_fit_1) |> 
+  select(r.squared, adj.r.squared)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+
+tip_fit_2 <- linear_reg() |>
+  set_engine("lm") |>
+  fit(Tip ~ Party + 
+            Age + 
+            Meal + 
+            Day, 
+      data = tips)
+
+glance(tip_fit_2) |> 
+  select(r.squared, adj.r.squared)
+```
+:::
+:::
+
+::: question
+1.  Why did we not use the full `recipe()` workflow to fit Model 1 or Model 2?
+2.  Which model would we choose based on $R^2$?
+3.  Which model would we choose based on Adjusted $R^2$?
+4.  Which statistic should we use to choose the final model - $R^2$ or Adjusted $R^2$? Why?
+
+Vote on Ed Discussion \[[10:05am lecture](https://edstem.org/us/courses/44523/discussion/462744)\]\[[1:25pm lecture](https://edstem.org/us/courses/44523/discussion/462751)\]
+:::
+
+## AIC & BIC
+
+Estimators of prediction error and *relative* quality of models:
+
+. . .
+
+**Akaike's Information Criterion (AIC)**: $$AIC = n\log(SS_\text{Error}) - n \log(n) + 2(p+1)$$ <br>
+
+. . .
+
+**Schwarz's Bayesian Information Criterion (BIC)**: $$BIC = n\log(SS_\text{Error}) - n\log(n) + log(n)\times(p+1)$$
+
+## AIC & BIC
+
+$$
+\begin{aligned} 
+& AIC = \color{blue}{n\log(SS_\text{Error})} - n \log(n) + 2(p+1) \\
+& BIC = \color{blue}{n\log(SS_\text{Error})} - n\log(n) + \log(n)\times(p+1) 
+\end{aligned}
+$$
+
+. . .
+
+<br>
+
+First Term: Decreases as *p* increases
+
+## AIC & BIC
+
+$$
+\begin{aligned} 
+& AIC = n\log(SS_\text{Error}) - \color{blue}{n \log(n)} + 2(p+1) \\
+& BIC = n\log(SS_\text{Error}) - \color{blue}{n\log(n)} + \log(n)\times(p+1) 
+\end{aligned}
+$$
+
+<br>
+
+Second Term: Fixed for a given sample size *n*
+
+## AIC & BIC
+
+$$
+\begin{aligned} & AIC = n\log(SS_\text{Error}) - n\log(n) + \color{blue}{2(p+1)} \\
+& BIC = n\log(SS_\text{Error}) - n\log(n) + \color{blue}{\log(n)\times(p+1)} 
+\end{aligned}
+$$
+
+<br>
+
+Third Term: Increases as *p* increases
+
+## Using AIC & BIC
+
+$$
+\begin{aligned} & AIC = n\log(SS_{Error}) - n \log(n) + \color{red}{2(p+1)} \\
+& BIC = n\log(SS_{Error}) - n\log(n) + \color{red}{\log(n)\times(p+1)} 
+\end{aligned}
+$$
+
+-   Choose model with the smaller value of AIC or BIC
+
+-   If $n \geq 8$, the **penalty** for BIC is larger than that of AIC, so BIC tends to favor *more parsimonious* models (i.e. models with fewer terms)
+
+## Comparing models with AIC and BIC
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+
+tip_fit_1 <- linear_reg() |>
+  set_engine("lm") |>
+  fit(Tip ~ Party + 
+            Age + 
+            Meal,
+      
+      data = tips)
+
+glance(tip_fit_1) |> 
+  select(AIC, BIC)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+
+tip_fit_2 <- linear_reg() |>
+  set_engine("lm") |>
+  fit(Tip ~ Party + 
+            Age + 
+            Meal + 
+            Day, 
+      data = tips)
+
+glance(tip_fit_2) |> 
+  select(AIC, BIC)
+```
+:::
+:::
+
+::: question
+1.  Which model would we choose based on AIC?
+
+2.  Which model would we choose based on BIC?
+:::
+
+## Commonalities between criteria
+
+-   $R^2_{adj}$, AIC, and BIC all apply a penalty for more predictors
+-   The penalty for added model complexity attempts to strike a balance between underfitting (too few predictors in the model) and overfitting (too many predictors in the model)
+-   Goal: **Parsimony**
+
+## Parsimony and Occam's razor {.small}
+
+-   The principle of **parsimony** is attributed to William of Occam (early 14th-century English nominalist philosopher), who insisted that, given a set of equally good explanations for a given phenomenon, *the correct explanation is the simplest explanation*[^2]
+
+-   Called **Occam's razor** because he "shaved" his explanations down to the bare minimum
+
+-   Parsimony in modeling:
+
+    ::: nonincremental
+    -   models should have as few parameters as possible
+    -   linear models should be preferred to non-linear models
+    -   experiments relying on few assumptions should be preferred to those relying on many
+    -   models should be pared down until they are *minimal adequate*
+    -   simple explanations should be preferred to complex explanations
+    :::
+
+[^2]: Source: The R Book by Michael J. Crawley.
+
+## In pursuit of Occam's razor
+
+-   Occam's razor states that among competing hypotheses that predict equally well, the one with the fewest assumptions should be selected
+
+-   Model selection follows this principle
+
+-   We only want to add another variable to the model if the addition of that variable brings something valuable in terms of predictive power to the model
+
+-   In other words, we prefer the simplest best model, i.e. **parsimonious** model
+
+## Alternate views {.midi}
+
+> Sometimes a simple model will outperform a more complex model . . . Nevertheless, I believe that deliberately limiting the complexity of the model is not fruitful when the problem is evidently complex. Instead, if a simple model is found that outperforms some particular complex model, the appropriate response is to define a different complex model that captures whatever aspect of the problem led to the simple model performing well.
+>
+> <br>
+>
+> Radford Neal - Bayesian Learning for Neural Networks[^3]
+
+[^3]: Suggested blog post: [Occam](https://statmodeling.stat.columbia.edu/2012/06/26/occam-2/) by Andrew Gelman
+
+## Other concerns with our approach {.midi}
+
+-   All criteria we considered for model comparison require making predictions for our data and then uses the prediction error ($SS_{Error}$) somewhere in the formula
+-   But we're making prediction for the data we used to build the model (estimate the coefficients), which can lead to **overfitting**
+-   Instead we should
+    -   split our data into testing and training sets
+
+    -   "train" the model on the training data and pick a few models we're genuinely considering as potentially good models
+
+    -   test those models on the testing set
+
+    -   ...and repeat this process multiple times
+
+# Cross validation
+
+## Spending our data
+
+-   We have already established that the idea of data spending where the test set was recommended for obtaining an unbiased estimate of performance.
+-   However, we usually need to understand the effectiveness of the model [*before*]{.underline} *using the test set*.
+-   Typically we can't decide on *which* final model to take to the test set without making model assessments.
+-   **Remedy:** Resampling to make model assessments on training data in a way that can generalize to new data.
+
+## Resampling for model assessment
+
+**Resampling is only conducted on the** <u>**training**</u> **set**. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:
+
+-   The model is fit with the **analysis set**. Model fit statistics such as $R^2_{Adj}$, AIC, and BIC are calculated based on this fit.
+-   The model is evaluated with the **assessment set**.
+
+## Resampling for model assessment
+
+![](images/16/resampling.svg){fig-align="center"}
+
+<br>
+
+Image source: Kuhn and Silge. [Tidy modeling with R](https://www.tmwr.org/).
+
+## Analysis and assessment sets
+
+-   Analysis set is analogous to training set.
+-   Assessment set is analogous to test set.
+-   The terms *analysis* and *assessment* avoids confusion with initial split of the data.
+-   These data sets are mutually exclusive.
+
+## Cross validation
+
+More specifically, **v-fold cross validation** -- commonly used resampling technique:
+
+-   Randomly split your **training** **data** into ***v*** partitions
+-   Use ***v-1*** partitions for analysis, and the remaining 1 partition for analysis (model fit + model fit statistics)
+-   Repeat ***v*** times, updating which partition is used for assessment each time
+
+. . .
+
+Let's give an example where `v = 3`...
+
+## To get started...
+
+**Split data into training and test sets**
+
+```{r}
+#| echo: true
+set.seed(345)
+
+tips_split <- initial_split(tips)
+tips_train <- training(tips_split)
+tips_test <- testing(tips_split)
+```
+
+## To get started...
+
+**Create recipe**
+
+```{r}
+#| echo: true
+#| message: true
+tips_rec1 <- recipe(Tip ~ Party + Age + Meal, 
+                    data = tips_train)
+
+tips_rec1
+```
+
+## To get started... {.midi}
+
+**Specify model**
+
+```{r}
+#| echo: true
+tips_spec <- linear_reg() |>
+  set_engine("lm")
+```
+
+. . .
+
+**Create workflow**
+
+```{r}
+#| echo: true
+tips_wflow1 <- workflow() |>
+  add_model(tips_spec) |>
+  add_recipe(tips_rec1)
+
+tips_wflow1
+
+
+```
+
+## Cross validation, step 1
+
+Randomly split your **training** **data** into 3 partitions:
+
+<br>
+
+![](images/16/three-CV.svg){fig-align="center"}
+
+## Tips: Split training data
+
+```{r}
+#| echo: true
+folds <- vfold_cv(tips_train, v = 3)
+folds
+```
+
+## Cross validation, steps 2 and 3
+
+::: nonincremental
+-   Use *v-1* partitions for analysis, and the remaining 1 partition for assessment
+-   Repeat *v* times, updating which partition is used for assessment each time
+:::
+
+![](images/16/three-CV-iter.svg){fig-align="center"}
+
+## Tips: Fit resamples {.midi}
+
+```{r}
+tips_fit_rs1 <- tips_wflow1 |>
+  fit_resamples(folds)
+
+tips_fit_rs1 
+```
+
+## Cross validation, now what?
+
+-   We've fit a bunch of models
+-   Now it's time to use them to collect metrics (e.g., \$R\^2\$, AIC, RMSE, etc. ) on each model and use them to evaluate model fit and how it varies across folds
+
+## Collect $R^2$ and RMSE from CV
+
+```{r}
+# Produces summary across all CV
+collect_metrics(tips_fit_rs1)
+```
+
+<br>
+
+Note: These are calculated using the *assessment* data
+
+## Deeper look into $R^2$ and RMSE
+
+```{r}
+cv_metrics1 <- collect_metrics(tips_fit_rs1, summarize = FALSE) 
+
+cv_metrics1
+```
+
+## Better tabulation of $R^2$ and RMSE from CV
+
+```{r}
+cv_metrics1 |>
+  mutate(.estimate = round(.estimate, 3)) |>
+  pivot_wider(id_cols = id, names_from = .metric, values_from = .estimate) |>
+  kable(col.names = c("Fold", "RMSE", "R-squared"))
+```
+
+## How does RMSE compare to y? {.small}
+
+::: columns
+::: {.column width="50%"}
+Cross validation RMSE stats:
+
+```{r}
+cv_metrics1 |>
+  filter(.metric == "rmse") |>
+  summarise(
+    min = min(.estimate),
+    max = max(.estimate),
+    mean = mean(.estimate),
+    sd = sd(.estimate)
+  )
+```
+:::
+
+::: {.column width="50%"}
+Training data tips:
+
+```{r}
+tips_train |>
+  summarise(
+    min = min(Tip),
+    max = max(Tip),
+    mean = mean(Tip),
+    sd = sd(Tip)
+  )
+```
+:::
+:::
+
+## Calculate $R^2_{Adj}$, AIC, and BIC for each fold {.midi}
+
+```{r}
+# Function to get Adj R-sq, AIC, BIC
+calc_model_stats <- function(x) {
+  glance(extract_fit_parsnip(x)) |>
+    select(adj.r.squared, AIC, BIC)
+}
+
+# Fit model and calculate statistics for each fold
+tips_fit_rs1 <-tips_wflow1 |>
+  fit_resamples(resamples = folds, 
+                control = control_resamples(extract = calc_model_stats))
+
+tips_fit_rs1
+```
+
+## Collect $R^2_{Adj}$, AIC, BIC from CV {.midi}
+
+```{r}
+#| echo: true
+map_df(tips_fit_rs1$.extracts, ~ .x[[1]][[1]]) |>
+  bind_cols(Fold = tips_fit_rs1$id)
+```
+
+<br>
+
+Note: These are based on the model fit from the *analysis* data
+
+## Cross validation in practice
+
+::: incremental
+-   To illustrate how CV works, we used `v = 3`:
+
+    ::: nonincremental
+    -   Analysis sets are 2/3 of the training set
+    -   Each assessment set is a distinct 1/3
+    -   The final resampling estimate of performance averages each of the 3 replicates
+    :::
+
+-   This was useful for illustrative purposes, but `v = 3` is a poor choice in practice
+
+-   Values of `v` are most often 5 or 10; we generally prefer 10-fold cross-validation as a default
+:::
+
+## Recap
+
+-   ANOVA for multiple linear regression and sum of squares
+-   Comparing models with
+    -   $R^2$ vs. $R^2_{Adj}$
+    -   AIC and BIC
+-   Occam's razor and parsimony
+
+<!-- -->
+
+-   Cross validation for
+
+    -   model evaluation
+
+    -   model comparison

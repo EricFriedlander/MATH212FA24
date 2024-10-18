@@ -1,5 +1,6 @@
 ---
 title: "AE 13: Conditions for Multiple Linear Regression"
+author: "Driver: ____, Reporter: _____, Gopher: _____"
 subtitle: "Rail Trail"
 editor: visual
 ---
@@ -46,8 +47,8 @@ Augment the model you created above using the `augment` function. Generate a sca
 
 Make two plots:
 
-1. Residuals vs. `precip`.
-2. Residuals vs. `day_type`.
+1.  Residuals vs. `precip`.
+2.  Residuals vs. `day_type`.
 
 ## Exercise 3
 

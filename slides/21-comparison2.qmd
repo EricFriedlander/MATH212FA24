@@ -1,9 +1,9 @@
 ---
-title: "Model comparison + cross validation"
-author: "Prof. Maria Tackett"
-date: "2023-10-18"
+title: "Model comparison"
+author: "Prof. Eric Friedlander"
+date: "2024-10-23"
 date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 210 - Fall 2023 -  Schedule](https://sta210-fa23.netlify.app/schedule)"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -19,6 +19,7 @@ html-math-method:
 execute:
   freeze: auto
   echo: true
+  cache: false
 knitr:
   opts_chunk: 
     R.options:      
@@ -38,13 +39,15 @@ knitr::opts_chunk$set(
 
 ## Announcements
 
--   See Ed Discussion for upcoming events and internship opportunities
+-   Project: EDA Due Wednesday, October 30th
+-   Oral R Quiz (time to start scheduling it)
 
--   Statistics Experience due Mon, Nov 20 at 11:59pm
+::: appex
+📋 [AE 14 - Model Comparison](https://mat212fa24.netlify.app/ae/ae-14-comparison)
 
--   Please submit [mid-semester feedback](https://duke.qualtrics.com/jfe/form/SV_86XWKdUFjvStYmW) by Friday
+- Open up AE 14 and complete Exercises 0-2
+:::
 
--   Prof. Tackett office hours Fridays 1:30 - 3:30pm for the rest of the semester
 
 ## Topics
 
@@ -53,7 +56,12 @@ knitr::opts_chunk$set(
 -   Comparing models with $R^2$ vs. $R^2_{adj}$
 -   Comparing models with AIC and BIC
 -   Occam's razor and parsimony
--   Cross validation
+:::
+
+::: appex
+📋 [AE 14 - Comparison](https://mat212fa24.netlify.app/ae/ae-14-comparison)
+
+- Open up AE 14 and complete Exercise 0.
 :::
 
 ## Computational setup
@@ -63,9 +71,14 @@ knitr::opts_chunk$set(
 
 # load packages
 library(tidyverse)
+library(broom)
+library(yardstick)
+library(ggformula)
+library(supernova)
 library(tidymodels)
 library(patchwork)
 library(knitr)
+library(janitor)
 library(kableExtra)
 
 # set default theme and larger font size for ggplot2
@@ -81,8 +94,8 @@ Which variables help us predict the amount customers tip at a restaurant?
 ```{r}
 #| echo: false
 #| message: false
-tips <- read_csv(here::here("slides", "data/tip-data.csv")) |>
-  filter(!is.na(Party))
+tips <- read_csv("data/tip-data.csv") |>
+  drop_na(Party)
 ```
 
 ```{r}
@@ -97,8 +110,8 @@ tips |>
 
 ::: nonincremental
 -   `Party`: Number of people in the party
--   `Meal`: Time of day (Lunch, Dinner, Late Night)
--   `Age`: Age category of person paying the bill (Yadult, Middle, SenCit)
+-   `Meal`: Time of day (`Lunch`, `Dinner`, `Late Night`)
+-   `Age`: Age category of person paying the bill (`Yadult`, `Middle`, `SenCit`)
 :::
 
 **Outcome**: `Tip`: Amount of tip
@@ -189,11 +202,9 @@ p4 + p5 + p6
 ## Fit and summarize model {.midi}
 
 ```{r}
-#| echo: true
+#| echo: false
 
-tip_fit <- linear_reg() |>
-  set_engine("lm") |>
-  fit(Tip ~ Party + Age, data = tips)
+tip_fit <- lm(Tip ~ Party + Age, data = tips)
 
 tidy(tip_fit) |>
   kable(digits = 3)
@@ -204,13 +215,13 @@ tidy(tip_fit) |>
 <br>
 
 ::: question
-Is this the best model to explain variation in tips?
+Is this model good?
 :::
 
 ## Another model summary
 
 ```{r}
-anova(tip_fit$fit) |>
+anova(tip_fit) |>
   tidy() |>
   kable(digits = 2)
 ```
@@ -227,26 +238,31 @@ anova(tip_fit$fit) |>
 
 -   **Main Idea:** Decompose the total variation on the outcome into:
     -   the variation that can be explained by the each of the variables in the model
-
     -   the variation that **can't** be explained by the model (left in the residuals)
--   If the variation that can be explained by the variables in the model is greater than the variation in the residuals, this signals that the model might be "valuable" (at least one of the $\beta$s not equal to 0)
+-   $SS_{Total}$: Total sum of squares, variability of outcome, $\sum_{i = 1}^n (y_i - \bar{y})^2$
+-   $SS_{Error}$: Residual sum of squares, variability of residuals, $\sum_{i = 1}^n (y_i - \hat{y}_i)^2$
+-   $SS_{Model} = SS_{Total} - SS_{Error}$: Variability explained by the model, $\sum_{i = 1}^n (\hat{y}_i - \bar{y})^2$
+
+ . . .
+ 
+ Complete Exercise 3.
 
 ## ANOVA output in R[^1]
 
 [^1]: [Click here](anova-table.html) for explanation about the way R calculates sum of squares for each variable.
 
 ```{r}
-#| echo: true
-anova(tip_fit$fit) |>
+#| echo: false
+anova(tip_fit) |>
   tidy() |>
-  kable(digits = 2)
+  kable()
 ```
 
 ## ANOVA output, with totals
 
 ```{r}
-#| echo: false
-anova(tip_fit$fit) |>
+#| echo: FALSE
+anova(tip_fit) |>
   tidy() |>
   mutate(across(where(is.numeric), round, 2)) |>
   janitor::adorn_totals(where = "row", cols = 1:3, fill = "") |>
@@ -263,7 +279,7 @@ anova(tip_fit$fit) |>
 ::: {.column width="50%"}
 ```{r}
 #| echo: false
-anova(tip_fit$fit) |>
+anova(tip_fit) |>
   tidy() |>
   mutate(across(where(is.numeric), round, 2)) |>
   select(term, df, sumsq) |>
@@ -276,15 +292,16 @@ anova(tip_fit$fit) |>
 ::: {.column width="50%"}
 -   $SS_{Total}$: Total sum of squares, variability of outcome, $\sum_{i = 1}^n (y_i - \bar{y})^2$
 -   $SS_{Error}$: Residual sum of squares, variability of residuals, $\sum_{i = 1}^n (y_i - \hat{y}_i)^2$
--   $SS_{Model} = SS_{Total} - SS_{Error}$: Variability explained by the model
+-   $SS_{Model} = SS_{Total} - SS_{Error}$: Variability explained by the model, $\sum_{i = 1}^n (\hat{y}_i - \bar{y})^2$
 :::
 :::
+
 
 ## Sum of squares: $SS_{Total}$
 
 ```{r}
 #| echo: false
-anova_df <- anova(tip_fit$fit) |>
+anova_df <- anova(tip_fit) |>
   tidy() |>
   mutate(across(where(is.numeric), round, 2)) |>
   select(term, df, sumsq) 
@@ -311,7 +328,7 @@ $\sum_{i = 1}^n (y_i - \bar{y})^2$ = `r sum(anova_df$sumsq[1:3])`
 
 ```{r}
 #| echo: false
-anova_df <- anova(tip_fit$fit) |>
+anova_df <- anova(tip_fit) |>
   tidy() |>
   mutate(across(where(is.numeric), round, 2)) |>
   select(term, df, sumsq) 
@@ -338,7 +355,7 @@ $\sum_{i = 1}^n (y_i - \hat{y}_i)^2$ = `r anova_df$sumsq[3]`
 
 ```{r}
 #| echo: false
-anova_df <- anova(tip_fit$fit) |>
+anova_df <- anova(tip_fit) |>
   tidy() |>
   mutate(across(where(is.numeric), round, 2)) |>
   select(term, df, sumsq) 
@@ -357,9 +374,39 @@ $SS_{Model}$: Variability explained by the model
 
 <br>
 
-$SS_{Total} - SS_{Error}$ = `r sum(anova_df$sumsq[1:2])`
+$\sum_{i = 1}^n (\hat{y}_i - \bar{y})^2 = SS_{Model} = SS_{Total} - SS_{Error} =$ `r sum(anova_df$sumsq[1:2])`
 
 </center>
+
+## F-Test: Testing the whole model at once {.smaller}
+
+**Hypotheses:** 
+
+$H_0: \beta_1 = \beta_2 = \cdots = \beta_k = 0$ vs. $H_A:$ at least one $\beta_i \neq 0$ 
+
+. . .
+
+**Test statistic:** F-statistics
+
+$$
+F = \frac{MSModel}{MSE} = \frac{SSModel/k}{SSE/(n-k-1)} \\
+$$
+
+. . .
+
+**p-value:** Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed
+
+$$
+\text{p-value} = P(F > \text{test statistic}),
+$$
+
+calculated from an $F$ distribution with $k$ and $n - k - 1$ degrees of freedom.
+
+## F-test in R
+
+- Use `glance` function from `broom` package
+  - `statistic`: F-statistic
+  - `p.value`: p-value from F-test
 
 ## R-squared, $R^2$
 
@@ -377,6 +424,7 @@ $$
 #| echo: true
 glance(tip_fit)$r.squared
 ```
+
 
 # Model comparison
 
@@ -624,244 +672,7 @@ glance(tip_fit_2) |>
 
     -   ...and repeat this process multiple times
 
-# Cross validation
 
-## Spending our data
-
--   We have already established that the idea of data spending where the test set was recommended for obtaining an unbiased estimate of performance.
--   However, we usually need to understand the effectiveness of the model [*before*]{.underline} *using the test set*.
--   Typically we can't decide on *which* final model to take to the test set without making model assessments.
--   **Remedy:** Resampling to make model assessments on training data in a way that can generalize to new data.
-
-## Resampling for model assessment
-
-**Resampling is only conducted on the** <u>**training**</u> **set**. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:
-
--   The model is fit with the **analysis set**. Model fit statistics such as $R^2_{Adj}$, AIC, and BIC are calculated based on this fit.
--   The model is evaluated with the **assessment set**.
-
-## Resampling for model assessment
-
-![](images/16/resampling.svg){fig-align="center"}
-
-<br>
-
-Image source: Kuhn and Silge. [Tidy modeling with R](https://www.tmwr.org/).
-
-## Analysis and assessment sets
-
--   Analysis set is analogous to training set.
--   Assessment set is analogous to test set.
--   The terms *analysis* and *assessment* avoids confusion with initial split of the data.
--   These data sets are mutually exclusive.
-
-## Cross validation
-
-More specifically, **v-fold cross validation** -- commonly used resampling technique:
-
--   Randomly split your **training** **data** into ***v*** partitions
--   Use ***v-1*** partitions for analysis, and the remaining 1 partition for analysis (model fit + model fit statistics)
--   Repeat ***v*** times, updating which partition is used for assessment each time
-
-. . .
-
-Let's give an example where `v = 3`...
-
-## To get started...
-
-**Split data into training and test sets**
-
-```{r}
-#| echo: true
-set.seed(345)
-
-tips_split <- initial_split(tips)
-tips_train <- training(tips_split)
-tips_test <- testing(tips_split)
-```
-
-## To get started...
-
-**Create recipe**
-
-```{r}
-#| echo: true
-#| message: true
-tips_rec1 <- recipe(Tip ~ Party + Age + Meal, 
-                    data = tips_train)
-
-tips_rec1
-```
-
-## To get started... {.midi}
-
-**Specify model**
-
-```{r}
-#| echo: true
-tips_spec <- linear_reg() |>
-  set_engine("lm")
-```
-
-. . .
-
-**Create workflow**
-
-```{r}
-#| echo: true
-tips_wflow1 <- workflow() |>
-  add_model(tips_spec) |>
-  add_recipe(tips_rec1)
-
-tips_wflow1
-
-
-```
-
-## Cross validation, step 1
-
-Randomly split your **training** **data** into 3 partitions:
-
-<br>
-
-![](images/16/three-CV.svg){fig-align="center"}
-
-## Tips: Split training data
-
-```{r}
-#| echo: true
-folds <- vfold_cv(tips_train, v = 3)
-folds
-```
-
-## Cross validation, steps 2 and 3
-
-::: nonincremental
--   Use *v-1* partitions for analysis, and the remaining 1 partition for assessment
--   Repeat *v* times, updating which partition is used for assessment each time
-:::
-
-![](images/16/three-CV-iter.svg){fig-align="center"}
-
-## Tips: Fit resamples {.midi}
-
-```{r}
-tips_fit_rs1 <- tips_wflow1 |>
-  fit_resamples(folds)
-
-tips_fit_rs1 
-```
-
-## Cross validation, now what?
-
--   We've fit a bunch of models
--   Now it's time to use them to collect metrics (e.g., \$R\^2\$, AIC, RMSE, etc. ) on each model and use them to evaluate model fit and how it varies across folds
-
-## Collect $R^2$ and RMSE from CV
-
-```{r}
-# Produces summary across all CV
-collect_metrics(tips_fit_rs1)
-```
-
-<br>
-
-Note: These are calculated using the *assessment* data
-
-## Deeper look into $R^2$ and RMSE
-
-```{r}
-cv_metrics1 <- collect_metrics(tips_fit_rs1, summarize = FALSE) 
-
-cv_metrics1
-```
-
-## Better tabulation of $R^2$ and RMSE from CV
-
-```{r}
-cv_metrics1 |>
-  mutate(.estimate = round(.estimate, 3)) |>
-  pivot_wider(id_cols = id, names_from = .metric, values_from = .estimate) |>
-  kable(col.names = c("Fold", "RMSE", "R-squared"))
-```
-
-## How does RMSE compare to y? {.small}
-
-::: columns
-::: {.column width="50%"}
-Cross validation RMSE stats:
-
-```{r}
-cv_metrics1 |>
-  filter(.metric == "rmse") |>
-  summarise(
-    min = min(.estimate),
-    max = max(.estimate),
-    mean = mean(.estimate),
-    sd = sd(.estimate)
-  )
-```
-:::
-
-::: {.column width="50%"}
-Training data tips:
-
-```{r}
-tips_train |>
-  summarise(
-    min = min(Tip),
-    max = max(Tip),
-    mean = mean(Tip),
-    sd = sd(Tip)
-  )
-```
-:::
-:::
-
-## Calculate $R^2_{Adj}$, AIC, and BIC for each fold {.midi}
-
-```{r}
-# Function to get Adj R-sq, AIC, BIC
-calc_model_stats <- function(x) {
-  glance(extract_fit_parsnip(x)) |>
-    select(adj.r.squared, AIC, BIC)
-}
-
-# Fit model and calculate statistics for each fold
-tips_fit_rs1 <-tips_wflow1 |>
-  fit_resamples(resamples = folds, 
-                control = control_resamples(extract = calc_model_stats))
-
-tips_fit_rs1
-```
-
-## Collect $R^2_{Adj}$, AIC, BIC from CV {.midi}
-
-```{r}
-#| echo: true
-map_df(tips_fit_rs1$.extracts, ~ .x[[1]][[1]]) |>
-  bind_cols(Fold = tips_fit_rs1$id)
-```
-
-<br>
-
-Note: These are based on the model fit from the *analysis* data
-
-## Cross validation in practice
-
-::: incremental
--   To illustrate how CV works, we used `v = 3`:
-
-    ::: nonincremental
-    -   Analysis sets are 2/3 of the training set
-    -   Each assessment set is a distinct 1/3
-    -   The final resampling estimate of performance averages each of the 3 replicates
-    :::
-
--   This was useful for illustrative purposes, but `v = 3` is a poor choice in practice
-
--   Values of `v` are most often 5 or 10; we generally prefer 10-fold cross-validation as a default
-:::
 
 ## Recap
 

@@ -1,5 +1,6 @@
 ---
 title: "AE 13: Conditions for Multiple Linear Regression"
+author: "Driver: ____, Reporter: _____, Gopher: _____"
 subtitle: "Rail Trail"
 editor: visual
 format: 

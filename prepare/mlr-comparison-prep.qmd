@@ -1,0 +1,8 @@
+---
+title: "October 23 lecture"
+subtitle: "Model Comparison"
+---
+
+## Assigned reading
+
+- Stat2: Topic 3.2 Assessing a Multiple Regression Model

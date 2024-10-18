@@ -98,7 +98,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/schedule.html</loc>
-    <lastmod>2024-08-19T21:15:59.000Z</lastmod>
+    <lastmod>2024-08-19T21:15:59.360Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/project-rubric.html</loc>
@@ -374,7 +374,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/anova-table.html</loc>
-    <lastmod>2024-06-07T20:17:50.000Z</lastmod>
+    <lastmod>2024-10-18T16:01:34.532Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/lab-01.html</loc>
@@ -522,7 +522,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/hw/forStudents/hw-04/hw-04.html</loc>
-    <lastmod>2024-10-17T18:32:57.442Z</lastmod>
+    <lastmod>2024-10-18T17:57:17.189Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-10-mlr.html</loc>
@@ -538,7 +538,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/prepare/mlr-inference-prep.html</loc>
-    <lastmod>2024-09-30T19:35:29.228Z</lastmod>
+    <lastmod>2024-10-18T17:56:32.583Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/prepare/mlr-interaction-prep.html</loc>
@@ -598,10 +598,38 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-13-mlr-conditions.html</loc>
-    <lastmod>2024-10-17T18:37:51.700Z</lastmod>
+    <lastmod>2024-10-18T14:49:17.755Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/19-mlr-conditions.html</loc>
     <lastmod>2024-10-17T18:39:37.394Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/20-multicollinearity.html</loc>
+    <lastmod>2024-10-18T14:39:57.113Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/20-comparison.html</loc>
+    <lastmod>2024-10-18T17:50:22.116Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/ae/ae-14-comparison.html</loc>
+    <lastmod>2024-10-18T17:52:18.372Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/21-multicollinearity.html</loc>
+    <lastmod>2024-10-18T14:39:57.113Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/20-comparison-cv-old.html</loc>
+    <lastmod>2024-10-18T14:43:20.858Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/21-comparison2.html</loc>
+    <lastmod>2024-10-18T17:12:16.444Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/prepare/mlr-comparison-prep.html</loc>
+    <lastmod>2024-10-18T17:55:46.997Z</lastmod>
   </url>
 </urlset>

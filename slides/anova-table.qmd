@@ -11,7 +11,7 @@ We will use the Tips data set for this example.
 
 # load packages
 library(tidyverse)
-library(tidymodels)
+library(broom)
 library(knitr)
 ```
 
@@ -32,15 +32,13 @@ tips <- tips |>
 The variables of interest in this analysis are
 
 -   `Party`: Number of people in the party
--   `Meal`: Time of day (Lunch, Dinner, Late Night)
--   `Age`: Age category of person paying the bill (Yadult, Middle, SenCit)
+-   `Meal`: Time of day (`Lunch`, `Dinner`, `Late Night`)
+-   `Age`: Age category of person paying the bill (`Yadult`, `Middle`, `SenCit`)
 
 ## Model fit
 
 ```{r}
-tip_fit <- linear_reg() |>
-  set_engine("lm") |>
-  fit(Tip ~ Party + Age, data = tips)
+tip_fit <- lm(Tip ~ Party + Age, data = tips)
 
 tidy(tip_fit) |>
   kable(digits = 2)
@@ -52,14 +50,13 @@ Below is the ANOVA output for the model fit above.
 
 ```{r}
 #| tbl-colwidths: [60,40]
-anova(tip_fit$fit) |>
+anova(tip_fit) |>
   tidy() |>
   kable(digits = 2)
 ```
 
 We will focus on the sum of squares in this document. The sum of squares are as follows:
 
-\$\$
 
 ```{=tex}
 \begin{aligned}
@@ -69,7 +66,7 @@ We will focus on the sum of squares in this document. The sum of squares are as 
 &SS_{Total} = 1913.11
 \end{aligned}
 ```
-\$\$
+
 
 ## Sum of squares in ANOVA table
 
@@ -80,11 +77,9 @@ The order of the sequence is determined by the order of the variables in the mod
 Let's take a look at the sum of squares for `Party`, the first variable in the model. This value is calculated as the total variation in `Tips` explained by `Party` only. We can calculate this value by looking at the ANOVA table for simple linear regression model where `Party` is the only predictor.
 
 ```{r}
-party_fit <- linear_reg() |>
-  set_engine("lm") |>
-  fit(Tip ~ Party, data = tips)
+party_fit <- lm(Tip ~ Party, data = tips)
 
-anova(party_fit$fit) |>
+anova(party_fit) |>
   tidy() |>
   kable(digits = 2)
 ```
@@ -94,7 +89,7 @@ Notice that the sum of squares in this table is the value of $SS_{Party}$ above.
 Next, let's add `Age` to the model. The sum of squares associated with `Age` is the additional variation in `Tips` explained by `Age` <u>after</u> accounting for variation explained by `Party`. This can be understood as the additional model variation in the model with `Party` and `Age` compared to a model that only includes `Party`. We can calculate this additional variation as follows:
 
 ```{r}
-anova(party_fit$fit, tip_fit$fit) |>
+anova(party_fit, tip_fit) |>
   tidy() |>
   kable(digits = 2)
 ```
