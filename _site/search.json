@@ -17602,7 +17602,7 @@
     "href": "slides/19-mlr-conditions.html#checking-independence-1",
     "title": "MLR: Conditions",
     "section": "Checking independence",
-    "text": "Checking independence\nResiduals vs. order of data collection:\n\ngf_line(.resid ~ 1:nrow(rt_full_aug), data = rt_full_aug) |&gt;\n  gf_point()  |&gt;\n  gf_hline(yintercept = 0, color = \"red\", linetype = \"dashed\")  |&gt;\n  gf_labs(x = \"Order of data collection\", y = \"Residuals\")\n\n\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+    "text": "Checking independence\nResiduals vs. order of data collection:\n\n\nCode\ngf_line(.resid ~ 1:nrow(rt_full_aug), data = rt_full_aug) |&gt;\n  gf_point()  |&gt;\n  gf_hline(yintercept = 0, color = \"red\", linetype = \"dashed\")  |&gt;\n  gf_labs(x = \"Order of data collection\", y = \"Residuals\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
   },
   {
     "objectID": "slides/19-mlr-conditions.html#checking-independence-2",

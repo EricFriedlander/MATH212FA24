@@ -238,6 +238,7 @@ The distribution of the residuals is approximately unimodal and symmetric, so th
 Residuals vs. order of data collection:
 
 ```{r}
+#| code-fold: true
 gf_line(.resid ~ 1:nrow(rt_full_aug), data = rt_full_aug) |>
   gf_point()  |>
   gf_hline(yintercept = 0, color = "red", linetype = "dashed")  |>

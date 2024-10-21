@@ -639,10 +639,13 @@ Prof.&nbsp;Eric Friedlander
 <h2>Checking independence</h2>
 <p>Residuals vs.&nbsp;order of data collection:</p>
 <div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">gf_line</span>(.resid <span class="sc">~</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(rt_full_aug), <span class="at">data =</span> rt_full_aug) <span class="sc">|&gt;</span></span>
 <span id="cb3-2"><a></a>  <span class="fu">gf_point</span>()  <span class="sc">|&gt;</span></span>
 <span id="cb3-3"><a></a>  <span class="fu">gf_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)  <span class="sc">|&gt;</span></span>
 <span id="cb3-4"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Order of data collection"</span>, <span class="at">y =</span> <span class="st">"Residuals"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
