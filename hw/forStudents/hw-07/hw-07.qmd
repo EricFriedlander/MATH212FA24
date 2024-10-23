@@ -7,6 +7,9 @@ execute:
   eval: true
   warning: false
   message: false
+format:
+  pdf:
+    pdf-engine: pdflatex
 bibliography: references.bib
 ---
 
@@ -29,11 +32,11 @@ In this assignment, you will...
 
 ## Getting started
 
-- Go to [RStudio](https://rstudio.collegeofidaho.edu) and login with your College of Idaho Email and Password.
+-   Go to [RStudio](https://rstudio.collegeofidaho.edu) and login with your College of Idaho Email and Password.
 
-- Make a subfolder in your `hw` directory to store this homework.
+-   Make a subfolder in your `hw` directory to store this homework.
 
-- Log into [Canvas](https://cofi.instructure.com/courses/15692/assignments/183937), navigate to Homework 7 and upload the `hw-07.qmd` and `lego-sample.csv` files into the folder your just made.
+-   Log into [Canvas](https://cofi.instructure.com/courses/15692/assignments/183937), navigate to Homework 7 and upload the `hw-07.qmd` and `lego-sample.csv` files into the folder your just made.
 
 ## Packages
 
@@ -56,7 +59,7 @@ All narrative should be written in complete sentences, and all visualizations sh
 
 ## Data: LEGOs
 
-The data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from @peterson2021.
+The data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from [@peterson2021].
 
 You will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are
 
@@ -67,8 +70,6 @@ You will work with data on about 400 randomly selected LEGO sets produced during
 -   `Theme`: Theme of the LEGO set
 -   `Year` : Year the LEGO set was produced
 -   `Pages`: Number of pages in the instruction booklet
-
-
 
 # Exercises
 
@@ -82,7 +83,7 @@ The data are contained in `lego-sample.csv`. Use the code below to read in the d
 
 ```{r}
 #| eval: true
-legos <- read_csv("data/lego-sample.csv") |>
+legos <- read_csv("lego-sample.csv") |>
   select(Size, Pieces, Theme, Amazon_Price, Year, Pages, Minifigures) |>
   mutate(Minifigures = replace_na(Minifigures, 0)) |>
   drop_na()
@@ -109,8 +110,7 @@ gf_col(Theme ~ n) |>
          x = "Number of LEGO sets")
 ```
 
-Based solely on information that is visible in this plot, what is one reason we should avoid putting the variable `Theme` in a model as is? 
-
+Based solely on information that is visible in this plot, what is one reason we should avoid putting the variable `Theme` in a model as is?
 
 ## Exercise 4
 
@@ -123,7 +123,6 @@ Fit a model that uses the variables `Size`, `Theme_coarse`, and `Pages` to predi
 ## Exercise 6
 
 Create a new variable called `since2018` that calculates the number of years since 2018 based on the variable `Year`.
-
 
 ## Exercise 7
 
@@ -141,10 +140,10 @@ For whichever model you chose above, determine whether the conditions for infere
 
 For the same model, conduct an F-test and interpret your results in the context of the problem. Make sure to:
 
-1. Identify the null and alternative hypotheses.
-2. Compute the F-statistic.
-3. Compute the p-value.
-4. Interpret the result of your test at a significance level of $\alpha = 0.05$
+1.  Identify the null and alternative hypotheses.
+2.  Compute the F-statistic.
+3.  Compute the p-value.
+4.  Interpret the result of your test at a significance level of $\alpha = 0.05$
 
 # Grading (50 points)
 
