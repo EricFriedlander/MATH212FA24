@@ -19269,5 +19269,131 @@
     "title": "AE 15: Model Comparison",
     "section": "Exercise 5 (Time Permitting)",
     "text": "Exercise 5 (Time Permitting)\nFind the best model you can! You have until the end of class! Team with the best model gets a seriously great high-five."
+  },
+  {
+    "objectID": "hw/hw-07.html",
+    "href": "hw/hw-07.html",
+    "title": "HW 07: Lego Prices",
+    "section": "",
+    "text": "Important\n\n\n\nDue: Friday, November 1st, 11:59pm"
+  },
+  {
+    "objectID": "hw/hw-07.html#learning-goals",
+    "href": "hw/hw-07.html#learning-goals",
+    "title": "HW 07: Lego Prices",
+    "section": "Learning goals",
+    "text": "Learning goals\nIn this assignment, you will…\n\nUse exploratory data analysis to inform feature engineering steps\nEvaluate and compare models\nAssess model conditions\nUse inference to draw conclusions"
+  },
+  {
+    "objectID": "hw/hw-07.html#getting-started",
+    "href": "hw/hw-07.html#getting-started",
+    "title": "HW 07: Lego Prices",
+    "section": "Getting started",
+    "text": "Getting started\n\nGo to RStudio and login with your College of Idaho Email and Password.\nMake a subfolder in your hw directory to store this homework.\nLog into Canvas, navigate to Homework 7 and upload the hw-07.qmd and lego-sample.csv files into the folder your just made."
+  },
+  {
+    "objectID": "hw/hw-07.html#exercise-1",
+    "href": "hw/hw-07.html#exercise-1",
+    "title": "HW 07: Lego Prices",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nThe data are contained in lego-sample.csv. Use the code below to read in the data, replace the NAs in Minifigure with 0, and remove any observations that have missing values for the relevant variables.\n\nlegos &lt;- read_csv(\"data/lego-sample.csv\") |&gt;\n  select(Size, Pieces, Theme, Amazon_Price, Year, Pages, Minifigures) |&gt;\n  mutate(Minifigures = replace_na(Minifigures, 0)) |&gt;\n  drop_na()\n\nLet’s think about the analysis decisions we just made. We decided to drop all observations that have missing values for any of the relevant variables we identified. What are these advantages and disadvantages of doing this? We also replaced ALL of the NAs in Minifigures with 0’s. What are the advantages and disadvantages of doing this?"
+  },
+  {
+    "objectID": "hw/hw-07.html#exercise-2",
+    "href": "hw/hw-07.html#exercise-2",
+    "title": "HW 07: Lego Prices",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nVisualize the distributions of the predictor variables Pieces, Size, Year, and Pages. Neatly arrange the plots using the patchwork package. Create univariate visualizations no bivariate visualizations."
+  },
+  {
+    "objectID": "hw/hw-07.html#exercise-3",
+    "href": "hw/hw-07.html#exercise-3",
+    "title": "HW 07: Lego Prices",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nThe distribution of Theme is shown below. The bars are ordered by the frequency they occur in the data set.\n\nlegos |&gt;\n  count(Theme) |&gt;\n  mutate(Theme = fct_reorder(Theme, n)) |&gt; \ngf_col(Theme ~ n) |&gt; \n    gf_labs(title = \"Lego Set Theme\", \n         y = \"Theme\", \n         x = \"Number of LEGO sets\")\n\n\n\n\n\n\n\n\nWhat is one reason we should avoid putting the variable Theme in a model as is?"
+  },
+  {
+    "objectID": "hw/hw-07.html#exercise-4",
+    "href": "hw/hw-07.html#exercise-4",
+    "title": "HW 07: Lego Prices",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nCreate a new variable called Theme_coarse that collapses any levels of Theme with fewer than 20 observations into a single category called “Other”. Hint: Look into the function fct_lump_n. You’ll want to use it inside a mutate statement."
+  },
+  {
+    "objectID": "hw/hw-07.html#exercise-5",
+    "href": "hw/hw-07.html#exercise-5",
+    "title": "HW 07: Lego Prices",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nFit a model that uses the variables Size, Theme, and Pages to predict Amazon_Price. Call this model1."
+  },
+  {
+    "objectID": "hw/hw-07.html#exercise-6",
+    "href": "hw/hw-07.html#exercise-6",
+    "title": "HW 07: Lego Prices",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nCreate a new variable called since2018 that calculates the number of years since 2018 based on the variable Year."
+  },
+  {
+    "objectID": "hw/hw-07.html#exercise-7",
+    "href": "hw/hw-07.html#exercise-7",
+    "title": "HW 07: Lego Prices",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nNow let’s consider a new model that includes all the variables used in the model from Exercise 5 along with since2018, Pieces and Minifigures. Call this model2"
+  },
+  {
+    "objectID": "hw/hw-07.html#exercise-8",
+    "href": "hw/hw-07.html#exercise-8",
+    "title": "HW 07: Lego Prices",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nCompute the \\(R^2\\), \\(R^2_{adj}\\), AIC, and BIC for model1 and model2. Based on your results, what model do you believe is the “best” model? Justify your answer citing specific evidence from the values you just generated."
+  },
+  {
+    "objectID": "hw/hw-07.html#exercise-9",
+    "href": "hw/hw-07.html#exercise-9",
+    "title": "HW 07: Lego Prices",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nFor whichever model you chose above, determine whether the conditions for inference are met."
+  },
+  {
+    "objectID": "hw/hw-07.html#exercise-10",
+    "href": "hw/hw-07.html#exercise-10",
+    "title": "HW 07: Lego Prices",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nFor the same model, conduct an F-test and interpret your results in the context of the problem. Make sure to:\n\nIdentify the null and alternative hypotheses.\nCompute the F-statistic.\nCompute the p-value.\nInterpret the result of your test at a significance level of \\(\\alpha = 0.05\\)"
+  },
+  {
+    "objectID": "hw/hw-07.html#exercise-11",
+    "href": "hw/hw-07.html#exercise-11",
+    "title": "HW 07: Legos",
+    "section": "Exercise 11",
+    "text": "Exercise 11\nCalculate RMSE on the training data and on the testing data. Use it to comment on how well the model performs on new data and whether there are signs of model overfit."
+  },
+  {
+    "objectID": "hw/hw-07.html#exercise-12",
+    "href": "hw/hw-07.html#exercise-12",
+    "title": "HW 07: Legos",
+    "section": "Exercise 12",
+    "text": "Exercise 12\nThough we do not check the model conditions in this assignment, complete this exercise assuming the model conditions are met.\nDescribe the effect of Theme on the price of LEGO sets, including an indication of which levels are statistically significant. Use a threshold of 0.05 to determine significance.\n\nBefore submitting, make sure you render your document and commit (with a meaningful commit message) and push all updates."
+  },
+  {
+    "objectID": "hw/hw-07.html#exercise-13",
+    "href": "hw/hw-07.html#exercise-13",
+    "title": "HW 07: Legos",
+    "section": "Exercise 13",
+    "text": "Exercise 13\nThe World Bank collects “world development indicators” about the past and current development of countries. These data are made available on the World Bank’s website. It can be used to understand the relationships between these various factors and trends over time.\n\nFor this analysis, we focus on indicators from 2011 on 165 countries. The variables of interest are:\n\ngdp.per.capita: gross domestic product divided by midyear population. GDP is the sum of gross value added by all resident producers in the economy plus any product taxes and minus any subsidies not included in the value of the products. It is calculated without making deductions for depreciation of fabricated assets or for depletion and degradation of natural resources. Data are in current U.S. dollars.\nsanit.access.factor: Population access to sanitation facilities (Low, High)\nedu.expend: Government expenditure on education, total (% of government expenditure)\nlife.expect: Life expectancy at birth (in years)\n\nYou fit a model using sanitation access, education expenditures, and life expectancy to understand variability in GDP. The model takes the form\n\\[\n\\begin{aligned}\\widehat{\\log(GDP)} = \\hat{\\beta}_0 &+ \\hat{\\beta}_1 ~ sanit.access.factor + \\hat{\\beta}_2 ~ edu.expend + \\hat{\\beta}_3 ~life.expect \\\\ &+ \\hat{\\beta}_4 ~ sanit.access.factor \\times life.expect\\end{aligned}\n\\]\nThe output from R is shown below.\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n4.491\n1.638\n2.742\n0.007\n\n\nsanit.access.factorhigh\n-6.993\n1.971\n-3.548\n0.001\n\n\nedu.expend\n0.097\n0.038\n2.550\n0.012\n\n\nlife.expect\n0.030\n0.029\n1.061\n0.291\n\n\nsanit.access.factorhigh:life.expect\n0.122\n0.032\n3.853\n0.000\n\n\n\n\n\n\nInterpret the coefficient of edu.expend in the context of the data.\nInterpret the coefficient of life.expect for countries with high sanitation access in the context of the data.\n\n\n\n\n\n\nImportant\n\n\n\nWrite all interpretations in terms of the original units, not the log-transformed units."
+  },
+  {
+    "objectID": "hw/hw-07.html#exercise-14",
+    "href": "hw/hw-07.html#exercise-14",
+    "title": "HW 07: Legos",
+    "section": "Exercise 14",
+    "text": "Exercise 14\nBelow are plots from the exploratory data analysis of the relationships between the predictor variables. Based on these plots, what appears to be a potential issue with the model from Exercise 13? Briefly explain your response."
+  },
+  {
+    "objectID": "hw/hw-07.html#footnotes",
+    "href": "hw/hw-07.html#footnotes",
+    "title": "HW 07: Legos",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.↩︎↩︎"
   }
 ]

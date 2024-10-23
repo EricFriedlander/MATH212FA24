@@ -227,7 +227,7 @@ anova(tip_fit) |>
 
 ![](images/13/model-anova.png){fig-align="center"}
 
-## ANOVA
+## ANOVA {.smaller}
 
 -   **Main Idea:** Decompose the total variation of the outcome into:
     -   the variation that can be explained by the each of the variables in the model
@@ -266,7 +266,7 @@ anova(tip_fit) |>
   kable()
 ```
 
-## Sum of squares
+## Sum of squares {.smaller}
 
 ::: columns
 ::: {.column width="50%"}
