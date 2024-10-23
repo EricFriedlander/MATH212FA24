@@ -19296,35 +19296,35 @@
     "href": "hw/hw-07.html#exercise-1",
     "title": "HW 07: Lego Prices",
     "section": "Exercise 1",
-    "text": "Exercise 1\nThe data are contained in lego-sample.csv. Use the code below to read in the data, replace the NAs in Minifigure with 0, and remove any observations that have missing values for the relevant variables.\n\nlegos &lt;- read_csv(\"data/lego-sample.csv\") |&gt;\n  select(Size, Pieces, Theme, Amazon_Price, Year, Pages, Minifigures) |&gt;\n  mutate(Minifigures = replace_na(Minifigures, 0)) |&gt;\n  drop_na()\n\nLet’s think about the analysis decisions we just made. We decided to drop all observations that have missing values for any of the relevant variables we identified. What are these advantages and disadvantages of doing this? We also replaced ALL of the NAs in Minifigures with 0’s. What are the advantages and disadvantages of doing this?"
+    "text": "Exercise 1\nThe data are contained in lego-sample.csv. Use the code below to read in the data, replace the NAs in Minifigure with 0, and remove any observations that have missing values for the relevant variables.\n\nlegos &lt;- read_csv(\"data/lego-sample.csv\") |&gt;\n  select(Size, Pieces, Theme, Amazon_Price, Year, Pages, Minifigures) |&gt;\n  mutate(Minifigures = replace_na(Minifigures, 0)) |&gt;\n  drop_na()\n\nLet’s think about the analysis decisions we just made. We decided to drop all observations that have missing values for any of the relevant variables we identified. What are these advantages and disadvantages of doing this? Feel free to Google “structurally missing data”. We also replaced ALL of the NAs in Minifigures with 0’s. What are the advantages and disadvantages of doing this? Make sure you read the description of Minifigures in the introduction before answering."
   },
   {
     "objectID": "hw/hw-07.html#exercise-2",
     "href": "hw/hw-07.html#exercise-2",
     "title": "HW 07: Lego Prices",
     "section": "Exercise 2",
-    "text": "Exercise 2\nVisualize the distributions of the predictor variables Pieces, Size, Year, and Pages. Neatly arrange the plots using the patchwork package. Create univariate visualizations no bivariate visualizations."
+    "text": "Exercise 2\nVisualize the distributions of the predictor variables Pieces, Size, Year, and Pages. Neatly arrange the plots using the patchwork package. Create univariate visualizations not bivariate visualizations."
   },
   {
     "objectID": "hw/hw-07.html#exercise-3",
     "href": "hw/hw-07.html#exercise-3",
     "title": "HW 07: Lego Prices",
     "section": "Exercise 3",
-    "text": "Exercise 3\nThe distribution of Theme is shown below. The bars are ordered by the frequency they occur in the data set.\n\nlegos |&gt;\n  count(Theme) |&gt;\n  mutate(Theme = fct_reorder(Theme, n)) |&gt; \ngf_col(Theme ~ n) |&gt; \n    gf_labs(title = \"Lego Set Theme\", \n         y = \"Theme\", \n         x = \"Number of LEGO sets\")\n\n\n\n\n\n\n\n\nWhat is one reason we should avoid putting the variable Theme in a model as is?"
+    "text": "Exercise 3\nThe distribution of Theme is shown below. The bars are ordered by the frequency they occur in the data set.\n\nlegos |&gt;\n  count(Theme) |&gt;\n  mutate(Theme = fct_reorder(Theme, n)) |&gt; \ngf_col(Theme ~ n) |&gt; \n    gf_labs(title = \"Lego Set Theme\", \n         y = \"Theme\", \n         x = \"Number of LEGO sets\")\n\n\n\n\n\n\n\n\nBased solely on information that is visible in this plot, what is one reason we should avoid putting the variable Theme in a model as is?"
   },
   {
     "objectID": "hw/hw-07.html#exercise-4",
     "href": "hw/hw-07.html#exercise-4",
     "title": "HW 07: Lego Prices",
     "section": "Exercise 4",
-    "text": "Exercise 4\nCreate a new variable called Theme_coarse that collapses any levels of Theme with fewer than 20 observations into a single category called “Other”. Hint: Look into the function fct_lump_n. You’ll want to use it inside a mutate statement."
+    "text": "Exercise 4\nCreate a new variable called Theme_coarse that collapses any levels of Theme with fewer than 20 observations into a single category called Other. Hint: Look into the function fct_lump_n. You’ll want to use it inside a mutate statement."
   },
   {
     "objectID": "hw/hw-07.html#exercise-5",
     "href": "hw/hw-07.html#exercise-5",
     "title": "HW 07: Lego Prices",
     "section": "Exercise 5",
-    "text": "Exercise 5\nFit a model that uses the variables Size, Theme, and Pages to predict Amazon_Price. Call this model1."
+    "text": "Exercise 5\nFit a model that uses the variables Size, Theme_coarse, and Pages to predict Amazon_Price. Call this model1."
   },
   {
     "objectID": "hw/hw-07.html#exercise-6",
@@ -19338,14 +19338,14 @@
     "href": "hw/hw-07.html#exercise-7",
     "title": "HW 07: Lego Prices",
     "section": "Exercise 7",
-    "text": "Exercise 7\nNow let’s consider a new model that includes all the variables used in the model from Exercise 5 along with since2018, Pieces and Minifigures. Call this model2"
+    "text": "Exercise 7\nNow let’s consider a new model that includes all the variables used in the model from Exercise 5 along with since2018, Pieces, and Minifigures. Call this model2"
   },
   {
     "objectID": "hw/hw-07.html#exercise-8",
     "href": "hw/hw-07.html#exercise-8",
     "title": "HW 07: Lego Prices",
     "section": "Exercise 8",
-    "text": "Exercise 8\nCompute the \\(R^2\\), \\(R^2_{adj}\\), AIC, and BIC for model1 and model2. Based on your results, what model do you believe is the “best” model? Justify your answer citing specific evidence from the values you just generated."
+    "text": "Exercise 8\nCompute the \\(R^2\\), \\(R^2_{adj}\\), AIC, and BIC for model1 and model2. Based on your results, what model do you believe is the “best” model? Justify your answer citing specific evidence from the values you just generated. Note, they may not all be useful."
   },
   {
     "objectID": "hw/hw-07.html#exercise-9",
@@ -19395,5 +19395,19 @@
     "title": "HW 07: Legos",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.↩︎↩︎"
+  },
+  {
+    "objectID": "hw/hw-07.html#packages",
+    "href": "hw/hw-07.html#packages",
+    "title": "HW 07: Lego Prices",
+    "section": "Packages",
+    "text": "Packages\nThe following packages will be used in this assignment:\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(knitr) \nlibrary(rms)\nlibrary(patchwork)\n# add other packages as needed\n\n\n\n\n\n\n\nImportant\n\n\n\nAll narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels."
+  },
+  {
+    "objectID": "hw/hw-07.html#data-legos",
+    "href": "hw/hw-07.html#data-legos",
+    "title": "HW 07: Lego Prices",
+    "section": "Data: LEGOs",
+    "text": "Data: LEGOs\nThe data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from Peterson and Ziegler (2021).\nYou will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are\n\nPieces: Number of pieces in the set from brickset.com.\nMinifigures: Number of minifigures (LEGO people) in the set scraped from brickset.com. LEGO sets with no minifigures have been coded as NA. NA’s also represent missing data. This is due to how brickset.com reports their data.\nAmazon_Price: Amazon price of the set scraped from brickset.com (in U.S. dollars)\nSize: General size of the interlocking bricks (Large = LEGO Duplo sets - which include large brick pieces safe for children ages 1 to 5, Small = LEGO sets which- include the traditional smaller brick pieces created for age groups 5 and - older, e.g., City, Friends)\nTheme: Theme of the LEGO set\nYear : Year the LEGO set was produced\nPages: Number of pages in the instruction booklet"
   }
 ]

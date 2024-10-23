@@ -287,9 +287,9 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
-  </ul></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#data-legos" id="toc-data-legos" class="nav-link" data-scroll-target="#data-legos">Data: LEGOs</a></li>
+  </ul></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
@@ -366,9 +366,8 @@ Important
 <li><p>Log into <a href="https://cofi.instructure.com/courses/15692/assignments/183937">Canvas</a>, navigate to Homework 7 and upload the <code>hw-07.qmd</code> and <code>lego-sample.csv</code> files into the folder your just made.</p></li>
 </ul>
 </section>
-</section>
-<section id="packages" class="level1">
-<h1>Packages</h1>
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">Packages</h2>
 <p>The following packages will be used in this assignment:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -393,8 +392,8 @@ Important
 </div>
 </div>
 </section>
-<section id="data-legos" class="level1">
-<h1>Data: LEGOs</h1>
+<section id="data-legos" class="level2">
+<h2 class="anchored" data-anchor-id="data-legos">Data: LEGOs</h2>
 <p>The data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from <span class="citation" data-cites="peterson2021">Peterson and Ziegler (<a href="#ref-peterson2021" role="doc-biblioref">2021</a>)</span>.</p>
 <p>You will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are</p>
 <ul>
@@ -406,6 +405,7 @@ Important
 <li><code>Year</code> : Year the LEGO set was produced</li>
 <li><code>Pages</code>: Number of pages in the instruction booklet</li>
 </ul>
+</section>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
@@ -431,11 +431,11 @@ Important
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Minifigures =</span> <span class="fu">replace_na</span>(Minifigures, <span class="dv">0</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Let’s think about the analysis decisions we just made. We decided to drop all observations that have missing values for any of the relevant variables we identified. What are these advantages and disadvantages of doing this? We also replaced ALL of the <code>NA</code>s in <code>Minifigures</code> with 0’s. What are the advantages and disadvantages of doing this?</p>
+<p>Let’s think about the analysis decisions we just made. We decided to drop all observations that have missing values for any of the relevant variables we identified. What are these advantages and disadvantages of doing this? Feel free to Google “structurally missing data”. We also replaced ALL of the <code>NA</code>s in <code>Minifigures</code> with 0’s. What are the advantages and disadvantages of doing this? Make sure you read the description of <code>Minifigures</code> in the introduction before answering.</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Visualize the distributions of the predictor variables <code>Pieces</code>, <code>Size</code>, <code>Year</code>, and <code>Pages</code>. Neatly arrange the plots using the <a href="https://patchwork.data-imaginist.com/index.html">patchwork</a> package. Create univariate visualizations no bivariate visualizations.</p>
+<p>Visualize the distributions of the predictor variables <code>Pieces</code>, <code>Size</code>, <code>Year</code>, and <code>Pages</code>. Neatly arrange the plots using the <a href="https://patchwork.data-imaginist.com/index.html">patchwork</a> package. Create univariate visualizations not bivariate visualizations.</p>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
@@ -456,15 +456,15 @@ Important
 </div>
 </div>
 </div>
-<p>What is one reason we should avoid putting the variable <code>Theme</code> in a model as is?</p>
+<p>Based solely on information that is visible in this plot, what is one reason we should avoid putting the variable <code>Theme</code> in a model as is?</p>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>Create a new variable called <code>Theme_coarse</code> that collapses any levels of <code>Theme</code> with fewer than 20 observations into a single category called “Other”. Hint: Look into the function <code>fct_lump_n</code>. You’ll want to use it inside a <code>mutate</code> statement.</p>
+<p>Create a new variable called <code>Theme_coarse</code> that collapses any levels of <code>Theme</code> with fewer than 20 observations into a single category called <code>Other</code>. Hint: Look into the function <code>fct_lump_n</code>. You’ll want to use it inside a <code>mutate</code> statement.</p>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Fit a model that uses the variables <code>Size</code>, <code>Theme</code>, and <code>Pages</code> to predict <code>Amazon_Price</code>. Call this <code>model1</code>.</p>
+<p>Fit a model that uses the variables <code>Size</code>, <code>Theme_coarse</code>, and <code>Pages</code> to predict <code>Amazon_Price</code>. Call this <code>model1</code>.</p>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
@@ -472,11 +472,11 @@ Important
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Now let’s consider a new model that includes all the variables used in the model from Exercise 5 along with <code>since2018</code>, <code>Pieces</code> and <code>Minifigures</code>. Call this <code>model2</code></p>
+<p>Now let’s consider a new model that includes all the variables used in the model from Exercise 5 along with <code>since2018</code>, <code>Pieces</code>, and <code>Minifigures</code>. Call this <code>model2</code></p>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>Compute the <span class="math inline">\(R^2\)</span>, <span class="math inline">\(R^2_{adj}\)</span>, AIC, and BIC for <code>model1</code> and <code>model2</code>. Based on your results, what model do you believe is the “best” model? Justify your answer citing specific evidence from the values you just generated.</p>
+<p>Compute the <span class="math inline">\(R^2\)</span>, <span class="math inline">\(R^2_{adj}\)</span>, AIC, and BIC for <code>model1</code> and <code>model2</code>. Based on your results, what model do you believe is the “best” model? Justify your answer citing specific evidence from the values you just generated. Note, they may not all be useful.</p>
 </section>
 <section id="exercise-9" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
