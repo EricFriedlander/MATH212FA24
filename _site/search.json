@@ -19219,7 +19219,7 @@
     "href": "ae/ae-15-comparison2.html#analysis-goal",
     "title": "AE 15: Model Comparison",
     "section": "Analysis goal",
-    "text": "Analysis goal\nThe goals of this activity are to comparing models with: - \\(R^2\\) vs. \\(R^2_{Adj}\\) - AIC and BIC"
+    "text": "Analysis goal\nThe goals of this activity are to comparing models with:\n\n\\(R^2\\) vs. \\(R^2_{Adj}\\)\nAIC and BIC"
   },
   {
     "objectID": "ae/ae-15-comparison2.html#exercise-1",

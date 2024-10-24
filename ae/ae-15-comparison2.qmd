@@ -42,16 +42,17 @@ The variables we'll focus on for this analysis are
 
 ## Analysis goal
 
-The goals of this activity are to comparing models with:
--   $R^2$ vs. $R^2_{Adj}$
--   AIC and BIC
-  
+The goals of this activity are to comparing models with: 
+
+- $R^2$ vs. $R^2_{Adj}$
+- AIC and BIC
+
 ## Exercise 1
 
 Fit two models:
 
-1. `tip_fit_1`: predict `Tip` from `Party`, `Age`, and `Meal`
-2. `tip_fit_2`: predict `Tip` from `Party`, `Age`, `Meal`, and `Day`.
+1.  `tip_fit_1`: predict `Tip` from `Party`, `Age`, and `Meal`
+2.  `tip_fit_2`: predict `Tip` from `Party`, `Age`, `Meal`, and `Day`.
 
 ## Exercise 2
 
