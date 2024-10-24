@@ -1,0 +1,8 @@
+---
+title: "October 28 lecture"
+subtitle: "Model Selection"
+---
+
+## Assigned reading
+
+- Stat2: Topic 4.2 Techniques for Choosing Predictors
