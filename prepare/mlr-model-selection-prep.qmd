@@ -5,4 +5,5 @@ subtitle: "Model Selection"
 
 ## Assigned reading
 
+- Stat2: Topic 3.6 Testing Subsets of Predictors
 - Stat2: Topic 4.2 Techniques for Choosing Predictors
