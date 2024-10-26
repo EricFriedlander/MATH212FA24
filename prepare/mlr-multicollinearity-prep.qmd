@@ -1,0 +1,8 @@
+---
+title: "October 30 lecture"
+subtitle: "Multicollinearity"
+---
+
+## Assigned reading
+
+- Stat2: Topic 3.5 Correlated Predictors

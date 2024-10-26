@@ -412,9 +412,9 @@ Prof.&nbsp;Eric Friedlander
 <li>Oral R Quiz</li>
 </ul>
 <div class="appex">
-<p>📋 <a href="https://mat212fa24.netlify.app/ae/ae-15-comparison2">AE 16 - Model Selection</a></p>
+<p>📋 <a href="https://mat212fa24.netlify.app/ae/ae-16-modelselection">AE 16 - Model Selection</a></p>
 <ul>
-<li>Open up AE 16</li>
+<li>Open up AE 16 and Complete Exercise 0</li>
 </ul>
 </div>
 </section>
@@ -422,8 +422,8 @@ Prof.&nbsp;Eric Friedlander
 <h2>Topics</h2>
 <div>
 <ul>
-<li>Model Selection</li>
 <li>ANOVA, revisited</li>
+<li>Model Selection</li>
 </ul>
 </div>
 </section>
@@ -569,7 +569,7 @@ Prof.&nbsp;Eric Friedlander
 </div>
 </div>
 </section>
-<section id="variables" class="slide level2">
+<section id="variables" class="slide level2 smaller">
 <h2>Variables</h2>
 <p><strong>Predictors</strong>:</p>
 <div>
@@ -591,6 +591,136 @@ Prof.&nbsp;Eric Friedlander
 <p><strong>Outcome</strong>: <code>Tip</code>: Amount of tip</p>
 </section></section>
 <section>
+<section id="comparing-sets-of-predictors" class="title-slide slide level1 center">
+<h1>Comparing sets of predictors</h1>
+
+</section>
+<section id="nested-models" class="slide level2 smaller">
+<h2>Nested Models</h2>
+<ul>
+<li>We say one model is <strong>nested</strong> inside another model if all of its <strong>TERMS</strong> are present in the other model</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Consider three different models:
+<ul>
+<li><strong>Model 1:</strong> <span class="math inline">\(Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \beta_3X_3 + \epsilon\)</span></li>
+<li><strong>Model 2:</strong> <span class="math inline">\(Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \epsilon\)</span></li>
+<li><strong>Model 3:</strong> <span class="math inline">\(Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \beta_3X_1X_2 + \epsilon\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Model 2</strong> is nested inside both <strong>Model 1</strong> and <strong>Model 3</strong>.</li>
+<li>Why isn’t <strong>Model 3</strong> nested in <strong>Model 1</strong>?</li>
+<li>Smaller model is called the <strong>Reduced Model</strong></li>
+<li>Larger model is called the <strong>Full Model</strong> (be careful, this term depends on context)</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Complete Exercises 1-2.</li>
+</ul>
+</div>
+</section>
+<section id="recall-anova-f-test" class="slide level2">
+<h2>Recall: ANOVA, F-Test</h2>
+<p><strong>Hypotheses:</strong></p>
+<p><span class="math inline">\(H_0: \beta_1 = \beta_2 = \cdots = \beta_k = 0\)</span> vs.&nbsp;<span class="math inline">\(H_A:\)</span> at least one <span class="math inline">\(\beta_i \neq 0\)</span></p>
+<p><strong>Test statistic:</strong> F-statistic</p>
+<p><span class="math display">\[
+F = \frac{MSModel}{MSE} = \frac{SSModel/k}{SSE/(n-k-1)} \\
+\]</span></p>
+<p><strong>p-value:</strong> Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed</p>
+<p><span class="math display">\[
+\text{p-value} = P(F &gt; \text{test statistic}),
+\]</span></p>
+<p>calculated from an <span class="math inline">\(F\)</span> distribution with <span class="math inline">\(k\)</span> and <span class="math inline">\(n - k - 1\)</span> degrees of freedom.</p>
+</section>
+<section id="nested-f-test" class="slide level2 smaller">
+<h2>Nested F-Test</h2>
+<p>Suppose <span class="math inline">\(k_1\)</span> is the number of <span class="math inline">\(\beta\)</span>’s in the nested model and <span class="math inline">\(k\)</span> is the full number of predictors in the larger model. I.e. <span class="math inline">\(\beta_{k1+1},\ldots, \beta_{k}\)</span> are the new <span class="math inline">\(\beta\)</span>’s</p>
+<p><strong>Hypotheses:</strong></p>
+<p><span class="math inline">\(H_0: \beta_{k_1+1} = \beta_{k_1+2} = \cdots = \beta_k = 0\)</span> vs.&nbsp;<span class="math inline">\(H_A:\)</span> at least one <span class="math inline">\(\beta_i \neq 0\)</span> for <span class="math inline">\(i&gt;k_1+1\)</span></p>
+<p><strong>Test statistic:</strong> F-statistic</p>
+<p><span class="math display">\[
+F = \frac{(SSModel_{full} - SSModel_{reduced})/(k-k_1)}{SSE_{full}/(n-k-1)} \\
+\]</span></p>
+<p><strong>p-value:</strong> Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed</p>
+<p><span class="math display">\[
+\text{p-value} = P(F &gt; \text{test statistic}),
+\]</span></p>
+<p>calculated from an <span class="math inline">\(F\)</span> distribution with <span class="math inline">\(k-k_1\)</span> (the number of predictors being tested) and <span class="math inline">\(n - k - 1\)</span> degrees of freedom.</p>
+<div class="fragment">
+<p>Note: Same as regular F-test if reduced model is just <span class="math inline">\(Y= \beta_0\)</span>.</p>
+</div>
+</section>
+<section id="nested-f-test-in-r" class="slide level2 smaller">
+<h2>Nested F-Test in R</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>tip_fit_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Tip <span class="sc">~</span> Party <span class="sc">+</span> Age <span class="sc">+</span> Meal, <span class="at">data =</span> tips)</span>
+<span id="cb2-2"><a></a>tip_fit_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Tip <span class="sc">~</span> Party <span class="sc">+</span> Age <span class="sc">+</span> Meal <span class="sc">+</span> Day, <span class="at">data =</span> tips)</span>
+<span id="cb2-3"><a></a></span>
+<span id="cb2-4"><a></a><span class="fu">anova</span>(tip_fit_1, tip_fit_2) <span class="sc">|&gt;</span> <span class="co"># Enter reduced model first</span></span>
+<span id="cb2-5"><a></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb2-6"><a></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 14%">
+<col style="width: 10%">
+<col style="width: 3%">
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">df.residual</th>
+<th style="text-align: right;">rss</th>
+<th style="text-align: right;">df</th>
+<th style="text-align: right;">sumsq</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tip ~ Party + Age + Meal</td>
+<td style="text-align: right;">163</td>
+<td style="text-align: right;">622.9793</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tip ~ Party + Age + Meal + Day</td>
+<td style="text-align: right;">158</td>
+<td style="text-align: right;">607.3815</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">15.59778</td>
+<td style="text-align: right;">0.8114993</td>
+<td style="text-align: right;">0.543086</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span class="math display">\[
+F = \frac{(SSModel_{full} - SSModel_{reduced})/(k-k_1)}{SSE_{full}/(n-k-1)}
+= \frac{15.59778/5}{6073815/158}
+= 0.8114993
+\]</span></p>
+<p>Let’s interpret this together.</p>
+<div class="fragment">
+<p>Complete Exercise 3.</p>
+</div>
+</section></section>
+<section>
 <section id="model-selection" class="title-slide slide level1 center">
 <h1>Model Selection</h1>
 
@@ -598,21 +728,345 @@ Prof.&nbsp;Eric Friedlander
 <section id="model-selection-1" class="slide level2">
 <h2>Model Selection</h2>
 <ul>
-<li>So far: We’ve come up with a variety of metrics which help us compare different models</li>
+<li>So far: We’ve come up with a variety of metrics and tests which help us compare different models</li>
 <li>How do we choose the models to compare in the first place?</li>
 <li>Today: Best subset, forward selection, and backward selection</li>
 </ul>
 </section>
+<section id="aic-bic-mallows-c_p" class="slide level2">
+<h2>AIC, BIC, Mallows’ <span class="math inline">\(C_p\)</span></h2>
+<p>Estimators of prediction error and <em>relative</em> quality of models:</p>
+<p><strong>Akaike’s Information Criterion (AIC)</strong>: <span class="math display">\[AIC = n\log(SS_\text{Error}) - n \log(n) + 2(p+1)\]</span> <br></p>
+<p><strong>Schwarz’s Bayesian Information Criterion (BIC)</strong>: <span class="math display">\[BIC = n\log(SS_\text{Error}) - n\log(n) + log(n)\times(p+1)\]</span></p>
+<div class="fragment">
+<p><strong>Mallows’ <span class="math inline">\(C_p\)</span></strong>: <span class="math display">\[C_p = \frac{SSE_{p}}{MSE_{full model}} - n + 2(p+1)\]</span></p>
+</div>
+</section>
+<section id="best-subset-selection" class="slide level2">
+<h2>Best Subset Selection</h2>
+<ul>
+<li>Computers are great now!</li>
+<li>Frequently feasible to try out EVERY combination of predictors if you total number of possible predictors is not too high.</li>
+</ul>
+</section>
+<section id="best-subset-selection-in-r" class="slide level2 smaller">
+<h2>Best Subset Selection in R</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(leaps)</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a><span class="fu">regsubsets</span>(Tip <span class="sc">~</span> ., <span class="at">data =</span> tips) <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb3-5"><a></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">(Intercept)</th>
+<th style="text-align: left;">DaySaturday</th>
+<th style="text-align: left;">DaySunday</th>
+<th style="text-align: left;">DayThursday</th>
+<th style="text-align: left;">DayTuesday</th>
+<th style="text-align: left;">DayWednesday</th>
+<th style="text-align: left;">MealLate Night</th>
+<th style="text-align: left;">MealLunch</th>
+<th style="text-align: left;">PaymentCredit</th>
+<th style="text-align: left;">PaymentCredit/CashTip</th>
+<th style="text-align: left;">Party</th>
+<th style="text-align: left;">AgeSenCit</th>
+<th style="text-align: left;">AgeYadult</th>
+<th style="text-align: left;">GiftCardYes</th>
+<th style="text-align: left;">CompsYes</th>
+<th style="text-align: left;">AlcoholYes</th>
+<th style="text-align: left;">BdayYes</th>
+<th style="text-align: left;">Bill</th>
+<th style="text-align: right;">r.squared</th>
+<th style="text-align: right;">adj.r.squared</th>
+<th style="text-align: right;">BIC</th>
+<th style="text-align: right;">mallows_cp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">0.7661946</td>
+<td style="text-align: right;">0.7647946</td>
+<td style="text-align: right;">-235.3422</td>
+<td style="text-align: right;">7.3539038</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">0.7742958</td>
+<td style="text-align: right;">0.7715765</td>
+<td style="text-align: right;">-236.1719</td>
+<td style="text-align: right;">3.3819803</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">0.7803064</td>
+<td style="text-align: right;">0.7763120</td>
+<td style="text-align: right;">-235.6035</td>
+<td style="text-align: right;">0.9511378</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">0.7839141</td>
+<td style="text-align: right;">0.7786437</td>
+<td style="text-align: right;">-233.2719</td>
+<td style="text-align: right;">0.2916884</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">0.7883724</td>
+<td style="text-align: right;">0.7818808</td>
+<td style="text-align: right;">-231.6653</td>
+<td style="text-align: right;">-0.9948739</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">0.7906664</td>
+<td style="text-align: right;">0.7829133</td>
+<td style="text-align: right;">-228.3773</td>
+<td style="text-align: right;">-0.6859082</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">0.7922172</td>
+<td style="text-align: right;">0.7831831</td>
+<td style="text-align: right;">-224.5040</td>
+<td style="text-align: right;">0.1709197</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">0.7931116</td>
+<td style="text-align: right;">0.7827672</td>
+<td style="text-align: right;">-220.1032</td>
+<td style="text-align: right;">1.5115594</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Shows you “best” model for every model size.</p>
+</section>
+<section id="backward-elimination" class="slide level2 smaller">
+<h2>Backward Elimination</h2>
+<p>Different model selection technique:</p>
+<ol type="1">
+<li>Start by fitting the full model (the model that includes all terms under consideration).</li>
+<li>Identify the term with the largest p-value.
+<ol type="a">
+<li>If p-value is large (say, greater than 5%), eliminate that term to produce a smaller model. Fit that model and return to the start of Step 2.</li>
+<li>If p-value is small (less than 5%), stop since all of the predictors in the model are “significant.”</li>
+</ol></li>
+</ol>
+<p>Note: this can be altered to work with other criterea (e.g.&nbsp;AIC) instead of p-values. This is actually what <code>regsubsets</code> does.</p>
+</section>
+<section id="forward-selection" class="slide level2 smaller">
+<h2>Forward Selection</h2>
+<ol type="1">
+<li>Start with a model with no predictors and find the best single predictor (the largest correlation with the response gives the biggest initial).</li>
+<li>Add the new predictor to the model, run the regression, and find its individual p-value:
+<ol type="a">
+<li>If p-value is small (say, less than 5%), add predictor which would produce the most benefit (biggest increase in <span class="math inline">\(R^2\)</span>) when added to the existing model.</li>
+<li>If the p-value is large (over 5%), stop and discard this predictor. At this point, no (unused) predictor should be significant when added to the model and we are done.</li>
+</ol></li>
+</ol>
+</section>
+<section id="stepwise-selection" class="slide level2 smaller">
+<h2>Stepwise Selection</h2>
+<p>Forward, stepwise selection</p>
+<ol type="1">
+<li>Start with a model with no predictors and find the best single predictor (the largest correlation with the response gives the biggest initial).</li>
+<li>Add the new predictor to the model, run the regression, and find its individual p-value:
+<ol type="a">
+<li>If p-value is small (say, less than 5%), <strong>run backward elimination</strong>, then add predictor which would produce the most benefit (biggest increase in <span class="math inline">\(R^2\)</span>) when added to the existing model.</li>
+<li>If the p-value is large (over 5%), stop and discard this predictor. At this point, no (unused) predictor should be significant when added to the model and we are done.</li>
+</ol></li>
+</ol>
+<ul>
+<li>Why? Sometimes variables that were significant early on, can become insignificant after other new variables are added to the model.</li>
+</ul>
+<p>Backward, stepwise selection is the same, except you perform forward selection every time you delete a term from the model.</p>
+</section>
+<section id="caution" class="slide level2 smaller">
+<h2>CAUTION</h2>
+<ul>
+<li>These automated methods have fallen out of favor in recent years, but you can still use them and should know what they are.</li>
+<li>Automated methods ARE NOT a replacement for subject matter expertise</li>
+<li>Think of the models that come out of these procedures as <em>suggestions</em></li>
+<li>The order in which variables are added to a model can <em>help</em> us understand which variables are more important and which are redundant.</li>
+</ul>
+<p>Complete Exercise 5.</p>
+</section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
 <ul>
-<li><p>Comparing models with</p>
+<li>Comparing subsets of models using nested F-Test</li>
+<li>Choosing models using:
 <ul>
-<li><span class="math inline">\(R^2\)</span> vs.&nbsp;<span class="math inline">\(R^2_{Adj}\)</span></li>
-<li>AIC and BIC</li>
+<li>Exhaustive search</li>
+<li>Forward/Backward/Stepwise selection</li>
 </ul></li>
-<li><p>Occam’s razor and parsimony</p></li>
-<li><p>Complete Exercise 5.</p></li>
 </ul>
 
 <div class="quarto-auto-generated-content">

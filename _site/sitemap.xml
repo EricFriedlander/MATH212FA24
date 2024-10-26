@@ -98,7 +98,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/schedule.html</loc>
-    <lastmod>2024-08-19T21:15:59.360Z</lastmod>
+    <lastmod>2024-08-19T21:15:59.000Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/project-rubric.html</loc>
@@ -522,7 +522,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/hw/forStudents/hw-04/hw-04.html</loc>
-    <lastmod>2024-10-26T16:41:30.375Z</lastmod>
+    <lastmod>2024-10-26T19:53:12.842Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-10-mlr.html</loc>
@@ -646,6 +646,14 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/22-model-selection.html</loc>
-    <lastmod>2024-10-26T16:35:17.796Z</lastmod>
+    <lastmod>2024-10-26T19:45:14.953Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/ae/ae-16-modelselection.html</loc>
+    <lastmod>2024-10-26T19:35:20.745Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/prepare/mlr-multicollinearity-prep.html</loc>
+    <lastmod>2024-10-26T19:51:50.702Z</lastmod>
   </url>
 </urlset>
