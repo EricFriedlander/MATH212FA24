@@ -627,31 +627,31 @@ Prof.&nbsp;Eric Friedlander
 <section id="recall-anova-f-test" class="slide level2 smaller">
 <h2>Recall: ANOVA, F-Test</h2>
 <p><strong>Hypotheses:</strong></p>
-<p><span class="math inline">\(H_0: \beta_1 = \beta_2 = \cdots = \beta_k = 0\)</span> vs.&nbsp;<span class="math inline">\(H_A:\)</span> at least one <span class="math inline">\(\beta_i \neq 0\)</span></p>
+<p><span class="math inline">\(H_0: \beta_1 = \beta_2 = \cdots = \beta_p = 0\)</span> vs.&nbsp;<span class="math inline">\(H_A:\)</span> at least one <span class="math inline">\(\beta_i \neq 0\)</span></p>
 <p><strong>Test statistic:</strong> F-statistic</p>
 <p><span class="math display">\[
-F = \frac{MSModel}{MSE} = \frac{SSModel/k}{SSE/(n-k-1)} \\
+F = \frac{MSModel}{MSE} = \frac{SSModel/p}{SSE/(n-p-1)} \\
 \]</span></p>
 <p><strong>p-value:</strong> Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed</p>
 <p><span class="math display">\[
 \text{p-value} = P(F &gt; \text{test statistic}),
 \]</span></p>
-<p>calculated from an <span class="math inline">\(F\)</span> distribution with <span class="math inline">\(k\)</span> and <span class="math inline">\(n - k - 1\)</span> degrees of freedom.</p>
+<p>calculated from an <span class="math inline">\(F\)</span> distribution with <span class="math inline">\(p\)</span> and <span class="math inline">\(n - p - 1\)</span> degrees of freedom.</p>
 </section>
 <section id="nested-f-test" class="slide level2 smaller">
 <h2>Nested F-Test</h2>
-<p>Suppose <span class="math inline">\(k_1\)</span> is the number of <span class="math inline">\(\beta\)</span>’s in the nested model and <span class="math inline">\(k\)</span> is the full number of predictors in the larger model. I.e. <span class="math inline">\(\beta_{k1+1},\ldots, \beta_{k}\)</span> are the new <span class="math inline">\(\beta\)</span>’s</p>
+<p>Suppose <span class="math inline">\(k\)</span> is the number of <span class="math inline">\(\beta\)</span>’s in the nested model and <span class="math inline">\(p\)</span> is the full number of predictors in the larger model. I.e. <span class="math inline">\(\beta_{k+1},\ldots, \beta_{p}\)</span> are the new <span class="math inline">\(\beta\)</span>’s</p>
 <p><strong>Hypotheses:</strong></p>
-<p><span class="math inline">\(H_0: \beta_{k_1+1} = \beta_{k_1+2} = \cdots = \beta_k = 0\)</span> vs.&nbsp;<span class="math inline">\(H_A:\)</span> at least one <span class="math inline">\(\beta_i \neq 0\)</span> for <span class="math inline">\(i&gt;k_1+1\)</span></p>
+<p><span class="math inline">\(H_0: \beta_{k+1} = \beta_{k+2} = \cdots = \beta_p = 0\)</span> vs.&nbsp;<span class="math inline">\(H_A:\)</span> at least one <span class="math inline">\(\beta_i \neq 0\)</span> for <span class="math inline">\(i&gt;k+1\)</span></p>
 <p><strong>Test statistic:</strong> F-statistic</p>
 <p><span class="math display">\[
-F = \frac{(SSModel_{full} - SSModel_{reduced})/(k-k_1)}{SSE_{full}/(n-k-1)} \\
+F = \frac{(SSModel_{full} - SSModel_{reduced})/(p-k)}{SSE_{full}/(n-p-1)} \\
 \]</span></p>
 <p><strong>p-value:</strong> Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed</p>
 <p><span class="math display">\[
 \text{p-value} = P(F &gt; \text{test statistic}),
 \]</span></p>
-<p>calculated from an <span class="math inline">\(F\)</span> distribution with <span class="math inline">\(k-k_1\)</span> (the number of predictors being tested) and <span class="math inline">\(n - k - 1\)</span> degrees of freedom.</p>
+<p>calculated from an <span class="math inline">\(F\)</span> distribution with <span class="math inline">\(p-k\)</span> (the number of predictors being tested) and <span class="math inline">\(n - p - 1\)</span> degrees of freedom.</p>
 <div class="fragment">
 <p>Note: Same as regular F-test if reduced model is just <span class="math inline">\(Y= \beta_0\)</span>.</p>
 </div>
@@ -711,7 +711,7 @@ F = \frac{(SSModel_{full} - SSModel_{reduced})/(k-k_1)}{SSE_{full}/(n-k-1)} \\
 </div>
 </div>
 <p><span class="math display">\[
-F = \frac{(SSModel_{full} - SSModel_{reduced})/(k-k_1)}{SSE_{full}/(n-k-1)}
+F = \frac{(SSModel_{full} - SSModel_{reduced})/(p-k)}{SSE_{full}/(n-p-1)}
 = \frac{15.59778/5}{6073815/158}
 = 0.8114993
 \]</span></p>

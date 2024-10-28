@@ -146,12 +146,12 @@ tips |>
 
 **Hypotheses:** 
 
-$H_0: \beta_1 = \beta_2 = \cdots = \beta_k = 0$ vs. $H_A:$ at least one $\beta_i \neq 0$ 
+$H_0: \beta_1 = \beta_2 = \cdots = \beta_p = 0$ vs. $H_A:$ at least one $\beta_i \neq 0$ 
 
 **Test statistic:** F-statistic
 
 $$
-F = \frac{MSModel}{MSE} = \frac{SSModel/k}{SSE/(n-k-1)} \\
+F = \frac{MSModel}{MSE} = \frac{SSModel/p}{SSE/(n-p-1)} \\
 $$
 
 **p-value:** Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed
@@ -160,20 +160,20 @@ $$
 \text{p-value} = P(F > \text{test statistic}),
 $$
 
-calculated from an $F$ distribution with $k$ and $n - k - 1$ degrees of freedom.
+calculated from an $F$ distribution with $p$ and $n - p - 1$ degrees of freedom.
 
 ## Nested F-Test {.smaller}
 
-Suppose $k_1$ is the number of $\beta$'s in the nested model and $k$ is the full number of predictors in the larger model. I.e. $\beta_{k1+1},\ldots, \beta_{k}$ are the new $\beta$'s
+Suppose $k$ is the number of $\beta$'s in the nested model and $p$ is the full number of predictors in the larger model. I.e. $\beta_{k+1},\ldots, \beta_{p}$ are the new $\beta$'s
 
 **Hypotheses:** 
 
-$H_0: \beta_{k_1+1} = \beta_{k_1+2} = \cdots = \beta_k = 0$ vs. $H_A:$ at least one $\beta_i \neq 0$ for $i>k_1+1$ 
+$H_0: \beta_{k+1} = \beta_{k+2} = \cdots = \beta_p = 0$ vs. $H_A:$ at least one $\beta_i \neq 0$ for $i>k+1$ 
 
 **Test statistic:** F-statistic
 
 $$
-F = \frac{(SSModel_{full} - SSModel_{reduced})/(k-k_1)}{SSE_{full}/(n-k-1)} \\
+F = \frac{(SSModel_{full} - SSModel_{reduced})/(p-k)}{SSE_{full}/(n-p-1)} \\
 $$
 
 **p-value:** Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed
@@ -182,7 +182,7 @@ $$
 \text{p-value} = P(F > \text{test statistic}),
 $$
 
-calculated from an $F$ distribution with $k-k_1$ (the number of predictors being tested) and $n - k - 1$ degrees of freedom.
+calculated from an $F$ distribution with $p-k$ (the number of predictors being tested) and $n - p - 1$ degrees of freedom.
 
 . . .
 
@@ -200,7 +200,7 @@ anova(tip_fit_1, tip_fit_2) |> # Enter reduced model first
 ```
 
 $$
-F = \frac{(SSModel_{full} - SSModel_{reduced})/(k-k_1)}{SSE_{full}/(n-k-1)}
+F = \frac{(SSModel_{full} - SSModel_{reduced})/(p-k)}{SSE_{full}/(n-p-1)}
 = \frac{15.59778/5}{6073815/158}
 = 0.8114993
 $$
