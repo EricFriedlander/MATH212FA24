@@ -1,9 +1,9 @@
 ---
 title: "Multicollinearity"
-author: "Prof. Maria Tackett"
-date: "2023-10-25"
+author: "Prof. Eric Friedlander"
+date: "2024-10-30"
 date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 210 - Fall 2023 -  Schedule](https://sta210-fa23.netlify.app/schedule)"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -19,6 +19,7 @@ html-math-method:
 execute:
   freeze: auto
   echo: true
+  cache: false
 knitr:
   opts_chunk: 
     R.options:      
@@ -38,22 +39,22 @@ knitr::opts_chunk$set(
 
 ## Announcements
 
--   Project propsal due
+-   Project: EDA Due Today
+-   Project: [Paper Due November 18th](https://mat212fa24.netlify.app/project-instructions#draft-report)
+-   Oral R Quiz
 
-    -   Friday, October 27 (Tuesday labs)
+::: appex
+📋 [AE 17 - Multicollinearity](https://mat212fa24.netlify.app/ae/ae-17-multicollinearity)
 
-    -   Sunday, October 29 (Thursday labs)
-
--   HW 03 due Wednesday, November 1
-
-    -   released after Section 002 lecture
+- Open up AE 17 and Complete Exercise 0
+:::
 
 ## Topics
 
 ::: nonincremental
--   Inference for multiple linear regression
--   Checking model conditions
--   Variable transformations
+-   Defining Multicollinearity
+-   Detecting Multicollinearity
+-   Variance Inflation Factors
 :::
 
 ## Computational setup
@@ -73,24 +74,6 @@ library(rms)
 # set default theme and larger font size for ggplot2
 ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
 ```
-
-## Announcements
-
--   Project: EDA Due Wednesday, October 30th
--   Oral R Quiz (time to start scheduling it)
-
-::: appex
-📋 [AE 13 - Rail Trails](https://mat212fa24.netlify.app/ae/ae-13-mlr-conditions)
-
-- Open up AE 13
-:::
-
-
-## Topics
-
-::: nonincremental
--   Checking model conditions
-:::
 
 ## Computational setup
 
@@ -131,13 +114,6 @@ rail_trail
 
 Source: [Pioneer Valley Planning Commission](http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf) via the **mosaicData** package.
 
-
-# Conditions for inference
-
-## Full model
-
-Complete Exercise 0 to fit the so-called "full-model".
-
 ## Full model
 
 ```{r}
@@ -152,7 +128,10 @@ rt_full_aug <- augment(rt_full_fit)
 
 ## What is multicollinearity
 
-**Multicollinearity** is the case when two or more predictor variables are strongly correlated with one another
+-   **Multicollinearity** is the case when one or more predictor variables are strongly correlated with some combination of other predictors
+-   **Intuition:** if you could fit a good linear model with one of your predictors as the response and the rest of the predictors as your explanatory variables, then your predictors are exhibiting multicollinearity
+
+
 
 ## Example
 
@@ -169,7 +148,7 @@ $$
 \end{aligned}
 $$
 
-## Example
+## Example {.smaller}
 
 $$\hat{y} = \hat{\beta}_0 + \bigg(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10}\bigg)x$$
 
@@ -177,7 +156,11 @@ $$\hat{y} = \hat{\beta}_0 + \bigg(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10}\bigg)
 
 -   Therefore, we are unable to choose the "best" combination of $\hat{\beta}_1$ and $\hat{\beta}_2$
 
-  +   In statistics, we say this model is "unidentifiable" because different parameters combinations can result in the same model
+-   In statistics, we say this model is "unidentifiable" because different parameters combinations can result in the same model
+
+-   This is also why we need to set a reference level for categorical variables
+
+-   Complete Exercises 1-2.
 
 ## Why multicollinearity is a problem
 
@@ -210,6 +193,7 @@ Multicollinearity may occur when...
 -   Look at a scatterplot matrix of the predictor variables
     -   Look out for plots that show a relatively linear relationship
 -   Look at the distribution of categorical predictors and avoid setting the baseline to a category with very few observations
+-   Complete Exercises 3-4.
 
 ## Detecting Multicollinearity (VIF)
 
@@ -229,6 +213,10 @@ where $R^2_{X_j|X_{-j}}$ is the proportion of variation $X$ that is explained by
 
 ## VIF for rail trail model
 
+Complete Exercise 5.
+
+. . .
+
 ```{r echo = T}
 vif(rt_full_fit)
 ```
@@ -239,9 +227,14 @@ vif(rt_full_fit)
 
 `hightemp` and `avgtemp` are correlated. We need to remove <u>**one**</u> of these variables and refit the model.
 
+. . .
+
+Complete Exercises 6 & 7.
+
 ## Model without `hightemp` {.smaller}
 
 ```{r}
+#| echo: FALSE
 m1 <- lm(volume ~ . - hightemp, data = rail_trail)
   
 m1 |>
@@ -252,6 +245,7 @@ m1 |>
 ## Model without `avgtemp` {.smaller}
 
 ```{r}
+#| echo: FALSE
 m2 <- lm(volume ~ . - avgtemp, data = rail_trail)
   
 m2 |>

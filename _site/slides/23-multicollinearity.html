@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.555">
 
   <meta name="author" content="Prof.&nbsp;Eric Friedlander">
-  <title>MAT 212 - Fall 2024 - Model Selection</title>
+  <title>MAT 212 - Fall 2024 - Multicollinearity</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -393,7 +393,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Model Selection</h1>
+  <h1 class="title">Multicollinearity</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -403,18 +403,19 @@ Prof.&nbsp;Eric Friedlander
 </div>
 </div>
 
-  <p class="date">Oct 28, 2024</p>
+  <p class="date">Oct 30, 2024</p>
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <ul>
-<li>Project: EDA Due Wednesday</li>
+<li>Project: EDA Due Today</li>
+<li>Project: <a href="https://mat212fa24.netlify.app/project-instructions#draft-report">Paper Due November 18th</a></li>
 <li>Oral R Quiz</li>
 </ul>
 <div class="appex">
-<p>📋 <a href="https://mat212fa24.netlify.app/ae/ae-16-modelselection">AE 16 - Model Selection</a></p>
+<p>📋 <a href="https://mat212fa24.netlify.app/ae/ae-17-multicollinearity">AE 17 - Multicollinearity</a></p>
 <ul>
-<li>Open up AE 16 and Complete Exercise 0</li>
+<li>Open up AE 17 and Complete Exercise 0</li>
 </ul>
 </div>
 </section>
@@ -422,8 +423,9 @@ Prof.&nbsp;Eric Friedlander
 <h2>Topics</h2>
 <div>
 <ul>
-<li>ANOVA, revisited</li>
-<li>Model Selection</li>
+<li>Defining Multicollinearity</li>
+<li>Detecting Multicollinearity</li>
+<li>Variance Inflation Factors</li>
 </ul>
 </div>
 </section>
@@ -432,642 +434,503 @@ Prof.&nbsp;Eric Friedlander
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load packages</span></span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-4"><a></a><span class="fu">library</span>(yardstick)</span>
-<span id="cb1-5"><a></a><span class="fu">library</span>(ggformula)</span>
-<span id="cb1-6"><a></a><span class="fu">library</span>(GGally)</span>
-<span id="cb1-7"><a></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-8"><a></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb1-9"><a></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-10"><a></a><span class="fu">library</span>(janitor)</span>
-<span id="cb1-11"><a></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb1-12"><a></a></span>
-<span id="cb1-13"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
-<span id="cb1-14"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-4"><a></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-5"><a></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-6"><a></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-7"><a></a><span class="fu">library</span>(countdown)</span>
+<span id="cb1-8"><a></a><span class="fu">library</span>(rms)</span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
+<span id="cb1-11"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section>
-<section id="introduction" class="title-slide slide level1 center">
-<h1>Introduction</h1>
-
-</section>
-<section id="data-restaurant-tips" class="slide level2">
-<h2>Data: Restaurant tips</h2>
-<p>Which variables help us predict the amount customers tip at a restaurant?</p>
+<section id="computational-setup-1" class="slide level2">
+<h2>Computational setup</h2>
 <div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="caption-top" style="width:100%;">
-<colgroup>
-<col style="width: 11%">
-<col style="width: 9%">
-<col style="width: 10%">
-<col style="width: 7%">
-<col style="width: 9%">
-<col style="width: 11%">
-<col style="width: 7%">
-<col style="width: 10%">
-<col style="width: 6%">
-<col style="width: 7%">
-<col style="width: 7%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Day</th>
-<th style="text-align: left;">Meal</th>
-<th style="text-align: left;">Payment</th>
-<th style="text-align: right;">Party</th>
-<th style="text-align: left;">Age</th>
-<th style="text-align: left;">GiftCard</th>
-<th style="text-align: left;">Comps</th>
-<th style="text-align: left;">Alcohol</th>
-<th style="text-align: left;">Bday</th>
-<th style="text-align: right;">Bill</th>
-<th style="text-align: right;">Tip</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Saturday</td>
-<td style="text-align: left;">Dinner</td>
-<td style="text-align: left;">Credit</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">Yadult</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: right;">17.01</td>
-<td style="text-align: right;">2.99</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Saturday</td>
-<td style="text-align: left;">Dinner</td>
-<td style="text-align: left;">Credit</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">Yadult</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: right;">14.23</td>
-<td style="text-align: right;">2.00</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Tuesday</td>
-<td style="text-align: left;">Dinner</td>
-<td style="text-align: left;">Credit</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">SenCit</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: right;">20.97</td>
-<td style="text-align: right;">5.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Tuesday</td>
-<td style="text-align: left;">Dinner</td>
-<td style="text-align: left;">Credit</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">Middle</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: right;">20.87</td>
-<td style="text-align: right;">4.00</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Tuesday</td>
-<td style="text-align: left;">Dinner</td>
-<td style="text-align: left;">Cash</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">SenCit</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: right;">34.66</td>
-<td style="text-align: right;">10.34</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Tuesday</td>
-<td style="text-align: left;">Dinner</td>
-<td style="text-align: left;">Credit</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Middle</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: right;">25.15</td>
-<td style="text-align: right;">4.85</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># load packages</span></span>
+<span id="cb2-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a></a><span class="fu">library</span>(broom)</span>
+<span id="cb2-4"><a></a><span class="fu">library</span>(mosaic)</span>
+<span id="cb2-5"><a></a><span class="fu">library</span>(mosaicData)</span>
+<span id="cb2-6"><a></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb2-7"><a></a><span class="fu">library</span>(knitr)</span>
+<span id="cb2-8"><a></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb2-9"><a></a><span class="fu">library</span>(scales)</span>
+<span id="cb2-10"><a></a><span class="fu">library</span>(countdown)</span>
+<span id="cb2-11"><a></a><span class="fu">library</span>(rms)</span>
+<span id="cb2-12"><a></a></span>
+<span id="cb2-13"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
+<span id="cb2-14"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="variables" class="slide level2 smaller">
-<h2>Variables</h2>
-<p><strong>Predictors</strong>:</p>
+<section id="data-rail_trail" class="slide level2 smaller">
+<h2>Data: <code>rail_trail</code></h2>
 <div>
 <ul>
-<li><code>Party</code>: Number of people in the party</li>
-<li><code>Meal</code>: Time of day (<code>Lunch</code>, <code>Dinner</code>, <code>Late Night</code>)</li>
-<li><code>Age</code>: Age category of person paying the bill (<code>Yadult</code>, <code>Middle</code>, <code>SenCit</code>)</li>
-<li><code>Day</code>: Day of the week</li>
-<li><code>Payment</code>: the type of payment used</li>
-<li><code>GiftCard</code>: whether a giftcard was used</li>
-<li><code>Comps</code>: Whether any food was comped<br>
-</li>
-<li><code>Alcohol</code>: Whether any alcohol was ordered</li>
-<li><code>Bday</code>: whether it was someones birthday<br>
-</li>
-<li><code>Bill</code>: the size of the bill</li>
+<li>The Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.</li>
+<li>Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.</li>
 </ul>
 </div>
-<p><strong>Outcome</strong>: <code>Tip</code>: Amount of tip</p>
-</section></section>
-<section>
-<section id="comparing-sets-of-predictors" class="title-slide slide level1 center">
-<h1>Comparing sets of predictors</h1>
-
-</section>
-<section id="nested-models" class="slide level2 smaller">
-<h2>Nested Models</h2>
-<ul>
-<li>We say one model is <strong>nested</strong> inside another model if all of its <strong>TERMS</strong> are present in the other model</li>
-</ul>
-<div class="fragment">
-<ul>
-<li>Consider three different models:
-<ul>
-<li><strong>Model 1:</strong> <span class="math inline">\(Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \beta_3X_3 + \epsilon\)</span></li>
-<li><strong>Model 2:</strong> <span class="math inline">\(Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \epsilon\)</span></li>
-<li><strong>Model 3:</strong> <span class="math inline">\(Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \beta_3X_1X_2 + \epsilon\)</span></li>
-</ul></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><strong>Model 2</strong> is nested inside both <strong>Model 1</strong> and <strong>Model 3</strong>.</li>
-<li>Why isn’t <strong>Model 3</strong> nested in <strong>Model 1</strong>?</li>
-<li>Smaller model is called the <strong>Reduced Model</strong></li>
-<li>Larger model is called the <strong>Full Model</strong> (be careful, this term depends on context)</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Complete Exercises 1-2.</li>
-</ul>
-</div>
-</section>
-<section id="recall-anova-f-test" class="slide level2 smaller">
-<h2>Recall: ANOVA, F-Test</h2>
-<p><strong>Hypotheses:</strong></p>
-<p><span class="math inline">\(H_0: \beta_1 = \beta_2 = \cdots = \beta_k = 0\)</span> vs.&nbsp;<span class="math inline">\(H_A:\)</span> at least one <span class="math inline">\(\beta_i \neq 0\)</span></p>
-<p><strong>Test statistic:</strong> F-statistic</p>
-<p><span class="math display">\[
-F = \frac{MSModel}{MSE} = \frac{SSModel/k}{SSE/(n-k-1)} \\
-\]</span></p>
-<p><strong>p-value:</strong> Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed</p>
-<p><span class="math display">\[
-\text{p-value} = P(F &gt; \text{test statistic}),
-\]</span></p>
-<p>calculated from an <span class="math inline">\(F\)</span> distribution with <span class="math inline">\(k\)</span> and <span class="math inline">\(n - k - 1\)</span> degrees of freedom.</p>
-</section>
-<section id="nested-f-test" class="slide level2 smaller">
-<h2>Nested F-Test</h2>
-<p>Suppose <span class="math inline">\(k_1\)</span> is the number of <span class="math inline">\(\beta\)</span>’s in the nested model and <span class="math inline">\(k\)</span> is the full number of predictors in the larger model. I.e. <span class="math inline">\(\beta_{k1+1},\ldots, \beta_{k}\)</span> are the new <span class="math inline">\(\beta\)</span>’s</p>
-<p><strong>Hypotheses:</strong></p>
-<p><span class="math inline">\(H_0: \beta_{k_1+1} = \beta_{k_1+2} = \cdots = \beta_k = 0\)</span> vs.&nbsp;<span class="math inline">\(H_A:\)</span> at least one <span class="math inline">\(\beta_i \neq 0\)</span> for <span class="math inline">\(i&gt;k_1+1\)</span></p>
-<p><strong>Test statistic:</strong> F-statistic</p>
-<p><span class="math display">\[
-F = \frac{(SSModel_{full} - SSModel_{reduced})/(k-k_1)}{SSE_{full}/(n-k-1)} \\
-\]</span></p>
-<p><strong>p-value:</strong> Probability of observing a test statistic at least as extreme (in the direction of the alternative hypothesis) from the null value as the one observed</p>
-<p><span class="math display">\[
-\text{p-value} = P(F &gt; \text{test statistic}),
-\]</span></p>
-<p>calculated from an <span class="math inline">\(F\)</span> distribution with <span class="math inline">\(k-k_1\)</span> (the number of predictors being tested) and <span class="math inline">\(n - k - 1\)</span> degrees of freedom.</p>
-<div class="fragment">
-<p>Note: Same as regular F-test if reduced model is just <span class="math inline">\(Y= \beta_0\)</span>.</p>
-</div>
-</section>
-<section id="nested-f-test-in-r" class="slide level2 smaller">
-<h2>Nested F-Test in R</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>tip_fit_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Tip <span class="sc">~</span> Party <span class="sc">+</span> Age <span class="sc">+</span> Meal, <span class="at">data =</span> tips)</span>
-<span id="cb2-2"><a></a>tip_fit_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Tip <span class="sc">~</span> Party <span class="sc">+</span> Age <span class="sc">+</span> Meal <span class="sc">+</span> Day, <span class="at">data =</span> tips)</span>
-<span id="cb2-3"><a></a></span>
-<span id="cb2-4"><a></a><span class="fu">anova</span>(tip_fit_1, tip_fit_2) <span class="sc">|&gt;</span> <span class="co"># Enter reduced model first</span></span>
-<span id="cb2-5"><a></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb2-6"><a></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 90 × 7
+   volume hightemp avgtemp season cloudcover precip day_type
+    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   
+ 1    501       83    66.5 Summer       7.60 0      Weekday 
+ 2    419       73    61   Summer       6.30 0.290  Weekday 
+ 3    397       74    63   Spring       7.5  0.320  Weekday 
+ 4    385       95    78   Summer       2.60 0      Weekend 
+ 5    200       44    48   Spring      10    0.140  Weekday 
+ 6    375       69    61.5 Spring       6.60 0.0200 Weekday 
+ 7    417       66    52.5 Spring       2.40 0      Weekday 
+ 8    629       66    52   Spring       0    0      Weekend 
+ 9    533       80    67.5 Summer       3.80 0      Weekend 
+10    547       79    62   Summer       4.10 0      Weekday 
+# ℹ 80 more rows</code></pre>
+</div>
+</div>
+<p>Source: <a href="http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf">Pioneer Valley Planning Commission</a> via the <strong>mosaicData</strong> package.</p>
+</section>
+<section id="full-model" class="slide level2">
+<h2>Full model</h2>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="caption-top">
-<colgroup>
-<col style="width: 37%">
-<col style="width: 14%">
-<col style="width: 10%">
-<col style="width: 3%">
-<col style="width: 10%">
-<col style="width: 12%">
-<col style="width: 10%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">term</th>
-<th style="text-align: right;">df.residual</th>
-<th style="text-align: right;">rss</th>
-<th style="text-align: right;">df</th>
-<th style="text-align: right;">sumsq</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
 <th style="text-align: right;">statistic</th>
 <th style="text-align: right;">p.value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Tip ~ Party + Age + Meal</td>
-<td style="text-align: right;">163</td>
-<td style="text-align: right;">622.9793</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">17.622161</td>
+<td style="text-align: right;">76.582860</td>
+<td style="text-align: right;">0.2301058</td>
+<td style="text-align: right;">0.8185826</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Tip ~ Party + Age + Meal + Day</td>
-<td style="text-align: right;">158</td>
-<td style="text-align: right;">607.3815</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">15.59778</td>
-<td style="text-align: right;">0.8114993</td>
-<td style="text-align: right;">0.543086</td>
+<td style="text-align: left;">hightemp</td>
+<td style="text-align: right;">7.070528</td>
+<td style="text-align: right;">2.420523</td>
+<td style="text-align: right;">2.9210743</td>
+<td style="text-align: right;">0.0045045</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">avgtemp</td>
+<td style="text-align: right;">-2.036685</td>
+<td style="text-align: right;">3.142113</td>
+<td style="text-align: right;">-0.6481896</td>
+<td style="text-align: right;">0.5186733</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">seasonSpring</td>
+<td style="text-align: right;">35.914983</td>
+<td style="text-align: right;">32.992762</td>
+<td style="text-align: right;">1.0885716</td>
+<td style="text-align: right;">0.2795319</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">seasonSummer</td>
+<td style="text-align: right;">24.153571</td>
+<td style="text-align: right;">52.810486</td>
+<td style="text-align: right;">0.4573632</td>
+<td style="text-align: right;">0.6486195</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cloudcover</td>
+<td style="text-align: right;">-7.251776</td>
+<td style="text-align: right;">3.843071</td>
+<td style="text-align: right;">-1.8869743</td>
+<td style="text-align: right;">0.0627025</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">precip</td>
+<td style="text-align: right;">-95.696525</td>
+<td style="text-align: right;">42.573359</td>
+<td style="text-align: right;">-2.2478030</td>
+<td style="text-align: right;">0.0272735</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">day_typeWeekend</td>
+<td style="text-align: right;">35.903750</td>
+<td style="text-align: right;">22.429056</td>
+<td style="text-align: right;">1.6007696</td>
+<td style="text-align: right;">0.1132738</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p><span class="math display">\[
-F = \frac{(SSModel_{full} - SSModel_{reduced})/(k-k_1)}{SSE_{full}/(n-k-1)}
-= \frac{15.59778/5}{6073815/158}
-= 0.8114993
-\]</span></p>
-<p>Let’s interpret this together.</p>
-<div class="fragment">
-<p>Complete Exercise 3.</p>
-</div>
-</section></section>
+</section>
 <section>
-<section id="model-selection" class="title-slide slide level1 center">
-<h1>Model Selection</h1>
+<section id="multicollinearity" class="title-slide slide level1 center">
+<h1>Multicollinearity</h1>
 
 </section>
-<section id="model-selection-1" class="slide level2">
-<h2>Model Selection</h2>
+<section id="what-is-multicollinearity" class="slide level2">
+<h2>What is multicollinearity</h2>
 <ul>
-<li>So far: We’ve come up with a variety of metrics and tests which help us compare different models</li>
-<li>How do we choose the models to compare in the first place?</li>
-<li>Today: Best subset, forward selection, and backward selection</li>
+<li><strong>Multicollinearity</strong> is the case when one or more predictor variables are strongly correlated with some combination of other predictors</li>
+<li><strong>Intuition:</strong> if you could fit a good linear model with one of your predictors as the response and the rest of the predictors as your explanatory variables, then your predictors are exhibiting multicollinearity</li>
 </ul>
 </section>
-<section id="aic-bic-mallows-c_p" class="slide level2">
-<h2>AIC, BIC, Mallows’ <span class="math inline">\(C_p\)</span></h2>
-<p>Estimators of prediction error and <em>relative</em> quality of models:</p>
-<p><strong>Akaike’s Information Criterion (AIC)</strong>: <span class="math display">\[AIC = n\log(SS_\text{Error}) - n \log(n) + 2(p+1)\]</span> <br></p>
-<p><strong>Schwarz’s Bayesian Information Criterion (BIC)</strong>: <span class="math display">\[BIC = n\log(SS_\text{Error}) - n\log(n) + log(n)\times(p+1)\]</span></p>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<p>Let’s assume the true population regression equation is <span class="math inline">\(y = 3 + 4x\)</span></p>
 <div class="fragment">
-<p><strong>Mallows’ <span class="math inline">\(C_p\)</span></strong>: <span class="math display">\[C_p = \frac{SSE_{p}}{MSE_{full model}} - n + 2(p+1)\]</span></p>
+<p>Suppose we try estimating that equation using a model with variables <span class="math inline">\(x\)</span> and <span class="math inline">\(z = x/10\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}\hat{y}&amp;= \hat{\beta}_0 + \hat{\beta}_1x  + \hat{\beta}_2z\\
+&amp;= \hat{\beta}_0 + \hat{\beta}_1x  + \hat{\beta}_2\frac{x}{10}\\
+&amp;= \hat{\beta}_0 + \bigg(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10}\bigg)x
+\end{aligned}
+\]</span></p>
 </div>
 </section>
-<section id="best-subset-selection" class="slide level2">
-<h2>Best Subset Selection</h2>
+<section id="example-1" class="slide level2 smaller">
+<h2>Example</h2>
+<p><span class="math display">\[\hat{y} = \hat{\beta}_0 + \bigg(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10}\bigg)x\]</span></p>
 <ul>
-<li>Computers are great now!</li>
-<li>Frequently feasible to try out EVERY combination of predictors if you total number of possible predictors is not too high.</li>
+<li><p>We can set <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_2\)</span> to any two numbers such that <span class="math inline">\(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10} = 4\)</span></p></li>
+<li><p>Therefore, we are unable to choose the “best” combination of <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_2\)</span></p></li>
+<li><p>In statistics, we say this model is “unidentifiable” because different parameters combinations can result in the same model</p></li>
+<li><p>This is also why we need to set a reference level for categorical variables</p></li>
+<li><p>Complete Exercises 1-2.</p></li>
 </ul>
 </section>
-<section id="best-subset-selection-in-r" class="slide level2 smaller">
-<h2>Best Subset Selection in R</h2>
+<section id="why-multicollinearity-is-a-problem" class="slide level2">
+<h2>Why multicollinearity is a problem</h2>
+<ul>
+<li><p>When we have perfect collinearities, we are unable to get estimates for the coefficients</p>
+<ul>
+<li><p>When we have almost perfect collinearities (i.e.&nbsp;highly correlated predictor variables), the standard errors for our regression coefficients inflate</p></li>
+<li><p>In other words, we lose precision in our estimates of the regression coefficients</p></li>
+<li><p>This impedes our ability to use the model for inference</p></li>
+<li><p>It is also difficult to interpret the model coefficients</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="detecting-multicollinearity" class="slide level2 midi">
+<h2>Detecting Multicollinearity</h2>
+<p>Multicollinearity may occur when…</p>
+<ul>
+<li><p>There are very high correlations <span class="math inline">\((r &gt; 0.9)\)</span> among two or more predictor variables, especially when the sample size is small</p></li>
+<li><p>One (or more) predictor variables is an almost perfect linear combination of the others</p></li>
+<li><p>There are interactions between two or more continuous variables</p></li>
+<li><p>There is a categorical predictor with very few observations in the baseline level</p></li>
+</ul>
+</section>
+<section id="detecting-multicollinearity-in-the-eda" class="slide level2">
+<h2>Detecting multicollinearity in the EDA</h2>
+<ul>
+<li>Look at a correlation matrix of the predictor variables, including all indicator variables
+<ul>
+<li>Look out for values close to 1 or -1</li>
+</ul></li>
+<li>Look at a scatterplot matrix of the predictor variables
+<ul>
+<li>Look out for plots that show a relatively linear relationship</li>
+</ul></li>
+<li>Look at the distribution of categorical predictors and avoid setting the baseline to a category with very few observations</li>
+<li>Complete Exercises 3-4.</li>
+</ul>
+</section>
+<section id="detecting-multicollinearity-vif" class="slide level2">
+<h2>Detecting Multicollinearity (VIF)</h2>
+<p><strong>Variance Inflation Factor (VIF)</strong>: Measure of multicollinearity in the regression model</p>
+<p><span class="math display">\[VIF(\hat{\beta}_j) = \frac{1}{1-R^2_{X_j|X_{-j}}}\]</span></p>
+<p>where <span class="math inline">\(R^2_{X_j|X_{-j}}\)</span> is the proportion of variation <span class="math inline">\(X\)</span> that is explained by the linear combination of the other explanatory variables in the model.</p>
+</section>
+<section id="detecting-multicollinearity-vif-1" class="slide level2">
+<h2>Detecting Multicollinearity (VIF)</h2>
+<ul>
+<li><p>Typically <span class="math inline">\(VIF &gt; 10\)</span> indicates concerning multicollinearity</p></li>
+<li><p>Variables with similar values of VIF are typically the ones correlated with each other</p></li>
+<li><p>Use the <code>vif()</code> function in the <strong>rms</strong> R package to calculate VIF</p></li>
+</ul>
+</section>
+<section id="vif-for-rail-trail-model" class="slide level2">
+<h2>VIF for rail trail model</h2>
+<p>Complete Exercise 5.</p>
+<div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(leaps)</span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a><span class="fu">regsubsets</span>(Tip <span class="sc">~</span> ., <span class="at">data =</span> tips) <span class="sc">|&gt;</span> </span>
-<span id="cb3-4"><a></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb3-5"><a></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">vif</span>(rt_full_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       hightemp         avgtemp    seasonSpring    seasonSummer      cloudcover 
+      10.259978       13.086175        2.751577        5.841985        1.587485 
+         precip day_typeWeekend 
+       1.295352        1.125741 </code></pre>
+</div>
+</div>
+<p><br></p>
+</div>
+<div class="fragment">
+<p><code>hightemp</code> and <code>avgtemp</code> are correlated. We need to remove <u><strong>one</strong></u> of these variables and refit the model.</p>
+</div>
+<div class="fragment">
+<p>Complete Exercises 6 &amp; 7.</p>
+</div>
+</section>
+<section id="model-without-hightemp" class="slide level2 smaller">
+<h2>Model without <code>hightemp</code></h2>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="caption-top" style="width:100%;">
-<colgroup>
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 5%">
-<col style="width: 6%">
-<col style="width: 4%">
-<col style="width: 5%">
-<col style="width: 8%">
-<col style="width: 2%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 3%">
-<col style="width: 4%">
-<col style="width: 3%">
-<col style="width: 2%">
-<col style="width: 4%">
-<col style="width: 5%">
-<col style="width: 4%">
-<col style="width: 4%">
-</colgroup>
+<table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: left;">(Intercept)</th>
-<th style="text-align: left;">DaySaturday</th>
-<th style="text-align: left;">DaySunday</th>
-<th style="text-align: left;">DayThursday</th>
-<th style="text-align: left;">DayTuesday</th>
-<th style="text-align: left;">DayWednesday</th>
-<th style="text-align: left;">MealLate Night</th>
-<th style="text-align: left;">MealLunch</th>
-<th style="text-align: left;">PaymentCredit</th>
-<th style="text-align: left;">PaymentCredit/CashTip</th>
-<th style="text-align: left;">Party</th>
-<th style="text-align: left;">AgeSenCit</th>
-<th style="text-align: left;">AgeYadult</th>
-<th style="text-align: left;">GiftCardYes</th>
-<th style="text-align: left;">CompsYes</th>
-<th style="text-align: left;">AlcoholYes</th>
-<th style="text-align: left;">BdayYes</th>
-<th style="text-align: left;">Bill</th>
-<th style="text-align: right;">r.squared</th>
-<th style="text-align: right;">adj.r.squared</th>
-<th style="text-align: right;">BIC</th>
-<th style="text-align: right;">mallows_cp</th>
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: right;">0.7661946</td>
-<td style="text-align: right;">0.7647946</td>
-<td style="text-align: right;">-235.3422</td>
-<td style="text-align: right;">7.3539038</td>
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">76.071</td>
+<td style="text-align: right;">77.204</td>
+<td style="text-align: right;">0.985</td>
+<td style="text-align: right;">0.327</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: right;">0.7742958</td>
-<td style="text-align: right;">0.7715765</td>
-<td style="text-align: right;">-236.1719</td>
-<td style="text-align: right;">3.3819803</td>
+<td style="text-align: left;">avgtemp</td>
+<td style="text-align: right;">6.003</td>
+<td style="text-align: right;">1.583</td>
+<td style="text-align: right;">3.792</td>
+<td style="text-align: right;">0.000</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: right;">0.7803064</td>
-<td style="text-align: right;">0.7763120</td>
-<td style="text-align: right;">-235.6035</td>
-<td style="text-align: right;">0.9511378</td>
+<td style="text-align: left;">seasonSpring</td>
+<td style="text-align: right;">34.555</td>
+<td style="text-align: right;">34.454</td>
+<td style="text-align: right;">1.003</td>
+<td style="text-align: right;">0.319</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: right;">0.7839141</td>
-<td style="text-align: right;">0.7786437</td>
-<td style="text-align: right;">-233.2719</td>
-<td style="text-align: right;">0.2916884</td>
+<td style="text-align: left;">seasonSummer</td>
+<td style="text-align: right;">13.531</td>
+<td style="text-align: right;">55.024</td>
+<td style="text-align: right;">0.246</td>
+<td style="text-align: right;">0.806</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: right;">0.7883724</td>
-<td style="text-align: right;">0.7818808</td>
-<td style="text-align: right;">-231.6653</td>
-<td style="text-align: right;">-0.9948739</td>
+<td style="text-align: left;">cloudcover</td>
+<td style="text-align: right;">-12.807</td>
+<td style="text-align: right;">3.488</td>
+<td style="text-align: right;">-3.672</td>
+<td style="text-align: right;">0.000</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: right;">0.7906664</td>
-<td style="text-align: right;">0.7829133</td>
-<td style="text-align: right;">-228.3773</td>
-<td style="text-align: right;">-0.6859082</td>
+<td style="text-align: left;">precip</td>
+<td style="text-align: right;">-110.736</td>
+<td style="text-align: right;">44.137</td>
+<td style="text-align: right;">-2.509</td>
+<td style="text-align: right;">0.014</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: right;">0.7922172</td>
-<td style="text-align: right;">0.7831831</td>
-<td style="text-align: right;">-224.5040</td>
-<td style="text-align: right;">0.1709197</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: right;">0.7931116</td>
-<td style="text-align: right;">0.7827672</td>
-<td style="text-align: right;">-220.1032</td>
-<td style="text-align: right;">1.5115594</td>
+<td style="text-align: left;">day_typeWeekend</td>
+<td style="text-align: right;">48.420</td>
+<td style="text-align: right;">22.993</td>
+<td style="text-align: right;">2.106</td>
+<td style="text-align: right;">0.038</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>Shows you “best” model for every model size.</p>
 </section>
-<section id="backward-elimination" class="slide level2 smaller">
-<h2>Backward Elimination</h2>
-<p>Different model selection technique:</p>
-<ol type="1">
-<li>Start by fitting the full model (the model that includes all terms under consideration).</li>
-<li>Identify the term with the largest p-value.
-<ol type="a">
-<li>If p-value is large (say, greater than 5%), eliminate that term to produce a smaller model. Fit that model and return to the start of Step 2.</li>
-<li>If p-value is small (less than 5%), stop since all of the predictors in the model are “significant.”</li>
-</ol></li>
-</ol>
-<p>Note: this can be altered to work with other criterea (e.g.&nbsp;AIC) instead of p-values. This is actually what <code>regsubsets</code> does.</p>
+<section id="model-without-avgtemp" class="slide level2 smaller">
+<h2>Model without <code>avgtemp</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">8.421</td>
+<td style="text-align: right;">74.992</td>
+<td style="text-align: right;">0.112</td>
+<td style="text-align: right;">0.911</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">hightemp</td>
+<td style="text-align: right;">5.696</td>
+<td style="text-align: right;">1.164</td>
+<td style="text-align: right;">4.895</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">seasonSpring</td>
+<td style="text-align: right;">31.239</td>
+<td style="text-align: right;">32.082</td>
+<td style="text-align: right;">0.974</td>
+<td style="text-align: right;">0.333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">seasonSummer</td>
+<td style="text-align: right;">9.424</td>
+<td style="text-align: right;">47.504</td>
+<td style="text-align: right;">0.198</td>
+<td style="text-align: right;">0.843</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cloudcover</td>
+<td style="text-align: right;">-8.353</td>
+<td style="text-align: right;">3.435</td>
+<td style="text-align: right;">-2.431</td>
+<td style="text-align: right;">0.017</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">precip</td>
+<td style="text-align: right;">-98.904</td>
+<td style="text-align: right;">42.137</td>
+<td style="text-align: right;">-2.347</td>
+<td style="text-align: right;">0.021</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">day_typeWeekend</td>
+<td style="text-align: right;">37.062</td>
+<td style="text-align: right;">22.280</td>
+<td style="text-align: right;">1.663</td>
+<td style="text-align: right;">0.100</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
-<section id="forward-selection" class="slide level2 smaller">
-<h2>Forward Selection</h2>
-<ol type="1">
-<li>Start with a model with no predictors and find the best single predictor (the largest correlation with the response gives the biggest initial).</li>
-<li>Add the new predictor to the model, run the regression, and find its individual p-value:
-<ol type="a">
-<li>If p-value is small (say, less than 5%), add predictor which would produce the most benefit (biggest increase in <span class="math inline">\(R^2\)</span>) when added to the existing model.</li>
-<li>If the p-value is large (over 5%), stop and discard this predictor. At this point, no (unused) predictor should be significant when added to the model and we are done.</li>
-</ol></li>
-</ol>
+<section id="choosing-a-model" class="slide level2 midi">
+<h2>Choosing a model</h2>
+<p>Model without <strong>hightemp</strong>:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">adj.r.squared</th>
+<th style="text-align: right;">AIC</th>
+<th style="text-align: right;">BIC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">1087.5</td>
+<td style="text-align: right;">1107.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Model without <strong>avgtemp</strong>:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">adj.r.squared</th>
+<th style="text-align: right;">AIC</th>
+<th style="text-align: right;">BIC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">1079.05</td>
+<td style="text-align: right;">1099.05</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="fragment">
+<p>Based on Adjusted <span class="math inline">\(R^2\)</span>, AIC, and BIC, the model without <strong>avgtemp</strong> is a better fit. Therefore, we choose to remove <strong>avgtemp</strong> from the model and leave <strong>hightemp</strong> in the model to deal with the multicollinearity.</p>
+</div>
 </section>
-<section id="stepwise-selection" class="slide level2 smaller">
-<h2>Stepwise Selection</h2>
-<p>Forward, stepwise selection</p>
-<ol type="1">
-<li>Start with a model with no predictors and find the best single predictor (the largest correlation with the response gives the biggest initial).</li>
-<li>Add the new predictor to the model, run the regression, and find its individual p-value:
-<ol type="a">
-<li>If p-value is small (say, less than 5%), <strong>run backward elimination</strong>, then add predictor which would produce the most benefit (biggest increase in <span class="math inline">\(R^2\)</span>) when added to the existing model.</li>
-<li>If the p-value is large (over 5%), stop and discard this predictor. At this point, no (unused) predictor should be significant when added to the model and we are done.</li>
-</ol></li>
-</ol>
-<ul>
-<li>Why? Sometimes variables that were significant early on, can become insignificant after other new variables are added to the model.</li>
-</ul>
-<p>Backward, stepwise selection is the same, except you perform forward selection every time you delete a term from the model.</p>
-</section>
-<section id="caution" class="slide level2 smaller">
-<h2>CAUTION</h2>
-<ul>
-<li>These automated methods have fallen out of favor in recent years, but you can still use them and should know what they are.</li>
-<li>Automated methods ARE NOT a replacement for subject matter expertise</li>
-<li>Think of the models that come out of these procedures as <em>suggestions</em></li>
-<li>The order in which variables are added to a model can <em>help</em> us understand which variables are more important and which are redundant.</li>
-</ul>
-<p>Complete Exercise 5.</p>
-</section>
-<section id="recap" class="slide level2">
-<h2>Recap</h2>
-<ul>
-<li>Comparing subsets of models using nested F-Test</li>
-<li>Choosing models using:
-<ul>
-<li>Exhaustive search</li>
-<li>Forward/Backward/Stepwise selection</li>
-</ul></li>
-</ul>
+<section id="selected-model-for-now" class="slide level2">
+<h2>Selected model (for now)</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">8.421</td>
+<td style="text-align: right;">74.992</td>
+<td style="text-align: right;">0.112</td>
+<td style="text-align: right;">0.911</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">hightemp</td>
+<td style="text-align: right;">5.696</td>
+<td style="text-align: right;">1.164</td>
+<td style="text-align: right;">4.895</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">seasonSpring</td>
+<td style="text-align: right;">31.239</td>
+<td style="text-align: right;">32.082</td>
+<td style="text-align: right;">0.974</td>
+<td style="text-align: right;">0.333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">seasonSummer</td>
+<td style="text-align: right;">9.424</td>
+<td style="text-align: right;">47.504</td>
+<td style="text-align: right;">0.198</td>
+<td style="text-align: right;">0.843</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cloudcover</td>
+<td style="text-align: right;">-8.353</td>
+<td style="text-align: right;">3.435</td>
+<td style="text-align: right;">-2.431</td>
+<td style="text-align: right;">0.017</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">precip</td>
+<td style="text-align: right;">-98.904</td>
+<td style="text-align: right;">42.137</td>
+<td style="text-align: right;">-2.347</td>
+<td style="text-align: right;">0.021</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">day_typeWeekend</td>
+<td style="text-align: right;">37.062</td>
+<td style="text-align: right;">22.280</td>
+<td style="text-align: right;">1.663</td>
+<td style="text-align: right;">0.100</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 <div class="quarto-auto-generated-content">
 <p><img src="../images/logo.png" class="slide-logo"></p>

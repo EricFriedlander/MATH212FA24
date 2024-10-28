@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prof.&nbsp;Maria Tackett">
+
+<title>MAT 212 - Fall 2024 - Logistic regression</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Logistic regression</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://rstudio.collegeofidaho.edu/" title="RStudio" class="quarto-navigation-tool px-1" aria-label="RStudio"><i class="bi bi-code-square"></i></a>
+    <a href="https://cofi.instructure.com/courses/15692" title="Canvas" class="quarto-navigation-tool px-1" aria-label="Canvas"><i class="bi bi-person"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../support.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Support</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../links.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Useful links</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">Computing</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing-access.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Access</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing-inferencesummary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inference Summary Cheatsheet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing-r-resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">Project</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project-tips.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tips + resources</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project-rubric.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rubric</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#announcements" id="toc-announcements" class="nav-link active" data-scroll-target="#announcements">Announcements</a></li>
+  <li><a href="#spring-2024-statistics-courses" id="toc-spring-2024-statistics-courses" class="nav-link" data-scroll-target="#spring-2024-statistics-courses">Spring 2024 statistics courses</a></li>
+  <li><a href="#interpreting-models-with-log-transformed-variables" id="toc-interpreting-models-with-log-transformed-variables" class="nav-link" data-scroll-target="#interpreting-models-with-log-transformed-variables">Interpreting models with log-transformed variables</a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic regression</a>
+  <ul class="collapse">
+  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
+  <li><a href="#computational-setup" id="toc-computational-setup" class="nav-link" data-scroll-target="#computational-setup">Computational setup</a></li>
+  </ul></li>
+  <li><a href="#predicting-categorical-outcomes" id="toc-predicting-categorical-outcomes" class="nav-link" data-scroll-target="#predicting-categorical-outcomes">Predicting categorical outcomes</a>
+  <ul class="collapse">
+  <li><a href="#types-of-outcome-variables" id="toc-types-of-outcome-variables" class="nav-link" data-scroll-target="#types-of-outcome-variables">Types of outcome variables</a></li>
+  <li><a href="#models-for-categorical-outcomes" id="toc-models-for-categorical-outcomes" class="nav-link" data-scroll-target="#models-for-categorical-outcomes">Models for categorical outcomes</a></li>
+  <li><a href="#election-forecasts" id="toc-election-forecasts" class="nav-link" data-scroll-target="#election-forecasts">2022 election forecasts</a></li>
+  <li><a href="#nba-finals-predictions" id="toc-nba-finals-predictions" class="nav-link" data-scroll-target="#nba-finals-predictions">2020 NBA finals predictions</a></li>
+  <li><a href="#do-teenagers-get-7-hours-of-sleep" id="toc-do-teenagers-get-7-hours-of-sleep" class="nav-link" data-scroll-target="#do-teenagers-get-7-hours-of-sleep">Do teenagers get 7+ hours of sleep?</a></li>
+  <li><a href="#plot-the-data" id="toc-plot-the-data" class="nav-link" data-scroll-target="#plot-the-data">Plot the data</a></li>
+  <li><a href="#lets-fit-a-linear-regression-model" id="toc-lets-fit-a-linear-regression-model" class="nav-link" data-scroll-target="#lets-fit-a-linear-regression-model">Let’s fit a linear regression model</a></li>
+  <li><a href="#lets-use-proportions" id="toc-lets-use-proportions" class="nav-link" data-scroll-target="#lets-use-proportions">Let’s use proportions</a></li>
+  <li><a href="#what-happens-if-we-zoom-out" id="toc-what-happens-if-we-zoom-out" class="nav-link" data-scroll-target="#what-happens-if-we-zoom-out">What happens if we zoom out?</a></li>
+  <li><a href="#lets-try-another-model" id="toc-lets-try-another-model" class="nav-link" data-scroll-target="#lets-try-another-model">Let’s try another model</a></li>
+  <li><a href="#the-code" id="toc-the-code" class="nav-link" data-scroll-target="#the-code">The code</a></li>
+  <li><a href="#different-types-of-models" id="toc-different-types-of-models" class="nav-link" data-scroll-target="#different-types-of-models">Different types of models</a></li>
+  <li><a href="#linear-vs.-logistic-regression" id="toc-linear-vs.-logistic-regression" class="nav-link" data-scroll-target="#linear-vs.-logistic-regression">Linear vs.&nbsp;logistic regression</a></li>
+  </ul></li>
+  <li><a href="#odds-and-probabilities" id="toc-odds-and-probabilities" class="nav-link" data-scroll-target="#odds-and-probabilities">Odds and probabilities</a>
+  <ul class="collapse">
+  <li><a href="#binary-response-variable" id="toc-binary-response-variable" class="nav-link" data-scroll-target="#binary-response-variable">Binary response variable</a></li>
+  <li><a href="#odds" id="toc-odds" class="nav-link" data-scroll-target="#odds">Odds</a></li>
+  <li><a href="#are-teenagers-getting-enough-sleep" id="toc-are-teenagers-getting-enough-sleep" class="nav-link" data-scroll-target="#are-teenagers-getting-enough-sleep">Are teenagers getting enough sleep?</a></li>
+  <li><a href="#from-odds-to-probabilities" id="toc-from-odds-to-probabilities" class="nav-link" data-scroll-target="#from-odds-to-probabilities">From odds to probabilities</a></li>
+  </ul></li>
+  <li><a href="#logistic-regression-1" id="toc-logistic-regression-1" class="nav-link" data-scroll-target="#logistic-regression-1">Logistic regression</a>
+  <ul class="collapse">
+  <li><a href="#from-odds-to-probabilities-1" id="toc-from-odds-to-probabilities-1" class="nav-link" data-scroll-target="#from-odds-to-probabilities-1">From odds to probabilities</a></li>
+  <li><a href="#logistic-regression-model" id="toc-logistic-regression-model" class="nav-link" data-scroll-target="#logistic-regression-model">Logistic regression model</a></li>
+  <li><a href="#risk-of-coronary-heart-disease" id="toc-risk-of-coronary-heart-disease" class="nav-link" data-scroll-target="#risk-of-coronary-heart-disease">Risk of coronary heart disease</a></li>
+  <li><a href="#data-heart_disease" id="toc-data-heart_disease" class="nav-link" data-scroll-target="#data-heart_disease">Data: <code>heart_disease</code></a></li>
+  <li><a href="#high-risk-vs.-age" id="toc-high-risk-vs.-age" class="nav-link" data-scroll-target="#high-risk-vs.-age">High risk vs.&nbsp;age</a></li>
+  <li><a href="#lets-fit-the-model" id="toc-lets-fit-the-model" class="nav-link" data-scroll-target="#lets-fit-the-model">Let’s fit the model</a></li>
+  <li><a href="#the-model" id="toc-the-model" class="nav-link" data-scroll-target="#the-model">The model</a></li>
+  <li><a href="#predicted-log-odds" id="toc-predicted-log-odds" class="nav-link" data-scroll-target="#predicted-log-odds">Predicted log odds</a></li>
+  <li><a href="#predicted-probabilities" id="toc-predicted-probabilities" class="nav-link" data-scroll-target="#predicted-probabilities">Predicted probabilities</a></li>
+  <li><a href="#predicted-classes" id="toc-predicted-classes" class="nav-link" data-scroll-target="#predicted-classes">Predicted classes</a></li>
+  <li><a href="#default-prediction" id="toc-default-prediction" class="nav-link" data-scroll-target="#default-prediction">Default prediction</a></li>
+  <li><a href="#observed-vs.-predicted" id="toc-observed-vs.-predicted" class="nav-link" data-scroll-target="#observed-vs.-predicted">Observed vs.&nbsp;predicted</a></li>
+  </ul></li>
+  <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a>
+  <ul class="collapse">
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/slides/16-logistic-intro-old.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="16-logistic-intro-old.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Logistic regression</h1>
+<p class="subtitle lead">Introduction</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Prof.&nbsp;Maria Tackett </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Oct 30, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="announcements" class="level2">
+<h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
+<ul>
+<li><p>HW 03 due Wed, Nov 1 at 11:59pm</p></li>
+<li><p>See Ed Discussion for</p>
+<ul>
+<li><a href="https://edstem.org/us/courses/44523/discussion/3725414">Code</a> to reformat <code>Theme</code> variable in HW 03 data set</li>
+<li><a href="https://edstem.org/us/courses/44523/discussion/3754375">Explanation</a> on interpreting models with quadratic terms</li>
+</ul></li>
+</ul>
+</section>
+<section id="spring-2024-statistics-courses" class="level2 small">
+<h2 class="small anchored" data-anchor-id="spring-2024-statistics-courses">Spring 2024 statistics courses</h2>
+<ul>
+<li>STA 211: Mathematics of Regression
+<ul>
+<li>Prereqs: MATH 216/218/221, STA 210</li>
+</ul></li>
+<li>STA 230 or STA 240: Probability
+<ul>
+<li>Prereqs: MATH 22/112/122/202/212/219/222</li>
+</ul></li>
+<li>STA 310: Generalized Linear Models
+<ul>
+<li>Prereqs: STA 210 and STA 230/240</li>
+</ul></li>
+<li>STA 313: Advanced Data Visualization
+<ul>
+<li>Prereqs: STA 198 or STA 199 or STA 210</li>
+</ul></li>
+<li>STA 323: Statistical Computing
+<ul>
+<li>Prereqs: STA 210 and STA 230/240</li>
+</ul></li>
+<li>STA 360: Bayesian Inference and Modern Statistical Methods
+<ul>
+<li>Prereqs: STA 210 and STA 230/240 and MATH 202/212/219/222 and CS 101/102/201 and MATH 216/218/221, 211 (co-req)</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpreting-models-with-log-transformed-variables" class="level2 small">
+<h2 class="small anchored" data-anchor-id="interpreting-models-with-log-transformed-variables">Interpreting models with log-transformed variables</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">4.738</td>
+<td style="text-align: right;">0.219</td>
+<td style="text-align: right;">21.667</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">hightemp</td>
+<td style="text-align: right;">0.018</td>
+<td style="text-align: right;">0.003</td>
+<td style="text-align: right;">5.452</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">seasonSpring</td>
+<td style="text-align: right;">0.026</td>
+<td style="text-align: right;">0.094</td>
+<td style="text-align: right;">0.283</td>
+<td style="text-align: right;">0.778</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">seasonSummer</td>
+<td style="text-align: right;">-0.047</td>
+<td style="text-align: right;">0.139</td>
+<td style="text-align: right;">-0.338</td>
+<td style="text-align: right;">0.736</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cloudcover</td>
+<td style="text-align: right;">-0.025</td>
+<td style="text-align: right;">0.010</td>
+<td style="text-align: right;">-2.452</td>
+<td style="text-align: right;">0.016</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">precip</td>
+<td style="text-align: right;">-0.294</td>
+<td style="text-align: right;">0.123</td>
+<td style="text-align: right;">-2.397</td>
+<td style="text-align: right;">0.019</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">day_typeWeekend</td>
+<td style="text-align: right;">0.064</td>
+<td style="text-align: right;">0.065</td>
+<td style="text-align: right;">0.987</td>
+<td style="text-align: right;">0.327</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="question">
+<ul>
+<li><p>Interpret the intercept in terms of (1) <code>log(volume)</code> and (2) <code>volume</code>.</p></li>
+<li><p>Interpret the coefficient of <code>hightemp</code> in terms of (1) <code>log(volume)</code> and (2) <code>volume</code>.</p></li>
+</ul>
+</div>
+</section>
+<section id="logistic-regression" class="level1">
+<h1>Logistic regression</h1>
+<section id="topics" class="level2">
+<h2 class="anchored" data-anchor-id="topics">Topics</h2>
+<ul>
+<li><p>Logistic regression for binary response variable</p></li>
+<li><p>Relationship between odds and probabilities</p></li>
+<li><p>Use logistic regression model to calculate predicted odds and probabilities</p></li>
+</ul>
+</section>
+<section id="computational-setup" class="level2">
+<h2 class="anchored" data-anchor-id="computational-setup">Computational setup</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Stat2Data) <span class="co">#contains data set</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="predicting-categorical-outcomes" class="level1">
+<h1>Predicting categorical outcomes</h1>
+<section id="types-of-outcome-variables" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-outcome-variables">Types of outcome variables</h2>
+<p><strong>Quantitative outcome variable</strong>:</p>
+<ul>
+<li>Sales price of a house in Duke Forest</li>
+<li><strong>Model</strong>: Expected sales price given the number of bedrooms, lot size, etc.</li>
+</ul>
+<p>. . .</p>
+<p><strong>Categorical outcome variable</strong>:</p>
+<ul>
+<li>Indicator of being high risk of getting coronary heart disease in the next 10 years</li>
+<li><strong>Model</strong>: Probability an adult is high risk of heart disease in the next 10 years given their age, total cholesterol, etc.</li>
+</ul>
+</section>
+<section id="models-for-categorical-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="models-for-categorical-outcomes">Models for categorical outcomes</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Logistic regression</strong></p>
+<p>2 Outcomes</p>
+<p>1: Yes, 0: No</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Multinomial logistic regression</strong></p>
+<p>3+ Outcomes</p>
+<p>1: Democrat, 2: Republican, 3: Independent</p>
+</div>
+</div>
+</section>
+<section id="election-forecasts" class="level2">
+<h2 class="anchored" data-anchor-id="election-forecasts">2022 election forecasts</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/19/fivethirtyeight-2022-senate.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Source: <a href="https://projects.fivethirtyeight.com/2022-election-forecast/">FiveThirtyEight 2022 Election Forecasts</a></p>
+</section>
+<section id="nba-finals-predictions" class="level2">
+<h2 class="anchored" data-anchor-id="nba-finals-predictions">2020 NBA finals predictions</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/19/nba-predictions.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Source: <a href="https://projects.fivethirtyeight.com/2020-nba-predictions/games/?ex_cid=rrpromo">FiveThirtyEight 2019-20 NBA Predictions</a></p>
+</section>
+<section id="do-teenagers-get-7-hours-of-sleep" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="do-teenagers-get-7-hours-of-sleep">Do teenagers get 7+ hours of sleep?</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Students in grades 9 - 12 surveyed about health risk behaviors including whether they usually get 7 or more hours of sleep.</p>
+<p><code>Sleep7</code></p>
+<p>1: yes</p>
+<p>0: no</p>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(YouthRisk2009) <span class="co">#from Stat2Data package</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sleep <span class="ot">&lt;-</span> YouthRisk2009 <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Age), <span class="sc">!</span><span class="fu">is.na</span>(Sleep7))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sleep <span class="sc">|&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Age, Sleep7)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 446 × 6
+     Age Sleep7 Sleep           SmokeLife SmokeDaily MarijuaEver
+   &lt;int&gt;  &lt;int&gt; &lt;fct&gt;           &lt;fct&gt;     &lt;fct&gt;            &lt;int&gt;
+ 1    16      1 8 hours         Yes       Yes                  1
+ 2    17      0 5 hours         Yes       Yes                  1
+ 3    18      0 5 hours         Yes       Yes                  1
+ 4    17      1 7 hours         Yes       No                   1
+ 5    15      0 4 or less hours No        No                   0
+ 6    17      0 6 hours         No        No                   0
+ 7    17      1 7 hours         No        No                   0
+ 8    16      1 8 hours         Yes       No                   0
+ 9    16      1 8 hours         No        No                   0
+10    18      0 4 or less hours Yes       Yes                  1
+# ℹ 436 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="plot-the-data">Plot the data</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sleep, <span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">y =</span> Sleep7)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Getting 7+ hours of sleep"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="16-logistic-intro-old_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="lets-fit-a-linear-regression-model" class="level2">
+<h2 class="anchored" data-anchor-id="lets-fit-a-linear-regression-model">Let’s fit a linear regression model</h2>
+<p><strong>Outcome:</strong> <span class="math inline">\(Y\)</span> = 1: yes, 0: no</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="16-logistic-intro-old_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="lets-use-proportions" class="level2">
+<h2 class="anchored" data-anchor-id="lets-use-proportions">Let’s use proportions</h2>
+<p><strong>Outcome:</strong> Probability of getting 7+ hours of sleep</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="16-logistic-intro-old_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="what-happens-if-we-zoom-out" class="level2">
+<h2 class="anchored" data-anchor-id="what-happens-if-we-zoom-out">What happens if we zoom out?</h2>
+<p><strong>Outcome:</strong> Probability of getting 7+ hours of sleep</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="16-logistic-intro-old_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>🛑 <em>This model produces predictions outside of 0 and 1.</em></p>
+</section>
+<section id="lets-try-another-model" class="level2">
+<h2 class="anchored" data-anchor-id="lets-try-another-model">Let’s try another model</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="16-logistic-intro-old_files/figure-html/logistic-model-plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>✅ This model (called a <strong>logistic regression model</strong>) only produces predictions between 0 and 1.</em></p>
+</section>
+<section id="the-code" class="level2">
+<h2 class="anchored" data-anchor-id="the-code">The code</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sleep_age, <span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">y =</span> prop)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span><span class="st">"glm"</span>, <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">"binomial"</span>), </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">fullrange =</span> <span class="cn">TRUE</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"P(7+ hours of sleep)"</span>) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">1</span>, <span class="dv">40</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="different-types-of-models" class="level2">
+<h2 class="anchored" data-anchor-id="different-types-of-models">Different types of models</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 13%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Outcome</th>
+<th>Model</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Linear regression</td>
+<td>Quantitative</td>
+<td><span class="math inline">\(Y = \beta_0 + \beta_1~ X\)</span></td>
+</tr>
+<tr class="even">
+<td>Linear regression (transform Y)</td>
+<td>Quantitative</td>
+<td><span class="math inline">\(\log(Y) = \beta_0 + \beta_1~ X\)</span></td>
+</tr>
+<tr class="odd">
+<td>Logistic regression</td>
+<td>Binary</td>
+<td><span class="math inline">\(\log\big(\frac{\pi}{1-\pi}\big) = \beta_0 + \beta_1 ~ X\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="linear-vs.-logistic-regression" class="level2">
+<h2 class="anchored" data-anchor-id="linear-vs.-logistic-regression">Linear vs.&nbsp;logistic regression</h2>
+<div class="question">
+<p>State whether a linear regression model or logistic regression model is more appropriate for each scenario.</p>
+<ol type="1">
+<li><p>Use age and education to predict if a randomly selected person will vote in the next election.</p></li>
+<li><p>Use budget and run time (in minutes) to predict a movie’s total revenue.</p></li>
+<li><p>Use age and sex to calculate the probability a randomly selected adult will visit Duke Health in the next year.</p></li>
+</ol>
+<p>Submit your responses on Ed Discussion [<a href="https://edstem.org/us/courses/44523/discussion/471372">10:05am</a>][<a href="https://edstem.org/us/courses/44523/discussion/471377">1:25pm</a>]</p>
+</div>
+</section>
+</section>
+<section id="odds-and-probabilities" class="level1">
+<h1>Odds and probabilities</h1>
+<section id="binary-response-variable" class="level2">
+<h2 class="anchored" data-anchor-id="binary-response-variable">Binary response variable</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><span class="math inline">\(Y = 1: \text{ yes}, 0: \text{ no}\)</span></li>
+<li><span class="math inline">\(\pi\)</span>: <strong>probability</strong> that <span class="math inline">\(Y=1\)</span>, i.e., <span class="math inline">\(P(Y = 1)\)</span></li>
+<li><span class="math inline">\(\frac{\pi}{1-\pi}\)</span>: <strong>odds</strong> that <span class="math inline">\(Y = 1\)</span></li>
+<li><span class="math inline">\(\log\big(\frac{\pi}{1-\pi}\big)\)</span>: <strong>log odds</strong></li>
+<li>Go from <span class="math inline">\(\pi\)</span> to <span class="math inline">\(\log\big(\frac{\pi}{1-\pi}\big)\)</span> using the <strong>logit transformation</strong></li>
+</ul>
+</div>
+</section>
+<section id="odds" class="level2">
+<h2 class="anchored" data-anchor-id="odds">Odds</h2>
+<div class="incremental">
+<p>Suppose there is a <strong>70% chance</strong> it will rain tomorrow</p>
+<ul class="incremental">
+<li>Probability it will rain is <span class="math inline">\(\mathbf{p = 0.7}\)</span></li>
+<li>Probability it won’t rain is <span class="math inline">\(\mathbf{1 - p = 0.3}\)</span></li>
+<li>Odds it will rain are <strong>7 to 3</strong>, <strong>7:3</strong>, <span class="math inline">\(\mathbf{\frac{0.7}{0.3} \approx 2.33}\)</span></li>
+</ul>
+</div>
+</section>
+<section id="are-teenagers-getting-enough-sleep" class="level2">
+<h2 class="anchored" data-anchor-id="are-teenagers-getting-enough-sleep">Are teenagers getting enough sleep?</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sleep <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Sleep7) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> <span class="fu">round</span>(n <span class="sc">/</span> <span class="fu">sum</span>(n), <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  Sleep7     n     p
+   &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+1      0   150 0.336
+2      1   296 0.664</code></pre>
+</div>
+</div>
+<p>. . .</p>
+<p><span class="math inline">\(P(\text{7+ hours of sleep}) = P(Y = 1) = p = 0.664\)</span></p>
+<p>. . .</p>
+<p><span class="math inline">\(P(\text{&lt; 7 hours of sleep}) = P(Y = 0) = 1 - p = 0.336\)</span></p>
+<p>. . .</p>
+<p><span class="math inline">\(P(\text{odds of 7+ hours of sleep}) = \frac{0.664}{0.336} = 1.976\)</span></p>
+</section>
+<section id="from-odds-to-probabilities" class="level2">
+<h2 class="anchored" data-anchor-id="from-odds-to-probabilities">From odds to probabilities</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>odds</strong></p>
+<p><span class="math display">\[\omega = \frac{\pi}{1-\pi}\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><strong>probability</strong></p>
+<p><span class="math display">\[\pi = \frac{\omega}{1 + \omega}\]</span></p>
+</div>
+</div>
+</section>
+</section>
+<section id="logistic-regression-1" class="level1">
+<h1>Logistic regression</h1>
+<section id="from-odds-to-probabilities-1" class="level2 incremental">
+<h2 class="incremental anchored" data-anchor-id="from-odds-to-probabilities-1">From odds to probabilities</h2>
+<ol type="1">
+<li><strong>Logistic model</strong>: log odds = <span class="math inline">\(\log\big(\frac{\pi}{1-\pi}\big) = \beta_0 + \beta_1~X\)</span></li>
+<li><strong>Odds =</strong> <span class="math inline">\(\exp\big\{\log\big(\frac{\pi}{1-\pi}\big)\big\} = \frac{\pi}{1-\pi}\)</span></li>
+<li>Combining (1) and (2) with what we saw earlier</li>
+</ol>
+<p>. . .</p>
+<p><span class="math display">\[\text{probability} = \pi = \frac{\exp\{\beta_0 + \beta_1~X\}}{1 + \exp\{\beta_0 + \beta_1~X\}}\]</span></p>
+</section>
+<section id="logistic-regression-model" class="level2">
+<h2 class="anchored" data-anchor-id="logistic-regression-model">Logistic regression model</h2>
+<p><strong>Logit form</strong>: <span class="math display">\[\log\big(\frac{\pi}{1-\pi}\big) = \beta_0 + \beta_1~X\]</span></p>
+<p>. . .</p>
+<p><strong>Probability form</strong>:</p>
+<p><span class="math display">\[
+\pi = \frac{\exp\{\beta_0 + \beta_1~X\}}{1 + \exp\{\beta_0 + \beta_1~X\}}
+\]</span></p>
+</section>
+<section id="risk-of-coronary-heart-disease" class="level2">
+<h2 class="anchored" data-anchor-id="risk-of-coronary-heart-disease">Risk of coronary heart disease</h2>
+<p>This dataset is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use <code>age</code> to predict if a randomly selected adult is high risk of having coronary heart disease in the next 10 years.</p>
+<p><br></p>
+<p><code>high_risk</code>:</p>
+<div class="nonincremental">
+<ul>
+<li>1: High risk of having heart disease in next 10 years</li>
+<li>0: Not high risk of having heart disease in next 10 years</li>
+</ul>
+</div>
+<p><code>age</code>: Age at exam time (in years)</p>
+</section>
+<section id="data-heart_disease" class="level2">
+<h2 class="anchored" data-anchor-id="data-heart_disease">Data: <code>heart_disease</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4,240 × 2
+     age high_risk
+   &lt;dbl&gt; &lt;fct&gt;    
+ 1    39 0        
+ 2    46 0        
+ 3    48 0        
+ 4    61 1        
+ 5    46 0        
+ 6    43 0        
+ 7    63 1        
+ 8    45 0        
+ 9    52 0        
+10    43 0        
+# ℹ 4,230 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="high-risk-vs.-age" class="level2">
+<h2 class="anchored" data-anchor-id="high-risk-vs.-age">High risk vs.&nbsp;age</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(heart_disease, <span class="fu">aes</span>(<span class="at">x =</span> high_risk, <span class="at">y =</span> age)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"High risk - 1: yes, 0: no"</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Age"</span>, </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Age vs. High risk of heart disease"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="16-logistic-intro-old_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="lets-fit-the-model" class="level2">
+<h2 class="anchored" data-anchor-id="lets-fit-the-model">Let’s fit the model</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>heart_disease_fit <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">fit</span>(high_risk <span class="sc">~</span> age, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="fu">tidy</span>(heart_disease_fit) <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-5.561</td>
+<td style="text-align: right;">0.284</td>
+<td style="text-align: right;">-19.599</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age</td>
+<td style="text-align: right;">0.075</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: right;">14.178</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="the-model" class="level2">
+<h2 class="anchored" data-anchor-id="the-model">The model</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(heart_disease_fit) <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-5.561</td>
+<td style="text-align: right;">0.284</td>
+<td style="text-align: right;">-19.599</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age</td>
+<td style="text-align: right;">0.075</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: right;">14.178</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br>
+<span class="math display">\[\log\Big(\frac{\hat{\pi}}{1-\hat{\pi}}\Big) = -5.561 + 0.075 \times \text{age}\]</span> where <span class="math inline">\(\hat{\pi}\)</span> is the predicted probability of being high risk of having heart disease in the next 10 years</p>
+</section>
+<section id="predicted-log-odds" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="predicted-log-odds">Predicted log odds</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(heart_disease_fit<span class="sc">$</span>fit) <span class="sc">|&gt;</span> <span class="fu">select</span>(.fitted, .resid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4,240 × 2
+   .fitted .resid
+     &lt;dbl&gt;  &lt;dbl&gt;
+ 1  -2.65  -0.370
+ 2  -2.13  -0.475
+ 3  -1.98  -0.509
+ 4  -1.01   1.62 
+ 5  -2.13  -0.475
+ 6  -2.35  -0.427
+ 7  -0.858  1.56 
+ 8  -2.20  -0.458
+ 9  -1.68  -0.585
+10  -2.35  -0.427
+# ℹ 4,230 more rows</code></pre>
+</div>
+</div>
+<p>. . .</p>
+<p><strong>For observation 1</strong></p>
+<p><span class="math display">\[\text{predicted odds} = \hat{\omega} = \frac{\hat{\pi}}{1-\hat{\pi}} = \exp\{-2.650\} = 0.071\]</span></p>
+</section>
+<section id="predicted-probabilities" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="predicted-probabilities">Predicted probabilities</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease, <span class="at">type =</span> <span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4,240 × 2
+   .pred_0 .pred_1
+     &lt;dbl&gt;   &lt;dbl&gt;
+ 1   0.934  0.0660
+ 2   0.894  0.106 
+ 3   0.878  0.122 
+ 4   0.733  0.267 
+ 5   0.894  0.106 
+ 6   0.913  0.0870
+ 7   0.702  0.298 
+ 8   0.900  0.0996
+ 9   0.843  0.157 
+10   0.913  0.0870
+# ℹ 4,230 more rows</code></pre>
+</div>
+</div>
+<p>. . .</p>
+<p><strong>For observation 1</strong></p>
+<p><span class="math display">\[\text{predicted probability} = \hat{\pi} = \frac{\exp\{-2.650\}}{1 + \exp\{-2.650\}} = 0.066\]</span></p>
+</section>
+<section id="predicted-classes" class="level2">
+<h2 class="anchored" data-anchor-id="predicted-classes">Predicted classes</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease, <span class="at">type =</span> <span class="st">"class"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4,240 × 1
+   .pred_class
+   &lt;fct&gt;      
+ 1 0          
+ 2 0          
+ 3 0          
+ 4 0          
+ 5 0          
+ 6 0          
+ 7 0          
+ 8 0          
+ 9 0          
+10 0          
+# ℹ 4,230 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="default-prediction" class="level2">
+<h2 class="anchored" data-anchor-id="default-prediction">Default prediction</h2>
+<p>For a logistic regression, the default prediction is the <code>class</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4,240 × 1
+   .pred_class
+   &lt;fct&gt;      
+ 1 0          
+ 2 0          
+ 3 0          
+ 4 0          
+ 5 0          
+ 6 0          
+ 7 0          
+ 8 0          
+ 9 0          
+10 0          
+# ℹ 4,230 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="observed-vs.-predicted" class="level2">
+<h2 class="anchored" data-anchor-id="observed-vs.-predicted">Observed vs.&nbsp;predicted</h2>
+<div class="question">
+<p>What does the following table show?</p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease) <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(heart_disease) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(high_risk, .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  high_risk .pred_class     n
+  &lt;fct&gt;     &lt;fct&gt;       &lt;int&gt;
+1 0         0            3596
+2 1         0             644</code></pre>
+</div>
+</div>
+<p>. . .</p>
+<div class="question">
+<p>The <code>.pred_class</code> is the class with the highest predicted probability. What is a limitation to using this method to determine the predicted class?</p>
+</div>
+</section>
+</section>
+<section id="application-exercise" class="level1">
+<h1>Application exercise</h1>
+<div class="appex">
+<p>📋 <a href="../ae/ae-12-logistic-intro.html">AE 12: Logistic Regression Intro</a></p>
+</div>
+<section id="recap" class="level2">
+<h2 class="anchored" data-anchor-id="recap">Recap</h2>
+<ul>
+<li><p>Introduced logistic regression for binary response variable</p></li>
+<li><p>Described relationship between odds and probabilities</p></li>
+<li><p>Used logistic regression model to calculate predicted odds and probabilities</p></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/mat212fa24\.netlify\.app\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2024, Eric Friedlander</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/slides/16-logistic-intro-old.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

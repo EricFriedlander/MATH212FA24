@@ -142,7 +142,7 @@ tips |>
 
 - Complete Exercises 1-2.
 
-## Recall: ANOVA, F-Test
+## Recall: ANOVA, F-Test {.smaller}
 
 **Hypotheses:** 
 

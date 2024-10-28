@@ -19829,5 +19829,733 @@
     "title": "October 30 lecture",
     "section": "",
     "text": "Stat2: Topic 3.5 Correlated Predictors"
+  },
+  {
+    "objectID": "ae/ae-17-multicollinearity.html",
+    "href": "ae/ae-17-multicollinearity.html",
+    "title": "AE 17: Multicollinearity",
+    "section": "",
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-17”.\nGo to the Canvas and locate your AE-17 assignment to get started.\nUpload the ae-17.qmd and rail_trail.csv files into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment."
+  },
+  {
+    "objectID": "ae/ae-17-multicollinearity.html#packages-data",
+    "href": "ae/ae-17-multicollinearity.html#packages-data",
+    "title": "AE 17: Multicollinearity",
+    "section": "Packages + data",
+    "text": "Packages + data\n\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(GGally)\nlibrary(broom)\nlibrary(knitr)\nlibrary(mosaic)\nlibrary(mosaicData)\n\nrail_trail &lt;- read_csv(\"data/rail_trail.csv\")\n\nThe data for this AE is based on data from the Pioneer Valley Planning Commission (PVPC) and is included in the mosaicData package. The PVPC collected data for ninety days from April 5, 2005 to November 15, 2005. Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station. More information can be found here."
+  },
+  {
+    "objectID": "ae/ae-17-multicollinearity.html#analysis-goal",
+    "href": "ae/ae-17-multicollinearity.html#analysis-goal",
+    "title": "AE 17: Multicollinearity",
+    "section": "Analysis goal",
+    "text": "Analysis goal\nThe goals of this activity are to:\n\nDetect and remedy multicollinearity in our data"
+  },
+  {
+    "objectID": "ae/ae-17-multicollinearity.html#exercise-0",
+    "href": "ae/ae-17-multicollinearity.html#exercise-0",
+    "title": "AE 17: Multicollinearity",
+    "section": "Exercise 0",
+    "text": "Exercise 0\nFit a linear model to predict volume from ALL of the other predictors. The resulting model is called the “full model”. Hint: if you use the formula volume ~ . in your lm command, it will automatically include all predictors. Once you have fit your model, use tidy to print it out. Have the reporter for you group write down the model on the white board. Does the model include any interaction terms?"
+  },
+  {
+    "objectID": "ae/ae-17-multicollinearity.html#exercise-1",
+    "href": "ae/ae-17-multicollinearity.html#exercise-1",
+    "title": "AE 17: Multicollinearity",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nCreate a new data frame called rail_trail_new with two new columns, hightemp_c and avgtemp_c. These two new columns should store the hightemp and avgtemp measured in celcius rather than farenheit. Note that the formula to convert between farenheit and celcius is \\(C = (F-32)\\times \\frac{5}{9}\\). Make sure hightemp and avgtemp are still in your data set."
+  },
+  {
+    "objectID": "ae/ae-17-multicollinearity.html#exercise-2",
+    "href": "ae/ae-17-multicollinearity.html#exercise-2",
+    "title": "AE 17: Multicollinearity",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nTry to refit the full model on your data. Do you notice anything odd about yoru coefficients? If so, what do you think is happening?"
+  },
+  {
+    "objectID": "ae/ae-17-multicollinearity.html#exercise-3",
+    "href": "ae/ae-17-multicollinearity.html#exercise-3",
+    "title": "AE 17: Multicollinearity",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nAdd a comment next to each line of code explaining what that line of code is doing.\n\nlibrary(corrplot)\n\nrail_trail |&gt; # Take the rail_trail data set and then\n  select(-volume) |&gt; # What do I do\n  select(where(is.numeric)) |&gt; # What do I do\n  cor() |&gt;   # What do I do\n  corrplot(method=\"number\") # What do I do\n\n\n\n\n\n\n\nrail_trail |&gt; \n  select(-volume) |&gt; # What do I do\n  ggpairs()"
+  },
+  {
+    "objectID": "ae/ae-17-multicollinearity.html#exerise-4",
+    "href": "ae/ae-17-multicollinearity.html#exerise-4",
+    "title": "AE 17: Multicollinearity",
+    "section": "Exerise 4",
+    "text": "Exerise 4\nWe check the constant variance assumption in the same way we do with SLR. Does the constant variance condition seems to be satisfied?"
+  },
+  {
+    "objectID": "ae/ae-17-multicollinearity.html#exercise-5",
+    "href": "ae/ae-17-multicollinearity.html#exercise-5",
+    "title": "AE 17: Multicollinearity",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nPipe full model you fit in Exercise 0 into the function vif. Are any of the vif’s concerning? If so, which ones."
+  },
+  {
+    "objectID": "ae/ae-17-multicollinearity.html#exercise-6",
+    "href": "ae/ae-17-multicollinearity.html#exercise-6",
+    "title": "AE 17: Multicollinearity",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nFit two models:\n\nm1: use all predictors except for avgtemp\nm2: use all predictors except for hightemp"
+  },
+  {
+    "objectID": "ae/ae-17-multicollinearity.html#to-submit-the-ae",
+    "href": "ae/ae-17-multicollinearity.html#to-submit-the-ae",
+    "title": "AE 17: Multicollinearity",
+    "section": "To submit the AE",
+    "text": "To submit the AE\n\n\n\n\n\n\nImportant\n\n\n\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#announcements",
+    "href": "slides/23-multicollinearity.html#announcements",
+    "title": "Multicollinearity",
+    "section": "Announcements",
+    "text": "Announcements\n\nProject: EDA Due Today\nProject: Paper Due November 18th\nOral R Quiz\n\n\n📋 AE 17 - Multicollinearity\n\nOpen up AE 17 and Complete Exercise 0"
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#topics",
+    "href": "slides/23-multicollinearity.html#topics",
+    "title": "Multicollinearity",
+    "section": "Topics",
+    "text": "Topics\n\n\nDefining Multicollinearity\nDetecting Multicollinearity\nVariance Inflation Factors"
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#computational-setup",
+    "href": "slides/23-multicollinearity.html#computational-setup",
+    "title": "Multicollinearity",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(countdown)\nlibrary(rms)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#computational-setup-1",
+    "href": "slides/23-multicollinearity.html#computational-setup-1",
+    "title": "Multicollinearity",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(mosaic)\nlibrary(mosaicData)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(scales)\nlibrary(countdown)\nlibrary(rms)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#data-rail_trail",
+    "href": "slides/23-multicollinearity.html#data-rail_trail",
+    "title": "Multicollinearity",
+    "section": "Data: rail_trail",
+    "text": "Data: rail_trail\n\n\nThe Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.\nData collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.\n\n\n\n\n# A tibble: 90 × 7\n   volume hightemp avgtemp season cloudcover precip day_type\n    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   \n 1    501       83    66.5 Summer       7.60 0      Weekday \n 2    419       73    61   Summer       6.30 0.290  Weekday \n 3    397       74    63   Spring       7.5  0.320  Weekday \n 4    385       95    78   Summer       2.60 0      Weekend \n 5    200       44    48   Spring      10    0.140  Weekday \n 6    375       69    61.5 Spring       6.60 0.0200 Weekday \n 7    417       66    52.5 Spring       2.40 0      Weekday \n 8    629       66    52   Spring       0    0      Weekend \n 9    533       80    67.5 Summer       3.80 0      Weekend \n10    547       79    62   Summer       4.10 0      Weekday \n# ℹ 80 more rows\n\n\nSource: Pioneer Valley Planning Commission via the mosaicData package."
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#full-model",
+    "href": "slides/23-multicollinearity.html#full-model",
+    "title": "Multicollinearity",
+    "section": "Full model",
+    "text": "Full model\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n17.622161\n76.582860\n0.2301058\n0.8185826\n\n\nhightemp\n7.070528\n2.420523\n2.9210743\n0.0045045\n\n\navgtemp\n-2.036685\n3.142113\n-0.6481896\n0.5186733\n\n\nseasonSpring\n35.914983\n32.992762\n1.0885716\n0.2795319\n\n\nseasonSummer\n24.153571\n52.810486\n0.4573632\n0.6486195\n\n\ncloudcover\n-7.251776\n3.843071\n-1.8869743\n0.0627025\n\n\nprecip\n-95.696525\n42.573359\n-2.2478030\n0.0272735\n\n\nday_typeWeekend\n35.903750\n22.429056\n1.6007696\n0.1132738"
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#what-is-multicollinearity",
+    "href": "slides/23-multicollinearity.html#what-is-multicollinearity",
+    "title": "Multicollinearity",
+    "section": "What is multicollinearity",
+    "text": "What is multicollinearity\n\nMulticollinearity is the case when one or more predictor variables are strongly correlated with some combination of other predictors\nIntuition: if you could fit a good linear model with one of your predictors as the response and the rest of the predictors as your explanatory variables, then your predictors are exhibiting multicollinearity"
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#example",
+    "href": "slides/23-multicollinearity.html#example",
+    "title": "Multicollinearity",
+    "section": "Example",
+    "text": "Example\nLet’s assume the true population regression equation is \\(y = 3 + 4x\\)\n\nSuppose we try estimating that equation using a model with variables \\(x\\) and \\(z = x/10\\)\n\\[\n\\begin{aligned}\\hat{y}&= \\hat{\\beta}_0 + \\hat{\\beta}_1x  + \\hat{\\beta}_2z\\\\\n&= \\hat{\\beta}_0 + \\hat{\\beta}_1x  + \\hat{\\beta}_2\\frac{x}{10}\\\\\n&= \\hat{\\beta}_0 + \\bigg(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10}\\bigg)x\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#example-1",
+    "href": "slides/23-multicollinearity.html#example-1",
+    "title": "Multicollinearity",
+    "section": "Example",
+    "text": "Example\n\\[\\hat{y} = \\hat{\\beta}_0 + \\bigg(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10}\\bigg)x\\]\n\nWe can set \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_2\\) to any two numbers such that \\(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10} = 4\\)\nTherefore, we are unable to choose the “best” combination of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_2\\)\nIn statistics, we say this model is “unidentifiable” because different parameters combinations can result in the same model\nThis is also why we need to set a reference level for categorical variables\nComplete Exercises 1-2."
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#why-multicollinearity-is-a-problem",
+    "href": "slides/23-multicollinearity.html#why-multicollinearity-is-a-problem",
+    "title": "Multicollinearity",
+    "section": "Why multicollinearity is a problem",
+    "text": "Why multicollinearity is a problem\n\nWhen we have perfect collinearities, we are unable to get estimates for the coefficients\n\nWhen we have almost perfect collinearities (i.e. highly correlated predictor variables), the standard errors for our regression coefficients inflate\nIn other words, we lose precision in our estimates of the regression coefficients\nThis impedes our ability to use the model for inference\nIt is also difficult to interpret the model coefficients"
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#detecting-multicollinearity",
+    "href": "slides/23-multicollinearity.html#detecting-multicollinearity",
+    "title": "Multicollinearity",
+    "section": "Detecting Multicollinearity",
+    "text": "Detecting Multicollinearity\nMulticollinearity may occur when…\n\nThere are very high correlations \\((r &gt; 0.9)\\) among two or more predictor variables, especially when the sample size is small\nOne (or more) predictor variables is an almost perfect linear combination of the others\nThere are interactions between two or more continuous variables\nThere is a categorical predictor with very few observations in the baseline level"
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#detecting-multicollinearity-in-the-eda",
+    "href": "slides/23-multicollinearity.html#detecting-multicollinearity-in-the-eda",
+    "title": "Multicollinearity",
+    "section": "Detecting multicollinearity in the EDA",
+    "text": "Detecting multicollinearity in the EDA\n\nLook at a correlation matrix of the predictor variables, including all indicator variables\n\nLook out for values close to 1 or -1\n\nLook at a scatterplot matrix of the predictor variables\n\nLook out for plots that show a relatively linear relationship\n\nLook at the distribution of categorical predictors and avoid setting the baseline to a category with very few observations\nComplete Exercises 3-4."
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#detecting-multicollinearity-vif",
+    "href": "slides/23-multicollinearity.html#detecting-multicollinearity-vif",
+    "title": "Multicollinearity",
+    "section": "Detecting Multicollinearity (VIF)",
+    "text": "Detecting Multicollinearity (VIF)\nVariance Inflation Factor (VIF): Measure of multicollinearity in the regression model\n\\[VIF(\\hat{\\beta}_j) = \\frac{1}{1-R^2_{X_j|X_{-j}}}\\]\nwhere \\(R^2_{X_j|X_{-j}}\\) is the proportion of variation \\(X\\) that is explained by the linear combination of the other explanatory variables in the model."
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#detecting-multicollinearity-vif-1",
+    "href": "slides/23-multicollinearity.html#detecting-multicollinearity-vif-1",
+    "title": "Multicollinearity",
+    "section": "Detecting Multicollinearity (VIF)",
+    "text": "Detecting Multicollinearity (VIF)\n\nTypically \\(VIF &gt; 10\\) indicates concerning multicollinearity\nVariables with similar values of VIF are typically the ones correlated with each other\nUse the vif() function in the rms R package to calculate VIF"
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#vif-for-rail-trail-model",
+    "href": "slides/23-multicollinearity.html#vif-for-rail-trail-model",
+    "title": "Multicollinearity",
+    "section": "VIF for rail trail model",
+    "text": "VIF for rail trail model\nComplete Exercise 5.\n\n\nvif(rt_full_fit)\n\n       hightemp         avgtemp    seasonSpring    seasonSummer      cloudcover \n      10.259978       13.086175        2.751577        5.841985        1.587485 \n         precip day_typeWeekend \n       1.295352        1.125741 \n\n\n\n\n\nhightemp and avgtemp are correlated. We need to remove one of these variables and refit the model.\n\n\nComplete Exercises 6 & 7."
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#model-without-hightemp",
+    "href": "slides/23-multicollinearity.html#model-without-hightemp",
+    "title": "Multicollinearity",
+    "section": "Model without hightemp",
+    "text": "Model without hightemp\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n76.071\n77.204\n0.985\n0.327\n\n\navgtemp\n6.003\n1.583\n3.792\n0.000\n\n\nseasonSpring\n34.555\n34.454\n1.003\n0.319\n\n\nseasonSummer\n13.531\n55.024\n0.246\n0.806\n\n\ncloudcover\n-12.807\n3.488\n-3.672\n0.000\n\n\nprecip\n-110.736\n44.137\n-2.509\n0.014\n\n\nday_typeWeekend\n48.420\n22.993\n2.106\n0.038"
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#model-without-avgtemp",
+    "href": "slides/23-multicollinearity.html#model-without-avgtemp",
+    "title": "Multicollinearity",
+    "section": "Model without avgtemp",
+    "text": "Model without avgtemp\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.421\n74.992\n0.112\n0.911\n\n\nhightemp\n5.696\n1.164\n4.895\n0.000\n\n\nseasonSpring\n31.239\n32.082\n0.974\n0.333\n\n\nseasonSummer\n9.424\n47.504\n0.198\n0.843\n\n\ncloudcover\n-8.353\n3.435\n-2.431\n0.017\n\n\nprecip\n-98.904\n42.137\n-2.347\n0.021\n\n\nday_typeWeekend\n37.062\n22.280\n1.663\n0.100"
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#choosing-a-model",
+    "href": "slides/23-multicollinearity.html#choosing-a-model",
+    "title": "Multicollinearity",
+    "section": "Choosing a model",
+    "text": "Choosing a model\nModel without hightemp:\n\n\n\n\n\nadj.r.squared\nAIC\nBIC\n\n\n\n\n0.42\n1087.5\n1107.5\n\n\n\n\n\nModel without avgtemp:\n\n\n\n\n\nadj.r.squared\nAIC\nBIC\n\n\n\n\n0.47\n1079.05\n1099.05\n\n\n\n\n\n\nBased on Adjusted \\(R^2\\), AIC, and BIC, the model without avgtemp is a better fit. Therefore, we choose to remove avgtemp from the model and leave hightemp in the model to deal with the multicollinearity."
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#selected-model-for-now",
+    "href": "slides/23-multicollinearity.html#selected-model-for-now",
+    "title": "Multicollinearity",
+    "section": "Selected model (for now)",
+    "text": "Selected model (for now)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.421\n74.992\n0.112\n0.911\n\n\nhightemp\n5.696\n1.164\n4.895\n0.000\n\n\nseasonSpring\n31.239\n32.082\n0.974\n0.333\n\n\nseasonSummer\n9.424\n47.504\n0.198\n0.843\n\n\ncloudcover\n-8.353\n3.435\n-2.431\n0.017\n\n\nprecip\n-98.904\n42.137\n-2.347\n0.021\n\n\nday_typeWeekend\n37.062\n22.280\n1.663\n0.100\n\n\n\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "ae/ae-17-multicollinearity.html#exercise-4",
+    "href": "ae/ae-17-multicollinearity.html#exercise-4",
+    "title": "AE 17: Multicollinearity",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nBased on the output from the previous exercise, do you have reason to believe that our data is exhibiting multicollinearity?"
+  },
+  {
+    "objectID": "ae/ae-17-multicollinearity.html#exercise-7",
+    "href": "ae/ae-17-multicollinearity.html#exercise-7",
+    "title": "AE 17: Multicollinearity",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nUse glance to compute the \\(R^2_{adj}\\), AIC, and BIC for both of these models. Which should we choose?"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html",
+    "href": "slides/24-logistic-intro.html",
+    "title": "Logistic regression",
+    "section": "",
+    "text": "HW 03 due Wed, Nov 1 at 11:59pm\nSee Ed Discussion for\n\nCode to reformat Theme variable in HW 03 data set\nExplanation on interpreting models with quadratic terms"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#announcements",
+    "href": "slides/24-logistic-intro.html#announcements",
+    "title": "Logistic regression",
+    "section": "",
+    "text": "HW 03 due Wed, Nov 1 at 11:59pm\nSee Ed Discussion for\n\nCode to reformat Theme variable in HW 03 data set\nExplanation on interpreting models with quadratic terms"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#spring-2024-statistics-courses",
+    "href": "slides/24-logistic-intro.html#spring-2024-statistics-courses",
+    "title": "Logistic regression",
+    "section": "Spring 2024 statistics courses",
+    "text": "Spring 2024 statistics courses\n\nSTA 211: Mathematics of Regression\n\nPrereqs: MATH 216/218/221, STA 210\n\nSTA 230 or STA 240: Probability\n\nPrereqs: MATH 22/112/122/202/212/219/222\n\nSTA 310: Generalized Linear Models\n\nPrereqs: STA 210 and STA 230/240\n\nSTA 313: Advanced Data Visualization\n\nPrereqs: STA 198 or STA 199 or STA 210\n\nSTA 323: Statistical Computing\n\nPrereqs: STA 210 and STA 230/240\n\nSTA 360: Bayesian Inference and Modern Statistical Methods\n\nPrereqs: STA 210 and STA 230/240 and MATH 202/212/219/222 and CS 101/102/201 and MATH 216/218/221, 211 (co-req)"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#interpreting-models-with-log-transformed-variables",
+    "href": "slides/24-logistic-intro.html#interpreting-models-with-log-transformed-variables",
+    "title": "Logistic regression",
+    "section": "Interpreting models with log-transformed variables",
+    "text": "Interpreting models with log-transformed variables\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n4.738\n0.219\n21.667\n0.000\n\n\nhightemp\n0.018\n0.003\n5.452\n0.000\n\n\nseasonSpring\n0.026\n0.094\n0.283\n0.778\n\n\nseasonSummer\n-0.047\n0.139\n-0.338\n0.736\n\n\ncloudcover\n-0.025\n0.010\n-2.452\n0.016\n\n\nprecip\n-0.294\n0.123\n-2.397\n0.019\n\n\nday_typeWeekend\n0.064\n0.065\n0.987\n0.327\n\n\n\n\n\n\n\nInterpret the intercept in terms of (1) log(volume) and (2) volume.\nInterpret the coefficient of hightemp in terms of (1) log(volume) and (2) volume."
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#topics",
+    "href": "slides/24-logistic-intro.html#topics",
+    "title": "Logistic regression",
+    "section": "Topics",
+    "text": "Topics\n\nLogistic regression for binary response variable\nRelationship between odds and probabilities\nUse logistic regression model to calculate predicted odds and probabilities"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#computational-setup",
+    "href": "slides/24-logistic-intro.html#computational-setup",
+    "title": "Logistic regression",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)\nlibrary(Stat2Data) #contains data set\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#types-of-outcome-variables",
+    "href": "slides/24-logistic-intro.html#types-of-outcome-variables",
+    "title": "Logistic regression",
+    "section": "Types of outcome variables",
+    "text": "Types of outcome variables\nQuantitative outcome variable:\n\nSales price of a house in Duke Forest\nModel: Expected sales price given the number of bedrooms, lot size, etc.\n\n. . .\nCategorical outcome variable:\n\nIndicator of being high risk of getting coronary heart disease in the next 10 years\nModel: Probability an adult is high risk of heart disease in the next 10 years given their age, total cholesterol, etc."
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#models-for-categorical-outcomes",
+    "href": "slides/24-logistic-intro.html#models-for-categorical-outcomes",
+    "title": "Logistic regression",
+    "section": "Models for categorical outcomes",
+    "text": "Models for categorical outcomes\n\n\nLogistic regression\n2 Outcomes\n1: Yes, 0: No\n\nMultinomial logistic regression\n3+ Outcomes\n1: Democrat, 2: Republican, 3: Independent"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#election-forecasts",
+    "href": "slides/24-logistic-intro.html#election-forecasts",
+    "title": "Logistic regression",
+    "section": "2022 election forecasts",
+    "text": "2022 election forecasts\n\n\n\n\n\nSource: FiveThirtyEight 2022 Election Forecasts"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#nba-finals-predictions",
+    "href": "slides/24-logistic-intro.html#nba-finals-predictions",
+    "title": "Logistic regression",
+    "section": "2020 NBA finals predictions",
+    "text": "2020 NBA finals predictions\n\n\n\n\n\nSource: FiveThirtyEight 2019-20 NBA Predictions"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#do-teenagers-get-7-hours-of-sleep",
+    "href": "slides/24-logistic-intro.html#do-teenagers-get-7-hours-of-sleep",
+    "title": "Logistic regression",
+    "section": "Do teenagers get 7+ hours of sleep?",
+    "text": "Do teenagers get 7+ hours of sleep?\n\n\nStudents in grades 9 - 12 surveyed about health risk behaviors including whether they usually get 7 or more hours of sleep.\nSleep7\n1: yes\n0: no\n\n\ndata(YouthRisk2009) #from Stat2Data package\nsleep &lt;- YouthRisk2009 |&gt;\n  as_tibble() |&gt;\n  filter(!is.na(Age), !is.na(Sleep7))\nsleep |&gt;\n  relocate(Age, Sleep7)\n\n# A tibble: 446 × 6\n     Age Sleep7 Sleep           SmokeLife SmokeDaily MarijuaEver\n   &lt;int&gt;  &lt;int&gt; &lt;fct&gt;           &lt;fct&gt;     &lt;fct&gt;            &lt;int&gt;\n 1    16      1 8 hours         Yes       Yes                  1\n 2    17      0 5 hours         Yes       Yes                  1\n 3    18      0 5 hours         Yes       Yes                  1\n 4    17      1 7 hours         Yes       No                   1\n 5    15      0 4 or less hours No        No                   0\n 6    17      0 6 hours         No        No                   0\n 7    17      1 7 hours         No        No                   0\n 8    16      1 8 hours         Yes       No                   0\n 9    16      1 8 hours         No        No                   0\n10    18      0 4 or less hours Yes       Yes                  1\n# ℹ 436 more rows"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#plot-the-data",
+    "href": "slides/24-logistic-intro.html#plot-the-data",
+    "title": "Logistic regression",
+    "section": "Plot the data",
+    "text": "Plot the data\n\nggplot(sleep, aes(x = Age, y = Sleep7)) +\n  geom_point() + \n  labs(y = \"Getting 7+ hours of sleep\")"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#lets-fit-a-linear-regression-model",
+    "href": "slides/24-logistic-intro.html#lets-fit-a-linear-regression-model",
+    "title": "Logistic regression",
+    "section": "Let’s fit a linear regression model",
+    "text": "Let’s fit a linear regression model\nOutcome: \\(Y\\) = 1: yes, 0: no"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#lets-use-proportions",
+    "href": "slides/24-logistic-intro.html#lets-use-proportions",
+    "title": "Logistic regression",
+    "section": "Let’s use proportions",
+    "text": "Let’s use proportions\nOutcome: Probability of getting 7+ hours of sleep"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#what-happens-if-we-zoom-out",
+    "href": "slides/24-logistic-intro.html#what-happens-if-we-zoom-out",
+    "title": "Logistic regression",
+    "section": "What happens if we zoom out?",
+    "text": "What happens if we zoom out?\nOutcome: Probability of getting 7+ hours of sleep\n\n\n\n\n\n\n\n\n\n🛑 This model produces predictions outside of 0 and 1."
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#lets-try-another-model",
+    "href": "slides/24-logistic-intro.html#lets-try-another-model",
+    "title": "Logistic regression",
+    "section": "Let’s try another model",
+    "text": "Let’s try another model\n\n\n\n\n\n\n\n\n\n✅ This model (called a logistic regression model) only produces predictions between 0 and 1."
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#the-code",
+    "href": "slides/24-logistic-intro.html#the-code",
+    "title": "Logistic regression",
+    "section": "The code",
+    "text": "The code\n\nggplot(sleep_age, aes(x = Age, y = prop)) +\n  geom_point() + \n  geom_hline(yintercept = c(0,1), lty = 2) + \n  stat_smooth(method =\"glm\", method.args = list(family = \"binomial\"), \n              fullrange = TRUE, se = FALSE) +\n  labs(y = \"P(7+ hours of sleep)\") +\n  xlim(1, 40) +\n  ylim(-0.5, 1.5)"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#different-types-of-models",
+    "href": "slides/24-logistic-intro.html#different-types-of-models",
+    "title": "Logistic regression",
+    "section": "Different types of models",
+    "text": "Different types of models\n\n\n\n\n\n\n\n\nMethod\nOutcome\nModel\n\n\n\n\nLinear regression\nQuantitative\n\\(Y = \\beta_0 + \\beta_1~ X\\)\n\n\nLinear regression (transform Y)\nQuantitative\n\\(\\log(Y) = \\beta_0 + \\beta_1~ X\\)\n\n\nLogistic regression\nBinary\n\\(\\log\\big(\\frac{\\pi}{1-\\pi}\\big) = \\beta_0 + \\beta_1 ~ X\\)"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#linear-vs.-logistic-regression",
+    "href": "slides/24-logistic-intro.html#linear-vs.-logistic-regression",
+    "title": "Logistic regression",
+    "section": "Linear vs. logistic regression",
+    "text": "Linear vs. logistic regression\n\nState whether a linear regression model or logistic regression model is more appropriate for each scenario.\n\nUse age and education to predict if a randomly selected person will vote in the next election.\nUse budget and run time (in minutes) to predict a movie’s total revenue.\nUse age and sex to calculate the probability a randomly selected adult will visit Duke Health in the next year.\n\nSubmit your responses on Ed Discussion [10:05am][1:25pm]"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#binary-response-variable",
+    "href": "slides/24-logistic-intro.html#binary-response-variable",
+    "title": "Logistic regression",
+    "section": "Binary response variable",
+    "text": "Binary response variable\n\n\n\\(Y = 1: \\text{ yes}, 0: \\text{ no}\\)\n\\(\\pi\\): probability that \\(Y=1\\), i.e., \\(P(Y = 1)\\)\n\\(\\frac{\\pi}{1-\\pi}\\): odds that \\(Y = 1\\)\n\\(\\log\\big(\\frac{\\pi}{1-\\pi}\\big)\\): log odds\nGo from \\(\\pi\\) to \\(\\log\\big(\\frac{\\pi}{1-\\pi}\\big)\\) using the logit transformation"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#odds",
+    "href": "slides/24-logistic-intro.html#odds",
+    "title": "Logistic regression",
+    "section": "Odds",
+    "text": "Odds\n\nSuppose there is a 70% chance it will rain tomorrow\n\nProbability it will rain is \\(\\mathbf{p = 0.7}\\)\nProbability it won’t rain is \\(\\mathbf{1 - p = 0.3}\\)\nOdds it will rain are 7 to 3, 7:3, \\(\\mathbf{\\frac{0.7}{0.3} \\approx 2.33}\\)"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#are-teenagers-getting-enough-sleep",
+    "href": "slides/24-logistic-intro.html#are-teenagers-getting-enough-sleep",
+    "title": "Logistic regression",
+    "section": "Are teenagers getting enough sleep?",
+    "text": "Are teenagers getting enough sleep?\n\nsleep |&gt;\n  count(Sleep7) |&gt;\n  mutate(p = round(n / sum(n), 3))\n\n# A tibble: 2 × 3\n  Sleep7     n     p\n   &lt;int&gt; &lt;int&gt; &lt;dbl&gt;\n1      0   150 0.336\n2      1   296 0.664\n\n\n. . .\n\\(P(\\text{7+ hours of sleep}) = P(Y = 1) = p = 0.664\\)\n. . .\n\\(P(\\text{&lt; 7 hours of sleep}) = P(Y = 0) = 1 - p = 0.336\\)\n. . .\n\\(P(\\text{odds of 7+ hours of sleep}) = \\frac{0.664}{0.336} = 1.976\\)"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#from-odds-to-probabilities",
+    "href": "slides/24-logistic-intro.html#from-odds-to-probabilities",
+    "title": "Logistic regression",
+    "section": "From odds to probabilities",
+    "text": "From odds to probabilities\n\n\nodds\n\\[\\omega = \\frac{\\pi}{1-\\pi}\\]\n\nprobability\n\\[\\pi = \\frac{\\omega}{1 + \\omega}\\]"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#from-odds-to-probabilities-1",
+    "href": "slides/24-logistic-intro.html#from-odds-to-probabilities-1",
+    "title": "Logistic regression",
+    "section": "From odds to probabilities",
+    "text": "From odds to probabilities\n\nLogistic model: log odds = \\(\\log\\big(\\frac{\\pi}{1-\\pi}\\big) = \\beta_0 + \\beta_1~X\\)\nOdds = \\(\\exp\\big\\{\\log\\big(\\frac{\\pi}{1-\\pi}\\big)\\big\\} = \\frac{\\pi}{1-\\pi}\\)\nCombining (1) and (2) with what we saw earlier\n\n. . .\n\\[\\text{probability} = \\pi = \\frac{\\exp\\{\\beta_0 + \\beta_1~X\\}}{1 + \\exp\\{\\beta_0 + \\beta_1~X\\}}\\]"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#logistic-regression-model",
+    "href": "slides/24-logistic-intro.html#logistic-regression-model",
+    "title": "Logistic regression",
+    "section": "Logistic regression model",
+    "text": "Logistic regression model\nLogit form: \\[\\log\\big(\\frac{\\pi}{1-\\pi}\\big) = \\beta_0 + \\beta_1~X\\]\n. . .\nProbability form:\n\\[\n\\pi = \\frac{\\exp\\{\\beta_0 + \\beta_1~X\\}}{1 + \\exp\\{\\beta_0 + \\beta_1~X\\}}\n\\]"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#risk-of-coronary-heart-disease",
+    "href": "slides/24-logistic-intro.html#risk-of-coronary-heart-disease",
+    "title": "Logistic regression",
+    "section": "Risk of coronary heart disease",
+    "text": "Risk of coronary heart disease\nThis dataset is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use age to predict if a randomly selected adult is high risk of having coronary heart disease in the next 10 years.\n\nhigh_risk:\n\n\n1: High risk of having heart disease in next 10 years\n0: Not high risk of having heart disease in next 10 years\n\n\nage: Age at exam time (in years)"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#data-heart_disease",
+    "href": "slides/24-logistic-intro.html#data-heart_disease",
+    "title": "Logistic regression",
+    "section": "Data: heart_disease",
+    "text": "Data: heart_disease\n\n\n# A tibble: 4,240 × 2\n     age high_risk\n   &lt;dbl&gt; &lt;fct&gt;    \n 1    39 0        \n 2    46 0        \n 3    48 0        \n 4    61 1        \n 5    46 0        \n 6    43 0        \n 7    63 1        \n 8    45 0        \n 9    52 0        \n10    43 0        \n# ℹ 4,230 more rows"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#high-risk-vs.-age",
+    "href": "slides/24-logistic-intro.html#high-risk-vs.-age",
+    "title": "Logistic regression",
+    "section": "High risk vs. age",
+    "text": "High risk vs. age\n\nggplot(heart_disease, aes(x = high_risk, y = age)) +\n  geom_boxplot(fill = \"steelblue\") +\n  labs(x = \"High risk - 1: yes, 0: no\",\n       y = \"Age\", \n       title = \"Age vs. High risk of heart disease\")"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#lets-fit-the-model",
+    "href": "slides/24-logistic-intro.html#lets-fit-the-model",
+    "title": "Logistic regression",
+    "section": "Let’s fit the model",
+    "text": "Let’s fit the model\n\nheart_disease_fit &lt;- logistic_reg() |&gt;\n  set_engine(\"glm\") |&gt;\n  fit(high_risk ~ age, data = heart_disease, family = \"binomial\")\n\ntidy(heart_disease_fit) |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5.561\n0.284\n-19.599\n0\n\n\nage\n0.075\n0.005\n14.178\n0"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#the-model",
+    "href": "slides/24-logistic-intro.html#the-model",
+    "title": "Logistic regression",
+    "section": "The model",
+    "text": "The model\n\ntidy(heart_disease_fit) |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5.561\n0.284\n-19.599\n0\n\n\nage\n0.075\n0.005\n14.178\n0\n\n\n\n\n\n\n\\[\\log\\Big(\\frac{\\hat{\\pi}}{1-\\hat{\\pi}}\\Big) = -5.561 + 0.075 \\times \\text{age}\\] where \\(\\hat{\\pi}\\) is the predicted probability of being high risk of having heart disease in the next 10 years"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#predicted-log-odds",
+    "href": "slides/24-logistic-intro.html#predicted-log-odds",
+    "title": "Logistic regression",
+    "section": "Predicted log odds",
+    "text": "Predicted log odds\n\naugment(heart_disease_fit$fit) |&gt; select(.fitted, .resid)\n\n# A tibble: 4,240 × 2\n   .fitted .resid\n     &lt;dbl&gt;  &lt;dbl&gt;\n 1  -2.65  -0.370\n 2  -2.13  -0.475\n 3  -1.98  -0.509\n 4  -1.01   1.62 \n 5  -2.13  -0.475\n 6  -2.35  -0.427\n 7  -0.858  1.56 \n 8  -2.20  -0.458\n 9  -1.68  -0.585\n10  -2.35  -0.427\n# ℹ 4,230 more rows\n\n\n. . .\nFor observation 1\n\\[\\text{predicted odds} = \\hat{\\omega} = \\frac{\\hat{\\pi}}{1-\\hat{\\pi}} = \\exp\\{-2.650\\} = 0.071\\]"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#predicted-probabilities",
+    "href": "slides/24-logistic-intro.html#predicted-probabilities",
+    "title": "Logistic regression",
+    "section": "Predicted probabilities",
+    "text": "Predicted probabilities\n\npredict(heart_disease_fit, new_data = heart_disease, type = \"prob\")\n\n# A tibble: 4,240 × 2\n   .pred_0 .pred_1\n     &lt;dbl&gt;   &lt;dbl&gt;\n 1   0.934  0.0660\n 2   0.894  0.106 \n 3   0.878  0.122 \n 4   0.733  0.267 \n 5   0.894  0.106 \n 6   0.913  0.0870\n 7   0.702  0.298 \n 8   0.900  0.0996\n 9   0.843  0.157 \n10   0.913  0.0870\n# ℹ 4,230 more rows\n\n\n. . .\nFor observation 1\n\\[\\text{predicted probability} = \\hat{\\pi} = \\frac{\\exp\\{-2.650\\}}{1 + \\exp\\{-2.650\\}} = 0.066\\]"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#predicted-classes",
+    "href": "slides/24-logistic-intro.html#predicted-classes",
+    "title": "Logistic regression",
+    "section": "Predicted classes",
+    "text": "Predicted classes\n\npredict(heart_disease_fit, new_data = heart_disease, type = \"class\")\n\n# A tibble: 4,240 × 1\n   .pred_class\n   &lt;fct&gt;      \n 1 0          \n 2 0          \n 3 0          \n 4 0          \n 5 0          \n 6 0          \n 7 0          \n 8 0          \n 9 0          \n10 0          \n# ℹ 4,230 more rows"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#default-prediction",
+    "href": "slides/24-logistic-intro.html#default-prediction",
+    "title": "Logistic regression",
+    "section": "Default prediction",
+    "text": "Default prediction\nFor a logistic regression, the default prediction is the class.\n\npredict(heart_disease_fit, new_data = heart_disease)\n\n# A tibble: 4,240 × 1\n   .pred_class\n   &lt;fct&gt;      \n 1 0          \n 2 0          \n 3 0          \n 4 0          \n 5 0          \n 6 0          \n 7 0          \n 8 0          \n 9 0          \n10 0          \n# ℹ 4,230 more rows"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#observed-vs.-predicted",
+    "href": "slides/24-logistic-intro.html#observed-vs.-predicted",
+    "title": "Logistic regression",
+    "section": "Observed vs. predicted",
+    "text": "Observed vs. predicted\n\nWhat does the following table show?\n\n\npredict(heart_disease_fit, new_data = heart_disease) |&gt;\n  bind_cols(heart_disease) |&gt;\n  count(high_risk, .pred_class)\n\n# A tibble: 2 × 3\n  high_risk .pred_class     n\n  &lt;fct&gt;     &lt;fct&gt;       &lt;int&gt;\n1 0         0            3596\n2 1         0             644\n\n\n. . .\n\nThe .pred_class is the class with the highest predicted probability. What is a limitation to using this method to determine the predicted class?"
+  },
+  {
+    "objectID": "slides/24-logistic-intro.html#recap",
+    "href": "slides/24-logistic-intro.html#recap",
+    "title": "Logistic regression",
+    "section": "Recap",
+    "text": "Recap\n\nIntroduced logistic regression for binary response variable\nDescribed relationship between odds and probabilities\nUsed logistic regression model to calculate predicted odds and probabilities"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html",
+    "href": "slides/16-logistic-intro-old.html",
+    "title": "Logistic regression",
+    "section": "",
+    "text": "HW 03 due Wed, Nov 1 at 11:59pm\nSee Ed Discussion for\n\nCode to reformat Theme variable in HW 03 data set\nExplanation on interpreting models with quadratic terms"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#announcements",
+    "href": "slides/16-logistic-intro-old.html#announcements",
+    "title": "Logistic regression",
+    "section": "",
+    "text": "HW 03 due Wed, Nov 1 at 11:59pm\nSee Ed Discussion for\n\nCode to reformat Theme variable in HW 03 data set\nExplanation on interpreting models with quadratic terms"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#spring-2024-statistics-courses",
+    "href": "slides/16-logistic-intro-old.html#spring-2024-statistics-courses",
+    "title": "Logistic regression",
+    "section": "Spring 2024 statistics courses",
+    "text": "Spring 2024 statistics courses\n\nSTA 211: Mathematics of Regression\n\nPrereqs: MATH 216/218/221, STA 210\n\nSTA 230 or STA 240: Probability\n\nPrereqs: MATH 22/112/122/202/212/219/222\n\nSTA 310: Generalized Linear Models\n\nPrereqs: STA 210 and STA 230/240\n\nSTA 313: Advanced Data Visualization\n\nPrereqs: STA 198 or STA 199 or STA 210\n\nSTA 323: Statistical Computing\n\nPrereqs: STA 210 and STA 230/240\n\nSTA 360: Bayesian Inference and Modern Statistical Methods\n\nPrereqs: STA 210 and STA 230/240 and MATH 202/212/219/222 and CS 101/102/201 and MATH 216/218/221, 211 (co-req)"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#interpreting-models-with-log-transformed-variables",
+    "href": "slides/16-logistic-intro-old.html#interpreting-models-with-log-transformed-variables",
+    "title": "Logistic regression",
+    "section": "Interpreting models with log-transformed variables",
+    "text": "Interpreting models with log-transformed variables\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n4.738\n0.219\n21.667\n0.000\n\n\nhightemp\n0.018\n0.003\n5.452\n0.000\n\n\nseasonSpring\n0.026\n0.094\n0.283\n0.778\n\n\nseasonSummer\n-0.047\n0.139\n-0.338\n0.736\n\n\ncloudcover\n-0.025\n0.010\n-2.452\n0.016\n\n\nprecip\n-0.294\n0.123\n-2.397\n0.019\n\n\nday_typeWeekend\n0.064\n0.065\n0.987\n0.327\n\n\n\n\n\n\n\nInterpret the intercept in terms of (1) log(volume) and (2) volume.\nInterpret the coefficient of hightemp in terms of (1) log(volume) and (2) volume."
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#topics",
+    "href": "slides/16-logistic-intro-old.html#topics",
+    "title": "Logistic regression",
+    "section": "Topics",
+    "text": "Topics\n\nLogistic regression for binary response variable\nRelationship between odds and probabilities\nUse logistic regression model to calculate predicted odds and probabilities"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#computational-setup",
+    "href": "slides/16-logistic-intro-old.html#computational-setup",
+    "title": "Logistic regression",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)\nlibrary(Stat2Data) #contains data set\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#types-of-outcome-variables",
+    "href": "slides/16-logistic-intro-old.html#types-of-outcome-variables",
+    "title": "Logistic regression",
+    "section": "Types of outcome variables",
+    "text": "Types of outcome variables\nQuantitative outcome variable:\n\nSales price of a house in Duke Forest\nModel: Expected sales price given the number of bedrooms, lot size, etc.\n\n. . .\nCategorical outcome variable:\n\nIndicator of being high risk of getting coronary heart disease in the next 10 years\nModel: Probability an adult is high risk of heart disease in the next 10 years given their age, total cholesterol, etc."
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#models-for-categorical-outcomes",
+    "href": "slides/16-logistic-intro-old.html#models-for-categorical-outcomes",
+    "title": "Logistic regression",
+    "section": "Models for categorical outcomes",
+    "text": "Models for categorical outcomes\n\n\nLogistic regression\n2 Outcomes\n1: Yes, 0: No\n\nMultinomial logistic regression\n3+ Outcomes\n1: Democrat, 2: Republican, 3: Independent"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#election-forecasts",
+    "href": "slides/16-logistic-intro-old.html#election-forecasts",
+    "title": "Logistic regression",
+    "section": "2022 election forecasts",
+    "text": "2022 election forecasts\n\n\n\n\n\nSource: FiveThirtyEight 2022 Election Forecasts"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#nba-finals-predictions",
+    "href": "slides/16-logistic-intro-old.html#nba-finals-predictions",
+    "title": "Logistic regression",
+    "section": "2020 NBA finals predictions",
+    "text": "2020 NBA finals predictions\n\n\n\n\n\nSource: FiveThirtyEight 2019-20 NBA Predictions"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#do-teenagers-get-7-hours-of-sleep",
+    "href": "slides/16-logistic-intro-old.html#do-teenagers-get-7-hours-of-sleep",
+    "title": "Logistic regression",
+    "section": "Do teenagers get 7+ hours of sleep?",
+    "text": "Do teenagers get 7+ hours of sleep?\n\n\nStudents in grades 9 - 12 surveyed about health risk behaviors including whether they usually get 7 or more hours of sleep.\nSleep7\n1: yes\n0: no\n\n\ndata(YouthRisk2009) #from Stat2Data package\nsleep &lt;- YouthRisk2009 |&gt;\n  as_tibble() |&gt;\n  filter(!is.na(Age), !is.na(Sleep7))\nsleep |&gt;\n  relocate(Age, Sleep7)\n\n# A tibble: 446 × 6\n     Age Sleep7 Sleep           SmokeLife SmokeDaily MarijuaEver\n   &lt;int&gt;  &lt;int&gt; &lt;fct&gt;           &lt;fct&gt;     &lt;fct&gt;            &lt;int&gt;\n 1    16      1 8 hours         Yes       Yes                  1\n 2    17      0 5 hours         Yes       Yes                  1\n 3    18      0 5 hours         Yes       Yes                  1\n 4    17      1 7 hours         Yes       No                   1\n 5    15      0 4 or less hours No        No                   0\n 6    17      0 6 hours         No        No                   0\n 7    17      1 7 hours         No        No                   0\n 8    16      1 8 hours         Yes       No                   0\n 9    16      1 8 hours         No        No                   0\n10    18      0 4 or less hours Yes       Yes                  1\n# ℹ 436 more rows"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#plot-the-data",
+    "href": "slides/16-logistic-intro-old.html#plot-the-data",
+    "title": "Logistic regression",
+    "section": "Plot the data",
+    "text": "Plot the data\n\nggplot(sleep, aes(x = Age, y = Sleep7)) +\n  geom_point() + \n  labs(y = \"Getting 7+ hours of sleep\")"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#lets-fit-a-linear-regression-model",
+    "href": "slides/16-logistic-intro-old.html#lets-fit-a-linear-regression-model",
+    "title": "Logistic regression",
+    "section": "Let’s fit a linear regression model",
+    "text": "Let’s fit a linear regression model\nOutcome: \\(Y\\) = 1: yes, 0: no"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#lets-use-proportions",
+    "href": "slides/16-logistic-intro-old.html#lets-use-proportions",
+    "title": "Logistic regression",
+    "section": "Let’s use proportions",
+    "text": "Let’s use proportions\nOutcome: Probability of getting 7+ hours of sleep"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#what-happens-if-we-zoom-out",
+    "href": "slides/16-logistic-intro-old.html#what-happens-if-we-zoom-out",
+    "title": "Logistic regression",
+    "section": "What happens if we zoom out?",
+    "text": "What happens if we zoom out?\nOutcome: Probability of getting 7+ hours of sleep\n\n\n\n\n\n\n\n\n\n🛑 This model produces predictions outside of 0 and 1."
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#lets-try-another-model",
+    "href": "slides/16-logistic-intro-old.html#lets-try-another-model",
+    "title": "Logistic regression",
+    "section": "Let’s try another model",
+    "text": "Let’s try another model\n\n\n\n\n\n\n\n\n\n✅ This model (called a logistic regression model) only produces predictions between 0 and 1."
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#the-code",
+    "href": "slides/16-logistic-intro-old.html#the-code",
+    "title": "Logistic regression",
+    "section": "The code",
+    "text": "The code\n\nggplot(sleep_age, aes(x = Age, y = prop)) +\n  geom_point() + \n  geom_hline(yintercept = c(0,1), lty = 2) + \n  stat_smooth(method =\"glm\", method.args = list(family = \"binomial\"), \n              fullrange = TRUE, se = FALSE) +\n  labs(y = \"P(7+ hours of sleep)\") +\n  xlim(1, 40) +\n  ylim(-0.5, 1.5)"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#different-types-of-models",
+    "href": "slides/16-logistic-intro-old.html#different-types-of-models",
+    "title": "Logistic regression",
+    "section": "Different types of models",
+    "text": "Different types of models\n\n\n\n\n\n\n\n\nMethod\nOutcome\nModel\n\n\n\n\nLinear regression\nQuantitative\n\\(Y = \\beta_0 + \\beta_1~ X\\)\n\n\nLinear regression (transform Y)\nQuantitative\n\\(\\log(Y) = \\beta_0 + \\beta_1~ X\\)\n\n\nLogistic regression\nBinary\n\\(\\log\\big(\\frac{\\pi}{1-\\pi}\\big) = \\beta_0 + \\beta_1 ~ X\\)"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#linear-vs.-logistic-regression",
+    "href": "slides/16-logistic-intro-old.html#linear-vs.-logistic-regression",
+    "title": "Logistic regression",
+    "section": "Linear vs. logistic regression",
+    "text": "Linear vs. logistic regression\n\nState whether a linear regression model or logistic regression model is more appropriate for each scenario.\n\nUse age and education to predict if a randomly selected person will vote in the next election.\nUse budget and run time (in minutes) to predict a movie’s total revenue.\nUse age and sex to calculate the probability a randomly selected adult will visit Duke Health in the next year.\n\nSubmit your responses on Ed Discussion [10:05am][1:25pm]"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#binary-response-variable",
+    "href": "slides/16-logistic-intro-old.html#binary-response-variable",
+    "title": "Logistic regression",
+    "section": "Binary response variable",
+    "text": "Binary response variable\n\n\n\\(Y = 1: \\text{ yes}, 0: \\text{ no}\\)\n\\(\\pi\\): probability that \\(Y=1\\), i.e., \\(P(Y = 1)\\)\n\\(\\frac{\\pi}{1-\\pi}\\): odds that \\(Y = 1\\)\n\\(\\log\\big(\\frac{\\pi}{1-\\pi}\\big)\\): log odds\nGo from \\(\\pi\\) to \\(\\log\\big(\\frac{\\pi}{1-\\pi}\\big)\\) using the logit transformation"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#odds",
+    "href": "slides/16-logistic-intro-old.html#odds",
+    "title": "Logistic regression",
+    "section": "Odds",
+    "text": "Odds\n\nSuppose there is a 70% chance it will rain tomorrow\n\nProbability it will rain is \\(\\mathbf{p = 0.7}\\)\nProbability it won’t rain is \\(\\mathbf{1 - p = 0.3}\\)\nOdds it will rain are 7 to 3, 7:3, \\(\\mathbf{\\frac{0.7}{0.3} \\approx 2.33}\\)"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#are-teenagers-getting-enough-sleep",
+    "href": "slides/16-logistic-intro-old.html#are-teenagers-getting-enough-sleep",
+    "title": "Logistic regression",
+    "section": "Are teenagers getting enough sleep?",
+    "text": "Are teenagers getting enough sleep?\n\nsleep |&gt;\n  count(Sleep7) |&gt;\n  mutate(p = round(n / sum(n), 3))\n\n# A tibble: 2 × 3\n  Sleep7     n     p\n   &lt;int&gt; &lt;int&gt; &lt;dbl&gt;\n1      0   150 0.336\n2      1   296 0.664\n\n\n. . .\n\\(P(\\text{7+ hours of sleep}) = P(Y = 1) = p = 0.664\\)\n. . .\n\\(P(\\text{&lt; 7 hours of sleep}) = P(Y = 0) = 1 - p = 0.336\\)\n. . .\n\\(P(\\text{odds of 7+ hours of sleep}) = \\frac{0.664}{0.336} = 1.976\\)"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#from-odds-to-probabilities",
+    "href": "slides/16-logistic-intro-old.html#from-odds-to-probabilities",
+    "title": "Logistic regression",
+    "section": "From odds to probabilities",
+    "text": "From odds to probabilities\n\n\nodds\n\\[\\omega = \\frac{\\pi}{1-\\pi}\\]\n\nprobability\n\\[\\pi = \\frac{\\omega}{1 + \\omega}\\]"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#from-odds-to-probabilities-1",
+    "href": "slides/16-logistic-intro-old.html#from-odds-to-probabilities-1",
+    "title": "Logistic regression",
+    "section": "From odds to probabilities",
+    "text": "From odds to probabilities\n\nLogistic model: log odds = \\(\\log\\big(\\frac{\\pi}{1-\\pi}\\big) = \\beta_0 + \\beta_1~X\\)\nOdds = \\(\\exp\\big\\{\\log\\big(\\frac{\\pi}{1-\\pi}\\big)\\big\\} = \\frac{\\pi}{1-\\pi}\\)\nCombining (1) and (2) with what we saw earlier\n\n. . .\n\\[\\text{probability} = \\pi = \\frac{\\exp\\{\\beta_0 + \\beta_1~X\\}}{1 + \\exp\\{\\beta_0 + \\beta_1~X\\}}\\]"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#logistic-regression-model",
+    "href": "slides/16-logistic-intro-old.html#logistic-regression-model",
+    "title": "Logistic regression",
+    "section": "Logistic regression model",
+    "text": "Logistic regression model\nLogit form: \\[\\log\\big(\\frac{\\pi}{1-\\pi}\\big) = \\beta_0 + \\beta_1~X\\]\n. . .\nProbability form:\n\\[\n\\pi = \\frac{\\exp\\{\\beta_0 + \\beta_1~X\\}}{1 + \\exp\\{\\beta_0 + \\beta_1~X\\}}\n\\]"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#risk-of-coronary-heart-disease",
+    "href": "slides/16-logistic-intro-old.html#risk-of-coronary-heart-disease",
+    "title": "Logistic regression",
+    "section": "Risk of coronary heart disease",
+    "text": "Risk of coronary heart disease\nThis dataset is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use age to predict if a randomly selected adult is high risk of having coronary heart disease in the next 10 years.\n\nhigh_risk:\n\n\n1: High risk of having heart disease in next 10 years\n0: Not high risk of having heart disease in next 10 years\n\n\nage: Age at exam time (in years)"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#data-heart_disease",
+    "href": "slides/16-logistic-intro-old.html#data-heart_disease",
+    "title": "Logistic regression",
+    "section": "Data: heart_disease",
+    "text": "Data: heart_disease\n\n\n# A tibble: 4,240 × 2\n     age high_risk\n   &lt;dbl&gt; &lt;fct&gt;    \n 1    39 0        \n 2    46 0        \n 3    48 0        \n 4    61 1        \n 5    46 0        \n 6    43 0        \n 7    63 1        \n 8    45 0        \n 9    52 0        \n10    43 0        \n# ℹ 4,230 more rows"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#high-risk-vs.-age",
+    "href": "slides/16-logistic-intro-old.html#high-risk-vs.-age",
+    "title": "Logistic regression",
+    "section": "High risk vs. age",
+    "text": "High risk vs. age\n\nggplot(heart_disease, aes(x = high_risk, y = age)) +\n  geom_boxplot(fill = \"steelblue\") +\n  labs(x = \"High risk - 1: yes, 0: no\",\n       y = \"Age\", \n       title = \"Age vs. High risk of heart disease\")"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#lets-fit-the-model",
+    "href": "slides/16-logistic-intro-old.html#lets-fit-the-model",
+    "title": "Logistic regression",
+    "section": "Let’s fit the model",
+    "text": "Let’s fit the model\n\nheart_disease_fit &lt;- logistic_reg() |&gt;\n  set_engine(\"glm\") |&gt;\n  fit(high_risk ~ age, data = heart_disease, family = \"binomial\")\n\ntidy(heart_disease_fit) |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5.561\n0.284\n-19.599\n0\n\n\nage\n0.075\n0.005\n14.178\n0"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#the-model",
+    "href": "slides/16-logistic-intro-old.html#the-model",
+    "title": "Logistic regression",
+    "section": "The model",
+    "text": "The model\n\ntidy(heart_disease_fit) |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5.561\n0.284\n-19.599\n0\n\n\nage\n0.075\n0.005\n14.178\n0\n\n\n\n\n\n\n\\[\\log\\Big(\\frac{\\hat{\\pi}}{1-\\hat{\\pi}}\\Big) = -5.561 + 0.075 \\times \\text{age}\\] where \\(\\hat{\\pi}\\) is the predicted probability of being high risk of having heart disease in the next 10 years"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#predicted-log-odds",
+    "href": "slides/16-logistic-intro-old.html#predicted-log-odds",
+    "title": "Logistic regression",
+    "section": "Predicted log odds",
+    "text": "Predicted log odds\n\naugment(heart_disease_fit$fit) |&gt; select(.fitted, .resid)\n\n# A tibble: 4,240 × 2\n   .fitted .resid\n     &lt;dbl&gt;  &lt;dbl&gt;\n 1  -2.65  -0.370\n 2  -2.13  -0.475\n 3  -1.98  -0.509\n 4  -1.01   1.62 \n 5  -2.13  -0.475\n 6  -2.35  -0.427\n 7  -0.858  1.56 \n 8  -2.20  -0.458\n 9  -1.68  -0.585\n10  -2.35  -0.427\n# ℹ 4,230 more rows\n\n\n. . .\nFor observation 1\n\\[\\text{predicted odds} = \\hat{\\omega} = \\frac{\\hat{\\pi}}{1-\\hat{\\pi}} = \\exp\\{-2.650\\} = 0.071\\]"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#predicted-probabilities",
+    "href": "slides/16-logistic-intro-old.html#predicted-probabilities",
+    "title": "Logistic regression",
+    "section": "Predicted probabilities",
+    "text": "Predicted probabilities\n\npredict(heart_disease_fit, new_data = heart_disease, type = \"prob\")\n\n# A tibble: 4,240 × 2\n   .pred_0 .pred_1\n     &lt;dbl&gt;   &lt;dbl&gt;\n 1   0.934  0.0660\n 2   0.894  0.106 \n 3   0.878  0.122 \n 4   0.733  0.267 \n 5   0.894  0.106 \n 6   0.913  0.0870\n 7   0.702  0.298 \n 8   0.900  0.0996\n 9   0.843  0.157 \n10   0.913  0.0870\n# ℹ 4,230 more rows\n\n\n. . .\nFor observation 1\n\\[\\text{predicted probability} = \\hat{\\pi} = \\frac{\\exp\\{-2.650\\}}{1 + \\exp\\{-2.650\\}} = 0.066\\]"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#predicted-classes",
+    "href": "slides/16-logistic-intro-old.html#predicted-classes",
+    "title": "Logistic regression",
+    "section": "Predicted classes",
+    "text": "Predicted classes\n\npredict(heart_disease_fit, new_data = heart_disease, type = \"class\")\n\n# A tibble: 4,240 × 1\n   .pred_class\n   &lt;fct&gt;      \n 1 0          \n 2 0          \n 3 0          \n 4 0          \n 5 0          \n 6 0          \n 7 0          \n 8 0          \n 9 0          \n10 0          \n# ℹ 4,230 more rows"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#default-prediction",
+    "href": "slides/16-logistic-intro-old.html#default-prediction",
+    "title": "Logistic regression",
+    "section": "Default prediction",
+    "text": "Default prediction\nFor a logistic regression, the default prediction is the class.\n\npredict(heart_disease_fit, new_data = heart_disease)\n\n# A tibble: 4,240 × 1\n   .pred_class\n   &lt;fct&gt;      \n 1 0          \n 2 0          \n 3 0          \n 4 0          \n 5 0          \n 6 0          \n 7 0          \n 8 0          \n 9 0          \n10 0          \n# ℹ 4,230 more rows"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#observed-vs.-predicted",
+    "href": "slides/16-logistic-intro-old.html#observed-vs.-predicted",
+    "title": "Logistic regression",
+    "section": "Observed vs. predicted",
+    "text": "Observed vs. predicted\n\nWhat does the following table show?\n\n\npredict(heart_disease_fit, new_data = heart_disease) |&gt;\n  bind_cols(heart_disease) |&gt;\n  count(high_risk, .pred_class)\n\n# A tibble: 2 × 3\n  high_risk .pred_class     n\n  &lt;fct&gt;     &lt;fct&gt;       &lt;int&gt;\n1 0         0            3596\n2 1         0             644\n\n\n. . .\n\nThe .pred_class is the class with the highest predicted probability. What is a limitation to using this method to determine the predicted class?"
+  },
+  {
+    "objectID": "slides/16-logistic-intro-old.html#recap",
+    "href": "slides/16-logistic-intro-old.html#recap",
+    "title": "Logistic regression",
+    "section": "Recap",
+    "text": "Recap\n\nIntroduced logistic regression for binary response variable\nDescribed relationship between odds and probabilities\nUsed logistic regression model to calculate predicted odds and probabilities"
   }
 ]
