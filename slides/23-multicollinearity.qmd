@@ -66,24 +66,6 @@ knitr::opts_chunk$set(
 ```{r}
 #| echo: true
 
-# load packages
-library(tidyverse)
-library(tidymodels)
-library(patchwork)
-library(knitr)
-library(kableExtra)
-library(countdown)
-library(rms)
-
-# set default theme and larger font size for ggplot2
-ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
-```
-
-## Computational setup
-
-```{r}
-#| echo: true
-
 
 # load packages
 library(tidyverse)

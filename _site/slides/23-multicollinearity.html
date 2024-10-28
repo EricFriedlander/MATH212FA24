@@ -440,34 +440,18 @@ Prof.&nbsp;Eric Friedlander
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load packages</span></span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-4"><a></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb1-5"><a></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-6"><a></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb1-7"><a></a><span class="fu">library</span>(countdown)</span>
-<span id="cb1-8"><a></a><span class="fu">library</span>(rms)</span>
-<span id="cb1-9"><a></a></span>
-<span id="cb1-10"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
-<span id="cb1-11"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="computational-setup-1" class="slide level2">
-<h2>Computational setup</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># load packages</span></span>
-<span id="cb2-2"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-3"><a></a><span class="fu">library</span>(broom)</span>
-<span id="cb2-4"><a></a><span class="fu">library</span>(mosaic)</span>
-<span id="cb2-5"><a></a><span class="fu">library</span>(mosaicData)</span>
-<span id="cb2-6"><a></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb2-7"><a></a><span class="fu">library</span>(knitr)</span>
-<span id="cb2-8"><a></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb2-9"><a></a><span class="fu">library</span>(scales)</span>
-<span id="cb2-10"><a></a><span class="fu">library</span>(countdown)</span>
-<span id="cb2-11"><a></a><span class="fu">library</span>(rms)</span>
-<span id="cb2-12"><a></a></span>
-<span id="cb2-13"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
-<span id="cb2-14"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-4"><a></a><span class="fu">library</span>(mosaic)</span>
+<span id="cb1-5"><a></a><span class="fu">library</span>(mosaicData)</span>
+<span id="cb1-6"><a></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-7"><a></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-8"><a></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-9"><a></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-10"><a></a><span class="fu">library</span>(countdown)</span>
+<span id="cb1-11"><a></a><span class="fu">library</span>(rms)</span>
+<span id="cb1-12"><a></a></span>
+<span id="cb1-13"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
+<span id="cb1-14"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-rail_trail" class="slide level2 smaller">
@@ -666,7 +650,7 @@ Prof.&nbsp;Eric Friedlander
 <p>Complete Exercise 5.</p>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">vif</span>(rt_full_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">vif</span>(rt_full_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       hightemp         avgtemp    seasonSpring    seasonSummer      cloudcover 
       10.259978       13.086175        2.751577        5.841985        1.587485 
