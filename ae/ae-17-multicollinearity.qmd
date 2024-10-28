@@ -42,11 +42,11 @@ Fit a linear model to predict `volume` from ALL of the other predictors. The res
 
 ## Exercise 1
 
-Create a new data frame called `rail_trail_new` with two new columns, `hightemp_c` and `avgtemp_c`. These two new columns should store the `hightemp` and `avgtemp` measured in celcius rather than farenheit. Note that the formula to convert between farenheit and celcius is $C = (F-32)\times \frac{5}{9}$. Make sure `hightemp` and `avgtemp` are still in your data set.
+Create a new data frame called `rail_trail_new` with two new columns, `hightemp_c` and `avgtemp_c`. These two new columns should store the `hightemp` and `avgtemp` measured in Celsius rather than Fahrenheit. Note that the formula to convert between Fahrenheit and Celsius is $C = (F-32)\times \frac{5}{9}$. Make sure `hightemp` and `avgtemp` are still in your data set.
 
 ## Exercise 2
 
-Try to refit the full model on your data. Do you notice anything odd about yoru coefficients? If so, what do you think is happening?
+Try to refit the full model on your data. Do you notice anything odd about your coefficients? If so, what do you think is happening?
 
 ## Exercise 3
 
@@ -75,7 +75,7 @@ Based on the output from the previous exercise, do you have reason to believe th
 
 ## Exercise 5
 
-Pipe full model you fit in Exercise 0 into the function `vif`. Are any of the vif's concerning? If so, which ones.
+Pipe the model you fit in Exercise 0 (i.e. not including the variable measured in Celcius) into the function `vif`. Are any of the vif's concerning? If so, which ones.
 
 ## Exercise 6
 
@@ -83,6 +83,7 @@ Fit two models:
 
 -   `m1`: use all predictors except for `avgtemp`
 -   `m2`: use all predictors except for `hightemp`
+-   `m3`: average `avgtemp` and `hightemp` together and use it instead of either `avgtemp` and `hightemp`
 
 ## Exercise 7
 

@@ -522,7 +522,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/hw/forStudents/hw-04/hw-04.html</loc>
-    <lastmod>2024-10-28T20:57:41.444Z</lastmod>
+    <lastmod>2024-10-28T21:55:53.953Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-10-mlr.html</loc>
@@ -658,11 +658,11 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-17-multicollinearity.html</loc>
-    <lastmod>2024-10-28T20:57:17.815Z</lastmod>
+    <lastmod>2024-10-28T21:52:38.911Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/23-multicollinearity.html</loc>
-    <lastmod>2024-10-28T20:53:11.626Z</lastmod>
+    <lastmod>2024-10-28T21:54:43.242Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/24-logistic-intro.html</loc>
@@ -671,5 +671,9 @@
   <url>
     <loc>https://mat212fa24.netlify.app/slides/16-logistic-intro-old.html</loc>
     <lastmod>2024-06-07T20:17:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/23-multicollinearity.knit.html</loc>
+    <lastmod>2024-10-28T21:54:56.782Z</lastmod>
   </url>
 </urlset>

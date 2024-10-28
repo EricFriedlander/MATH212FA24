@@ -613,7 +613,6 @@ Prof.&nbsp;Eric Friedlander
 <li><p>There are very high correlations <span class="math inline">\((r &gt; 0.9)\)</span> among two or more predictor variables, especially when the sample size is small</p></li>
 <li><p>One (or more) predictor variables is an almost perfect linear combination of the others</p></li>
 <li><p>There are interactions between two or more continuous variables</p></li>
-<li><p>There is a categorical predictor with very few observations in the baseline level</p></li>
 </ul>
 </section>
 <section id="detecting-multicollinearity-in-the-eda" class="slide level2">
@@ -623,11 +622,10 @@ Prof.&nbsp;Eric Friedlander
 <ul>
 <li>Look out for values close to 1 or -1</li>
 </ul></li>
-<li>Look at a scatterplot matrix of the predictor variables
+<li>Look at a scatter plot matrix of the predictor variables
 <ul>
 <li>Look out for plots that show a relatively linear relationship</li>
 </ul></li>
-<li>Look at the distribution of categorical predictors and avoid setting the baseline to a category with very few observations</li>
 <li>Complete Exercises 3-4.</li>
 </ul>
 </section>
@@ -635,7 +633,7 @@ Prof.&nbsp;Eric Friedlander
 <h2>Detecting Multicollinearity (VIF)</h2>
 <p><strong>Variance Inflation Factor (VIF)</strong>: Measure of multicollinearity in the regression model</p>
 <p><span class="math display">\[VIF(\hat{\beta}_j) = \frac{1}{1-R^2_{X_j|X_{-j}}}\]</span></p>
-<p>where <span class="math inline">\(R^2_{X_j|X_{-j}}\)</span> is the proportion of variation <span class="math inline">\(X\)</span> that is explained by the linear combination of the other explanatory variables in the model.</p>
+<p>where <span class="math inline">\(R^2_{X_j|X_{-j}}\)</span> is the proportion of variation in <span class="math inline">\(X_j\)</span> that is explained by the linear combination of the other explanatory variables in the model.</p>
 </section>
 <section id="detecting-multicollinearity-vif-1" class="slide level2">
 <h2>Detecting Multicollinearity (VIF)</h2>
@@ -661,8 +659,25 @@ Prof.&nbsp;Eric Friedlander
 <p><br></p>
 </div>
 <div class="fragment">
-<p><code>hightemp</code> and <code>avgtemp</code> are correlated. We need to remove <u><strong>one</strong></u> of these variables and refit the model.</p>
+<p><code>hightemp</code> and <code>avgtemp</code> are correlated.</p>
 </div>
+</section>
+<section id="what-to-do-about-multicollinearity" class="slide level2">
+<h2>What to do about Multicollinearity</h2>
+<ol type="1">
+<li>Drop some predictors.
+<ul>
+<li>Example: Remove <u><strong>one</strong></u> of these variables and refit the model.</li>
+</ul></li>
+<li>Combine some predictors.
+<ul>
+<li>Example: Create a new variable <code>temp_comsite</code> that is the average of <code>avgtemp</code> and <code>hightemp</code>.</li>
+</ul></li>
+<li>Discount the individual coefficients and t-tests.
+<ul>
+<li>Example: Think about <code>avgtemp</code> and <code>hightemp</code> together with their individual <span class="math inline">\(\beta\)</span>’s and p-values not having much meaning.</li>
+</ul></li>
+</ol>
 <div class="fragment">
 <p>Complete Exercises 6 &amp; 7.</p>
 </div>
@@ -805,9 +820,78 @@ Prof.&nbsp;Eric Friedlander
 </div>
 </div>
 </section>
+<section id="model-without-temp_composite" class="slide level2 smaller">
+<h2>Model without <code>temp_composite</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">18.823</td>
+<td style="text-align: right;">77.430</td>
+<td style="text-align: right;">0.243</td>
+<td style="text-align: right;">0.809</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">seasonSpring</td>
+<td style="text-align: right;">28.458</td>
+<td style="text-align: right;">33.059</td>
+<td style="text-align: right;">0.861</td>
+<td style="text-align: right;">0.392</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">seasonSummer</td>
+<td style="text-align: right;">-0.986</td>
+<td style="text-align: right;">51.234</td>
+<td style="text-align: right;">-0.019</td>
+<td style="text-align: right;">0.985</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cloudcover</td>
+<td style="text-align: right;">-10.367</td>
+<td style="text-align: right;">3.409</td>
+<td style="text-align: right;">-3.041</td>
+<td style="text-align: right;">0.003</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">precip</td>
+<td style="text-align: right;">-104.475</td>
+<td style="text-align: right;">42.725</td>
+<td style="text-align: right;">-2.445</td>
+<td style="text-align: right;">0.017</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">day_typeWeekend</td>
+<td style="text-align: right;">40.914</td>
+<td style="text-align: right;">22.479</td>
+<td style="text-align: right;">1.820</td>
+<td style="text-align: right;">0.072</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">temp_composite</td>
+<td style="text-align: right;">6.292</td>
+<td style="text-align: right;">1.376</td>
+<td style="text-align: right;">4.571</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
 <section id="choosing-a-model" class="slide level2 midi">
 <h2>Choosing a model</h2>
-<p>Model without <strong>hightemp</strong>:</p>
+<p>Model without <code>hightemp</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="caption-top">
@@ -828,7 +912,7 @@ Prof.&nbsp;Eric Friedlander
 </table>
 </div>
 </div>
-<p>Model without <strong>avgtemp</strong>:</p>
+<p>Model without <code>avgtemp</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="caption-top">
@@ -844,6 +928,27 @@ Prof.&nbsp;Eric Friedlander
 <td style="text-align: right;">0.47</td>
 <td style="text-align: right;">1079.05</td>
 <td style="text-align: right;">1099.05</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Model with <code>temp_composite</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">adj.r.squared</th>
+<th style="text-align: right;">AIC</th>
+<th style="text-align: right;">BIC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.46</td>
+<td style="text-align: right;">1081.67</td>
+<td style="text-align: right;">1101.67</td>
 </tr>
 </tbody>
 </table>

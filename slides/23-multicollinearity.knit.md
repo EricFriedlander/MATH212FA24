@@ -27,15 +27,8 @@ knitr:
 bibliography: references.bib
 ---
 
-```{r}
-#| include: false
 
-# figure options
-knitr::opts_chunk$set(
-  fig.width = 10, fig.asp = 0.618,
-  fig.retina = 3, dpi = 300, fig.align = "center"
-)
-```
+
 
 ## First things first
 
@@ -63,10 +56,10 @@ knitr::opts_chunk$set(
 
 ## Computational setup
 
-```{r}
-#| echo: true
 
+::: {.cell layout-align="center"}
 
+```{.r .cell-code}
 # load packages
 library(tidyverse)
 library(broom)
@@ -82,6 +75,8 @@ library(rms)
 # set default theme and larger font size for ggplot2
 ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
 ```
+:::
+
 
 
 ## Data: `rail_trail` {.smaller}
@@ -91,24 +86,57 @@ ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
 -   Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.
 :::
 
-```{r}
-#| echo: false
-rail_trail <- read_csv("data/rail_trail.csv")
-rail_trail
+
+::: {.cell layout-align="center"}
+::: {.cell-output .cell-output-stdout}
+
 ```
+# A tibble: 90 × 7
+   volume hightemp avgtemp season cloudcover precip day_type
+    <dbl>    <dbl>   <dbl> <chr>       <dbl>  <dbl> <chr>   
+ 1    501       83    66.5 Summer       7.60 0      Weekday 
+ 2    419       73    61   Summer       6.30 0.290  Weekday 
+ 3    397       74    63   Spring       7.5  0.320  Weekday 
+ 4    385       95    78   Summer       2.60 0      Weekend 
+ 5    200       44    48   Spring      10    0.140  Weekday 
+ 6    375       69    61.5 Spring       6.60 0.0200 Weekday 
+ 7    417       66    52.5 Spring       2.40 0      Weekday 
+ 8    629       66    52   Spring       0    0      Weekend 
+ 9    533       80    67.5 Summer       3.80 0      Weekend 
+10    547       79    62   Summer       4.10 0      Weekday 
+# ℹ 80 more rows
+```
+
+
+:::
+:::
+
 
 
 Source: [Pioneer Valley Planning Commission](http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf) via the **mosaicData** package.
 
 ## Full model
 
-```{r}
-#| echo: FALSE
-rt_full_fit <- lm(volume ~ ., data = rail_trail)
-tidy(rt_full_fit) |> kable()
 
-rt_full_aug <- augment(rt_full_fit)
-```
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+
+
+|term            |   estimate| std.error|  statistic|   p.value|
+|:---------------|----------:|---------:|----------:|---------:|
+|(Intercept)     |  17.622161| 76.582860|  0.2301058| 0.8185826|
+|hightemp        |   7.070528|  2.420523|  2.9210743| 0.0045045|
+|avgtemp         |  -2.036685|  3.142113| -0.6481896| 0.5186733|
+|seasonSpring    |  35.914983| 32.992762|  1.0885716| 0.2795319|
+|seasonSummer    |  24.153571| 52.810486|  0.4573632| 0.6486195|
+|cloudcover      |  -7.251776|  3.843071| -1.8869743| 0.0627025|
+|precip          | -95.696525| 42.573359| -2.2478030| 0.0272735|
+|day_typeWeekend |  35.903750| 22.429056|  1.6007696| 0.1132738|
+
+
+:::
+:::
+
 
 # Multicollinearity
 
@@ -201,9 +229,26 @@ Complete Exercise 5.
 
 . . .
 
-```{r echo = T}
+
+::: {.cell layout-align="center"}
+
+```{.r .cell-code}
 vif(rt_full_fit)
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+       hightemp         avgtemp    seasonSpring    seasonSummer      cloudcover 
+      10.259978       13.086175        2.751577        5.841985        1.587485 
+         precip day_typeWeekend 
+       1.295352        1.125741 
+```
+
+
+:::
+:::
+
 
 <br>
 
@@ -226,69 +271,119 @@ Complete Exercises 6 & 7.
 
 ## Model without `hightemp` {.smaller}
 
-```{r}
-#| echo: FALSE
-m1 <- lm(volume ~ . - hightemp, data = rail_trail)
-  
-m1 |>
-  tidy() |>
-  kable(digits = 3)
-```
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+
+
+|term            | estimate| std.error| statistic| p.value|
+|:---------------|--------:|---------:|---------:|-------:|
+|(Intercept)     |   76.071|    77.204|     0.985|   0.327|
+|avgtemp         |    6.003|     1.583|     3.792|   0.000|
+|seasonSpring    |   34.555|    34.454|     1.003|   0.319|
+|seasonSummer    |   13.531|    55.024|     0.246|   0.806|
+|cloudcover      |  -12.807|     3.488|    -3.672|   0.000|
+|precip          | -110.736|    44.137|    -2.509|   0.014|
+|day_typeWeekend |   48.420|    22.993|     2.106|   0.038|
+
+
+:::
+:::
+
 
 ## Model without `avgtemp` {.smaller}
 
-```{r}
-#| echo: FALSE
-m2 <- lm(volume ~ . - avgtemp, data = rail_trail)
-  
-m2 |>
-  tidy() |>
-  kable(digits = 3)
-```
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+
+
+|term            | estimate| std.error| statistic| p.value|
+|:---------------|--------:|---------:|---------:|-------:|
+|(Intercept)     |    8.421|    74.992|     0.112|   0.911|
+|hightemp        |    5.696|     1.164|     4.895|   0.000|
+|seasonSpring    |   31.239|    32.082|     0.974|   0.333|
+|seasonSummer    |    9.424|    47.504|     0.198|   0.843|
+|cloudcover      |   -8.353|     3.435|    -2.431|   0.017|
+|precip          |  -98.904|    42.137|    -2.347|   0.021|
+|day_typeWeekend |   37.062|    22.280|     1.663|   0.100|
+
+
+:::
+:::
+
 
 ## Model without `temp_composite` {.smaller}
 
-```{r}
-#| echo: FALSE
 
-rail_trail <- rail_trail |> 
-  mutate(temp_composite = (avgtemp+hightemp)/2)
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
 
-m3 <- lm(volume ~ . - avgtemp - hightemp, data = rail_trail)
-  
-m3 |>
-  tidy() |>
-  kable(digits = 3)
-```
+
+|term            | estimate| std.error| statistic| p.value|
+|:---------------|--------:|---------:|---------:|-------:|
+|(Intercept)     |   18.823|    77.430|     0.243|   0.809|
+|seasonSpring    |   28.458|    33.059|     0.861|   0.392|
+|seasonSummer    |   -0.986|    51.234|    -0.019|   0.985|
+|cloudcover      |  -10.367|     3.409|    -3.041|   0.003|
+|precip          | -104.475|    42.725|    -2.445|   0.017|
+|day_typeWeekend |   40.914|    22.479|     1.820|   0.072|
+|temp_composite  |    6.292|     1.376|     4.571|   0.000|
+
+
+:::
+:::
+
 
 ## Choosing a model {.midi}
 
 Model without `hightemp`:
 
-```{r}
-#| echo: false
 
-glance(m1) |>
-  select(adj.r.squared, AIC, BIC) |> kable(digits = 2)
-```
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+
+
+| adj.r.squared|    AIC|    BIC|
+|-------------:|------:|------:|
+|          0.42| 1087.5| 1107.5|
+
+
+:::
+:::
+
 
 Model without `avgtemp`:
 
-```{r echo = F}
-#| echo: false
 
-glance(m2) |>
-  select(adj.r.squared, AIC, BIC) |> kable(digits = 2)
-```
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+
+
+| adj.r.squared|     AIC|     BIC|
+|-------------:|-------:|-------:|
+|          0.47| 1079.05| 1099.05|
+
+
+:::
+:::
+
 
 Model with `temp_composite`:
 
-```{r echo = F}
-#| echo: false
 
-glance(m3) |>
-  select(adj.r.squared, AIC, BIC) |> kable(digits = 2)
-```
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+
+
+| adj.r.squared|     AIC|     BIC|
+|-------------:|-------:|-------:|
+|          0.46| 1081.67| 1101.67|
+
+
+:::
+:::
+
 
 
 . . .
@@ -297,8 +392,22 @@ Based on Adjusted $R^2$, AIC, and BIC, the model without **avgtemp** is a better
 
 ## Selected model (for now)
 
-```{r}
-#| echo: false
-tidy(m2) |>
-  kable(digits = 3)
-```
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+
+
+|term            | estimate| std.error| statistic| p.value|
+|:---------------|--------:|---------:|---------:|-------:|
+|(Intercept)     |    8.421|    74.992|     0.112|   0.911|
+|hightemp        |    5.696|     1.164|     4.895|   0.000|
+|seasonSpring    |   31.239|    32.082|     0.974|   0.333|
+|seasonSummer    |    9.424|    47.504|     0.198|   0.843|
+|cloudcover      |   -8.353|     3.435|    -2.431|   0.017|
+|precip          |  -98.904|    42.137|    -2.347|   0.021|
+|day_typeWeekend |   37.062|    22.280|     1.663|   0.100|
+
+
+:::
+:::
+

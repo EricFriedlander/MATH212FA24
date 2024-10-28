@@ -352,11 +352,11 @@ Important
 </section>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Create a new data frame called <code>rail_trail_new</code> with two new columns, <code>hightemp_c</code> and <code>avgtemp_c</code>. These two new columns should store the <code>hightemp</code> and <code>avgtemp</code> measured in celcius rather than farenheit. Note that the formula to convert between farenheit and celcius is <span class="math inline">\(C = (F-32)\times \frac{5}{9}\)</span>. Make sure <code>hightemp</code> and <code>avgtemp</code> are still in your data set.</p>
+<p>Create a new data frame called <code>rail_trail_new</code> with two new columns, <code>hightemp_c</code> and <code>avgtemp_c</code>. These two new columns should store the <code>hightemp</code> and <code>avgtemp</code> measured in Celsius rather than Fahrenheit. Note that the formula to convert between Fahrenheit and Celsius is <span class="math inline">\(C = (F-32)\times \frac{5}{9}\)</span>. Make sure <code>hightemp</code> and <code>avgtemp</code> are still in your data set.</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Try to refit the full model on your data. Do you notice anything odd about yoru coefficients? If so, what do you think is happening?</p>
+<p>Try to refit the full model on your data. Do you notice anything odd about your coefficients? If so, what do you think is happening?</p>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
@@ -394,7 +394,7 @@ Important
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Pipe full model you fit in Exercise 0 into the function <code>vif</code>. Are any of the vif’s concerning? If so, which ones.</p>
+<p>Pipe the model you fit in Exercise 0 (i.e.&nbsp;not including the variable measured in Celcius) into the function <code>vif</code>. Are any of the vif’s concerning? If so, which ones.</p>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
@@ -402,6 +402,7 @@ Important
 <ul>
 <li><code>m1</code>: use all predictors except for <code>avgtemp</code></li>
 <li><code>m2</code>: use all predictors except for <code>hightemp</code></li>
+<li><code>m3</code>: average <code>avgtemp</code> and <code>hightemp</code> together and use it instead of either <code>avgtemp</code> and <code>hightemp</code></li>
 </ul>
 </section>
 <section id="exercise-7" class="level2">
