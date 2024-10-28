@@ -37,6 +37,10 @@ knitr::opts_chunk$set(
 )
 ```
 
+## First things first
+
+-   Finish-up AE-16
+
 ## Announcements
 
 -   Project: EDA Due Today

@@ -20557,5 +20557,12 @@
     "title": "Logistic regression",
     "section": "Recap",
     "text": "Recap\n\nIntroduced logistic regression for binary response variable\nDescribed relationship between odds and probabilities\nUsed logistic regression model to calculate predicted odds and probabilities"
+  },
+  {
+    "objectID": "slides/23-multicollinearity.html#first-things-first",
+    "href": "slides/23-multicollinearity.html#first-things-first",
+    "title": "Multicollinearity",
+    "section": "First things first",
+    "text": "First things first\n\nFinish-up AE-16"
   }
 ]
