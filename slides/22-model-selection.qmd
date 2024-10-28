@@ -220,7 +220,7 @@ Complete Exercise 3.
 -   How do we choose the models to compare in the first place?
 -   Today: Best subset, forward selection, and backward selection
 
-## AIC, BIC, Mallows' $C_p$
+## AIC, BIC, Mallows' $C_p$ {.smaller}
 
 Estimators of prediction error and *relative* quality of models:
 
