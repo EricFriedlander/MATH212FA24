@@ -1,0 +1,10 @@
+---
+title: "November 1 lecture"
+subtitle: "Introduction to Logistic Regression"
+---
+
+## Assigned reading
+
+- Stat2: Chapter 9 Introduction page
+- Stat2: Topic 9.1 Choosing a Logistic Regression Model
+- Stat2: Topic 9.2 Logistic Regression and Odds Ratios

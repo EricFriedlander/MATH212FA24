@@ -522,7 +522,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/hw/forStudents/hw-04/hw-04.html</loc>
-    <lastmod>2024-10-28T21:55:53.953Z</lastmod>
+    <lastmod>2024-10-29T19:22:36.441Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-10-mlr.html</loc>
@@ -666,7 +666,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/24-logistic-intro.html</loc>
-    <lastmod>2024-06-07T20:17:50.000Z</lastmod>
+    <lastmod>2024-10-29T19:17:53.079Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/16-logistic-intro-old.html</loc>
@@ -675,5 +675,25 @@
   <url>
     <loc>https://mat212fa24.netlify.app/slides/23-multicollinearity.knit.html</loc>
     <lastmod>2024-10-28T21:54:56.782Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/ae/ae-18-logistic-intro.html</loc>
+    <lastmod>2024-10-29T19:15:53.919Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/slides/25-logistic-intro2.html</loc>
+    <lastmod>2024-10-29T16:54:56.832Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/ae/ae-19-logistic-intro2.html</loc>
+    <lastmod>2024-10-29T16:52:46.222Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/ae/ae-12-logistic-intro-old.html</loc>
+    <lastmod>2024-06-07T20:17:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/prepare/logistic-regression-prep.html</loc>
+    <lastmod>2024-10-29T19:22:23.675Z</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,116 @@
+---
+title: "AE 12: Logistic regression introduction"
+date: "Oct 30, 2023"
+editor: visual
+execute: 
+  warning: false
+  message: false
+---
+
+::: callout-important
+Go to the [course GitHub organization](https://github.com/sta210-fa23) and locate your `ae-12` repo to get started.
+
+Render, commit, and push your responses to GitHub by the end of class. The responses are due in your GitHub repo no later than Thursday, November 2 at 11:59pm.
+:::
+
+## Packages
+
+```{r}
+#| label: load-pkgs-data
+#| message: false
+ 
+library(tidyverse)
+library(broom)
+library(ggformula)
+library(mosaic)
+library(knitr)
+
+heart_disease <- read_csv("data/framingham.csv") |>
+  select(totChol, TenYearCHD) |>
+  drop_na() |>
+  mutate(high_risk = TenYearCHD) |>
+  select(totChol, high_risk)
+```
+
+### Data: Framingham study
+
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use the total cholesterol to predict if a randomly selected adult is high risk for heart disease in the next 10 years.
+
+-   `high_risk`:
+    -   1: High risk of having heart disease in next 10 years
+    -   0: Not high risk of having heart disease in next 10 years
+-   `totChol`: total cholesterol (mg/dL)
+
+## Exercise 1
+
+Generate a plot and table of `high_risk`.
+
+## Exercise 2
+
+Generate a scatterplot of `totChol` vs. `high_risk`. Use `gf_lm()` to add a line to your plot. Do you think this is a good model? Why or why not?
+
+## Exercise 3
+
+State whether a linear regression model or logistic regression model is more appropriate for each scenario.
+
+1.  Use age and education to predict if a randomly selected person will vote in the next election.
+
+2.  Use budget and run time (in minutes) to predict a movie's total revenue.
+
+3.  Use age and sex to calculate the probability a randomly selected adult will visit Duke Health in the next year.
+
+
+## Exercise 4
+
+Using the table you generated in Exercise 1:
+
+1.  What is the probability a randomly selected person in the study is **not** high risk for heart disease in the next 10 years?
+
+2.  What are the **odds** a randomly selected person in the study is **not** high risk for heart disease in the next 10 years?
+
+3. What are the **log-odds** a randomly selected person in the study is **not** high risk for heart disease in the next 10 years?
+
+## Logistic regression model
+
+Fit a logistic regression model to understand the relationship between total cholesterol and risk for heart disease.
+
+Let $\pi$ be the probability an adult is high risk of heart disease. The statistical model is
+
+$$\log\Big(\frac{\pi_i}{1-\pi_i}\Big) = \beta_0 + \beta_1 TotChol_i$$
+
+# ```{r}
+# heart_disease_fit <- logistic_reg() |>
+#   set_engine("glm") |>
+#   fit(high_risk ~ totChol, data = heart_disease, family = "binomial")
+# 
+# tidy(heart_disease_fit) |> kable(digits = 3)
+# ```
+
+3.  Write the regression equation. Round to 3 digits.
+
+## Calculating log-odds, odds and probabilities
+
+Based on the model, if a randomly selected person has a total cholesterol of 250 mg/dL,
+
+4.  What are the log-odds they are high risk for heart disease in the next 10 years?
+
+5.  What are the odds they are high risk for heart disease in the next 10 years?
+
+6.  What is the probability they are high risk for heart disease in the next 10 years? *Use the odds to calculate your answer.*
+
+## Comparing observations
+
+Suppose a person's cholesterol changes from 250 mg/dL to 200 mg/dL.
+
+7.  How do you expect the log-odds that this person is high risk for heart disease in the next 10 years to change?
+
+8.  How do you expect the odds that this person is high risk for heart disease in the next 10 years to change?
+
+## Submission
+
+::: callout-important
+To submit the AE:
+
+-   Render the document to produce the PDF with all of your work from today's class.
+-   Push all your work to your `ae-12` repo on GitHub. (You do not submit AEs on Gradescope).
+:::
