@@ -32,7 +32,7 @@ In this assignment, you will...
 
 -   Make a subfolder in your `hw` directory to store this homework.
 
--   Log into [Canvas](https://cofi.instructure.com/courses/15692/assignments/183937), navigate to Homework 8 and upload the `hw-08.qmd` and `lego-sample.csv` files into the folder your just made.
+-   Log into [Canvas](https://cofi.instructure.com/courses/15692/assignments/184219), navigate to Homework 8 and upload the `hw-08.qmd` and `lego-sample.csv` files into the folder your just made.
 
 ## Packages
 
