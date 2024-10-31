@@ -4,6 +4,9 @@ editor: visual
 execute: 
   warning: false
   message: false
+format: 
+  pdf:
+    pdf-engine: pdflatex
 ---
 
 ::: callout-important
@@ -26,7 +29,7 @@ library(ggformula)
 library(mosaic)
 library(knitr)
 
-heart_disease <- read_csv("data/framingham.csv") |>
+heart_disease <- read_csv("framingham.csv") |>
   select(totChol, TenYearCHD) |>
   drop_na() |>
   mutate(high_risk = TenYearCHD) |>
@@ -60,7 +63,6 @@ State whether a linear regression model or logistic regression model is more app
 
 3.  Use age and sex to calculate the probability a randomly selected adult will visit St. Lukes in the next year.
 
-
 ## Exercise 4
 
 Using the table you generated in Exercise 1:
@@ -71,9 +73,7 @@ Using the table you generated in Exercise 1:
 
 2.  What are the **odds** a randomly selected person in the study is **not** high risk for heart disease in the next 10 years?
 
-3. What are the **log-odds** a randomly selected person in the study is **not** high risk for heart disease in the next 10 years?
-
-
+3.  What are the **log-odds** a randomly selected person in the study is **not** high risk for heart disease in the next 10 years?
 
 ## Submission
 

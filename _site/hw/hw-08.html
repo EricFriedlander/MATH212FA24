@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MAT 212 - Fall 2024 - AE 18: Logistic regression introduction</title>
+<title>MAT 212 - Fall 2024 - HW 07: Lego Prices</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -113,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 18: Logistic regression introduction</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 07: Lego Prices</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -234,24 +254,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#data-framingham-study" id="toc-data-framingham-study" class="nav-link" data-scroll-target="#data-framingham-study">Data: Framingham study</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#data-legos" id="toc-data-legos" class="nav-link" data-scroll-target="#data-legos">Data: LEGOs</a></li>
   </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
-  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
+  </ul></li>
+  <li><a href="#grading-50-points" id="toc-grading-50-points" class="nav-link" data-scroll-target="#grading-50-points">Grading (50 points)</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-18-logistic-intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/hw/hw-08.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 18: Logistic regression introduction</h1>
+<h1 class="title">HW 07: Lego Prices</h1>
 </div>
 
 
@@ -278,70 +313,43 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Due: Friday, November 8th, 11:59pm</p>
+</div>
+</div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>This homework is a continuation of your previous homework. You will use multiple linear regression to fit and evaluate models using characteristics of LEGO sets to understand variability in the price.</p>
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
+<p>In this assignment, you will…</p>
 <ul>
-<li><p>Open <a href="https://rstudio.collegeofidaho.edu/">RStudio</a> and create a subfolder in your AE folder called “AE-18”.</p></li>
-<li><p>Go to the <a href="https://cofi.instructure.com/courses/15692/assignments/184070">Canvas</a> and locate your <code>AE-18</code> assignment to get started.</p></li>
-<li><p>Upload the <code>ae-18.qmd</code> and <code>framingham.csv</code> files into the folder you just created. The <code>.qmd</code> and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.</p></li>
+<li>Select models</li>
+<li>Assess multicollinearity</li>
+<li>Use nested F-tests to compare models</li>
 </ul>
-</div>
-</div>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<ul>
+<li><p>Go to <a href="https://rstudio.collegeofidaho.edu">RStudio</a> and login with your College of Idaho Email and Password.</p></li>
+<li><p>Make a subfolder in your <code>hw</code> directory to store this homework.</p></li>
+<li><p>Log into <a href="https://cofi.instructure.com/courses/15692/assignments/183937">Canvas</a>, navigate to Homework 8 and upload the <code>hw-08.qmd</code> and <code>lego-sample.csv</code> files into the folder your just made.</p></li>
+</ul>
+</section>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
+<p>The following packages will be used in this assignment:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>heart_disease <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/framingham.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(totChol, TenYearCHD) <span class="sc">|&gt;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">high_risk =</span> TenYearCHD) <span class="sc">|&gt;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(totChol, high_risk)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr) </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rms)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(olsrr)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># add other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="data-framingham-study" class="level3">
-<h3 class="anchored" data-anchor-id="data-framingham-study">Data: Framingham study</h3>
-<p>This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use the total cholesterol to predict if a randomly selected adult is high risk for heart disease in the next 10 years.</p>
-<ul>
-<li><code>high_risk</code>:
-<ul>
-<li>1: High risk of having heart disease in next 10 years</li>
-<li>0: Not high risk of having heart disease in next 10 years</li>
-</ul></li>
-<li><code>totChol</code>: total cholesterol (mg/dL)</li>
-</ul>
-</section>
-</section>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Generate a plot, table of <code>high_risk</code>, and a plot to visualize the relationship between <code>high_risk</code> and <code>totChol</code>. Hint: none of these should be scatterplots.</p>
-</section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Generate a scatterplot of <code>totChol</code> vs.&nbsp;<code>high_risk</code>. Use <code>gf_lm()</code> to add a line to your plot. Do you think this is a good model? Why or why not?</p>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>State whether a linear regression model or logistic regression model is more appropriate for each scenario.</p>
-<ol type="1">
-<li><p>Use age and education to predict if a randomly selected person will vote in the next election.</p></li>
-<li><p>Use budget and run time (in minutes) to predict a movie’s total revenue.</p></li>
-<li><p>Use age and sex to calculate the probability a randomly selected adult will visit St.&nbsp;Lukes in the next year.</p></li>
-</ol>
-</section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>Using the table you generated in Exercise 1:</p>
-<ol start="0" type="1">
-<li><p>Based on our data, what is considered “success”?</p></li>
-<li><p>What is the probability a randomly selected person in the study is <strong>not</strong> high risk for heart disease in the next 10 years?</p></li>
-<li><p>What are the <strong>odds</strong> a randomly selected person in the study is <strong>not</strong> high risk for heart disease in the next 10 years?</p></li>
-<li><p>What are the <strong>log-odds</strong> a randomly selected person in the study is <strong>not</strong> high risk for heart disease in the next 10 years?</p></li>
-</ol>
-</section>
-<section id="submission" class="level2">
-<h2 class="anchored" data-anchor-id="submission">Submission</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -352,18 +360,186 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To submit the AE:</p>
+<p>All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.</p>
+</div>
+</div>
+</section>
+<section id="data-legos" class="level2">
+<h2 class="anchored" data-anchor-id="data-legos">Data: LEGOs</h2>
+<p>The data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from <span class="citation" data-cites="peterson2021">Peterson and Ziegler (<a href="#ref-peterson2021" role="doc-biblioref">2021</a>)</span>.</p>
+<p>You will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are</p>
 <ul>
-<li>Render the document to produce the PDF with all of your work from today’s class.</li>
-<li>Upload your QMD and PDF files to the Canvas assignment.</li>
+<li><code>Pieces</code>: Number of pieces in the set from brickset.com.</li>
+<li><code>Minifigures</code>: Number of minifigures (LEGO people) in the set scraped from brickset.com. LEGO sets with no minifigures have been coded as NA. NA’s also represent missing data. This is due to how brickset.com reports their data.</li>
+<li><code>Amazon_Price</code>: Amazon price of the set scraped from brickset.com (in U.S. dollars)</li>
+<li><code>Size</code>: General size of the interlocking bricks (Large = LEGO Duplo sets - which include large brick pieces safe for children ages 1 to 5, Small = LEGO sets which- include the traditional smaller brick pieces created for age groups 5 and - older, e.g., City, Friends)</li>
+<li><code>Theme</code>: Theme of the LEGO set</li>
+<li><code>Year</code> : Year the LEGO set was produced</li>
+<li><code>Pages</code>: Number of pages in the instruction booklet</li>
 </ul>
+</section>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.</p>
+</div>
+</div>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Add the following to the code below. Collapse any levels of the variable <code>Theme</code> with fewer than 20 observations into a single category called <code>Other</code>. This is <em>almost</em> the same thing as you did in Exercise 4 of your previous homework. The only difference is I want you to store the result back in <code>Theme</code>, overwriting the original categories.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>legos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/lego-sample.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Size, Pieces, Theme, Amazon_Price, Year, Pages, Minifigures) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Minifigures =</span> <span class="fu">replace_na</span>(Minifigures, <span class="dv">0</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Fit the the full model using <code>Amazon_Price</code> as the response variable. One of your variables will have a coefficient which is <code>NA</code>. This is because there are two <strong>TERMS</strong> (not variables) which are perfectly collinear. Which two terms are these?</p>
+<p>Hints:</p>
+<ol type="1">
+<li>Since at least one of these terms is a categorical variable you won’t be able to use correlation to figure this one out unless you dummy code your variables first. I don’t recommend doing this.</li>
+<li>Do you think it’s likely that a categorical variable is perfectly collinear with a quantitative variable?</li>
+<li>Try filtering your data so you’re only looking at observations which fall in the category which is not getting a coefficient. Are there any variables in that equation that look redundant?</li>
+</ol>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>Use <code>ggpairs</code> to generate a grid of plots and correlations between all of our variables. How does this output confirm the collinearity you saw in the previous problem.</p>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>Drop a variable from your data set to remedy this collinearity. Which variable do you think would be better to drop and why? Hint: since we are dropping variables and not categories, which variable contains more information?</p>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Refit the full model (without the dropped variable) and compute your variance inflation factors. Are any of them worrysome?</p>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>In class, Dr.&nbsp;Friedlander (mistakenly) told you to conduct forward/backward/stepwise/best subset selection using the <code>regsubsets</code> function from the <code>leaps</code> package. This function should <strong>ONLY</strong> be used when all of your data is quantitative because of the way it treats categorical variables. In general, when you are doing model selection you should add or remove entire categorical variables instead of individual categories. However, it is ok to combine categories while cleaning the data to create more tractable buckets or buckets that make more sense based on subject-matter expertise.</p>
+<p>Use the <code>ols_step_best_subset</code> from the <code>olsrr</code> package to find the “best” model. Note:</p>
+<ol type="1">
+<li><code>ols_step_best_subset</code> takes your full model (i.e.&nbsp;an <code>lm</code> object) as it’s main argument.</li>
+<li><code>ols_step_best_subset</code> is NOT compatible with <code>tidy</code> so don’t try to use it.</li>
+<li>Note that there may be several options for which model is “best”. Choose which one you think is best and justify your answer.</li>
+<li>Refit this model using <code>lm</code> and call the result <code>model1</code>.</li>
+</ol>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>Look at the <a href="https://cran.r-project.org/web/packages/olsrr/olsrr.pdf">documentation</a> for <code>olsrr</code>. Find a function that does some variation of forward selection. Use that function to find a model. Explain, in detail, what this function is doing.</p>
+<p>Hints:</p>
+<ol type="1">
+<li>Your answer will likely look similar to <a href="https://mat212fa24.netlify.app/slides/22-model-selection#/forward-selection">this slide</a>, but may not be exactly the same depending on what metric it uses to add variables.</li>
+<li>You want to look for functions with <code>_step_</code> in them. Furthermore, if a function has <code>_step_</code> in the name it doesn’t mean that it is doing <em>stepwise</em> selection as we’ve described it in class.</li>
+</ol>
+<p>Refit the “best” model from this function and call it <code>model2</code>.</p>
+</section>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<p>Look at the <a href="https://cran.r-project.org/web/packages/olsrr/olsrr.pdf">documentation</a> for <code>olsrr</code>. Find a function that does some variation of backward elimination. Use that function to find a model. Explain, in detail, what this function is doing.</p>
+<p>Hints:</p>
+<ol type="1">
+<li>Your answer will likely look similar to <a href="https://mat212fa24.netlify.app/slides/22-model-selection#/backward-elimination">this slide</a>, but may not be exactly the same depending on what metric it uses to remove variables.</li>
+<li>You want to look for functions with <code>_step_</code> in them. Furthermore, if a function has <code>_step_</code> in the name it doesn’t mean that it is doing <em>stepwise</em> selection as we’ve described it in class.</li>
+</ol>
+<p>Refit the “best” model from this function and call it <code>model3</code>.</p>
+</section>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<p>Look at the <a href="https://cran.r-project.org/web/packages/olsrr/olsrr.pdf">documentation</a> for <code>olsrr</code>. Find a function that does some variation of stepwise select (look for functions that say <code>_both_</code> in them. Use that function to find a model. Explain, in detail, what this function is doing.</p>
+<p>Hints:</p>
+<ol type="1">
+<li>Your answer will likely look similar to <a href="https://mat212fa24.netlify.app/slides/22-model-selection#/backward-elimination">this slide</a>, but may not be exactly the same depending on what metric it uses to add and remove variables.</li>
+</ol>
+<p>Refit the “best” model from this function and call it <code>model4</code>.</p>
+</section>
+<section id="exercise-10" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
+<p>Based on all of the models you have choose one that you believe is the best. Justify why you believe it is the best. Finally, use a nested F-test to determine whether the full model you fit in Exercise 5 provides an improvement over this model. Interpret the resuls in the context of the problem. If the “best” model you chose WAS the full model, eliminate the variable with the lowest p-value, refit the model, and perform a nested F-test with this new model as your reduced model.</p>
+</section>
+</section>
+<section id="grading-50-points" class="level1">
+<h1>Grading (50 points)</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ex 1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Ex 2</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>Ex 2</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Ex 4</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>Ex 5</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Ex 6</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>Ex 7</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>Ex 8</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>Ex 9</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>Ex 10</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Workflow &amp; formatting</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<section id="references" class="level2">
+
+
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-peterson2021" class="csl-entry" role="listitem">
+Peterson, Anna D., and Laura Ziegler. 2021. <span>“Building a Multiple Linear Regression Model With LEGO Brick Data.”</span> <em>Journal of Statistics and Data Science Education</em> 29 (3): 297–303. <a href="https://doi.org/10.1080/26939169.2021.1946450">https://doi.org/10.1080/26939169.2021.1946450</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -781,7 +957,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-18-logistic-intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/hw/hw-08.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
