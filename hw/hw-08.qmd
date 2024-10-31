@@ -1,5 +1,5 @@
 ---
-title: "HW 07: Lego Prices" 
+title: "HW 08: Lego Prices Round 2" 
 editor: visual
 execute:
   freeze: auto

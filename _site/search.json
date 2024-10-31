@@ -21226,105 +21226,105 @@
   {
     "objectID": "hw/hw-08.html",
     "href": "hw/hw-08.html",
-    "title": "HW 07: Lego Prices",
+    "title": "HW 08: Lego Prices Round 2",
     "section": "",
     "text": "Important\n\n\n\nDue: Friday, November 8th, 11:59pm"
   },
   {
     "objectID": "hw/hw-08.html#learning-goals",
     "href": "hw/hw-08.html#learning-goals",
-    "title": "HW 07: Lego Prices",
+    "title": "HW 08: Lego Prices Round 2",
     "section": "Learning goals",
     "text": "Learning goals\nIn this assignment, you will…\n\nSelect models\nAssess multicollinearity\nUse nested F-tests to compare models"
   },
   {
     "objectID": "hw/hw-08.html#getting-started",
     "href": "hw/hw-08.html#getting-started",
-    "title": "HW 07: Lego Prices",
+    "title": "HW 08: Lego Prices Round 2",
     "section": "Getting started",
     "text": "Getting started\n\nGo to RStudio and login with your College of Idaho Email and Password.\nMake a subfolder in your hw directory to store this homework.\nLog into Canvas, navigate to Homework 8 and upload the hw-08.qmd and lego-sample.csv files into the folder your just made."
   },
   {
     "objectID": "hw/hw-08.html#packages",
     "href": "hw/hw-08.html#packages",
-    "title": "HW 07: Lego Prices",
+    "title": "HW 08: Lego Prices Round 2",
     "section": "Packages",
     "text": "Packages\nThe following packages will be used in this assignment:\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(GGally)\nlibrary(ggformula)\nlibrary(knitr) \nlibrary(rms)\nlibrary(olsrr)\nlibrary(patchwork)\n# add other packages as needed\n\n\n\n\n\n\n\nImportant\n\n\n\nAll narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels."
   },
   {
     "objectID": "hw/hw-08.html#data-legos",
     "href": "hw/hw-08.html#data-legos",
-    "title": "HW 07: Lego Prices",
+    "title": "HW 08: Lego Prices Round 2",
     "section": "Data: LEGOs",
     "text": "Data: LEGOs\nThe data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from Peterson and Ziegler (2021).\nYou will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are\n\nPieces: Number of pieces in the set from brickset.com.\nMinifigures: Number of minifigures (LEGO people) in the set scraped from brickset.com. LEGO sets with no minifigures have been coded as NA. NA’s also represent missing data. This is due to how brickset.com reports their data.\nAmazon_Price: Amazon price of the set scraped from brickset.com (in U.S. dollars)\nSize: General size of the interlocking bricks (Large = LEGO Duplo sets - which include large brick pieces safe for children ages 1 to 5, Small = LEGO sets which- include the traditional smaller brick pieces created for age groups 5 and - older, e.g., City, Friends)\nTheme: Theme of the LEGO set\nYear : Year the LEGO set was produced\nPages: Number of pages in the instruction booklet"
   },
   {
     "objectID": "hw/hw-08.html#exercise-1",
     "href": "hw/hw-08.html#exercise-1",
-    "title": "HW 07: Lego Prices",
+    "title": "HW 08: Lego Prices Round 2",
     "section": "Exercise 1",
     "text": "Exercise 1\nAdd the following to the code below. Collapse any levels of the variable Theme with fewer than 20 observations into a single category called Other. This is almost the same thing as you did in Exercise 4 of your previous homework. The only difference is I want you to store the result back in Theme, overwriting the original categories.\n\nlegos &lt;- read_csv(\"data/lego-sample.csv\") |&gt;\n  select(Size, Pieces, Theme, Amazon_Price, Year, Pages, Minifigures) |&gt;\n  mutate(Minifigures = replace_na(Minifigures, 0)) |&gt;\n  drop_na()"
   },
   {
     "objectID": "hw/hw-08.html#exercise-2",
     "href": "hw/hw-08.html#exercise-2",
-    "title": "HW 07: Lego Prices",
+    "title": "HW 08: Lego Prices Round 2",
     "section": "Exercise 2",
     "text": "Exercise 2\nFit the the full model using Amazon_Price as the response variable. One of your variables will have a coefficient which is NA. This is because there are two TERMS (not variables) which are perfectly collinear. Which two terms are these?\nHints:\n\nSince at least one of these terms is a categorical variable you won’t be able to use correlation to figure this one out unless you dummy code your variables first. I don’t recommend doing this.\nDo you think it’s likely that a categorical variable is perfectly collinear with a quantitative variable?\nTry filtering your data so you’re only looking at observations which fall in the category which is not getting a coefficient. Are there any variables in that equation that look redundant?"
   },
   {
     "objectID": "hw/hw-08.html#exercise-3",
     "href": "hw/hw-08.html#exercise-3",
-    "title": "HW 07: Lego Prices",
+    "title": "HW 08: Lego Prices Round 2",
     "section": "Exercise 3",
     "text": "Exercise 3\nUse ggpairs to generate a grid of plots and correlations between all of our variables. How does this output confirm the collinearity you saw in the previous problem."
   },
   {
     "objectID": "hw/hw-08.html#exercise-4",
     "href": "hw/hw-08.html#exercise-4",
-    "title": "HW 07: Lego Prices",
+    "title": "HW 08: Lego Prices Round 2",
     "section": "Exercise 4",
     "text": "Exercise 4\nDrop a variable from your data set to remedy this collinearity. Which variable do you think would be better to drop and why? Hint: since we are dropping variables and not categories, which variable contains more information?"
   },
   {
     "objectID": "hw/hw-08.html#exercise-5",
     "href": "hw/hw-08.html#exercise-5",
-    "title": "HW 07: Lego Prices",
+    "title": "HW 08: Lego Prices Round 2",
     "section": "Exercise 5",
     "text": "Exercise 5\nRefit the full model (without the dropped variable) and compute your variance inflation factors. Are any of them worrysome?"
   },
   {
     "objectID": "hw/hw-08.html#exercise-6",
     "href": "hw/hw-08.html#exercise-6",
-    "title": "HW 07: Lego Prices",
+    "title": "HW 08: Lego Prices Round 2",
     "section": "Exercise 6",
     "text": "Exercise 6\nIn class, Dr. Friedlander (mistakenly) told you to conduct forward/backward/stepwise/best subset selection using the regsubsets function from the leaps package. This function should ONLY be used when all of your data is quantitative because of the way it treats categorical variables. In general, when you are doing model selection you should add or remove entire categorical variables instead of individual categories. However, it is ok to combine categories while cleaning the data to create more tractable buckets or buckets that make more sense based on subject-matter expertise.\nUse the ols_step_best_subset from the olsrr package to find the “best” model. Note:\n\nols_step_best_subset takes your full model (i.e. an lm object) as it’s main argument.\nols_step_best_subset is NOT compatible with tidy so don’t try to use it.\nNote that there may be several options for which model is “best”. Choose which one you think is best and justify your answer.\nRefit this model using lm and call the result model1."
   },
   {
     "objectID": "hw/hw-08.html#exercise-7",
     "href": "hw/hw-08.html#exercise-7",
-    "title": "HW 07: Lego Prices",
+    "title": "HW 08: Lego Prices Round 2",
     "section": "Exercise 7",
     "text": "Exercise 7\nLook at the documentation for olsrr. Find a function that does some variation of forward selection. Use that function to find a model. Explain, in detail, what this function is doing.\nHints:\n\nYour answer will likely look similar to this slide, but may not be exactly the same depending on what metric it uses to add variables.\nYou want to look for functions with _step_ in them. Furthermore, if a function has _step_ in the name it doesn’t mean that it is doing stepwise selection as we’ve described it in class.\n\nRefit the “best” model from this function and call it model2."
   },
   {
     "objectID": "hw/hw-08.html#exercise-8",
     "href": "hw/hw-08.html#exercise-8",
-    "title": "HW 07: Lego Prices",
+    "title": "HW 08: Lego Prices Round 2",
     "section": "Exercise 8",
     "text": "Exercise 8\nLook at the documentation for olsrr. Find a function that does some variation of backward elimination. Use that function to find a model. Explain, in detail, what this function is doing.\nHints:\n\nYour answer will likely look similar to this slide, but may not be exactly the same depending on what metric it uses to remove variables.\nYou want to look for functions with _step_ in them. Furthermore, if a function has _step_ in the name it doesn’t mean that it is doing stepwise selection as we’ve described it in class.\n\nRefit the “best” model from this function and call it model3."
   },
   {
     "objectID": "hw/hw-08.html#exercise-9",
     "href": "hw/hw-08.html#exercise-9",
-    "title": "HW 07: Lego Prices",
+    "title": "HW 08: Lego Prices Round 2",
     "section": "Exercise 9",
     "text": "Exercise 9\nLook at the documentation for olsrr. Find a function that does some variation of stepwise select (look for functions that say _both_ in them. Use that function to find a model. Explain, in detail, what this function is doing.\nHints:\n\nYour answer will likely look similar to this slide, but may not be exactly the same depending on what metric it uses to add and remove variables.\n\nRefit the “best” model from this function and call it model4."
   },
   {
     "objectID": "hw/hw-08.html#exercise-10",
     "href": "hw/hw-08.html#exercise-10",
-    "title": "HW 07: Lego Prices",
+    "title": "HW 08: Lego Prices Round 2",
     "section": "Exercise 10",
     "text": "Exercise 10\nBased on all of the models you have choose one that you believe is the best. Justify why you believe it is the best. Finally, use a nested F-test to determine whether the full model you fit in Exercise 5 provides an improvement over this model. Interpret the resuls in the context of the problem. If the “best” model you chose WAS the full model, eliminate the variable with the lowest p-value, refit the model, and perform a nested F-test with this new model as your reduced model."
   }
