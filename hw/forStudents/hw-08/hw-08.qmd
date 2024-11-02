@@ -1,0 +1,177 @@
+---
+title: "HW 08: Lego Prices Round 2" 
+editor: visual
+execute:
+  freeze: auto
+  echo: true
+  eval: true
+  warning: false
+  message: false
+format:
+  pdf:
+    pdf-engine: pdflatex
+---
+
+::: callout-important
+Due: Friday, November 8th, 11:59pm
+:::
+
+# Introduction
+
+This homework is a continuation of your previous homework. You will use multiple linear regression to fit and evaluate models using characteristics of LEGO sets to understand variability in the price.
+
+## Learning goals
+
+In this assignment, you will...
+
+-   Select models
+-   Assess multicollinearity
+-   Use nested F-tests to compare models
+
+## Getting started
+
+-   Go to [RStudio](https://rstudio.collegeofidaho.edu) and login with your College of Idaho Email and Password.
+
+-   Make a subfolder in your `hw` directory to store this homework.
+
+-   Log into [Canvas](https://cofi.instructure.com/courses/15692/assignments/184219), navigate to Homework 8 and upload the `hw-08.qmd` and `lego-sample.csv` files into the folder your just made.
+
+## Packages
+
+The following packages will be used in this assignment:
+
+```{r}
+#| eval: true
+library(tidyverse)
+library(broom)
+library(GGally)
+library(ggformula)
+library(knitr) 
+library(rms)
+library(olsrr)
+library(patchwork)
+# add other packages as needed
+```
+
+::: callout-important
+All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.
+:::
+
+## Data: LEGOs
+
+The data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from @peterson2021.
+
+You will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are
+
+-   `Pieces`: Number of pieces in the set from brickset.com.
+-   `Minifigures`: Number of minifigures (LEGO people) in the set scraped from brickset.com. LEGO sets with no minifigures have been coded as NA. NA's also represent missing data. This is due to how brickset.com reports their data.
+-   `Amazon_Price`: Amazon price of the set scraped from brickset.com (in U.S. dollars)
+-   `Size`: General size of the interlocking bricks (Large = LEGO Duplo sets - which include large brick pieces safe for children ages 1 to 5, Small = LEGO sets which- include the traditional smaller brick pieces created for age groups 5 and - older, e.g., City, Friends)
+-   `Theme`: Theme of the LEGO set
+-   `Year` : Year the LEGO set was produced
+-   `Pages`: Number of pages in the instruction booklet
+
+# Exercises
+
+::: callout-important
+All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.
+:::
+
+## Exercise 1
+
+Add the following to the code below. Collapse any levels of the variable `Theme` with fewer than 20 observations into a single category called `Other`. This is *almost* the same thing as you did in Exercise 4 of your previous homework. The only difference is I want you to store the result back in `Theme`, overwriting the original categories.
+
+```{r}
+#| eval: true
+legos <- read_csv("lego-sample.csv") |>
+  select(Size, Pieces, Theme, Amazon_Price, Year, Pages, Minifigures) |>
+  mutate(Minifigures = replace_na(Minifigures, 0)) |>
+  drop_na()
+```
+
+## Exercise 2
+
+Fit the the full model using `Amazon_Price` as the response variable. One of your variables will have a coefficient which is `NA`. This is because there are two **TERMS** (not variables) which are perfectly collinear. Which two terms are these?
+
+Hints:
+
+1.  Since at least one of these terms is a categorical variable you won't be able to use correlation to figure this one out unless you dummy code your variables first. I don't recommend doing this.
+2.  Do you think it's likely that a categorical variable is perfectly collinear with a quantitative variable?
+3.  Try filtering your data so you're only looking at observations which fall in the category which is not getting a coefficient. Are there any variables in that equation that look redundant?
+
+## Exercise 3
+
+Use `ggpairs` to generate a grid of plots and correlations between all of our variables. How does this output confirm the collinearity you saw in the previous problem.
+
+## Exercise 4
+
+Drop a variable from your data set to remedy this collinearity. Which variable do you think would be better to drop and why? Hint: since we are dropping variables and not categories, which variable contains more information?
+
+## Exercise 5
+
+Refit the full model (without the dropped variable) and compute your variance inflation factors. Are any of them worrysome?
+
+## Exercise 6
+
+In class, Dr. Friedlander (mistakenly) told you to conduct forward/backward/stepwise/best subset selection using the `regsubsets` function from the `leaps` package. This function should **ONLY** be used when all of your data is quantitative because of the way it treats categorical variables. In general, when you are doing model selection you should add or remove entire categorical variables instead of individual categories. However, it is ok to combine categories while cleaning the data to create more tractable buckets or buckets that make more sense based on subject-matter expertise.
+
+Use the `ols_step_best_subset` from the `olsrr` package to find the "best" model. Note:
+
+1.  `ols_step_best_subset` takes your full model (i.e. an `lm` object) as it's main argument.
+2.  `ols_step_best_subset` is NOT compatible with `tidy` so don't try to use it.
+3.  Note that there may be several options for which model is "best". Choose which one you think is best and justify your answer.
+4.  Refit this model using `lm` and call the result `model1`.
+
+## Exercise 7
+
+Look at the [documentation](https://cran.r-project.org/web/packages/olsrr/olsrr.pdf) for `olsrr`. Find a function that does some variation of forward selection. Use that function to find a model. Explain, in detail, what this function is doing.
+
+Hints:
+
+1.  Your answer will likely look similar to [this slide](https://mat212fa24.netlify.app/slides/22-model-selection#/forward-selection), but may not be exactly the same depending on what metric it uses to add variables.
+2.  You want to look for functions with `_step_` in them. Furthermore, if a function has `_step_` in the name it doesn't mean that it is doing *stepwise* selection as we've described it in class.
+
+Refit the "best" model from this function and call it `model2`.
+
+## Exercise 8
+
+Look at the [documentation](https://cran.r-project.org/web/packages/olsrr/olsrr.pdf) for `olsrr`. Find a function that does some variation of backward elimination. Use that function to find a model. Explain, in detail, what this function is doing.
+
+Hints:
+
+1.  Your answer will likely look similar to [this slide](https://mat212fa24.netlify.app/slides/22-model-selection#/backward-elimination), but may not be exactly the same depending on what metric it uses to remove variables.
+2.  You want to look for functions with `_step_` in them. Furthermore, if a function has `_step_` in the name it doesn't mean that it is doing *stepwise* selection as we've described it in class.
+
+Refit the "best" model from this function and call it `model3`.
+
+## Exercise 9
+
+Look at the [documentation](https://cran.r-project.org/web/packages/olsrr/olsrr.pdf) for `olsrr`. Find a function that does some variation of stepwise select (look for functions that say `_both_` in them. Use that function to find a model. Explain, in detail, what this function is doing.
+
+Hints:
+
+1.  Your answer will likely look similar to [this slide](https://mat212fa24.netlify.app/slides/22-model-selection#/backward-elimination), but may not be exactly the same depending on what metric it uses to add and remove variables.
+
+Refit the "best" model from this function and call it `model4`.
+
+## Exercise 10
+
+Based on all of the models you have choose one that you believe is the best. Justify why you believe it is the best. Finally, use a nested F-test to determine whether the full model you fit in Exercise 5 provides an improvement over this model. Interpret the resuls in the context of the problem. If the "best" model you chose WAS the full model, eliminate the variable with the lowest p-value, refit the model, and perform a nested F-test with this new model as your reduced model.
+
+# Grading (50 points)
+
+| Component             | Points |
+|-----------------------|--------|
+| Ex 1                  | 2      |
+| Ex 2                  | 4      |
+| Ex 2                  | 2      |
+| Ex 4                  | 3      |
+| Ex 5                  | 3      |
+| Ex 6                  | 3      |
+| Ex 7                  | 7      |
+| Ex 8                  | 7      |
+| Ex 9                  | 7      |
+| Ex 10                 | 5      |
+| Workflow & formatting | 5      |
+
+## References

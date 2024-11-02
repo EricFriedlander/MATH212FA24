@@ -10,7 +10,6 @@ execute:
 format:
   pdf:
     pdf-engine: pdflatex
-bibliography: references.bib
 ---
 
 ::: callout-important
