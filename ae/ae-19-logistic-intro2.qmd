@@ -8,9 +8,11 @@ execute:
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta210-fa23) and locate your `ae-12` repo to get started.
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-19".
 
-Render, commit, and push your responses to GitHub by the end of class. The responses are due in your GitHub repo no later than Thursday, November 2 at 11:59pm.
+-   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/184070) and locate your `AE-19` assignment to get started.
+
+-   Upload the `ae-19.qmd` and `framingham.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.
 :::
 
 ## Packages
@@ -26,85 +28,50 @@ library(mosaic)
 library(knitr)
 
 heart_disease <- read_csv("data/framingham.csv") |>
-  select(totChol, TenYearCHD) |>
-  drop_na() |>
-  mutate(high_risk = TenYearCHD) |>
-  select(totChol, high_risk)
+  select(totChol, TenYearCHD, age, BMI, cigsPerDay, heartRate) |>
+  drop_na()
 ```
 
 ### Data: Framingham study
 
-This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use the total cholesterol to predict if a randomly selected adult is high risk for heart disease in the next 10 years.
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.
 
--   `high_risk`:
-    -   1: High risk of having heart disease in next 10 years
-    -   0: Not high risk of having heart disease in next 10 years
--   `totChol`: total cholesterol (mg/dL)
+-   `TenYearCHD`:
+    -   1: Patient developed heart disease within 10 years of exam
+    -   0: Patient did not develop heart disease within 10 years of exam
+    
+### What's my predictor variable?
+
+Based on your group, use the following as your predictor variable.
+
+-   Group 1 - `totChol`: total cholesterol (mg/dL)
+-   Group 2 -`BMI`: patient's body mass index
+-   Group 3 -`cigsPerDay`: number of cigarettes patient smokes per day
+-   Group 4 -`heartRate`: Heart rate (beats per minute)
+
+
+## Exercise 0
+
+
+Generate a plot of `TenYearCHD` vs. your groups predictor variable. Based on this plot, what do you think the relationship between this variable and `TenYearCHD` is?
 
 ## Exercise 1
 
-Generate a plot and table of `high_risk`.
+Fit a logistic regression model predicting the probability of developing heart disease within the next 10 years from your assigned predictor. Have you reporter write your model on the white board in both the logistic and probability form. Interpret the coefficient of your predictor in context.
 
 ## Exercise 2
 
-Generate a scatterplot of `totChol` vs. `high_risk`. Use `gf_lm()` to add a line to your plot. Do you think this is a good model? Why or why not?
+Look at the first row in `heart_disease`, what log-odds and probability would you predict for this observation. Find your response variable and plug it into the model you just wrote down. Only use the `exp` function along with addition, subtraction, multiplication, and division to compute your estimate.
 
 ## Exercise 3
 
-State whether a linear regression model or logistic regression model is more appropriate for each scenario.
-
-1.  Use age and education to predict if a randomly selected person will vote in the next election.
-
-2.  Use budget and run time (in minutes) to predict a movie's total revenue.
-
-3.  Use age and sex to calculate the probability a randomly selected adult will visit Duke Health in the next year.
-
+Recompute the probability from Exercise 2 but ADD 1 to your explanatory variable. Do it again, but add 2 to your explanatory variable. How much did the probability change in the first time? What about the second time? What does this tell us about the interpretation of our coefficients as it they relate to the predicted probabilities?
 
 ## Exercise 4
 
-Using the table you generated in Exercise 1:
-
-1.  What is the probability a randomly selected person in the study is **not** high risk for heart disease in the next 10 years?
-
-2.  What are the **odds** a randomly selected person in the study is **not** high risk for heart disease in the next 10 years?
-
-3. What are the **log-odds** a randomly selected person in the study is **not** high risk for heart disease in the next 10 years?
-
-## Logistic regression model
-
-Fit a logistic regression model to understand the relationship between total cholesterol and risk for heart disease.
-
-Let $\pi$ be the probability an adult is high risk of heart disease. The statistical model is
-
-$$\log\Big(\frac{\pi_i}{1-\pi_i}\Big) = \beta_0 + \beta_1 TotChol_i$$
-
-# ```{r}
-# heart_disease_fit <- logistic_reg() |>
-#   set_engine("glm") |>
-#   fit(high_risk ~ totChol, data = heart_disease, family = "binomial")
-# 
-# tidy(heart_disease_fit) |> kable(digits = 3)
-# ```
-
-3.  Write the regression equation. Round to 3 digits.
-
-## Calculating log-odds, odds and probabilities
-
-Based on the model, if a randomly selected person has a total cholesterol of 250 mg/dL,
-
-4.  What are the log-odds they are high risk for heart disease in the next 10 years?
-
-5.  What are the odds they are high risk for heart disease in the next 10 years?
-
-6.  What is the probability they are high risk for heart disease in the next 10 years? *Use the odds to calculate your answer.*
-
-## Comparing observations
-
-Suppose a person's cholesterol changes from 250 mg/dL to 200 mg/dL.
-
-7.  How do you expect the log-odds that this person is high risk for heart disease in the next 10 years to change?
-
-8.  How do you expect the odds that this person is high risk for heart disease in the next 10 years to change?
+1. Use `predict` to generate a vector of predicted probability for the whole data set.
+2. Use mutate to add this vector of predicted probabilities to the original data set.
+3. Plot the predicted probabilities against your explanatory variable.
 
 ## Submission
 
@@ -112,5 +79,5 @@ Suppose a person's cholesterol changes from 250 mg/dL to 200 mg/dL.
 To submit the AE:
 
 -   Render the document to produce the PDF with all of your work from today's class.
--   Push all your work to your `ae-12` repo on GitHub. (You do not submit AEs on Gradescope).
+-   Upload your QMD and PDF files to the Canvas assignment.
 :::

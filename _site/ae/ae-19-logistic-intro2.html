@@ -102,35 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -267,18 +238,14 @@ window.Quarto = {
   <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a>
   <ul class="collapse">
   <li><a href="#data-framingham-study" id="toc-data-framingham-study" class="nav-link" data-scroll-target="#data-framingham-study">Data: Framingham study</a></li>
+  <li><a href="#whats-my-predictor-variable" id="toc-whats-my-predictor-variable" class="nav-link" data-scroll-target="#whats-my-predictor-variable">What’s my predictor variable?</a></li>
   </ul></li>
+  <li><a href="#exercise-0" id="toc-exercise-0" class="nav-link" data-scroll-target="#exercise-0">Exercise 0</a></li>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
-  <li><a href="#logistic-regression-model" id="toc-logistic-regression-model" class="nav-link" data-scroll-target="#logistic-regression-model">Logistic regression model</a></li>
-  <li><a href="#r-heart_disease_fit---logistic_reg-set_engineglm-fithigh_risk-totchol-data-heart_disease-family-binomial-tidyheart_disease_fit-kabledigits-3" id="toc-r-heart_disease_fit---logistic_reg-set_engineglm-fithigh_risk-totchol-data-heart_disease-family-binomial-tidyheart_disease_fit-kabledigits-3" class="nav-link" data-scroll-target="#r-heart_disease_fit---logistic_reg-set_engineglm-fithigh_risk-totchol-data-heart_disease-family-binomial-tidyheart_disease_fit-kabledigits-3"><code>{r} # heart_disease_fit &lt;- logistic_reg() |&gt; #   set_engine("glm") |&gt; #   fit(high_risk ~ totChol, data = heart_disease, family = "binomial") #  # tidy(heart_disease_fit) |&gt; kable(digits = 3) #</code></a>
-  <ul class="collapse">
-  <li><a href="#calculating-log-odds-odds-and-probabilities" id="toc-calculating-log-odds-odds-and-probabilities" class="nav-link" data-scroll-target="#calculating-log-odds-odds-and-probabilities">Calculating log-odds, odds and probabilities</a></li>
-  <li><a href="#comparing-observations" id="toc-comparing-observations" class="nav-link" data-scroll-target="#comparing-observations">Comparing observations</a></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-19-logistic-intro2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -320,8 +287,11 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Go to the <a href="https://github.com/sta210-fa23">course GitHub organization</a> and locate your <code>ae-12</code> repo to get started.</p>
-<p>Render, commit, and push your responses to GitHub by the end of class. The responses are due in your GitHub repo no later than Thursday, November 2 at 11:59pm.</p>
+<ul>
+<li><p>Open <a href="https://rstudio.collegeofidaho.edu/">RStudio</a> and create a subfolder in your AE folder called “AE-19”.</p></li>
+<li><p>Go to the <a href="https://cofi.instructure.com/courses/15692/assignments/184070">Canvas</a> and locate your <code>AE-19</code> assignment to get started.</p></li>
+<li><p>Upload the <code>ae-19.qmd</code> and <code>framingham.csv</code> files into the folder you just created. The <code>.qmd</code> and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.</p></li>
+</ul>
 </div>
 </div>
 <section id="packages" class="level2">
@@ -334,76 +304,53 @@ Important
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>heart_disease <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/framingham.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(totChol, TenYearCHD) <span class="sc">|&gt;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">high_risk =</span> TenYearCHD) <span class="sc">|&gt;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(totChol, high_risk)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(totChol, TenYearCHD, age, BMI, cigsPerDay, heartRate) <span class="sc">|&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="data-framingham-study" class="level3">
 <h3 class="anchored" data-anchor-id="data-framingham-study">Data: Framingham study</h3>
-<p>This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use the total cholesterol to predict if a randomly selected adult is high risk for heart disease in the next 10 years.</p>
+<p>This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.</p>
 <ul>
-<li><code>high_risk</code>:
+<li><code>TenYearCHD</code>:
 <ul>
-<li>1: High risk of having heart disease in next 10 years</li>
-<li>0: Not high risk of having heart disease in next 10 years</li>
+<li>1: Patient developed heart disease within 10 years of exam</li>
+<li>0: Patient did not develop heart disease within 10 years of exam</li>
 </ul></li>
-<li><code>totChol</code>: total cholesterol (mg/dL)</li>
+</ul>
+</section>
+<section id="whats-my-predictor-variable" class="level3">
+<h3 class="anchored" data-anchor-id="whats-my-predictor-variable">What’s my predictor variable?</h3>
+<p>Based on your group, use the following as your predictor variable.</p>
+<ul>
+<li>Group 1 - <code>totChol</code>: total cholesterol (mg/dL)</li>
+<li>Group 2 -<code>BMI</code>: patient’s body mass index</li>
+<li>Group 3 -<code>cigsPerDay</code>: number of cigarettes patient smokes per day</li>
+<li>Group 4 -<code>heartRate</code>: Heart rate (beats per minute)</li>
 </ul>
 </section>
 </section>
+<section id="exercise-0" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-0">Exercise 0</h2>
+<p>Generate a plot of <code>TenYearCHD</code> vs.&nbsp;your groups predictor variable. Based on this plot, what do you think the relationship between this variable and <code>TenYearCHD</code> is?</p>
+</section>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Generate a plot and table of <code>high_risk</code>.</p>
+<p>Fit a logistic regression model predicting the probability of developing heart disease within the next 10 years from your assigned predictor. Have you reporter write your model on the white board in both the logistic and probability form. Interpret the coefficient of your predictor in context.</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Generate a scatterplot of <code>totChol</code> vs.&nbsp;<code>high_risk</code>. Use <code>gf_lm()</code> to add a line to your plot. Do you think this is a good model? Why or why not?</p>
+<p>Look at the first row in <code>heart_disease</code>, what log-odds and probability would you predict for this observation. Find your response variable and plug it into the model you just wrote down. Only use the <code>exp</code> function along with addition, subtraction, multiplication, and division to compute your estimate.</p>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>State whether a linear regression model or logistic regression model is more appropriate for each scenario.</p>
-<ol type="1">
-<li><p>Use age and education to predict if a randomly selected person will vote in the next election.</p></li>
-<li><p>Use budget and run time (in minutes) to predict a movie’s total revenue.</p></li>
-<li><p>Use age and sex to calculate the probability a randomly selected adult will visit Duke Health in the next year.</p></li>
-</ol>
+<p>Recompute the probability from Exercise 2 but ADD 1 to your explanatory variable. Do it again, but add 2 to your explanatory variable. How much did the probability change in the first time? What about the second time? What does this tell us about the interpretation of our coefficients as it they relate to the predicted probabilities?</p>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>Using the table you generated in Exercise 1:</p>
 <ol type="1">
-<li><p>What is the probability a randomly selected person in the study is <strong>not</strong> high risk for heart disease in the next 10 years?</p></li>
-<li><p>What are the <strong>odds</strong> a randomly selected person in the study is <strong>not</strong> high risk for heart disease in the next 10 years?</p></li>
-<li><p>What are the <strong>log-odds</strong> a randomly selected person in the study is <strong>not</strong> high risk for heart disease in the next 10 years?</p></li>
-</ol>
-</section>
-<section id="logistic-regression-model" class="level2">
-<h2 class="anchored" data-anchor-id="logistic-regression-model">Logistic regression model</h2>
-<p>Fit a logistic regression model to understand the relationship between total cholesterol and risk for heart disease.</p>
-<p>Let <span class="math inline">\(\pi\)</span> be the probability an adult is high risk of heart disease. The statistical model is</p>
-<p><span class="math display">\[\log\Big(\frac{\pi_i}{1-\pi_i}\Big) = \beta_0 + \beta_1 TotChol_i\]</span></p>
-</section>
-<section id="r-heart_disease_fit---logistic_reg-set_engineglm-fithigh_risk-totchol-data-heart_disease-family-binomial-tidyheart_disease_fit-kabledigits-3" class="level1">
-<h1><code>{r} # heart_disease_fit &lt;- logistic_reg() |&gt; #   set_engine("glm") |&gt; #   fit(high_risk ~ totChol, data = heart_disease, family = "binomial") #  # tidy(heart_disease_fit) |&gt; kable(digits = 3) #</code></h1>
-<ol start="3" type="1">
-<li>Write the regression equation. Round to 3 digits.</li>
-</ol>
-<section id="calculating-log-odds-odds-and-probabilities" class="level2">
-<h2 class="anchored" data-anchor-id="calculating-log-odds-odds-and-probabilities">Calculating log-odds, odds and probabilities</h2>
-<p>Based on the model, if a randomly selected person has a total cholesterol of 250 mg/dL,</p>
-<ol start="4" type="1">
-<li><p>What are the log-odds they are high risk for heart disease in the next 10 years?</p></li>
-<li><p>What are the odds they are high risk for heart disease in the next 10 years?</p></li>
-<li><p>What is the probability they are high risk for heart disease in the next 10 years? <em>Use the odds to calculate your answer.</em></p></li>
-</ol>
-</section>
-<section id="comparing-observations" class="level2">
-<h2 class="anchored" data-anchor-id="comparing-observations">Comparing observations</h2>
-<p>Suppose a person’s cholesterol changes from 250 mg/dL to 200 mg/dL.</p>
-<ol start="7" type="1">
-<li><p>How do you expect the log-odds that this person is high risk for heart disease in the next 10 years to change?</p></li>
-<li><p>How do you expect the odds that this person is high risk for heart disease in the next 10 years to change?</p></li>
+<li>Use <code>predict</code> to generate a vector of predicted probability for the whole data set.</li>
+<li>Use mutate to add this vector of predicted probabilities to the original data set.</li>
+<li>Plot the predicted probabilities against your explanatory variable.</li>
 </ol>
 </section>
 <section id="submission" class="level2">
@@ -421,13 +368,12 @@ Important
 <p>To submit the AE:</p>
 <ul>
 <li>Render the document to produce the PDF with all of your work from today’s class.</li>
-<li>Push all your work to your <code>ae-12</code> repo on GitHub. (You do not submit AEs on Gradescope).</li>
+<li>Upload your QMD and PDF files to the Canvas assignment.</li>
 </ul>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
