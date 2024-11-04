@@ -21086,42 +21086,42 @@
   {
     "objectID": "ae/ae-19-logistic-intro2.html",
     "href": "ae/ae-19-logistic-intro2.html",
-    "title": "AE 12: Logistic regression introduction",
+    "title": "AE 19: Logistic regression introduction",
     "section": "",
     "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-19”.\nGo to the Canvas and locate your AE-19 assignment to get started.\nUpload the ae-19.qmd and framingham.csv files into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment."
   },
   {
     "objectID": "ae/ae-19-logistic-intro2.html#packages",
     "href": "ae/ae-19-logistic-intro2.html#packages",
-    "title": "AE 12: Logistic regression introduction",
+    "title": "AE 19: Logistic regression introduction",
     "section": "Packages",
-    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(mosaic)\nlibrary(knitr)\n\nheart_disease &lt;- read_csv(\"data/framingham.csv\") |&gt;\n  select(totChol, TenYearCHD, age, BMI, cigsPerDay, heartRate) |&gt;\n  drop_na()\n\n\nData: Framingham study\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.\n\nTenYearCHD:\n\n1: Patient developed heart disease within 10 years of exam\n0: Patient did not develop heart disease within 10 years of exam\n\n\n\n\nWhat’s my predictor variable?\nBased on your group, use the following as your predictor variable.\n\nGroup 1 - totChol: total cholesterol (mg/dL)\nGroup 2 -BMI: patient’s body mass index\nGroup 3 -cigsPerDay: number of cigarettes patient smokes per day\nGroup 4 -heartRate: Heart rate (beats per minute)"
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(mosaic)\nlibrary(knitr)\n\nheart_disease &lt;- read_csv(\"data/framingham.csv\") |&gt;\n  select(totChol, TenYearCHD, age, BMI, cigsPerDay, heartRate) |&gt;\n  drop_na()\n\n\nData: Framingham study\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.\n\n\nResponse variable\n\nTenYearCHD:\n\n1: Patient developed heart disease within 10 years of exam\n0: Patient did not develop heart disease within 10 years of exam\n\n\n\n\nWhat’s my predictor variable?\nBased on your group, use the following as your predictor variable.\n\nGroup 1 - totChol: total cholesterol (mg/dL)\nGroup 2 -BMI: patient’s body mass index\nGroup 3 -cigsPerDay: number of cigarettes patient smokes per day\nGroup 4 -heartRate: Heart rate (beats per minute)"
   },
   {
     "objectID": "ae/ae-19-logistic-intro2.html#exercise-1",
     "href": "ae/ae-19-logistic-intro2.html#exercise-1",
-    "title": "AE 12: Logistic regression introduction",
+    "title": "AE 19: Logistic regression introduction",
     "section": "Exercise 1",
-    "text": "Exercise 1\nFit a logistic regression model predicting the probability of developing heart disease within the next 10 years from your assigned predictor. Have you reporter write your model on the white board in both the logistic and probability form. Interpret the coefficient of your predictor in context."
+    "text": "Exercise 1\nFit a logistic regression model predicting the probability of developing heart disease within the next 10 years from your assigned predictor. Have your reporter write your model on the white board in both the logistic and probability form. Interpret the coefficient of your predictor in context."
   },
   {
     "objectID": "ae/ae-19-logistic-intro2.html#exercise-2",
     "href": "ae/ae-19-logistic-intro2.html#exercise-2",
-    "title": "AE 12: Logistic regression introduction",
+    "title": "AE 19: Logistic regression introduction",
     "section": "Exercise 2",
     "text": "Exercise 2\nLook at the first row in heart_disease, what log-odds and probability would you predict for this observation. Find your response variable and plug it into the model you just wrote down. Only use the exp function along with addition, subtraction, multiplication, and division to compute your estimate."
   },
   {
     "objectID": "ae/ae-19-logistic-intro2.html#exercise-3",
     "href": "ae/ae-19-logistic-intro2.html#exercise-3",
-    "title": "AE 12: Logistic regression introduction",
+    "title": "AE 19: Logistic regression introduction",
     "section": "Exercise 3",
-    "text": "Exercise 3\nRecompute the probability from Exercise 2 but ADD 1 to your explanatory variable. Do it again, but add 2 to your explanatory variable. How much did the probability change in the first time? What about the second time? What does this tell us about the interpretation of our coefficients as it they relate to the predicted probabilities?"
+    "text": "Exercise 3\nRecompute the probability from Exercise 2 but ADD 1 to your explanatory variable. Do it again, but ADD an additional 1 (total of 2) to your explanatory variable. How much did the probability change in the first time? What about the second time? What does this tell us about the interpretation of our coefficients as they relate to the predicted probabilities?"
   },
   {
     "objectID": "ae/ae-19-logistic-intro2.html#exercise-4",
     "href": "ae/ae-19-logistic-intro2.html#exercise-4",
-    "title": "AE 12: Logistic regression introduction",
+    "title": "AE 19: Logistic regression introduction",
     "section": "Exercise 4",
     "text": "Exercise 4\n\nUse predict to generate a vector of predicted probability for the whole data set.\nUse mutate to add this vector of predicted probabilities to the original data set.\nPlot the predicted probabilities against your explanatory variable."
   },
@@ -21149,7 +21149,7 @@
   {
     "objectID": "ae/ae-19-logistic-intro2.html#submission",
     "href": "ae/ae-19-logistic-intro2.html#submission",
-    "title": "AE 12: Logistic regression introduction",
+    "title": "AE 19: Logistic regression introduction",
     "section": "Submission",
     "text": "Submission\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
   },
@@ -21338,7 +21338,7 @@
   {
     "objectID": "ae/ae-19-logistic-intro2.html#exercise-0",
     "href": "ae/ae-19-logistic-intro2.html#exercise-0",
-    "title": "AE 12: Logistic regression introduction",
+    "title": "AE 19: Logistic regression introduction",
     "section": "Exercise 0",
     "text": "Exercise 0\nGenerate a plot of TenYearCHD vs. your groups predictor variable. Based on this plot, what do you think the relationship between this variable and TenYearCHD is?"
   },

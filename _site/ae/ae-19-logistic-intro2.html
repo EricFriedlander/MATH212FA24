@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-10-30">
 
-<title>MAT 212 - Fall 2024 - AE 12: Logistic regression introduction</title>
+<title>MAT 212 - Fall 2024 - AE 19: Logistic regression introduction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 12: Logistic regression introduction</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 19: Logistic regression introduction</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -238,6 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a>
   <ul class="collapse">
   <li><a href="#data-framingham-study" id="toc-data-framingham-study" class="nav-link" data-scroll-target="#data-framingham-study">Data: Framingham study</a></li>
+  <li><a href="#response-variable" id="toc-response-variable" class="nav-link" data-scroll-target="#response-variable">Response variable</a></li>
   <li><a href="#whats-my-predictor-variable" id="toc-whats-my-predictor-variable" class="nav-link" data-scroll-target="#whats-my-predictor-variable">What’s my predictor variable?</a></li>
   </ul></li>
   <li><a href="#exercise-0" id="toc-exercise-0" class="nav-link" data-scroll-target="#exercise-0">Exercise 0</a></li>
@@ -254,7 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 12: Logistic regression introduction</h1>
+<h1 class="title">AE 19: Logistic regression introduction</h1>
 </div>
 
 
@@ -262,12 +262,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">October 30, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -289,7 +283,7 @@ Important
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>Open <a href="https://rstudio.collegeofidaho.edu/">RStudio</a> and create a subfolder in your AE folder called “AE-19”.</p></li>
-<li><p>Go to the <a href="https://cofi.instructure.com/courses/15692/assignments/184070">Canvas</a> and locate your <code>AE-19</code> assignment to get started.</p></li>
+<li><p>Go to the <a href="https://cofi.instructure.com/courses/15692/assignments/184424">Canvas</a> and locate your <code>AE-19</code> assignment to get started.</p></li>
 <li><p>Upload the <code>ae-19.qmd</code> and <code>framingham.csv</code> files into the folder you just created. The <code>.qmd</code> and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.</p></li>
 </ul>
 </div>
@@ -310,6 +304,9 @@ Important
 <section id="data-framingham-study" class="level3">
 <h3 class="anchored" data-anchor-id="data-framingham-study">Data: Framingham study</h3>
 <p>This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.</p>
+</section>
+<section id="response-variable" class="level3">
+<h3 class="anchored" data-anchor-id="response-variable">Response variable</h3>
 <ul>
 <li><code>TenYearCHD</code>:
 <ul>
@@ -335,7 +332,7 @@ Important
 </section>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Fit a logistic regression model predicting the probability of developing heart disease within the next 10 years from your assigned predictor. Have you reporter write your model on the white board in both the logistic and probability form. Interpret the coefficient of your predictor in context.</p>
+<p>Fit a logistic regression model predicting the probability of developing heart disease within the next 10 years from your assigned predictor. Have your reporter write your model on the white board in both the logistic and probability form. Interpret the coefficient of your predictor in context.</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
@@ -343,13 +340,13 @@ Important
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Recompute the probability from Exercise 2 but ADD 1 to your explanatory variable. Do it again, but add 2 to your explanatory variable. How much did the probability change in the first time? What about the second time? What does this tell us about the interpretation of our coefficients as it they relate to the predicted probabilities?</p>
+<p>Recompute the probability from Exercise 2 but ADD 1 to your explanatory variable. Do it again, but ADD an additional 1 (total of 2) to your explanatory variable. How much did the probability change in the first time? What about the second time? What does this tell us about the interpretation of our coefficients as they relate to the predicted probabilities?</p>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
 <ol type="1">
 <li>Use <code>predict</code> to generate a vector of predicted probability for the whole data set.</li>
-<li>Use mutate to add this vector of predicted probabilities to the original data set.</li>
+<li>Use <code>mutate</code> to add this vector of predicted probabilities to the original data set.</li>
 <li>Plot the predicted probabilities against your explanatory variable.</li>
 </ol>
 </section>
