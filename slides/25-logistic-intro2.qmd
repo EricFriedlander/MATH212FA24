@@ -208,7 +208,7 @@ augment(heart_disease_fit) |>
 -   SLOPE IS CHANGING!
 -   Increase in $\hat{\pi}$ due to increase of 1 year of Age *depends on what starting age is*
 
-## `glm` and `augment`
+## `glm` and `augment` {.smaller}
 
 The `.fitted` values in `augment` correspond to predictions from the logistic form of the model (i.e. the log-odds):
 
