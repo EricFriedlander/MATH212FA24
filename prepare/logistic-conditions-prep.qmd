@@ -1,0 +1,8 @@
+---
+title: "November 8 lecture"
+subtitle: "Logistic Regression - Conditions"
+---
+
+## Assigned reading
+
+- Stat2: Topic 9.3 Assessing the Logistic Regression Model
