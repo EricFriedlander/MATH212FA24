@@ -20871,7 +20871,7 @@
     "href": "slides/25-logistic-intro2.html#computational-setup",
     "title": "Logistic regression continued",
     "section": "Computational setup",
-    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(broom)\nlibrary(knitr)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(ggformula)\nlibrary(ggforce)\nlibrary(broom)\nlibrary(knitr)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
   },
   {
     "objectID": "slides/25-logistic-intro2.html#types-of-outcome-variables",
@@ -21032,7 +21032,7 @@
     "href": "slides/25-logistic-intro2.html#high-risk-vs.-age",
     "title": "Logistic regression continued",
     "section": "High risk vs. age",
-    "text": "High risk vs. age\n\nheart_disease |&gt; \ngf_violin(age ~ factor(TenYearCHD), fill = \"steelblue\") |&gt; \n  gf_labs(x = \"High risk - 1: yes, 0: no\",\n       y = \"Age\", \n       title = \"Age vs. High risk of heart disease\")"
+    "text": "High risk vs. age\n\nheart_disease |&gt; \ngf_sina(age ~ factor(TenYearCHD)) |&gt; \n  gf_labs(x = \"High risk - 1: yes, 0: no\",\n       y = \"Age\", \n       title = \"Age vs. High risk of heart disease\")"
   },
   {
     "objectID": "slides/25-logistic-intro2.html#lets-fit-the-model",
@@ -21396,13 +21396,13 @@
     "href": "slides/25-logistic-intro2.html#high-risk-vs.-age-1",
     "title": "Logistic regression continued",
     "section": "High risk vs. age",
-    "text": "High risk vs. age\n\nheart_disease |&gt; \ngf_violin(age ~ factor(TenYearCHD), fill = \"steelblue\") |&gt; \n  gf_jitter(width = 0.15, size = 0.5, alpha=0.25) |&gt; \n  gf_labs(x = \"High risk - 1: yes, 0: no\",\n       y = \"Age\", \n       title = \"Age vs. High risk of heart disease\")"
+    "text": "High risk vs. age\n\nheart_disease |&gt; \ngf_violin(age ~ factor(TenYearCHD), fill = \"steelblue\") |&gt; \n  gf_labs(x = \"High risk - 1: yes, 0: no\",\n       y = \"Age\", \n       title = \"Age vs. High risk of heart disease\")"
   },
   {
     "objectID": "slides/25-logistic-intro2.html#high-risk-vs.-age-2",
     "href": "slides/25-logistic-intro2.html#high-risk-vs.-age-2",
     "title": "Logistic regression continued",
     "section": "High risk vs. age",
-    "text": "High risk vs. age\n\nheart_disease |&gt; \ngf_boxplot(age ~ factor(TenYearCHD), fill = \"steelblue\") |&gt; \n  gf_jitter(width = 0.15, size = 0.5, alpha=0.25) |&gt; \n  gf_labs(x = \"High risk - 1: yes, 0: no\",\n       y = \"Age\", \n       title = \"Age vs. High risk of heart disease\")"
+    "text": "High risk vs. age\n\nheart_disease |&gt; \ngf_boxplot(age ~ factor(TenYearCHD), fill = \"steelblue\") |&gt; \n  gf_sina(size = 0.75, alpha=0.25) |&gt; \n  gf_labs(x = \"High risk - 1: yes, 0: no\",\n       y = \"Age\", \n       title = \"Age vs. High risk of heart disease\")"
   }
 ]

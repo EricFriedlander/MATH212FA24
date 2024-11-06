@@ -438,11 +438,12 @@ Prof.&nbsp;Eric Friedlander
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load packages</span></span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a></a><span class="fu">library</span>(ggformula)</span>
-<span id="cb1-4"><a></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-5"><a></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-6"><a></a></span>
-<span id="cb1-7"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
-<span id="cb1-8"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a></a><span class="fu">library</span>(ggforce)</span>
+<span id="cb1-5"><a></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-6"><a></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-7"><a></a></span>
+<span id="cb1-8"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
+<span id="cb1-9"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-framingham-study" class="slide level2 smaller">
@@ -494,7 +495,7 @@ Prof.&nbsp;Eric Friedlander
 <h2>High risk vs.&nbsp;age</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>heart_disease <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a></a><span class="fu">gf_violin</span>(age <span class="sc">~</span> <span class="fu">factor</span>(TenYearCHD), <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a></a><span class="fu">gf_sina</span>(age <span class="sc">~</span> <span class="fu">factor</span>(TenYearCHD)) <span class="sc">|&gt;</span> </span>
 <span id="cb3-3"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"High risk - 1: yes, 0: no"</span>,</span>
 <span id="cb3-4"><a></a>       <span class="at">y =</span> <span class="st">"Age"</span>, </span>
 <span id="cb3-5"><a></a>       <span class="at">title =</span> <span class="st">"Age vs. High risk of heart disease"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -506,10 +507,9 @@ Prof.&nbsp;Eric Friedlander
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>heart_disease <span class="sc">|&gt;</span> </span>
 <span id="cb4-2"><a></a><span class="fu">gf_violin</span>(age <span class="sc">~</span> <span class="fu">factor</span>(TenYearCHD), <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb4-3"><a></a>  <span class="fu">gf_jitter</span>(<span class="at">width =</span> <span class="fl">0.15</span>, <span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">alpha=</span><span class="fl">0.25</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb4-4"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"High risk - 1: yes, 0: no"</span>,</span>
-<span id="cb4-5"><a></a>       <span class="at">y =</span> <span class="st">"Age"</span>, </span>
-<span id="cb4-6"><a></a>       <span class="at">title =</span> <span class="st">"Age vs. High risk of heart disease"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"High risk - 1: yes, 0: no"</span>,</span>
+<span id="cb4-4"><a></a>       <span class="at">y =</span> <span class="st">"Age"</span>, </span>
+<span id="cb4-5"><a></a>       <span class="at">title =</span> <span class="st">"Age vs. High risk of heart disease"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="25-logistic-intro2_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
@@ -518,7 +518,7 @@ Prof.&nbsp;Eric Friedlander
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>heart_disease <span class="sc">|&gt;</span> </span>
 <span id="cb5-2"><a></a><span class="fu">gf_boxplot</span>(age <span class="sc">~</span> <span class="fu">factor</span>(TenYearCHD), <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb5-3"><a></a>  <span class="fu">gf_jitter</span>(<span class="at">width =</span> <span class="fl">0.15</span>, <span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">alpha=</span><span class="fl">0.25</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb5-3"><a></a>  <span class="fu">gf_sina</span>(<span class="at">size =</span> <span class="fl">0.75</span>, <span class="at">alpha=</span><span class="fl">0.25</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb5-4"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"High risk - 1: yes, 0: no"</span>,</span>
 <span id="cb5-5"><a></a>       <span class="at">y =</span> <span class="st">"Age"</span>, </span>
 <span id="cb5-6"><a></a>       <span class="at">title =</span> <span class="st">"Age vs. High risk of heart disease"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

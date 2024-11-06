@@ -69,6 +69,7 @@ library(countdown)
 # load packages
 library(tidyverse)
 library(ggformula)
+library(ggforce)
 library(broom)
 library(knitr)
 
@@ -124,7 +125,7 @@ Today: Using R to fit this model.
 #| echo: true
 
 heart_disease |> 
-gf_violin(age ~ factor(TenYearCHD), fill = "steelblue") |> 
+gf_sina(age ~ factor(TenYearCHD)) |> 
   gf_labs(x = "High risk - 1: yes, 0: no",
        y = "Age", 
        title = "Age vs. High risk of heart disease")
@@ -137,7 +138,6 @@ gf_violin(age ~ factor(TenYearCHD), fill = "steelblue") |>
 
 heart_disease |> 
 gf_violin(age ~ factor(TenYearCHD), fill = "steelblue") |> 
-  gf_jitter(width = 0.15, size = 0.5, alpha=0.25) |> 
   gf_labs(x = "High risk - 1: yes, 0: no",
        y = "Age", 
        title = "Age vs. High risk of heart disease")
@@ -150,7 +150,7 @@ gf_violin(age ~ factor(TenYearCHD), fill = "steelblue") |>
 
 heart_disease |> 
 gf_boxplot(age ~ factor(TenYearCHD), fill = "steelblue") |> 
-  gf_jitter(width = 0.15, size = 0.5, alpha=0.25) |> 
+  gf_sina(size = 0.75, alpha=0.25) |> 
   gf_labs(x = "High risk - 1: yes, 0: no",
        y = "Age", 
        title = "Age vs. High risk of heart disease")
