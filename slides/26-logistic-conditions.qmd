@@ -1,0 +1,340 @@
+---
+title: "Assessing Logistic Regression Models"
+author: "Prof. Eric Friedlander"
+date: "2024-11-08"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: false
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+  cache: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+
+# figure options
+knitr::opts_chunk$set(
+  fig.width = 8, fig.asp = 0.618, out.width = "90%",
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+
+library(countdown)
+```
+
+## Announcements {.midi}
+
+-   Project: [Paper Due November 18th](https://mat212fa24.netlify.app/project-instructions#draft-report)
+-   Oral R Quiz
+
+::: appex
+📋 [AE 20 - Assessing Logistic Regression Models](https://mat212fa24.netlify.app/ae/ae-20-logistic-assessment)
+
+- Open up AE 20 and complete Exercise 0.
+:::
+
+
+
+## Topics
+
+::: nonincremental
+-   Estimating coefficients in logistic regression
+-   Checking model conditions for logistic regression
+:::
+
+## Computational setup
+
+```{r}
+#| echo: true
+
+# load packages
+library(tidyverse)
+library(broom)
+library(ggformula)
+library(openintro)
+library(knitr)
+library(kableExtra)  # for table embellishments
+library(Stat2Data)   # for empirical logit
+library(countdown)
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
+```
+
+# Data
+
+## Risk of coronary heart disease {.midi}
+
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.
+
+-   `TenYearCHD`:
+
+    -   1: High risk of having heart disease in next 10 years
+    -   0: Not high risk of having heart disease in next 10 years
+
+-   `age`: Age at exam time (in years)
+
+-   `currentSmoker`: 0 = nonsmoker, 1 = smoker
+
+## Data prep
+
+```{r}
+heart_disease <- read_csv("data/framingham.csv") |>
+  select(TenYearCHD, age, currentSmoker) |>
+  drop_na() |>
+  mutate(currentSmoker = as.factor(currentSmoker))
+
+heart_disease |> head() |> kable()
+```
+
+# Estimating coefficients
+
+## Statistical model {.midi}
+
+The form of the statistical model for logistic regression is
+
+$$
+\log\Big(\frac{\pi}{1-\pi}\Big) = \beta_0 + \beta_1X_1 + \beta_2X_2 + \dots + \beta_pX_p
+$$
+
+where $\pi$ is the probability $Y = 1$.
+
+. . .
+
+Notice there is no error term when writing the statistical model for logistic regression. Why?
+
+-   The statistical model is the "data-generating" model
+-   Each individual observed $Y$ is generated from a *Bernoulli distribution*, $Bernoulli(\pi)$
+-   Therefore, the randomness is not produced by an error term but rather in the distribution used to generate $Y$
+
+## Bernoulli Distribution
+
+-   Think of two possible outcomes:
+  -   1 = "Success" which occurs with probability $\pi$
+  -   0 = "Failure" which occurs with probability $1-\pi$
+-   We can think of each of our observations as having a Bernoulli distribution with mean $\pi_i$
+-   Our logistic regression model is changing $\pi_i$ (the probability of success) for each new observation
+-   The probability that we got our data, given our model is the truth, is then called the *Likelihood* $$L = \prod_{i=1}^n \pi_i^{y_i}(1-\pi_i)^{1-y_i}$$
+
+## Log Likelihood Function {.smaller}
+
+**Log-Likelihood Function**: the log of the likelihood function is easier to work with and has the same maxima and minima!
+
+$$
+\log L = \sum\limits_{i=1}^n[y_i \log(\hat{\pi}_i) + (1 - y_i)\log(1 - \hat{\pi}_i)]
+$$
+
+where
+
+$$\hat{\pi} = \frac{\exp\{\hat{\beta}_0 + \hat{\beta}_1X_1 + \dots + \hat{\beta}_pX_p\}}{1 + \exp\{\hat{\beta}_0 + \hat{\beta}_1X_1 + \dots + \hat{\beta}_pX_p\}}$$
+
+. . .
+
+-   The coefficients $\hat{\beta}_0, \ldots, \hat{\beta}_p$ are estimated using maximum likelihood estimation
+
+-   Basic idea: Find the values of $\hat{\beta}_0, \ldots, \hat{\beta}_p$ that give the observed data the maximum probability of occurring
+
+## Maximum Likelihood Estimation
+
+-   This is called **maximum likelihood estimation** and is EXTREMELY common in statistics and data science
+
+  -   Need a strong foundation in probability and applied mathematics to fully understand
+  
+  -   Logistic regression: maximum found through **numerical methods** (clever computer algorithms that approximate the maximum)
+  
+  -   Linear regression: maximum found through **calculus**
+  
+
+. . .
+
+Complete Exercise 1.  
+
+```{r} 
+#| echo: FALSE
+countdown(minutes = 2L)
+```
+
+# Conditions
+
+## The models {.smaller}
+
+Model 1: Let's predict `TenYearCHD` from `currentSmoker`:
+
+```{r}
+risk_fit <- glm(TenYearCHD ~ currentSmoker, 
+      data = heart_disease, family = "binomial")
+
+tidy(risk_fit, conf.int = TRUE) |> 
+  kable(digits = 3)
+```
+
+Model 2: Let's predict `TenYearCHD` from `age`:
+
+```{r}
+risk_fit <- glm(TenYearCHD ~ age, 
+      data = heart_disease, family = "binomial")
+
+tidy(risk_fit, conf.int = TRUE) |> 
+  kable(digits = 3)
+```
+
+## Conditions for logistic regression
+
+1.  **Linearity:** The log-odds have a linear relationship with the predictors.
+
+2.  **Randomness:** The data were obtained from a random process.
+
+3.  **Independence:** The observations are independent from one another.
+
+## Empirical logit
+
+The **empirical logit** is the log of the observed odds:
+
+$$
+\text{logit}(\hat{p}) = \log\Big(\frac{\hat{p}}{1 - \hat{p}}\Big) = \log\Big(\frac{\# \text{Yes}}{\# \text{No}}\Big)
+$$
+
+## Calculating empirical logit (categorical predictor)
+
+If the predictor is categorical, we can calculate the empirical logit for each level of the predictor.
+
+```{r}
+#| echo: FALSE
+
+heart_disease |>
+  count(currentSmoker, TenYearCHD) |>
+  group_by(currentSmoker) |>
+  mutate(prop = n/sum(n)) |>
+  filter(TenYearCHD == 1) |>
+  mutate(emp_logit = log(prop/(1-prop))) |> 
+  kable()
+```
+
+. . .
+
+Complete Exercise 2.
+
+## Calculating empirical logit (quantitative predictor)
+
+1.  Divide the range of the predictor into intervals with approximately equal number of cases. (If you have enough observations, use 5 - 10 intervals.)
+
+2.  Compute the empirical logit for each interval
+
+. . .
+
+You can then calculate the mean value of the predictor in each interval and create a plot of the empirical logit versus the mean value of the predictor in each interval.
+
+## Empirical logit plot in R (quantitative predictor)
+
+Created using `dplyr` and `ggplot` functions.
+
+```{r}
+#| echo: false
+heart_disease |> 
+  mutate(age_bin = cut_number(age, n = 10)) |>
+  group_by(age_bin) |>
+  mutate(mean_age = mean(age)) |>
+  count(mean_age, TenYearCHD) |>
+  mutate(prop = n/sum(n)) |>
+  filter(TenYearCHD == 1) |>
+  mutate(emp_logit = log(prop/(1-prop))) |>
+  gf_point(emp_logit ~ mean_age)  |>  
+  gf_smooth(method = "lm", se = FALSE) |> 
+  gf_labs(x = "Mean Age", 
+       y = "Empirical logit")
+```
+
+## Empirical logit plot in R (quantitative predictor)
+
+Created using `dplyr` and `ggformula` functions.
+
+```{r}
+#| eval: false
+
+heart_disease |> 
+  mutate(age_bin = cut_interval(age, n = 10)) |>
+  group_by(age_bin) |>
+  mutate(mean_age = mean(age)) |>
+  count(mean_age, TenYearCHD) |>
+  mutate(prop = n/sum(n)) |>
+  filter(TenYearCHD == "1") |>
+  mutate(emp_logit = log(prop/(1-prop))) |>
+  gf_point(emp_logit ~ mean_age)  |>  
+  gf_smooth(method = "lm", se = FALSE) |> 
+  gf_labs(x = "Mean Age", 
+       y = "Empirical logit")
+```
+
+## Empirical logit plot in R (quantitative predictor)
+
+Using the `emplogitplot1` function from the **Stat2Data** R package
+
+```{r}
+emplogitplot1(TenYearCHD ~ age, 
+              data = heart_disease, 
+              ngroups = 10)
+```
+
+## Empirical logit plot in R (interactions)
+
+Using the `emplogitplot2` function from the **Stat2Data** R package
+
+```{r}
+emplogitplot2(TenYearCHD ~ age + currentSmoker, data = heart_disease, 
+              ngroups = 10, 
+              putlegend = "bottomright")
+```
+
+## Checking linearity
+
+`r emo::ji("white_check_mark")` The linearity condition is satisfied. There is a linear relationship between the empirical logit and the predictor variables.
+
+. . .
+
+Complete Exercise 3.
+
+## Checking randomness
+
+We can check the randomness condition based on the context of the data and how the observations were collected.
+
+-   Was the sample randomly selected?
+-   If the sample was not randomly selected, ask whether there is reason to believe the observations in the sample differ systematically from the population of interest.
+
+. . .
+
+`r emo::ji("white_check_mark")` The randomness condition is satisfied. We do not have reason to believe that the participants in this study differ systematically from adults in the U.S. in regards to health characteristics and risk of heart disease.
+
+## Checking independence
+
+-   We can check the independence condition based on the context of the data and how the observations were collected.
+-   Independence is most often violated if the data were collected over time or there is a strong spatial relationship between the observations.
+
+. . .
+
+`r emo::ji("white_check_mark")` The independence condition is satisfied. It is reasonable to conclude that the participants' health characteristics are independent of one another.
+
+## Recap
+
+-   How do we fit a logistic regression model?
+    -   Maximum likelihood estimation
+-   Logistic regression conditions
+    -   Linearity
+    -   Randomness
+    -   Independence

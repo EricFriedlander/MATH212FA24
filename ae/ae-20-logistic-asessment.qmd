@@ -1,0 +1,101 @@
+---
+title: "AE 20: Assessing Logistic Regression Models"
+editor: visual
+execute: 
+  warning: false
+  message: false
+---
+
+::: callout-important
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-20".
+
+-   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/184526) and locate your `AE-20` assignment to get started.
+
+-   Upload the `ae-20.qmd` and `framingham.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.
+:::
+
+## Packages
+
+```{r}
+#| label: load-pkgs-data
+#| message: false
+ 
+library(tidyverse)
+library(broom)
+library(ggformula)
+library(mosaic)
+library(knitr)
+
+heart_disease <- read_csv("data/framingham.csv") |>
+  select(totChol, TenYearCHD, age, BMI, cigsPerDay, heartRate, sysBP, diabetes) |>
+  drop_na()
+```
+
+### Data: Framingham study
+
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.
+
+### Response variable
+
+-   `TenYearCHD`:
+    -   1: Patient developed heart disease within 10 years of exam
+    -   0: Patient did not develop heart disease within 10 years of exam
+
+### What's my predictor variable?
+
+Based on your group, use the following as your predictor variable.
+
+-   Group 1 - `totChol`: total cholesterol (mg/dL)
+-   Group 2 -`BMI`: patient's body mass index
+-   Group 3 -`cigsPerDay`: number of cigarettes patient smokes per day
+-   Group 4 -`heartRate`: Heart rate (beats per minute)
+
+## Exercise 0
+
+Fit a logistic regression model predicting `TenYearCHD` from your group's predictor variable. Note that we won't return to this model until Exercise 3.
+
+## Exercise 1
+
+Before you work on your own model, lets consider the variable `sysBP` which represents the patients systolic blood pressure (the top number). You have 120 seconds, find the $\beta$'s that result in the largest log-likelihood for a logistic regression model predicting the risk of coronary heart disease from `sysBP`:
+
+```{r}
+# Change these
+beta0 <- 1
+beta1 <- 1
+
+
+# Don't change anything below this line
+predicted_probabilities <- exp(beta0 + beta1*heart_disease$sysBP)/(1+exp(beta0 + beta1*heart_disease$sysBP))
+log_likelihoods <- heart_disease$TenYearCHD*log(predicted_probabilities) +
+                        (1-heart_disease$TenYearCHD)*log(1-predicted_probabilities)
+
+# Final log likelihood
+sum(log_likelihoods)
+
+```
+
+## Exercise 2
+
+Compute the empirical logit for each level of `diabetes`:
+
+1.  Use the function `tally` to compute the count the number of successes and failures for each level of `diabetes`.
+2.  Compute the empirical probabilities.
+3.  Compute the empirical odds from these probabilities.
+4.  Compute the log of these odds.
+
+## Exercise 3
+
+Is linearity satisfied for the model you fit in Exercise 0?
+
+## Exercise 4 (Time Permitting)
+
+On a whiteboard, design a simulation-based hypothesis test for determining whether the coefficient of your explanatory variable is a statistically significant predictor for the risk of `TenYearCHD`. 
+
+## Submission
+
+::: callout-important
+To submit the AE:
+
+-   Render the document to produce the PDF with all of your work from today's class.
+-   Upload your QMD and PDF files to the Canvas assignment.
+:::
