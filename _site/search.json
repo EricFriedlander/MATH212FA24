@@ -21634,7 +21634,7 @@
     "href": "ae/ae-20-logistic-asessment.html#packages",
     "title": "AE 20: Assessing Logistic Regression Models",
     "section": "Packages",
-    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(mosaic)\nlibrary(knitr)\n\nheart_disease &lt;- read_csv(\"data/framingham.csv\") |&gt;\n  select(totChol, TenYearCHD, age, BMI, cigsPerDay, heartRate, sysBP, diabetes) |&gt;\n  drop_na()\n\n\nData: Framingham study\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.\n\n\nResponse variable\n\nTenYearCHD:\n\n1: Patient developed heart disease within 10 years of exam\n0: Patient did not develop heart disease within 10 years of exam\n\n\n\n\nWhat’s my predictor variable?\nBased on your group, use the following as your predictor variable.\n\nGroup 1 - totChol: total cholesterol (mg/dL)\nGroup 2 -BMI: patient’s body mass index\nGroup 3 -cigsPerDay: number of cigarettes patient smokes per day\nGroup 4 -heartRate: Heart rate (beats per minute)"
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(mosaic)\nlibrary(knitr)\n\nheart_disease &lt;- read_csv(\"data/framingham.csv\") |&gt;\n  select(totChol, TenYearCHD, age, BMI, cigsPerDay, heartRate, sysBP, diabetes) |&gt;\n  drop_na()\n\n\nData: Framingham study\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.\n\n\nResponse variable\n\nTenYearCHD:\n\n1: Patient developed heart disease within 10 years of exam\n0: Patient did not develop heart disease within 10 years of exam\n\n\n\n\nWhat’s my predictor variable?\nBased on your group, use the following as your predictor variable.\n\nGroup 1 - totChol: total cholesterol (mg/dL)\nGroup 2 -BMI: patient’s body mass index\nGroup 3 -cigsPerDay: number of cigarettes patient smokes per day\nGroup 4 -heartRate: Heart rate (beats per minute)\n\n\n\nAdditional Variables\n\nsysbp - the patients systolic blood pressure at the time of examination\ndiabetes - 1 if the patient had diabetes and 0 if the patient didn’t have diabetes at the time of examination"
   },
   {
     "objectID": "ae/ae-20-logistic-asessment.html#exercise-1",
@@ -21648,7 +21648,7 @@
     "href": "ae/ae-20-logistic-asessment.html#exercise-2",
     "title": "AE 20: Assessing Logistic Regression Models",
     "section": "Exercise 2",
-    "text": "Exercise 2\nCompute the empirical logit for each level of diabetes:\n\nUse the function tally to compute the count the number of successes and failures for each level of diabetes.\nCompute the empirical probabilities.\nCompute the empirical odds from these probabilities.\nCompute the log of these odds."
+    "text": "Exercise 2\nCompute the empirical logit for each level of diabetes:\n\nUse the function tally to compute the count the number of successes and failures for each level of diabetes.\nCompute the empirical odds.\nCompute the log of these odds."
   },
   {
     "objectID": "ae/ae-20-logistic-asessment.html#exercise-3",
@@ -21943,5 +21943,61 @@
     "title": "AE 20: Assessing Logistic Regression Models",
     "section": "Exercise 4 (Time Permitting)",
     "text": "Exercise 4 (Time Permitting)\nOn a whiteboard, design a simulation-based hypothesis test for determining whether the coefficient of your explanatory variable is a statistically significant predictor for the risk of TenYearCHD."
+  },
+  {
+    "objectID": "ae/forStudents/ae-20/ae-20-logistic-asessment.html",
+    "href": "ae/forStudents/ae-20/ae-20-logistic-asessment.html",
+    "title": "AE 20: Assessing Logistic Regression Models",
+    "section": "",
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-20”.\nGo to the Canvas and locate your AE-20 assignment to get started.\nUpload the ae-20.qmd and framingham.csv files into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment."
+  },
+  {
+    "objectID": "ae/forStudents/ae-20/ae-20-logistic-asessment.html#packages",
+    "href": "ae/forStudents/ae-20/ae-20-logistic-asessment.html#packages",
+    "title": "AE 20: Assessing Logistic Regression Models",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(mosaic)\nlibrary(knitr)\n\nheart_disease &lt;- read_csv(\"framingham.csv\") |&gt;\n  select(totChol, TenYearCHD, age, BMI, cigsPerDay, heartRate, sysBP, diabetes) |&gt;\n  drop_na()\n\n\nData: Framingham study\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.\n\n\nResponse variable\n\nTenYearCHD:\n\n1: Patient developed heart disease within 10 years of exam\n0: Patient did not develop heart disease within 10 years of exam\n\n\n\n\nWhat’s my predictor variable?\nBased on your group, use the following as your predictor variable.\n\nGroup 1 - totChol: total cholesterol (mg/dL)\nGroup 2 -BMI: patient’s body mass index\nGroup 3 -cigsPerDay: number of cigarettes patient smokes per day\nGroup 4 -heartRate: Heart rate (beats per minute)"
+  },
+  {
+    "objectID": "ae/forStudents/ae-20/ae-20-logistic-asessment.html#exercise-0",
+    "href": "ae/forStudents/ae-20/ae-20-logistic-asessment.html#exercise-0",
+    "title": "AE 20: Assessing Logistic Regression Models",
+    "section": "Exercise 0",
+    "text": "Exercise 0\nFit a logistic regression model predicting TenYearCHD from your group’s predictor variable. Note that we won’t return to this model until Exercise 3."
+  },
+  {
+    "objectID": "ae/forStudents/ae-20/ae-20-logistic-asessment.html#exercise-1",
+    "href": "ae/forStudents/ae-20/ae-20-logistic-asessment.html#exercise-1",
+    "title": "AE 20: Assessing Logistic Regression Models",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nBefore you work on your own model, lets consider the variable sysBP which represents the patients systolic blood pressure (the top number). You have 120 seconds, find the \\(\\beta\\)’s that result in the largest log-likelihood for a logistic regression model predicting the risk of coronary heart disease from sysBP:\n\n# Change these\nbeta0 &lt;- 1\nbeta1 &lt;- 1\n\n\n# Don't change anything below this line\npredicted_probabilities &lt;- exp(beta0 + beta1*heart_disease$sysBP)/(1+exp(beta0 + beta1*heart_disease$sysBP))\nlog_likelihoods &lt;- heart_disease$TenYearCHD*log(predicted_probabilities) +\n                        (1-heart_disease$TenYearCHD)*log(1-predicted_probabilities)\n\n# Final log likelihood\nsum(log_likelihoods)\n\n[1] NaN"
+  },
+  {
+    "objectID": "ae/forStudents/ae-20/ae-20-logistic-asessment.html#exercise-2",
+    "href": "ae/forStudents/ae-20/ae-20-logistic-asessment.html#exercise-2",
+    "title": "AE 20: Assessing Logistic Regression Models",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nCompute the empirical logit for each level of diabetes:\n\nUse the function tally to compute the count the number of successes and failures for each level of diabetes.\nCompute the empirical probabilities.\nCompute the empirical odds from these probabilities.\nCompute the log of these odds."
+  },
+  {
+    "objectID": "ae/forStudents/ae-20/ae-20-logistic-asessment.html#exercise-3",
+    "href": "ae/forStudents/ae-20/ae-20-logistic-asessment.html#exercise-3",
+    "title": "AE 20: Assessing Logistic Regression Models",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nIs linearity satisfied for the model you fit in Exercise 0?"
+  },
+  {
+    "objectID": "ae/forStudents/ae-20/ae-20-logistic-asessment.html#exercise-4-time-permitting",
+    "href": "ae/forStudents/ae-20/ae-20-logistic-asessment.html#exercise-4-time-permitting",
+    "title": "AE 20: Assessing Logistic Regression Models",
+    "section": "Exercise 4 (Time Permitting)",
+    "text": "Exercise 4 (Time Permitting)\nOn a whiteboard, design a simulation-based hypothesis test for determining whether the coefficient of your explanatory variable is a statistically significant predictor for the risk of TenYearCHD."
+  },
+  {
+    "objectID": "ae/forStudents/ae-20/ae-20-logistic-asessment.html#submission",
+    "href": "ae/forStudents/ae-20/ae-20-logistic-asessment.html#submission",
+    "title": "AE 20: Assessing Logistic Regression Models",
+    "section": "Submission",
+    "text": "Submission\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
   }
 ]
