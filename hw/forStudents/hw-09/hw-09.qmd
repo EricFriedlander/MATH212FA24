@@ -6,7 +6,9 @@ execute:
   eval: true
   warning: false
   message: false
-bibliography: references.bib
+format:
+  pdf:
+    pdf-engine: pdflatex
 ---
 
 ::: callout-important
@@ -191,6 +193,4 @@ Upload the qmd and PDF files to Canvas.
 | Ex 8                  | 4      |
 | Ex 9                  | 6      |
 | Ex 10                 | 4      |
-| Workflow & formatting | 5[^1]  |
-
-[^1]: The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.[↩︎](https://sta210-fa23.netlify.app/hw/hw-01#fnref2)
+| Workflow & formatting | 5      |

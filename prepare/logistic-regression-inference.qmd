@@ -1,0 +1,8 @@
+---
+title: "November 11 lecture"
+subtitle: "Inference for Logistic Regression"
+---
+
+## Assigned reading
+
+- Stat2: Topic 9.4 Formal Inference: Tests and Intervals

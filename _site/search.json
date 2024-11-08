@@ -22216,5 +22216,124 @@
     "title": "HW 09: Intro to Logistic regression",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.↩︎↩︎"
+  },
+  {
+    "objectID": "hw/forStudents/hw-09/hw-09.html",
+    "href": "hw/forStudents/hw-09/hw-09.html",
+    "title": "HW 09: Intro to Logistic regression",
+    "section": "",
+    "text": "Important\n\n\n\nDue: Friday, November 15th, 11:59pm"
+  },
+  {
+    "objectID": "hw/forStudents/hw-09/hw-09.html#learning-goals",
+    "href": "hw/forStudents/hw-09/hw-09.html#learning-goals",
+    "title": "HW 09: Intro to Logistic regression",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the assignment you will be able to…\n\nUse logistic regression to explore the relationship between a binary response variable and multiple predictor variables\nConduct exploratory data analysis for logistic regression\nInterpret coefficients of logistic regression model\nUse the logistic regression model for prediction"
+  },
+  {
+    "objectID": "hw/forStudents/hw-09/hw-09.html#getting-started",
+    "href": "hw/forStudents/hw-09/hw-09.html#getting-started",
+    "title": "HW 09: Intro to Logistic regression",
+    "section": "Getting started",
+    "text": "Getting started\n\nGo to RStudio and login with your College of Idaho Email and Password.\nMake a subfolder in your hw directory to store this homework.\nLog into Canvas, navigate to Homework 9, and upload the hw-09.qmd files into the folder your just made."
+  },
+  {
+    "objectID": "hw/forStudents/hw-09/hw-09.html#packages",
+    "href": "hw/forStudents/hw-09/hw-09.html#packages",
+    "title": "HW 09: Intro to Logistic regression",
+    "section": "Packages",
+    "text": "Packages\nThe following packages will be used for this assignment.\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(Stat2Data)\nlibrary(knitr)\n\n# add other packages as needed"
+  },
+  {
+    "objectID": "hw/forStudents/hw-09/hw-09.html#exercise-1",
+    "href": "hw/forStudents/hw-09/hw-09.html#exercise-1",
+    "title": "HW 09: Intro to Logistic regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nWhy do you think the authors chose to only include data from people who were eligible to vote for at least four election cycles?"
+  },
+  {
+    "objectID": "hw/forStudents/hw-09/hw-09.html#exercise-2",
+    "href": "hw/forStudents/hw-09/hw-09.html#exercise-2",
+    "title": "HW 09: Intro to Logistic regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nLet’s prepare the data for analysis and modeling.\n\nCreate a new variable called frequent_voter that takes the value 1 if the voter_category is “always” and 0 otherwise.\nMake a table of the distribution of frequent_voter.\nWhat percentage of the respondents in the data say they voted “in all or all-but-one of the elections they were eligible in”?"
+  },
+  {
+    "objectID": "hw/forStudents/hw-09/hw-09.html#exercise-3",
+    "href": "hw/forStudents/hw-09/hw-09.html#exercise-3",
+    "title": "HW 09: Intro to Logistic regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nThe variable Q30 contains the respondent’s political party identification. Make a new variable, party_id, that simplifies Q30 into three categories: “Democrat”, “Republican”, “Independent/Neither”. The category “Independent/Neither” will also include respondents who did not answer the question. Make party_id a factor and relevel it so that it is consistent with the ordering of the responses in Question 30 of the survey.\n\nMake a plot of the distribution of party_id.\nWhich category of party_id occurs most frequently in this data set?"
+  },
+  {
+    "objectID": "hw/forStudents/hw-09/hw-09.html#exercise-4",
+    "href": "hw/forStudents/hw-09/hw-09.html#exercise-4",
+    "title": "HW 09: Intro to Logistic regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nIn the FiveThirtyEight article, the authors include visualizations of the relationship between the voter category and demographic variables such as race, age, education, etc.\n\nMake a segmented barplot (also known as a standardized barplot) displaying the distribution of frequent_voter for each category of party_id. Make the plot such that the proportions (instead of counts) are displayed:\n\nUse the function gf_props.\nPut party_id on the x-axis.\nAttach voter_category to the fill aesthetic (use a tilde).\nAdd the argument position = \"fill\"\n\nUse the plot to describe the relationship between these two variables.\n\n\n\n\n\n\n\nTip\n\n\n\nSee the plots of demographic information by voting history in the FiveThirtyEight article for examples of segmented bar plots."
+  },
+  {
+    "objectID": "hw/forStudents/hw-09/hw-09.html#exercise-5",
+    "href": "hw/forStudents/hw-09/hw-09.html#exercise-5",
+    "title": "HW 09: Intro to Logistic regression",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nConsider the plot from the previous question. A logistic regression model predicting frequent_voter from party_id is visible in this plot. Explain what that means. Why should the response variable be attached the fill aesthetic instead of the explanatory variable."
+  },
+  {
+    "objectID": "hw/forStudents/hw-09/hw-09.html#exercise-6",
+    "href": "hw/forStudents/hw-09/hw-09.html#exercise-6",
+    "title": "HW 09: Intro to Logistic regression",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nCompute the empirical log-odds that someone is a frequent_voter based on their party_id."
+  },
+  {
+    "objectID": "hw/forStudents/hw-09/hw-09.html#exercise-7",
+    "href": "hw/forStudents/hw-09/hw-09.html#exercise-7",
+    "title": "HW 09: Intro to Logistic regression",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nFit a model using party_id to predict the probability that a person is a frequent voter. Neatly display the model using the tidy function. What is the predicted probability of voting for each of the three categories in party_id?"
+  },
+  {
+    "objectID": "hw/forStudents/hw-09/hw-09.html#exercise-8",
+    "href": "hw/forStudents/hw-09/hw-09.html#exercise-8",
+    "title": "HW 09: Intro to Logistic regression",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nFit a model using ppage to predict the probability that a person is a frequent voter. Interpret the coefficient of ppage in the context of the data in terms of the log-odds a person is a frequent voter."
+  },
+  {
+    "objectID": "hw/forStudents/hw-09/hw-09.html#exercise-9",
+    "href": "hw/forStudents/hw-09/hw-09.html#exercise-9",
+    "title": "HW 09: Intro to Logistic regression",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nDetermine whether you think the three conditions for a logistic regression are met."
+  },
+  {
+    "objectID": "hw/forStudents/hw-09/hw-09.html#exercise-10",
+    "href": "hw/forStudents/hw-09/hw-09.html#exercise-10",
+    "title": "HW 09: Intro to Logistic regression",
+    "section": "Exercise 10",
+    "text": "Exercise 10\n\nUse your first model to predict the probability that an independent will vote.\nUse your second model to predict the probability that someone your age will vote."
+  },
+  {
+    "objectID": "hw/forStudents/hw-09/hw-09.html#footnotes",
+    "href": "hw/forStudents/hw-09/hw-09.html#footnotes",
+    "title": "HW 09: Intro to Logistic regression",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date in the YAML.↩︎↩︎"
+  },
+  {
+    "objectID": "prepare/logistic-regression-inference.html",
+    "href": "prepare/logistic-regression-inference.html",
+    "title": "November 11 lecture",
+    "section": "",
+    "text": "Stat2: Topic 9.4 Formal Inference: Tests and Intervals"
+  },
+  {
+    "objectID": "prepare/logistic-regression-inference.html#assigned-reading",
+    "href": "prepare/logistic-regression-inference.html#assigned-reading",
+    "title": "November 11 lecture",
+    "section": "",
+    "text": "Stat2: Topic 9.4 Formal Inference: Tests and Intervals"
   }
 ]
