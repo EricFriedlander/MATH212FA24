@@ -1,5 +1,5 @@
 ---
-title: "November 11 lecture"
+title: "November 13 lecture"
 subtitle: "Inference for Logistic Regression"
 ---
 
