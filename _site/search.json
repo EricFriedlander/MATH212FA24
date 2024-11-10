@@ -22473,8 +22473,8 @@
     "objectID": "slides/28-logistic-inference.html#announcements",
     "href": "slides/28-logistic-inference.html#announcements",
     "title": "Assessing Logistic Regression Models",
-    "section": "",
-    "text": "Project: Paper Due November 18th\nOral R Quiz\n\n\n📋 AE 20 - Assessing Logistic Regression Models\n\nOpen up AE 20."
+    "section": "Announcements",
+    "text": "Announcements\n\nProject: Paper Due November 18th\nOral R Quiz\n\n\n📋 AE 20 - Assessing Logistic Regression Models\n\nOpen up AE 20."
   },
   {
     "objectID": "slides/28-logistic-inference.html#topics",
@@ -22488,7 +22488,7 @@
     "href": "slides/28-logistic-inference.html#computational-setup",
     "title": "Assessing Logistic Regression Models",
     "section": "Computational setup",
-    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(broom)\nlibrary(ggformula)\n\nLoading required package: scales\n\nAttaching package: 'scales'\n\nThe following object is masked from 'package:purrr':\n\n    discard\n\nThe following object is masked from 'package:readr':\n\n    col_factor\n\nLoading required package: ggridges\n\nNew to ggformula?  Try the tutorials: \n    learnr::run_tutorial(\"introduction\", package = \"ggformula\")\n    learnr::run_tutorial(\"refining\", package = \"ggformula\")\n\nlibrary(openintro)\n\nLoading required package: airports\nLoading required package: cherryblossom\nLoading required package: usdata\n\nlibrary(knitr)\nlibrary(kableExtra)  # for table embellishments\n\n\nAttaching package: 'kableExtra'\n\nThe following object is masked from 'package:dplyr':\n\n    group_rows\n\nlibrary(Stat2Data)   # for empirical logit\nlibrary(countdown)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(openintro)\nlibrary(knitr)\nlibrary(kableExtra)  # for table embellishments\nlibrary(Stat2Data)   # for empirical logit\nlibrary(countdown)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
   },
   {
     "objectID": "slides/28-logistic-inference.html#risk-of-coronary-heart-disease",
@@ -22502,7 +22502,7 @@
     "href": "slides/28-logistic-inference.html#data-prep",
     "title": "Assessing Logistic Regression Models",
     "section": "Data prep",
-    "text": "Data prep\n\nheart_disease &lt;- read_csv(\"data/framingham.csv\") |&gt;\n  select(TenYearCHD, age, currentSmoker) |&gt;\n  drop_na() |&gt;\n  mutate(currentSmoker = as.factor(currentSmoker))\n\nRows: 4240 Columns: 16\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl (16): male, age, education, currentSmoker, cigsPerDay, BPMeds, prevalent...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nheart_disease |&gt; head() |&gt; kable()\n\n\n\n\nTenYearCHD\nage\ncurrentSmoker\n\n\n\n\n0\n39\n0\n\n\n0\n46\n0\n\n\n0\n48\n1\n\n\n1\n61\n1\n\n\n0\n46\n1\n\n\n0\n43\n0"
+    "text": "Data prep\n\nheart_disease &lt;- read_csv(\"data/framingham.csv\") |&gt;\n  select(TenYearCHD, age, currentSmoker) |&gt;\n  drop_na() |&gt;\n  mutate(currentSmoker = as.factor(currentSmoker))\n\nheart_disease |&gt; head() |&gt; kable()\n\n\n\n\nTenYearCHD\nage\ncurrentSmoker\n\n\n\n\n0\n39\n0\n\n\n0\n46\n0\n\n\n0\n48\n1\n\n\n1\n61\n1\n\n\n0\n46\n1\n\n\n0\n43\n0"
   },
   {
     "objectID": "slides/28-logistic-inference.html#the-models",
@@ -22530,14 +22530,14 @@
     "href": "slides/28-logistic-inference.html#calculating-empirical-logit-categorical-predictor",
     "title": "Assessing Logistic Regression Models",
     "section": "Calculating empirical logit (categorical predictor)",
-    "text": "Calculating empirical logit (categorical predictor)\nIf the predictor is categorical, we can calculate the empirical logit for each level of the predictor.\n\n\n\n\n\ncurrentSmoker\nTenYearCHD\nn\nprop\nemp_logit\n\n\n\n\n0\n1\n311\n0.1449883\n-1.774462\n\n\n1\n1\n333\n0.1589499\n-1.666062\n\n\n\n\n\n. . .\nComplete Exercise 2."
+    "text": "Calculating empirical logit (categorical predictor)\nIf the predictor is categorical, we can calculate the empirical logit for each level of the predictor.\n\n\n\n\n\ncurrentSmoker\nTenYearCHD\nn\nprop\nemp_logit\n\n\n\n\n0\n1\n311\n0.1449883\n-1.774462\n\n\n1\n1\n333\n0.1589499\n-1.666062\n\n\n\n\n\n\nComplete Exercise 2."
   },
   {
     "objectID": "slides/28-logistic-inference.html#calculating-empirical-logit-quantitative-predictor",
     "href": "slides/28-logistic-inference.html#calculating-empirical-logit-quantitative-predictor",
     "title": "Assessing Logistic Regression Models",
     "section": "Calculating empirical logit (quantitative predictor)",
-    "text": "Calculating empirical logit (quantitative predictor)\n\nDivide the range of the predictor into intervals with approximately equal number of cases. (If you have enough observations, use 5 - 10 intervals.)\nCompute the empirical logit for each interval\n\n. . .\nYou can then calculate the mean value of the predictor in each interval and create a plot of the empirical logit versus the mean value of the predictor in each interval."
+    "text": "Calculating empirical logit (quantitative predictor)\n\nDivide the range of the predictor into intervals with approximately equal number of cases. (If you have enough observations, use 5 - 10 intervals.)\nCompute the empirical logit for each interval\n\n\nYou can then calculate the mean value of the predictor in each interval and create a plot of the empirical logit versus the mean value of the predictor in each interval."
   },
   {
     "objectID": "slides/28-logistic-inference.html#empirical-logit-plot-in-r-quantitative-predictor",
@@ -22572,21 +22572,21 @@
     "href": "slides/28-logistic-inference.html#checking-linearity",
     "title": "Assessing Logistic Regression Models",
     "section": "Checking linearity",
-    "text": "Checking linearity\n✅ The linearity condition is satisfied. There is a linear relationship between the empirical logit and the predictor variables.\n. . .\nComplete Exercise 3."
+    "text": "Checking linearity\n✅ The linearity condition is satisfied. There is a linear relationship between the empirical logit and the predictor variables.\n\nComplete Exercise 3."
   },
   {
     "objectID": "slides/28-logistic-inference.html#checking-randomness",
     "href": "slides/28-logistic-inference.html#checking-randomness",
     "title": "Assessing Logistic Regression Models",
     "section": "Checking randomness",
-    "text": "Checking randomness\nWe can check the randomness condition based on the context of the data and how the observations were collected.\n\nWas the sample randomly selected?\nIf the sample was not randomly selected, ask whether there is reason to believe the observations in the sample differ systematically from the population of interest.\n\n. . .\n✅ The randomness condition is satisfied. We do not have reason to believe that the participants in this study differ systematically from adults in the U.S. in regards to health characteristics and risk of heart disease."
+    "text": "Checking randomness\nWe can check the randomness condition based on the context of the data and how the observations were collected.\n\nWas the sample randomly selected?\nIf the sample was not randomly selected, ask whether there is reason to believe the observations in the sample differ systematically from the population of interest.\n\n\n✅ The randomness condition is satisfied. We do not have reason to believe that the participants in this study differ systematically from adults in the U.S. in regards to health characteristics and risk of heart disease."
   },
   {
     "objectID": "slides/28-logistic-inference.html#checking-independence",
     "href": "slides/28-logistic-inference.html#checking-independence",
     "title": "Assessing Logistic Regression Models",
     "section": "Checking independence",
-    "text": "Checking independence\n\nWe can check the independence condition based on the context of the data and how the observations were collected.\nIndependence is most often violated if the data were collected over time or there is a strong spatial relationship between the observations.\n\n. . .\n✅ The independence condition is satisfied. It is reasonable to conclude that the participants’ health characteristics are independent of one another."
+    "text": "Checking independence\n\nWe can check the independence condition based on the context of the data and how the observations were collected.\nIndependence is most often violated if the data were collected over time or there is a strong spatial relationship between the observations.\n\n\n✅ The independence condition is satisfied. It is reasonable to conclude that the participants’ health characteristics are independent of one another."
   },
   {
     "objectID": "slides/28-logistic-inference.html#recap",
@@ -22600,7 +22600,7 @@
     "href": "slides/28-logistic-inference.html#recall-inference-for-linear-regression",
     "title": "Assessing Logistic Regression Models",
     "section": "Recall: Inference for Linear Regression",
-    "text": "Recall: Inference for Linear Regression\n\nt-test: determine whether the a given \\(\\beta_i\\) (slope) was different that zero\nANOVA/F-Test: To test the full model or to compare nested models\n**SSModel/SSE/ \\(R^2\\) / $_{}:** metrics to try a measur the amount of variability explained by competing models"
+    "text": "Recall: Inference for Linear Regression\n\nt-test: determine whether the a given \\(\\beta_i\\) (slope) was different that zero\nANOVA/F-Test: To test the full model or to compare nested models\n**SSModel/SSE/ \\(R^2\\) / $_{}:** metrics to try a measur the amount of variability explained by competing models\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
   },
   {
     "objectID": "slides/26-logistic-estimation.html",
