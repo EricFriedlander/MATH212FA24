@@ -22929,6 +22929,6 @@
     "href": "slides/27-logistic-conditions.html#rest-of-class",
     "title": "Assessing Logistic Regression Models",
     "section": "Rest of Class",
-    "text": "Rest of Class\nLet’s start thinking about inference in the context of Logistic Regression. Find a spot on the white board with the rest of your group:\n\nDesign a simulation-based hypothesis test to determine whether your predictor is a useful. Your answer should include a step by step guide of how to implement the test.\nDesign a simulation-based procedure for constructing a confidence interval for the coefficient of your assigned predictor.\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+    "text": "Rest of Class\nLet’s start thinking about inference in the context of Logistic Regression. Find a spot on the white board with the rest of your group:\n\nDesign a simulation-based hypothesis test to determine whether your predictor is useful. Your answer should include a step by step guide of how to implement the test.\nDesign a simulation-based procedure for constructing a confidence interval for the coefficient of your assigned predictor.\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
   }
 ]

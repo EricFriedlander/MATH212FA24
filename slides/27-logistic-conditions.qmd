@@ -263,5 +263,5 @@ We can check the randomness condition based on the context of the data and how t
 
 Let's start thinking about inference in the context of Logistic Regression. Find a spot on the white board with the rest of your group:
 
-1. Design a simulation-based hypothesis test to determine whether your predictor is a useful. Your answer should include a step by step guide of how to implement the test.
+1. Design a simulation-based hypothesis test to determine whether your predictor is useful. Your answer should include a step by step guide of how to implement the test.
 2. Design a simulation-based procedure for constructing a confidence interval for the coefficient of your assigned predictor.
