@@ -47,7 +47,7 @@ library(countdown)
 ::: appex
 📋 [AE 20 - Assessing Logistic Regression Models](https://mat212fa24.netlify.app/ae/ae-20-logistic-assessment)
 
-- Open up AE 20 and complete Exercise 0.
+- Open up AE 20.
 :::
 
 
