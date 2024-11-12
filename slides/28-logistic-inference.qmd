@@ -143,7 +143,7 @@ risk_fit |> tidy() |> kable()
 
 ## Recall: Inference for Linear Regression
 
--   **t-test:** determine whether $\beta_1$ (the slope) is different that zero
+-   **t-test:** determine whether $\beta_1$ (the slope) is different than zero
 -   **ANOVA/F-Test:** To test the full model or to compare nested models
 -   **SSModel/SSE/ $R^2$ / $\hat{\sigma}_{\epsilon}$ :** metrics to try a measure the amount of variability explained by competing models
 
@@ -273,13 +273,13 @@ Complete Exercises 1-4.
 
 ## Inference: Linear vs. Logistic Regression
 
--   **t-test:** determine whether the a given $\beta_i$ (slope) was different that zero
+-   **t-test:** determine whether $\beta_1$ (the slope) is different than zero
 -   **ANOVA/F-Test:** To test the full model or to compare nested models
--   **SSModel/SSE/ $R^2$ / $\hat{sigma}_{\epsilon}:** metrics to try a measure the amount of variability explained by competing models
+-   **SSModel/SSE/ $R^2$ / $\hat{\sigma}_{\epsilon}$ :** metrics to try a measure the amount of variability explained by competing models
 
 ## Inference: Linear vs. Logistic Regression
 
--   ~~**t-test:** determine whether the a given $\beta_i$ (slope) was different that zero~~
+-   ~~**t-test:** determine whether $\beta_1$ (the slope) is different than zero~~
 -   **ANOVA/F-Test:** To test the full model or to compare nested models (Next time)
 -   **SSModel/SSE/ $R^2$ / $\hat{\sigma}_{\epsilon}$ :** metrics to try and measure the amount of variability explained by competing models (Next time)
 

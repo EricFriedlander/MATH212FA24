@@ -101,6 +101,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -358,7 +387,7 @@ Important
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>For your quantitative variable. Construct a 99% confidence interval to determine whether the slope of your variable is statistically significant. Hint, you can use the <code>conf.level</code> argument in <code>tidy</code> to change the confidence level. On the white board:</p>
+<p>For your quantitative variable. Construct a 99% confidence interval. Hint, you can use the <code>conf.level</code> argument in <code>tidy</code> to change the confidence level. On the white board:</p>
 <ol type="1">
 <li>Interpret your confidence interval in <em>log-odds</em>.</li>
 <li>Interpret your confidence interval in <em>odds</em>.</li>
@@ -366,7 +395,7 @@ Important
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>For your categorical predictor, conduct a hypothesis test and construct 95% confidence interval for your <code>\beta_1</code>. Interpret these in context and be prepared to discuss with the class. Note that you need not write down the entire hypothesis testing framework.</p>
+<p>For your categorical predictor, conduct a hypothesis test and construct 95% confidence interval for your <span class="math inline">\(\beta_1\)</span>. Interpret these in context and be prepared to discuss with the class. Note that you need not write down the entire hypothesis testing framework.</p>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>

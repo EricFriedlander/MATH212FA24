@@ -73,14 +73,14 @@ For your quantitative predictor, conduct a hypothesis test to determine whether 
 
 ## Exercise 2
 
-For your quantitative variable. Construct a 99% confidence interval to determine whether the slope of your variable is statistically significant. Hint, you can use the `conf.level` argument in `tidy` to change the confidence level. On the white board:
+For your quantitative variable. Construct a 99% confidence interval. Hint, you can use the `conf.level` argument in `tidy` to change the confidence level. On the white board:
 
 1. Interpret your confidence interval in *log-odds*.
 2. Interpret your confidence interval in *odds*.
 
 ## Exercise 3
 
-For your categorical predictor, conduct a hypothesis test and construct 95% confidence interval for your `\beta_1`. Interpret these in context and be prepared to discuss with the class. Note that you need not write down the entire hypothesis testing framework.
+For your categorical predictor, conduct a hypothesis test and construct 95% confidence interval for your $\beta_1$. Interpret these in context and be prepared to discuss with the class. Note that you need not write down the entire hypothesis testing framework.
 
 ## Exercise 4
 
