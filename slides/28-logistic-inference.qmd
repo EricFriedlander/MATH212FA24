@@ -45,9 +45,9 @@ library(countdown)
 -   Oral R Quiz
 
 ::: appex
-📋 [AE 20 - Assessing Logistic Regression Models](https://mat212fa24.netlify.app/ae/ae-20-logistic-assessment)
+📋 [AE 21 - Inference for Logistic Regression Models](https://mat212fa24.netlify.app/ae/ae-21-logistic-inference)
 
-- Open up AE 20.
+- Open up AE 21.
 :::
 
 
