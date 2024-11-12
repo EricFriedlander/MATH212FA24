@@ -22600,7 +22600,7 @@
     "href": "slides/28-logistic-inference.html#recall-inference-for-linear-regression",
     "title": "Inference for Logistic Regression Models",
     "section": "Recall: Inference for Linear Regression",
-    "text": "Recall: Inference for Linear Regression\n\nt-test: determine whether the a given \\(\\beta_i\\) (slope) was different that zero\nANOVA/F-Test: To test the full model or to compare nested models\nSSModel/SSE/ \\(R^2\\) / \\(\\hat{\\sigma}_{\\epsilon}\\) : metrics to try a measur the amount of variability explained by competing models"
+    "text": "Recall: Inference for Linear Regression\n\nt-test: determine whether \\(\\beta_1\\) (the slope) is different that zero\nANOVA/F-Test: To test the full model or to compare nested models\nSSModel/SSE/ \\(R^2\\) / \\(\\hat{\\sigma}_{\\epsilon}\\) : metrics to try a measure the amount of variability explained by competing models"
   },
   {
     "objectID": "slides/26-logistic-estimation.html",
@@ -23048,14 +23048,14 @@
     "href": "slides/28-logistic-inference.html#inference-linear-vs.-logistic-regression",
     "title": "Inference for Logistic Regression Models",
     "section": "Inference: Linear vs. Logistic Regression",
-    "text": "Inference: Linear vs. Logistic Regression\n\nt-test: determine whether the a given \\(\\beta_i\\) (slope) was different that zero\nANOVA/F-Test: To test the full model or to compare nested models\n**SSModel/SSE/ \\(R^2\\) / $_{}:** metrics to try a measur the amount of variability explained by competing models"
+    "text": "Inference: Linear vs. Logistic Regression\n\nt-test: determine whether the a given \\(\\beta_i\\) (slope) was different that zero\nANOVA/F-Test: To test the full model or to compare nested models\n**SSModel/SSE/ \\(R^2\\) / $_{}:** metrics to try a measure the amount of variability explained by competing models"
   },
   {
     "objectID": "slides/28-logistic-inference.html#inference-linear-vs.-logistic-regression-1",
     "href": "slides/28-logistic-inference.html#inference-linear-vs.-logistic-regression-1",
     "title": "Inference for Logistic Regression Models",
     "section": "Inference: Linear vs. Logistic Regression",
-    "text": "Inference: Linear vs. Logistic Regression\n\nt-test: determine whether the a given \\(\\beta_i\\) (slope) was different that zero\nANOVA/F-Test: To test the full model or to compare nested models (Next time)\nSSModel/SSE/ \\(R^2\\) / \\(\\hat{\\sigma}_{\\epsilon}\\) : metrics to try a measur the amount of variability explained by competing models (Next time)"
+    "text": "Inference: Linear vs. Logistic Regression\n\nt-test: determine whether the a given \\(\\beta_i\\) (slope) was different that zero\nANOVA/F-Test: To test the full model or to compare nested models (Next time)\nSSModel/SSE/ \\(R^2\\) / \\(\\hat{\\sigma}_{\\epsilon}\\) : metrics to try and measure the amount of variability explained by competing models (Next time)"
   },
   {
     "objectID": "slides/28-logistic-inference.html#inference-for-beta_1",
