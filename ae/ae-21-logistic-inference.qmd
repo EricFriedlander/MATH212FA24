@@ -43,7 +43,7 @@ This data set is from an ongoing cardiovascular study on residents of the town o
 
 ### What are my predictor variables?
 
-Based on your group, use the following as your predictor variable.
+Based on your group, use the following as your predictor variables.
 
 -   Group 1:
     -   `totChol`: total cholesterol (mg/dL)
@@ -55,7 +55,7 @@ Based on your group, use the following as your predictor variable.
     -    `cigsPerDay`: number of cigarettes patient smokes per day
     -    `prevalentHyp`: 1 if patient was hypertensive, 0 otherwise
 -   Group 4 
-    -    `sysBP`: Heart rate (beats per minute)
+    -    `sysBP`: systolic blood pressure (mmHg)
     -    `diabetes`: 1 if patient has diabetes, 0 otherwise
 
 ## Exercise 0
