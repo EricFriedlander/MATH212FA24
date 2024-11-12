@@ -46,8 +46,8 @@ This data set is from an ongoing cardiovascular study on residents of the town o
 Based on your group, use the following as your predictor variable.
 
 -   Group 1:
-    -     `totChol`: total cholesterol (mg/dL)
-    -     `currentSmoker`: 1 if current smoker, 0 otherwise
+    -   `totChol`: total cholesterol (mg/dL)
+    -   `currentSmoker`: 1 if current smoker, 0 otherwise
 -   Group 2:
     -   `BMI`: patient's body mass index
     -   `BPMeds`: 1 if they are on blood pressure medication, 0 otherwise
