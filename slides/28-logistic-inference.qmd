@@ -47,7 +47,7 @@ library(countdown)
 ::: appex
 📋 [AE 21 - Inference for Logistic Regression Models](https://mat212fa24.netlify.app/ae/ae-21-logistic-inference)
 
-- Open up AE 21.
+- Open up AE 21 and complete Exercise 0.
 :::
 
 
