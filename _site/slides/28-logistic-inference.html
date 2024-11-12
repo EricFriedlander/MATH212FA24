@@ -437,14 +437,11 @@ Prof.&nbsp;Eric Friedlander
 <span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a></a><span class="fu">library</span>(broom)</span>
 <span id="cb1-4"><a></a><span class="fu">library</span>(ggformula)</span>
-<span id="cb1-5"><a></a><span class="fu">library</span>(openintro)</span>
-<span id="cb1-6"><a></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-7"><a></a><span class="fu">library</span>(kableExtra)  <span class="co"># for table embellishments</span></span>
-<span id="cb1-8"><a></a><span class="fu">library</span>(Stat2Data)   <span class="co"># for empirical logit</span></span>
-<span id="cb1-9"><a></a><span class="fu">library</span>(countdown)</span>
-<span id="cb1-10"><a></a></span>
-<span id="cb1-11"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
-<span id="cb1-12"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-6"><a></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-7"><a></a></span>
+<span id="cb1-8"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
+<span id="cb1-9"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section>
@@ -462,57 +459,58 @@ Prof.&nbsp;Eric Friedlander
 <li>0: Did not develop heart disease in next 10 years</li>
 </ul></li>
 <li><p><code>age</code>: Age at exam time (in years)</p></li>
-<li><p><code>currentSmoker</code>: 0 = nonsmoker, 1 = smoker</p></li>
 </ul>
+</section>
+<section id="data-prep-whats-wrong-with-this-code" class="slide level2">
+<h2>Data prep: What’s wrong with this code?</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="|4,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>heart_disease <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/framingham.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a></a>  <span class="fu">select</span>(TenYearCHD, age) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb2-4"><a></a>  <span class="fu">head</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb2-5"><a></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="data-prep" class="slide level2">
 <h2>Data prep</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>heart_disease <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/framingham.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a></a>  <span class="fu">select</span>(TenYearCHD, age, currentSmoker) <span class="sc">|&gt;</span></span>
-<span id="cb2-3"><a></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
-<span id="cb2-4"><a></a>  <span class="fu">mutate</span>(<span class="at">currentSmoker =</span> <span class="fu">as.factor</span>(currentSmoker))</span>
-<span id="cb2-5"><a></a></span>
-<span id="cb2-6"><a></a>heart_disease <span class="sc">|&gt;</span> <span class="fu">head</span>() <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="|1,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>heart_disease <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/framingham.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a></a>  <span class="fu">select</span>(TenYearCHD, age) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb3-4"><a></a></span>
+<span id="cb3-5"><a></a>heart_disease <span class="sc">|&gt;</span> <span class="fu">head</span>() <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: right;">TenYearCHD</th>
 <th style="text-align: right;">age</th>
-<th style="text-align: left;">currentSmoker</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">39</td>
-<td style="text-align: left;">0</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">46</td>
-<td style="text-align: left;">0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">48</td>
-<td style="text-align: left;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: left;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">46</td>
-<td style="text-align: left;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: left;">0</td>
 </tr>
 </tbody>
 </table>
@@ -521,12 +519,24 @@ Prof.&nbsp;Eric Friedlander
 </section>
 <section id="modeling-risk-of-coronary-heart-disease" class="slide level2">
 <h2>Modeling risk of coronary heart disease</h2>
+<div class="question">
+<p>What’s wrong with this code?</p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="|3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>risk_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age, <span class="at">data =</span> heart_disease, </span>
+<span id="cb4-2"><a></a>                <span class="at">family =</span> <span class="st">"binomial"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-3"><a></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb4-4"><a></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="modeling-risk-of-coronary-heart-disease-1" class="slide level2">
+<h2>Modeling risk of coronary heart disease</h2>
 <p>Using <code>age</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>risk_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age, </span>
-<span id="cb3-2"><a></a>      <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb3-3"><a></a></span>
-<span id="cb3-4"><a></a>risk_fit <span class="sc">|&gt;</span> <span class="fu">tidy</span>() <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>risk_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age, <span class="at">data =</span> heart_disease, </span>
+<span id="cb5-2"><a></a>                <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb5-3"><a></a></span>
+<span id="cb5-4"><a></a>risk_fit <span class="sc">|&gt;</span> <span class="fu">tidy</span>() <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top">
 <thead>
@@ -755,7 +765,7 @@ P(|Z| &gt; |14.178|) \approx 0
 \]</span></p>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="fl">14.178</span>,<span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="fl">14.178</span>,<span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.253689e-45</code></pre>
 </div>

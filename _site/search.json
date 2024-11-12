@@ -22488,21 +22488,21 @@
     "href": "slides/28-logistic-inference.html#computational-setup",
     "title": "Inference for Logistic Regression Models",
     "section": "Computational setup",
-    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(openintro)\nlibrary(knitr)\nlibrary(kableExtra)  # for table embellishments\nlibrary(Stat2Data)   # for empirical logit\nlibrary(countdown)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(knitr)\nlibrary(kableExtra)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
   },
   {
     "objectID": "slides/28-logistic-inference.html#risk-of-coronary-heart-disease",
     "href": "slides/28-logistic-inference.html#risk-of-coronary-heart-disease",
     "title": "Inference for Logistic Regression Models",
     "section": "Risk of coronary heart disease",
-    "text": "Risk of coronary heart disease\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.\n\nTenYearCHD:\n\n1: Developed heart disease in next 10 years\n0: Did not develop heart disease in next 10 years\n\nage: Age at exam time (in years)\ncurrentSmoker: 0 = nonsmoker, 1 = smoker"
+    "text": "Risk of coronary heart disease\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.\n\nTenYearCHD:\n\n1: Developed heart disease in next 10 years\n0: Did not develop heart disease in next 10 years\n\nage: Age at exam time (in years)"
   },
   {
     "objectID": "slides/28-logistic-inference.html#data-prep",
     "href": "slides/28-logistic-inference.html#data-prep",
     "title": "Inference for Logistic Regression Models",
     "section": "Data prep",
-    "text": "Data prep\n\nheart_disease &lt;- read_csv(\"data/framingham.csv\") |&gt;\n  select(TenYearCHD, age, currentSmoker) |&gt;\n  drop_na() |&gt;\n  mutate(currentSmoker = as.factor(currentSmoker))\n\nheart_disease |&gt; head() |&gt; kable()\n\n\n\n\nTenYearCHD\nage\ncurrentSmoker\n\n\n\n\n0\n39\n0\n\n\n0\n46\n0\n\n\n0\n48\n1\n\n\n1\n61\n1\n\n\n0\n46\n1\n\n\n0\n43\n0"
+    "text": "Data prep\n\nheart_disease &lt;- read_csv(\"data/framingham.csv\") |&gt;\n  select(TenYearCHD, age) |&gt;\n  drop_na()\n\nheart_disease |&gt; head() |&gt; kable()\n\n\n\n\nTenYearCHD\nage\n\n\n\n\n0\n39\n\n\n0\n46\n\n\n0\n48\n\n\n1\n61\n\n\n0\n46\n\n\n0\n43"
   },
   {
     "objectID": "slides/28-logistic-inference.html#the-models",
@@ -22936,7 +22936,7 @@
     "href": "slides/28-logistic-inference.html#modeling-risk-of-coronary-heart-disease",
     "title": "Inference for Logistic Regression Models",
     "section": "Modeling risk of coronary heart disease",
-    "text": "Modeling risk of coronary heart disease\nUsing age:\n\nrisk_fit &lt;- glm(TenYearCHD ~ age, \n      data = heart_disease, family = \"binomial\")\n\nrisk_fit |&gt; tidy() |&gt; kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5.5610898\n0.2837460\n-19.59883\n0\n\n\nage\n0.0746501\n0.0052651\n14.17821\n0"
+    "text": "Modeling risk of coronary heart disease\n\nWhat’s wrong with this code?\n\n\nrisk_fit &lt;- glm(TenYearCHD ~ age, data = heart_disease, \n                family = \"binomial\") |&gt; \n  tidy() |&gt; \n  kable()"
   },
   {
     "objectID": "slides/28-logistic-inference.html#hypothesis-test-for-beta_1",
@@ -23070,5 +23070,19 @@
     "title": "AE 21: Inference for Logistic Regression Models",
     "section": "Exercise 4",
     "text": "Exercise 4\nWhy do you think it doesn’t quite make sense to talk about prediction intervals or confidence intervals in the context of a logistic regression model?"
+  },
+  {
+    "objectID": "slides/28-logistic-inference.html#data-prep-whats-wrong-with-this-code",
+    "href": "slides/28-logistic-inference.html#data-prep-whats-wrong-with-this-code",
+    "title": "Inference for Logistic Regression Models",
+    "section": "Data prep: What’s wrong with this code?",
+    "text": "Data prep: What’s wrong with this code?\n\nheart_disease &lt;- read_csv(\"data/framingham.csv\") |&gt;\n  select(TenYearCHD, age) |&gt;\n  drop_na() |&gt; \n  head() |&gt; \n  kable()"
+  },
+  {
+    "objectID": "slides/28-logistic-inference.html#modeling-risk-of-coronary-heart-disease-1",
+    "href": "slides/28-logistic-inference.html#modeling-risk-of-coronary-heart-disease-1",
+    "title": "Inference for Logistic Regression Models",
+    "section": "Modeling risk of coronary heart disease",
+    "text": "Modeling risk of coronary heart disease\nUsing age:\n\nrisk_fit &lt;- glm(TenYearCHD ~ age, data = heart_disease, \n                family = \"binomial\")\n\nrisk_fit |&gt; tidy() |&gt; kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-5.5610898\n0.2837460\n-19.59883\n0\n\n\nage\n0.0746501\n0.0052651\n14.17821\n0"
   }
 ]

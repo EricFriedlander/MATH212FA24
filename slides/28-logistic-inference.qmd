@@ -68,11 +68,8 @@ library(countdown)
 library(tidyverse)
 library(broom)
 library(ggformula)
-library(openintro)
 library(knitr)
-library(kableExtra)  # for table embellishments
-library(Stat2Data)   # for empirical logit
-library(countdown)
+library(kableExtra)
 
 # set default theme and larger font size for ggplot2
 ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
@@ -91,17 +88,44 @@ This data set is from an ongoing cardiovascular study on residents of the town o
 
 -   `age`: Age at exam time (in years)
 
--   `currentSmoker`: 0 = nonsmoker, 1 = smoker
+## Data prep: What's wrong with this code?
+
+```{r}
+#| eval: FALSE
+#| code-line-numbers: "|4,5"
+heart_disease <- read_csv("data/framingham.csv") |>
+  select(TenYearCHD, age) |>
+  drop_na() |> 
+  head() |> 
+  kable()
+```
 
 ## Data prep
 
 ```{r}
+#| code-line-numbers: "|1,5"
 heart_disease <- read_csv("data/framingham.csv") |>
-  select(TenYearCHD, age, currentSmoker) |>
-  drop_na() |>
-  mutate(currentSmoker = as.factor(currentSmoker))
+  select(TenYearCHD, age) |>
+  drop_na()
 
 heart_disease |> head() |> kable()
+```
+
+
+
+## Modeling risk of coronary heart disease
+
+:::question
+What's wrong with this code?
+:::
+
+```{r}
+#| eval: FALSE
+#| code-line-numbers: "|3,4"
+risk_fit <- glm(TenYearCHD ~ age, data = heart_disease, 
+                family = "binomial") |> 
+  tidy() |> 
+  kable()
 ```
 
 ## Modeling risk of coronary heart disease
@@ -109,8 +133,8 @@ heart_disease |> head() |> kable()
 Using `age`:
 
 ```{r}
-risk_fit <- glm(TenYearCHD ~ age, 
-      data = heart_disease, family = "binomial")
+risk_fit <- glm(TenYearCHD ~ age, data = heart_disease, 
+                family = "binomial")
 
 risk_fit |> tidy() |> kable()
 ```
