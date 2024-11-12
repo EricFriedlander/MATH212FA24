@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.555">
 
   <meta name="author" content="Prof.&nbsp;Eric Friedlander">
-  <title>MAT 212 - Fall 2024 - Assessing Logistic Regression Models</title>
+  <title>MAT 212 - Fall 2024 - Inference for Logistic Regression Models</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -387,13 +387,17 @@
       margin-right: 0; 
     }
   </style>
+  <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+  <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Assessing Logistic Regression Models</h1>
+  <h1 class="title">Inference for Logistic Regression Models</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -422,9 +426,7 @@ Prof.&nbsp;Eric Friedlander
 <h2>Topics</h2>
 <div>
 <ul>
-<li>Checking model conditions for logistic regression</li>
-<li>Brief introduction to multiple logistic regression</li>
-<li>Conducting inference for logistic regression</li>
+<li>Inference for coefficients in logistic regression</li>
 </ul>
 </div>
 </section>
@@ -456,8 +458,8 @@ Prof.&nbsp;Eric Friedlander
 <ul>
 <li><p><code>TenYearCHD</code>:</p>
 <ul>
-<li>1: High risk of having heart disease in next 10 years</li>
-<li>0: Not high risk of having heart disease in next 10 years</li>
+<li>1: Developed heart disease in next 10 years</li>
+<li>0: Did not develop heart disease in next 10 years</li>
 </ul></li>
 <li><p><code>age</code>: Age at exam time (in years)</p></li>
 <li><p><code>currentSmoker</code>: 0 = nonsmoker, 1 = smoker</p></li>
@@ -516,32 +518,17 @@ Prof.&nbsp;Eric Friedlander
 </table>
 </div>
 </div>
-</section></section>
-<section>
-<section id="conditions" class="title-slide slide level1 center">
-<h1>Conditions</h1>
-
 </section>
-<section id="the-models" class="slide level2 smaller">
-<h2>The models</h2>
-<p>Model 1: Let’s predict <code>TenYearCHD</code> from <code>currentSmoker</code>:</p>
+<section id="modeling-risk-of-coronary-heart-disease" class="slide level2">
+<h2>Modeling risk of coronary heart disease</h2>
+<p>Using <code>age</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>risk_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> currentSmoker, </span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>risk_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age, </span>
 <span id="cb3-2"><a></a>      <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
 <span id="cb3-3"><a></a></span>
-<span id="cb3-4"><a></a><span class="fu">tidy</span>(risk_fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb3-5"><a></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a></a>risk_fit <span class="sc">|&gt;</span> <span class="fu">tidy</span>() <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top">
-<colgroup>
-<col style="width: 21%">
-<col style="width: 12%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 11%">
-<col style="width: 12%">
-<col style="width: 14%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">term</th>
@@ -549,60 +536,99 @@ Prof.&nbsp;Eric Friedlander
 <th style="text-align: right;">std.error</th>
 <th style="text-align: right;">statistic</th>
 <th style="text-align: right;">p.value</th>
-<th style="text-align: right;">conf.low</th>
-<th style="text-align: right;">conf.high</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-1.774</td>
-<td style="text-align: right;">0.061</td>
-<td style="text-align: right;">-28.936</td>
-<td style="text-align: right;">0.000</td>
-<td style="text-align: right;">-1.896</td>
-<td style="text-align: right;">-1.656</td>
+<td style="text-align: right;">-5.5610898</td>
+<td style="text-align: right;">0.2837460</td>
+<td style="text-align: right;">-19.59883</td>
+<td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">currentSmoker1</td>
-<td style="text-align: right;">0.108</td>
-<td style="text-align: right;">0.086</td>
-<td style="text-align: right;">1.266</td>
-<td style="text-align: right;">0.206</td>
-<td style="text-align: right;">-0.059</td>
-<td style="text-align: right;">0.276</td>
+<td style="text-align: left;">age</td>
+<td style="text-align: right;">0.0746501</td>
+<td style="text-align: right;">0.0052651</td>
+<td style="text-align: right;">14.17821</td>
+<td style="text-align: right;">0</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>Model 2: Let’s predict <code>TenYearCHD</code> from <code>age</code>:</p>
+</section></section>
+<section>
+<section id="inference-for-logistic-regression" class="title-slide slide level1 center">
+<h1>Inference for Logistic Regression</h1>
+
+</section>
+<section id="recall-inference-for-linear-regression" class="slide level2">
+<h2>Recall: Inference for Linear Regression</h2>
+<ul>
+<li><strong>t-test:</strong> determine whether the a given <span class="math inline">\(\beta_i\)</span> (slope) was different that zero</li>
+<li><strong>ANOVA/F-Test:</strong> To test the full model or to compare nested models</li>
+<li><strong>SSModel/SSE/ <span class="math inline">\(R^2\)</span> / <span class="math inline">\(\hat{\sigma}_{\epsilon}\)</span> :</strong> metrics to try a measur the amount of variability explained by competing models</li>
+</ul>
+</section>
+<section id="hypothesis-test-for-beta_1" class="slide level2">
+<h2>Hypothesis test for <span class="math inline">\(\beta_1\)</span></h2>
+<p><strong>Hypotheses:</strong> <span class="math inline">\(H_0: \beta_1 = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_1 \neq 0\)</span></p>
+<div class="fragment">
+<p><strong>Test Statistic:</strong> <span class="math display">\[z = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}}\]</span></p>
+<p><span class="math inline">\(z\)</span> is sometimes called a <em>Wald statistic</em> and this test is sometimes called a <em>Wald Hypothesis Test</em>.</p>
+</div>
+<div class="fragment">
+<p><strong>P-value:</strong> <span class="math inline">\(P(|Z| &gt; |z|)\)</span>, where <span class="math inline">\(Z \sim N(0, 1)\)</span>, the Standard Normal distribution</p>
+</div>
+</section>
+<section id="confidence-interval-for-beta_1" class="slide level2">
+<h2>Confidence interval for <span class="math inline">\(\beta_1\)</span></h2>
+<p>We can calculate the <strong>C% confidence interval</strong> for <span class="math inline">\(\beta_1\)</span> as the following:</p>
+<p><span class="math display">\[
+\Large{\hat{\beta}_1 \pm z^* SE_{\hat{\beta}_1}}
+\]</span></p>
+<p>where <span class="math inline">\(z^*\)</span> is calculated from the <span class="math inline">\(N(0,1)\)</span> distribution</p>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>This is an interval for the change in the <em>log-odds</em> for every one unit increase in <span class="math inline">\(x\)</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="interpretation-in-terms-of-the-odds" class="slide level2">
+<h2>Interpretation in terms of the odds</h2>
+<p>The change in <strong>odds</strong> for every one unit increase in <span class="math inline">\(x_1\)</span>.</p>
+<p><span class="math display">\[
+\Large{\exp\{\hat{\beta}_1 \pm z^* SE_{\hat{\beta}_1}\}}
+\]</span></p>
+<div class="fragment">
+<p><strong>Interpretation:</strong> We are <span class="math inline">\(C\%\)</span> confident that for every one unit increase in <span class="math inline">\(x_1\)</span>, the odds multiply by a factor of <span class="math inline">\(\exp\{\hat{\beta}_1 - z^* SE_{\hat{\beta}_1}\}\)</span> to <span class="math inline">\(\exp\{\hat{\beta}_1 + z^* SE_{\hat{\beta}_1}\}\)</span>, holding all else constant.</p>
+</div>
+</section>
+<section id="coefficient-for-age" class="slide level2 midi">
+<h2>Coefficient for <code>age</code></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>risk_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age, </span>
-<span id="cb4-2"><a></a>      <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb4-3"><a></a></span>
-<span id="cb4-4"><a></a><span class="fu">tidy</span>(risk_fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb4-5"><a></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="caption-top">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 13%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 11%">
-<col style="width: 13%">
-<col style="width: 14%">
-</colgroup>
+<table class="caption-top" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-<th style="text-align: right;">conf.low</th>
-<th style="text-align: right;">conf.high</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">conf.low</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">conf.high</th>
 </tr>
 </thead>
 <tbody>
@@ -616,179 +642,254 @@ Prof.&nbsp;Eric Friedlander
 <td style="text-align: right;">-5.011</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">age</td>
-<td style="text-align: right;">0.075</td>
-<td style="text-align: right;">0.005</td>
-<td style="text-align: right;">14.178</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.064</td>
-<td style="text-align: right;">0.085</td>
+<td style="text-align: left; background-color: rgba(217, 227, 228, 255) !important;">age</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.075</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.005</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">14.178</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.064</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.085</td>
 </tr>
 </tbody>
 </table>
+
+
 </div>
 </div>
-</section>
-<section id="conditions-for-logistic-regression" class="slide level2">
-<h2>Conditions for logistic regression</h2>
-<ol type="1">
-<li><p><strong>Linearity:</strong> The log-odds have a linear relationship with the predictors.</p></li>
-<li><p><strong>Randomness:</strong> The data were obtained from a random process.</p></li>
-<li><p><strong>Independence:</strong> The observations are independent from one another.</p></li>
-</ol>
-</section>
-<section id="empirical-logit" class="slide level2">
-<h2>Empirical logit</h2>
-<p>The <strong>empirical logit</strong> is the log of the observed odds:</p>
+<div class="fragment">
+<p><strong>Hypotheses:</strong></p>
 <p><span class="math display">\[
-\text{logit}(\hat{p}) = \log\Big(\frac{\hat{p}}{1 - \hat{p}}\Big) = \log\Big(\frac{\# \text{Yes}}{\# \text{No}}\Big)
+H_0: \beta_{age} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{age} \neq 0
 \]</span></p>
+</div>
 </section>
-<section id="calculating-empirical-logit-categorical-predictor" class="slide level2">
-<h2>Calculating empirical logit (categorical predictor)</h2>
-<p>If the predictor is categorical, we can calculate the empirical logit for each level of the predictor.</p>
+<section id="coefficient-for-age-1" class="slide level2 midi">
+<h2>Coefficient for <code>age</code></h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="caption-top">
+<table class="caption-top" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th style="text-align: left;">currentSmoker</th>
-<th style="text-align: right;">TenYearCHD</th>
-<th style="text-align: right;">n</th>
-<th style="text-align: right;">prop</th>
-<th style="text-align: right;">emp_logit</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">conf.low</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">conf.high</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">311</td>
-<td style="text-align: right;">0.1449883</td>
-<td style="text-align: right;">-1.774462</td>
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-5.561</td>
+<td style="text-align: right;">0.284</td>
+<td style="text-align: right;">-19.599</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">-6.124</td>
+<td style="text-align: right;">-5.011</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">333</td>
-<td style="text-align: right;">0.1589499</td>
-<td style="text-align: right;">-1.666062</td>
+<td style="text-align: left; background-color: rgba(217, 227, 228, 255) !important;">age</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.075</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.005</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">14.178</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.064</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.085</td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="fragment">
-<p>Complete Exercise 2.</p>
-</div>
-</section>
-<section id="calculating-empirical-logit-quantitative-predictor" class="slide level2">
-<h2>Calculating empirical logit (quantitative predictor)</h2>
-<ol type="1">
-<li><p>Divide the range of the predictor into intervals with approximately equal number of cases. (If you have enough observations, use 5 - 10 intervals.)</p></li>
-<li><p>Compute the empirical logit for each interval</p></li>
-</ol>
-<div class="fragment">
-<p>You can then calculate the mean value of the predictor in each interval and create a plot of the empirical logit versus the mean value of the predictor in each interval.</p>
-</div>
-</section>
-<section id="empirical-logit-plot-in-r-quantitative-predictor" class="slide level2">
-<h2>Empirical logit plot in R (quantitative predictor)</h2>
-<p>Created using <code>dplyr</code> and <code>ggplot</code> functions.</p>
 
-<img data-src="28-logistic-inference_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
-<section id="empirical-logit-plot-in-r-quantitative-predictor-1" class="slide level2">
-<h2>Empirical logit plot in R (quantitative predictor)</h2>
-<p>Created using <code>dplyr</code> and <code>ggformula</code> functions.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>heart_disease <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a></a>  <span class="fu">mutate</span>(<span class="at">age_bin =</span> <span class="fu">cut_interval</span>(age, <span class="at">n =</span> <span class="dv">10</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a></a>  <span class="fu">group_by</span>(age_bin) <span class="sc">|&gt;</span></span>
-<span id="cb5-4"><a></a>  <span class="fu">mutate</span>(<span class="at">mean_age =</span> <span class="fu">mean</span>(age)) <span class="sc">|&gt;</span></span>
-<span id="cb5-5"><a></a>  <span class="fu">count</span>(mean_age, TenYearCHD) <span class="sc">|&gt;</span></span>
-<span id="cb5-6"><a></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">|&gt;</span></span>
-<span id="cb5-7"><a></a>  <span class="fu">filter</span>(TenYearCHD <span class="sc">==</span> <span class="st">"1"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb5-8"><a></a>  <span class="fu">mutate</span>(<span class="at">emp_logit =</span> <span class="fu">log</span>(prop<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>prop))) <span class="sc">|&gt;</span></span>
-<span id="cb5-9"><a></a>  <span class="fu">gf_point</span>(emp_logit <span class="sc">~</span> mean_age)  <span class="sc">|&gt;</span>  </span>
-<span id="cb5-10"><a></a>  <span class="fu">gf_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb5-11"><a></a>  <span class="fu">gf_labs</span>(<span class="at">x =</span> <span class="st">"Mean Age"</span>, </span>
-<span id="cb5-12"><a></a>       <span class="at">y =</span> <span class="st">"Empirical logit"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="empirical-logit-plot-in-r-quantitative-predictor-2" class="slide level2">
-<h2>Empirical logit plot in R (quantitative predictor)</h2>
-<p>Using the <code>emplogitplot1</code> function from the <strong>Stat2Data</strong> R package</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">emplogitplot1</span>(TenYearCHD <span class="sc">~</span> age, </span>
-<span id="cb6-2"><a></a>              <span class="at">data =</span> heart_disease, </span>
-<span id="cb6-3"><a></a>              <span class="at">ngroups =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="28-logistic-inference_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
-<section id="empirical-logit-plot-in-r-interactions" class="slide level2">
-<h2>Empirical logit plot in R (interactions)</h2>
-<p>Using the <code>emplogitplot2</code> function from the <strong>Stat2Data</strong> R package</p>
+</div>
+<p><strong>Test statistic:</strong></p>
+<p><span class="math display">\[z = \frac{0.0747 - 0}{0.00527} \approx 14.178\]</span></p>
+<p>Note: rounding errors!</p>
+</section>
+<section id="coefficient-for-age-2" class="slide level2 midi">
+<h2>Coefficient for <code>age</code></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">emplogitplot2</span>(TenYearCHD <span class="sc">~</span> age <span class="sc">+</span> currentSmoker, <span class="at">data =</span> heart_disease, </span>
-<span id="cb7-2"><a></a>              <span class="at">ngroups =</span> <span class="dv">10</span>, </span>
-<span id="cb7-3"><a></a>              <span class="at">putlegend =</span> <span class="st">"bottomright"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">conf.low</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">conf.high</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-5.561</td>
+<td style="text-align: right;">0.284</td>
+<td style="text-align: right;">-19.599</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">-6.124</td>
+<td style="text-align: right;">-5.011</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(217, 227, 228, 255) !important;">age</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.075</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.005</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">14.178</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.064</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.085</td>
+</tr>
+</tbody>
+</table>
+
 
 </div>
-<img data-src="28-logistic-inference_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
-<section id="checking-linearity" class="slide level2">
-<h2>Checking linearity</h2>
-<p>✅ The linearity condition is satisfied. There is a linear relationship between the empirical logit and the predictor variables.</p>
+</div>
+<p><strong>P-value:</strong></p>
+<p><span class="math display">\[
+P(|Z| &gt; |14.178|) \approx 0
+\]</span></p>
 <div class="fragment">
-<p>Complete Exercise 3.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="fl">14.178</span>,<span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.253689e-45</code></pre>
+</div>
+</div>
 </div>
 </section>
-<section id="checking-randomness" class="slide level2">
-<h2>Checking randomness</h2>
-<p>We can check the randomness condition based on the context of the data and how the observations were collected.</p>
-<ul>
-<li>Was the sample randomly selected?</li>
-<li>If the sample was not randomly selected, ask whether there is reason to believe the observations in the sample differ systematically from the population of interest.</li>
-</ul>
-<div class="fragment">
-<p>✅ The randomness condition is satisfied. We do not have reason to believe that the participants in this study differ systematically from adults in the U.S. in regards to health characteristics and risk of heart disease.</p>
+<section id="coefficient-for-age-3" class="slide level2 midi">
+<h2>Coefficient for <code>age</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">conf.low</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">conf.high</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-5.561</td>
+<td style="text-align: right;">0.284</td>
+<td style="text-align: right;">-19.599</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">-6.124</td>
+<td style="text-align: right;">-5.011</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(217, 227, 228, 255) !important;">age</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.075</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.005</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">14.178</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.064</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.085</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
-</section>
-<section id="checking-independence" class="slide level2">
-<h2>Checking independence</h2>
-<ul>
-<li>We can check the independence condition based on the context of the data and how the observations were collected.</li>
-<li>Independence is most often violated if the data were collected over time or there is a strong spatial relationship between the observations.</li>
-</ul>
-<div class="fragment">
-<p>✅ The independence condition is satisfied. It is reasonable to conclude that the participants’ health characteristics are independent of one another.</p>
 </div>
+<p><strong>Conclusion:</strong></p>
+<p>The p-value is very small, so we reject <span class="math inline">\(H_0\)</span>. The data provide sufficient evidence that age is a statistically significant predictor of whether someone will develop heart disease in the next 10 years.</p>
 </section>
-<section id="recap" class="slide level2">
-<h2>Recap</h2>
-<ul>
-<li>How do we fit a logistic regression model?
-<ul>
-<li>Maximum likelihood estimation</li>
-</ul></li>
-<li>Logistic regression conditions
-<ul>
-<li>Linearity</li>
-<li>Randomness</li>
-<li>Independence</li>
-</ul></li>
-</ul>
+<section id="ci-for-age" class="slide level2">
+<h2>CI for <code>age</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">conf.low</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">conf.high</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-5.561</td>
+<td style="text-align: right;">0.284</td>
+<td style="text-align: right;">-19.599</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">-6.124</td>
+<td style="text-align: right;">-5.011</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(217, 227, 228, 255) !important;">age</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.075</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.005</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">14.178</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.064</td>
+<td style="text-align: right; background-color: rgba(217, 227, 228, 255) !important;">0.085</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>We are 95% confident that for each additional year of age, the change in the <em>log-odds</em> of someone developing heart disease in the next 10 years is between 0.064 and 0.085.</p>
+<div class="fragment">
+<p>We are 95% confident that for each additional year of age, the <em>odds</em> of someone developing heart disease in the next 10 years will increase by a factor of <span class="math inline">\(\exp(0.064) \approx 1.077\)</span> to <span class="math inline">\(\exp(0.085)\approx 1.089\)</span>.</p>
+</div>
+<div class="fragment">
+<p>Complete Exercises 1-4.</p>
+</div>
 </section></section>
 <section>
-<section id="inference-for-logistic-regression" class="title-slide slide level1 center">
-<h1>Inference for Logistic Regression</h1>
+<section id="recap" class="title-slide slide level1 center">
+<h1>Recap</h1>
 
 </section>
-<section id="recall-inference-for-linear-regression" class="slide level2">
-<h2>Recall: Inference for Linear Regression</h2>
+<section id="inference-linear-vs.-logistic-regression" class="slide level2">
+<h2>Inference: Linear vs.&nbsp;Logistic Regression</h2>
 <ul>
 <li><strong>t-test:</strong> determine whether the a given <span class="math inline">\(\beta_i\)</span> (slope) was different that zero</li>
 <li><strong>ANOVA/F-Test:</strong> To test the full model or to compare nested models</li>
 <li>**SSModel/SSE/ <span class="math inline">\(R^2\)</span> / $_{}:** metrics to try a measur the amount of variability explained by competing models</li>
+</ul>
+</section>
+<section id="inference-linear-vs.-logistic-regression-1" class="slide level2">
+<h2>Inference: Linear vs.&nbsp;Logistic Regression</h2>
+<ul>
+<li><del><strong>t-test:</strong> determine whether the a given <span class="math inline">\(\beta_i\)</span> (slope) was different that zero</del></li>
+<li><strong>ANOVA/F-Test:</strong> To test the full model or to compare nested models (Next time)</li>
+<li><strong>SSModel/SSE/ <span class="math inline">\(R^2\)</span> / <span class="math inline">\(\hat{\sigma}_{\epsilon}\)</span> :</strong> metrics to try a measur the amount of variability explained by competing models (Next time)</li>
+</ul>
+</section>
+<section id="inference-for-beta_1" class="slide level2">
+<h2>Inference for <span class="math inline">\(\beta_1\)</span></h2>
+<ul>
+<li>Same idea as linear regression</li>
+<li>Define null and alternative hypotheses
+<ul>
+<li>Null: my variable has no effect</li>
+<li>Alternative: my variable has an effect</li>
+</ul></li>
+<li>Compute test statistic (how many standard errors is my observed <span class="math inline">\(\hat{\beta}_1\)</span> away from 0?)</li>
+<li>Compute p-value
+<ul>
+<li>What is the probability I got my <span class="math inline">\(\hat{\beta}_1\)</span> <em>or even stronger evidence of an effect</em> if the null hypothesis were the truth?</li>
+</ul></li>
 </ul>
 
 <div class="quarto-auto-generated-content">

@@ -522,7 +522,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/hw/forStudents/hw-04/hw-04.html</loc>
-    <lastmod>2024-11-10T17:57:52.163Z</lastmod>
+    <lastmod>2024-11-12T16:49:54.743Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/ae-10-mlr.html</loc>
@@ -726,7 +726,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/ae/forStudents/ae-20/ae-20-logistic-assessment.html</loc>
-    <lastmod>2024-11-10T17:57:50.237Z</lastmod>
+    <lastmod>2024-11-12T16:49:53.387Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/hw/hw-09.html</loc>
@@ -738,7 +738,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/prepare/logistic-regression-inference.html</loc>
-    <lastmod>2024-11-10T17:57:31.136Z</lastmod>
+    <lastmod>2024-11-12T16:47:30.657Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/27-logistic-inference.html</loc>
@@ -746,7 +746,7 @@
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/28-logistic-inference.html</loc>
-    <lastmod>2024-11-10T17:56:18.894Z</lastmod>
+    <lastmod>2024-11-12T16:49:59.142Z</lastmod>
   </url>
   <url>
     <loc>https://mat212fa24.netlify.app/slides/26-logistic-estimation.html</loc>
@@ -755,5 +755,9 @@
   <url>
     <loc>https://mat212fa24.netlify.app/slides/27-logistic-conditions.html</loc>
     <lastmod>2024-11-11T16:33:16.280Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mat212fa24.netlify.app/ae/ae-21-logistic-inference.html</loc>
+    <lastmod>2024-11-12T16:48:39.458Z</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,97 @@
+---
+title: "AE 21: Inference for Logistic Regression Models"
+editor: visual
+execute: 
+  warning: false
+  message: false
+---
+
+::: callout-important
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-21".
+
+-   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/200354) and locate your `AE-21` assignment to get started.
+
+-   Upload the `ae-21.qmd` and `framingham.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.
+:::
+
+## Packages
+
+```{r}
+#| label: load-pkgs-data
+#| message: false
+ 
+library(tidyverse)
+library(broom)
+library(ggformula)
+library(mosaic)
+library(knitr)
+
+heart_disease <- read_csv("data/framingham.csv") |>
+  select(TenYearCHD, totChol, currentSmoker, BMI, BPMeds, cigsPerDay, prevalentHyp, heartRate, diabetes) |>
+  drop_na()
+```
+
+### Data: Framingham study
+
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.
+
+### Response variable
+
+-   `TenYearCHD`:
+    -   1: Patient developed heart disease within 10 years of exam
+    -   0: Patient did not develop heart disease within 10 years of exam
+
+### What are my predictor variables?
+
+Based on your group, use the following as your predictor variable.
+
+-   Group 1:
+    -     `totChol`: total cholesterol (mg/dL)
+    -     `currentSmoker`: 1 if current smoker, 0 otherwise
+-   Group 2:
+    -   `BMI`: patient's body mass index
+    -   `BPMeds`: 1 if they are on blood pressure medication, 0 otherwise
+-   Group 3:
+    -    `cigsPerDay`: number of cigarettes patient smokes per day
+    -    `prevalentHyp`: 1 if patient was hypertensive, 0 otherwise
+-   Group 4 
+    -    `sysBP`: Heart rate (beats per minute)
+    -    `diabetes`: 1 if patient has diabetes, 0 otherwise
+
+## Exercise 0
+
+Fit two logistic regression models predicting `TenYearCHD`, one for each of your explanatory variables. Keep track of which one has a quantitative and which has a categorical predictor.
+
+## Exercise 1
+
+For your quantitative predictor, conduct a hypothesis test to determine whether the slope of your variable is statistically significant. On the white board:
+
+1. Specify the null and alternative hypotheses.
+2. Compute the test statistic.
+3. Give the p-value.
+4. Interpret the result.
+
+## Exercise 2
+
+For your quantitative variable. Construct a 99% confidence interval to determine whether the slope of your variable is statistically significant. Hint, you can use the `conf.level` argument in `tidy` to change the confidence level. On the white board:
+
+1. Interpret your confidence interval in *log-odds*.
+2. Interpret your confidence interval in *odds*.
+
+## Exercise 3
+
+For your categorical predictor, conduct a hypothesis test and construct 95% confidence interval for your `\beta_1`. Interpret these in context and be prepared to discuss with the class. Note that you need not write down the entire hypothesis testing framework.
+
+## Exercise 4
+
+Why do you think it doesn't quite make sense to talk about prediction intervals or confidence intervals in the context of a logistic regression model?
+
+
+## Submission
+
+::: callout-important
+To submit the AE:
+
+-   Render the document to produce the PDF with all of your work from today's class.
+-   Upload your QMD and PDF files to the Canvas assignment.
+:::

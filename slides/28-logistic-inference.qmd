@@ -1,5 +1,5 @@
 ---
-title: "Assessing Logistic Regression Models"
+title: "Inference for Logistic Regression Models"
 author: "Prof. Eric Friedlander"
 date: "2024-11-13"
 date-format: "MMM DD, YYYY"
@@ -55,10 +55,9 @@ library(countdown)
 ## Topics
 
 ::: nonincremental
--   Checking model conditions for logistic regression
--   Brief introduction to multiple logistic regression
--   Conducting inference for logistic regression
+-   Inference for coefficients in logistic regression
 :::
+
 
 ## Computational setup
 
@@ -87,8 +86,8 @@ This data set is from an ongoing cardiovascular study on residents of the town o
 
 -   `TenYearCHD`:
 
-    -   1: High risk of having heart disease in next 10 years
-    -   0: Not high risk of having heart disease in next 10 years
+    -   1: Developed heart disease in next 10 years
+    -   0: Did not develop heart disease in next 10 years
 
 -   `age`: Age at exam time (in years)
 
@@ -105,173 +104,16 @@ heart_disease <- read_csv("data/framingham.csv") |>
 heart_disease |> head() |> kable()
 ```
 
-# Conditions
+## Modeling risk of coronary heart disease
 
-## The models {.smaller}
-
-Model 1: Let's predict `TenYearCHD` from `currentSmoker`:
-
-```{r}
-risk_fit <- glm(TenYearCHD ~ currentSmoker, 
-      data = heart_disease, family = "binomial")
-
-tidy(risk_fit, conf.int = TRUE) |> 
-  kable(digits = 3)
-```
-
-Model 2: Let's predict `TenYearCHD` from `age`:
+Using `age`:
 
 ```{r}
 risk_fit <- glm(TenYearCHD ~ age, 
       data = heart_disease, family = "binomial")
 
-tidy(risk_fit, conf.int = TRUE) |> 
-  kable(digits = 3)
+risk_fit |> tidy() |> kable()
 ```
-
-## Conditions for logistic regression
-
-1.  **Linearity:** The log-odds have a linear relationship with the predictors.
-
-2.  **Randomness:** The data were obtained from a random process.
-
-3.  **Independence:** The observations are independent from one another.
-
-## Empirical logit
-
-The **empirical logit** is the log of the observed odds:
-
-$$
-\text{logit}(\hat{p}) = \log\Big(\frac{\hat{p}}{1 - \hat{p}}\Big) = \log\Big(\frac{\# \text{Yes}}{\# \text{No}}\Big)
-$$
-
-## Calculating empirical logit (categorical predictor)
-
-If the predictor is categorical, we can calculate the empirical logit for each level of the predictor.
-
-```{r}
-#| echo: FALSE
-
-heart_disease |>
-  count(currentSmoker, TenYearCHD) |>
-  group_by(currentSmoker) |>
-  mutate(prop = n/sum(n)) |>
-  filter(TenYearCHD == 1) |>
-  mutate(emp_logit = log(prop/(1-prop))) |> 
-  kable()
-```
-
-. . .
-
-Complete Exercise 2.
-
-## Calculating empirical logit (quantitative predictor)
-
-1.  Divide the range of the predictor into intervals with approximately equal number of cases. (If you have enough observations, use 5 - 10 intervals.)
-
-2.  Compute the empirical logit for each interval
-
-. . .
-
-You can then calculate the mean value of the predictor in each interval and create a plot of the empirical logit versus the mean value of the predictor in each interval.
-
-## Empirical logit plot in R (quantitative predictor)
-
-Created using `dplyr` and `ggplot` functions.
-
-```{r}
-#| echo: false
-heart_disease |> 
-  mutate(age_bin = cut_number(age, n = 10)) |>
-  group_by(age_bin) |>
-  mutate(mean_age = mean(age)) |>
-  count(mean_age, TenYearCHD) |>
-  mutate(prop = n/sum(n)) |>
-  filter(TenYearCHD == 1) |>
-  mutate(emp_logit = log(prop/(1-prop))) |>
-  gf_point(emp_logit ~ mean_age)  |>  
-  gf_smooth(method = "lm", se = FALSE) |> 
-  gf_labs(x = "Mean Age", 
-       y = "Empirical logit")
-```
-
-## Empirical logit plot in R (quantitative predictor)
-
-Created using `dplyr` and `ggformula` functions.
-
-```{r}
-#| eval: false
-
-heart_disease |> 
-  mutate(age_bin = cut_interval(age, n = 10)) |>
-  group_by(age_bin) |>
-  mutate(mean_age = mean(age)) |>
-  count(mean_age, TenYearCHD) |>
-  mutate(prop = n/sum(n)) |>
-  filter(TenYearCHD == "1") |>
-  mutate(emp_logit = log(prop/(1-prop))) |>
-  gf_point(emp_logit ~ mean_age)  |>  
-  gf_smooth(method = "lm", se = FALSE) |> 
-  gf_labs(x = "Mean Age", 
-       y = "Empirical logit")
-```
-
-## Empirical logit plot in R (quantitative predictor)
-
-Using the `emplogitplot1` function from the **Stat2Data** R package
-
-```{r}
-emplogitplot1(TenYearCHD ~ age, 
-              data = heart_disease, 
-              ngroups = 10)
-```
-
-## Empirical logit plot in R (interactions)
-
-Using the `emplogitplot2` function from the **Stat2Data** R package
-
-```{r}
-emplogitplot2(TenYearCHD ~ age + currentSmoker, data = heart_disease, 
-              ngroups = 10, 
-              putlegend = "bottomright")
-```
-
-## Checking linearity
-
-`r emo::ji("white_check_mark")` The linearity condition is satisfied. There is a linear relationship between the empirical logit and the predictor variables.
-
-. . .
-
-Complete Exercise 3.
-
-## Checking randomness
-
-We can check the randomness condition based on the context of the data and how the observations were collected.
-
--   Was the sample randomly selected?
--   If the sample was not randomly selected, ask whether there is reason to believe the observations in the sample differ systematically from the population of interest.
-
-. . .
-
-`r emo::ji("white_check_mark")` The randomness condition is satisfied. We do not have reason to believe that the participants in this study differ systematically from adults in the U.S. in regards to health characteristics and risk of heart disease.
-
-## Checking independence
-
--   We can check the independence condition based on the context of the data and how the observations were collected.
--   Independence is most often violated if the data were collected over time or there is a strong spatial relationship between the observations.
-
-. . .
-
-`r emo::ji("white_check_mark")` The independence condition is satisfied. It is reasonable to conclude that the participants' health characteristics are independent of one another.
-
-## Recap
-
--   How do we fit a logistic regression model?
-    -   Maximum likelihood estimation
--   Logistic regression conditions
-    -   Linearity
-    -   Randomness
-    -   Independence
     
 # Inference for Logistic Regression
 
@@ -279,4 +121,153 @@ We can check the randomness condition based on the context of the data and how t
 
 -   **t-test:** determine whether the a given $\beta_i$ (slope) was different that zero
 -   **ANOVA/F-Test:** To test the full model or to compare nested models
+-   **SSModel/SSE/ $R^2$ / $\hat{\sigma}_{\epsilon}$ :** metrics to try a measur the amount of variability explained by competing models
+
+## Hypothesis test for $\beta_1$
+
+**Hypotheses:** $H_0: \beta_1 = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_1 \neq 0$
+
+. . .
+
+**Test Statistic:** $$z = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}}$$
+
+$z$ is sometimes called a *Wald statistic* and this test is sometimes called a *Wald Hypothesis Test*.
+
+. . .
+
+**P-value:** $P(|Z| > |z|)$, where $Z \sim N(0, 1)$, the Standard Normal distribution
+
+## Confidence interval for $\beta_1$
+
+We can calculate the **C% confidence interval** for $\beta_1$ as the following:
+
+$$
+\Large{\hat{\beta}_1 \pm z^* SE_{\hat{\beta}_1}}
+$$
+
+where $z^*$ is calculated from the $N(0,1)$ distribution
+
+. . .
+
+::: callout-note
+This is an interval for the change in the *log-odds* for every one unit increase in $x$
+:::
+
+## Interpretation in terms of the odds
+
+The change in **odds** for every one unit increase in $x_1$.
+
+$$
+\Large{\exp\{\hat{\beta}_1 \pm z^* SE_{\hat{\beta}_1}\}}
+$$
+
+. . .
+
+**Interpretation:** We are $C\%$ confident that for every one unit increase in $x_1$, the odds multiply by a factor of $\exp\{\hat{\beta}_1 - z^* SE_{\hat{\beta}_1}\}$ to $\exp\{\hat{\beta}_1 + z^* SE_{\hat{\beta}_1}\}$, holding all else constant.
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| label: risk-model-age-highlight
+#| echo: false
+
+tidy(risk_fit, conf.int = TRUE) |> 
+  kable(digits = 3) |>
+  row_spec(2, background = "#D9E3E4")
+```
+
+. . .
+
+**Hypotheses:**
+
+$$
+H_0: \beta_{age} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{age} \neq 0
+$$
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+**Test statistic:**
+
+$$z = \frac{0.0747 - 0}{0.00527} \approx 14.178$$
+
+Note: rounding errors!
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+**P-value:**
+
+$$
+P(|Z| > |14.178|) \approx 0
+$$
+
+. . .
+
+```{r}
+2 * pnorm(14.178,lower.tail = FALSE)
+```
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+**Conclusion:**
+
+The p-value is very small, so we reject $H_0$. The data provide sufficient evidence that age is a statistically significant predictor of whether someone will develop heart disease in the next 10 years.
+
+## CI for `age`
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+We are 95% confident that for each additional year of age, the change in the *log-odds* of someone developing heart disease in the next 10 years is between 0.064 and 0.085.
+
+. . .
+
+We are 95% confident that for each additional year of age, the *odds* of someone developing heart disease in the next 10 years will increase by a factor of $\exp(0.064) \approx 1.077$ to $\exp(0.085)\approx 1.089$.
+
+. . .
+
+Complete Exercises 1-4.
+
+
+# Recap
+
+## Inference: Linear vs. Logistic Regression
+
+-   **t-test:** determine whether the a given $\beta_i$ (slope) was different that zero
+-   **ANOVA/F-Test:** To test the full model or to compare nested models
 -   **SSModel/SSE/ $R^2$ / $\hat{sigma}_{\epsilon}:** metrics to try a measur the amount of variability explained by competing models
+
+## Inference: Linear vs. Logistic Regression
+
+-   ~~**t-test:** determine whether the a given $\beta_i$ (slope) was different that zero~~
+-   **ANOVA/F-Test:** To test the full model or to compare nested models (Next time)
+-   **SSModel/SSE/ $R^2$ / $\hat{\sigma}_{\epsilon}$ :** metrics to try a measur the amount of variability explained by competing models (Next time)
+
+## Inference for $\beta_1$
+
+-   Same idea as linear regression
+-   Define null and alternative hypotheses
+    -   Null: my variable has no effect
+    -   Alternative: my variable has an effect
+-   Compute test statistic (how many standard errors is my observed $\hat{\beta}_1$ away from 0?)
+-   Compute p-value
+    -   What is the probability I got my $\hat{\beta}_1$ *or even stronger evidence of an effect* if the null hypothesis were the truth?
+
+
+
