@@ -1,0 +1,103 @@
+---
+title: "AE 22: Inference for Logistic Regression Models Continued"
+editor: visual
+execute: 
+  warning: false
+  message: false
+format: 
+  pdf:
+    pdf-engine: pdflatex
+---
+
+::: callout-important
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-22".
+
+-   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/200665) and locate your `AE-22` assignment to get started.
+
+-   Upload the `ae-22.qmd` and `framingham.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.
+:::
+
+## Packages
+
+```{r}
+#| label: load-pkgs-data
+#| message: false
+ 
+library(tidyverse)
+library(broom)
+library(ggformula)
+library(mosaic)
+library(knitr)
+
+heart_disease <- read_csv("framingham.csv") |>
+  select(TenYearCHD, totChol, BMI, cigsPerDay, heartRate) |>
+  drop_na()
+```
+
+### Data: Framingham study
+
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.
+
+### Response variable
+
+-   `TenYearCHD`:
+    -   1: Patient developed heart disease within 10 years of exam
+    -   0: Patient did not develop heart disease within 10 years of exam
+
+### What are my predictor variables?
+
+Based on your group, use the following as your predictor variables.
+
+-   Group 1:
+    -   `totChol`: total cholesterol (mg/dL)
+-   Group 2:
+    -   `BMI`: patient's body mass index
+-   Group 3:
+    -   `cigsPerDay`: number of cigarettes patient smokes per day
+-   Group 4
+    -   `sysBP`: systolic blood pressure (mmHg)
+
+## Exercise 0
+
+Fit a logistic regression model predicting `TenYearCHD` using your assigned explanatory variable. Conduct a hypothesis test for the slope. Interpret these in context and be prepared to discuss with the class. Note that you need not write down the entire hypothesis testing framework. What is the name of the test you just conducted?
+
+## Exercise 1
+
+Compute the deviance for the model you fit above. Do larger or smaller values of deviance indicate a better model?
+
+## Exercise 2
+
+In Exercise 0, we used a \_\_\_\_ test to compute our p-value. Test the same hypotheses, this time using a likelihood ratio test. Write out all the steps on the white board, following the slides :
+
+1.  Specify the null and alternative hypotheses.
+2.  Compute the test statistic.
+3.  Give the p-value. Draw a picture!
+4.  Interpret the result.
+
+## Exercise 3
+
+The test statistic for a LRT is the difference in deviance between your full and reduced model:
+
+1.  Do larger or smaller values of your test statistic provide more evidence for the alternative hypothesis?
+2.  Do you think your test statistic can ever be negative? Why? Do not use the Chi-Squared distribution to justify your answer.
+
+## Exercise 4
+
+Use the `anova` function to recreate your p-value from the previous problem.
+
+## Exercise 5
+
+Are the p-values you got from Exercises 2, 3, and 4 all the EXACT same? Make sure you are displaying enough digits so that your p-values aren't rounding to zero. If they are different, which one do you think is the most reliable? Why?
+
+## Exercise 6
+
+Why do you think it doesn't quite make sense to talk about prediction intervals or confidence intervals in the context of a logistic regression model?
+
+## Submission
+
+::: callout-important
+To submit the AE:
+
+-   Render the document to produce the PDF with all of your work from today's class.
+-   Upload your QMD and PDF files to the Canvas assignment.
+:::
