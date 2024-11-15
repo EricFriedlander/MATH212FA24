@@ -1,0 +1,9 @@
+---
+title: "November 18 lecture"
+subtitle: "Multiple Logistic Regression"
+---
+
+## Assigned reading
+
+- Stat2: Topic 10.1 Multiple Logistic Regression Overview
+- Stat2: Topic 10.2 Choosing, Fitting, and Interpreting Models
