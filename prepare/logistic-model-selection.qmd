@@ -1,0 +1,9 @@
+---
+title: "November 20 lecture"
+subtitle: "Logistic Regression - Model Selection and Transformations"
+---
+
+## Assigned reading
+
+- Stat2: Topic 10.3 Checking Conditions
+- Stat2: Topic 10.4 Formal Inference: Tests and Intervals
