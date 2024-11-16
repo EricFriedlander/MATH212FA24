@@ -64,6 +64,8 @@ website:
           text: Instructions
         - href: project-tips.qmd
           text: Tips + resources
+        - href: project-review-guidelines.qmd
+          text: Project Review Guidelines
         - href: project-rubric.qmd
           text: Rubric
       # - href: stats-experience.qmd

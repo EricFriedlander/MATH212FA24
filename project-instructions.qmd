@@ -250,7 +250,7 @@ Include full citations for any papers cited in your introduction or other sectio
 
 
 ## Stage IV: Peer Review {#peer-review}
-An important part of any work is reflection and review. When you submit your paper to Canvas, it will be reviewed by another student, and you will be asked to review as well. More detailed instructions on this exercise will be given at the time of the review. You will be evaluated on your effort in the review, including how constructive and insightful your comments are. 
+An important part of any work is reflection and review. When you submit your paper to Canvas, it will be reviewed by another student, and you will be asked to review as well. For more detailed instructions on this exercise see the [Project Review Guildelines](/project-review-guidelines.qmd). You will be evaluated on your effort in the review, including how constructive and insightful your comments are. 
 
 ## Stage V: Project Revision {#written-report}
 After submitting your project report, you will receive feedback from your professor and 1-2 peers. You will have the opportunity to revise your project paper and resubmit it. A portion of your revision grade is based on the adequacy of your response to comments. (This means that if you just resubmit the first copy of your paper without changes, it will receive a lower grade.)
