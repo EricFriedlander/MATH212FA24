@@ -10,8 +10,8 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.555">
 
-  <meta name="author" content="Prof.&nbsp;Eric Friedlander">
-  <title>MAT 212 - Fall 2024 - Multiple Logistic Regression</title>
+  <meta name="author" content="Prof.&nbsp;Maria Tackett">
+  <title>MAT 212 - Fall 2024 - Exam 02 review</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,71 +29,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -387,485 +322,73 @@
       margin-right: 0; 
     }
   </style>
-  <link href="../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
-
-  <script src="../site_libs/countdown-0.4.0/countdown.js"></script>
-
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Multiple Logistic Regression</h1>
+  <h1 class="title">Exam 02 review</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Prof.&nbsp;Eric Friedlander 
+Prof.&nbsp;Maria Tackett 
 </div>
 </div>
 </div>
 
-  <p class="date">Nov 22, 2024</p>
+  <p class="date">Nov 25, 2024</p>
 </section>
-<section id="do-now" class="slide level2">
-<h2>Do now</h2>
-<p>Get back in your groups from Wednesday and finish AE-23.</p>
+<section class="slide level2">
+
+<!-- ## Announcements {.small} -->
+<!-- -   Due dates -->
+<!--     -   HW 05 due TODAY at 11:59pm -->
+<!-- -   Project -->
+<!--     -   (Optional) [Round 1 submission](https://sta210-fa23.netlify.app/project-instructions#round1-submission) due Fri, Dec 01 at 11:59pm -->
+<!--     -   [Presentations](https://sta210-fa23.netlify.app/project-instructions#presentation) in lab Dec 5 & 7 -->
+<!-- -   Exam 02 dates -->
+<!--     -   In-class: Mon, Dec 4 -->
+<!--     -   Take-home: Mon, Dec 4 - Wed, Dec 6 -->
+<!--     -   Review: Wed, Nov 29 -->
+<!--     -   No Ed Discussion or office hours Dec 4 - 6 -->
+<!-- -   [Click here](https://docs.google.com/spreadsheets/d/1dUD4SOpM79BL2kdvue9I2TP-ibcdxfpOIkHkMreYx64/edit?usp=sharing) to access lecture recordings. Available until Mon, Dec 04 at 9am -->
+<!-- -   Please fill out course evaluations -->
+<!-- ## Course + TA evaluations -->
+<!-- -   Course and TA evaluations are now available (will receive email about TA evals) -->
+<!-- -   If there is at least 80% on the course evaluations [**and**]{.underline} TA evaluations, everyone in the class will get 1 percentage point (i.e. 0.5 out of 50) on Exam 02. -->
+<!--     -   This will be determined separately for the Sections 001 and 002. -->
 </section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
+<section id="exam-02" class="slide level2 midi">
+<h2>Exam 02</h2>
 <ul>
-<li><p><a href="https://mat212fa24.netlify.app/project-instructions#peer-review">Peer Review due Monday, November 25th</a></p></li>
-<li><p>HW 10 due Monday, November 25th</p></li>
-<li><p>Midterm 2 Wednesday, November 27th (day before break)</p></li>
+<li>20% of final course grade</li>
 </ul>
+</section>
+<section id="content-weeks-10---14" class="slide level2 midi">
+<h2>Content: Weeks 10 - 14</h2>
+<ul>
+<li><p>Fitting, interpreting, comparing, and evaluating multiple linear regression models</p></li>
+<li><p>Inference for multiple linear regression</p></li>
+<li><p>Conditions for multiple linear regression including multicollinearity</p></li>
+<li><p>Probabilities, odds, and odds ratios</p></li>
+<li><p>Fitting, interpreting, and comparing logistic regression models</p></li>
+</ul>
+</section>
+<section id="practice" class="slide level2">
+<h2>Practice</h2>
 <div class="appex">
-<p>📋 <a href="https://mat212fa24.netlify.app/ae/ae-24-compare-logistic">AE 24 - Logistic Regression: Selection and Comparison</a></p>
-<ul>
-<li>Open up AE 24.</li>
-</ul>
+<p>📋 <a href="../ae/exam-02-review.html">Exam2 Review</a></p>
 </div>
-</section>
-<section id="topics" class="slide level2">
-<h2>Topics</h2>
-<ul>
-<li><p>Investigating interaction terms in logistic regression models</p></li>
-<li><p>Comparing logistic regression models</p></li>
-<li><p>Choosing logistic regression models</p></li>
-<li><p>Transformations in logistic regression</p></li>
-</ul>
-</section>
-<section id="computational-setup" class="slide level2">
-<h2>Computational setup</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load packages</span></span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-4"><a></a><span class="fu">library</span>(openintro)</span>
-<span id="cb1-5"><a></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-6"><a></a><span class="fu">library</span>(kableExtra)  <span class="co"># for table embellishments</span></span>
-<span id="cb1-7"><a></a><span class="fu">library</span>(Stat2Data)   <span class="co"># for empirical logit</span></span>
-<span id="cb1-8"><a></a></span>
-<span id="cb1-9"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
-<span id="cb1-10"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section>
-<section id="data" class="title-slide slide level1 center">
-<h1>Data</h1>
-
-</section>
-<section id="risk-of-coronary-heart-disease" class="slide level2 midi">
-<h2>Risk of coronary heart disease</h2>
-<p>This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.</p>
-<ul>
-<li><p><code>TenYearCHD</code>:</p>
-<ul>
-<li>1: Developed heart disease in next 10 years</li>
-<li>0: Did not develop heart disease in next 10 years</li>
-</ul></li>
-<li><p><code>age</code>: Age at exam time (in years)</p></li>
-<li><p><code>education</code>: 1 = Some High School, 2 = High School or GED, 3 = Some College or Vocational School, 4 = College</p></li>
-</ul>
-</section>
-<section id="data-prep" class="slide level2">
-<h2>Data prep</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>heart_disease <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/framingham.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a></a>  <span class="fu">select</span>(TenYearCHD, age, education, male, diaBP) <span class="sc">|&gt;</span></span>
-<span id="cb2-3"><a></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb2-4"><a></a>  <span class="fu">mutate</span>(<span class="at">education =</span> <span class="fu">as.factor</span>(education),</span>
-<span id="cb2-5"><a></a>         <span class="at">male =</span> <span class="fu">as.factor</span>(male))</span>
-<span id="cb2-6"><a></a>         </span>
-<span id="cb2-7"><a></a></span>
-<span id="cb2-8"><a></a>heart_disease <span class="sc">|&gt;</span> <span class="fu">head</span>() <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;">TenYearCHD</th>
-<th style="text-align: right;">age</th>
-<th style="text-align: left;">education</th>
-<th style="text-align: left;">male</th>
-<th style="text-align: right;">diaBP</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">39</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">70</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">46</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">81</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">48</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">80</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">61</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">95</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">46</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">84</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">43</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">110</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section></section>
-<section>
-<section id="interaction-terms" class="title-slide slide level1 center">
-<h1>Interaction Terms</h1>
-
-</section>
-<section id="interactions" class="slide level2">
-<h2>Interactions</h2>
-<p><strong>Intuitively:</strong> There is an interaction between two variables when the influence of one variables on the log-odds depends on what the value of the other variable is.</p>
-<div class="fragment">
-<p>Complete Exercise 1.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>countdown<span class="sc">::</span><span class="fu">countdown</span>(<span class="at">minutes =</span> <span class="dv">1</span>, <span class="at">seconds=</span><span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="countdown" id="timer_417921ce" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="recall-empirical-logit-plot" class="slide level2">
-<h2>Recall: Empirical Logit Plot</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">emplogitplot1</span>(TenYearCHD <span class="sc">~</span> age, <span class="at">data =</span> heart_disease,</span>
-<span id="cb4-2"><a></a>              <span class="at">ngroups =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="31-logistic-comparison_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"><div class="question">
-<p>How do we interpret this?</p>
-</div>
-</section>
-<section id="visualizing-interactions-quant-vs.-cat" class="slide level2">
-<h2>Visualizing Interactions (Quant vs.&nbsp;Cat)</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">emplogitplot2</span>(TenYearCHD <span class="sc">~</span> age <span class="sc">+</span> male, <span class="at">data =</span> heart_disease,</span>
-<span id="cb5-2"><a></a>              <span class="at">ngroups =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="31-logistic-comparison_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"><div class="fragment">
-<p>Complete Exercise 2.</p>
-</div>
-</section>
-<section id="visualizing-interactions-quant-vs.-cat-1" class="slide level2">
-<h2>Visualizing Interactions (Quant vs.&nbsp;Cat)</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">emplogitplot2</span>(TenYearCHD <span class="sc">~</span> age <span class="sc">+</span> education, <span class="at">data =</span> heart_disease,</span>
-<span id="cb6-2"><a></a>              <span class="at">ngroups =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="31-logistic-comparison_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"><div class="question">
-<p>Based on this plot, do you think there is an interaction between age and education?</p>
-</div>
-</section>
-<section id="models-with-interaction" class="slide level2">
-<h2>Models with Interaction</h2>
-<div class="cell" data-layout-align="center">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>age_male_interaction_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age <span class="sc">+</span> male <span class="sc">+</span> age<span class="sc">*</span>male, </span>
-<span id="cb7-2"><a></a>                  <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb7-3"><a></a></span>
-<span id="cb7-4"><a></a>age_male_interaction_model <span class="sc">|&gt;</span> <span class="fu">tidy</span>() <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-6.358</td>
-<td style="text-align: right;">0.428</td>
-<td style="text-align: right;">-14.865</td>
-<td style="text-align: right;">0.000</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">age</td>
-<td style="text-align: right;">0.085</td>
-<td style="text-align: right;">0.008</td>
-<td style="text-align: right;">10.883</td>
-<td style="text-align: right;">0.000</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">male1</td>
-<td style="text-align: right;">1.308</td>
-<td style="text-align: right;">0.583</td>
-<td style="text-align: right;">2.245</td>
-<td style="text-align: right;">0.025</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">age:male1</td>
-<td style="text-align: right;">-0.014</td>
-<td style="text-align: right;">0.011</td>
-<td style="text-align: right;">-1.342</td>
-<td style="text-align: right;">0.180</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="models-with-interaction-1" class="slide level2">
-<h2>Models with Interaction</h2>
-<p>Two model’s in one!</p>
-<ul>
-<li>Non-male’s: <span class="math display">\[\log\left(\frac{\hat{p}}{1-\hat{p}}\right) = -6.358 +0.085\times\text{age}\]</span></li>
-<li>Male’s: <span class="math display">\[
-\begin{aligned} \log\left(\frac{\hat{p}}{1-\hat{p}}\right) &amp;= (-6.358+1.308) +(0.085-0.015)\times\text{age}\\
-&amp;=  -5.05 +0.070\times\text{age}
-\end{aligned}
-\]</span></li>
-</ul>
-<div class="fragment">
-<p>Complete Exercises 3 and 4.</p>
-</div>
-</section></section>
-<section>
-<section id="model-selection" class="title-slide slide level1 center">
-<h1>Model selection</h1>
-
-</section>
-<section id="aic-or-bic-for-model-selection" class="slide level2">
-<h2>AIC or BIC for model selection</h2>
-<p><span class="math display">\[
-\begin{align}
-&amp;AIC = - 2 * \log L - {\color{purple}n\log(n)}+ 2(p +1)\\[5pt]
-&amp;BIC =- 2 * \log L - {\color{purple}n\log(n)} + \log(n)\times(p+1)
-\end{align}
-\]</span></p>
-</section>
-<section id="aic-from-the-glance-function" class="slide level2">
-<h2>AIC from the <code>glance()</code> function</h2>
-<p>Let’s look at the AIC for model we fit earlier</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">glance</span>(age_male_interaction_model)<span class="sc">$</span>AIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3277.159</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p><strong>Calculating AIC</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">glance</span>(age_male_interaction_model)<span class="sc">$</span>logLik <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> (<span class="dv">3</span><span class="sc">+</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3277.159</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="comparing-the-models-using-aic" class="slide level2">
-<h2>Comparing the models using AIC</h2>
-<p>Let’s compare a few models:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co">#|code-line-numbers: |6</span></span>
-<span id="cb12-2"><a></a>age_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb12-3"><a></a>age_male_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age<span class="sc">+</span>male, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>) </span>
-<span id="cb12-4"><a></a>age_education_model <span class="ot">&lt;-</span>  <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age<span class="sc">+</span>education, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb12-5"><a></a>age_male_education_model <span class="ot">&lt;-</span>  <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age<span class="sc">+</span> male <span class="sc">+</span> education, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb12-6"><a></a>age_education_interaction_model <span class="ot">&lt;-</span>  <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age <span class="sc">+</span> education <span class="sc">+</span> age<span class="sc">*</span> education, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb12-7"><a></a>all_interaction_model <span class="ot">&lt;-</span>  <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> (age <span class="sc">+</span> education <span class="sc">+</span> male)<span class="sc">^</span><span class="dv">2</span>, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="comparing-the-models-using-aic-1" class="slide level2">
-<h2>Comparing the models using AIC</h2>
-<p>Let’s compare a few models:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>aics <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">glance</span>(age_model)<span class="sc">$</span>AIC,</span>
-<span id="cb13-2"><a></a><span class="fu">glance</span>(age_male_model)<span class="sc">$</span>AIC,</span>
-<span id="cb13-3"><a></a><span class="fu">glance</span>(age_male_interaction_model)<span class="sc">$</span>AIC,</span>
-<span id="cb13-4"><a></a><span class="fu">glance</span>(age_education_model)<span class="sc">$</span>AIC,</span>
-<span id="cb13-5"><a></a><span class="fu">glance</span>(age_male_education_model)<span class="sc">$</span>AIC,</span>
-<span id="cb13-6"><a></a><span class="fu">glance</span>(age_education_interaction_model)<span class="sc">$</span>AIC,</span>
-<span id="cb13-7"><a></a><span class="fu">glance</span>(all_interaction_model)<span class="sc">$</span>AIC)</span>
-<span id="cb13-8"><a></a></span>
-<span id="cb13-9"><a></a>aics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3310.680 3276.964 3277.159 3310.135 3279.342 3314.815 3285.196</code></pre>
-</div>
-</div>
-<p><br></p>
-<div class="question">
-<p>Based on AIC, which model would you choose? Raise you hand if your AIC is better.</p>
-</div>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">which.min</span>(aics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="comparing-the-models-using-bic" class="slide level2">
-<h2>Comparing the models using BIC</h2>
-<p>Let’s compare the models using BIC</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>bics <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">glance</span>(age_model)<span class="sc">$</span>AIC,</span>
-<span id="cb17-2"><a></a><span class="fu">glance</span>(age_male_model)<span class="sc">$</span>AIC,</span>
-<span id="cb17-3"><a></a><span class="fu">glance</span>(age_male_interaction_model)<span class="sc">$</span>AIC,</span>
-<span id="cb17-4"><a></a><span class="fu">glance</span>(age_education_model)<span class="sc">$</span>AIC,</span>
-<span id="cb17-5"><a></a><span class="fu">glance</span>(age_male_education_model)<span class="sc">$</span>AIC,</span>
-<span id="cb17-6"><a></a><span class="fu">glance</span>(age_education_interaction_model)<span class="sc">$</span>AIC,</span>
-<span id="cb17-7"><a></a><span class="fu">glance</span>(all_interaction_model)<span class="sc">$</span>AIC)</span>
-<span id="cb17-8"><a></a></span>
-<span id="cb17-9"><a></a>aics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3310.680 3276.964 3277.159 3310.135 3279.342 3314.815 3285.196</code></pre>
-</div>
-</div>
-<p><br></p>
-<div class="question">
-<p>Based on BIC, which model would you choose? Raise your hand if your BIC is better.</p>
-</div>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">which.min</span>(bics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="choosing-a-logistic-regression-model" class="slide level2">
-<h2>Choosing a Logistic Regression Model</h2>
-<ul>
-<li>Forward/Backward/Stepwise selection all work in the same way</li>
-<li>Can you string together a sequence of Likelihood Ratio Tests (but only a few)</li>
-</ul>
-</section></section>
-<section>
-<section id="transformations" class="title-slide slide level1 center">
-<h1>Transformations</h1>
-
-</section>
-<section id="power-family-of-transformation" class="slide level2">
-<h2>Power Family of Transformation</h2>
-<ul>
-<li><p>Many departures from linearity can be solved with power transformations (e.g.&nbsp;<span class="math inline">\(X^{power}\)</span>)</p>
-<ul>
-<li>For technical reasons, <span class="math inline">\(power = 0\)</span> corresponds to <span class="math inline">\(\log\)</span></li>
-</ul></li>
-<li><p>Look at empirical log-odds plot</p></li>
-<li><p>Concave down pattern <span class="math inline">\(\Rightarrow\)</span> transform down (i.e.&nbsp;<span class="math inline">\(power &lt; 1\)</span>)</p>
-<ul>
-<li><span class="math inline">\(\log\)</span> is typically a good first choice</li>
-</ul></li>
-<li><p>Concave up pattern <span class="math inline">\(\Rightarrow\)</span> transform up (i.e.&nbsp;<span class="math inline">\(power &gt; 1\)</span>)</p></li>
-</ul>
-</section>
-<section id="empirical-log-odds-plot" class="slide level2">
-<h2>Empirical Log-Odds Plot</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">emplogitplot1</span>(TenYearCHD <span class="sc">~</span> diaBP, <span class="at">data =</span> heart_disease, <span class="at">ngroups =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="31-logistic-comparison_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
-<section id="empirical-log-odds-plot-1" class="slide level2">
-<h2>Empirical Log-Odds Plot</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">emplogitplot1</span>(TenYearCHD <span class="sc">~</span> diaBP, <span class="at">data =</span> heart_disease, <span class="at">ngroups =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="31-logistic-comparison_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"><div class="question">
-<p>Concave up or down?</p>
-</div>
-</section>
-<section id="empirical-log-odds-plot-2" class="slide level2">
-<h2>Empirical Log-Odds Plot</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>heart_disease <span class="ot">&lt;-</span> heart_disease <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">diaBP_transformed =</span> diaBP<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb23-2"><a></a><span class="fu">emplogitplot1</span>(TenYearCHD <span class="sc">~</span> diaBP_transformed, <span class="at">data =</span> heart_disease, <span class="at">ngroups =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="31-logistic-comparison_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
-<section id="empirical-log-odds-plot-3" class="slide level2">
-<h2>Empirical Log-Odds Plot</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>heart_disease <span class="ot">&lt;-</span> heart_disease <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">diaBP_transformed =</span> diaBP<span class="sc">^</span><span class="dv">10</span>)</span>
-<span id="cb24-2"><a></a><span class="fu">emplogitplot1</span>(TenYearCHD <span class="sc">~</span> diaBP_transformed, <span class="at">data =</span> heart_disease, <span class="at">ngroups =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="31-logistic-comparison_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
-<section id="empirical-log-odds-plot-4" class="slide level2">
-<h2>Empirical Log-Odds Plot</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>heart_disease <span class="ot">&lt;-</span> heart_disease <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">diaBP_transformed =</span> diaBP<span class="sc">^</span><span class="dv">6</span>)</span>
-<span id="cb25-2"><a></a><span class="fu">emplogitplot1</span>(TenYearCHD <span class="sc">~</span> diaBP_transformed, <span class="at">data =</span> heart_disease, <span class="at">ngroups =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="31-logistic-comparison_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
-<section id="recap" class="slide level2">
-<h2>Recap</h2>
-<ul>
-<li><p>Interaction terms in logistic regression models</p>
-<ul>
-<li>For quantitative-categorical, creates nested models</li>
-</ul></li>
-<li><p>Comparing logistic regression models</p>
-<ul>
-<li>AIC/BIC</li>
-</ul></li>
-<li><p>Choosing logistic regression models</p>
-<ul>
-<li>Same selection techniques as linear regression</li>
-</ul></li>
-<li><p>Transformations in logistic regression</p>
-<ul>
-<li><p>Can only transform <span class="math inline">\(X\)</span></p></li>
-<li><p>Concave [up/down] <span class="math inline">\(\Rightarrow\)</span> power-transform [up/down]</p></li>
-</ul></li>
-</ul>
 
 <div class="quarto-auto-generated-content">
 <p><img src="../images/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://mat212fa24.netlify.app/schedule">🔗 MAT 212 - Fall 2024 - Schedule</a></p>
+<p><a href="https://sta210-fa23.netlify.app/schedule">🔗 STA 210 - Fall 2023 - Schedule</a></p>
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 

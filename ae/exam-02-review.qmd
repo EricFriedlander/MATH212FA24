@@ -1,0 +1,179 @@
+---
+title: "Exam 02 Review"
+date: "Nov 25, 2024"
+editor: visual
+execute: 
+  warning: false
+  message: false
+---
+
+::: callout-important
+Imagine that this is printed out for you and all answers are given in written form.
+
+Note: This in-class review is **not** exhaustive. Use lecture notes notes, application exercises, and homework for a comprehensive exam review. It's length is also not indicative of the length of the exam.
+:::
+
+## Packages
+
+```{r}
+#| message: false
+ 
+library(tidyverse)
+library(ggformula)
+library(Stat2Data)
+library(broom)
+library(knitr)
+library(rms)
+```
+
+## Data
+
+The data for this analysis is about credit card customers. The following variables are in the data set:
+
+-   `income`: Income in \$1,000's
+-   `limit`: Credit limit
+-   `rating`: Credit rating
+-   `cards`: Number of credit cards
+-   `age`: Age in years
+-   `education`: Number of years of education
+-   `own`: A factor with levels `No` and `Yes` indicating whether the individual owns their home
+-   `student`: A factor with levels `No` and `Yes` indicating whether the individual was a student
+-   `married`: A factor with levels `No` and `Yes` indicating whether the individual was married
+-   `region`: A factor with levels `South`, `East`, and `West` indicating the region of the US the individual is from
+-   `balance`: Average credit card balance in \$.
+
+```{r}
+#| warning: false
+#| message: false
+
+credit <- read_csv("data/credit.csv") |>
+  mutate(maxed = if_else(balance == 0, 1, 0),
+         student = as.factor(student))
+```
+# Part 1: Linear Regression
+
+**The objective of this analysis is to predict whether a person average card balance.**
+
+## Exercise 1
+
+Consider the following models:
+
+```{r}
+model1 <- lm(balance ~ income + limit + age + rating, data = credit)
+
+
+vif(model1)
+```
+
+What does VIF stand for? How do you use it? What conclusions can you draw from the output above.
+
+## Exercise 2
+
+```{r}
+model2 <- lm(balance ~ income + limit + student + limit*student, data = credit)
+
+tidy(model2) |>  kable()
+```
+
+Describe and interpret the interaction term from the above model. Be sure to give the value of the coefficient an describe what it means.
+
+## Exercise 3
+
+Consider the following analysis:
+
+```{r}
+model3 <- lm(balance ~ income + limit + age + rating + limit*student, data = credit)
+
+anova(model2, model3)
+```
+
+Describe the test above. Write down the null and alternative hypotheses, test statistic, p-value, and interpret the results.
+
+## Exercise 4
+
+Based on the previous question and the output below, which model is better? Cite at least three forms of evidence.
+
+```{r}
+glance(model2) |> kable()
+glance(model3) |> kable()
+```
+
+
+
+# Part 2: Logistic Regression
+
+**The objective of this analysis is to predict whether a person has maxed out their credit card, i.e., had \$0 average card balance.**
+
+## Exercise 1
+
+-   Why is logistic regression the best modeling approach for this analysis?
+
+## Exercise 2
+
+```{r}
+#| echo: FALSE
+
+credit |> 
+  count(maxed)
+```
+
+Let $\pi$ represent the probability that a person has maxed out their credit card.
+
+-   Compute the empirical probability
+-   Compute the empirical odds
+-   Compute the empirical log odds
+
+## Exercise 3
+
+Consider the following code and output:
+
+```{r}
+credit_rec <- glm(maxed ~ income + age + student, 
+                     data = credit, family = "binomial")
+credit_rec |> tidy() |> kable()
+```
+
+-   Write out the formula for the probability of "success" that corresponds to this model.
+-   Write out the formula for the log-odds of "success" that corresponds to this model.
+
+
+
+## Exercise 4
+
+What condition of logistic regression can be assessed with this plot. Does it appear that that condition is satisfied?
+
+```{r}
+
+emplogitplot1(maxed ~ income, data = credit, ngroups = 10)
+```
+
+## Exercise 5
+
+What is wrong with the procedure below?
+
+```{r}
+#| label: cv-model2
+
+model1 <- glm(maxed ~ income + age + student, data = credit, family = "binomial")
+model2 <- glm(maxed ~ income + rating + limit + age, data = credit, family = "binomial")
+
+anova(model1, model2, test = "Chisq")
+```
+
+
+
+## Exercise 6
+
+Consider `income` below. Interpret the coefficient of income. There are two different answers I will accept here. Once this is done, interpret the p-value associated with `income`. Make sure to:
+
+-   State the null and alternative hypotheses
+-   Identify the test statistic
+-   State the distribution used to calculate the p-value
+-   State the conclusion of the test at a significance level of $\alpha = 0.01$
+
+```{r}
+model2 |> tidy()
+```
+
+
+
