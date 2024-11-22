@@ -10,7 +10,7 @@ execute:
 ::: callout-important
 Imagine that this is printed out for you and all answers are given in written form.
 
-Note: This in-class review is **not** exhaustive. Use lecture notes notes, application exercises, and homework for a comprehensive exam review. It's length is also not indicative of the length of the exam.
+Note: This in-class review is **not** exhaustive. Use lecture notes, application exercises, and homework for a comprehensive exam review. It's length is also not indicative of the length of the exam.
 :::
 
 ## Packages
@@ -152,7 +152,6 @@ emplogitplot1(maxed ~ income, data = credit, ngroups = 10)
 What is wrong with the procedure below?
 
 ```{r}
-#| label: cv-model2
 
 model1 <- glm(maxed ~ income + age + student, data = credit, family = "binomial")
 model2 <- glm(maxed ~ income + rating + limit + age, data = credit, family = "binomial")
