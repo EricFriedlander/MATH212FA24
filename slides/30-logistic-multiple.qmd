@@ -56,7 +56,7 @@ Get back in your groups from Friday and finish AE-22 (skip Exercise 6).
 -   Midterm 2 Wednesday, November 27th (day before break)
 
 ::: appex
-📋 [AE 23 - Multiple Logistic Regression](https://mat212fa24.netlify.app/ae/ae-22-logistic-inference2)
+📋 [AE 23 - Multiple Logistic Regression](https://mat212fa24.netlify.app/ae/ae-23-multiple-logistic)
 
 - Open up AE 23.
 :::

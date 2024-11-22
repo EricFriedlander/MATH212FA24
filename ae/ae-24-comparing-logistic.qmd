@@ -1,0 +1,96 @@
+---
+title: "AE 24: Logistic Regression: Comparison and Selection"
+editor: visual
+execute: 
+  warning: false
+  message: false
+---
+
+::: callout-important
+-   Open [RStudio](https://rstudio.collegeofidaho.edu/) and create a subfolder in your AE folder called "AE-24".
+
+-   Go to the [Canvas](https://cofi.instructure.com/courses/15692/assignments/201135) and locate your `AE-24` assignment to get started.
+
+-   Upload the `ae-24.qmd` and `framingham.csv` files into the folder you just created. The `.qmd` and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.
+:::
+
+## Packages
+
+```{r}
+#| label: load-pkgs-data
+#| message: false
+ 
+library(tidyverse)
+library(broom)
+library(ggformula)
+library(mosaic)
+library(knitr)
+```
+
+### Data: Framingham study
+
+This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.
+
+### Response variable
+
+-   `TenYearCHD`:
+    -   1: Patient developed heart disease within 10 years of exam
+    -   0: Patient did not develop heart disease within 10 years of exam
+
+### What are my predictor variables?
+
+Based on your group, use the following as your predictor variables.
+
+-   Group 1:
+    -   `BMI`: patient's body mass index
+    -   `diabetes`: 1 if patient has diabetes, 0 otherwise
+-   Group 2:
+    -   `cigsPerDay`: number of cigarettes patient smokes per day
+    -   `currentSmoker`: 1 if current smoker, 0 otherwise
+-   Group 3:
+    -   `sysBP`: systolic blood pressure (mmHg)
+    -   `BPMeds`: 1 if they are on blood pressure medication, 0 otherwise
+-   Group 4:
+    -   `totChol`: total cholesterol (mg/dL)
+    -   `prevalentHyp`: 1 if patient was hypertensive, 0 otherwise
+
+## Exercise 1
+
+Do you believe there should be an interaction between the two variables that you've been assigned. Do not write any code. Based on your solely on what you know the variables represent.
+
+## Exercise 2
+
+Create an empirical logit plot for your two variables using the `emplogitplot2`. Based on what you see, do you think there is an interaction between the two variables you've been assigned. Be prepared to justify your results for the class.
+
+## Exercise 3
+
+Fit a model with your two variables and an interaction term between the two. 
+
+Repurpose the following from my slides to fit your problem:
+
+Two model's in one!
+
+-   Non-male's: $$\log\left(\frac{\hat{p}}{1-\hat{p}}\right) = -6.358 +0.085\times\text{age}$$
+
+-   Male's: 
+$$
+\begin{aligned} \log\left(\frac{\hat{p}}{1-\hat{p}}\right) &= (-6.358+1.308) +(0.085-0.015)\times\text{age}\\
+&=  -5.05 +0.070\times\text{age}
+\end{aligned}
+$$
+
+## Exericse 4
+
+Apply `glance` to the model you just fit.
+
+
+
+
+## Submission
+
+::: callout-important
+To submit the AE:
+
+-   Render the document to produce the PDF with all of your work from today's class.
+-   Upload your QMD and PDF files to the Canvas assignment.
+:::
