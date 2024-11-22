@@ -1,9 +1,9 @@
 ---
 title: "Exam 02 review"
-author: "Prof. Maria Tackett"
+author: "Prof. Eric Friedlander"
 date: "2024-11-25"
 date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 210 - Fall 2023 -  Schedule](https://sta210-fa23.netlify.app/schedule)"
+footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -19,8 +19,7 @@ html-math-method:
 execute:
   freeze: auto
   echo: true
-  warning: false
-  message: false
+  cache: false
 knitr:
   opts_chunk: 
     R.options:      

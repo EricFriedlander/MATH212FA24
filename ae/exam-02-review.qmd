@@ -52,7 +52,7 @@ credit <- read_csv("data/credit.csv") |>
 ```
 # Part 1: Linear Regression
 
-**The objective of this analysis is to predict whether a person average card balance.**
+**The objective of this analysis is to predict a persons average card balance.**
 
 ## Exercise 1
 
