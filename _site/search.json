@@ -24052,14 +24052,14 @@
     "href": "ae/ae-24-comparing-logistic.html#exercise-1",
     "title": "AE 24: Logistic Regression: Comparison and Selection",
     "section": "Exercise 1",
-    "text": "Exercise 1\nDo you believe there should be an interaction between the two variables that you’ve been assigned. Do not write any code. Based on your solely on what you know the variables represent."
+    "text": "Exercise 1\nDo you believe there will be an interaction between the two variables that you’ve been assigned? Do not write any code. Based on your solely on what you know the variables represent."
   },
   {
     "objectID": "ae/ae-24-comparing-logistic.html#exercise-2",
     "href": "ae/ae-24-comparing-logistic.html#exercise-2",
     "title": "AE 24: Logistic Regression: Comparison and Selection",
     "section": "Exercise 2",
-    "text": "Exercise 2\nCreate an empirical logit plot for your two variables using the emplogitplot2. Based on what you see, do you think there is an interaction between the two variables you’ve been assigned. Be prepared to justify your results for the class."
+    "text": "Exercise 2\nCreate an empirical logit plot for your two variables using the emplogitplot2 function. Note you’ll need to load the correct package. Based on what you see, do you think there is an interaction between the two variables you’ve been assigned. Be prepared to justify your results for the class."
   },
   {
     "objectID": "ae/ae-24-comparing-logistic.html#exercise-3",

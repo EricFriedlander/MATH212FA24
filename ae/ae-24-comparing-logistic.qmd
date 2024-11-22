@@ -56,11 +56,11 @@ Based on your group, use the following as your predictor variables.
 
 ## Exercise 1
 
-Do you believe there should be an interaction between the two variables that you've been assigned. Do not write any code. Based on your solely on what you know the variables represent.
+Do you believe there will be an interaction between the two variables that you've been assigned? Do not write any code. Based on your solely on what you know the variables represent.
 
 ## Exercise 2
 
-Create an empirical logit plot for your two variables using the `emplogitplot2`. Based on what you see, do you think there is an interaction between the two variables you've been assigned. Be prepared to justify your results for the class.
+Create an empirical logit plot for your two variables using the `emplogitplot2` function. Note you'll need to load the correct package. Based on what you see, do you think there is an interaction between the two variables you've been assigned. Be prepared to justify your results for the class.
 
 ## Exercise 3
 
