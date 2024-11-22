@@ -4,6 +4,9 @@ editor: visual
 execute: 
   warning: false
   message: false
+format: 
+  pdf:
+    pdf-engine: pdflatex
 ---
 
 ::: callout-important
@@ -26,7 +29,7 @@ library(ggformula)
 library(mosaic)
 library(knitr)
 
-heart_disease <- read_csv("data/framingham.csv") |> 
+heart_disease <- read_csv("framingham.csv") |> 
   select(TenYearCHD, BMI, diabetes, cigsPerDay, currentSmoker, sysBP, BPMeds, totChol, prevalentHyp) |> 
   drop_na() |> 
   mutate(diabetes = as.factor(diabetes),

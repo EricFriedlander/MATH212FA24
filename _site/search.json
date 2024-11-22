@@ -24045,7 +24045,7 @@
     "href": "ae/ae-24-comparing-logistic.html#packages",
     "title": "AE 24: Logistic Regression: Comparison and Selection",
     "section": "Packages",
-    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(mosaic)\nlibrary(knitr)\n\n\nData: Framingham study\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.\n\n\nResponse variable\n\nTenYearCHD:\n\n1: Patient developed heart disease within 10 years of exam\n0: Patient did not develop heart disease within 10 years of exam\n\n\n\n\nWhat are my predictor variables?\nBased on your group, use the following as your predictor variables.\n\nGroup 1:\n\nBMI: patient’s body mass index\ndiabetes: 1 if patient has diabetes, 0 otherwise\n\nGroup 2:\n\ncigsPerDay: number of cigarettes patient smokes per day\ncurrentSmoker: 1 if current smoker, 0 otherwise\n\nGroup 3:\n\nsysBP: systolic blood pressure (mmHg)\nBPMeds: 1 if they are on blood pressure medication, 0 otherwise\n\nGroup 4:\n\ntotChol: total cholesterol (mg/dL)\nprevalentHyp: 1 if patient was hypertensive, 0 otherwise"
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(mosaic)\nlibrary(knitr)\n\nheart_disease &lt;- read_csv(\"data/framingham.csv\") |&gt; \n  select(TenYearCHD, BMI, diabetes, cigsPerDay, currentSmoker, sysBP, BPMeds, totChol, prevalentHyp) |&gt; \n  drop_na() |&gt; \n  mutate(diabetes = as.factor(diabetes),\n         currentSmoker = as.factor(currentSmoker),\n         BPMeds = as.factor(BPMeds),\n         prevalentHyp = as.factor(prevalentHyp))\n\n\nData: Framingham study\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.\n\n\nResponse variable\n\nTenYearCHD:\n\n1: Patient developed heart disease within 10 years of exam\n0: Patient did not develop heart disease within 10 years of exam\n\n\n\n\nWhat are my predictor variables?\nBased on your group, use the following as your predictor variables.\n\nGroup 1:\n\nBMI: patient’s body mass index\ndiabetes: 1 if patient has diabetes, 0 otherwise\n\nGroup 2:\n\ncigsPerDay: number of cigarettes patient smokes per day\ncurrentSmoker: 1 if current smoker, 0 otherwise\n\nGroup 3:\n\nsysBP: systolic blood pressure (mmHg)\nBPMeds: 1 if they are on blood pressure medication, 0 otherwise\n\nGroup 4:\n\ntotChol: total cholesterol (mg/dL)\nprevalentHyp: 1 if patient was hypertensive, 0 otherwise"
   },
   {
     "objectID": "ae/ae-24-comparing-logistic.html#exercise-1",
@@ -24179,5 +24179,82 @@
     "title": "Multiple Logistic Regression",
     "section": "Recap",
     "text": "Recap\n\nInteraction terms in logistic regression models\n\nFor quantitative-categorical, creates nested models\n\nComparing logistic regression models\n\nAIC/BIC\n\nChoosing logistic regression models\n\nSame selection techniques as linear regression\n\nTransformations in logistic regression\n\nCan only transform \\(X\\)\nConcave [up/down] \\(\\Rightarrow\\) power-transform [up/down]\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "ae/forStudents/ae-24/ae-23-multiple-logistic.html",
+    "href": "ae/forStudents/ae-24/ae-23-multiple-logistic.html",
+    "title": "AE 23: Multiple Logistic Regression",
+    "section": "",
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-23”.\nGo to the Canvas and locate your AE-23 assignment to get started.\nUpload the ae-23.qmd and framingham.csv files into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment."
+  },
+  {
+    "objectID": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#packages",
+    "href": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#packages",
+    "title": "AE 23: Multiple Logistic Regression",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(mosaic)\nlibrary(knitr)\n\n\nData: Framingham study\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.\n\n\nResponse variable\n\nTenYearCHD:\n\n1: Patient developed heart disease within 10 years of exam\n0: Patient did not develop heart disease within 10 years of exam\n\n\n\n\nWhat are my predictor variables?\nBased on your group, use the following as your predictor variables.\n\nGroup 1:\n\nBMI: patient’s body mass index\ndiabetes: 1 if patient has diabetes, 0 otherwise\n\nGroup 2:\n\ncigsPerDay: number of cigarettes patient smokes per day\ncurrentSmoker: 1 if current smoker, 0 otherwise\n\nGroup 3:\n\nsysBP: systolic blood pressure (mmHg)\nBPMeds: 1 if they are on blood pressure medication, 0 otherwise\n\nGroup 4:\n\ntotChol: total cholesterol (mg/dL)\nprevalentHyp: 1 if patient was hypertensive, 0 otherwise"
+  },
+  {
+    "objectID": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-0",
+    "href": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-0",
+    "title": "AE 23: Multiple Logistic Regression",
+    "section": "Exercise 0",
+    "text": "Exercise 0\nEdit the code below to drop any missing values, convert the categorical predictors into factors, and select only the eight variables listed above along with TenYearCHD. Make sure to do those thing in an order that makes sense:\n\nheart_disease &lt;- read_csv(\"framingham.csv\")"
+  },
+  {
+    "objectID": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-1",
+    "href": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-1",
+    "title": "AE 23: Multiple Logistic Regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFit a logistic regression model predicting TenYearCHD using your two assigned predictors. Write your resulting model on the board in any format you choose."
+  },
+  {
+    "objectID": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-2",
+    "href": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-2",
+    "title": "AE 23: Multiple Logistic Regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nFor both of your coefficients complete the madlibs below interpreting the value, you may need to edit a bit to make the final sentence grammatically correct:\nQuantitative variable: When [variable name] increases by [number], the typical [increase/decrease] in [quantity] is [number], [qualifying statement that makes this different than when we have one predictor].\nQuantitative variable: When [variable name] increases by [number], the typical odds-ratio is multiplied by a factor of [number], [qualifying statement that makes this different than when we have one predictor].\nCategorical variable: For patients who are [insert category] at the time of examination, the typical [increase/decrease] in [quantity] is [number] vs patients [insert opposite category], [qualifying statement that makes this different than when we have one predictor].\nCategorical variable: For patients who are [insert category] at the time of examination, the odds-ratio typically [increases/decreases] by a factor of [number] vs patients [insert opposite category], [qualifying statement that makes this different than when we have one predictor]."
+  },
+  {
+    "objectID": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-3",
+    "href": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-3",
+    "title": "AE 23: Multiple Logistic Regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nCompute p-values for both of your coefficients using tidy."
+  },
+  {
+    "objectID": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-4",
+    "href": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-4",
+    "title": "AE 23: Multiple Logistic Regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nFor both of your coefficients write the null and alternative hypotheses (in both symbols and words), the test statistics, and the p-values on the board (just pick them out from the tidy output). Then, complete the madlibs below interpreting the p-values, you may need to edit the final statements to make them grammatically correct:\nQuantitative variable: The [quantity] is [size], so we [do something to] \\(H_0\\). The data [do/do not] provide sufficient evidence that [variable name] is a statistically significant predictor of [variable], [qualifying statement that makes this different than when we have one predictor].\nCategorical variable: The [quantity] is [size], so we [do something to] \\(H_0\\). The data [do/do not] provide sufficient evidence that [variable name] is a statistically significant predictor of [variable], [qualifying statement that makes this different than when we have one predictor]."
+  },
+  {
+    "objectID": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-5",
+    "href": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-5",
+    "title": "AE 23: Multiple Logistic Regression",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nUse tidy to compute 99% confidence intervals for both of your coefficients. Write them on the board."
+  },
+  {
+    "objectID": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-6",
+    "href": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-6",
+    "title": "AE 23: Multiple Logistic Regression",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nInterpret the the confidence intervals below:\nLog-odds interpretation (Quantitative):\nOdds-ratio interpretation (Quantitative):\nLog-odds interpretation (Categorical):\nOdds-ratio interpretation (Categorical):"
+  },
+  {
+    "objectID": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-7",
+    "href": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#exercise-7",
+    "title": "AE 23: Multiple Logistic Regression",
+    "section": "Exercise 7",
+    "text": "Exercise 7\n\nFit the full model. I.e. the model using all eight predictors included in the data set.\nUse glance to compute the deviance of both models. Which has the better deviance?\nUse the anova function to conduct a likelihood ratio test between the model containing your two predictors and the full model.\nOn the white board, write the null and alternative hypotheses (in both symbols and words), the test statistic, the p-value on the board. 5 What is the conclusion of your test in context?"
+  },
+  {
+    "objectID": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#submission",
+    "href": "ae/forStudents/ae-24/ae-23-multiple-logistic.html#submission",
+    "title": "AE 23: Multiple Logistic Regression",
+    "section": "Submission",
+    "text": "Submission\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
   }
 ]

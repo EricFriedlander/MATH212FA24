@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MAT 212 - Fall 2024 - AE 24: Logistic Regression: Comparison and Selection</title>
+<title>MAT 212 - Fall 2024 - AE 23: Multiple Logistic Regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,22 +57,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -142,7 +142,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 24: Logistic Regression: Comparison and Selection</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 23: Multiple Logistic Regression</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -156,8 +156,8 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      <img src="../../../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://rstudio.collegeofidaho.edu/" title="RStudio" class="quarto-navigation-tool px-1" aria-label="RStudio"><i class="bi bi-code-square"></i></a>
@@ -173,25 +173,25 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../schedule.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../support.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../support.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Support</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../links.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../links.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Useful links</span></a>
   </div>
 </li>
@@ -206,19 +206,19 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../computing-access.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../computing-access.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Access</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../computing-inferencesummary.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../computing-inferencesummary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Inference Summary Cheatsheet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../computing-r-resources.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../computing-r-resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R resources</span></a>
   </div>
 </li>
@@ -235,25 +235,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project-instructions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../project-instructions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Instructions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project-tips.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../project-tips.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tips + resources</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project-review-guidelines.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../project-review-guidelines.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Project Review Guidelines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project-rubric.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../project-rubric.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rubric</span></a>
   </div>
 </li>
@@ -275,20 +275,24 @@ window.Quarto = {
   <li><a href="#response-variable" id="toc-response-variable" class="nav-link" data-scroll-target="#response-variable">Response variable</a></li>
   <li><a href="#what-are-my-predictor-variables" id="toc-what-are-my-predictor-variables" class="nav-link" data-scroll-target="#what-are-my-predictor-variables">What are my predictor variables?</a></li>
   </ul></li>
+  <li><a href="#exercise-0" id="toc-exercise-0" class="nav-link" data-scroll-target="#exercise-0">Exercise 0</a></li>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  <li><a href="#exericse-4" id="toc-exericse-4" class="nav-link" data-scroll-target="#exericse-4">Exericse 4</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-24-comparing-logistic.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/forStudents/ae-24/ae-23-multiple-logistic.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ae-23-multiple-logistic.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 24: Logistic Regression: Comparison and Selection</h1>
+<h1 class="title">AE 23: Multiple Logistic Regression</h1>
 </div>
 
 
@@ -316,9 +320,9 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Open <a href="https://rstudio.collegeofidaho.edu/">RStudio</a> and create a subfolder in your AE folder called “AE-24”.</p></li>
-<li><p>Go to the <a href="https://cofi.instructure.com/courses/15692/assignments/201135">Canvas</a> and locate your <code>AE-24</code> assignment to get started.</p></li>
-<li><p>Upload the <code>ae-24.qmd</code> and <code>framingham.csv</code> files into the folder you just created. The <code>.qmd</code> and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.</p></li>
+<li><p>Open <a href="https://rstudio.collegeofidaho.edu/">RStudio</a> and create a subfolder in your AE folder called “AE-23”.</p></li>
+<li><p>Go to the <a href="https://cofi.instructure.com/courses/15692/assignments/200726">Canvas</a> and locate your <code>AE-23</code> assignment to get started.</p></li>
+<li><p>Upload the <code>ae-23.qmd</code> and <code>framingham.csv</code> files into the folder you just created. The <code>.qmd</code> and PDF responses are due in Canvas. You can check the due date on the Canvas assignment.</p></li>
 </ul>
 </div>
 </div>
@@ -329,15 +333,7 @@ Important
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>heart_disease <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/framingham.csv"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(TenYearCHD, BMI, diabetes, cigsPerDay, currentSmoker, sysBP, BPMeds, totChol, prevalentHyp) <span class="sc">|&gt;</span> </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diabetes =</span> <span class="fu">as.factor</span>(diabetes),</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">currentSmoker =</span> <span class="fu">as.factor</span>(currentSmoker),</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">BPMeds =</span> <span class="fu">as.factor</span>(BPMeds),</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">prevalentHyp =</span> <span class="fu">as.factor</span>(prevalentHyp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="data-framingham-study" class="level3">
 <h3 class="anchored" data-anchor-id="data-framingham-study">Data: Framingham study</h3>
@@ -380,31 +376,55 @@ Important
 </ul>
 </section>
 </section>
+<section id="exercise-0" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-0">Exercise 0</h2>
+<p>Edit the code below to drop any missing values, convert the categorical predictors into factors, and select only the eight variables listed above along with <code>TenYearCHD</code>. Make sure to do those thing in an order that makes sense:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>heart_disease <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"framingham.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Do you believe there will be an interaction between the two variables that you’ve been assigned? Do not write any code. Based on your solely on what you know the variables represent.</p>
+<p>Fit a logistic regression model predicting <code>TenYearCHD</code> using your two assigned predictors. Write your resulting model on the board in any format you choose.</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Create an empirical logit plot for your two variables using the <code>emplogitplot2</code> function. Note you’ll need to load the correct package. Based on what you see, do you think there is an interaction between the two variables you’ve been assigned. Be prepared to justify your results for the class.</p>
+<p>For both of your coefficients complete the madlibs below interpreting the value, you may need to edit a bit to make the final sentence grammatically correct:</p>
+<p>Quantitative variable: When [variable name] increases by [number], the typical [increase/decrease] in [quantity] is [number], [qualifying statement that makes this different than when we have one predictor].</p>
+<p>Quantitative variable: When [variable name] increases by [number], the typical odds-ratio is multiplied by a factor of [number], [qualifying statement that makes this different than when we have one predictor].</p>
+<p>Categorical variable: For patients who are [insert category] at the time of examination, the typical [increase/decrease] in [quantity] is [number] vs patients [insert opposite category], [qualifying statement that makes this different than when we have one predictor].</p>
+<p>Categorical variable: For patients who are [insert category] at the time of examination, the odds-ratio typically [increases/decreases] by a factor of [number] vs patients [insert opposite category], [qualifying statement that makes this different than when we have one predictor].</p>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Fit a model with your two variables and an interaction term between the two.</p>
-<p>Repurpose the following from my slides to fit your problem:</p>
-<p>Two model’s in one!</p>
-<ul>
-<li><p>Non-male’s: <span class="math display">\[\log\left(\frac{\hat{p}}{1-\hat{p}}\right) = -6.358 +0.085\times\text{age}\]</span></p></li>
-<li><p>Male’s: <span class="math display">\[
-\begin{aligned} \log\left(\frac{\hat{p}}{1-\hat{p}}\right) &amp;= (-6.358+1.308) +(0.085-0.015)\times\text{age}\\
-&amp;=  -5.05 +0.070\times\text{age}
-\end{aligned}
-\]</span></p></li>
-</ul>
+<p>Compute p-values for both of your coefficients using <code>tidy</code>.</p>
 </section>
-<section id="exericse-4" class="level2">
-<h2 class="anchored" data-anchor-id="exericse-4">Exericse 4</h2>
-<p>Apply <code>glance</code> to the model you just fit.</p>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>For both of your coefficients write the null and alternative hypotheses (in both symbols and words), the test statistics, and the p-values on the board (just pick them out from the <code>tidy</code> output). Then, complete the madlibs below interpreting the p-values, you may need to edit the final statements to make them grammatically correct:</p>
+<p>Quantitative variable: The [quantity] is [size], so we [do something to] <span class="math inline">\(H_0\)</span>. The data [do/do not] provide sufficient evidence that [variable name] is a statistically significant predictor of [variable], [qualifying statement that makes this different than when we have one predictor].</p>
+<p>Categorical variable: The [quantity] is [size], so we [do something to] <span class="math inline">\(H_0\)</span>. The data [do/do not] provide sufficient evidence that [variable name] is a statistically significant predictor of [variable], [qualifying statement that makes this different than when we have one predictor].</p>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Use <code>tidy</code> to compute 99% confidence intervals for both of your coefficients. Write them on the board.</p>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>Interpret the the confidence intervals below:</p>
+<p><strong>Log-odds interpretation (Quantitative):</strong></p>
+<p><strong>Odds-ratio interpretation (Quantitative):</strong></p>
+<p><strong>Log-odds interpretation (Categorical):</strong></p>
+<p><strong>Odds-ratio interpretation (Categorical):</strong></p>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<ol type="1">
+<li>Fit the full model. I.e. the model using all eight predictors included in the data set.</li>
+<li>Use <code>glance</code> to compute the deviance of both models. Which has the better deviance?</li>
+<li>Use the <code>anova</code> function to conduct a likelihood ratio test between the model containing your two predictors and the full model.</li>
+<li>On the white board, write the null and alternative hypotheses (in both symbols and words), the test statistic, the p-value on the board. 5 What is the conclusion of your test in context?</li>
+</ol>
 </section>
 <section id="submission" class="level2">
 <h2 class="anchored" data-anchor-id="submission">Submission</h2>
@@ -847,7 +867,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/ae-24-comparing-logistic.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EricFriedlander/MATH212FA24/edit/main/ae/forStudents/ae-24/ae-23-multiple-logistic.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EricFriedlander/MATH212FA24/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
