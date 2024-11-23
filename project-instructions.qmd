@@ -246,7 +246,7 @@ Include full citations for any papers cited in your introduction or other sectio
 -	Two tips on constructing this section: 
   +	Anticipate questions someone might have after reading your report, and make sure those questions can be answered with information in the appendix.
   +	The easiest way to create the appendix is to use Quarto, then knit it into a PDF document (just to create this section, not the entire report).  
--	The appendix should be uploaded as a separate document on Moodle and titled "Appendix". 
+-	The appendix should be uploaded as a separate document on Canvas and titled "Appendix". 
 
 
 ## Stage IV: Peer Review {#peer-review}
