@@ -27,28 +27,18 @@ knitr:
 bibliography: references.bib
 ---
 
-<!-- ## Announcements {.small} -->
+## Announcements {.small}
 
-<!-- -   Due dates -->
-<!--     -   HW 05 due TODAY at 11:59pm -->
-<!-- -   Project -->
-<!--     -   (Optional) [Round 1 submission](https://sta210-fa23.netlify.app/project-instructions#round1-submission) due Fri, Dec 01 at 11:59pm -->
-<!--     -   [Presentations](https://sta210-fa23.netlify.app/project-instructions#presentation) in lab Dec 5 & 7 -->
-<!-- -   Exam 02 dates -->
-<!--     -   In-class: Mon, Dec 4 -->
-<!--     -   Take-home: Mon, Dec 4 - Wed, Dec 6 -->
-<!--     -   Review: Wed, Nov 29 -->
-<!--     -   No Ed Discussion or office hours Dec 4 - 6 -->
-<!-- -   [Click here](https://docs.google.com/spreadsheets/d/1dUD4SOpM79BL2kdvue9I2TP-ibcdxfpOIkHkMreYx64/edit?usp=sharing) to access lecture recordings. Available until Mon, Dec 04 at 9am -->
-<!-- -   Please fill out course evaluations -->
-
-<!-- ## Course + TA evaluations -->
-
-<!-- -   Course and TA evaluations are now available (will receive email about TA evals) -->
-
-<!-- -   If there is at least 80% on the course evaluations [**and**]{.underline} TA evaluations, everyone in the class will get 1 percentage point (i.e. 0.5 out of 50) on Exam 02. -->
-
-<!--     -   This will be determined separately for the Sections 001 and 002. -->
+-   Due dates
+    -   Project paper due Friday, December 6th at 11:59PM
+    -   Poster due Monday, December 9th at 9AM
+        -   Make sure to submit to printer
+    -   [Poster Presentations](https://mat212fa24.netlify.app/project-instructions.html#poster-presentation) Wednesday December 8:30-11AM
+        -   I will bring treats and coffee
+        -   Make sure you are able to discuss your poster
+-   Please fill out course evaluations
+-   Last week of class
+    -   Finish final lecture and then work on Projects
 
 ## Exam 02 {.midi}
 
@@ -69,6 +59,6 @@ bibliography: references.bib
 ## Practice
 
 ::: appex
-📋 [Exam2 Review](../ae/exam-02-review.html)
+📋 [Exam 2 Review](../ae/exam-02-review.html)
 :::
 
