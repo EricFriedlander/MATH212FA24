@@ -5053,7 +5053,7 @@
     "href": "project-instructions.html#timeline-grading",
     "title": "Final project",
     "section": "Timeline & Grading",
-    "text": "Timeline & Grading\nStage I: Proposal and Data Assembly (5%)\n\ndue Friday, October 11 (will accept through Monday, October 13th without penalty)\n\nStage II: Exploratory Data Analysis (5%)\n\ndue Wednesday, October 30\n\nStage III: Project Paper (25%)\n\ndue Monday, November 18\n\nStage IV: Peer Review (5%)\n\ndue Monday, November 25\n\nStage V: Revised Project Paper (45%)\n\ndue Friday December 6\n\nStage VI: Poster Presentation (15%)\n\ndue to printer Monday, December 9, 9AM\npresentation on December 11, 8:30am-11am",
+    "text": "Timeline & Grading\nStage I: Proposal and Data Assembly (5%)\n\ndue Friday, October 11 (will accept through Monday, October 13th without penalty)\n\nStage II: Exploratory Data Analysis (5%)\n\ndue Wednesday, October 30\n\nStage III: Project Paper (25%)\n\ndue Monday, November 18\n\nStage IV: Peer Review (5%)\n\ndue Monday, November 25\n\nStage V: Revised Project Paper (45%)\n\ndue Monday December 9\n\nStage VI: Poster Presentation (15%)\n\ndue to printer Monday, December 9, 9AM\ndue in Canvas by December 10th, 11:59pm\nposters will be on TVs in CML (Library) 105",
     "crumbs": [
       "Project",
       "Instructions"
@@ -5163,7 +5163,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 Due/ HW 04 Assigned\n\n\n6\nM\nSep 23\nProject Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Stage I Assigned\n\n\n\nW\nSep 25\nSLR: Evaluations + Transformation Activities\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 27\nSLR: Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 Due/HW 05 Assigned\n\n\n7\nM\nSep 30\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nOct 2\nMLR: Interaction Terms\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nOct 4\nInference for MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 Due/ HW 06 Assigned\n\n\n8\nM\nOct 7\nCategorical Predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nOct 9\nExam 01 Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nOct 11\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due (accepted without penalty until Monday the 14th)\n\n\n9\nM\nOct 14\nNO CLASS: FALL BREAK\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject accepted until today\n\n\n\nW\nOct 16\nNO CLASS: FALL BREAK\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nOct 18\nNO CLASS: FALL BREAK\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nM\nOct 21\nMLR: Conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nOct 23\nMLR: Model Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nOct 25\nMLR: Model Comparison Continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 06 Due/HW 07 Assigned\n\n\n11\nM\nOct 28\nMLR: Model Selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nOct 30\nMLR: Multicollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Stage II: EDA Due\n\n\n\nF\nNov 1\nMLR: Multicollinearity Continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 07 Due/ HW 08 Assigned\n\n\n12\nM\nNov 4\nLogistic regression Intro\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nNov 6\nLogistic regression intro continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nNov 8\nLogistic regression: Estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 08 Due/ HW 09 Assigned\n\n\n13\nM\nNov 11\nLogistic regression: Conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nNov 13\nLogistic regression: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nNov 15\nLogistic regression: Inference Continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 09 Due\n\n\n14\nM\nNov 18\nMultiple Logistic Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRough Draft of Paper Due/ HW 10 Assigned\n\n\n\nW\nNov 20\nMultiple Logistic Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nNov 22\nLR: Model Selection and Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nM\nNov 25\nExam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPeer Review Due/HW 10 Due\n\n\n\nW\nNov 27\nExam 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nNov 29\nNO LECTURE: Thanksgiving Break",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nproject\nnotes\n\n\n\n\n1\nW\nAug 21\nWelcome to MAT 212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nAug 23\nThe big picture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nM\nAug 26\nMultivariate Relationships\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nAug 28\nSimple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 00 Due/ HW 01 Assigned\n\n\n\nF\nAug 30\nSLR - Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nM\nSep 2\nNO CLASS: LABOR DAY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 4\nSLR: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Assigned\n\n\n\nF\nSep 6\nSLR: Finishing Bootstrap, starting Randomization test for the slope\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 Due\n\n\n4\nM\nSep 9\nSLR: Mathematical models for inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 11\nSLR: Mathematical models for inference continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 13\nSLR: Model conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 Due/ HW 03 Assigned\n\n\n5\nM\nSep 16\nSLR: Model conditions + Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nSep 18\nSLR: Model Evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 20\nSLR: Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 Due/ HW 04 Assigned\n\n\n6\nM\nSep 23\nProject Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Stage I Assigned\n\n\n\nW\nSep 25\nSLR: Evaluations + Transformation Activities\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nSep 27\nSLR: Outliers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 Due/HW 05 Assigned\n\n\n7\nM\nSep 30\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nOct 2\nMLR: Interaction Terms\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nOct 4\nInference for MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 Due/ HW 06 Assigned\n\n\n8\nM\nOct 7\nCategorical Predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nOct 9\nExam 01 Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nOct 11\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due (accepted without penalty until Monday the 14th)\n\n\n9\nM\nOct 14\nNO CLASS: FALL BREAK\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject accepted until today\n\n\n\nW\nOct 16\nNO CLASS: FALL BREAK\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nOct 18\nNO CLASS: FALL BREAK\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nM\nOct 21\nMLR: Conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nOct 23\nMLR: Model Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nOct 25\nMLR: Model Comparison Continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 06 Due/HW 07 Assigned\n\n\n11\nM\nOct 28\nMLR: Model Selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nOct 30\nMLR: Multicollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Stage II: EDA Due\n\n\n\nF\nNov 1\nMLR: Multicollinearity Continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 07 Due/ HW 08 Assigned\n\n\n12\nM\nNov 4\nLogistic regression Intro\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nNov 6\nLogistic regression intro continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nNov 8\nLogistic regression: Estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 08 Due/ HW 09 Assigned\n\n\n13\nM\nNov 11\nLogistic regression: Conditions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nNov 13\nLogistic regression: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nNov 15\nLogistic regression: Inference Continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 09 Due\n\n\n14\nM\nNov 18\nMultiple Logistic Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRough Draft of Paper Due/ HW 10 Assigned\n\n\n\nW\nNov 20\nMultiple Logistic Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nNov 22\nMultiple Logistic Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nM\nNov 25\nExam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPeer Review Due/HW 10 Due\n\n\n\nW\nNov 27\nExam 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nNov 29\nNO LECTURE: Thanksgiving Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nM\nDec 2\nLR: Model Selection and Transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW\nDec 4\nWork on Project\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nDec 6\nWork on Project\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam Corrections Due\n\n\nFinals Week\nM\nDec 9\nFinal Paper Due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal Paper Due\n\n\n\nT\nDec 10\nFinal Poster Due\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal Poster Due in Canvas\n\n\n\nW\nDec 11\nFinal Poster Presentation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal Poster Presentation: CML 105 8:30am - 11am",
     "crumbs": [
       "Schedule"
     ]
@@ -5752,5 +5752,222 @@
     "title": "Exam 02 review",
     "section": "Practice",
     "text": "Practice\n\n📋 Exam 2 Review\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
+  },
+  {
+    "objectID": "ae/ae-24-comparing-logistic.html",
+    "href": "ae/ae-24-comparing-logistic.html",
+    "title": "AE 24: Logistic Regression: Comparison and Selection",
+    "section": "",
+    "text": "Important\n\n\n\n\nOpen RStudio and create a subfolder in your AE folder called “AE-24”.\nGo to the Canvas and locate your AE-24 assignment to get started.\nUpload the ae-24.qmd and framingham.csv files into the folder you just created. The .qmd and PDF responses are due in Canvas. You can check the due date on the Canvas assignment."
+  },
+  {
+    "objectID": "ae/ae-24-comparing-logistic.html#packages",
+    "href": "ae/ae-24-comparing-logistic.html#packages",
+    "title": "AE 24: Logistic Regression: Comparison and Selection",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ggformula)\nlibrary(mosaic)\nlibrary(knitr)\n\nheart_disease &lt;- read_csv(\"data/framingham.csv\") |&gt; \n  select(TenYearCHD, BMI, diabetes, cigsPerDay, currentSmoker, sysBP, BPMeds, totChol, prevalentHyp) |&gt; \n  drop_na() |&gt; \n  mutate(diabetes = as.factor(diabetes),\n         currentSmoker = as.factor(currentSmoker),\n         BPMeds = as.factor(BPMeds),\n         prevalentHyp = as.factor(prevalentHyp))\n\n\nData: Framingham study\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to predict if a randomly selected adult is high risk for heart disease in the next 10 years.\n\n\nResponse variable\n\nTenYearCHD:\n\n1: Patient developed heart disease within 10 years of exam\n0: Patient did not develop heart disease within 10 years of exam\n\n\n\n\nWhat are my predictor variables?\nBased on your group, use the following as your predictor variables.\n\nGroup 1:\n\nBMI: patient’s body mass index\ndiabetes: 1 if patient has diabetes, 0 otherwise\n\nGroup 2:\n\ncigsPerDay: number of cigarettes patient smokes per day\ncurrentSmoker: 1 if current smoker, 0 otherwise\n\nGroup 3:\n\nsysBP: systolic blood pressure (mmHg)\nBPMeds: 1 if they are on blood pressure medication, 0 otherwise\n\nGroup 4:\n\ntotChol: total cholesterol (mg/dL)\nprevalentHyp: 1 if patient was hypertensive, 0 otherwise"
+  },
+  {
+    "objectID": "ae/ae-24-comparing-logistic.html#exercise-1",
+    "href": "ae/ae-24-comparing-logistic.html#exercise-1",
+    "title": "AE 24: Logistic Regression: Comparison and Selection",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nDo you believe there will be an interaction between the two variables that you’ve been assigned? Do not write any code. Based your answer solely on what you know the variables represent."
+  },
+  {
+    "objectID": "ae/ae-24-comparing-logistic.html#exercise-2",
+    "href": "ae/ae-24-comparing-logistic.html#exercise-2",
+    "title": "AE 24: Logistic Regression: Comparison and Selection",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nCreate an empirical logit plot for your two variables using the emplogitplot2 function. Note you’ll need to load the correct package. Based on what you see, do you think there is an interaction between the two variables you’ve been assigned. Be prepared to justify your results for the class."
+  },
+  {
+    "objectID": "ae/ae-24-comparing-logistic.html#exercise-3",
+    "href": "ae/ae-24-comparing-logistic.html#exercise-3",
+    "title": "AE 24: Logistic Regression: Comparison and Selection",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nFit a model with your two variables and an interaction term between the two.\nRepurpose the following from my slides to fit your problem:\nTwo model’s in one!\n\nNon-male’s: \\[\\log\\left(\\frac{\\hat{p}}{1-\\hat{p}}\\right) = -6.358 +0.085\\times\\text{age}\\]\nMale’s: \\[\n\\begin{aligned} \\log\\left(\\frac{\\hat{p}}{1-\\hat{p}}\\right) &= (-6.358+1.308) +(0.085-0.015)\\times\\text{age}\\\\\n&=  -5.05 +0.070\\times\\text{age}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "ae/ae-24-comparing-logistic.html#exericse-4",
+    "href": "ae/ae-24-comparing-logistic.html#exericse-4",
+    "title": "AE 24: Logistic Regression: Comparison and Selection",
+    "section": "Exericse 4",
+    "text": "Exericse 4\nApply glance to the model you just fit."
+  },
+  {
+    "objectID": "ae/ae-24-comparing-logistic.html#submission",
+    "href": "ae/ae-24-comparing-logistic.html#submission",
+    "title": "AE 24: Logistic Regression: Comparison and Selection",
+    "section": "Submission",
+    "text": "Submission\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nUpload your QMD and PDF files to the Canvas assignment."
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#announcements",
+    "href": "slides/31-logistic-comparison.html#announcements",
+    "title": "Multiple Logistic Regression",
+    "section": "Announcements",
+    "text": "Announcements\n\nExam 2 Corrections due Friday in class\nFinal Paper due Monday, December 9th\nVirtual Poster due Wednesday, December 10th 11:59pm\nPoster Presentation Thursday, December 11th 8:30-11am CML 105\n\n\n📋 AE 24 - Logistic Regression: Selection and Comparison\n\nOpen up AE 24."
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#topics",
+    "href": "slides/31-logistic-comparison.html#topics",
+    "title": "Multiple Logistic Regression",
+    "section": "Topics",
+    "text": "Topics\n\nInvestigating interaction terms in logistic regression models\nComparing logistic regression models\nChoosing logistic regression models\nTransformations in logistic regression"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#computational-setup",
+    "href": "slides/31-logistic-comparison.html#computational-setup",
+    "title": "Multiple Logistic Regression",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(openintro)\nlibrary(knitr)\nlibrary(kableExtra)  # for table embellishments\nlibrary(Stat2Data)   # for empirical logit\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#risk-of-coronary-heart-disease",
+    "href": "slides/31-logistic-comparison.html#risk-of-coronary-heart-disease",
+    "title": "Multiple Logistic Regression",
+    "section": "Risk of coronary heart disease",
+    "text": "Risk of coronary heart disease\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.\n\nTenYearCHD:\n\n1: Developed heart disease in next 10 years\n0: Did not develop heart disease in next 10 years\n\nage: Age at exam time (in years)\neducation: 1 = Some High School, 2 = High School or GED, 3 = Some College or Vocational School, 4 = College"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#data-prep",
+    "href": "slides/31-logistic-comparison.html#data-prep",
+    "title": "Multiple Logistic Regression",
+    "section": "Data prep",
+    "text": "Data prep\n\nheart_disease &lt;- read_csv(\"data/framingham.csv\") |&gt;\n  select(TenYearCHD, age, education, male, diaBP) |&gt;\n  drop_na() |&gt; \n  mutate(education = as.factor(education),\n         male = as.factor(male))\n         \n\nheart_disease |&gt; head() |&gt; kable()\n\n\n\n\nTenYearCHD\nage\neducation\nmale\ndiaBP\n\n\n\n\n0\n39\n4\n1\n70\n\n\n0\n46\n2\n0\n81\n\n\n0\n48\n1\n1\n80\n\n\n1\n61\n3\n0\n95\n\n\n0\n46\n3\n0\n84\n\n\n0\n43\n2\n0\n110"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#interactions",
+    "href": "slides/31-logistic-comparison.html#interactions",
+    "title": "Multiple Logistic Regression",
+    "section": "Interactions",
+    "text": "Interactions\nIntuitively: There is an interaction between two variables when the influence of one variables on the log-odds depends on what the value of the other variable is.\n\nComplete Exercise 1.\n\ncountdown::countdown(minutes = 1, seconds=30)\n\n\n−+\n01:30"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#recall-empirical-logit-plot",
+    "href": "slides/31-logistic-comparison.html#recall-empirical-logit-plot",
+    "title": "Multiple Logistic Regression",
+    "section": "Recall: Empirical Logit Plot",
+    "text": "Recall: Empirical Logit Plot\n\nemplogitplot1(TenYearCHD ~ age, data = heart_disease,\n              ngroups = 10)\n\n\n\nHow do we interpret this?"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#visualizing-interactions-quant-vs.-cat",
+    "href": "slides/31-logistic-comparison.html#visualizing-interactions-quant-vs.-cat",
+    "title": "Multiple Logistic Regression",
+    "section": "Visualizing Interactions (Quant vs. Cat)",
+    "text": "Visualizing Interactions (Quant vs. Cat)\n\nemplogitplot2(TenYearCHD ~ age + male, data = heart_disease,\n              ngroups = 10)\n\n\n\nComplete Exercise 2."
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#visualizing-interactions-quant-vs.-cat-1",
+    "href": "slides/31-logistic-comparison.html#visualizing-interactions-quant-vs.-cat-1",
+    "title": "Multiple Logistic Regression",
+    "section": "Visualizing Interactions (Quant vs. Cat)",
+    "text": "Visualizing Interactions (Quant vs. Cat)\n\nemplogitplot2(TenYearCHD ~ age + education, data = heart_disease,\n              ngroups = 10)\n\n\n\nBased on this plot, do you think there is an interaction between age and education?"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#models-with-interaction",
+    "href": "slides/31-logistic-comparison.html#models-with-interaction",
+    "title": "Multiple Logistic Regression",
+    "section": "Models with Interaction",
+    "text": "Models with Interaction\n\n\nCode\nage_male_interaction_model &lt;- glm(TenYearCHD ~ age + male + age*male, \n                  data = heart_disease, family = \"binomial\")\n\nage_male_interaction_model |&gt; tidy() |&gt; kable(digits = 3)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-6.358\n0.428\n-14.865\n0.000\n\n\nage\n0.085\n0.008\n10.883\n0.000\n\n\nmale1\n1.308\n0.583\n2.245\n0.025\n\n\nage:male1\n-0.014\n0.011\n-1.342\n0.180"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#models-with-interaction-1",
+    "href": "slides/31-logistic-comparison.html#models-with-interaction-1",
+    "title": "Multiple Logistic Regression",
+    "section": "Models with Interaction",
+    "text": "Models with Interaction\nTwo model’s in one!\n\nNon-male’s: \\[\\log\\left(\\frac{\\hat{p}}{1-\\hat{p}}\\right) = -6.358 +0.085\\times\\text{age}\\]\nMale’s: \\[\n\\begin{aligned} \\log\\left(\\frac{\\hat{p}}{1-\\hat{p}}\\right) &= (-6.358+1.308) +(0.085-0.015)\\times\\text{age}\\\\\n&=  -5.05 +0.070\\times\\text{age}\n\\end{aligned}\n\\]\n\n\nComplete Exercises 3 and 4."
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#aic-or-bic-for-model-selection",
+    "href": "slides/31-logistic-comparison.html#aic-or-bic-for-model-selection",
+    "title": "Multiple Logistic Regression",
+    "section": "AIC or BIC for model selection",
+    "text": "AIC or BIC for model selection\n\\[\n\\begin{align}\n&AIC = - 2 * \\log L - {\\color{purple}n\\log(n)}+ 2(p +1)\\\\[5pt]\n&BIC =- 2 * \\log L - {\\color{purple}n\\log(n)} + \\log(n)\\times(p+1)\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#aic-from-the-glance-function",
+    "href": "slides/31-logistic-comparison.html#aic-from-the-glance-function",
+    "title": "Multiple Logistic Regression",
+    "section": "AIC from the glance() function",
+    "text": "AIC from the glance() function\nLet’s look at the AIC for model we fit earlier\n\nglance(age_male_interaction_model)$AIC\n\n[1] 3277.159\n\n\n\nCalculating AIC\n\n- 2 * glance(age_male_interaction_model)$logLik + 2 * (3+1)\n\n[1] 3277.159"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#comparing-the-models-using-aic",
+    "href": "slides/31-logistic-comparison.html#comparing-the-models-using-aic",
+    "title": "Multiple Logistic Regression",
+    "section": "Comparing the models using AIC",
+    "text": "Comparing the models using AIC\nLet’s compare a few models:\n\nage_model &lt;- glm(TenYearCHD ~ age, data = heart_disease, family = \"binomial\")\nage_male_model &lt;- glm(TenYearCHD ~ age+male, data = heart_disease, family = \"binomial\") \nage_education_model &lt;-  glm(TenYearCHD ~ age+education, data = heart_disease, family = \"binomial\")\nage_male_education_model &lt;-  glm(TenYearCHD ~ age+ male + education, data = heart_disease, family = \"binomial\")\nage_education_interaction_model &lt;-  glm(TenYearCHD ~ age + education + age* education, data = heart_disease, family = \"binomial\")\nall_interaction_model &lt;-  glm(TenYearCHD ~ (age + education + male)^2, data = heart_disease, family = \"binomial\")"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#comparing-the-models-using-aic-1",
+    "href": "slides/31-logistic-comparison.html#comparing-the-models-using-aic-1",
+    "title": "Multiple Logistic Regression",
+    "section": "Comparing the models using AIC",
+    "text": "Comparing the models using AIC\nLet’s compare a few models:\n\naics &lt;- c(glance(age_model)$AIC,\nglance(age_male_model)$AIC,\nglance(age_male_interaction_model)$AIC,\nglance(age_education_model)$AIC,\nglance(age_male_education_model)$AIC,\nglance(age_education_interaction_model)$AIC,\nglance(all_interaction_model)$AIC)\n\naics\n\n[1] 3310.680 3276.964 3277.159 3310.135 3279.342 3314.815 3285.196\n\n\n\n\nBased on AIC, which model would you choose? Raise you hand if your AIC is better.\n\n\n\nwhich.min(aics)\n\n[1] 2"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#comparing-the-models-using-bic",
+    "href": "slides/31-logistic-comparison.html#comparing-the-models-using-bic",
+    "title": "Multiple Logistic Regression",
+    "section": "Comparing the models using BIC",
+    "text": "Comparing the models using BIC\nLet’s compare the models using BIC\n\nbics &lt;- c(glance(age_model)$BIC,\nglance(age_male_model)$BIC,\nglance(age_male_interaction_model)$BIC,\nglance(age_education_model)$BIC,\nglance(age_male_education_model)$BIC,\nglance(age_education_interaction_model)$BIC,\nglance(all_interaction_model)$BIC)\n\nbics\n\n[1] 3323.334 3295.945 3302.468 3341.772 3317.305 3365.433 3367.450\n\n\n\n\nBased on BIC, which model would you choose? Raise your hand if your BIC is better.\n\n\n\nwhich.min(bics)\n\n[1] 2"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#choosing-a-logistic-regression-model",
+    "href": "slides/31-logistic-comparison.html#choosing-a-logistic-regression-model",
+    "title": "Multiple Logistic Regression",
+    "section": "Choosing a Logistic Regression Model",
+    "text": "Choosing a Logistic Regression Model\n\nForward/Backward/Stepwise selection all work in the same way\nCan string together a sequence of Likelihood Ratio Tests (but only a few)"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#power-family-of-transformation",
+    "href": "slides/31-logistic-comparison.html#power-family-of-transformation",
+    "title": "Multiple Logistic Regression",
+    "section": "Power Family of Transformation",
+    "text": "Power Family of Transformation\n\nMany departures from linearity can be solved with power transformations (e.g. \\(X^{power}\\))\n\nFor technical reasons, \\(power = 0\\) corresponds to \\(\\log\\)\n\nLook at empirical log-odds plot\nConcave down pattern \\(\\Rightarrow\\) transform down (i.e. \\(power &lt; 1\\))\n\n\\(\\log\\) is typically a good first choice\n\nConcave up pattern \\(\\Rightarrow\\) transform up (i.e. \\(power &gt; 1\\))"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#empirical-log-odds-plot",
+    "href": "slides/31-logistic-comparison.html#empirical-log-odds-plot",
+    "title": "Multiple Logistic Regression",
+    "section": "Empirical Log-Odds Plot",
+    "text": "Empirical Log-Odds Plot\n\nemplogitplot1(TenYearCHD ~ diaBP, data = heart_disease, ngroups = 4)"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#empirical-log-odds-plot-1",
+    "href": "slides/31-logistic-comparison.html#empirical-log-odds-plot-1",
+    "title": "Multiple Logistic Regression",
+    "section": "Empirical Log-Odds Plot",
+    "text": "Empirical Log-Odds Plot\n\nemplogitplot1(TenYearCHD ~ diaBP, data = heart_disease, ngroups = 4)\n\n\n\nConcave up or down?"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#empirical-log-odds-plot-2",
+    "href": "slides/31-logistic-comparison.html#empirical-log-odds-plot-2",
+    "title": "Multiple Logistic Regression",
+    "section": "Empirical Log-Odds Plot",
+    "text": "Empirical Log-Odds Plot\n\nheart_disease &lt;- heart_disease |&gt; mutate(diaBP_transformed = diaBP^2)\nemplogitplot1(TenYearCHD ~ diaBP_transformed, data = heart_disease, ngroups = 4)"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#empirical-log-odds-plot-3",
+    "href": "slides/31-logistic-comparison.html#empirical-log-odds-plot-3",
+    "title": "Multiple Logistic Regression",
+    "section": "Empirical Log-Odds Plot",
+    "text": "Empirical Log-Odds Plot\n\nheart_disease &lt;- heart_disease |&gt; mutate(diaBP_transformed = diaBP^10)\nemplogitplot1(TenYearCHD ~ diaBP_transformed, data = heart_disease, ngroups = 4)"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#empirical-log-odds-plot-4",
+    "href": "slides/31-logistic-comparison.html#empirical-log-odds-plot-4",
+    "title": "Multiple Logistic Regression",
+    "section": "Empirical Log-Odds Plot",
+    "text": "Empirical Log-Odds Plot\n\nheart_disease &lt;- heart_disease |&gt; mutate(diaBP_transformed = diaBP^6)\nemplogitplot1(TenYearCHD ~ diaBP_transformed, data = heart_disease, ngroups = 4)"
+  },
+  {
+    "objectID": "slides/31-logistic-comparison.html#recap",
+    "href": "slides/31-logistic-comparison.html#recap",
+    "title": "Multiple Logistic Regression",
+    "section": "Recap",
+    "text": "Recap\n\nInteraction terms in logistic regression models\n\nFor quantitative-categorical, creates nested models\n\nComparing logistic regression models\n\nAIC/BIC\n\nChoosing logistic regression models\n\nSame selection techniques as linear regression\n\nTransformations in logistic regression\n\nCan only transform \\(X\\)\nConcave [up/down] \\(\\Rightarrow\\) power-transform [up/down]\n\n\n\n\n\n\n🔗 MAT 212 - Fall 2024 - Schedule"
   }
 ]

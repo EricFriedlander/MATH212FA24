@@ -407,21 +407,18 @@ Prof.&nbsp;Eric Friedlander
 </div>
 </div>
 
-  <p class="date">Nov 22, 2024</p>
-</section>
-<section id="do-now" class="slide level2">
-<h2>Do now</h2>
-<p>Get back in your groups from Wednesday and finish AE-23.</p>
+  <p class="date">Dec 02, 2024</p>
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <ul>
-<li><p><a href="https://mat212fa24.netlify.app/project-instructions#peer-review">Peer Review due Monday, November 25th</a></p></li>
-<li><p>HW 10 due Monday, November 25th</p></li>
-<li><p>Midterm 2 Wednesday, November 27th (day before break)</p></li>
+<li><p><a href="https://cofi.instructure.com/courses/15692/assignments/201717">Exam 2 Corrections due Friday in class</a></p></li>
+<li><p><a href="https://mat212fa24.netlify.app/project-instructions#written-report">Final Paper due Monday, December 9th</a></p></li>
+<li><p><a href="https://mat212fa24.netlify.app/project-instructions#poster-presentation">Virtual Poster due Wednesday, December 10th 11:59pm</a></p></li>
+<li><p><a href="https://mat212fa24.netlify.app/project-instructions#poster-presentation">Poster Presentation Thursday, December 11th 8:30-11am CML 105</a></p></li>
 </ul>
 <div class="appex">
-<p>📋 <a href="https://mat212fa24.netlify.app/ae/ae-24-compare-logistic">AE 24 - Logistic Regression: Selection and Comparison</a></p>
+<p>📋 <a href="https://mat212fa24.netlify.app/ae/ae-24-comparing-logistic">AE 24 - Logistic Regression: Selection and Comparison</a></p>
 <ul>
 <li>Open up AE 24.</li>
 </ul>
@@ -552,7 +549,7 @@ Prof.&nbsp;Eric Friedlander
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>countdown<span class="sc">::</span><span class="fu">countdown</span>(<span class="at">minutes =</span> <span class="dv">1</span>, <span class="at">seconds=</span><span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="countdown" id="timer_417921ce" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_6e1fb1ed" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
 </div>
@@ -648,7 +645,7 @@ Prof.&nbsp;Eric Friedlander
 </div>
 </div>
 </section>
-<section id="models-with-interaction-1" class="slide level2">
+<section id="models-with-interaction-1" class="slide level2 smaller">
 <h2>Models with Interaction</h2>
 <p>Two model’s in one!</p>
 <ul>
@@ -700,16 +697,15 @@ Prof.&nbsp;Eric Friedlander
 <h2>Comparing the models using AIC</h2>
 <p>Let’s compare a few models:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co">#|code-line-numbers: |6</span></span>
-<span id="cb12-2"><a></a>age_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb12-3"><a></a>age_male_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age<span class="sc">+</span>male, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>) </span>
-<span id="cb12-4"><a></a>age_education_model <span class="ot">&lt;-</span>  <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age<span class="sc">+</span>education, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb12-5"><a></a>age_male_education_model <span class="ot">&lt;-</span>  <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age<span class="sc">+</span> male <span class="sc">+</span> education, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb12-6"><a></a>age_education_interaction_model <span class="ot">&lt;-</span>  <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age <span class="sc">+</span> education <span class="sc">+</span> age<span class="sc">*</span> education, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb12-7"><a></a>all_interaction_model <span class="ot">&lt;-</span>  <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> (age <span class="sc">+</span> education <span class="sc">+</span> male)<span class="sc">^</span><span class="dv">2</span>, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>age_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb12-2"><a></a>age_male_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age<span class="sc">+</span>male, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>) </span>
+<span id="cb12-3"><a></a>age_education_model <span class="ot">&lt;-</span>  <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age<span class="sc">+</span>education, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb12-4"><a></a>age_male_education_model <span class="ot">&lt;-</span>  <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age<span class="sc">+</span> male <span class="sc">+</span> education, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb12-5"><a></a>age_education_interaction_model <span class="ot">&lt;-</span>  <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age <span class="sc">+</span> education <span class="sc">+</span> age<span class="sc">*</span> education, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb12-6"><a></a>all_interaction_model <span class="ot">&lt;-</span>  <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> (age <span class="sc">+</span> education <span class="sc">+</span> male)<span class="sc">^</span><span class="dv">2</span>, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="comparing-the-models-using-aic-1" class="slide level2">
+<section id="comparing-the-models-using-aic-1" class="slide level2 smaller">
 <h2>Comparing the models using AIC</h2>
 <p>Let’s compare a few models:</p>
 <div class="cell" data-layout-align="center">
@@ -739,21 +735,21 @@ Prof.&nbsp;Eric Friedlander
 </div>
 </div>
 </section>
-<section id="comparing-the-models-using-bic" class="slide level2">
+<section id="comparing-the-models-using-bic" class="slide level2 smaller">
 <h2>Comparing the models using BIC</h2>
 <p>Let’s compare the models using BIC</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>bics <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">glance</span>(age_model)<span class="sc">$</span>AIC,</span>
-<span id="cb17-2"><a></a><span class="fu">glance</span>(age_male_model)<span class="sc">$</span>AIC,</span>
-<span id="cb17-3"><a></a><span class="fu">glance</span>(age_male_interaction_model)<span class="sc">$</span>AIC,</span>
-<span id="cb17-4"><a></a><span class="fu">glance</span>(age_education_model)<span class="sc">$</span>AIC,</span>
-<span id="cb17-5"><a></a><span class="fu">glance</span>(age_male_education_model)<span class="sc">$</span>AIC,</span>
-<span id="cb17-6"><a></a><span class="fu">glance</span>(age_education_interaction_model)<span class="sc">$</span>AIC,</span>
-<span id="cb17-7"><a></a><span class="fu">glance</span>(all_interaction_model)<span class="sc">$</span>AIC)</span>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>bics <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">glance</span>(age_model)<span class="sc">$</span>BIC,</span>
+<span id="cb17-2"><a></a><span class="fu">glance</span>(age_male_model)<span class="sc">$</span>BIC,</span>
+<span id="cb17-3"><a></a><span class="fu">glance</span>(age_male_interaction_model)<span class="sc">$</span>BIC,</span>
+<span id="cb17-4"><a></a><span class="fu">glance</span>(age_education_model)<span class="sc">$</span>BIC,</span>
+<span id="cb17-5"><a></a><span class="fu">glance</span>(age_male_education_model)<span class="sc">$</span>BIC,</span>
+<span id="cb17-6"><a></a><span class="fu">glance</span>(age_education_interaction_model)<span class="sc">$</span>BIC,</span>
+<span id="cb17-7"><a></a><span class="fu">glance</span>(all_interaction_model)<span class="sc">$</span>BIC)</span>
 <span id="cb17-8"><a></a></span>
-<span id="cb17-9"><a></a>aics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-9"><a></a>bics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3310.680 3276.964 3277.159 3310.135 3279.342 3314.815 3285.196</code></pre>
+<pre><code>[1] 3323.334 3295.945 3302.468 3341.772 3317.305 3365.433 3367.450</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -773,7 +769,7 @@ Prof.&nbsp;Eric Friedlander
 <h2>Choosing a Logistic Regression Model</h2>
 <ul>
 <li>Forward/Backward/Stepwise selection all work in the same way</li>
-<li>Can you string together a sequence of Likelihood Ratio Tests (but only a few)</li>
+<li>Can string together a sequence of Likelihood Ratio Tests (but only a few)</li>
 </ul>
 </section></section>
 <section>

@@ -1,7 +1,7 @@
 ---
 title: "Multiple Logistic Regression"
 author: "Prof. Eric Friedlander"
-date: "2024-11-22"
+date: "2024-12-02"
 date-format: "MMM DD, YYYY"
 footer: "[🔗 MAT 212 - Fall 2024 -  Schedule](https://mat212fa24.netlify.app/schedule)"
 logo: "../images/logo.png"
@@ -39,20 +39,19 @@ knitr::opts_chunk$set(
 library(countdown)
 ```
 
-## Do now
-
-Get back in your groups from Wednesday and finish AE-23.
 
 ## Announcements
 
--   [Peer Review due Monday, November 25th](https://mat212fa24.netlify.app/project-instructions#peer-review)
+-   [Exam 2 Corrections due Friday in class](https://cofi.instructure.com/courses/15692/assignments/201717)
 
--   HW 10 due Monday, November 25th
-    
--   Midterm 2 Wednesday, November 27th (day before break)
+-   [Final Paper due Monday, December 9th](https://mat212fa24.netlify.app/project-instructions#written-report)
+
+-   [Virtual Poster due Wednesday, December 10th 11:59pm](https://mat212fa24.netlify.app/project-instructions#poster-presentation)
+
+-   [Poster Presentation Thursday, December 11th 8:30-11am CML 105](https://mat212fa24.netlify.app/project-instructions#poster-presentation)
 
 ::: appex
-📋 [AE 24 - Logistic Regression: Selection and Comparison](https://mat212fa24.netlify.app/ae/ae-24-compare-logistic)
+📋 [AE 24 - Logistic Regression: Selection and Comparison](https://mat212fa24.netlify.app/ae/ae-24-comparing-logistic)
 
 - Open up AE 24.
 :::
@@ -168,7 +167,7 @@ age_male_interaction_model <- glm(TenYearCHD ~ age + male + age*male,
 age_male_interaction_model |> tidy() |> kable(digits = 3)
 ```
 
-## Models with Interaction
+## Models with Interaction {.smaller}
 
 Two model's in one!
 
@@ -217,7 +216,6 @@ glance(age_male_interaction_model)$AIC
 Let's compare a few models:
 
 ```{r}
-#|code-line-numbers: |6
 age_model <- glm(TenYearCHD ~ age, data = heart_disease, family = "binomial")
 age_male_model <- glm(TenYearCHD ~ age+male, data = heart_disease, family = "binomial") 
 age_education_model <-  glm(TenYearCHD ~ age+education, data = heart_disease, family = "binomial")
@@ -226,7 +224,7 @@ age_education_interaction_model <-  glm(TenYearCHD ~ age + education + age* educ
 all_interaction_model <-  glm(TenYearCHD ~ (age + education + male)^2, data = heart_disease, family = "binomial")
 ```
 
-## Comparing the models using AIC
+## Comparing the models using AIC {.smaller}
 
 Let's compare a few models:
 
@@ -255,20 +253,20 @@ which.min(aics)
 
 
 
-## Comparing the models using BIC
+## Comparing the models using BIC {.smaller}
 
 Let's compare the models using BIC
 
 ```{r}
-bics <- c(glance(age_model)$AIC,
-glance(age_male_model)$AIC,
-glance(age_male_interaction_model)$AIC,
-glance(age_education_model)$AIC,
-glance(age_male_education_model)$AIC,
-glance(age_education_interaction_model)$AIC,
-glance(all_interaction_model)$AIC)
+bics <- c(glance(age_model)$BIC,
+glance(age_male_model)$BIC,
+glance(age_male_interaction_model)$BIC,
+glance(age_education_model)$BIC,
+glance(age_male_education_model)$BIC,
+glance(age_education_interaction_model)$BIC,
+glance(all_interaction_model)$BIC)
 
-aics
+bics
 ```
 
 <br>
@@ -287,7 +285,7 @@ which.min(bics)
 ## Choosing a Logistic Regression Model
 
 -   Forward/Backward/Stepwise selection all work in the same way
--   Can you string together a sequence of Likelihood Ratio Tests (but only a few)
+-   Can string together a sequence of Likelihood Ratio Tests (but only a few)
 
 # Transformations
 

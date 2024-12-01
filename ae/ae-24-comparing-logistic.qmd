@@ -64,7 +64,7 @@ Based on your group, use the following as your predictor variables.
 
 ## Exercise 1
 
-Do you believe there will be an interaction between the two variables that you've been assigned? Do not write any code. Based on your solely on what you know the variables represent.
+Do you believe there will be an interaction between the two variables that you've been assigned? Do not write any code. Based your answer solely on what you know the variables represent.
 
 ## Exercise 2
 
