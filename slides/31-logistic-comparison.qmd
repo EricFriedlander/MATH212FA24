@@ -1,5 +1,6 @@
 ---
 title: "Multiple Logistic Regression"
+subtitle: "Selection + Transformations"
 author: "Prof. Eric Friedlander"
 date: "2024-12-02"
 date-format: "MMM DD, YYYY"
