@@ -47,9 +47,9 @@ library(countdown)
 
 -   [Final Paper due Monday, December 9th](https://mat212fa24.netlify.app/project-instructions#written-report)
 
--   [Virtual Poster due Wednesday, December 10th 11:59pm](https://mat212fa24.netlify.app/project-instructions#poster-presentation)
+-   [Virtual Poster due Tuesday, December 10th 11:59pm](https://mat212fa24.netlify.app/project-instructions#poster-presentation)
 
--   [Poster Presentation Thursday, December 11th 8:30-11am CML 105](https://mat212fa24.netlify.app/project-instructions#poster-presentation)
+-   [Poster Presentation Wednesday, December 11th 8:30-11am CML 105](https://mat212fa24.netlify.app/project-instructions#poster-presentation)
 
 ::: appex
 📋 [AE 24 - Logistic Regression: Selection and Comparison](https://mat212fa24.netlify.app/ae/ae-24-comparing-logistic)
